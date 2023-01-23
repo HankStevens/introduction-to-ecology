@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.2.313">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Inntroduction to Ecology - 2&nbsp; Tree Cover: an investigation in ecology and in environmental justice</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./02-global_temp_anomalies.html" rel="next">
+<link href="./01-computer-setup.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+</head>
+
+<body class="nav-sidebar floating">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+    <div class="container-fluid d-flex justify-content-between">
+      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Tree Cover: an investigation in ecology and in environmental justice</span></h1>
+      <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
+        <i class="bi bi-chevron-right"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">Inntroduction to Ecology</a> 
+    </div>
+      </div>
+      <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+      </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">Preface</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./01-computer-setup.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Computer setup</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./01-trees_and_people.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Tree Cover: an investigation in ecology and in environmental justice</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./02-global_temp_anomalies.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">A Fate of Earth</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./summary.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Summary</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./references.html" class="sidebar-item-text sidebar-link">References</a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#background" id="toc-background" class="nav-link active" data-scroll-target="#background"><span class="toc-section-number">2.1</span>  Background</a></li>
+  <li><a href="#methods" id="toc-methods" class="nav-link" data-scroll-target="#methods"><span class="toc-section-number">2.2</span>  Methods</a>
+  <ul class="collapse">
+  <li><a href="#instructions" id="toc-instructions" class="nav-link" data-scroll-target="#instructions"><span class="toc-section-number">2.2.1</span>  Instructions</a></li>
+  <li><a href="#graphing-data-to-assess-our-predictions" id="toc-graphing-data-to-assess-our-predictions" class="nav-link" data-scroll-target="#graphing-data-to-assess-our-predictions"><span class="toc-section-number">2.2.2</span>  Graphing data to assess our predictions</a></li>
+  </ul></li>
+  <li><a href="#deliverables" id="toc-deliverables" class="nav-link" data-scroll-target="#deliverables"><span class="toc-section-number">2.3</span>  Deliverables</a></li>
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references"><span class="toc-section-number">2.4</span>  References</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title d-none d-lg-block"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Tree Cover: an investigation in ecology and in environmental justice</span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+</header>
+
+<section id="background" class="level2" data-number="2.1">
+<h2 data-number="2.1" class="anchored" data-anchor-id="background"><span class="header-section-number">2.1</span> Background</h2>
+<p>The types of places that organisms live–their habitats–depends on a variety factors. Selection of particular habitats results from tradeoffs between the benefits from foraging and reproducing versus perceived risks of mortality <span class="citation" data-cites="stephens1986 morin1999a">(<a href="references.html#ref-stephens1986" role="doc-biblioref">Stephens and Krebs 1986</a>; <a href="references.html#ref-morin1999a" role="doc-biblioref">Morin 1999</a>)</span>. Organisms also construct elements of their own habitats, including nests and burrows, as well as broader habitat alteration <span class="citation" data-cites="odling-smee2013">(niche construction, <a href="references.html#ref-odling-smee2013" role="doc-biblioref">Odling-Smee and Erwin 2013</a>)</span>. Beavers build dens and dams, birds and wasps build nests, and bacteria, ants, and humans all construct elaborate multi-layered cities of thousands or millions of individuals. At the same time, organisms often damage the very habitats they create, through over-consumption of resources and over-production of waste products. We know a great deal about how our own species (<em>H. sapiens</em>) construct elements of their own habitats. We also know a lot about how we migrate and disperse from place to place. Nonetheless, we have a lot to learn about our own species, and, in particular, about which factors determine the our preferred habitats and determine the changes we make to those habitats.</p>
+<p>Economic wealth seems to influence many of choices by <em>H sapiens</em>, including our preferred habitats. Ed <span class="citation" data-cites="wilson1984a">Wilson (<a href="references.html#ref-wilson1984a" role="doc-biblioref">1984</a>)</span>, a famous evolutionary biologist, have proposed the <em>Biophilia hypothesis</em>, that humans love nature. Biomedical researchers have shown that we are happier and heal from injury and illness faster when we have access to plants and to the outdoors <span class="citation" data-cites="franklin2012">(<a href="references.html#ref-franklin2012" role="doc-biblioref">Franklin 2012</a>)</span>. If wealth generally gives us greater access to what we want, will wealthier people more often put themselves in closer connection to nature?</p>
+<p>Specific socioeconomic data about <em>H. sapiens</em> populations may be particularly useful understanding both the causes and consequences of relations between wealth and nature. Wealth can be measured in a variety of ways. Median income, and percent of the population below the poverty line are common ways to measure the average wealth of individuals or small family groups.</p>
+<p>Specific data about our landscapes maybe be particularly useful in generating ecological understanding of <em>H. sapiens</em>. Tree cover is the two-dimensional coverage of tree canopies that you would perceive in an aerial photo in seasons when trees have their leaves. Tree cover is relatively easy to measure from satellite imagery. Temperature, or the heat experienced by residents, can be a serious problem in urban areas because they create heat “islands”. Urban heat islands are areas which tend to absorb more solar radiation than would a natural landscape and then re-radiate this as heat experienced by its human and non-human residents. During heat waves, residents in urban areas who are especially vulnerable can suffer severe heat exhaustion or death. Some urban areas tend to get much hotter than others, and it is often related to tree cover and green space generally.</p>
+<p>Trees provide enormous ecosystem service benefits, including to help mitigate pollution via uptake of carbon dioxide and carbon monoxide (CO<span class="math inline">\(_2\)</span> and CO) and other greehouse gases. Trees can also help reduce pollutants that cause direct negative effects on human health, such as fine and ultrafine particulate matter (PM<span class="math inline">\(_{2.5}\)</span>, PM<span class="math inline">\(_{0.1}\)</span>).</p>
+<p>In this research project, we will use freely available online data to address whether there is an association between wealth and the wild. Specifically, we will address whether, if we compare different geographic locations, will we see a relationship between the median income of an area, and the percent cover of trees? The data we collect will allow us to explore a variety of related ideas, but we will start with testing Wilson’s <em>biophilia</em> hypothesis, which predicts that humans love nature. We will test my corollary of this, that humans who have the greatest degree of freedom of choice (the wealthy) will tend to live in areas with the greatest connection to Nature (a lot of trees).</p>
+<p>View your mission here: </p><div class="quarto-video ratio ratio-16x9"><iframe src="https://www.youtube.com/embed/BABM3EUo990" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div><p></p>
+<p><a href="https://youtu.be/BABM3EUo990" target="_blank">or here:</a></p>
+</section>
+<section id="methods" class="level2" data-number="2.2">
+<h2 data-number="2.2" class="anchored" data-anchor-id="methods"><span class="header-section-number">2.2</span> Methods</h2>
+<p>Work in pairs. Share introductions with someone and get to work.</p>
+<p>We will collect data on tree cover (%), heat, and wealth using two different platforms:</p>
+<ol type="1">
+<li><a href="https://treeequityscore.org/" target="_blank">Tree Equity Score website</a></li>
+<li>OurTrees application in <a href="https://www.itreetools.org/" target="_blank"><em>i-Tree</em></a></li>
+</ol>
+<p>The first of these two platforms, Tree Equity Score, gives fairly detailed information on cities over 50,000 residents in size. It provides information related to environmental justice, including levels of poverty, tree cover, and heat. Our second data source is from <em>i-Tree.org</em> and it provides fairly detailed information about tree cover and the ecosystem services they provide. (Ecosystem services are features of ecosystems that benefit humans, such as storm water protection, and shade for buildings). i-Tree also provides median household income.</p>
+<section id="instructions" class="level3" data-number="2.2.1">
+<h3 data-number="2.2.1" class="anchored" data-anchor-id="instructions"><span class="header-section-number">2.2.1</span> Instructions</h3>
+<p><strong>Tree Equity Score data</strong></p>
+<ol type="1">
+<li>Go to our class <a href="https://docs.google.com/spreadsheets/d/1SB9Hk62cmZUZkeh5BGaIegEG79c9ylnV7STaLeFVrVo/edit?usp=sharing" target="_blank">Google Sheet for <em>Tree Equity Score cities</em></a>, and enter the name of a city (pop. &gt; 50,000) that you will investigate. It must be different than what anyone else has selected. Add your name to your selected city.</li>
+<li>Go to the <a href="https://treeequityscore.org/" target="_blank">Tree Equity Score website</a>.</li>
+<li>Search for your city.</li>
+<li>Find the data for the city: click on the map <em>inside the area of your city</em>. Note that a map will typically display more than just your city. It will also display adjacent regions. For instance, the map for “Cincinnati, OH” displays Hamilton County and Covington, KY. Selecting an area will cause a data summary window to pop up on the left side. <strong>Confirm</strong> that when you click on an area of the map, it is <strong>inside the city you intended</strong>.</li>
+<li>Selecting an area link to a <strong>Municipal Report</strong>. This report provides information for the city as a whole. <strong>Confirm</strong> that when you click on an area of the map, it is <strong>inside the city you intended</strong>. Select the link, Municipal Report.</li>
+<li>Pick the data most relevant to our question: adjust the setting for the right-hand column graph to show <em>Tree Cover (%) vs.&nbsp;People in Poverty %</em>. You will use this column graph in addressing our overall question.</li>
+<li>The Municipal Report provides a Tree Equity Score, urbanized area population estimate, percent seniors, and a percentage of people in poverty. Enter these into the Google Sheet. Add one Miami uniqueID per group to each observation (row).</li>
+<li>Save the web page as a PDF, and name it with the city name and “TES” (e.g., “Cincinnati_TES.pdf”). If you would like assistance saving the PDF, read the instructions under the button “Share report -&gt;”. Make sure to close the instructions before you save the page. This file will be a record of your data.</li>
+<li>Make sure that you have entered the Tree Equity score and poverty percentage in the Google Sheet, and that you saved to your own computer your column graph of tree cover vs.&nbsp;percent of people in poverty.</li>
+</ol>
+<p><strong>OurTrees</strong> app, in <em>i-Tree</em></p>
+<ol type="1">
+<li>OurTrees application in <a href="https://www.itreetools.org/" target="_blank"><em>i-Tree</em></a>. Select a location in which you are interested. Start with any lcoation name, and select “Search”. The app will show you a location. If you would like to, you can change the location by simply clicking somewhere else on the map. You can choose either Street view or Satellite view (the data will be the same).</li>
+<li>Enter the name of your selected location into our class a new spreadsheet, <a href="https://docs.google.com/spreadsheets/d/1uYCuTziJiLNvVOQ9Q65BxdWcNgDF6EnF8L1T3O_yATw/edit?usp=sharing" target="_blank">Google Sheet for <strong>OurTrees</strong></a>.</li>
+<li>In the OurTrees app, select “Get Results! -&gt;”.</li>
+<li>From the “Benefits” tab, collect data on tree canopy cover (%), annual uptake of CO<span class="math inline">\(_2\)</span> equivalents and 2.5 micron particulate matter (PM<span class="math inline">\(_{2.5}\)</span>). Enter these into the OurTrees Google Sheet.</li>
+<li>From the “Community” tab, collect data on total population size, number of seniors (&gt;64), percent minority, median annual income, and percent impoverished. Enter these into the OurTrees Google Sheet.</li>
+<li>Repeat the above steps for <em>nine more</em> locations anywhere in the world. Your locations must be different than what anyone else has selected in the OurTrees spreadsheet. Add one Miami uniqueID per group to each observation (row).</li>
+</ol>
+</section>
+<section id="graphing-data-to-assess-our-predictions" class="level3" data-number="2.2.2">
+<h3 data-number="2.2.2" class="anchored" data-anchor-id="graphing-data-to-assess-our-predictions"><span class="header-section-number">2.2.2</span> Graphing data to assess our predictions</h3>
+<p>I argued that the Biophilia Hypothesis leads to the prediction that tree cover will correlate positively with wealth. To evaluate this prediction, we should make a graph in which wealth is on the x-axis (horizontal axis) and tree cover is y-axis (vertical axis).</p>
+<p>A couple of minor points: (1) Our prediction also implies that we should see a negative relation between poverty and tree cover. (2) We typically assume that the variable on the y-axis is a response to the variable on the x-axis, that is, that the x variable is causing variation in the y variable.</p>
+<p>Given our data are <em>continuous variables</em> rather than categories, we should start by making a <em>scatterplot</em> of median income (x) vs.&nbsp;tree cover (y). Do that in anyway you like, such as in R, Google Sheets, or Microsoft Excel.</p>
+<p>As the semester progresses, you will find R is very useful. Below, I provide you with code for an R script to easily make this graph.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># if needed, install these packages</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co"># install.packages("googlesheets4")</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co"># install.packages("ggplot2")</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co"># load these packages</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(googlesheets4)</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Import data. </span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="co"># This code will require that you have permission to access our G-Sheet.</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="co"># You may be asked to select various options and/or sign in to your</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Miami Google account.</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="co"># The function read_sheet() requires a Google Sheet URL in quotes, and</span></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="co"># allows you to skip lines that are not data, </span></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="co"># such as a table description.</span></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>d <span class="ot">&lt;-</span> <span class="fu">read_sheet</span>(<span class="st">"https://docs.google.com/spreadsheets/d/1uYCuTziJiLNvVOQ9Q65BxdWcNgDF6EnF8L1T3O_yATw/edit#gid=0"</span>,</span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>                <span class="at">skip=</span><span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>! Using an auto-discovered, cached token.</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>  To suppress this message, modify your code or options to clearly consent to
+  the use of a cached token.</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>  See gargle's "Non-interactive auth" vignette for more details:</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>  &lt;]8;;https://gargle.r-lib.org/articles/non-interactive-auth.htmlhttps://gargle.r-lib.org/articles/non-interactive-auth.html]8;;&gt;</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>ℹ The googlesheets4 package is using a cached token for ']8;;mailto:stevenmh@miamioh.edustevenmh@miamioh.edu]8;;'.</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>✔ Reading from "iTree_OurTrees - Spring 2023".</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>✔ Range '3:10000000'.</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Uncomment to show us the names of the variables</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="co"># names(d)</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="co"># make a scatterplot</span></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>d, <span class="fu">aes</span>(<span class="at">x=</span><span class="st">`</span><span class="at">Median Income</span><span class="st">`</span>, </span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>                   <span class="at">y=</span><span class="st">`</span><span class="at">Tree canopy cover</span><span class="st">`</span>, </span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>                   <span class="at">label=</span><span class="st">`</span><span class="at">City (only)</span><span class="st">`</span>)) <span class="sc">+</span> <span class="fu">geom_text</span>() <span class="sc">+</span></span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">y=</span><span class="st">"Tree cover (%)"</span>, <span class="at">x=</span><span class="st">"Median income"</span>)</span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a><span class="co"># save the figure (dimensions in inches)</span></span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="st">"myCoverIncome.png"</span>, <span class="at">width=</span><span class="dv">6</span>, <span class="at">height =</span> <span class="dv">6</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div id="fig-data" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="01-trees_and_people_files/figure-html/fig-data-1.png" class="img-fluid figure-img" style="width:65.0%"></p>
+<p></p><figcaption class="figure-caption">Figure&nbsp;2.1: The noisy but perhaps positive relation between percent of an location covered in trees and the median income of that location.</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Refer to the scatterplot of my data (<a href="#fig-data">Figure&nbsp;<span>2.1</span></a>). What do we find? Discuss the following questions with your colleagues, and propose and explain some possible answers.</p>
+<ol type="1">
+<li>Is there a relationship that is consistent with our hypothesis? Does tree cover increase with income?</li>
+<li>Notice the cities that I selected. What else do you know about these locations, aside from income, that might influence tree cover?</li>
+<li>What else might be going on that helps create this relation or might obscure a stronger relation?</li>
+<li>After looking at these data, would you want to select locations in a different way?</li>
+</ol>
+</section>
+</section>
+<section id="deliverables" class="level2" data-number="2.3">
+<h2 data-number="2.3" class="anchored" data-anchor-id="deliverables"><span class="header-section-number">2.3</span> Deliverables</h2>
+<p><strong>Data analysis</strong></p>
+<ul>
+<li>Post your two graphs, one from tree equity and one from i-Tree, to <a href="https://docs.google.com/presentation/d/1zvfgB4zvr0Jn7BWTlLSPBrzrLtt2JMt0-8vWg99EVCk/edit?usp=sharing">this Google Slide deck</a>.</li>
+<li>Include the information suggested on the slides (title that identifies main result, explanation of results, author names).</li>
+</ul>
+<p><strong>Written evaluation</strong></p>
+<ul>
+<li>Compose a single document that contains answers to the above questions. I suggest that you start by simply listing answer to these questions. After you (our your group) is reasonably satisfied, compose a coherent essay between ~250-500 words that addresses the major points you want to convey.</li>
+<li>Turn this in as requested by your instructor.</li>
+</ul>
+</section>
+<section id="references" class="level2" data-number="2.4">
+<h2 data-number="2.4" class="anchored" data-anchor-id="references"><span class="header-section-number">2.4</span> References</h2>
+
+
+<div id="refs" class="references csl-bib-body hanging-indent" role="doc-bibliography" style="display: none">
+<div id="ref-franklin2012" class="csl-entry" role="doc-biblioentry">
+Franklin, Deborah. 2012. <span>“Nature That Nutures.”</span> <em>Scientific American</em> 306 (3): 24–25.
+</div>
+<div id="ref-morin1999a" class="csl-entry" role="doc-biblioentry">
+Morin, P J. 1999. <em>Community <span>Ecology</span></em>. <span>Malden, MA</span>: <span>Blackwell Science, Inc.</span>
+</div>
+<div id="ref-odling-smee2013" class="csl-entry" role="doc-biblioentry">
+Odling-Smee, J, and DH Erwin. 2013. <span>“Niche Construction Theory: <span>A</span> Practical Guide for Ecologists.”</span> <em>The Quarterly Review of Biology</em> 88 (1): 3–28.
+</div>
+<div id="ref-stephens1986" class="csl-entry" role="doc-biblioentry">
+Stephens, D W, and J R Krebs. 1986. <em>Foraging <span>Theory</span></em>. Edited by J. R. Krebs and T. H. Clutton-Brock. Monographs in Behavior and Ecology. <span>Princeton, University Press, Princeton, NJ, USA</span>: <span>Princeton University Press</span>.
+</div>
+<div id="ref-wilson1984a" class="csl-entry" role="doc-biblioentry">
+Wilson, Edward O. 1984. <em>Biophiia</em>. <span>Cambridge, MA</span>: <span>: Harvard University Press</span>.
+</div>
+</div>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./01-computer-setup.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Computer setup</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./02-global_temp_anomalies.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">A Fate of Earth</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+</body></html>

@@ -1,0 +1,21 @@
+# Preface {.unnumbered}
+
+```{r}
+library(tidyverse)
+library(dagitty)
+library(ggdag)
+# library(rethinking)
+library(googlesheets4)
+```
+
+This book provides an activity-based approach introduction to the science and practice of ecology. It is designed to form the basis of an undergraduate general ecology course. It includes real-world assessment activities, and so answer keys are not generally available, even if they might be appropriate in some situations.
+
+Each chapter provides,
+
+* links to background information in the form of a video lecture, peer-reviewed publications, and sometimes other sources,
+* one or more writing assignments, and
+* data exploration and modeling.
+
+My other books include [*A Primer of Ecology using R*](https://hankstevens.github.io/Primer-of-Ecology/) and [*A Primer of Ecosystem Modeling*](https://hankstevens.github.io/ecosystems-primer/). The former (Primer of Ecology) is designed primarily for graduate students as a primer to theory in population community ecology. It was first published with Springer in 2009, and the current GitHub version is quite updated. I use the former (ecosystem modeling) when I co-instruct a graduate course led by colleagues who are real ecosystem ecologists (Drs. Melany Fisk, Mike Vanni, and Lesley Knoll).
+
+*Mazel tov!*

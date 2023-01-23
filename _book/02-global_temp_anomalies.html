@@ -1,0 +1,770 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.2.313">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Inntroduction to Ecology - 3&nbsp; A Fate of Earth</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./summary.html" rel="next">
+<link href="./01-trees_and_people.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+
+
+</head>
+
+<body class="nav-sidebar floating">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+    <div class="container-fluid d-flex justify-content-between">
+      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">A Fate of Earth</span></h1>
+      <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
+        <i class="bi bi-chevron-right"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">Inntroduction to Ecology</a> 
+    </div>
+      </div>
+      <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+      </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">Preface</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./01-computer-setup.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Computer setup</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./01-trees_and_people.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Tree Cover: an investigation in ecology and in environmental justice</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./02-global_temp_anomalies.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">A Fate of Earth</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./summary.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Summary</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./references.html" class="sidebar-item-text sidebar-link">References</a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#goals" id="toc-goals" class="nav-link active" data-scroll-target="#goals"><span class="toc-section-number">3.1</span>  Goals</a></li>
+  <li><a href="#background" id="toc-background" class="nav-link" data-scroll-target="#background"><span class="toc-section-number">3.2</span>  Background</a></li>
+  <li><a href="#activity" id="toc-activity" class="nav-link" data-scroll-target="#activity"><span class="toc-section-number">3.3</span>  Activity</a></li>
+  <li><a href="#r-code" id="toc-r-code" class="nav-link" data-scroll-target="#r-code"><span class="toc-section-number">3.4</span>  R code</a>
+  <ul class="collapse">
+  <li><a href="#set-up" id="toc-set-up" class="nav-link" data-scroll-target="#set-up"><span class="toc-section-number">3.4.1</span>  Set up</a></li>
+  </ul></li>
+  <li><a href="#import-data" id="toc-import-data" class="nav-link" data-scroll-target="#import-data"><span class="toc-section-number">3.5</span>  Import data</a></li>
+  <li><a href="#finding-out-information-about-the-temperature-anomalies" id="toc-finding-out-information-about-the-temperature-anomalies" class="nav-link" data-scroll-target="#finding-out-information-about-the-temperature-anomalies"><span class="toc-section-number">3.6</span>  Finding out information about the temperature anomalies</a>
+  <ul class="collapse">
+  <li><a href="#minimum-and-maximum" id="toc-minimum-and-maximum" class="nav-link" data-scroll-target="#minimum-and-maximum"><span class="toc-section-number">3.6.1</span>  Minimum and maximum</a></li>
+  <li><a href="#using-a-year" id="toc-using-a-year" class="nav-link" data-scroll-target="#using-a-year"><span class="toc-section-number">3.6.2</span>  Using a year</a></li>
+  </ul></li>
+  <li><a href="#plotting-information" id="toc-plotting-information" class="nav-link" data-scroll-target="#plotting-information"><span class="toc-section-number">3.7</span>  Plotting information</a></li>
+  <li><a href="#predicting-future-anomalies" id="toc-predicting-future-anomalies" class="nav-link" data-scroll-target="#predicting-future-anomalies"><span class="toc-section-number">3.8</span>  Predicting future anomalies</a></li>
+  <li><a href="#does-earth-have-a-fever" id="toc-does-earth-have-a-fever" class="nav-link" data-scroll-target="#does-earth-have-a-fever"><span class="toc-section-number">3.9</span>  Does Earth have a fever?</a></li>
+  <li><a href="#questions-to-answer" id="toc-questions-to-answer" class="nav-link" data-scroll-target="#questions-to-answer"><span class="toc-section-number">3.10</span>  Questions to answer</a></li>
+  <li><a href="#deliverables" id="toc-deliverables" class="nav-link" data-scroll-target="#deliverables"><span class="toc-section-number">3.11</span>  Deliverables</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title d-none d-lg-block"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">A Fate of Earth</span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+</header>
+
+<p><em>…in which we reveal part of our climate reality.</em></p>
+<section id="goals" class="level2" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="goals"><span class="header-section-number">3.1</span> Goals</h2>
+<p>In this assignment, you will</p>
+<ul>
+<li>Learn about the history of our perspective on global warming.</li>
+<li>Use R to display estimates of global temperature anomalies.</li>
+<li>Describe the current temperature trajectory.</li>
+<li>Compare and contrast changes in temperature between humans and Earth.</li>
+</ul>
+<p>Video lecture on global warming and climate change:</p>
+</section>
+<section id="background" class="level2" data-number="3.2">
+<h2 data-number="3.2" class="anchored" data-anchor-id="background"><span class="header-section-number">3.2</span> Background</h2>
+<p>The year that you were born was much warmer than usual–and it won’t ever be that <em>cool</em> again in your lifetime.</p>
+<p>Earth is getting warmer due to human activities, it will push it well beyond what earth has experienced in hundreds of thousands of years. How and why Earth is warming has been known for many decades. In the early 1980’s, even Exxon’s scientists accurately predicted the global warming that has occurred because we failed to act to change our behavior.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p>
+<p>In this exercise, you’ll graph data from the National Centers for Environmental Information, part of NOAA (US Dept of Commerce). These temperatures are anomalies from a long term mean. The reference they use is the period from 1951-1980.</p>
+<p>Using the R script, you will construct a 95% confidence interval on expected mean surface anomalies. A “95% confidence interval of a mean” is an interval, if so constructed, that would tend to include the true mean about 95% of the time, given many, many repeated experiments conducted under identical conditions. It is based on frequentist statistical methods. It is actually pretty difficult to interpret, but it is a standard measure of uncertainty. You will construct such an interval for past and future global surface temperature anomalies.</p>
+<p><strong>Overthinking:</strong> <em>Frequentist statistical methods (those that you will all attempt to learn in intro stats class) give you a P-value, which is the probability of your data or more extreme data, given that your null hypothesis is true (i.e., your model is correct). That’s weird. The data are real - they don’t need a probability. A 95% confidence interval is an interval that we construct in a way where we would capture a “true” effect 95% of the time we repeat the same experiment under the same conditions. In contrast, Bayesian statistics would give us what we actually want: the probability that our model or hypothesis is correct, given our data. That is called conditional probability and is what a Bayesian analysis would give you. We might do that later in the course.</em></p>
+</section>
+<section id="activity" class="level2" data-number="3.3">
+<h2 data-number="3.3" class="anchored" data-anchor-id="activity"><span class="header-section-number">3.3</span> Activity</h2>
+<ol type="1">
+<li>Download “global_surface_anomalies.csv. Place it in you Rwork folder. This is a text file that you could open with a spreadsheet application, where the data in different columns are separated by commas (Comma-Separated-Values, i.e., a CSV file).</li>
+<li>Open “global_surface_anomalies.csv” in a spreadsheet application and learn what is on
+<ol type="a">
+<li>the first five lines</li>
+<li>the sixth line</li>
+<li>the remaining lines</li>
+</ol></li>
+<li>In R, create a script file that you will call <code>global_anomalies_YourUniqueID.R</code>.</li>
+</ol>
+</section>
+<section id="r-code" class="level2" data-number="3.4">
+<h2 data-number="3.4" class="anchored" data-anchor-id="r-code"><span class="header-section-number">3.4</span> R code</h2>
+<p>Below, we set up or work environment, load data, work with data, and then save deliverables. This work flow will be natural after a while.</p>
+<section id="set-up" class="level3" data-number="3.4.1">
+<h3 data-number="3.4.1" class="anchored" data-anchor-id="set-up"><span class="header-section-number">3.4.1</span> Set up</h3>
+<p>First, we always select the appropriate project and working directory. I do this by…</p>
+<p>…glancing at the upper right corner:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="figs/Rwork_project.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">RStudio shows which project you are using in the upper-right corner</figcaption><p></p>
+</figure>
+</div>
+<p>…and by looking in the File tab in the lower right pane - that should be your working directory, which should be Rwork.</p>
+<p>The next thing we do is <strong>load packages</strong> that we know we will need. Remember, you only need to <em>install</em> a package onto your computer <em>once</em>. We <strong>load</strong> contributed packages in each session that we need them. In this course, you should always load <code>tidyverse</code>, at a minimum.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="do">## load R packages</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>── Attaching packages ─────────────────────────────────────── tidyverse 1.3.2 ──
+✔ ggplot2 3.4.0      ✔ purrr   1.0.1 
+✔ tibble  3.1.8      ✔ dplyr   1.0.10
+✔ tidyr   1.2.1      ✔ stringr 1.5.0 
+✔ readr   2.1.3      ✔ forcats 0.5.2 
+── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+✖ dplyr::filter() masks stats::filter()
+✖ dplyr::lag()    masks stats::lag()</code></pre>
+</div>
+</div>
+</section>
+</section>
+<section id="import-data" class="level2" data-number="3.5">
+<h2 data-number="3.5" class="anchored" data-anchor-id="import-data"><span class="header-section-number">3.5</span> Import data</h2>
+<p>Make sure that the global surface temperature anomalies data set (“global_surface_anomalies.csv”) is in your working directory, Rwork.</p>
+<p>We import or “read in” the data so that R can work on it. Here we put it in an object called <code>temps</code>. We skip lines in the file</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># read in data</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>temps <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"global_surface_anomalies.csv"</span>, <span class="co"># file name</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>                  <span class="at">skip=</span><span class="dv">3</span>, <span class="co"># skip these lines because they contain metadata.</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>                  <span class="at">header =</span> <span class="cn">TRUE</span> <span class="co"># Tell R that the first row is column namaes</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>                  ) <span class="co"># last parenthesis</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="finding-out-information-about-the-temperature-anomalies" class="level2" data-number="3.6">
+<h2 data-number="3.6" class="anchored" data-anchor-id="finding-out-information-about-the-temperature-anomalies"><span class="header-section-number">3.6</span> Finding out information about the temperature anomalies</h2>
+<p>Next we take a peek at the data with a summary.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(temps)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>      year          deg_C         
+ Min.   :1880   Min.   :-0.48000  
+ 1st Qu.:1916   1st Qu.:-0.20000  
+ Median :1951   Median :-0.06000  
+ Mean   :1951   Mean   : 0.05993  
+ 3rd Qu.:1986   3rd Qu.: 0.26500  
+ Max.   :2022   Max.   : 1.02000  </code></pre>
+</div>
+</div>
+<p>This shows us the minimum, maximum and mean of each numeric variable.</p>
+<p>It also shows us the 1st, 2nd, and 3rd <a href="https://en.wikipedia.org/wiki/Quartile" target="_blank">quartiles</a>. The median is the 2nd quartile. Quartiles are three divisions in ranked data, such they divide the data into four equal parts, or quarters. The 1st quartile is the value that divides the lowest 25% of the values from the larger values. The 2nd quartile (i.e.) is the value that divides the lower 50% from the upper 50% of the observations. The 3rd quartile is the value that divides the highest 25% of the observations from the lower values.</p>
+<section id="minimum-and-maximum" class="level3" data-number="3.6.1">
+<h3 data-number="3.6.1" class="anchored" data-anchor-id="minimum-and-maximum"><span class="header-section-number">3.6.1</span> Minimum and maximum</h3>
+<p>I’d like to know <em>when</em> the minimum and the maximum occurred. To find this out, I’ll use a two step process: I will find the min and the max, and then I will use those to take a <em>subset</em> of the data frame where the anomaly is equal to either the minimum or equal to the maximum.</p>
+<p>First, I find the minimum and the maximum.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="do">## get the min and max</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>min.anomaly <span class="ot">&lt;-</span> <span class="fu">min</span>(temps<span class="sc">$</span>deg_C)</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>max.anomaly <span class="ot">&lt;-</span> <span class="fu">max</span>(temps<span class="sc">$</span>deg_C)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Now, I will use these to take a <em>subset</em> of the data frame where the anomaly is equal to either the minimum or equal to the maximum. The “OR” operator is the vertical line that programmers call a <em>pipe</em>. On your keyboard, it is above the return or enter key.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="do">## use the min and the max</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="co"># note the two equal signs, a pipe, and then two more equals signs.</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="fu">subset</span>(temps, deg_C<span class="sc">==</span>min.anomaly <span class="sc">|</span> deg_C<span class="sc">==</span>max.anomaly ) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>    year deg_C
+30  1909 -0.48
+141 2020  1.02</code></pre>
+</div>
+</div>
+<p>These show us all of the entries in our data that the anomaly is equal to the minimum OR equal to the maximum.</p>
+</section>
+<section id="using-a-year" class="level3" data-number="3.6.2">
+<h3 data-number="3.6.2" class="anchored" data-anchor-id="using-a-year"><span class="header-section-number">3.6.2</span> Using a year</h3>
+<p>Here I find out the average temperature anomaly in the year I was born. I want YOU to find out the anomaly in the year <em>you were born.</em></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Find the anomaly in the year you were born</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="fu">subset</span>(temps, year<span class="sc">==</span><span class="dv">1960</span>) <span class="co"># use your year with two equal signs</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   year deg_C
+81 1960 -0.03</code></pre>
+</div>
+</div>
+<p>In my birth year, it was just a touch below the 1951-1980 average.</p>
+</section>
+</section>
+<section id="plotting-information" class="level2" data-number="3.7">
+<h2 data-number="3.7" class="anchored" data-anchor-id="plotting-information"><span class="header-section-number">3.7</span> Plotting information</h2>
+<p>Here we are going to start visually examining the anomalies.</p>
+<p>We will create a linegraph using <code>ggplot()</code>. Our first step will create the graph, but it won’t display it right away. I include comments on each line to remind you what everything does.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="do">## we will create a plot object and stick it in "p"</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>p <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(<span class="at">data=</span>temps, <span class="co"># the data frame to use</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>       <span class="do">## aes() stand for "aesthetics"</span></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>       <span class="fu">aes</span>(<span class="at">x=</span>year, <span class="at">y=</span>deg_C), <span class="co"># define x and y variables to plot</span></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>       ) <span class="sc">+</span> <span class="co"># closing parenthesis and add a plus sign to add another graphical element</span></span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>() <span class="co"># the type of graph to plot using x and y</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>If you do this correctly it will seem as though nothing happened. If you did something wrong, you might get an error message in the console. If R can’t find the function “ggplot”, that is because you didn’t load <code>tidyverse</code> (or ggplot2 which is a subset of tidyverse). Another common error is an incomplete statement that might come from a missing parensthesis or something. In that case, R might think that you are not finished making your statement and it will keep adding plus signs so that you can finish your coding statement.</p>
+<p>Now we display the graph.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>p</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="02-global_temp_anomalies_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>Here we add a trend line using a fancy statistical smoothing technique. By default, it will include a grey uncertainty region.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="do">## add a trend line</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>p <span class="sc">+</span> <span class="fu">geom_smooth</span>(<span class="at">linetype=</span><span class="st">"dashed"</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>`geom_smooth()` using method = 'loess' and formula = 'y ~ x'</code></pre>
+</div>
+<div class="cell-output-display">
+<p><img src="02-global_temp_anomalies_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>Here we add prettier, more descriptive labels. Add a line for the anomaly in 2002.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># first find the anomaly in 2002</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>anomaly<span class="fl">.2002</span> <span class="ot">&lt;-</span> temps<span class="sc">$</span>deg_C[temps<span class="sc">$</span>year<span class="sc">==</span><span class="dv">2002</span>]</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>anomaly<span class="fl">.2002</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.63</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>p <span class="sc">+</span> <span class="fu">geom_smooth</span>() <span class="sc">+</span> </span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">y=</span><span class="st">"Surface temp. anomaly (deg C)"</span>, </span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">subtitle=</span><span class="st">"Relative to average 1951-1980"</span></span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>    ) <span class="sc">+</span></span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_hline</span>(<span class="at">yintercept =</span> anomaly<span class="fl">.2002</span>, <span class="at">linetype=</span><span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>`geom_smooth()` using method = 'loess' and formula = 'y ~ x'</code></pre>
+</div>
+<div class="cell-output-display">
+<p><img src="02-global_temp_anomalies_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</section>
+<section id="predicting-future-anomalies" class="level2" data-number="3.8">
+<h2 data-number="3.8" class="anchored" data-anchor-id="predicting-future-anomalies"><span class="header-section-number">3.8</span> Predicting future anomalies</h2>
+<p>Major goals of science are understanding and prediction. We could spend a long time discussing the connection between these two, but form now, we just want to forecast want our future might look like.</p>
+<p>The statistical details of this are way beyond this course, and they are not even the way you would do it if you were serious about. Nonetheless, it won’t be too far off, and the intuitive part applies generally to making any set of predictions. We will merely ask the computer to do some math to accomplish the following:</p>
+<ol type="1">
+<li>create an educated guess for the temperature trend. This will include,
+<ol type="a">
+<li>uncertainty that comes from how much the anomalies bounce up and down from year to year, and</li>
+<li>a trend that comes from averaging nearby values.</li>
+<li>information that nearby years may be more similar to each other than years that are really far apart.</li>
+</ol></li>
+<li>given the observed uncertainty and the trend, make an educated guess for future obervations, taking into account that <em>each future year adds uncertainty that we can only guess at</em>.</li>
+<li>Make a figure showing the future forecast.</li>
+</ol>
+<p>So, lets start with step one. and create a statistical model of the observations. We start by loading another package.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Load a necessary R package</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(mgcv) <span class="co"># stands for "Mixed GAM Computation Vehicle"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Loading required package: nlme</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>
+Attaching package: 'nlme'</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>The following object is masked from 'package:dplyr':
+
+    collapse</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>This is mgcv 1.8-41. For overview type 'help("mgcv-package")'.</code></pre>
+</div>
+</div>
+<p>Now we ask R to fit the model. Don’t worry about the details of the code. You can ask me if you are interested.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Create the model</span></span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>mod <span class="ot">&lt;-</span> <span class="fu">gamm</span>(deg_C <span class="sc">~</span> <span class="fu">s</span>(year),  <span class="co"># "deg_C as a function of year</span></span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>            <span class="at">data=</span>temps, <span class="co"># data frame</span></span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>          <span class="at">correlation =</span> <span class="fu">corCAR1</span>(<span class="at">form=</span><span class="sc">~</span>year), <span class="co"># specify autocorrelation among samples</span></span>
+<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a>          <span class="at">method=</span><span class="st">"REML"</span> <span class="co"># fit using restricted maximum likelihood</span></span>
+<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a>          )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Next we have to decide what years we want predictions for. Let’s go for 50 more years, to 2072</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="do">## years for fit and prediction</span></span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>years <span class="ot">=</span> <span class="fu">data.frame</span>(<span class="at">year=</span><span class="dv">1880</span><span class="sc">:</span><span class="dv">2072</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Now we apply the model to past and future years and make a data frame and keep the uncertainty estimates it generates. We also combine our specified years with the model.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="do">## include uncertainty with se.fit = TRUE</span></span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>preds <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">predict</span>(mod<span class="sc">$</span>gam, <span class="at">newdata=</span>years, <span class="at">type=</span><span class="st">"response"</span>, <span class="at">se.fit=</span><span class="cn">TRUE</span>) </span>
+<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-6"><a href="#cb26-6" aria-hidden="true" tabindex="-1"></a><span class="co"># combine columns of data frames</span></span>
+<span id="cb26-7"><a href="#cb26-7" aria-hidden="true" tabindex="-1"></a>my.predictions <span class="ot">&lt;-</span> <span class="fu">cbind</span>(years, preds)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Let’s look at the first three rows of what we’ve made.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="co"># first three lines , and all columns</span></span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>my.predictions[<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>, ]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  year        fit     se.fit
+1 1880 -0.1838866 0.06192846
+2 1881 -0.1889206 0.05769149
+3 1882 -0.1939558 0.05368252</code></pre>
+</div>
+</div>
+<p>This shows that the first column is the year, the second (<code>fit</code>) is the expected local estimate, and the third (<code>se.fit</code>) is the estimate of the uncertainty, which is the standard error of the expected value.</p>
+<p>Now we’ll create 95% confidence intervals for each year. Confidence intervals are intervals which would contain the “true” value (if there is one) a specified proportion of times, if you repeated the experiment a really, really large number of times. Ninety-five percent confidence intervals exclude the lowest 2.5% and the upper 97.5% regions.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="do">### Create 95% confidence intervals</span></span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>crit.t.low <span class="ot">&lt;-</span> <span class="fu">qt</span>(<span class="fl">0.025</span>, <span class="at">df =</span> <span class="fu">df.residual</span>(mod<span class="sc">$</span>gam))</span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>crit.t.high <span class="ot">&lt;-</span> <span class="fu">qt</span>(<span class="fl">0.975</span>, <span class="at">df =</span> <span class="fu">df.residual</span>(mod<span class="sc">$</span>gam))</span>
+<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-5"><a href="#cb29-5" aria-hidden="true" tabindex="-1"></a><span class="do">### this requires that you loaded the tidyverse package</span></span>
+<span id="cb29-6"><a href="#cb29-6" aria-hidden="true" tabindex="-1"></a>my.predictions <span class="ot">&lt;-</span> my.predictions <span class="sc">%&gt;%</span> <span class="co"># my data</span></span>
+<span id="cb29-7"><a href="#cb29-7" aria-hidden="true" tabindex="-1"></a>  <span class="do">## transform the data set to include two new columns</span></span>
+<span id="cb29-8"><a href="#cb29-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">transform</span>(</span>
+<span id="cb29-9"><a href="#cb29-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">upper.conf.lim=</span>fit <span class="sc">+</span> (crit.t.high <span class="sc">*</span> se.fit),</span>
+<span id="cb29-10"><a href="#cb29-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">lower.conf.lim=</span>fit <span class="sc">+</span> (crit.t.low <span class="sc">*</span> se.fit))</span>
+<span id="cb29-11"><a href="#cb29-11" aria-hidden="true" tabindex="-1"></a><span class="do">### </span></span>
+<span id="cb29-12"><a href="#cb29-12" aria-hidden="true" tabindex="-1"></a><span class="do">## view the first three rows</span></span>
+<span id="cb29-13"><a href="#cb29-13" aria-hidden="true" tabindex="-1"></a>my.predictions[<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>, ]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  year        fit     se.fit upper.conf.lim lower.conf.lim
+1 1880 -0.1838866 0.06192846    -0.06142257     -0.3063506
+2 1881 -0.1889206 0.05769149    -0.07483520     -0.3030059
+3 1882 -0.1939558 0.05368252    -0.08779817     -0.3001133</code></pre>
+</div>
+</div>
+<p>Now we see we’ve added upper and lower confidence intervals. Next we’ll create a graph of our predictions, using several particular graphical features.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="do">## basic data and x, y values</span></span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>g <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(<span class="at">data =</span> my.predictions, <span class="fu">aes</span>(<span class="at">x =</span> year, <span class="at">y =</span> fit)) <span class="sc">+</span></span>
+<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a>  <span class="do">## adding a wide region or band (a ribbon)</span></span>
+<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_ribbon</span>(<span class="fu">aes</span>(<span class="at">ymin =</span> lower.conf.lim, <span class="at">ymax =</span> upper.conf.lim, </span>
+<span id="cb31-5"><a href="#cb31-5" aria-hidden="true" tabindex="-1"></a>                  <span class="at">x =</span> year), </span>
+<span id="cb31-6"><a href="#cb31-6" aria-hidden="true" tabindex="-1"></a>              <span class="at">alpha =</span> <span class="fl">0.2</span>, <span class="at">fill =</span> <span class="st">"black"</span>) <span class="sc">+</span> </span>
+<span id="cb31-7"><a href="#cb31-7" aria-hidden="true" tabindex="-1"></a>  <span class="do">## add the expected local trend</span></span>
+<span id="cb31-8"><a href="#cb31-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>() <span class="sc">+</span></span>
+<span id="cb31-9"><a href="#cb31-9" aria-hidden="true" tabindex="-1"></a>  <span class="do">## adding the points for each year</span></span>
+<span id="cb31-10"><a href="#cb31-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">data =</span> temps, <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> year, <span class="at">y =</span> deg_C),</span>
+<span id="cb31-11"><a href="#cb31-11" aria-hidden="true" tabindex="-1"></a>               <span class="at">inherit.aes =</span> <span class="cn">FALSE</span>) <span class="sc">+</span> </span>
+<span id="cb31-12"><a href="#cb31-12" aria-hidden="true" tabindex="-1"></a>  <span class="do">## add a better label for the y axis</span></span>
+<span id="cb31-13"><a href="#cb31-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">y =</span> <span class="st">"Global temp. anomaly"</span>)  </span>
+<span id="cb31-14"><a href="#cb31-14" aria-hidden="true" tabindex="-1"></a>  <span class="do">## simplify the image</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+
+</div>
+<p>Now we show the graph we created.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>g</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="02-global_temp_anomalies_files/figure-html/unnamed-chunk-20-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>The grey area represents the 95% confidence interval for the trend observed years, and also for the trend in the future years. It gets wider because each year’s uncertainty compunds with the next year’s uncertainty. [Your figure will look a little different the this one.]</p>
+<p>Finally, we save your figure. This is the graph you should use for your assignment.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Save a PNG file to your working directory</span></span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a><span class="do">## THIS IS THE GRAPH TO INSERT INTO YOUR ASSIGNMENT</span></span>
+<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="st">"Global_temps.png"</span>, <span class="co"># name for your figure</span></span>
+<span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a>       <span class="at">plot=</span>g, <span class="do">## identify which graph you want to save,</span></span>
+<span id="cb33-5"><a href="#cb33-5" aria-hidden="true" tabindex="-1"></a>       <span class="at">height=</span><span class="dv">5</span>, <span class="at">width=</span><span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="does-earth-have-a-fever" class="level2" data-number="3.9">
+<h2 data-number="3.9" class="anchored" data-anchor-id="does-earth-have-a-fever"><span class="header-section-number">3.9</span> Does Earth have a fever?</h2>
+<p>In this last section, we ask whether Earth’s temperature may be a little too high by comparing it to a human who has a fever.</p>
+<p>First we calculate the percent increase in temperature for Earth over the past 70 years and a human experiencing a serious fever.</p>
+<p>Average temperature for humans is 37 C, and a serious fever is considered 39 C, so an <em>increase</em> of 2 C.</p>
+<p>Earth’s 20th century average temperature is 13.9 C. Let’s calculate the increase since 1950.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="do">## First we take a subset of our data set.</span></span>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>a <span class="ot">&lt;-</span> <span class="fu">subset</span>(temps, year<span class="sc">==</span><span class="dv">1950</span>) </span>
+<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a>b <span class="ot">&lt;-</span> <span class="fu">subset</span>(temps, year<span class="sc">==</span><span class="dv">2022</span>)</span>
+<span id="cb34-4"><a href="#cb34-4" aria-hidden="true" tabindex="-1"></a>increase <span class="ot">&lt;-</span> b<span class="sc">$</span>deg_C <span class="sc">-</span> a<span class="sc">$</span>deg_C</span>
+<span id="cb34-5"><a href="#cb34-5" aria-hidden="true" tabindex="-1"></a>increase</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 1.06</code></pre>
+</div>
+</div>
+<p>Next we calculate these increases (fever and global warming) as <em>percentage change</em>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="do">## percent increase for Earth</span></span>
+<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a>perc.Earth <span class="ot">&lt;-</span> increase <span class="sc">/</span> <span class="fl">13.9</span> <span class="sc">*</span> <span class="dv">100</span></span>
+<span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-4"><a href="#cb36-4" aria-hidden="true" tabindex="-1"></a><span class="do">## percent increase for humans</span></span>
+<span id="cb36-5"><a href="#cb36-5" aria-hidden="true" tabindex="-1"></a>perc.fever <span class="ot">&lt;-</span> <span class="dv">2</span><span class="sc">/</span><span class="dv">37</span> <span class="sc">*</span> <span class="dv">100</span></span>
+<span id="cb36-6"><a href="#cb36-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-7"><a href="#cb36-7" aria-hidden="true" tabindex="-1"></a>perc.Earth; perc.fever</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 7.625899</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 5.405405</code></pre>
+</div>
+</div>
+<p>So, what do you think? Does Earth have a fever? In what ways do you think comparing temperature variation of Earth to that of a human is or is not a useful thing to do.</p>
+</section>
+<section id="questions-to-answer" class="level2" data-number="3.10">
+<h2 data-number="3.10" class="anchored" data-anchor-id="questions-to-answer"><span class="header-section-number">3.10</span> Questions to answer</h2>
+<ol type="1">
+<li>What is a temperature anomaly?</li>
+<li>In the file “global_surface_anomalies.csv”, what is on
+<ol type="a">
+<li>the first three lines?</li>
+<li>the fourth line?</li>
+<li>the rest of the data?</li>
+</ol></li>
+<li>What are the minimum, median, and maximum anomalies?</li>
+<li>When (in what year) were the minimum and maximum anomalies?</li>
+<li>What was the global average surface temperature anomaly in the year you were born? Provide the year and the anomaly.</li>
+<li>What does the grey band in the figure represent, and why does it get wider in future years?</li>
+<li>Explain whether you think Earth currently does or does not have a fever, and whether comparing temperature variation of Earth to that of a human is or is not a useful thing to do.</li>
+</ol>
+</section>
+<section id="deliverables" class="level2" data-number="3.11">
+<h2 data-number="3.11" class="anchored" data-anchor-id="deliverables"><span class="header-section-number">3.11</span> Deliverables</h2>
+<p>Turn these into the relevant Canvas assignment before the due date.</p>
+<ol type="1">
+<li>Put all your answers, including your graph with the confidence interval, into a .doc or .docx file and make fit on a single page. Turn in your answers and your graph to the relevant Canvas assignment Make sure that your name is on the file in the header!</li>
+<li>In a separate document, turn in your R script, named <code>global_temps_YourUniqueID.R</code> This must NOT be a Word document. It must be a .R file.</li>
+</ol>
+
+
+</section>
+<section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn1"><p>Exxon suppressed these internal reports, and they became available only due to a lawsuit.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./01-trees_and_people.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Tree Cover: an investigation in ecology and in environmental justice</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./summary.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Summary</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+</body></html>

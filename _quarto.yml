@@ -1,0 +1,25 @@
+project:
+  type: book
+
+book:
+  title: "Inntroduction to Ecology"
+  author: "Dr. Hank"
+  date: "1/21/2023"
+  chapters:
+    - index.qmd
+    - 01-computer-setup.qmd
+    - 01-trees_and_people.qmd
+    - 02-global_temp_anomalies.qmd
+    - summary.qmd
+    - references.qmd
+
+bibliography: /Users/stevenmh/myLibrary.bib
+
+format:
+  html:
+    theme: cosmo
+  pdf:
+    documentclass: scrreprt
+
+editor: source
+
