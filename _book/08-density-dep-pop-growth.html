@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.2.313">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Basic Ecological Concepts and Data in R - 8&nbsp; Density-dependence in population growth</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./09-direct-interactions.html" rel="next">
+<link href="./07-structured-pop-growth_v2.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+</head>
+
+<body class="nav-sidebar floating">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+    <div class="container-fluid d-flex justify-content-between">
+      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Density-dependence in population growth</span></h1>
+      <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
+        <i class="bi bi-chevron-right"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">Basic Ecological Concepts and Data in R</a> 
+    </div>
+      </div>
+      <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+      </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">Preface</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./01-computer-setup.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Computer setup and first R script</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./01-trees_and_people.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Environmental Justice: How income relates to environment.</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./02-global_temp_anomalies.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Physical Environment: A Fate of Earth</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./03-liana-phys.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Individual responses to the environment: What makes lianas relatively successful in stressful habitats?</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./04-extrapair_copulation.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Behavior: Extra-pair copulation in a monogamous species</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./06-DI-pop-growth.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Density-independent Population Growth: Humans on the rise</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./07-structured-pop-growth_v2.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Structured demography: How a graduate student helped save the loggerhead sea turtle</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./08-density-dep-pop-growth.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Density-dependence in population growth</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./09-direct-interactions.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Direct species interactions: understanding mechanisms of invasion in mosquitoes</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./10-mutualisms.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Mutualisms: Do ants protect pea plants?</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./11-predator-prey.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Of wolves and moose, on Isle Royale</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./20-ecosystem-intro.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">An Introduction to the Carbon Cycle and Global Heating</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./references.html" class="sidebar-item-text sidebar-link">References</a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#goals" id="toc-goals" class="nav-link active" data-scroll-target="#goals"><span class="toc-section-number">8.1</span>  Goals</a></li>
+  <li><a href="#preparatory-steps" id="toc-preparatory-steps" class="nav-link" data-scroll-target="#preparatory-steps"><span class="toc-section-number">8.2</span>  Preparatory steps</a></li>
+  <li><a href="#models-as-assumptions" id="toc-models-as-assumptions" class="nav-link" data-scroll-target="#models-as-assumptions"><span class="toc-section-number">8.3</span>  Models as assumptions</a>
+  <ul class="collapse">
+  <li><a href="#math-describes-nature-on-parameters-and-their-meanings" id="toc-math-describes-nature-on-parameters-and-their-meanings" class="nav-link" data-scroll-target="#math-describes-nature-on-parameters-and-their-meanings"><span class="toc-section-number">8.3.1</span>  Math describes nature: on parameters and their meanings</a></li>
+  <li><a href="#solving-a-rate-equation" id="toc-solving-a-rate-equation" class="nav-link" data-scroll-target="#solving-a-rate-equation"><span class="toc-section-number">8.3.2</span>  Solving a rate equation</a></li>
+  <li><a href="#assignment-1-use-math-to-understand-the-consequences-of-our-assumptions." id="toc-assignment-1-use-math-to-understand-the-consequences-of-our-assumptions." class="nav-link" data-scroll-target="#assignment-1-use-math-to-understand-the-consequences-of-our-assumptions."><span class="toc-section-number">8.3.3</span>  Assignment 1: Use math to understand the consequences of our assumptions.</a></li>
+  </ul></li>
+  <li><a href="#discrete-difference-equations" id="toc-discrete-difference-equations" class="nav-link" data-scroll-target="#discrete-difference-equations"><span class="toc-section-number">8.4</span>  Discrete difference equations</a>
+  <ul class="collapse">
+  <li><a href="#assignment-2-explore-delayed-density-dependence" id="toc-assignment-2-explore-delayed-density-dependence" class="nav-link" data-scroll-target="#assignment-2-explore-delayed-density-dependence"><span class="toc-section-number">8.4.1</span>  Assignment 2: Explore delayed density-dependence</a></li>
+  </ul></li>
+  <li><a href="#sec-deliverables" id="toc-sec-deliverables" class="nav-link" data-scroll-target="#sec-deliverables"><span class="toc-section-number">8.5</span>  Deliverables</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title d-none d-lg-block"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Density-dependence in population growth</span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+</header>
+
+<div id="fig-hwange_elephant" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="figs/hwange_elephant.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Figure&nbsp;8.1: Elephant density in Hwange National Park, Zimbabwe, depends strongly on annual rainfall <span class="citation" data-cites="chamaille-jammes2008">(<a href="references.html#ref-chamaille-jammes2008" role="doc-biblioref">Chamaillé-Jammes et al. 2008</a>)</span>.</figcaption><p></p>
+</figure>
+</div>
+<section id="goals" class="level2" data-number="8.1">
+<h2 data-number="8.1" class="anchored" data-anchor-id="goals"><span class="header-section-number">8.1</span> Goals</h2>
+<p>In this chapter, you’ll learn how we represent crowding in populations. Per capita population growth rate often depends on population density. Along the way, you’ll learn we take ideas seriously, and follow them to their logical conclusions.</p>
+<p>If you successfully complete this chapter, you will</p>
+<ul>
+<li>extend exponential growth to include the effect of crowding,</li>
+<li>define <em>density-dependence</em>,</li>
+<li>distinguish between <em>transient dynamics</em> and long-term <em>asymptotic dynamics</em>, and</li>
+<li>discover the consequences of crowding by <em>solving</em> a rate equation.</li>
+</ul>
+</section>
+<section id="preparatory-steps" class="level2" data-number="8.2">
+<h2 data-number="8.2" class="anchored" data-anchor-id="preparatory-steps"><span class="header-section-number">8.2</span> Preparatory steps</h2>
+<ul>
+<li>Watch the lecture videos on <a href="https://drive.google.com/drive/folders/1nWLoEGuWKIWdul9Uvse5qiB1Hf8MCwUv?usp=sharing">density-dependent population growth (parts 1 &amp; 2)</a>. These videos assume that you watched the preceding population ecology videos.</li>
+<li>Find out what you need for the deliverables.</li>
+</ul>
+<div id="fig-elephantN" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="figs/figs13_C-J.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Figure&nbsp;8.2: The Hwange elephant population grew dramatically after the end of hunting (“culling”) that had kept the population size small <span class="citation" data-cites="chamaille-jammes2008">(<a href="references.html#ref-chamaille-jammes2008" role="doc-biblioref">Chamaillé-Jammes et al. 2008</a>)</span>.</figcaption><p></p>
+</figure>
+</div>
+</section>
+<section id="models-as-assumptions" class="level2" data-number="8.3">
+<h2 data-number="8.3" class="anchored" data-anchor-id="models-as-assumptions"><span class="header-section-number">8.3</span> Models as assumptions</h2>
+<p>Continuous logistic population growth is just a set of assumptions about how a population grows. The rate of change in our population is determined by its birth rate and death rate, and how population size affects these.</p>
+<p>The symbol <span class="math inline">\(dN/dt\)</span> means “change in population size (N) per unit change in time (t)”.</p>
+<p>Recall exponential growth (J-shaped growth) is <span class="math display">\[\frac{dN}{dt} = rN\]</span></p>
+<p>Logistic growth adjusts exponential growth by penalizing it for population size.</p>
+<p><span class="math display">\[\frac{dN}{dt} = rN\left(1-\alpha N \right)\]</span></p>
+<p>where <span class="math inline">\(\alpha\)</span> is a small number much less than one, and it is the effect of one individual on the growth rate of the population. Thus, as <span class="math inline">\(N\)</span> gets bigger, <span class="math inline">\(\alpha N \rightarrow 1\)</span> (approaches 1), and <span class="math inline">\(1-1=0\)</span>.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-logistic" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="08-density-dep-pop-growth_files/figure-html/fig-logistic-1.png" class="img-fluid figure-img" style="width:75.0%"></p>
+<p></p><figcaption class="figure-caption">Figure&nbsp;8.3: Logistic growth in a hypothetical population (parameters: <span class="math inline">\(r=0.25\)</span>, <span class="math inline">\(\alpha = 1/27000\)</span>).</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+<p>You see that in <a href="#fig-logistic">Figure&nbsp;<span>8.3</span></a>, the growth rate slows dramatically as the population size approaches some limit. We call that limit the <strong>carrying capacity</strong> of the population, and it is determined by the effects of individuals on the population growth rate, or <span class="math inline">\(\alpha\)</span>.</p>
+<section id="math-describes-nature-on-parameters-and-their-meanings" class="level3" data-number="8.3.1">
+<h3 data-number="8.3.1" class="anchored" data-anchor-id="math-describes-nature-on-parameters-and-their-meanings"><span class="header-section-number">8.3.1</span> Math describes nature: on parameters and their meanings</h3>
+<p>Often, we can describe a biological process in several different mathematical ways. Density-dependence in logistic growth is one such case.</p>
+<p>We can define logistic growth in two ways that are opposite sides of the same coin. Above, we used <span class="math inline">\(\alpha\)</span> to quantify the average effect of one individual on the growth rate of the population. Another common way to define logistic growth is by the consequences of these average individual effects: the carrying capacity which we call <span class="math inline">\(K\)</span>. It turns out that the carrying capacity is the inverse of the effect of an individual, so that <span class="math display">\[K = \frac{1}{\alpha}\]</span> and as a result we can rewrite logistic growth as <span class="math display">\[\frac{dN}{dt} = rN\left(1-\frac{ N}{K} \right)\]</span></p>
+<p>which is exactly equivalent to the first version we described above.</p>
+</section>
+<section id="solving-a-rate-equation" class="level3" data-number="8.3.2">
+<h3 data-number="8.3.2" class="anchored" data-anchor-id="solving-a-rate-equation"><span class="header-section-number">8.3.2</span> Solving a rate equation</h3>
+<p>We <strong>solve</strong> a rate equation in order to learn something about it’s <strong>asymptotic</strong> behavior. By “learn something” we mean figure out what will determine the size of population. By “asymptotic”, we mean really, really, long-term. We hope to find out what will eventually happen to the population and what will control it’s destiny.</p>
+<p>Another way to think about this is that we are seeking to find the <strong>equilibrium state</strong>, the state of the population toward which the population will tend to move. Imagine a marble in a wok or bowl. The marble will tend to move toward the bottom. When it finally settles down and <em>stops moving</em>, it is at its equilibrium state.</p>
+<p>We solve a rate equation by setting it equal to zero, because <strong>we want to understand what determines when the population stops changing.</strong></p>
+</section>
+<section id="assignment-1-use-math-to-understand-the-consequences-of-our-assumptions." class="level3" data-number="8.3.3">
+<h3 data-number="8.3.3" class="anchored" data-anchor-id="assignment-1-use-math-to-understand-the-consequences-of-our-assumptions."><span class="header-section-number">8.3.3</span> Assignment 1: Use math to understand the consequences of our assumptions.</h3>
+<p>Now solve for the equilibrium, when <span class="math inline">\(dN/dt = 0\)</span>. That is, let</p>
+<p><span class="math display">\[0 = rN\left(1-\alpha N\right)\]</span></p>
+<p>and solve for <span class="math inline">\(N\)</span>. That is, rearrange to get <span class="math inline">\(N\)</span> on the left side <span class="math inline">\(N=\)</span> and other stuff on the right side, and then simplify. SHOW ALL THE STEPS IN YOUR WORK.</p>
+</section>
+</section>
+<section id="discrete-difference-equations" class="level2" data-number="8.4">
+<h2 data-number="8.4" class="anchored" data-anchor-id="discrete-difference-equations"><span class="header-section-number">8.4</span> Discrete difference equations</h2>
+<p>Sometimes, it is simpler to think about rate equations in a step-wise annual fashion, where each change is a <strong>discrete</strong> step, rather than continuous change.</p>
+<p><strong>N (this year) = N (last year) + births - deaths</strong></p>
+<p>In this case, the rate of change is a <strong>difference</strong> between <span class="math inline">\(N\)</span> this year versus last year,</p>
+<p><strong>N (this year) - N (last year) = <span class="math inline">\(\Delta\)</span>N = births - deaths</strong></p>
+<p>In this situation, we call this a <strong>difference equation</strong>.</p>
+<p>The difference equation for logistic growth is</p>
+<p><span class="math display">\[N_t - N_{t-1} = \Delta N = r_d N_{t-1}\left(1- \alpha N_{t-1}\right)\]</span></p>
+<p>where the number of births and deaths is described by <span class="math inline">\(r_d N_{t-1}\left(1-N_{t-1}/K\right)\)</span>.</p>
+<p><strong>Notice an important feature</strong> of this equation: the density-dependence <span class="math inline">\((1-\alpha N_{t-1})\)</span> depends on the size of the population at one point in time (<span class="math inline">\(t-1\)</span>), but the population is projected out past this time. As a result, the dampening or slowly effect of density is <em>delayed</em>, always lagging behind just a little bit. You will investigate the consequences of this in your exrecise.</p>
+<p>We can project the population dynamics using</p>
+<p><span class="math display">\[N_t = N_{t-1}  +r_d N_{t-1}\left(1-\alpha N_{t-1}\right)\]</span></p>
+<section id="assignment-2-explore-delayed-density-dependence" class="level3" data-number="8.4.1">
+<h3 data-number="8.4.1" class="anchored" data-anchor-id="assignment-2-explore-delayed-density-dependence"><span class="header-section-number">8.4.1</span> Assignment 2: Explore delayed density-dependence</h3>
+<p>Here you will explore the consequences delayed density-dependence. In this exercise, you will discover <em>stable</em> points in a <strong>stable limit cycle</strong>. These <em>stable points</em> are the values of <span class="math inline">\(N\)</span> to which a population returns.</p>
+<p>You will also discover mathematical <strong>chaos</strong>. In science, <strong>chaos</strong> is defined as a deterministic, non-repeating pattern that is bounded, and characterized by sensitivity to initial conditions.</p>
+<p>In the code below, you will do several things. First, we set up things that won’t change,</p>
+<ol type="1">
+<li>the carrying capacity (<span class="math inline">\(K=100\)</span>),</li>
+<li>the number of generations (50).</li>
+<li>an empty vector that will eventually hold all of our values of <span class="math inline">\(N\)</span>.</li>
+<li>the initial size of the population. For simplicity, keep this between 40 and 70.</li>
+</ol>
+<p>Next we do things to investigate the consequences of delayed density-dependence. Here we investigate what happens when populations grow slowly (small <span class="math inline">\(r_d\)</span>) vs.&nbsp;quickly (large <span class="math inline">\(r_d\)</span>).</p>
+<p>You will do these things four times.</p>
+<ol type="1">
+<li>Select a value of <span class="math inline">\(r_d\)</span>. Pick four different values for rd , one each between
+<ol type="a">
+<li>0.2 and 1.5,</li>
+<li>2.1 and 2.4,</li>
+<li>2.45 - 2.56</li>
+<li>2.7- 3.</li>
+</ol></li>
+<li>For your first value of <span class="math inline">\(r_d\)</span>, project the dynamics, graph the time series of the dynamics, and save the graph under a unique name.</li>
+<li>Repeat for the second, third, and fourth values of <span class="math inline">\(r_d\)</span>.</li>
+</ol>
+<p>When you are finished, you should have four graphs that each use a different value of <span class="math inline">\(r_d\)</span> and each should look quite different.</p>
+<p><strong>Step 1</strong> Set up things that won’t change.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Define K, N0, the number of generations</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>K <span class="ot">&lt;-</span> <span class="dv">100</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>gens <span class="ot">&lt;-</span> <span class="dv">50</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="do">## make numeric vector for each N in each generation, plus one more</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>N <span class="ot">&lt;-</span> <span class="fu">numeric</span>(gens)</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="do">## Start the population out at this number of individuals</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>N[<span class="dv">1</span>] <span class="ot">&lt;-</span> <span class="dv">45</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><strong>Select</strong> a value of <span class="math inline">\(r_d\)</span> and use a for-loop to project the population through time, from one year to the next.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="do">############################################</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="do">## THIS IS WHERE YOU PICK THE VALUE OF rd YOU WANT</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>rd <span class="ot">&lt;-</span> <span class="fl">0.2</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="do">############################################</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="do">## project the population</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>(t <span class="cf">in</span> <span class="dv">2</span><span class="sc">:</span>gens) { </span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>  N[t] <span class="ot">&lt;-</span> N[t<span class="dv">-1</span>] <span class="sc">+</span> N[t<span class="dv">-1</span>]<span class="sc">*</span>rd<span class="sc">*</span>(<span class="dv">1</span><span class="sc">-</span>N[t<span class="dv">-1</span>]<span class="sc">/</span>K) </span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a><span class="co"># store this result in a data frame</span></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>my.N <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">year=</span><span class="dv">1</span><span class="sc">:</span>gens, <span class="at">N=</span>N)</span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a><span class="co">#for kicks, look at rows 1-3.</span></span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>my.N[<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>,]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  year     N
+1    1 45.00
+2    2 49.95
+3    3 54.95</code></pre>
+</div>
+</div>
+<p><strong>Graph</strong> the time series of the population dynamics, and <strong>change the name of the file</strong> that you save using <code>ggsave()</code>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="do">## graph your data</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>my.N, <span class="fu">aes</span>(<span class="at">x=</span>year, <span class="at">y=</span>N )) <span class="sc">+</span> </span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span> </span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>() <span class="sc">+</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Discrete Logistic Growth"</span>,</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>       <span class="at">subtitle=</span><span class="fu">paste</span>(<span class="st">"rd ="</span>, rd))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="08-density-dep-pop-growth_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid" width="672"></p>
+</div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="do">## save your graph USING A UNIQUE NAME</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="st">"dynamics-rd-0.2.png"</span>, <span class="at">height=</span><span class="dv">5</span>, <span class="at">width=</span><span class="dv">6</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><strong>Put into one document</strong> your four graphs, and a description of how the graphs differ, including</p>
+<ul>
+<li>the relationship between <span class="math inline">\(r_d\)</span> and the year in which the carrying capacity is reached or exceeded,</li>
+<li>the predictability of the dynamics, and</li>
+<li>the number of stable points to which the population returns.</li>
+</ul>
+</section>
+</section>
+<section id="sec-deliverables" class="level2" data-number="8.5">
+<h2 data-number="8.5" class="anchored" data-anchor-id="sec-deliverables"><span class="header-section-number">8.5</span> Deliverables</h2>
+<p>Put your work from section 8.3 (Assignment 1) and section 8.4 (Assignment 2) into one document and turn in by the due date.</p>
+
+
+<div id="refs" class="references csl-bib-body hanging-indent" role="doc-bibliography" style="display: none">
+<div id="ref-chamaille-jammes2008" class="csl-entry" role="doc-biblioentry">
+Chamaillé-Jammes, Simon, Hervé Fritz, Marion Valeix, Felix Murindagomo, and Jean Clobert. 2008. <span>“<a href="https://www.ncbi.nlm.nih.gov/pubmed/17986249">Resource Variability, Aggregation and Direct Density Dependence in an Open Context: <span>The</span> Local Regulation of an <span>African</span> Elephant Population</a>.”</span> <em>Journal of Animal Ecology</em> 77 (1): 135–44.
+</div>
+</div>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./07-structured-pop-growth_v2.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Structured demography: How a graduate student helped save the loggerhead sea turtle</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./09-direct-interactions.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Direct species interactions: understanding mechanisms of invasion in mosquitoes</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+</body></html>

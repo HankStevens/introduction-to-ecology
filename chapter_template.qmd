@@ -1,0 +1,117 @@
+---
+title: "Chapter title"
+---
+
+![caption](picture){#fig-label width=75%}
+
+## Goals
+Explanation
+
+In this chapter, you will, 
+
+* stuff
+
+## Preparatory steps
+
+1. General background lectures: Download the slides and watch the video on XX (https://drive.google.com/drive/folders/1nWLoEGuWKIWdul9Uvse5qiB1Hf8MCwUv?usp=sharing){target="_blank"} before proceeding.
+1. Data: go to our [class data repository](https://drive.google.com/drive/u/1/folders/1FR2FLiW3xyD4Er52YzVTToPZuXXReGRo){target="_blank"}, and download `XX.csv`. 
+   a. Make sure the file remains in the same simple format, "comma separated values" (.csv).
+   a. Put `XX.csv` in your working directory, `Rwork`.
+   a. Continue to make sure the file remains in the same simple format, "comma separated values" (.csv).
+1. Find out what you need for the deliverables (@sec-deliverables).
+
+## Background on XX
+
+## Details about our data
+
+
+## Your hypothesis and predictions
+**The data you have available** are ...
+
+What you know:
+
+1. ...
+1. Your data: the abundance of herbivores remaining on plants.
+
+Questions you might consider:
+
+* ...
+
+Think about what you know and ponder the above questions. Then generate a hypothesis about how various conditions might affect how ants protect plants.   **Recall a scientific hypothesis is a idea about how you think the world works.** A hypothesis differs from predictions. A hypothesis is a mechanism, not an observed result.
+
+**After you have written down your hypothesis**, write down a prediction that follows logically and that you can evaluate with the data we have (...). Once you have a prediction, **sketch a graph** of what your data would look like if your hypothesized mechanism operated in this system.
+
+
+
+## Data analysis
+
+
+First, open R using RStudio, and **set your working directory**. You can do this in two ways:
+
+1. using the Session menu in RStudio, or 
+1. with code such as this, in which you customize it to your computer:
+```
+setwd("C:/Users/chenjoe/BIO209W/Rwork")
+```
+
+You can confirm or **get** your *current* working directory using this:
+```{r}
+getwd()
+```
+so when I do that, you can see my working directory is the one for this book. 
+
+Before you proceed, make sure your working directory is your `Rwork` directory.
+
+Second, use RStudio to create a new file of the type "R script". Save it using a name that reflects this chapter, and end the file name with ".R" or ".r".
+
+Third, add a comment as a brief description of the script, and load any R packages you know you will need.
+```{r}
+#| message: false
+## This script is for chapter XX in Hank's Intro to Ecology primer.
+
+## We always use...
+library(tidyverse)
+## or usually just ggplot2 and dplyr packages within the tidyverse.
+
+```
+
+
+
+
+
+### The data	
+
+Make sure that your data file is in your `Rwork` directory. and is still just a CSV file.
+
+**Open the data file** (.csv file) in a spreadsheet application, a text editor, or in RStudio. Do **not** save it the file the spreadsheet application because it will try to change the format. 
+
+1. With the file open, learn what is on the first several lines. Often, the first line or two will have *metadata* or information about the data (data about the data). 
+1. Below the metadata, you will see column headings, separated by commas, because the data are *CSV* or comma-separated-values.
+1. Below the column headins are the data, with columns separated by commas.
+
+Close the data file, and *do not save it.* If you save it, chances are good that the application will try to save it in a different format. 
+
+**Import the data** or *read* the data into R. Here is code for that. You will notice that we use a function that expects a CSV file. You will also notice that we use an *argument* to tell R how many lines of metadata to skip so it reads only the data and its column headings.
+```{r}
+#| echo: false
+d <- read.csv("data/ArthropodObservations.csv",
+              skip=1)
+```
+
+```{r}
+#| eval: false
+## NOTE that we skip the first line because it is metadata
+d <- read.csv("ArthropodObservations.csv",
+              skip=1)
+```
+
+Look at your data with one of these two:
+```{r}
+# glimpse(d)
+# or 
+str(d)
+```
+
+## Display the data to evaluate your predictions
+
+## Deliverables {#sec-deliverables}

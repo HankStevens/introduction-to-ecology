@@ -1,0 +1,12 @@
+---
+title: "math"
+format: pdf
+---
+
+
+$$\{ S(x) :x \in \mathbb{R}^2 \}$$
+
+
+
+
+	 

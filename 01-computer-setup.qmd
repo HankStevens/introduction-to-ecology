@@ -1,26 +1,83 @@
 ---
-title: "Computer setup"
+title: "Computer setup and first R script"
 ---
 
 ## Goals
 
-- Install R and RStudio
-- Set up your computer to play well with R.
-- Begin to learn how to use R.
+- Learn about your computer and how to organize its files. 
+- Install R, an open source programming language.
+- Begin to use R effectively.
 
 ## Background
 
-In this project, you will download and install R, known formally as the *R programming language and environment*. You will also install *RStudio*, an integrated development environment (IDE), designed to be used with R. The R interface looks a little different on Windows, Macs, and Linux computers. RStudio will allow us all share an identical appearance and user experience. You will use R by opening RStudio.
+In this project, you will begin to use tools for data exploration and analysis. This tools and your computer are really important for helping you make sense of our really complicated world. Ecology is way more complicated than physics or engineering, and the data are noisy and often unpredictable. We need to use computers to make sense of it.
 
-These videos might be useful, although all the content and instructions are written in text below. Ranked in order of importance and convenience:
+We will use open source and free software to help us understand ecological systems. You will download and install R, known formally as the R programming language and environment. You will also install RStudio, an integrated development environment (IDE), designed to be used with R. The R interface looks a little different on Windows, Macs, and Linux computers. RStudio will allow us all share an identical appearance and user experience. You will use R by opening RStudio.
 
-1. [Installing R and RStudio](https://youtu.be/4KcNgXS1CUw){target="_blank"}
-1. [Set up your computer and start to use R via RStudio](https://youtu.be/vf5El6FVwpw){target="_blank"}
-1. [Saving figures made with ggplot()](https://youtu.be/p4uT6ycJEjw){target="_blank"}
-1. [Introduction to ggplot2 (long - 20 min)](https://youtu.be/uS0_OH8fRls){target="_blank"}
+### Understanding you computer
 
+First, we need to make sure we know some basics about computers.
+
+### Folders, directories, and directory structure
+
+On your computer,
+
+- a folder is a place to put files and other folders,
+- "a directory is a file system cataloging structure that contains references to other computer files, and possibly other directories." (Wikipedia)
+- A folder is a part of your computer's directory system.
+
+If you have not already done so, **you need to organize your computer.**
+
+Do these:
+
+- Make different folders (or directories) for different classes.
+- Make different folders for different kinds of content (e.g., data, articles, your writing).
+
+In addition,
+
+- do *not* use the Desktop or Downloads to store anything important, and
+- do *not* mix personal content and course content.
+
+Watch one of these to help you understand how your computer is organized. This will save you hours of time and frustration throughout your life.
+
+* [For Windows users (PCs)](https://youtu.be/hUW5MEKDtMM){target="_blank"}
+* [For Mac users](https://youtu.be/5pOu70ta0xY){target="_blank"}
+
+
+
+### File types and file name extensions
+
+**File extensions** are little tags at the end of file names taht identify the *type* of file it is. You will need to be able to see file extensions on your computer. A file extension is the little label at the end of a file name that comes after the dot, such as
+
+- .jpg or .jpeg is the extension for JPEG image files.
+- .docx is the extension for Microsoft Word document files.
+- .txt is the extension for plain text files.
+- .xlsx is the extension for Microsoft Excel files. You will work with these.
+- .csv is the extension for Comma Separated Value text files - these can be produced by spreadsheet applications. You will work with these.
+- .R is the extension for R scripts. You will work with these.
+
+Note that, by default, Windows hides these from the user. **Here is how we fix that on Windows.** (Mac users can skip this.)
+
+On Windows 10, you need to make changes to see file extensions by revealing "hidden items". Windows 10: 
+
+1. Open File Explorer; if you do not have an icon for this in the task bar; click Start, click Windows System, and then File Explorer. 
+
+![Finding File Explorer on Windows.](figs/file-explorer.png){width=60%}
+
+
+2.  Click the View tab in File Explorer
+
+![View tab in File Explorer](figs/view-tab.png){width="100%"}
+
+
+3.  Click the box next to File name extensions to see file extensions.
+4.  Click the box next to Hidden items to see hidden files.
+
+You should now be able to see file name extensions (e.g., .docx, .R) and hidden files.
 
 ## Installing R
+
+Armed with a little knowledge of your computer, you now install R.
 
 ### What and Why
 
@@ -36,9 +93,20 @@ You need to download the application to get started.
 -   R runs on all operating systems.
 -   R is powerful.
 
-### How
+### How-to videos (optional)
 
-1.  Find out what version of operating system (OS) your computer is using (e.g., Windows 10 or 11, or Linux Ubuntu 22.04, or Mac Monterey or Ventura). This will help determine which version of R to use. If you are using a Mac, this also requires that you determine which version of processor or chip your computer uses (Intel processor vs. Apple M1 chip or higher). Check the processor or chip using the Apple icon menu in the upper left corner.
+The following videos might be useful, but they are not required! The next sections describe (in words) how to install R and RStudio.
+
+Optional videos:
+
+1. [Installing R and RStudio](https://youtu.be/4KcNgXS1CUw){target="_blank"}
+1. [Set up your computer and start to use R via RStudio](https://youtu.be/vf5El6FVwpw){target="_blank"}
+1. [Saving figures made with ggplot()](https://youtu.be/p4uT6ycJEjw){target="_blank"}
+1. [Introduction to ggplot2 (20 min)](https://youtu.be/uS0_OH8fRls){target="_blank"}
+
+### How-to instructions
+
+1.  Find out what version of operating system (OS) your computer is using (e.g., Windows 10 or 11, or Linux Ubuntu, or Mac Sonoma, or other recent editions). This will help determine which version of R to use. If you are using a Mac, this also requires that you determine which version of processor or chip your computer uses (Intel processor vs. Apple M1 chip or higher). Check the processor or chip under "About this Mac" in the *Apple icon menu* in the upper left corner of your screen.
 2.  Google R (just the letter "R") to navigate to the *R Project for Statistical Computing*.
 3.  Find the link in the left Task Bar for *CRAN* (Comprehensive R Archive Network).
 4.  Find and navigate to a CRAN site near you (e.g., United States or Midwest US or Ohio). These are called *mirrors* because they are copies of each other.
@@ -51,7 +119,7 @@ You need to download the application to get started.
 
 ### Where
 
--   R and RStudio will be installed along side all your other applications.
+- R (and RStudio) will be installed along side all your other applications.
 
 ### Installing RStudio
 
@@ -62,60 +130,44 @@ RStudio is an integrated development environment (IDE), designed to be used with
 1. Select and download the Open Source Edition (RStudio Desktop). You want the desktop version (not the server version).
 1. Follow instructions to install on your computer.
 
+### R $\neq$ RStudio
+
 RStudio is an interface to R. When we use R in this class, we will use RStudio as our interface, but you need to realize that we are primarily *using R*. We don't need RStudio to do the work, but it makes my job as instructor easier, and makes it a little easier for you as well. So, *when you start to use R, just open RStudio, and it will load R for you*.
 
-### Windows tweak
-
-You will need to be able to see file extensions on your computer. A file extension is the little label at the end of a file name that comes after the dot, such as
-
--   .jpg or .jpeg is the extension for JPEG image files.
--   .docx is the extension for Microsoft Word document files.
--   .txt is the extension for plain text files.
-- .xlsx is the extension for Microsoft Excel files. You will work with these.
-- .csv is the extension for Comma Separated Value text files - these can be produced by spreadsheet applications. You will work with these.
-- .R is the extension for R scripts. You will work with these.
-
-On Windows 10, you need to make changes to see file extensions by revealing "hidden items". Windows 10: 1. Open File Explorer; if you do not have an icon for this in the task bar; click Start, click Windows System, and then File Explorer. 
-
-![Finding File Explorer on Windows.](figs/file-explorer.png){width=60%}
-
-
-2.  Click the View tab in File Explorer
-
-![View tab in File Explorer](figs/view-tab.png){width="100%"}
-
-
-3.  Click the box next to File name extensions to see file extensions.
-4.  Click the box next to Hidden items to see hidden files.
-
-You should now be able to see file name extensions (e.g., .docx, .R) and hidden files.
+In this class, you will use the English language to write about ecology, and the R language to explore and analyze ecological data.
 
 ## Set up two folders for this class
 
-1. Set up a folder for this class. Call it "BIO209W". Do not name it "BIO 209W" or "Bio209W" or "ecology". Just "BIO209W". It will help us. I don't really care where you put this folder, but I hope you have a place for all of your classes and you could put it there.
+1. Set up a folder for this class. Call it "BIO209W". Do not name it "BIO_209W" or "Bio209W" or "ecology". Just "BIO209W". It will help us. I don't really care where you put this folder, but you should have a place for all of your classes, and you could put it there. Don't put it in "Downloads".
 
-2. Next, set up a **subfolder** inside BIO209W called "Rwork". Do not call it "RWORK" or "R work" or anything - just "Rwork". It will help us. A lot. `Rwork` will be your *working directory*, which is where R looks automatically for data and where it automatically puts output.
+2. Next, set up a **subfolder** inside BIO209W called "Rwork". Do not call it "RWORK" or "R_work" or anything else - just "Rwork". It will help us. A lot. `Rwork` will be your **working directory**, which is where R looks automatically for data and where it automatically puts output.
 
 ## Working in R
 
-To work in R in this class, we will open RStudio. It will open R for you. 
+To work in R in this class, we will open RStudio. It will open R for you.
 
-### Set your working directory
+### Set your "working directory"
 
-Your working directory is where R looks to find stuff. R can look anywhere you tell it to, but it looks automatically in your "working directory". In this class, you should always use "Rwork" as your working directory.
+In this section, we learn what the "working directory" is and how to set it.
 
-First, let's find out what your current working directory is. We will GET your Working Directory with this code:
+Your **working directory** is where R looks to find stuff by default. R can look anywhere you tell it to, but it looks automatically in your "working directory". 
+
+In this class, you should always use "Rwork" as your working directory. 
+
+I can find out where my working directory is by using `getwd()` to **get** my working directory:
 ```{r}
 getwd()
 ```
 
 This tells me what R is using as my working directory right now. My current working directory will differ from yours.
 
-What do you get when you run this code? If it is NOT Rwork, use the "Session" pulldown menu in RStudio to `Set Working Directory` and then `Choose your working directory` and always choose `Rwork` (which should be inside BIO209W).
+You should run this code, and see what you get. What do you get when you run this code (`getwd()`)? 
+
+Next, use the "Session" in pulldown menu in RStudio to `Set Working Directory` and then `Choose your working directory` and always choose `Rwork` (which should be inside BIO209W).
 
 ### Create a *project*
 
-RStudio allows you to organize your work in *projects*. Here we create a new project that we will call `Rwork`. 
+RStudio allows you to organize your work in *projects*. Here we create a new project that we will call `Rwork`.
 
 This requires that you already have a folder called "BIO209W" and a subfolder in that called "Rwork".
 
@@ -127,7 +179,7 @@ RStudio will now shift the working directory to your Rwork directory. You can se
 
 **From now on in this course, make sure that you are using this project.** You can open R by clicking the "Rwork.proj" file in your Rwork directory, or opening RStudio, and selecting the Rwork project in the upper right corner.
 
-## Start and save a script
+### Scripts: Start and save a script
 
 Goal: Write a script in R and learn several important programming operations.
 
@@ -170,9 +222,9 @@ W?hen we create something, we typically want to *assign* it to a labeled object.
 ```{r}
 a <- -1:5
 ```
-This puts the series of integers from -1 to 10 into the object `a`. 
+This puts the series of integers from -1 to 5 into the object `a`. 
 
-### Examing objects
+### Examining objects
 If we have an object, like `a`, how can we figure out what it is? There are several ways of doing that. The simplest is to "print" it out. This doesn't mean that we print it on paper. Rather we are printing it to the console, like this:
 ```{r}
 # show or 'print' a
@@ -185,7 +237,36 @@ str(a)
 ```
 This tells us that this is a vector of integers that is 7 elements long.
 
-Another way is to look in the RStudio *Environment pane* in the upper righthand side of RStudio.
+Another way is to look in the RStudio *Environment pane* in the upper right hand side of RStudio.
+
+### Things you'll find out about R
+
+If you are not used to writing code (and nobody is born that way), here are some thing to keep in mind about R and about coding in general.
+
+1. Computers do **exactly** what you tell them. This is both frustrating and also satisfying.
+1. R does not know anything or do anything until you **run** the code. Typing or pasting code into a script is just the first step; you also need to **run** the code, with Control-return (Windows or Mac) or Command-return (Mac).
+1. A corollary of no. 5 is that you usually need to run lines of code in sequence. For instance, R won't be able to run `str(a)` unless you previously defined `a`, such as `a <- -1:5` (this is because R is an *interpreted* language - R interprets it one line at a time).
+1. Case matters in R. R interprets `a` as something completely different than `A`.
+1. Spaces *between* things usually don't matter in R. R interprets `2+3` the same as `2 + 3`.
+1. Space *within* things usually breaks them, just the way "thin" "gs" is not the same as "things". For example, the pseudo-arrow we use in `f <- 9` is a thing. The compound symbol `<-` means something different than `< -`. 
+    i. `<-` is the *assignment operator* and assigns values to objects. 
+    i.  `< -` means "less than, minus", where `2 < -3` tests whether 2 is less than minus 3 (it isn't).
+    
+Try it.
+```{r}
+f <- 9
+f
+```
+Now `f` has the value of 9.
+
+Try this:
+```{r}
+2 < -3
+```
+
+That tested whether 2 is less than -3.
+
+Moving on....
 
 Now let's create a set of 7 uniformly distributed random numbers that are between 0 and 1.
 ```{r}
@@ -209,7 +290,7 @@ You can confirm at a glance that the first and second elements in `a` times the 
 
 ### Combining vectors into a data frame
 
-We will use lots of data frames in this course. Think of a data frame as a kind of spreadsheet of data, in which every column has the same number of entries and every row is an observation comprising all of the variables across all the columns. 
+We will use lots of **data frames** in this course. Think of a data frame as a kind of spreadsheet of data, in which every column has the same number of entries and every row is an observation comprising all of the variables across all the columns. 
 
 Here is one way to create a data frame. We assign variables using "=".
 ```{r}
@@ -295,7 +376,7 @@ ggsave("myPlot.pdf", width=3, height = 5)
 
 R has a bit of a learning curve. What should you do if you get stuck? It all depends what sort of problem it is.
 
-1. First, ask your partner.
+1. First, ask a classmate.
 1. Use the Help tab in the lower right pane in RStudio. (Similarly, type `?mean` in the Console to get help on the function `mean()`.)
 1. Ask another classmate.
 1. Ask me.
@@ -306,7 +387,10 @@ R has a bit of a learning curve. What should you do if you get stuck? It all dep
 
 For the "First R script" assignment on Canvas:
 
-1. Upload "myPlot.png" and "myDataframe.csv" to the .
+1. Upload three files to the Canvas First R Script assignment:
+   a. `myPlot.png`
+   a. `myDataframe.csv`
+   a. the R script, into which you wrote all your code. This file must be written in RStudio, and the name must end with the file name extension, ".R", such as "Hanks_script.R"
 1. Explain your biggest surprise in this assignment.
 
 Congratulations. *C'est fini*!

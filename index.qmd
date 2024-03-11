@@ -1,6 +1,9 @@
 # Preface {.unnumbered}
 
-```{r}
+```{r setup, echo=FALSE, include=FALSE}
+options(gargle_oauth_email = "stevenmh@miamioh.edu", 
+        message=FALSE, 
+        warning = FALSE)
 library(tidyverse)
 library(dagitty)
 library(ggdag)
@@ -16,6 +19,21 @@ Each chapter provides,
 * one or more writing assignments, and
 * data exploration and modeling.
 
-My other books include [*A Primer of Ecology using R*](https://hankstevens.github.io/Primer-of-Ecology/) and [*A Primer of Ecosystem Modeling*](https://hankstevens.github.io/ecosystems-primer/). The former (Primer of Ecology) is designed primarily for graduate students as a primer to theory in population community ecology. It was first published with Springer in 2009, and the current GitHub version is quite updated. I use the former (ecosystem modeling) when I co-instruct a graduate course led by colleagues who are real ecosystem ecologists (Drs. Melany Fisk, Mike Vanni, and Lesley Knoll).
+Each chapter mixes (i) ecological content and (ii) coding practices. Students will get the most out of the content if they understand and *accept* this from the start. Avoiding one or the other reduces their ability to understand, appreciate, and use both.
+
+## Guidance
+
+Use these tips to help reduce frustration and make things work better:
+
+
+* The book should be read and the code implemented in sequence. For example, you should complete chapter 1 before chapter 2, complete chapter 2 before chapter 3, and so on. That is for two reasons. First, you will learn things about R and your computer in earlier chapters that you may need to know for later chapters. This is especially true for the first few chapters. Second, you will gain ecological knowledge in earlier chapters that enrich your experience in later chapters.
+* When the text provides an enumerated list or *numbered* bullet items (e.g., 1, 2, 3 or a, b, c), it is usually very important or even essential to do these steps in sequence. There will be times that it is impossible to succeed unless you do the steps in *sequence*.
+* When the text provides a simple, unnumbered list, it is usually not important to consider these items as representing a sequence.
+* I included a few sections entitled *Overthinking*. I stole this idea from Richard McElreath [@mcelreath2020], and these are sections that you can skip on the first read, and are not essentially for getting things to *work*. They provide deeper, more detailed explanations than is typically required.
+
+
+## Other books
+
+My other books include [*A Primer of Ecology using R*](https://hankstevens.github.io/Primer-of-Ecology/) and [*A Primer of Ecosystem Modeling*](https://hankstevens.github.io/ecosystems-primer/). The former (Primer of Ecology) is designed primarily for beginning graduate students as a primer to theory in population and community ecology. It was first published with Springer in 2009, and the current GitHub version is quite updated. I use the latter (ecosystem modeling) when I co-instruct a graduate course led by colleagues who are real ecosystem ecologists (Drs. Melany Fisk, Mike Vanni, and Lesley Knoll).
 
 *Mazel tov!*

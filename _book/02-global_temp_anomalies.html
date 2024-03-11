@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Inntroduction to Ecology - 3&nbsp; A Fate of Earth</title>
+<title>Basic Ecological Concepts and Data in R - 3&nbsp; Physical Environment: A Fate of Earth</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -93,7 +93,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./summary.html" rel="next">
+<link href="./03-liana-phys.html" rel="next">
 <link href="./01-trees_and_people.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -133,7 +133,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
     <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">A Fate of Earth</span></h1>
+      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Physical Environment: A Fate of Earth</span></h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -146,7 +146,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
-      <a href="./">Inntroduction to Ecology</a> 
+      <a href="./">Basic Ecological Concepts and Data in R</a> 
     </div>
       </div>
       <div class="mt-2 flex-shrink-0 align-items-center">
@@ -163,22 +163,62 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./01-computer-setup.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Computer setup</span></a>
+  <a href="./01-computer-setup.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Computer setup and first R script</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./01-trees_and_people.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Tree Cover: an investigation in ecology and in environmental justice</span></a>
+  <a href="./01-trees_and_people.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Environmental Justice: How income relates to environment.</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./02-global_temp_anomalies.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">A Fate of Earth</span></a>
+  <a href="./02-global_temp_anomalies.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Physical Environment: A Fate of Earth</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./summary.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Summary</span></a>
+  <a href="./03-liana-phys.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Individual responses to the environment: What makes lianas relatively successful in stressful habitats?</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./04-extrapair_copulation.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Behavior: Extra-pair copulation in a monogamous species</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./06-DI-pop-growth.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Density-independent Population Growth: Humans on the rise</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./07-structured-pop-growth_v2.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Structured demography: How a graduate student helped save the loggerhead sea turtle</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./08-density-dep-pop-growth.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Density-dependence in population growth</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./09-direct-interactions.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Direct species interactions: understanding mechanisms of invasion in mosquitoes</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./10-mutualisms.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Mutualisms: Do ants protect pea plants?</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./11-predator-prey.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Of wolves and moose, on Isle Royale</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./20-ecosystem-intro.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">An Introduction to the Carbon Cycle and Global Heating</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -197,22 +237,19 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <ul>
   <li><a href="#goals" id="toc-goals" class="nav-link active" data-scroll-target="#goals"><span class="toc-section-number">3.1</span>  Goals</a></li>
   <li><a href="#background" id="toc-background" class="nav-link" data-scroll-target="#background"><span class="toc-section-number">3.2</span>  Background</a></li>
-  <li><a href="#activity" id="toc-activity" class="nav-link" data-scroll-target="#activity"><span class="toc-section-number">3.3</span>  Activity</a></li>
-  <li><a href="#r-code" id="toc-r-code" class="nav-link" data-scroll-target="#r-code"><span class="toc-section-number">3.4</span>  R code</a>
+  <li><a href="#activity" id="toc-activity" class="nav-link" data-scroll-target="#activity"><span class="toc-section-number">3.3</span>  Activity</a>
   <ul class="collapse">
-  <li><a href="#set-up" id="toc-set-up" class="nav-link" data-scroll-target="#set-up"><span class="toc-section-number">3.4.1</span>  Set up</a></li>
+  <li><a href="#set-up" id="toc-set-up" class="nav-link" data-scroll-target="#set-up"><span class="toc-section-number">3.3.1</span>  Set up</a></li>
+  <li><a href="#import-data" id="toc-import-data" class="nav-link" data-scroll-target="#import-data"><span class="toc-section-number">3.3.2</span>  Import data</a></li>
+  <li><a href="#finding-out-information-about-the-temperature-anomalies" id="toc-finding-out-information-about-the-temperature-anomalies" class="nav-link" data-scroll-target="#finding-out-information-about-the-temperature-anomalies"><span class="toc-section-number">3.3.3</span>  Finding out information about the temperature anomalies</a></li>
+  <li><a href="#minimum-and-maximum" id="toc-minimum-and-maximum" class="nav-link" data-scroll-target="#minimum-and-maximum"><span class="toc-section-number">3.3.4</span>  Minimum and maximum</a></li>
+  <li><a href="#using-a-year" id="toc-using-a-year" class="nav-link" data-scroll-target="#using-a-year"><span class="toc-section-number">3.3.5</span>  Using a year</a></li>
+  <li><a href="#plotting-information" id="toc-plotting-information" class="nav-link" data-scroll-target="#plotting-information"><span class="toc-section-number">3.3.6</span>  Plotting information</a></li>
   </ul></li>
-  <li><a href="#import-data" id="toc-import-data" class="nav-link" data-scroll-target="#import-data"><span class="toc-section-number">3.5</span>  Import data</a></li>
-  <li><a href="#finding-out-information-about-the-temperature-anomalies" id="toc-finding-out-information-about-the-temperature-anomalies" class="nav-link" data-scroll-target="#finding-out-information-about-the-temperature-anomalies"><span class="toc-section-number">3.6</span>  Finding out information about the temperature anomalies</a>
-  <ul class="collapse">
-  <li><a href="#minimum-and-maximum" id="toc-minimum-and-maximum" class="nav-link" data-scroll-target="#minimum-and-maximum"><span class="toc-section-number">3.6.1</span>  Minimum and maximum</a></li>
-  <li><a href="#using-a-year" id="toc-using-a-year" class="nav-link" data-scroll-target="#using-a-year"><span class="toc-section-number">3.6.2</span>  Using a year</a></li>
-  </ul></li>
-  <li><a href="#plotting-information" id="toc-plotting-information" class="nav-link" data-scroll-target="#plotting-information"><span class="toc-section-number">3.7</span>  Plotting information</a></li>
-  <li><a href="#predicting-future-anomalies" id="toc-predicting-future-anomalies" class="nav-link" data-scroll-target="#predicting-future-anomalies"><span class="toc-section-number">3.8</span>  Predicting future anomalies</a></li>
-  <li><a href="#does-earth-have-a-fever" id="toc-does-earth-have-a-fever" class="nav-link" data-scroll-target="#does-earth-have-a-fever"><span class="toc-section-number">3.9</span>  Does Earth have a fever?</a></li>
-  <li><a href="#questions-to-answer" id="toc-questions-to-answer" class="nav-link" data-scroll-target="#questions-to-answer"><span class="toc-section-number">3.10</span>  Questions to answer</a></li>
-  <li><a href="#deliverables" id="toc-deliverables" class="nav-link" data-scroll-target="#deliverables"><span class="toc-section-number">3.11</span>  Deliverables</a></li>
+  <li><a href="#predicting-future-anomalies" id="toc-predicting-future-anomalies" class="nav-link" data-scroll-target="#predicting-future-anomalies"><span class="toc-section-number">3.4</span>  Predicting future anomalies</a></li>
+  <li><a href="#does-earth-have-a-fever" id="toc-does-earth-have-a-fever" class="nav-link" data-scroll-target="#does-earth-have-a-fever"><span class="toc-section-number">3.5</span>  Does Earth have a fever?</a></li>
+  <li><a href="#questions-to-answer" id="toc-questions-to-answer" class="nav-link" data-scroll-target="#questions-to-answer"><span class="toc-section-number">3.6</span>  Questions to answer</a></li>
+  <li><a href="#deliverables" id="toc-deliverables" class="nav-link" data-scroll-target="#deliverables"><span class="toc-section-number">3.7</span>  Deliverables</a></li>
   </ul>
 </nav>
     </div>
@@ -221,7 +258,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title d-none d-lg-block"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">A Fate of Earth</span></h1>
+<h1 class="title d-none d-lg-block"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Physical Environment: A Fate of Earth</span></h1>
 </div>
 
 
@@ -241,12 +278,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2 data-number="3.1" class="anchored" data-anchor-id="goals"><span class="header-section-number">3.1</span> Goals</h2>
 <p>In this assignment, you will</p>
 <ul>
-<li>Learn about the history of our perspective on global warming.</li>
-<li>Use R to display estimates of global temperature anomalies.</li>
-<li>Describe the current temperature trajectory.</li>
-<li>Compare and contrast changes in temperature between humans and Earth.</li>
+<li><p>Learn about the history of our perspective on global warming.</p></li>
+<li><p>Use R to display estimates of global temperature anomalies.</p></li>
+<li><p>Describe the current temperature trajectory.</p></li>
+<li><p>Compare and contrast changes in temperature between humans and Earth.</p></li>
+<li><p>Video lecture on global warming and climate change: TBA</p></li>
+<li><p>Background reading: <a href="https://drive.google.com/drive/folders/1opLlrmF7kfo0FtWwwJ1CbfPWIyuaISC1?usp=share_link">Pilla et al.&nbsp;(2020) Deeper waters are changing less consistently than surface waters in a global analysis of 102 lakes</a></p></li>
 </ul>
-<p>Video lecture on global warming and climate change:</p>
 </section>
 <section id="background" class="level2" data-number="3.2">
 <h2 data-number="3.2" class="anchored" data-anchor-id="background"><span class="header-section-number">3.2</span> Background</h2>
@@ -258,23 +296,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </section>
 <section id="activity" class="level2" data-number="3.3">
 <h2 data-number="3.3" class="anchored" data-anchor-id="activity"><span class="header-section-number">3.3</span> Activity</h2>
-<ol type="1">
-<li>Download “global_surface_anomalies.csv. Place it in you Rwork folder. This is a text file that you could open with a spreadsheet application, where the data in different columns are separated by commas (Comma-Separated-Values, i.e., a CSV file).</li>
-<li>Open “global_surface_anomalies.csv” in a spreadsheet application and learn what is on
-<ol type="a">
-<li>the first five lines</li>
-<li>the sixth line</li>
-<li>the remaining lines</li>
-</ol></li>
-<li>In R, create a script file that you will call <code>global_anomalies_YourUniqueID.R</code>.</li>
-</ol>
-</section>
-<section id="r-code" class="level2" data-number="3.4">
-<h2 data-number="3.4" class="anchored" data-anchor-id="r-code"><span class="header-section-number">3.4</span> R code</h2>
+<p>In this activity, you will download and import data, and then make a forecast about future temperatures. That forecast will include an <em>expected</em> value and a measure of uncertainty. The <em>expected</em> value is the most likely value, but we also acknowledge that any time we estimate a most-likely value that there is always uncertainty.</p>
 <p>Below, we set up or work environment, load data, work with data, and then save deliverables. This work flow will be natural after a while.</p>
-<section id="set-up" class="level3" data-number="3.4.1">
-<h3 data-number="3.4.1" class="anchored" data-anchor-id="set-up"><span class="header-section-number">3.4.1</span> Set up</h3>
-<p>First, we always select the appropriate project and working directory. I do this by…</p>
+<section id="set-up" class="level3" data-number="3.3.1">
+<h3 data-number="3.3.1" class="anchored" data-anchor-id="set-up"><span class="header-section-number">3.3.1</span> Set up</h3>
+<p>First, if you have not already done so, create a script file that you will call <code>global_anomalies_YourUniqueID.R</code>.</p>
+<p>After starting a script, we always select the appropriate project and <em>working directory</em>. I do this by…</p>
 <p>…glancing at the upper right corner:</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -288,32 +315,46 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="do">## load R packages</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
-<pre><code>── Attaching packages ─────────────────────────────────────── tidyverse 1.3.2 ──
-✔ ggplot2 3.4.0      ✔ purrr   1.0.1 
-✔ tibble  3.1.8      ✔ dplyr   1.0.10
-✔ tidyr   1.2.1      ✔ stringr 1.5.0 
-✔ readr   2.1.3      ✔ forcats 0.5.2 
+<pre><code>── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
+✔ dplyr     1.1.4     ✔ readr     2.1.5
+✔ forcats   1.0.0     ✔ stringr   1.5.1
+✔ ggplot2   3.4.4     ✔ tibble    3.2.1
+✔ lubridate 1.9.3     ✔ tidyr     1.3.1
+✔ purrr     1.0.2     
 ── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
 ✖ dplyr::filter() masks stats::filter()
-✖ dplyr::lag()    masks stats::lag()</code></pre>
+✖ dplyr::lag()    masks stats::lag()
+ℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors</code></pre>
 </div>
 </div>
 </section>
-</section>
-<section id="import-data" class="level2" data-number="3.5">
-<h2 data-number="3.5" class="anchored" data-anchor-id="import-data"><span class="header-section-number">3.5</span> Import data</h2>
-<p>Make sure that the global surface temperature anomalies data set (“global_surface_anomalies.csv”) is in your working directory, Rwork.</p>
+<section id="import-data" class="level3" data-number="3.3.2">
+<h3 data-number="3.3.2" class="anchored" data-anchor-id="import-data"><span class="header-section-number">3.3.2</span> Import data</h3>
+<ol type="1">
+<li>Go to our <a href="https://drive.google.com/drive/u/1/folders/1FR2FLiW3xyD4Er52YzVTToPZuXXReGRo" target="_blank">class data repository</a>, and download <code>global_surface_anomalies.csv</code>.</li>
+<li>Make sure the file remains in the same simple format, “comma separated values” (.csv).</li>
+<li>Put <code>global_surface_anomalies.csv</code> in your working directory, <code>Rwork</code>.</li>
+<li>Open <code>global_surface_anomalies.csv</code> in a spreadsheet application. Don’t save the file in the spreadsheet application. Do <strong>not</strong> save it in the spreadsheet application because it will try to change the format.</li>
+<li>With the file open, learn what is on
+<ol type="a">
+<li>the first three lines</li>
+<li>the fourth line</li>
+<li>the remaining lines.</li>
+</ol></li>
+<li>Do <strong>not</strong> save the file in the spreadsheet application. Just close and don’t save it - it will still be there, unchanged.</li>
+<li>Continue to make sure the file remains in the same simple format, “comma separated values” (.csv).</li>
+</ol>
 <p>We import or “read in” the data so that R can work on it. Here we put it in an object called <code>temps</code>. We skip lines in the file</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># read in data</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>temps <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"global_surface_anomalies.csv"</span>, <span class="co"># file name</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>temps <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="at">file =</span> <span class="st">"global_surface_anomalies.csv"</span>, <span class="co"># full file name</span></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>                  <span class="at">skip=</span><span class="dv">3</span>, <span class="co"># skip these lines because they contain metadata.</span></span>
 <span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>                  <span class="at">header =</span> <span class="cn">TRUE</span> <span class="co"># Tell R that the first row is column namaes</span></span>
 <span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>                  ) <span class="co"># last parenthesis</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="finding-out-information-about-the-temperature-anomalies" class="level2" data-number="3.6">
-<h2 data-number="3.6" class="anchored" data-anchor-id="finding-out-information-about-the-temperature-anomalies"><span class="header-section-number">3.6</span> Finding out information about the temperature anomalies</h2>
+<section id="finding-out-information-about-the-temperature-anomalies" class="level3" data-number="3.3.3">
+<h3 data-number="3.3.3" class="anchored" data-anchor-id="finding-out-information-about-the-temperature-anomalies"><span class="header-section-number">3.3.3</span> Finding out information about the temperature anomalies</h3>
 <p>Next we take a peek at the data with a summary.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(temps)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -321,16 +362,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <pre><code>      year          deg_C         
  Min.   :1880   Min.   :-0.48000  
  1st Qu.:1916   1st Qu.:-0.20000  
- Median :1951   Median :-0.06000  
- Mean   :1951   Mean   : 0.05993  
- 3rd Qu.:1986   3rd Qu.: 0.26500  
- Max.   :2022   Max.   : 1.02000  </code></pre>
+ Median :1952   Median :-0.04500  
+ Mean   :1952   Mean   : 0.06771  
+ 3rd Qu.:1987   3rd Qu.: 0.28000  
+ Max.   :2023   Max.   : 1.17000  </code></pre>
 </div>
 </div>
 <p>This shows us the minimum, maximum and mean of each numeric variable.</p>
 <p>It also shows us the 1st, 2nd, and 3rd <a href="https://en.wikipedia.org/wiki/Quartile" target="_blank">quartiles</a>. The median is the 2nd quartile. Quartiles are three divisions in ranked data, such they divide the data into four equal parts, or quarters. The 1st quartile is the value that divides the lowest 25% of the values from the larger values. The 2nd quartile (i.e.) is the value that divides the lower 50% from the upper 50% of the observations. The 3rd quartile is the value that divides the highest 25% of the observations from the lower values.</p>
-<section id="minimum-and-maximum" class="level3" data-number="3.6.1">
-<h3 data-number="3.6.1" class="anchored" data-anchor-id="minimum-and-maximum"><span class="header-section-number">3.6.1</span> Minimum and maximum</h3>
+</section>
+<section id="minimum-and-maximum" class="level3" data-number="3.3.4">
+<h3 data-number="3.3.4" class="anchored" data-anchor-id="minimum-and-maximum"><span class="header-section-number">3.3.4</span> Minimum and maximum</h3>
 <p>I’d like to know <em>when</em> the minimum and the maximum occurred. To find this out, I’ll use a two step process: I will find the min and the max, and then I will use those to take a <em>subset</em> of the data frame where the anomaly is equal to either the minimum or equal to the maximum.</p>
 <p>First, I find the minimum and the maximum.</p>
 <div class="cell">
@@ -346,13 +388,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="cell-output cell-output-stdout">
 <pre><code>    year deg_C
 30  1909 -0.48
-141 2020  1.02</code></pre>
+144 2023  1.17</code></pre>
 </div>
 </div>
 <p>These show us all of the entries in our data that the anomaly is equal to the minimum OR equal to the maximum.</p>
 </section>
-<section id="using-a-year" class="level3" data-number="3.6.2">
-<h3 data-number="3.6.2" class="anchored" data-anchor-id="using-a-year"><span class="header-section-number">3.6.2</span> Using a year</h3>
+<section id="using-a-year" class="level3" data-number="3.3.5">
+<h3 data-number="3.3.5" class="anchored" data-anchor-id="using-a-year"><span class="header-section-number">3.3.5</span> Using a year</h3>
 <p>Here I find out the average temperature anomaly in the year I was born. I want YOU to find out the anomaly in the year <em>you were born.</em></p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Find the anomaly in the year you were born</span></span>
@@ -364,9 +406,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <p>In my birth year, it was just a touch below the 1951-1980 average.</p>
 </section>
-</section>
-<section id="plotting-information" class="level2" data-number="3.7">
-<h2 data-number="3.7" class="anchored" data-anchor-id="plotting-information"><span class="header-section-number">3.7</span> Plotting information</h2>
+<section id="plotting-information" class="level3" data-number="3.3.6">
+<h3 data-number="3.3.6" class="anchored" data-anchor-id="plotting-information"><span class="header-section-number">3.3.6</span> Plotting information</h3>
 <p>Here we are going to start visually examining the anomalies.</p>
 <p>We will create a linegraph using <code>ggplot()</code>. Our first step will create the graph, but it won’t display it right away. I include comments on each line to remind you what everything does.</p>
 <div class="cell">
@@ -418,8 +459,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 </div>
 </section>
-<section id="predicting-future-anomalies" class="level2" data-number="3.8">
-<h2 data-number="3.8" class="anchored" data-anchor-id="predicting-future-anomalies"><span class="header-section-number">3.8</span> Predicting future anomalies</h2>
+</section>
+<section id="predicting-future-anomalies" class="level2" data-number="3.4">
+<h2 data-number="3.4" class="anchored" data-anchor-id="predicting-future-anomalies"><span class="header-section-number">3.4</span> Predicting future anomalies</h2>
 <p>Major goals of science are understanding and prediction. We could spend a long time discussing the connection between these two, but form now, we just want to forecast want our future might look like.</p>
 <p>The statistical details of this are way beyond this course, and they are not even the way you would do it if you were serious about. Nonetheless, it won’t be too far off, and the intuitive part applies generally to making any set of predictions. We will merely ask the computer to do some math to accomplish the following:</p>
 <ol type="1">
@@ -435,7 +477,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>So, lets start with step one. and create a statistical model of the observations. We start by loading another package.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Load a necessary R package</span></span>
-<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(mgcv) <span class="co"># stands for "Mixed GAM Computation Vehicle"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(mgcv) <span class="co"># stands for "Mixed Generalized Additive Model Computation Vehicle"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Loading required package: nlme</code></pre>
 </div>
@@ -449,7 +491,7 @@ Attaching package: 'nlme'</code></pre>
     collapse</code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
-<pre><code>This is mgcv 1.8-41. For overview type 'help("mgcv-package")'.</code></pre>
+<pre><code>This is mgcv 1.9-1. For overview type 'help("mgcv-package")'.</code></pre>
 </div>
 </div>
 <p>Now we ask R to fit the model. Don’t worry about the details of the code. You can ask me if you are interested.</p>
@@ -482,9 +524,9 @@ Attaching package: 'nlme'</code></pre>
 <span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>my.predictions[<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>, ]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  year        fit     se.fit
-1 1880 -0.1838866 0.06192846
-2 1881 -0.1889206 0.05769149
-3 1882 -0.1939558 0.05368252</code></pre>
+1 1880 -0.1871517 0.06106168
+2 1881 -0.1918986 0.05677760
+3 1882 -0.1966483 0.05272457</code></pre>
 </div>
 </div>
 <p>This shows that the first column is the year, the second (<code>fit</code>) is the expected local estimate, and the third (<code>se.fit</code>) is the estimate of the uncertainty, which is the standard error of the expected value.</p>
@@ -505,9 +547,9 @@ Attaching package: 'nlme'</code></pre>
 <span id="cb29-13"><a href="#cb29-13" aria-hidden="true" tabindex="-1"></a>my.predictions[<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>, ]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  year        fit     se.fit upper.conf.lim lower.conf.lim
-1 1880 -0.1838866 0.06192846    -0.06142257     -0.3063506
-2 1881 -0.1889206 0.05769149    -0.07483520     -0.3030059
-3 1882 -0.1939558 0.05368252    -0.08779817     -0.3001133</code></pre>
+1 1880 -0.1871517 0.06106168    -0.06640801     -0.3078953
+2 1881 -0.1918986 0.05677760    -0.07962626     -0.3041709
+3 1882 -0.1966483 0.05272457    -0.09239046     -0.3009061</code></pre>
 </div>
 </div>
 <p>Now we see we’ve added upper and lower confidence intervals. Next we’ll create a graph of our predictions, using several particular graphical features.</p>
@@ -549,8 +591,8 @@ Attaching package: 'nlme'</code></pre>
 <span id="cb33-5"><a href="#cb33-5" aria-hidden="true" tabindex="-1"></a>       <span class="at">height=</span><span class="dv">5</span>, <span class="at">width=</span><span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="does-earth-have-a-fever" class="level2" data-number="3.9">
-<h2 data-number="3.9" class="anchored" data-anchor-id="does-earth-have-a-fever"><span class="header-section-number">3.9</span> Does Earth have a fever?</h2>
+<section id="does-earth-have-a-fever" class="level2" data-number="3.5">
+<h2 data-number="3.5" class="anchored" data-anchor-id="does-earth-have-a-fever"><span class="header-section-number">3.5</span> Does Earth have a fever?</h2>
 <p>In this last section, we ask whether Earth’s temperature may be a little too high by comparing it to a human who has a fever.</p>
 <p>First we calculate the percent increase in temperature for Earth over the past 70 years and a human experiencing a serious fever.</p>
 <p>Average temperature for humans is 37 C, and a serious fever is considered 39 C, so an <em>increase</em> of 2 C.</p>
@@ -583,8 +625,8 @@ Attaching package: 'nlme'</code></pre>
 </div>
 <p>So, what do you think? Does Earth have a fever? In what ways do you think comparing temperature variation of Earth to that of a human is or is not a useful thing to do.</p>
 </section>
-<section id="questions-to-answer" class="level2" data-number="3.10">
-<h2 data-number="3.10" class="anchored" data-anchor-id="questions-to-answer"><span class="header-section-number">3.10</span> Questions to answer</h2>
+<section id="questions-to-answer" class="level2" data-number="3.6">
+<h2 data-number="3.6" class="anchored" data-anchor-id="questions-to-answer"><span class="header-section-number">3.6</span> Questions to answer</h2>
 <ol type="1">
 <li>What is a temperature anomaly?</li>
 <li>In the file “global_surface_anomalies.csv”, what is on
@@ -600,12 +642,12 @@ Attaching package: 'nlme'</code></pre>
 <li>Explain whether you think Earth currently does or does not have a fever, and whether comparing temperature variation of Earth to that of a human is or is not a useful thing to do.</li>
 </ol>
 </section>
-<section id="deliverables" class="level2" data-number="3.11">
-<h2 data-number="3.11" class="anchored" data-anchor-id="deliverables"><span class="header-section-number">3.11</span> Deliverables</h2>
+<section id="deliverables" class="level2" data-number="3.7">
+<h2 data-number="3.7" class="anchored" data-anchor-id="deliverables"><span class="header-section-number">3.7</span> Deliverables</h2>
 <p>Turn these into the relevant Canvas assignment before the due date.</p>
 <ol type="1">
-<li>Put all your answers, including your graph with the confidence interval, into a .doc or .docx file and make fit on a single page. Turn in your answers and your graph to the relevant Canvas assignment Make sure that your name is on the file in the header!</li>
-<li>In a separate document, turn in your R script, named <code>global_temps_YourUniqueID.R</code> This must NOT be a Word document. It must be a .R file.</li>
+<li>First, put all your answers, including your graph with the confidence interval, into a .doc or .docx file and make fit on a single page. Turn in your answers and your graph to the relevant Canvas assignment Make sure that your name is on the file in the header!</li>
+<li>Second, turn in your R script, named <code>global_temps_YourUniqueID.R</code> as a second file. This must NOT be a Word document. It must be a .R file.</li>
 </ol>
 
 
@@ -754,12 +796,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
       <a href="./01-trees_and_people.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Tree Cover: an investigation in ecology and in environmental justice</span></span>
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Environmental Justice: How income relates to environment.</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./summary.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Summary</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./03-liana-phys.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Individual responses to the environment: What makes lianas relatively successful in stressful habitats?</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

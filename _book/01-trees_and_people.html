@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Inntroduction to Ecology - 2&nbsp; Tree Cover: an investigation in ecology and in environmental justice</title>
+<title>Basic Ecological Concepts and Data in R - 2&nbsp; Environmental Justice: How income relates to environment.</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -153,7 +153,7 @@ div.csl-indent {
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
     <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Tree Cover: an investigation in ecology and in environmental justice</span></h1>
+      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Environmental Justice: How income relates to environment.</span></h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -166,7 +166,7 @@ div.csl-indent {
   <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
-      <a href="./">Inntroduction to Ecology</a> 
+      <a href="./">Basic Ecological Concepts and Data in R</a> 
     </div>
       </div>
       <div class="mt-2 flex-shrink-0 align-items-center">
@@ -183,22 +183,62 @@ div.csl-indent {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./01-computer-setup.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Computer setup</span></a>
+  <a href="./01-computer-setup.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Computer setup and first R script</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./01-trees_and_people.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Tree Cover: an investigation in ecology and in environmental justice</span></a>
+  <a href="./01-trees_and_people.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Environmental Justice: How income relates to environment.</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./02-global_temp_anomalies.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">A Fate of Earth</span></a>
+  <a href="./02-global_temp_anomalies.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Physical Environment: A Fate of Earth</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./summary.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Summary</span></a>
+  <a href="./03-liana-phys.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Individual responses to the environment: What makes lianas relatively successful in stressful habitats?</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./04-extrapair_copulation.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Behavior: Extra-pair copulation in a monogamous species</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./06-DI-pop-growth.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Density-independent Population Growth: Humans on the rise</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./07-structured-pop-growth_v2.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Structured demography: How a graduate student helped save the loggerhead sea turtle</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./08-density-dep-pop-growth.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Density-dependence in population growth</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./09-direct-interactions.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Direct species interactions: understanding mechanisms of invasion in mosquitoes</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./10-mutualisms.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Mutualisms: Do ants protect pea plants?</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./11-predator-prey.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Of wolves and moose, on Isle Royale</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./20-ecosystem-intro.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">An Introduction to the Carbon Cycle and Global Heating</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -222,7 +262,6 @@ div.csl-indent {
   <li><a href="#graphing-data-to-assess-our-predictions" id="toc-graphing-data-to-assess-our-predictions" class="nav-link" data-scroll-target="#graphing-data-to-assess-our-predictions"><span class="toc-section-number">2.2.2</span>  Graphing data to assess our predictions</a></li>
   </ul></li>
   <li><a href="#deliverables" id="toc-deliverables" class="nav-link" data-scroll-target="#deliverables"><span class="toc-section-number">2.3</span>  Deliverables</a></li>
-  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references"><span class="toc-section-number">2.4</span>  References</a></li>
   </ul>
 </nav>
     </div>
@@ -231,7 +270,7 @@ div.csl-indent {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title d-none d-lg-block"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Tree Cover: an investigation in ecology and in environmental justice</span></h1>
+<h1 class="title d-none d-lg-block"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Environmental Justice: How income relates to environment.</span></h1>
 </div>
 
 
@@ -248,7 +287,9 @@ div.csl-indent {
 
 <section id="background" class="level2" data-number="2.1">
 <h2 data-number="2.1" class="anchored" data-anchor-id="background"><span class="header-section-number">2.1</span> Background</h2>
-<p>The types of places that organisms live–their habitats–depends on a variety factors. Selection of particular habitats results from tradeoffs between the benefits from foraging and reproducing versus perceived risks of mortality <span class="citation" data-cites="stephens1986 morin1999a">(<a href="references.html#ref-stephens1986" role="doc-biblioref">Stephens and Krebs 1986</a>; <a href="references.html#ref-morin1999a" role="doc-biblioref">Morin 1999</a>)</span>. Organisms also construct elements of their own habitats, including nests and burrows, as well as broader habitat alteration <span class="citation" data-cites="odling-smee2013">(niche construction, <a href="references.html#ref-odling-smee2013" role="doc-biblioref">Odling-Smee and Erwin 2013</a>)</span>. Beavers build dens and dams, birds and wasps build nests, and bacteria, ants, and humans all construct elaborate multi-layered cities of thousands or millions of individuals. At the same time, organisms often damage the very habitats they create, through over-consumption of resources and over-production of waste products. We know a great deal about how our own species (<em>H. sapiens</em>) construct elements of their own habitats. We also know a lot about how we migrate and disperse from place to place. Nonetheless, we have a lot to learn about our own species, and, in particular, about which factors determine the our preferred habitats and determine the changes we make to those habitats.</p>
+<p>The types of places that organisms live–their habitats–depends on a variety factors. <em>Habitat selection</em>, the selection of particular habitats, results from real and perceived tradeoffs between the benefits from foraging and reproducing versus perceived risks of mortality <span class="citation" data-cites="stephens1986 morin1999a">(<a href="references.html#ref-stephens1986" role="doc-biblioref">Stephens and Krebs 1986</a>; <a href="references.html#ref-morin1999a" role="doc-biblioref">Morin 1999</a>)</span>.</p>
+<p>In addition to selecting their habitats, organisms also construct elements of their own habitats, including nests and burrows, as well as broader habitat alteration. This is known as <em>niche construction</em> <span class="citation" data-cites="odling-smee2013">(<a href="references.html#ref-odling-smee2013" role="doc-biblioref">Odling-Smee and Erwin 2013</a>)</span>. Beavers build dens and dams, birds and wasps build nests, and bacteria, ants, and humans all construct elaborate multi-layered cities of thousands or millions of individuals. At the same time, organisms often damage the very habitats they create, through over-consumption of resources and over-production of waste products.</p>
+<p>We know a great deal about how our own species (<em>H. sapiens</em>) construct elements of their own habitats. We also know a lot about how we migrate and disperse from place to place. Nonetheless, we have a lot to learn about our own species, and, in particular, about which factors determine the our preferred habitats and determine the changes we make to those habitats.</p>
 <p>Economic wealth seems to influence many of choices by <em>H sapiens</em>, including our preferred habitats. Ed <span class="citation" data-cites="wilson1984a">Wilson (<a href="references.html#ref-wilson1984a" role="doc-biblioref">1984</a>)</span>, a famous evolutionary biologist, have proposed the <em>Biophilia hypothesis</em>, that humans love nature. Biomedical researchers have shown that we are happier and heal from injury and illness faster when we have access to plants and to the outdoors <span class="citation" data-cites="franklin2012">(<a href="references.html#ref-franklin2012" role="doc-biblioref">Franklin 2012</a>)</span>. If wealth generally gives us greater access to what we want, will wealthier people more often put themselves in closer connection to nature?</p>
 <p>Specific socioeconomic data about <em>H. sapiens</em> populations may be particularly useful understanding both the causes and consequences of relations between wealth and nature. Wealth can be measured in a variety of ways. Median income, and percent of the population below the poverty line are common ways to measure the average wealth of individuals or small family groups.</p>
 <p>Specific data about our landscapes maybe be particularly useful in generating ecological understanding of <em>H. sapiens</em>. Tree cover is the two-dimensional coverage of tree canopies that you would perceive in an aerial photo in seasons when trees have their leaves. Tree cover is relatively easy to measure from satellite imagery. Temperature, or the heat experienced by residents, can be a serious problem in urban areas because they create heat “islands”. Urban heat islands are areas which tend to absorb more solar radiation than would a natural landscape and then re-radiate this as heat experienced by its human and non-human residents. During heat waves, residents in urban areas who are especially vulnerable can suffer severe heat exhaustion or death. Some urban areas tend to get much hotter than others, and it is often related to tree cover and green space generally.</p>
@@ -282,7 +323,7 @@ div.csl-indent {
 </ol>
 <p><strong>OurTrees</strong> app, in <em>i-Tree</em></p>
 <ol type="1">
-<li>OurTrees application in <a href="https://www.itreetools.org/" target="_blank"><em>i-Tree</em></a>. Select a location in which you are interested. Start with any lcoation name, and select “Search”. The app will show you a location. If you would like to, you can change the location by simply clicking somewhere else on the map. You can choose either Street view or Satellite view (the data will be the same).</li>
+<li><strong>OurTrees application</strong> in <a href="https://www.itreetools.org/" target="_blank"><em>i-Tree</em></a>. Select a location in which you are interested. Start with any location name, and select “Search”. The app will show you a location. If you would like to, you can change the location by simply clicking somewhere else on the map. You can choose either Street view or Satellite view (the data will be the same).</li>
 <li>Enter the name of your selected location into our class a new spreadsheet, <a href="https://docs.google.com/spreadsheets/d/1uYCuTziJiLNvVOQ9Q65BxdWcNgDF6EnF8L1T3O_yATw/edit?usp=sharing" target="_blank">Google Sheet for <strong>OurTrees</strong></a>.</li>
 <li>In the OurTrees app, select “Get Results! -&gt;”.</li>
 <li>From the “Benefits” tab, collect data on tree canopy cover (%), annual uptake of CO<span class="math inline">\(_2\)</span> equivalents and 2.5 micron particulate matter (PM<span class="math inline">\(_{2.5}\)</span>). Enter these into the OurTrees Google Sheet.</li>
@@ -294,7 +335,7 @@ div.csl-indent {
 <h3 data-number="2.2.2" class="anchored" data-anchor-id="graphing-data-to-assess-our-predictions"><span class="header-section-number">2.2.2</span> Graphing data to assess our predictions</h3>
 <p>I argued that the Biophilia Hypothesis leads to the prediction that tree cover will correlate positively with wealth. To evaluate this prediction, we should make a graph in which wealth is on the x-axis (horizontal axis) and tree cover is y-axis (vertical axis).</p>
 <p>A couple of minor points: (1) Our prediction also implies that we should see a negative relation between poverty and tree cover. (2) We typically assume that the variable on the y-axis is a response to the variable on the x-axis, that is, that the x variable is causing variation in the y variable.</p>
-<p>Given our data are <em>continuous variables</em> rather than categories, we should start by making a <em>scatterplot</em> of median income (x) vs.&nbsp;tree cover (y). Do that in anyway you like, such as in R, Google Sheets, or Microsoft Excel.</p>
+<p>Given our data are <em>continuous variables</em> rather than categories, we should start by making a <em>scatterplot</em> of median income (x) vs.&nbsp;tree cover (y).</p>
 <p>As the semester progresses, you will find R is very useful. Below, I provide you with code for an R script to easily make this graph.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># if needed, install these packages</span></span>
@@ -317,42 +358,44 @@ div.csl-indent {
 <span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>d <span class="ot">&lt;-</span> <span class="fu">read_sheet</span>(<span class="st">"https://docs.google.com/spreadsheets/d/1uYCuTziJiLNvVOQ9Q65BxdWcNgDF6EnF8L1T3O_yATw/edit#gid=0"</span>,</span>
 <span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>                <span class="at">skip=</span><span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
-<pre><code>! Using an auto-discovered, cached token.</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>  To suppress this message, modify your code or options to clearly consent to
-  the use of a cached token.</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>  See gargle's "Non-interactive auth" vignette for more details:</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>  &lt;]8;;https://gargle.r-lib.org/articles/non-interactive-auth.htmlhttps://gargle.r-lib.org/articles/non-interactive-auth.html]8;;&gt;</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>ℹ The googlesheets4 package is using a cached token for ']8;;mailto:stevenmh@miamioh.edustevenmh@miamioh.edu]8;;'.</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>✔ Reading from "iTree_OurTrees - Spring 2023".</code></pre>
+<pre><code>✔ Reading from "iTree_OurTrees".</code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
 <pre><code>✔ Range '3:10000000'.</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Uncomment to show us the names of the variables</span></span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="co"># names(d)</span></span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="co"># make a scatterplot</span></span>
-<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>d, <span class="fu">aes</span>(<span class="at">x=</span><span class="st">`</span><span class="at">Median Income</span><span class="st">`</span>, </span>
-<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>                   <span class="at">y=</span><span class="st">`</span><span class="at">Tree canopy cover</span><span class="st">`</span>, </span>
-<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>                   <span class="at">label=</span><span class="st">`</span><span class="at">City (only)</span><span class="st">`</span>)) <span class="sc">+</span> <span class="fu">geom_text</span>() <span class="sc">+</span></span>
-<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">y=</span><span class="st">"Tree cover (%)"</span>, <span class="at">x=</span><span class="st">"Median income"</span>)</span>
-<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a><span class="co"># save the figure (dimensions in inches)</span></span>
-<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="st">"myCoverIncome.png"</span>, <span class="at">width=</span><span class="dv">6</span>, <span class="at">height =</span> <span class="dv">6</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Uncomment to show us the names of the variables</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="co"># names(d)</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="co"># make a scatterplot</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>plot1 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(<span class="at">data=</span>d, <span class="fu">aes</span>(<span class="at">x=</span>Median_Income, </span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>                   <span class="at">y=</span>Tree_canopy_cover, </span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>                   <span class="at">label=</span><span class="st">`</span><span class="at">City (only)</span><span class="st">`</span>)) <span class="sc">+</span> <span class="fu">geom_text</span>() <span class="sc">+</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">y=</span><span class="st">"Tree cover (%)"</span>, <span class="at">x=</span><span class="st">"Median income"</span>, <span class="at">title=</span><span class="st">"No relation twixt tree cover and income?"</span>)</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="st">"myCoverIncome_text.png"</span>, <span class="at">plot=</span>plot1, <span class="at">width=</span><span class="dv">10</span>, <span class="at">height =</span> <span class="dv">10</span>)</span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>plot2 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(<span class="at">data=</span>d, <span class="fu">aes</span>(<span class="at">x=</span>Median_Income, </span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>                   <span class="at">y=</span>Tree_canopy_cover, </span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>                   <span class="at">label=</span><span class="st">`</span><span class="at">City (only)</span><span class="st">`</span>)) <span class="sc">+</span> </span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">y=</span><span class="st">"Tree cover (%)"</span>, <span class="at">x=</span><span class="st">"Median income"</span>, <span class="at">title=</span><span class="st">"No relation twixt tree cover and income?"</span>)</span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a><span class="co"># save the figure (dimensions in inches)</span></span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="st">"myCoverIncome_points.png"</span>, <span class="at">plot=</span>plot2, <span class="at">width=</span><span class="dv">7</span>, <span class="at">height =</span> <span class="dv">7</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Here is a subset of data I collected on the places where members of my family lives.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>d10 <span class="ot">&lt;-</span> d[<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>,]</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>myPlot <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(<span class="at">data=</span>d10, <span class="fu">aes</span>(<span class="at">x=</span>Median_Income, </span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>                   <span class="at">y=</span>Tree_canopy_cover, </span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>                   <span class="at">label=</span><span class="st">`</span><span class="at">City (only)</span><span class="st">`</span>)) <span class="sc">+</span> <span class="fu">geom_text</span>() <span class="sc">+</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">y=</span><span class="st">"Tree cover (%)"</span>, <span class="at">x=</span><span class="st">"Median income"</span>, <span class="at">title=</span><span class="st">"No relation twixt tree cover and income?"</span>)</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>myPlot</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div id="fig-data" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
-<p><img src="01-trees_and_people_files/figure-html/fig-data-1.png" class="img-fluid figure-img" style="width:65.0%"></p>
+<p><img src="01-trees_and_people_files/figure-html/fig-data-1.png" class="img-fluid figure-img" style="width:80.0%"></p>
 <p></p><figcaption class="figure-caption">Figure&nbsp;2.1: The noisy but perhaps positive relation between percent of an location covered in trees and the median income of that location.</figcaption><p></p>
 </figure>
 </div>
@@ -369,19 +412,21 @@ div.csl-indent {
 </section>
 <section id="deliverables" class="level2" data-number="2.3">
 <h2 data-number="2.3" class="anchored" data-anchor-id="deliverables"><span class="header-section-number">2.3</span> Deliverables</h2>
-<p><strong>Data analysis</strong></p>
+<p><strong>Results and discussion</strong></p>
 <ul>
-<li>Post your two graphs, one from tree equity and one from i-Tree, to <a href="https://docs.google.com/presentation/d/1zvfgB4zvr0Jn7BWTlLSPBrzrLtt2JMt0-8vWg99EVCk/edit?usp=sharing">this Google Slide deck</a>.</li>
-<li>Include the information suggested on the slides (title that identifies main result, explanation of results, author names).</li>
+<li>In one document, put two figures side-by-side:
+<ol type="i">
+<li>your bargraph of % tree cover vs.&nbsp;% people in poverty (copied from the Tree Equity site) side-by-side, and</li>
+<li>your scatterplot of tree cover vs.&nbsp;median income that you made using everyone’s data, based on the iTree/OurTrees website that you shared in the Google spreadsheet.</li>
+<li>include a figure legend that states what the graphs are in a way that is intelligible to a naive reader.</li>
+</ol></li>
+<li>Provide a brief explanation of your findings, including
+<ol type="i">
+<li>the results described in a factual manner, without interpretation,</li>
+<li>an explanation of whether the results are consistent with the biophilia hypothesis, and</li>
+<li>a new question that emerges due to the inconsistencies between the data and the hypothesis; explain why this question is a logical extension of your current results and interpration.</li>
+</ol></li>
 </ul>
-<p><strong>Written evaluation</strong></p>
-<ul>
-<li>Compose a single document that contains answers to the above questions. I suggest that you start by simply listing answer to these questions. After you (our your group) is reasonably satisfied, compose a coherent essay between ~250-500 words that addresses the major points you want to convey.</li>
-<li>Turn this in as requested by your instructor.</li>
-</ul>
-</section>
-<section id="references" class="level2" data-number="2.4">
-<h2 data-number="2.4" class="anchored" data-anchor-id="references"><span class="header-section-number">2.4</span> References</h2>
 
 
 <div id="refs" class="references csl-bib-body hanging-indent" role="doc-bibliography" style="display: none">
@@ -392,7 +437,7 @@ Franklin, Deborah. 2012. <span>“Nature That Nutures.”</span> <em>Scientific 
 Morin, P J. 1999. <em>Community <span>Ecology</span></em>. <span>Malden, MA</span>: <span>Blackwell Science, Inc.</span>
 </div>
 <div id="ref-odling-smee2013" class="csl-entry" role="doc-biblioentry">
-Odling-Smee, J, and DH Erwin. 2013. <span>“Niche Construction Theory: <span>A</span> Practical Guide for Ecologists.”</span> <em>The Quarterly Review of Biology</em> 88 (1): 3–28.
+Odling-Smee, J, and DH Erwin. 2013. <span>“Niche Construction Theory: <span>A</span> Practical Guide for Ecologists.”</span> <em>The Quarterly Review of Biology</em> 88 (1): 3–28. <a href="https://www.jstor.org/stable/10.1086/669266">https://www.jstor.org/stable/10.1086/669266</a>.
 </div>
 <div id="ref-stephens1986" class="csl-entry" role="doc-biblioentry">
 Stephens, D W, and J R Krebs. 1986. <em>Foraging <span>Theory</span></em>. Edited by J. R. Krebs and T. H. Clutton-Brock. Monographs in Behavior and Ecology. <span>Princeton, University Press, Princeton, NJ, USA</span>: <span>Princeton University Press</span>.
@@ -540,12 +585,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
       <a href="./01-computer-setup.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Computer setup</span></span>
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Computer setup and first R script</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
       <a href="./02-global_temp_anomalies.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">A Fate of Earth</span></span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Physical Environment: A Fate of Earth</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

@@ -1,0 +1,127 @@
+
+R version 4.2.2 (2022-10-31) -- "Innocent and Trusting"
+Copyright (C) 2022 The R Foundation for Statistical Computing
+Platform: x86_64-apple-darwin17.0 (64-bit)
+
+R is free software and comes with ABSOLUTELY NO WARRANTY.
+You are welcome to redistribute it under certain conditions.
+Type 'license()' or 'licence()' for distribution details.
+
+  Natural language support but running in an English locale
+
+R is a collaborative project with many contributors.
+Type 'contributors()' for more information and
+'citation()' on how to cite R or R packages in publications.
+
+Type 'demo()' for some demos, 'help()' for on-line help, or
+'help.start()' for an HTML browser interface to help.
+Type 'q()' to quit R.
+
+[R.app GUI 1.79 (8160) x86_64-apple-darwin17.0]
+
+[History restored from /Users/tedlagios/.Rapp.history]
+
+> source("/Users/tedlagios/Desktop/BIO209W/Rwork/HumanPopData-2023-01-01.csv")
+Error in source("/Users/tedlagios/Desktop/BIO209W/Rwork/HumanPopData-2023-01-01.csv") : 
+  /Users/tedlagios/Desktop/BIO209W/Rwork/HumanPopData-2023-01-01.csv:1:8: unexpected symbol
+1: Global humasn
+           ^
+> source("/Users/tedlagios/Desktop/BIO209W/Rwork/myScript.R")
+── Attaching packages ───────────────────── tidyverse 1.3.2 ──
+✔ ggplot2 3.4.1     ✔ purrr   1.0.1
+✔ tibble  3.1.8     ✔ dplyr   1.1.0
+✔ tidyr   1.3.0     ✔ stringr 1.5.0
+✔ readr   2.1.4     ✔ forcats 1.0.0
+── Conflicts ──────────────────────── tidyverse_conflicts() ──
+✖ dplyr::filter() masks stats::filter()
+✖ dplyr::lag()    masks stats::lag()
+Rows: 259
+Columns: 2
+$ Year  <int> -10000, -9000, -8000, -7000, -6000, -5000, -40…
+$ est.N <dbl> 4432266, 5616996, 7242892, 9577918, 13201832, …
+ num [1:259] 0.000237 0.000254 0.000279 0.000321 0.000368 ...
+> ggplot(data=d, aes(x=Year, y=est.N)) + 
++   geom_point() + geom_line() + 
++   scale_y_log10() + labs(y="Estimated human population size")
+> ## Get the right time points and find h
+> t <- 100
+> # recall h = (t+h) - t
+> t.plus.h = 200
+> h  <- t.plus.h - t
+> t; t.plus.h; h
+[1] 100
+[1] 200
+[1] 100
+> ## in base R
+> Nt <- d$est.N[d$Year == t]
+> Nth <- d$est.N[d$Year == t.plus.h]
+> Nt; Nth
+[1] 236904172
+[1] 240611571
+> ## using tidyverse syntax
+> Nt <-  d %>% # use d
++   filter(Year == t) %>%  # use just values in this year
++    select(est.N) %>% # select just N
++   as.numeric() # convert from a data frame to a numeric variable
+> 
+> Nth <-  d %>% # use d
++   filter(Year == t.plus.h) %>%  # ue just values in this year
++    select(est.N) %>% # select just N
++   as.numeric() # convert from a data frame to a numeric variable
+> Nt; Nth
+[1] 236904172
+[1] 240611571
+> # the natural log of the ratio of population sizes
+> logNth.over.Nt <- log(Nth / Nt)
+> logNth.over.Nt
+[1] 0.01552817
+> # create an empty vector of missing values.
+> r <- rep(NA, nrow(d))
+> # Do the following steps FOR each row of our data.
+> # Note we start with row 2, and use row 2 and row 1....
+> for(i in 2:nrow(d)) {
++   # the second, more recent, year
++   t.plus.h <- d$Year[i]
++   # the previous year
++   t <- d$Year[i-1]
++   
++   # the time interval in years
++   h <- t.plus.h - t
++   
++   # the more recent N
++   Nth <- d$est.N[i]
++   # the previous N
++   Nt <- d$est.N[i-1]
++   
++   # the natural log ratio 
++   logNth.over.Nt <- log(Nth/Nt)
++   
++   # r, which we put in the appropriate slot, year t
++   r[i-1] <- logNth.over.Nt/h
++   
++ }
+> 
+> # last, let's check the result
+> glimpse(r)
+ num [1:259] 0.000237 0.000254 0.000279 0.000321 0.000368 ...
+> d.r <- cbind(d, r=r)
+> d.r[257:259,]
+    Year      est.N           r
+257 2019 7764951040 0.009740210
+258 2020 7840952832 0.008678302
+259 2021 7909295104          NA
+> d.r <- d.r[1:258,]
+> # population size, using the first data frame
+> ggplot(data=d.r, aes(x=Year, y=r)) + geom_line() +
++   geom_point() + labs(title="Per capita growth rate")
+> # population size, using the first data frame
+> ggplot(data=d.r, aes(x=Year, y=r)) + geom_line() +
++   geom_point() + labs(title="Per capita growth rate")
+> # filter in all years greater than or equal to 1
+> d.r.y1 <- d.r %>% filter(Year >= 1)
+> 
+> ggplot(data=d.r.y1, aes(x=Year, y=est.N)) + geom_line() +
++   geom_point() + labs(title="Population Size")
+> ggplot(data=d.r.y1, aes(x=Year, y=r)) + geom_line() +
++   geom_point() + labs(title="Per capita growth rate since 1 CE")
+> 

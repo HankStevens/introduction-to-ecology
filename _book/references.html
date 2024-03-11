@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Inntroduction to Ecology - References</title>
+<title>Basic Ecological Concepts and Data in R - References</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -49,7 +49,7 @@ div.csl-indent {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./summary.html" rel="prev">
+<link href="./20-ecosystem-intro.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -101,7 +101,7 @@ div.csl-indent {
   <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
-      <a href="./">Inntroduction to Ecology</a> 
+      <a href="./">Basic Ecological Concepts and Data in R</a> 
     </div>
       </div>
       <div class="mt-2 flex-shrink-0 align-items-center">
@@ -118,22 +118,62 @@ div.csl-indent {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./01-computer-setup.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Computer setup</span></a>
+  <a href="./01-computer-setup.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Computer setup and first R script</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./01-trees_and_people.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Tree Cover: an investigation in ecology and in environmental justice</span></a>
+  <a href="./01-trees_and_people.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Environmental Justice: How income relates to environment.</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./02-global_temp_anomalies.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">A Fate of Earth</span></a>
+  <a href="./02-global_temp_anomalies.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Physical Environment: A Fate of Earth</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./summary.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Summary</span></a>
+  <a href="./03-liana-phys.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Individual responses to the environment: What makes lianas relatively successful in stressful habitats?</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./04-extrapair_copulation.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Behavior: Extra-pair copulation in a monogamous species</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./06-DI-pop-growth.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Density-independent Population Growth: Humans on the rise</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./07-structured-pop-growth_v2.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Structured demography: How a graduate student helped save the loggerhead sea turtle</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./08-density-dep-pop-growth.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Density-dependence in population growth</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./09-direct-interactions.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Direct species interactions: understanding mechanisms of invasion in mosquitoes</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./10-mutualisms.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Mutualisms: Do ants protect pea plants?</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./11-predator-prey.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Of wolves and moose, on Isle Royale</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./20-ecosystem-intro.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">An Introduction to the Carbon Cycle and Global Heating</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -168,8 +208,126 @@ div.csl-indent {
 
 </header>
 
-<div id="refs" role="doc-bibliography">
-
+<div id="refs" class="references csl-bib-body hanging-indent" role="doc-bibliography">
+<div id="ref-caswell:2001gu" class="csl-entry" role="doc-biblioentry">
+Caswell, H. 2001. <em>Matrix Population Models:
+<span>Construction</span>, Analysis, and Interpretation</em>. Second.
+<span>Sinauer Associates, Inc., Sunderland, MA, USA</span>.
+</div>
+<div id="ref-chamaille-jammes2008" class="csl-entry" role="doc-biblioentry">
+Chamaillé-Jammes, Simon, Hervé Fritz, Marion Valeix, Felix Murindagomo,
+and Jean Clobert. 2008. <span>“<a href="https://www.ncbi.nlm.nih.gov/pubmed/17986249">Resource
+Variability, Aggregation and Direct Density Dependence in an Open
+Context: <span>The</span> Local Regulation of an <span>African</span>
+Elephant Population</a>.”</span> <em>Journal of Animal Ecology</em> 77
+(1): 135–44.
+</div>
+<div id="ref-crouse1987" class="csl-entry" role="doc-biblioentry">
+Crouse, D T, L B Crowder, and H Caswell. 1987. <span>“A Stage-Based
+Population Model for Loggerhead Sea Turtles and Implications for
+Conservation.”</span> <em>Ecology</em> 68: 1412–23.
+</div>
+<div id="ref-fehling2022" class="csl-entry" role="doc-biblioentry">
+Fehling, Laura Sharon. 2022. <span>“Reward <span>Complementarity</span>
+and <span>Context Dependency</span> in <span>Multispecies Mutualist
+Interactions</span> in <span>Partridge Pea</span>
+(<span>Chamaecrista</span> Fasciculata).”</span> PhD thesis, Miami
+University.
+</div>
+<div id="ref-franklin2012" class="csl-entry" role="doc-biblioentry">
+Franklin, Deborah. 2012. <span>“Nature That Nutures.”</span>
+<em>Scientific American</em> 306 (3): 24–25.
+</div>
+<div id="ref-hastings2011" class="csl-entry" role="doc-biblioentry">
+Hastings, A. 2011. <span>“Single Species Population Dynamics and Its
+Theoretical Underpinnings.”</span> In, edited by S. M. Scheiner and M.
+R. Willig. <span>Chicago, IL, USA</span>: <span>University of Chicago
+Press</span>.
+</div>
+<div id="ref-kappeler2019" class="csl-entry" role="doc-biblioentry">
+Kappeler, Peter M. 2019. <span>“A Framework for Studying Social
+Complexity.”</span> <em>Behavioral Ecology and Sociobiology</em> 73 (1):
+13. <a href="https://doi.org/10.1007/s00265-018-2601-8">https://doi.org/10.1007/s00265-018-2601-8</a>.
+</div>
+<div id="ref-lee2011" class="csl-entry" role="doc-biblioentry">
+Lee, Ronald. 2011. <span>“The <span>Outlook</span> for <span>Population
+Growth</span>.”</span> <em>Science</em> 333 (6042): 569–73. <a href="https://doi.org/10.1126/science.1208859">https://doi.org/10.1126/science.1208859</a>.
+</div>
+<div id="ref-livdahl1991" class="csl-entry" role="doc-biblioentry">
+Livdahl, Todd P., and Michelle S. Willey. 1991. <span>“Prospects for an
+<span>Invasion</span>: <span>Competition Between</span>
+<span><em>Aedes</em></span><span> <em>Albopictus</em></span> and
+<span>Native</span> <span><em>Aedes</em></span><span>
+<em>Triseriatus</em></span>.”</span> <em>Science</em> 253 (5016):
+189–91. <a href="https://doi.org/10.1126/science.1853204">https://doi.org/10.1126/science.1853204</a>.
+</div>
+<div id="ref-mcelreath2020" class="csl-entry" role="doc-biblioentry">
+McElreath, Richard. 2020. <em>Statistical <span>Rethinking</span>:
+<span>A Bayesian Course</span> with <span>Examples</span> in
+<span>R</span> and <span>Stan</span></em>. Second Edition. Texts in
+<span>Statistical Science</span>. <span>Boca Raton, FL</span>: <span>CRC
+Press</span>.
+</div>
+<div id="ref-morin1999a" class="csl-entry" role="doc-biblioentry">
+Morin, P J. 1999. <em>Community <span>Ecology</span></em>. <span>Malden,
+MA</span>: <span>Blackwell Science, Inc.</span>
+</div>
+<div id="ref-nordell2014" class="csl-entry" role="doc-biblioentry">
+Nordell, Shawn E., and Thomas J. Valone. 2014. <em>Animal
+<span>Behavior</span>: <span>Concepts</span>, <span>Methods</span>, and
+<span>Applications</span></em>. <span>New York</span>: <span>Oxford
+University Press</span>.
+</div>
+<div id="ref-nowak:2010ul" class="csl-entry" role="doc-biblioentry">
+Nowak, Martin A, Corina E Tarnita, and Edward O Wilson. 2010. <span>“The
+Evolution of Eusociality.”</span> <em>Nature</em> 466 (7310): 1057–62.
+</div>
+<div id="ref-odling-smee2013" class="csl-entry" role="doc-biblioentry">
+Odling-Smee, J, and DH Erwin. 2013. <span>“Niche Construction Theory:
+<span>A</span> Practical Guide for Ecologists.”</span> <em>The Quarterly
+Review of Biology</em> 88 (1): 3–28. <a href="https://www.jstor.org/stable/10.1086/669266">https://www.jstor.org/stable/10.1086/669266</a>.
+</div>
+<div id="ref-schnitzer2005" class="csl-entry" role="doc-biblioentry">
+Schnitzer, S A. 2005. <span>“A Mechanistic Explanation for Global
+Patterns of Liana Abundance and Distribution.”</span> <em>American
+Naturalist</em> 166 (2): 262–76.
+</div>
+<div id="ref-smithmartin:2019aa" class="csl-entry" role="doc-biblioentry">
+Smith-Martin, Chris M., Carolina L. Bastos, Omar R. Lopez, Jennifer S.
+Powers, and Stefan A. Schnitzer. 2019. <span>“Effects of Dry-Season
+Irrigation on Leaf Physiology and Biomass Allocation in Tropical Lianas
+and Trees.”</span> <em>Ecology</em> 100.
+</div>
+<div id="ref-solomon2018" class="csl-entry" role="doc-biblioentry">
+Solomon, Nancy G., and Brian Keane. 2018. <span>“Dispatches from the
+Field: Sociality and Reproductive Success in Prairie Voles.”</span>
+<em>Animal Behaviour</em> 143 (September): 193–203. <a href="https://doi.org/10.1016/j.anbehav.2018.07.001">https://doi.org/10.1016/j.anbehav.2018.07.001</a>.
+</div>
+<div id="ref-stephens1986" class="csl-entry" role="doc-biblioentry">
+Stephens, D W, and J R Krebs. 1986. <em>Foraging
+<span>Theory</span></em>. Edited by J. R. Krebs and T. H. Clutton-Brock.
+Monographs in Behavior and Ecology. <span>Princeton, University Press,
+Princeton, NJ, USA</span>: <span>Princeton University Press</span>.
+</div>
+<div id="ref-vucetich:2009" class="csl-entry" role="doc-biblioentry">
+Vucetich, John A., and Rolf O. Peterson. 2009. <span>“Recovery of Gray
+Wolves in the Great Lakes Region of the United States.”</span> In,
+edited by A. P. Wydeven et al., 35–48. <span>Springer</span>.
+</div>
+<div id="ref-wickham2016" class="csl-entry" role="doc-biblioentry">
+Wickham, Hadley. 2016. <em>Ggplot2: <span>Elegant Graphics</span> for
+<span>Data Analysis</span></em>. <span>New York, NY</span>:
+<span>Springer-Verlag</span>.
+</div>
+<div id="ref-wilkinson2005" class="csl-entry" role="doc-biblioentry">
+Wilkinson, Leland. 2005. <em>The <span>Grammar</span> of
+<span>Graphics</span></em>. Second. Statistics and Computing. <span>New
+York, NY</span>: <span>Spinger</span>.
+</div>
+<div id="ref-wilson1984a" class="csl-entry" role="doc-biblioentry">
+Wilson, Edward O. 1984. <em>Biophiia</em>. <span>Cambridge, MA</span>:
+<span>: Harvard University Press</span>.
+</div>
 </div>
 
 
@@ -310,8 +468,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./summary.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Summary</span></span>
+      <a href="./20-ecosystem-intro.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">An Introduction to the Carbon Cycle and Global Heating</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">

@@ -1,14 +1,19 @@
 ---
-title: "Tree Cover: an investigation in ecology and in environmental justice"
+title: "Environmental Justice: How income relates to environment."
 ---
 
 ```{r setup, include=FALSE}
-
+options(gargle_oauth_email = "stevenmh@miamioh.edu", message=FALSE)
+library(patchwork)
 ```
 
 ## Background
 
-The types of places that organisms live--their habitats--depends on a variety factors. Selection of particular habitats results from tradeoffs between the benefits from foraging and reproducing versus perceived risks of mortality [@stephens1986; @morin1999a]. Organisms also construct elements of their own habitats, including nests and burrows, as well as broader habitat alteration [niche construction, @odling-smee2013]. Beavers build dens and dams, birds and wasps build nests, and bacteria, ants, and humans all construct elaborate multi-layered cities of thousands or millions of individuals. At the same time, organisms often damage the very habitats they create, through over-consumption of resources and over-production of waste products. We know a great deal about how our own species (*H. sapiens*) construct elements of their own habitats. We also know a lot about how we migrate and disperse from place to place. Nonetheless, we have a lot to learn about our own species, and, in particular, about which factors determine the our preferred habitats and determine the changes we make to those habitats.
+The types of places that organisms live--their habitats--depends on a variety factors. *Habitat selection*, the selection of particular habitats, results from real and perceived tradeoffs between the benefits from foraging and reproducing versus perceived risks of mortality [@stephens1986; @morin1999a]. 
+
+In addition to selecting their habitats, organisms also construct elements of their own habitats, including nests and burrows, as well as broader habitat alteration. This is known as *niche construction* [@odling-smee2013]. Beavers build dens and dams, birds and wasps build nests, and bacteria, ants, and humans all construct elaborate multi-layered cities of thousands or millions of individuals. At the same time, organisms often damage the very habitats they create, through over-consumption of resources and over-production of waste products. 
+
+We know a great deal about how our own species (*H. sapiens*) construct elements of their own habitats. We also know a lot about how we migrate and disperse from place to place. Nonetheless, we have a lot to learn about our own species, and, in particular, about which factors determine the our preferred habitats and determine the changes we make to those habitats.
 
 Economic wealth seems to influence many of choices by *H sapiens*, including our preferred habitats. Ed @wilson1984a, a famous evolutionary biologist, have proposed the *Biophilia hypothesis*, that humans love nature. Biomedical researchers have shown that we are happier and heal from injury and illness faster when we have access to plants and to the outdoors [@franklin2012]. If wealth generally gives us greater access to what we want, will wealthier people more often put themselves in closer connection to nature?
 
@@ -51,7 +56,7 @@ The first of these two platforms, Tree Equity Score, gives fairly detailed infor
 
 **OurTrees** app, in *i-Tree*
 
-1.  OurTrees application in [*i-Tree*](https://www.itreetools.org/){target="_blank"}. Select a location in which you are interested. Start with any lcoation name, and select "Search". The app will show you a location. If you would like to, you can change the location by simply clicking somewhere else on the map. You can choose either Street view or Satellite view (the data will be the same).
+1.  **OurTrees application** in [*i-Tree*](https://www.itreetools.org/){target="_blank"}. Select a location in which you are interested. Start with any location name, and select "Search". The app will show you a location. If you would like to, you can change the location by simply clicking somewhere else on the map. You can choose either Street view or Satellite view (the data will be the same).
 2.  Enter the name of your selected location into our class a new spreadsheet, [Google Sheet for **OurTrees**](https://docs.google.com/spreadsheets/d/1uYCuTziJiLNvVOQ9Q65BxdWcNgDF6EnF8L1T3O_yATw/edit?usp=sharing){target="_blank"}.
 3.  In the OurTrees app, select "Get Results! -\>".
 4.  From the "Benefits" tab, collect data on tree canopy cover (%), annual uptake of CO$_2$ equivalents and 2.5 micron particulate matter (PM$_{2.5}$). Enter these into the OurTrees Google Sheet.
@@ -64,13 +69,11 @@ I argued that the Biophilia Hypothesis leads to the prediction that tree cover w
 
 A couple of minor points: (1) Our prediction also implies that we should see a negative relation between poverty and tree cover. (2) We typically assume that the variable on the y-axis is a response to the variable on the x-axis, that is, that the x variable is causing variation in the y variable.
 
-Given our data are *continuous variables* rather than categories, we should start by making a *scatterplot* of median income (x) vs. tree cover (y). Do that in anyway you like, such as in R, Google Sheets, or Microsoft Excel.
+Given our data are *continuous variables* rather than categories, we should start by making a *scatterplot* of median income (x) vs. tree cover (y). 
 
 As the semester progresses, you will find R is very useful. Below, I provide you with code for an R script to easily make this graph.
 
-```{r echo=TRUE, fig.cap="The noisy but perhaps positive relation between percent of an location covered in trees and the median income of that location.", out.width="65%"}
-#| label: fig-data
-#| 
+```{r }
 # if needed, install these packages
 # install.packages("googlesheets4")
 # install.packages("ggplot2")
@@ -95,14 +98,35 @@ d <- read_sheet("https://docs.google.com/spreadsheets/d/1uYCuTziJiLNvVOQ9Q65BxdW
 # names(d)
 
 # make a scatterplot
-ggplot(data=d, aes(x=`Median Income`, 
-                   y=`Tree canopy cover`, 
+plot1 <- ggplot(data=d, aes(x=Median_Income, 
+                   y=Tree_canopy_cover, 
                    label=`City (only)`)) + geom_text() +
-  labs(y="Tree cover (%)", x="Median income")
+  labs(y="Tree cover (%)", x="Median income", title="No relation twixt tree cover and income?")
+
+ggsave("myCoverIncome_text.png", plot=plot1, width=10, height = 10)
+
+plot2 <- ggplot(data=d, aes(x=Median_Income, 
+                   y=Tree_canopy_cover, 
+                   label=`City (only)`)) + 
+  geom_point() +
+  labs(y="Tree cover (%)", x="Median income", title="No relation twixt tree cover and income?")
 
 # save the figure (dimensions in inches)
-ggsave("myCoverIncome.png", width=6, height = 6)
+ggsave("myCoverIncome_points.png", plot=plot2, width=7, height = 7)
 ```
+
+Here is a subset of data I collected on the places where members of my family lives.
+```{r echo=TRUE, fig.cap="The noisy but perhaps positive relation between percent of an location covered in trees and the median income of that location.", out.width="80%"}
+#| label: fig-data
+d10 <- d[1:10,]
+myPlot <- ggplot(data=d10, aes(x=Median_Income, 
+                   y=Tree_canopy_cover, 
+                   label=`City (only)`)) + geom_text() +
+  labs(y="Tree cover (%)", x="Median income", title="No relation twixt tree cover and income?")
+
+myPlot
+```
+
 
 Refer to the scatterplot of my data (@fig-data). What do we find? Discuss the following questions with your colleagues, and propose and explain some possible answers.
 
@@ -113,16 +137,15 @@ Refer to the scatterplot of my data (@fig-data). What do we find? Discuss the fo
 
 ## Deliverables
 
-**Data analysis**
+**Results and discussion**
 
-* Post your two graphs, one from tree equity and one from i-Tree, to [this Google Slide deck](https://docs.google.com/presentation/d/1zvfgB4zvr0Jn7BWTlLSPBrzrLtt2JMt0-8vWg99EVCk/edit?usp=sharing).
-* Include the information suggested on the slides (title that identifies main result, explanation of results, author names).
-
-**Written evaluation**
-
-* Compose a single document that contains answers to the above questions. I suggest that you start by simply listing answer to these questions. After you (our your group) is reasonably satisfied, compose a coherent essay between ~250-500 words that addresses the major points you want to convey.
-* Turn this in as requested by your instructor.
-
-## References
+* In one document, put two figures side-by-side:
+   i. your bargraph of % tree cover vs. % people in poverty (copied from the Tree Equity site) side-by-side, and
+   i. your scatterplot of tree cover vs. median income that you made using everyone's data, based on the iTree/OurTrees website that you shared in the Google spreadsheet.
+   i. include a figure legend that states what the graphs are in a way that is intelligible to a naive reader.
+* Provide a brief explanation of your findings, including
+    i. the results described in a factual manner, without interpretation, 
+    ii. an explanation of whether the results are consistent with the biophilia hypothesis, and
+    iii. a new question that emerges due to the inconsistencies between the data and the hypothesis; explain why this question is a logical extension of your current results and interpration.
 
 

@@ -1,0 +1,790 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.2.313">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Basic Ecological Concepts and Data in R - 7&nbsp; Structured demography: How a graduate student helped save the loggerhead sea turtle</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./08-density-dep-pop-growth.html" rel="next">
+<link href="./06-DI-pop-growth.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+</head>
+
+<body class="nav-sidebar floating">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+    <div class="container-fluid d-flex justify-content-between">
+      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Structured demography: How a graduate student helped save the loggerhead sea turtle</span></h1>
+      <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
+        <i class="bi bi-chevron-right"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">Basic Ecological Concepts and Data in R</a> 
+    </div>
+      </div>
+      <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+      </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">Preface</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./01-computer-setup.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Computer setup and first R script</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./01-trees_and_people.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Environmental Justice: How income relates to environment.</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./02-global_temp_anomalies.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Physical Environment: A Fate of Earth</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./03-liana-phys.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Individual responses to the environment: What makes lianas relatively successful in stressful habitats?</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./04-extrapair_copulation.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Behavior: Extra-pair copulation in a monogamous species</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./06-DI-pop-growth.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Density-independent Population Growth: Humans on the rise</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./07-structured-pop-growth_v2.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Structured demography: How a graduate student helped save the loggerhead sea turtle</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./08-density-dep-pop-growth.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Density-dependence in population growth</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./09-direct-interactions.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Direct species interactions: understanding mechanisms of invasion in mosquitoes</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./10-mutualisms.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Mutualisms: Do ants protect pea plants?</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./11-predator-prey.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Of wolves and moose, on Isle Royale</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./20-ecosystem-intro.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">An Introduction to the Carbon Cycle and Global Heating</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./references.html" class="sidebar-item-text sidebar-link">References</a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#goals" id="toc-goals" class="nav-link active" data-scroll-target="#goals"><span class="toc-section-number">7.1</span>  Goals</a></li>
+  <li><a href="#preparatory-steps" id="toc-preparatory-steps" class="nav-link" data-scroll-target="#preparatory-steps"><span class="toc-section-number">7.2</span>  Preparatory steps</a></li>
+  <li><a href="#demography" id="toc-demography" class="nav-link" data-scroll-target="#demography"><span class="toc-section-number">7.3</span>  Demography</a></li>
+  <li><a href="#loggerhead-sea-turtles" id="toc-loggerhead-sea-turtles" class="nav-link" data-scroll-target="#loggerhead-sea-turtles"><span class="toc-section-number">7.4</span>  Loggerhead sea turtles</a>
+  <ul class="collapse">
+  <li><a href="#questions-about-loggerhead-survival" id="toc-questions-about-loggerhead-survival" class="nav-link" data-scroll-target="#questions-about-loggerhead-survival"><span class="toc-section-number">7.4.1</span>  Questions about loggerhead survival</a></li>
+  </ul></li>
+  <li><a href="#demographic-modeling" id="toc-demographic-modeling" class="nav-link" data-scroll-target="#demographic-modeling"><span class="toc-section-number">7.5</span>  Demographic modeling</a>
+  <ul class="collapse">
+  <li><a href="#connecting-life-history-information-to-a-model" id="toc-connecting-life-history-information-to-a-model" class="nav-link" data-scroll-target="#connecting-life-history-information-to-a-model"><span class="toc-section-number">7.5.1</span>  Connecting life history information to a model</a></li>
+  <li><a href="#connecting-life-histories-to-demographic-matrices" id="toc-connecting-life-histories-to-demographic-matrices" class="nav-link" data-scroll-target="#connecting-life-histories-to-demographic-matrices"><span class="toc-section-number">7.5.2</span>  Connecting life histories to demographic matrices</a></li>
+  </ul></li>
+  <li><a href="#analysis-of-a-demographic-matrix" id="toc-analysis-of-a-demographic-matrix" class="nav-link" data-scroll-target="#analysis-of-a-demographic-matrix"><span class="toc-section-number">7.6</span>  Analysis of a demographic matrix</a></li>
+  <li><a href="#finding-the-life-history-stage-that-could-make-the-biggest-difference" id="toc-finding-the-life-history-stage-that-could-make-the-biggest-difference" class="nav-link" data-scroll-target="#finding-the-life-history-stage-that-could-make-the-biggest-difference"><span class="toc-section-number">7.7</span>  Finding the life history stage that could make the biggest difference</a>
+  <ul class="collapse">
+  <li><a href="#helping-hatchlings" id="toc-helping-hatchlings" class="nav-link" data-scroll-target="#helping-hatchlings"><span class="toc-section-number">7.7.1</span>  Helping hatchlings</a></li>
+  <li><a href="#helping-small-juveniles" id="toc-helping-small-juveniles" class="nav-link" data-scroll-target="#helping-small-juveniles"><span class="toc-section-number">7.7.2</span>  Helping small juveniles</a></li>
+  </ul></li>
+  <li><a href="#simulating-helping-other-stages" id="toc-simulating-helping-other-stages" class="nav-link" data-scroll-target="#simulating-helping-other-stages"><span class="toc-section-number">7.8</span>  Simulating helping other stages</a></li>
+  <li><a href="#sec-deliverables" id="toc-sec-deliverables" class="nav-link" data-scroll-target="#sec-deliverables"><span class="toc-section-number">7.9</span>  Deliverables</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title d-none d-lg-block"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Structured demography: How a graduate student helped save the loggerhead sea turtle</span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+</header>
+
+<div id="fig-caretta" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="caretta.jpg" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Figure&nbsp;7.1: The loggerhead sea turtle is listed as “vulnerable” by the IUCN 3.1. image: By ukanda - originally posted to Flickr as Loggerhead turtle, CC BY 2.0, https://commons.wikimedia.org/w/index.php?curid=10481668</figcaption><p></p>
+</figure>
+</div>
+<section id="goals" class="level2" data-number="7.1">
+<h2 data-number="7.1" class="anchored" data-anchor-id="goals"><span class="header-section-number">7.1</span> Goals</h2>
+<p>In this chapter, you’ll connect sea turtle natural history to a demographic model of population growth and learn how we all learned about how to help sea turtles. Along the way, you’ll learn about sea turtle natural history, demography, dynamics and model sensitivity.</p>
+<p>If you successfully complete this chapter, you will</p>
+<ul>
+<li>discover key stages in a sea turtles life,</li>
+<li>describe <em>population structure</em>,</li>
+<li>use natural history information to parameterize a mathematical model to make predictions about sea turtles,</li>
+<li>distinguish between <em>transient dynamics</em> and long-term <em>asymptotic dynamics</em>, and</li>
+<li>recommend management options for sea turtles conservation.</li>
+</ul>
+</section>
+<section id="preparatory-steps" class="level2" data-number="7.2">
+<h2 data-number="7.2" class="anchored" data-anchor-id="preparatory-steps"><span class="header-section-number">7.2</span> Preparatory steps</h2>
+<ul>
+<li>Watch the lecture video on <a href="https://drive.google.com/drive/folders/1nWLoEGuWKIWdul9Uvse5qiB1Hf8MCwUv?usp=sharing">Structured population growth</a>, and the preceding population ecology videos (distribution and abundance, and density-independent population growth).</li>
+<li>Download <a href="https://drive.google.com/drive/folders/1opLlrmF7kfo0FtWwwJ1CbfPWIyuaISC1?usp=sharing">Crouse et al.&nbsp;(1987) from our article archive</a>.</li>
+<li>This chapter does not use a separate data set, but it does use demographic natural history information in Crouse et al.&nbsp;(1987).</li>
+<li>Find out what you need for the deliverables (<a href="11-predator-prey.html#sec-deliverables"><span>Section&nbsp;11.12</span></a>).</li>
+</ul>
+</section>
+<section id="demography" class="level2" data-number="7.3">
+<h2 data-number="7.3" class="anchored" data-anchor-id="demography"><span class="header-section-number">7.3</span> Demography</h2>
+<p><strong>Deomgraphy</strong> includes the structure of a population which is the relative numbers of individuals of different ages or stages. Deomgraphy also includes the rates that control that structure which are primarily age- and stage-specific birth rates, death rates, and survival. We use this detailed information to make informed predictions about the population’s future state, including its overall size and its structure. Therefore, demography also includes the overall rates, including population growth, that emerge from all the detailed age/stage-specific information. The study of human demography helps nations make informed policy decisions that take into account how societies will change over time due to populations that are growing, shrinking, aging or getting younger on average <span class="citation" data-cites="lee2011">(<a href="references.html#ref-lee2011" role="doc-biblioref">Lee 2011</a>)</span>. The study of many rare, threatened or vulnerable species includes <em>demography</em> because demography helps us understand and manage populations <span class="citation" data-cites="caswell:2001gu">(<a href="references.html#ref-caswell:2001gu" role="doc-biblioref">Caswell 2001</a>)</span>.</p>
+</section>
+<section id="loggerhead-sea-turtles" class="level2" data-number="7.4">
+<h2 data-number="7.4" class="anchored" data-anchor-id="loggerhead-sea-turtles"><span class="header-section-number">7.4</span> Loggerhead sea turtles</h2>
+<p>The loggerhead sea turtle (<em>Caretta caretta</em>) is a widely distributed (i.e.&nbsp;cosmopolitan) species that lives in oceans around the world. The International Union for Conservation of Nature (IUCN, https://www.iucnredlist.org/) lists it as “vulnerable” to extinction, which, sadly, is pretty good these days. The fact that the species is not worse off is in part due to research like that of <span class="citation" data-cites="crouse1987">Crouse, Crowder, and Caswell (<a href="references.html#ref-crouse1987" role="doc-biblioref">1987</a>)</span>. This research by Deborah Crouse, Hal Caswell, and many others is the subject of what you will work with in this assignment.</p>
+<p>Sea turtles live in warm oceans around the world and reproduce on sandy beaches. Females return to the same beaches most years to lay eggs in clutches. They come ashore, dig a hole in the sand, lay 10-100 eggs, and cover the nest, often disguising it from terrestrial predators who would like to dig them up to eat them. The female then returns to the sea to feed and ovoid enemies. If the everything goes right, the eggs hatch after incubation, hatchlings emerge together, struggle to the surf, and attempt to avoid the many predators (e.g., gulls, raccoons, crabs, people). Sea turtle hatchlings face many threats, including from humans who eat the eggs, and trucks or off-road vehicles can destroy the nests. In addition, lighting from nearby streets and homes can confuse hatchlings as they may crawl toward the lights as opposed to heading out to sea.</p>
+<section id="questions-about-loggerhead-survival" class="level3" data-number="7.4.1">
+<h3 data-number="7.4.1" class="anchored" data-anchor-id="questions-about-loggerhead-survival"><span class="header-section-number">7.4.1</span> Questions about loggerhead survival</h3>
+<p>Include answers to these in Deliverables. 1. Consult Table 3 (Crouse et al.&nbsp;1987). a. Which two stages have the lowest annual survivorship? a. Which stages have the highest annual survivorship? 1. Why do you suppose that 1st year remigrants have such low fecundity?</p>
+<p>Fishing trawlers, which drag nets for long distances to catch shrimp and fish create another source of mortality in juveniles and adults. The sea turtles get caught in these nets and drown. These dead turtles are referred to as “by-catch”, that is, animals killed unintentionally while fishing for other species.</p>
+<p>Sea turtle populations have been on the decline for well over a century, and some species are more endangered than others. One common conservation strategy has been to protect the eggs and hatchlings. More recently, some countries have passed laws requiring fishing trawlers (fishing boats dragging huge nets for hours at a time) to use turtle excluders devices (TEDs). These spring-loaded devices fit at the end of a trawler net and will open up when they receive a big bump from a heavy sea turtle. This allows the turtle to escape, and the fishermen lose only a fraction of their catch.</p>
+<p>No one really knew the value of TEDs until Deborah Crouse and others modeled sea turtle populations and showed clearly that (1) saving eggs and hatchlings was not enough, and (2) increasing survival of large turtles (large juveniles and adults) was required to save the turtles from continued declines and extinction.</p>
+</section>
+</section>
+<section id="demographic-modeling" class="level2" data-number="7.5">
+<h2 data-number="7.5" class="anchored" data-anchor-id="demographic-modeling"><span class="header-section-number">7.5</span> Demographic modeling</h2>
+<p>We use a square matrix to summarize a species’ age- or stage-specific demographic rates. A <em>matrix</em> is mathematical array of numbers with specified rows and columns. The <em>dimension</em> of a matrix is its number of rows and number of columns. A matrix with the same number rows as columns is called a <em>square matrix</em>.</p>
+<p>The effect of a matrix element on long term asymptotic growth rate (lambda) is known as sensitivity or elasticity, depending on the details of the calculations. There are abstract ways to calculate those using linear algebra, but here we do it the easy and transparent way. We will change annual survivals of particular stages, and then recalculate lambda and r to examine the effect directly.</p>
+<p><span class="citation" data-cites="crouse1987">Crouse, Crowder, and Caswell (<a href="references.html#ref-crouse1987" role="doc-biblioref">1987</a>)</span> performed a demographic analysis of an endangered sea turtle species, the loggerhead (<em>Caretta caretta</em>). Management of loggerhead populations seemed essential for their long term survival, and a popular management strategy had been and still is to protect nesting females, eggs, and hatchlings. The ground breaking work by Crouse<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> and her colleagues compiled data to create a stage-based projection matrix to analyze quantitatively which stages are most important and least important in influencing long-term growth rate. This work led to US Federal laws requiring that US shrimp fishermen use nets that include Turtle Excluder Devices (<a href="https://www.fisheries.noaa.gov/southeast/bycatch/turtle-excluder-device-regulations">TEDs</a>).</p>
+<p>A <em>demographic transition matrix</em> is merely a compact quantitative summary of a species’ life history events. It includes the annual probabilities that an individual remains in a particular stage, grows into a later stage, or even regresses back to an “earlier” stage. It also includes the fertility or number of progeny it contributes to the first stage. These stages may be age classes (e.g., 0-5 y), sizes (e.g., 2-4 leaves), or some other major life history stage (e.g., first year breeder).</p>
+<p>The transition matrix holds each of the probabilities and fertilities in a way that the column identifies the stage at time <span class="math inline">\(t\)</span> whereas the row identifies the next time period <span class="math inline">\(t+1\)</span>.</p>
+<div id="fig-matrixex" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="figs/matrix_example_small.png" class="img-fluid figure-img" style="width:75.0%"></p>
+<p></p><figcaption class="figure-caption">Figure&nbsp;7.2: A toy demographic transition matrix, with stages of hatchlings (H), juveniles (J), and adults (A). Elements represent the probability that an individual belonging to the stage in the column stays in or transitions to the stage in the row over a single year. Fecundity (f3) represents the total number of offspring that an individual contributes to the stage in that row.</figcaption><p></p>
+</figure>
+</div>
+<p>In <a href="#fig-matrixex">Figure&nbsp;<span>7.2</span></a>, the element <span class="math inline">\(s_2\)</span> is the probability that a juvenile in year 1 survives to remain a juvenile in year 2. The element <span class="math inline">\(g_2\)</span> represents the probability that a juvenile in year 2 survives and also become a reproductively mature adult in year 2. The element <span class="math inline">\(g_1\)</span> is the probability that a hatchling survives and becomes a juvenile in year 2. The element <span class="math inline">\(s_3\)</span> is the probability that an adult survives and remains an adult. We refer to the elements on the diagonal (<span class="math inline">\(s\)</span>) as <strong>stasis</strong> and the elements on the off-diagonal (<span class="math inline">\(g\)</span>) as <strong>growth</strong>.</p>
+<p>Fecundity or reproduction is seen as adults contributing the to smallest or youngest stage. The element <span class="math inline">\(f_3\)</span> is the number of hatchlings that occur in year 2 based on the survival and reproduction of the average adult. The element <span class="math inline">\(s_1\)</span> is the survival of hatchlings. If the stage only exists for one year, then <span class="math inline">\(s_1=0\)</span> because, by definition, after one year a hatching is a juvenile, or it is dead.</p>
+<section id="connecting-life-history-information-to-a-model" class="level3" data-number="7.5.1">
+<h3 data-number="7.5.1" class="anchored" data-anchor-id="connecting-life-history-information-to-a-model"><span class="header-section-number">7.5.1</span> Connecting life history information to a model</h3>
+<p><span class="citation" data-cites="crouse1987">Crouse, Crowder, and Caswell (<a href="references.html#ref-crouse1987" role="doc-biblioref">1987</a>)</span> gathered data from a variety of sources to estimate loggerhead turtle survival and fertility at different ages and stages. They organized these data in the form of a transition matrix, <strong>A</strong>. They then used this model to evaluate the relative importance of different stage transitions to the population gorwth rate.</p>
+<p>On the basis of their analysis, they were able to identify that the survival of juveniles and subadults was the most important determinant of turtle growth rate, under the current circumstances. It was this insight, made possible only because of astructure population model, that led to changes in laws to require the use of turtle excluder devices (TEDs) in fishing and shrimpo trawlers.</p>
+<p>In this assignment, you will walk through the types of analyses done by Deborah Crouse and her colleagues. They combed the literature to find information about survival and reproduction by loggerheads and summarized those findings in their tables 1 and 2. They then organized that information into a more con densed form and presented it in Table 3, shown here in <a href="#fig-table3">Figure&nbsp;<span>7.3</span></a>.</p>
+<div id="fig-table3" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="figs/Crouse_table_3.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Figure&nbsp;7.3: Estimates of stage-specific survival and fecundity for loggerhead sea turtles, from Table 3 in Crouse et al.&nbsp;(1987). Based on information described in Tables 1 and 2 in Crouse et al.&nbsp;(1987).</figcaption><p></p>
+</figure>
+</div>
+<p>Their transition matrix (Table 4):</p>
+<p><span class="math display">\[\begin{array}{c}
+\\H\\J_s\\J_l \\sub \\ B_1 \\B_2 \\ M
+\end{array}
+\left(
+\begin{array}{cccccccc}
+H&amp;J_s &amp; J_l &amp; sub &amp; B_1 &amp; B_2 &amp; M\\
+     0&amp;      0&amp;      0&amp;      0&amp;    127&amp;      4&amp; 80\\
+0.6747&amp; 0.7370&amp;      0&amp;      0&amp;      0&amp;      0&amp; 0\\
+     0&amp; 0.0486&amp; 0.6610&amp;      0&amp;      0&amp;      0&amp; 0\\
+     0&amp;      0&amp; 0.0147&amp; 0.6907&amp;      0&amp;      0&amp; 0\\
+     0&amp;      0&amp;      0&amp; 0.0518&amp;      0&amp;      0&amp; 0\\
+      0&amp;      0&amp;      0&amp;      0&amp; 0.8091&amp;      0&amp; 0\\
+      0&amp;      0&amp;      0&amp;      0&amp;      0&amp; 0.8091&amp; 0.8089
+\end{array}
+\right)\]</span></p>
+</section>
+<section id="connecting-life-histories-to-demographic-matrices" class="level3" data-number="7.5.2">
+<h3 data-number="7.5.2" class="anchored" data-anchor-id="connecting-life-histories-to-demographic-matrices"><span class="header-section-number">7.5.2</span> Connecting life histories to demographic matrices</h3>
+<ol type="1">
+<li>Compare Table 3 and Table 4 (Crouse et al.&nbsp;1987). What are the relationships between survival and fecundity in Table 3, and the diagonal (stasis) and off-diagonal elements (growth) of the matrix in Table 4? How are they related?</li>
+<li>Why are the diagonal matrix elements (Table 4) not the same are the annual survivorship in Table 3?</li>
+</ol>
+<p>To use the information in Table 3 to make predictions about the long-term viability of the population and to make recommendations for the conservation of the population, Crouse and colleagues need to combine these stage-specific demographic rates into a model, and summarize the behavior of that model.</p>
+<p>Their first step was to put the above rates into a demographic transition matrix, where columns represent stages in one year, and the rows represent stages in the next year.</p>
+</section>
+</section>
+<section id="analysis-of-a-demographic-matrix" class="level2" data-number="7.6">
+<h2 data-number="7.6" class="anchored" data-anchor-id="analysis-of-a-demographic-matrix"><span class="header-section-number">7.6</span> Analysis of a demographic matrix</h2>
+<p>As with all of our work, confirm you are in the correct working directory.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">getwd</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "/Users/stevenmh/Courses/intro_to_ecology"</code></pre>
+</div>
+</div>
+<p>Fix this, if necessary.</p>
+<p>Load needed packages.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="do">## for graphics and data manipulation</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
+✔ dplyr     1.1.4     ✔ readr     2.1.5
+✔ forcats   1.0.0     ✔ stringr   1.5.1
+✔ ggplot2   3.4.4     ✔ tibble    3.2.1
+✔ lubridate 1.9.3     ✔ tidyr     1.3.1
+✔ purrr     1.0.2     
+── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+✖ dplyr::filter() masks stats::filter()
+✖ dplyr::lag()    masks stats::lag()
+ℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors</code></pre>
+</div>
+</div>
+<p>Two of the techniques we use to analyze a demographic matrix are <strong>simulation</strong>, and a mathematical technique called <strong>eigenanalysis</strong>. Simulation allows us to reveal the dynamics through time, year after year, generation after generation. Eigenanalysis allows us to very quickly quantify average characteristics of the population, including the population growth rate, <span class="math inline">\(\lambda\)</span>, the stable stage distribution, and the elasticities.</p>
+<ul>
+<li><strong>population growth rate</strong>, <span class="math inline">\(\lambda\)</span>, is the long term <em>finite rate of increase</em> and assumes density-independent growth.</li>
+<li><strong>stable stage distribution</strong> is the set of expected relative densities of the different stages.</li>
+<li><strong>elasticies</strong> are the relative importances of the different transitions to determining the finite rate of increase, <span class="math inline">\(\lambda\)</span>.</li>
+</ul>
+<p>We will focus on lambda, and do some experiments playing around with survival and growth.</p>
+<p>First, we need to create the observed transition matrix.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>A <span class="ot">&lt;-</span> <span class="fu">matrix</span>(</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">c</span>(<span class="dv">0</span>,      <span class="dv">0</span>,      <span class="dv">0</span>,      <span class="dv">0</span>,    <span class="dv">127</span>,      <span class="dv">4</span>,    <span class="dv">80</span>,</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>    <span class="fl">0.6747</span>, <span class="fl">0.7370</span>, <span class="dv">0</span>,      <span class="dv">0</span>,      <span class="dv">0</span>,      <span class="dv">0</span>,     <span class="dv">0</span>,</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>    <span class="dv">0</span>,      <span class="fl">0.0486</span>, <span class="fl">0.6610</span>, <span class="dv">0</span>,      <span class="dv">0</span>,      <span class="dv">0</span>,     <span class="dv">0</span>,</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>    <span class="dv">0</span>,      <span class="dv">0</span>,      <span class="fl">0.0147</span>, <span class="fl">0.6907</span>, <span class="dv">0</span>,      <span class="dv">0</span>,     <span class="dv">0</span>,</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>    <span class="dv">0</span>,      <span class="dv">0</span>,      <span class="dv">0</span>,      <span class="fl">0.0518</span>, <span class="dv">0</span>,      <span class="dv">0</span>,      <span class="dv">0</span>,</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>    <span class="dv">0</span>,      <span class="dv">0</span>,      <span class="dv">0</span>,      <span class="dv">0</span>,      <span class="fl">0.8091</span>, <span class="dv">0</span>,      <span class="dv">0</span>,</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>    <span class="dv">0</span>,      <span class="dv">0</span>,      <span class="dv">0</span>,      <span class="dv">0</span>,      <span class="dv">0</span>,      <span class="fl">0.8091</span>, <span class="fl">0.8089</span>), </span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a><span class="at">nrow=</span><span class="dv">7</span>, <span class="at">ncol=</span><span class="dv">7</span>, <span class="at">byrow=</span><span class="cn">TRUE</span>)</span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a><span class="fu">rownames</span>(A) <span class="ot">&lt;-</span> <span class="fu">colnames</span>(A) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"H"</span>,<span class="st">"J_s"</span>,<span class="st">"J_l"</span>, <span class="st">"sub"</span>, <span class="st">"B_1"</span>, <span class="st">"B_2"</span>, <span class="st">"M"</span>)</span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>A</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>         H    J_s    J_l    sub      B_1    B_2       M
+H   0.0000 0.0000 0.0000 0.0000 127.0000 4.0000 80.0000
+J_s 0.6747 0.7370 0.0000 0.0000   0.0000 0.0000  0.0000
+J_l 0.0000 0.0486 0.6610 0.0000   0.0000 0.0000  0.0000
+sub 0.0000 0.0000 0.0147 0.6907   0.0000 0.0000  0.0000
+B_1 0.0000 0.0000 0.0000 0.0518   0.0000 0.0000  0.0000
+B_2 0.0000 0.0000 0.0000 0.0000   0.8091 0.0000  0.0000
+M   0.0000 0.0000 0.0000 0.0000   0.0000 0.8091  0.8089</code></pre>
+</div>
+</div>
+<p>Then we can calculate lambda. Remember that lambda is just the ratio of population sizes in sequential years (<span class="math inline">\(\lambda=N_{t+1}/N_{t}\)</span>).</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>original_lambda <span class="ot">&lt;-</span> <span class="fu">Re</span>( <span class="fu">eigen</span>(A)<span class="sc">$</span>values[<span class="dv">1</span>] )</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>original_lambda</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.945031</code></pre>
+</div>
+</div>
+<p>This value, <span class="math inline">\(\lambda = 0.94\)</span>, is less than <span class="math inline">\(\lambda=1\)</span>, and therefore indicates a shrinking population. <strong>This shows that the loggerhead sea turtle was predicted to decline.</strong></p>
+<p><strong>What can we do?</strong></p>
+</section>
+<section id="finding-the-life-history-stage-that-could-make-the-biggest-difference" class="level2" data-number="7.7">
+<h2 data-number="7.7" class="anchored" data-anchor-id="finding-the-life-history-stage-that-could-make-the-biggest-difference"><span class="header-section-number">7.7</span> Finding the life history stage that could make the biggest difference</h2>
+<p>Part of managing rare species is figuring out which part of the population, the age, or <strong>the stage on which to concentrate your efforts.</strong></p>
+<p>A good way to figure out where to focus our effort is to find out which stage could make the biggest difference to the growth rate, <span class="math inline">\(\lambda\)</span>. If we improve survival of an stage and it helps <span class="math inline">\(\lambda\)</span> increase above 1, focusing on that stage could be a good strategy.</p>
+<p>Your strategy will be to improve the survival in each stage so that individuals in that stage do not die. They either survive and remain in that stage, or they grow into the next stage. That means that with perfect survival, stasis and growth sum to nearly one.</p>
+<p>For each stage, we will pretend that we can improve annual survivale 99.9%. Some of our stages are only one year in duration, while others are 7, 8, or 30 years in duration. This makes it a little tricky to calculate our new simulated matrix elements. I will do that part for you.</p>
+<p><strong>In each of seven simulations, you will test the effect on growth rate (<span class="math inline">\(\lambda\)</span>) of improved survival.</strong></p>
+<section id="helping-hatchlings" class="level3" data-number="7.7.1">
+<h3 data-number="7.7.1" class="anchored" data-anchor-id="helping-hatchlings"><span class="header-section-number">7.7.1</span> Helping hatchlings</h3>
+<p>For your first experiment, you will test the effect on lambda of improving survival and growth of eggs and hatchlings to 99.9%, or annual survivorship of 0.999. Here are the steps:</p>
+<ol type="1">
+<li>Copy the old matrix and rename it (see below!).</li>
+<li>Change the new matrix to include survivorship of 0.999 for the hatchlings (see below!).</li>
+<li>Calculate lambda for the new matrix (see below).</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="do">## new matrix </span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>A1 <span class="ot">&lt;-</span> A </span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="do">## Change just the hatchling survival/growth</span></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>A1[<span class="dv">2</span>,<span class="dv">1</span>] <span class="ot">&lt;-</span> <span class="fl">0.999</span></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a><span class="do">## look at the new matrix</span></span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>A1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>        H    J_s    J_l    sub      B_1    B_2       M
+H   0.000 0.0000 0.0000 0.0000 127.0000 4.0000 80.0000
+J_s 0.999 0.7370 0.0000 0.0000   0.0000 0.0000  0.0000
+J_l 0.000 0.0486 0.6610 0.0000   0.0000 0.0000  0.0000
+sub 0.000 0.0000 0.0147 0.6907   0.0000 0.0000  0.0000
+B_1 0.000 0.0000 0.0000 0.0518   0.0000 0.0000  0.0000
+B_2 0.000 0.0000 0.0000 0.0000   0.8091 0.0000  0.0000
+M   0.000 0.0000 0.0000 0.0000   0.0000 0.8091  0.8089</code></pre>
+</div>
+</div>
+<p>In our new matrix, we see that 99.9% of hatchlings (first column, H) survive to grow into being small juveniles that next year (second row, J_s), that is, <span class="math inline">\(a_{2,1} = 0.999\)</span>.</p>
+<p>Now calculate lambda of the new matrix.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="do">## using Re() extracts just the real part of the eigenvalue, and not the imaginary part</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="fu">Re</span>( <span class="fu">eigen</span>(A1)<span class="sc">$</span>values[<span class="dv">1</span>] )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.964903</code></pre>
+</div>
+</div>
+<p>This is the new growth rate. Is it greater than 1? Does it suggest that improving hatchling survival will allow this turtle population to grow? How does this compare to the original value of lambda of 0.94? That is, <em>how much did saving all the hatchlings help the loggerhead population?</em> You’ll need this for deliverables.</p>
+</section>
+<section id="helping-small-juveniles" class="level3" data-number="7.7.2">
+<h3 data-number="7.7.2" class="anchored" data-anchor-id="helping-small-juveniles"><span class="header-section-number">7.7.2</span> Helping small juveniles</h3>
+<p>Here you will test the effect on lambda of improving survival and growth of small juveniles to 99.9%, or annual survivorship of 0.999. This stage lasts seven years, and so I calculated the new matrix elements for you (see the code).</p>
+<p>Here are the steps:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="do">## new matrix with NEW NAME, A2</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="do">## make sure you start with the ORIGINAL matrix A </span></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>A2 <span class="ot">&lt;-</span> A</span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a><span class="do">## Change just the stasis and growth for small juveniles</span></span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>A2[<span class="dv">2</span>,<span class="dv">2</span>] <span class="ot">&lt;-</span> <span class="fl">0.857</span> <span class="co"># stasis</span></span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>A2[<span class="dv">3</span>,<span class="dv">2</span>] <span class="ot">&lt;-</span>  <span class="fl">0.142</span> <span class="co"># growth</span></span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>A2</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>         H   J_s    J_l    sub      B_1    B_2       M
+H   0.0000 0.000 0.0000 0.0000 127.0000 4.0000 80.0000
+J_s 0.6747 0.857 0.0000 0.0000   0.0000 0.0000  0.0000
+J_l 0.0000 0.142 0.6610 0.0000   0.0000 0.0000  0.0000
+sub 0.0000 0.000 0.0147 0.6907   0.0000 0.0000  0.0000
+B_1 0.0000 0.000 0.0000 0.0518   0.0000 0.0000  0.0000
+B_2 0.0000 0.000 0.0000 0.0000   0.8091 0.0000  0.0000
+M   0.0000 0.000 0.0000 0.0000   0.0000 0.8091  0.8089</code></pre>
+</div>
+</div>
+<p>Now that you have a new matrix, calculate the lambda for this matrix. Do that now by borrowing and editing code from above.</p>
+<p>Now calculate the finite rate of increase (<span class="math inline">\(\lambda\)</span>)</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">Re</span>( <span class="fu">eigen</span>(A2)<span class="sc">$</span>values[<span class="dv">1</span>] )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 1.03806</code></pre>
+</div>
+</div>
+<p>What does this value of lambda tell you about the effect of increasing survival of small juveniles (if we could do that)?</p>
+</section>
+</section>
+<section id="simulating-helping-other-stages" class="level2" data-number="7.8">
+<h2 data-number="7.8" class="anchored" data-anchor-id="simulating-helping-other-stages"><span class="header-section-number">7.8</span> Simulating helping other stages</h2>
+<p>Repeat a similar procedure for each stage, using these values:</p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="tbl-changes" class="anchored">
+<table class="table table-sm table-striped">
+<caption>Table&nbsp;7.1: New values to use in the loggerhead sea turtle transition matrix, changing only one stage at a time. These changes reflect 99.9% annual survival. Stasis values belong on the diagonal, such as <code>A[5,5] &lt;- 0</code>, and growth values belong below the diagonal, such as <code>A[6,5]&lt;-0.999</code>. Start with the original matrix, make a copy, and then change only one stage at a time.</caption>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Stage</th>
+<th style="text-align: right;">Stasis</th>
+<th style="text-align: right;">Growth</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">H</td>
+<td style="text-align: right;">0.000</td>
+<td style="text-align: right;">0.999</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">J_s</td>
+<td style="text-align: right;">0.857</td>
+<td style="text-align: right;">0.142</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">J_l</td>
+<td style="text-align: right;">0.875</td>
+<td style="text-align: right;">0.124</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">sub</td>
+<td style="text-align: right;">0.833</td>
+<td style="text-align: right;">0.166</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">B_1</td>
+<td style="text-align: right;">0.000</td>
+<td style="text-align: right;">0.999</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">B_2</td>
+<td style="text-align: right;">0.000</td>
+<td style="text-align: right;">0.999</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">M</td>
+<td style="text-align: right;">0.966</td>
+<td style="text-align: right;">0.000</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="cell">
+
+</div>
+<p>Record the new value of lambda for each separate simulation.</p>
+</section>
+<section id="sec-deliverables" class="level2" data-number="7.9">
+<h2 data-number="7.9" class="anchored" data-anchor-id="sec-deliverables"><span class="header-section-number">7.9</span> Deliverables</h2>
+<p>Put the following into a single document:</p>
+<ol type="1">
+<li>A life cycle graph for the loggerhead population. On your figure, include the numerical elements associated with each transition, based on the original matrix.</li>
+<li>A table similar to Table 7.1 with all the stages, the provided values of stasis, and growth, and your new values of lambda.</li>
+<li>Assume it is your interest to maximize long-term population growth rate (<span class="math inline">\(\lambda\)</span>), for which stage or stages should you invest in protection measures? Explain why, and use your values of lambda as evidence in your answer.</li>
+</ol>
+<p>Upload this document and your R script to the appropriate site.</p>
+<div class="cell">
+
+</div>
+
+
+<div id="refs" class="references csl-bib-body hanging-indent" role="doc-bibliography" style="display: none">
+<div id="ref-caswell:2001gu" class="csl-entry" role="doc-biblioentry">
+Caswell, H. 2001. <em>Matrix Population Models: <span>Construction</span>, Analysis, and Interpretation</em>. Second. <span>Sinauer Associates, Inc., Sunderland, MA, USA</span>.
+</div>
+<div id="ref-crouse1987" class="csl-entry" role="doc-biblioentry">
+Crouse, D T, L B Crowder, and H Caswell. 1987. <span>“A Stage-Based Population Model for Loggerhead Sea Turtles and Implications for Conservation.”</span> <em>Ecology</em> 68: 1412–23.
+</div>
+<div id="ref-lee2011" class="csl-entry" role="doc-biblioentry">
+Lee, Ronald. 2011. <span>“The <span>Outlook</span> for <span>Population Growth</span>.”</span> <em>Science</em> 333 (6042): 569–73. <a href="https://doi.org/10.1126/science.1208859">https://doi.org/10.1126/science.1208859</a>.
+</div>
+</div>
+</section>
+<section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn1"><p>Crouse was a graduate student at the time—graduate students are the life-blood of modern science, doing cutting edge work and pushing their fields forward.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./06-DI-pop-growth.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Density-independent Population Growth: Humans on the rise</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./08-density-dep-pop-growth.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Density-dependence in population growth</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+</body></html>

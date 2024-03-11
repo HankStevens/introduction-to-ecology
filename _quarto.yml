@@ -2,24 +2,32 @@ project:
   type: book
 
 book:
-  title: "Inntroduction to Ecology"
-  author: "Dr. Hank"
-  date: "1/21/2023"
+  title: "Basic Ecological Concepts and Data in R"
+  author: "Dr. Hank Stevens"
+  date: "24 April 2023"
   chapters:
     - index.qmd
     - 01-computer-setup.qmd
     - 01-trees_and_people.qmd
     - 02-global_temp_anomalies.qmd
-    - summary.qmd
+    - 03-liana-phys.qmd
+    - 04-extrapair_copulation.qmd
+    - 06-DI-pop-growth.qmd
+    - 07-structured-pop-growth_v2.qmd
+    - 08-density-dep-pop-growth.qmd
+    - 09-direct-interactions.qmd
+    - 10-mutualisms.qmd
+    - 11-predator-prey.qmd
+    - 20-ecosystem-intro.qmd
     - references.qmd
 
-bibliography: /Users/stevenmh/myLibrary.bib
+bibliography: myLibrary.bib
 
 format:
   html:
-    theme: cosmo
-  pdf:
-    documentclass: scrreprt
+    theme: default
+    mainfont: serif
+  # pdf:
+  #   documentclass: scrreprt
 
 editor: source
-

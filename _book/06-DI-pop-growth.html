@@ -1,0 +1,892 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.2.313">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Basic Ecological Concepts and Data in R - 6&nbsp; Density-independent Population Growth: Humans on the rise</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./07-structured-pop-growth_v2.html" rel="next">
+<link href="./04-extrapair_copulation.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+</head>
+
+<body class="nav-sidebar floating">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+    <div class="container-fluid d-flex justify-content-between">
+      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Density-independent Population Growth: Humans on the rise</span></h1>
+      <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
+        <i class="bi bi-chevron-right"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">Basic Ecological Concepts and Data in R</a> 
+    </div>
+      </div>
+      <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+      </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">Preface</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./01-computer-setup.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Computer setup and first R script</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./01-trees_and_people.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Environmental Justice: How income relates to environment.</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./02-global_temp_anomalies.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Physical Environment: A Fate of Earth</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./03-liana-phys.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Individual responses to the environment: What makes lianas relatively successful in stressful habitats?</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./04-extrapair_copulation.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Behavior: Extra-pair copulation in a monogamous species</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./06-DI-pop-growth.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Density-independent Population Growth: Humans on the rise</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./07-structured-pop-growth_v2.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Structured demography: How a graduate student helped save the loggerhead sea turtle</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./08-density-dep-pop-growth.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Density-dependence in population growth</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./09-direct-interactions.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Direct species interactions: understanding mechanisms of invasion in mosquitoes</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./10-mutualisms.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Mutualisms: Do ants protect pea plants?</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./11-predator-prey.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Of wolves and moose, on Isle Royale</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./20-ecosystem-intro.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">An Introduction to the Carbon Cycle and Global Heating</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./references.html" class="sidebar-item-text sidebar-link">References</a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#goals" id="toc-goals" class="nav-link active" data-scroll-target="#goals"><span class="toc-section-number">6.1</span>  Goals</a></li>
+  <li><a href="#preparatory-steps" id="toc-preparatory-steps" class="nav-link" data-scroll-target="#preparatory-steps"><span class="toc-section-number">6.2</span>  Preparatory Steps</a></li>
+  <li><a href="#background" id="toc-background" class="nav-link" data-scroll-target="#background"><span class="toc-section-number">6.3</span>  Background</a>
+  <ul class="collapse">
+  <li><a href="#population-growth-of-homo-sapiens-a-case-study" id="toc-population-growth-of-homo-sapiens-a-case-study" class="nav-link" data-scroll-target="#population-growth-of-homo-sapiens-a-case-study"><span class="toc-section-number">6.3.1</span>  Population growth of <em>Homo sapiens</em>: a case study</a></li>
+  <li><a href="#projecting-population-size-into-the-future" id="toc-projecting-population-size-into-the-future" class="nav-link" data-scroll-target="#projecting-population-size-into-the-future"><span class="toc-section-number">6.3.2</span>  Projecting population size into the future</a></li>
+  </ul></li>
+  <li><a href="#methods" id="toc-methods" class="nav-link" data-scroll-target="#methods"><span class="toc-section-number">6.4</span>  Methods</a>
+  <ul class="collapse">
+  <li><a href="#load-data" id="toc-load-data" class="nav-link" data-scroll-target="#load-data"><span class="toc-section-number">6.4.1</span>  Load data</a></li>
+  <li><a href="#sec-byhand" id="toc-sec-byhand" class="nav-link" data-scroll-target="#sec-byhand"><span class="toc-section-number">6.4.2</span>  Simple math: Calculations by hand</a></li>
+  <li><a href="#programming-use-a-for-loop-to-do-all-the-calculations" id="toc-programming-use-a-for-loop-to-do-all-the-calculations" class="nav-link" data-scroll-target="#programming-use-a-for-loop-to-do-all-the-calculations"><span class="toc-section-number">6.4.3</span>  Programming: Use a for-loop to do all the calculations</a></li>
+  </ul></li>
+  <li><a href="#changes-in-human-population-growth-rate" id="toc-changes-in-human-population-growth-rate" class="nav-link" data-scroll-target="#changes-in-human-population-growth-rate"><span class="toc-section-number">6.5</span>  Changes in human population growth rate</a>
+  <ul class="collapse">
+  <li><a href="#sec-yourinterval" id="toc-sec-yourinterval" class="nav-link" data-scroll-target="#sec-yourinterval"><span class="toc-section-number">6.5.1</span>  Your own interval</a></li>
+  <li><a href="#how-does-per-capita-growth-rate-change-with-population-size" id="toc-how-does-per-capita-growth-rate-change-with-population-size" class="nav-link" data-scroll-target="#how-does-per-capita-growth-rate-change-with-population-size"><span class="toc-section-number">6.5.2</span>  How does per capita growth rate change with population size?</a></li>
+  </ul></li>
+  <li><a href="#projecting-into-the-future" id="toc-projecting-into-the-future" class="nav-link" data-scroll-target="#projecting-into-the-future"><span class="toc-section-number">6.6</span>  Projecting into the future</a></li>
+  <li><a href="#deliverables" id="toc-deliverables" class="nav-link" data-scroll-target="#deliverables"><span class="toc-section-number">6.7</span>  Deliverables</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title d-none d-lg-block"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Density-independent Population Growth: Humans on the rise</span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+</header>
+
+<div id="fig-Earth" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="figs/Earth1.png" class="img-fluid figure-img" style="width:50.0%"></p>
+<p></p><figcaption class="figure-caption">Figure&nbsp;6.1: Earth has now entered the Anthropocene. Geologists are debating precisely when that happened.</figcaption><p></p>
+</figure>
+</div>
+<p>Reproduction helps define what we call “life”, and leads to exponential growth. This chapter introduces this concept and how we quantify it.</p>
+<section id="goals" class="level2" data-number="6.1">
+<h2 data-number="6.1" class="anchored" data-anchor-id="goals"><span class="header-section-number">6.1</span> Goals</h2>
+<p>In this chapter, you will</p>
+<ul>
+<li>learn the two fundamental principles of population growth,</li>
+<li>do a little math: practice calculating rates of population growth,</li>
+<li>do a little programming: use a “for-loop” to do lots of work very easily,</li>
+<li>determine how the rate of human population growth has changed over time, and</li>
+<li>start to develop a greater understanding and intuition for exponential rates.</li>
+</ul>
+<p><strong>In this chapter</strong>, we’ll use these techniques and data from <a href="http://ourworldindata.org" target="_blank"><em>Our World in Data</em></a> to describe mathematically the growth rate of the world’s human population at different points in time over the last 10,000 years.</p>
+</section>
+<section id="preparatory-steps" class="level2" data-number="6.2">
+<h2 data-number="6.2" class="anchored" data-anchor-id="preparatory-steps"><span class="header-section-number">6.2</span> Preparatory Steps</h2>
+<ul>
+<li>Watch these videos: <a href="https://drive.google.com/drive/folders/1nWLoEGuWKIWdul9Uvse5qiB1Hf8MCwUv?usp=sharing" target="_blank">lectures 3a and 3b</a> before proceeding.</li>
+</ul>
+<ol type="1">
+<li>Go to our <a href="https://drive.google.com/drive/u/1/folders/1FR2FLiW3xyD4Er52YzVTToPZuXXReGRo" target="_blank">class data repository</a>, and download <code>HumanPopData-2023-0101.csv</code>. Make sure the file remains in the same simple format, “comma separated values” (.csv).</li>
+</ol>
+<ul>
+<li>If you are curious, check Deliverables, at the end.</li>
+</ul>
+</section>
+<section id="background" class="level2" data-number="6.3">
+<h2 data-number="6.3" class="anchored" data-anchor-id="background"><span class="header-section-number">6.3</span> Background</h2>
+<p>Given sufficient resources, life is autocatalytic – the products of reproduction (offspring) amplify the rate of reproduction, leading to <em>exponential growth</em>.</p>
+<p><strong>As ecologists, we can state this with the following propositions</strong> <span class="citation" data-cites="hastings2011">(<a href="references.html#ref-hastings2011" role="doc-biblioref">Hastings 2011</a>)</span>:</p>
+<ol type="1">
+<li><em>A population grows exponentially in the absence of other forces</em>.</li>
+<li><em>There are forces that can prevent a population from growing exponentially</em>.</li>
+</ol>
+<p>This deceptively simple pair of propositions provides a basis for an enormous amount of ecology. They are analogous to Newton’s First Law of Motion:</p>
+<p><em>Every body perseveres in its state of being at rest or of moving uniformly straight forward, except insofar as it is compelled to change its state by forces impressed.</em> (<em>The Principia: Mathematical Principles of Natural Philosophy</em> (1687), 3rd edition (1726), trans. I. Bernard Cohen and Anne Whitman (1999), Axioms, or Laws of Motion, Law 1, 416.)</p>
+<p>Now we would say that <em>a body remains at rest, or in motion at a constant speed in a straight line, unless acted upon by a force.</em></p>
+<p>The first proposition of population growth can emerge as the consequence of the following assumptions:</p>
+<ol type="a">
+<li>all individuals in a population are identical.</li>
+<li>there is no migration in or out of the population.</li>
+<li><ol type="i">
+<li>the number of offspring per individual (or the per capita birth and death rates) are constant through time, and (ii) independent of the number of individuals in the population.</li>
+</ol></li>
+</ol>
+<p>Deviations from these assumptions lead to proposition 2, and most of the interesting parts of single species population dynamics <span class="citation" data-cites="hastings2011">(<a href="references.html#ref-hastings2011" role="doc-biblioref">Hastings 2011</a>)</span>.</p>
+<p>However, although propositions 1 and 2 can follow from assumptions a-c, these assumptions are not necessary. For instance, in some cases, individuals don’t need to be identical, and we deal with a big exception in the next chapter where we introduce structured population growth. Also, migration is admissible, provided immigration = emigration and that it doesn’t alter the rate of change. Nonetheless, other deviations from a and b can have very important consequences for single species population dynamics. We will get to those in later chapters.</p>
+<p>Even when populations don’t grow exponentially, we often describe population growth using the same mathematical approach. We do that for at least a few of reasons:</p>
+<ul>
+<li>approximations of more complicated dynamics often simplify to exponential growth under reasonable assumptions,</li>
+<li>over short periods of time, deviations to exponential growth still result in patterns that are very similar to exponential growth, and</li>
+<li>we typically don’t know precisely what mechanisms limit exponential growth or by how much, and therefore exponential growth is as good a mathematical description as any.</li>
+</ul>
+<p><em>If you have not already done so, watch <a href="https://drive.google.com/drive/folders/1nWLoEGuWKIWdul9Uvse5qiB1Hf8MCwUv?usp=sharing" target="_blank">lectures 3a and 3b</a> before proceeding.</em></p>
+<section id="population-growth-of-homo-sapiens-a-case-study" class="level3" data-number="6.3.1">
+<h3 data-number="6.3.1" class="anchored" data-anchor-id="population-growth-of-homo-sapiens-a-case-study"><span class="header-section-number">6.3.1</span> Population growth of <em>Homo sapiens</em>: a case study</h3>
+<p>The human population shares many features with other populations. Like other species, humans are distributed unequally around our available habitats, we consume resources and produce waste products, and the size of our population changes over time.</p>
+<p>Humans, as we would we recognize ourselves, have been around for ~300,000 years. Since that time a lot has happened to us, and we have done a lot to alter the planet. About 10,000 years ago, we started to use agriculture to raise a lot of our food, in the <em>agricultural revolution</em>. Oddly, this seems to have contributed simultaneously to both a decline in life span due to poor health, and yet also an increase in population growth rate and a corresponding increase in population size. The state of the human population is dynamic and undergoing transitions that are in different stages in different places around the world <span class="citation" data-cites="lee2011">(<a href="references.html#ref-lee2011" role="doc-biblioref">Lee 2011</a>)</span>.</p>
+<p>Here we examine changes in human population size from 10,000 y ago to 2021. The data are estimates, and we have annual estimates with increasing greater frequency, up until 2021.</p>
+<p>We will calculate the density-independent per capita growth rate for pairs of years in the data set. We’ll do this by written out by hand, and also in R, using code to do everything quickly, efficiently and, importantly, reproducibly, so that you–or anyone–could check your estimatation procedure.</p>
+<p>Recall from lecture (link above) that we often use estimates of <span class="math inline">\(\lambda\)</span> and <span class="math inline">\(r\)</span> to quantify how rapidly a population is growing (or declining) at various points in time. For a population with overlapping generations and reproducing continuously, we can estimate the <em>per capita</em> exponential growth rate at a particular point in time (<span class="math inline">\(r_t\)</span>) using the following equation:</p>
+<p><span id="eq-r"><span class="math display">\[r_t = \frac{\frac{\ln N_{t+h}}{\ln N_t}}{(t+h) - t} \tag{6.1}\]</span></span></p>
+<p>where <span class="math inline">\(N_t\)</span> is the size of the population at some starting time point <span class="math inline">\(t\)</span>, and <span class="math inline">\(N_{t+h}\)</span> is the size of the population after some time interval <span class="math inline">\(h\)</span>, and <span class="math inline">\(\ln\)</span> is the natural logarithm.</p>
+<p>For example, imagine we that in 2020, we had 100 mice and exactly two years later, the population had grown to 150 mice. Here are the values that we would use to calculate <span class="math inline">\(r_t\)</span>:</p>
+<ul>
+<li><span class="math inline">\(t = 2020\)</span></li>
+<li><span class="math inline">\(t+h = 2022\)</span></li>
+<li><span class="math inline">\(h = (t+h) - t = 2022-2020 = 2\)</span></li>
+<li><span class="math inline">\(N_t = 100\)</span></li>
+<li><span class="math inline">\(N_{t+h} = 150\)</span></li>
+</ul>
+<p>We would substitute these values into the above formula (#eq-r) as,</p>
+<p><span class="math display">\[\begin{align*}
+r_t &amp;= \frac{ \ln \frac{150}{100}}{2022 - 2020}\\
+&amp;=\frac{\ln 1.5}{2}\\
+&amp;= 0.2027
+\end{align*}\]</span></p>
+<p>showing each step of our work. Whenever you need to show how you arrived at an answer (such as in homework, research, or in a job), you should do something like this.</p>
+<p><strong>When <span class="math inline">\(r_t\)</span> is positive (<span class="math inline">\(r_t &gt; 0\)</span>), this means that the population was growing, and quantifies how <em>fast</em> it grew and became larger.</strong></p>
+<p>What if we reverse so the we started with <span class="math inline">\(N_t = 150\)</span> and the population declined to <span class="math inline">\(N_{t+h} = 100\)</span>?</p>
+<p><span class="math display">\[\begin{align*}
+r_t &amp;= \frac{\ln \frac{100}{150}}{2021 - 2020}\\
+&amp;=\frac{\ln \frac{2}{3}}{2}\\
+&amp;= -0.2027
+\end{align*}\]</span></p>
+<p>ending with a negative value (<span class="math inline">\(r_t &lt; 0\)</span>), indicating that the population shrank. When <span class="math inline">\(r_t &lt; 0\)</span>, that means the population has decreased in size. Sometimes we call that “negative growth”.</p>
+<p>What do you think we we get if the population didn’t change, so that <span class="math inline">\(N_t = N_{t+h} = 100\)</span>?</p>
+</section>
+<section id="projecting-population-size-into-the-future" class="level3" data-number="6.3.2">
+<h3 data-number="6.3.2" class="anchored" data-anchor-id="projecting-population-size-into-the-future"><span class="header-section-number">6.3.2</span> Projecting population size into the future</h3>
+<p>If we make certain assumptions, we can make predictions about the future. In order to make predictions about the size of the population next year, or in 5, 10, or 20 years, we can extrapolate the current rate of change into the future. To do that, we can use the instantaneous rate of increase, <span class="math inline">\(r\)</span>, and the amount of time, and a solution from calculus.</p>
+<p>To predict the size of a population to year <span class="math inline">\(t\)</span> from some starting time, we rely on the rule that,</p>
+<p><span id="eq-Ntproj"><span class="math display">\[N_t = N_0 e^{rt} \tag{6.2}\]</span></span></p>
+<p>or equivalently,</p>
+<p><span class="math display">\[N_{t+h} = N_t e^{rh}\]</span></p>
+<p>where the parameter <span class="math inline">\(r\)</span> is the per capita instantaneous rate of increase, and <span class="math inline">\(t\)</span> is the amount of time, or time interval. The letter <span class="math inline">\(e\)</span> is the exponential, or Euler’s constant. The exponential is the base of the natural logarithm. <strong>The important thing here is the time interval in the exponent (<span class="math inline">\(t\)</span> or <span class="math inline">\(h\)</span>) has to be the time interval from the starting value of <span class="math inline">\(N\)</span> to the projected value of <span class="math inline">\(N\)</span>.</strong></p>
+<div id="fig-lemna" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="Dam_with_lemna_minor.jpg" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Figure&nbsp;6.2: Common duckweed (<em>Lemna minor</em>) populations can grow fast. Credit: https://commons.wikimedia.org/w/index.php?curid=1085476</figcaption><p></p>
+</figure>
+</div>
+<p>Imagine we have a population of the small floating plant duckweed (<em>Lemna minor</em>), that can double in about two weeks . In that case, <span class="math inline">\(r = 0.35\)</span> new lemna per old lemna per week. Pretend we start with a population of 100 lemna individuals (<span class="math inline">\(N_0 = 100\)</span>). How many lemna should we have in three weeks? Show your work (e.g., <a href="#fig-project">Figure&nbsp;<span>6.3</span></a>).</p>
+<div id="fig-project" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="projection_calc.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Figure&nbsp;6.3: Projecting the size of the duckweed population three weeks into the future.</figcaption><p></p>
+</figure>
+</div>
+<p>(<strong>Overthinking:</strong> <a href="#eq-Ntproj">Equation&nbsp;<span>6.2</span></a> is derived from the growth equation <a href="#eq-r">Equation&nbsp;<span>6.1</span></a> using integral calculus. It is the integral from 0 to t of <a href="#eq-r">Equation&nbsp;<span>6.1</span></a>.)</p>
+</section>
+</section>
+<section id="methods" class="level2" data-number="6.4">
+<h2 data-number="6.4" class="anchored" data-anchor-id="methods"><span class="header-section-number">6.4</span> Methods</h2>
+<ol type="1">
+<li>Make sure your working directory is <code>Rwork</code>.</li>
+<li>Load the necessary packages.</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse) <span class="co"># for readr, dplyr and others</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
+✔ dplyr     1.1.4     ✔ readr     2.1.5
+✔ forcats   1.0.0     ✔ stringr   1.5.1
+✔ ggplot2   3.4.4     ✔ tibble    3.2.1
+✔ lubridate 1.9.3     ✔ tidyr     1.3.1
+✔ purrr     1.0.2     
+── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+✖ dplyr::filter() masks stats::filter()
+✖ dplyr::lag()    masks stats::lag()
+ℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(patchwork) <span class="co"># to combine ggplot2 figures</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<section id="load-data" class="level3" data-number="6.4.1">
+<h3 data-number="6.4.1" class="anchored" data-anchor-id="load-data"><span class="header-section-number">6.4.1</span> Load data</h3>
+<p>Next, we get the data, if you haven’t already done so.</p>
+<ol type="1">
+<li>Go to our <a href="https://drive.google.com/drive/u/1/folders/1FR2FLiW3xyD4Er52YzVTToPZuXXReGRo" target="_blank">class data repository</a>, and download <code>HumanPopData-2023-01-01.csv</code>. Make sure the file remains in the same simple format, “comma separated values” (.csv).</li>
+<li>Put <code>HumanPopData-2023-01-01.csv</code> in your working directory, <code>Rwork</code>.</li>
+<li>Open <code>HumanPopData-2023-01-01.csv</code> and make note of the first three lines of metadata. When you close the file, do not save any changes, and make sure <em>not</em> to save it in a new format, such as “.xlsx” or “.numbers”.</li>
+<li>Continue to make sure the file remains in the same simple format, “comma separated values” (.csv).</li>
+</ol>
+<p>Now import the data into R, and <em>glimpse</em> the structure of the data frame.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>d <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"HumanPopData-2023-01-01.csv"</span>, </span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>              <span class="at">skip=</span><span class="dv">3</span> <span class="co"># skip three lines of metadata</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>              )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Rows: 259 Columns: 2
+── Column specification ────────────────────────────────────────────────────────
+Delimiter: ","
+dbl (2): Year, est.N
+
+ℹ Use `spec()` to retrieve the full column specification for this data.
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(d)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Rows: 259
+Columns: 2
+$ Year  &lt;dbl&gt; -10000, -9000, -8000, -7000, -6000, -5000, -4000, -3000, -2000, …
+$ est.N &lt;dbl&gt; 4432266, 5616996, 7242892, 9577918, 13201832, 19075771, 28774661…</code></pre>
+</div>
+</div>
+<p>Note that years before the current era (BCE) are negative numbers, while numbers in the current era (CE) are positive.</p>
+<p>Let’s also graph the data to see if it makes sense.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>d <span class="sc">%&gt;%</span> </span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x=</span>Year, <span class="at">y=</span>est.N)) <span class="sc">+</span> </span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span> <span class="fu">geom_line</span>() <span class="sc">+</span> </span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_log10</span>() <span class="sc">+</span> <span class="fu">labs</span>(<span class="at">y=</span><span class="st">"Estimated human population size"</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div id="fig-p1" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="06-DI-pop-growth_files/figure-html/fig-p1-1.png" class="img-fluid figure-img" width="672"></p>
+<p></p><figcaption class="figure-caption">Figure&nbsp;6.4: The human population has increased over time. Note the common log scale on the y-axis. Note that years before the current era (BCE) are negative numbers, while numbers in the current era (CE) are positive.</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="sec-byhand" class="level3" data-number="6.4.2">
+<h3 data-number="6.4.2" class="anchored" data-anchor-id="sec-byhand"><span class="header-section-number">6.4.2</span> Simple math: Calculations by hand</h3>
+<p>Doing math and arithmetic by hand is like learning music: you have to do it by hand, even when it feels like copying. This helps it become automatic, which leads to understanding.</p>
+<p>Calculate by hand the instantaneous per capita growth for these intervals:</p>
+<ul>
+<li>10000 to 9000 BCE (or -10000 to -9000),</li>
+<li>0 to 100 CE, and</li>
+<li>1960 to 1961 CE.</li>
+</ul>
+<p>I recommend letting R help you, but you will need to write it out on paper. Write down these calculations with pen(cil) and paper, and take a picture of it. As with all math and word problems,</p>
+<ul>
+<li>start with a formula, in this case, (#eq-r),</li>
+<li>make the relevant substitutions,</li>
+<li>perform the calculation, and</li>
+<li>thus show your work.</li>
+</ul>
+<div id="fig-ShowYourWork" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="figs/r-by-hand.png" class="img-fluid figure-img" style="width:80.0%"></p>
+<p></p><figcaption class="figure-caption">Figure&nbsp;6.5: Here I show my work to calculate r for the interval from 100 CE to 200 CE. I used my R script below to extract values from the data set and perform arithmetic.</figcaption><p></p>
+</figure>
+</div>
+<p>I would use the following code to give me the data I would need for the interval for the years 100 CE to 200 CE</p>
+<p>Specify the times and the interval you want.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Get the right time points and find h</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>t <span class="ot">&lt;-</span> <span class="dv">100</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="co"># recall h = (t+h) - t</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>t.plus.h <span class="ot">&lt;-</span> <span class="dv">200</span></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>h  <span class="ot">&lt;-</span> t.plus.h <span class="sc">-</span> t</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>t; t.plus.h; h</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 100</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 200</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 100</code></pre>
+</div>
+</div>
+<p>Grab the values of N, given the years you specified.</p>
+<ul>
+<li>Find a value of <code>est.N</code> when year equals 100</li>
+<li>Find a value of <code>est.N</code> when year equals 200</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="do">## in base R</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>Nt <span class="ot">&lt;-</span> d<span class="sc">$</span>est.N[d<span class="sc">$</span>Year <span class="sc">==</span> t]</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>Nth <span class="ot">&lt;-</span> d<span class="sc">$</span>est.N[d<span class="sc">$</span>Year <span class="sc">==</span> t.plus.h]</span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>Nt; Nth</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 236904172</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 240611571</code></pre>
+</div>
+</div>
+<p><strong>Overthinking:</strong> You could use the <code>tidyverse</code> syntax to get the same values.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="do">## using tidyverse syntax</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>Nt <span class="ot">&lt;-</span>  d <span class="sc">%&gt;%</span> <span class="co"># use d</span></span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Year <span class="sc">==</span> t) <span class="sc">%&gt;%</span>  <span class="co"># use just values in this year</span></span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>   <span class="fu">select</span>(est.N) <span class="sc">%&gt;%</span> <span class="co"># select just N</span></span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">as.numeric</span>() <span class="co"># convert from a data frame to a numeric variable</span></span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a>Nth <span class="ot">&lt;-</span>  d <span class="sc">%&gt;%</span> <span class="co"># use d</span></span>
+<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Year <span class="sc">==</span> t.plus.h) <span class="sc">%&gt;%</span>  <span class="co"># ue just values in this year</span></span>
+<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a>   <span class="fu">select</span>(est.N) <span class="sc">%&gt;%</span> <span class="co"># select just N</span></span>
+<span id="cb16-10"><a href="#cb16-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">as.numeric</span>() <span class="co"># convert from a data frame to a numeric variable</span></span>
+<span id="cb16-11"><a href="#cb16-11" aria-hidden="true" tabindex="-1"></a>Nt; Nth</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 236904172</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 240611571</code></pre>
+</div>
+</div>
+<p>Do calculations to find <span class="math inline">\(r\)</span>, the instantaneous per capita population growth rate. Note that in R <code>log()</code> refers to the natural logarithm, while <code>log10()</code> refers to the common logarithm. For more information, type <code>?log</code>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co"># the natural log of the ratio of population sizes</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>logNth.over.Nt <span class="ot">&lt;-</span> <span class="fu">log</span>(Nth <span class="sc">/</span> Nt)</span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>logNth.over.Nt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.01552817</code></pre>
+</div>
+</div>
+<p>Last, we find <span class="math inline">\(r\)</span> for this particular time step of 1000 y.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co"># finding r</span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>r <span class="ot">&lt;-</span> logNth.over.Nt <span class="sc">/</span> h</span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>r</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.0001552817</code></pre>
+</div>
+</div>
+<p>You can use R as a calculator this way to make your pen and paper work easier.</p>
+</section>
+<section id="programming-use-a-for-loop-to-do-all-the-calculations" class="level3" data-number="6.4.3">
+<h3 data-number="6.4.3" class="anchored" data-anchor-id="programming-use-a-for-loop-to-do-all-the-calculations"><span class="header-section-number">6.4.3</span> Programming: Use a for-loop to do all the calculations</h3>
+<p>A benefit of programming is that we can create a statement to do all our work for use. A “for-loop” is a programming trick to do a repeated process, for instance, <em>for</em> each row of a dataset.</p>
+<p>Below is code to calculate every value of <span class="math inline">\(r\)</span> in the entire data set, except the last year. We have to exclude the last year because we don’t know how fast the population grew from the last year to the subsequent year.</p>
+<ol type="1">
+<li>First we create an empty vector into which we will put our calculations of <span class="math inline">\(r\)</span>, one at a time.</li>
+<li>Next, we calculate <span class="math inline">\(r\)</span> for each year, except the last.</li>
+<li>Finally, we combine our vector of <span class="math inline">\(r_t\)</span> with the original data.</li>
+</ol>
+<p>Here we, create an empty vector of missing values. To start, this will have the same number of rows as our data set, <code>d</code>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co"># create an empty vector of missing values.</span></span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>r <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="cn">NA</span>, <span class="fu">nrow</span>(d))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Now we calculate <span class="math inline">\(r\)</span> <strong>for</strong> each row of data except the last year. Here the letter <em>i</em> stands in for the number of each row.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Do the following steps FOR each row of our data.</span></span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Note we start with row 2, and use row 2 and row 1....</span></span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">2</span><span class="sc">:</span><span class="fu">nrow</span>(d)) {</span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>  <span class="co"># the second, more recent, year</span></span>
+<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a>  t.plus.h <span class="ot">&lt;-</span> d<span class="sc">$</span>Year[i]</span>
+<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a>  <span class="co"># the previous year</span></span>
+<span id="cb24-7"><a href="#cb24-7" aria-hidden="true" tabindex="-1"></a>  t <span class="ot">&lt;-</span> d<span class="sc">$</span>Year[i<span class="dv">-1</span>]</span>
+<span id="cb24-8"><a href="#cb24-8" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb24-9"><a href="#cb24-9" aria-hidden="true" tabindex="-1"></a>  <span class="co"># the time interval in years</span></span>
+<span id="cb24-10"><a href="#cb24-10" aria-hidden="true" tabindex="-1"></a>  h <span class="ot">&lt;-</span> t.plus.h <span class="sc">-</span> t</span>
+<span id="cb24-11"><a href="#cb24-11" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb24-12"><a href="#cb24-12" aria-hidden="true" tabindex="-1"></a>  <span class="co"># the more recent N</span></span>
+<span id="cb24-13"><a href="#cb24-13" aria-hidden="true" tabindex="-1"></a>  Nth <span class="ot">&lt;-</span> d<span class="sc">$</span>est.N[i]</span>
+<span id="cb24-14"><a href="#cb24-14" aria-hidden="true" tabindex="-1"></a>  <span class="co"># the previous N</span></span>
+<span id="cb24-15"><a href="#cb24-15" aria-hidden="true" tabindex="-1"></a>  Nt <span class="ot">&lt;-</span> d<span class="sc">$</span>est.N[i<span class="dv">-1</span>]</span>
+<span id="cb24-16"><a href="#cb24-16" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb24-17"><a href="#cb24-17" aria-hidden="true" tabindex="-1"></a>  <span class="co"># the natural log ratio </span></span>
+<span id="cb24-18"><a href="#cb24-18" aria-hidden="true" tabindex="-1"></a>  logNth.over.Nt <span class="ot">&lt;-</span> <span class="fu">log</span>(Nth<span class="sc">/</span>Nt)</span>
+<span id="cb24-19"><a href="#cb24-19" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb24-20"><a href="#cb24-20" aria-hidden="true" tabindex="-1"></a>  <span class="co"># r, which we put in the appropriate slot, year t</span></span>
+<span id="cb24-21"><a href="#cb24-21" aria-hidden="true" tabindex="-1"></a>  r[i<span class="dv">-1</span>] <span class="ot">&lt;-</span> logNth.over.Nt<span class="sc">/</span>h</span>
+<span id="cb24-22"><a href="#cb24-22" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb24-23"><a href="#cb24-23" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb24-24"><a href="#cb24-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-25"><a href="#cb24-25" aria-hidden="true" tabindex="-1"></a><span class="co"># last, let's check the result</span></span>
+<span id="cb24-26"><a href="#cb24-26" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(r)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> num [1:259] 0.000237 0.000254 0.000279 0.000321 0.000368 ...</code></pre>
+</div>
+</div>
+<p>Finally, we combine this with our original data set. We use <code>cbind()</code> which stands for “bind columns”.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>d.r <span class="ot">&lt;-</span> <span class="fu">cbind</span>(d, <span class="at">r=</span>r)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>If you examine the last three rows of these data, you’ll see that we don’t have an estimate of <span class="math inline">\(r_t\)</span> for the last year because we can’t calculate it without know the next year’s population size.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>d.r[<span class="dv">257</span><span class="sc">:</span><span class="dv">259</span>,]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>    Year      est.N           r
+257 2019 7764951040 0.009740210
+258 2020 7840952832 0.008678302
+259 2021 7909295104          NA</code></pre>
+</div>
+</div>
+<p>From here on out, <strong>we are interested mostly with the growth rate</strong>, <span class="math inline">\(r_t\)</span>, so I will remove the last row of the data set, or keep only the first 258 rows.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>d.r <span class="ot">&lt;-</span> d.r[<span class="dv">1</span><span class="sc">:</span><span class="dv">258</span>,]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+</section>
+<section id="changes-in-human-population-growth-rate" class="level2" data-number="6.5">
+<h2 data-number="6.5" class="anchored" data-anchor-id="changes-in-human-population-growth-rate"><span class="header-section-number">6.5</span> Changes in human population growth rate</h2>
+<p>Let’s graph our data to examine how the <em>per capita</em> growth rate of humans changed since the agricultural revolution. I’ll pair them with population size.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="co"># population size, using the first data frame</span></span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>d.r, <span class="fu">aes</span>(<span class="at">x=</span>Year, <span class="at">y=</span>r)) <span class="sc">+</span> <span class="fu">geom_line</span>() <span class="sc">+</span></span>
+<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span> <span class="fu">labs</span>(<span class="at">title=</span><span class="st">"Per capita growth rate"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div id="fig-n1" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="06-DI-pop-growth_files/figure-html/fig-n1-1.png" class="img-fluid figure-img" style="width:65.0%"></p>
+<p></p><figcaption class="figure-caption">Figure&nbsp;6.6: Estimates of per capita growth are positive for nearly every time interval since the agricultural revolution.</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+<p>This shows us the growth rate didn’t change much before the current era. However, it is hard to see what has been going on more recently. Therefore, let’s plot only the data starting in year 1.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="co"># filter in all years greater than or equal to 1</span></span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>d.r.y1 <span class="ot">&lt;-</span> d.r <span class="sc">%&gt;%</span> <span class="fu">filter</span>(Year <span class="sc">&gt;=</span> <span class="dv">1</span>)</span>
+<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>d.r.y1, <span class="fu">aes</span>(<span class="at">x=</span>Year, <span class="at">y=</span>est.N)) <span class="sc">+</span> <span class="fu">geom_line</span>() <span class="sc">+</span></span>
+<span id="cb31-5"><a href="#cb31-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span> <span class="fu">labs</span>(<span class="at">title=</span><span class="st">"Population Size"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>d.r.y1, <span class="fu">aes</span>(<span class="at">x=</span>Year, <span class="at">y=</span>r)) <span class="sc">+</span> <span class="fu">geom_line</span>() <span class="sc">+</span></span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span> <span class="fu">labs</span>(<span class="at">title=</span><span class="st">"Per capita growth rate since 1 CE"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-n2" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="06-DI-pop-growth_files/figure-html/fig-n2-1.png" class="img-fluid figure-img" width="672"></p>
+<p></p><figcaption class="figure-caption">Figure&nbsp;6.7: In the current era, per capita growth remains mostly positive, and then rises sharply and begin to fluctuate dramatically after 1500.</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+<section id="sec-yourinterval" class="level3" data-number="6.5.1">
+<h3 data-number="6.5.1" class="anchored" data-anchor-id="sec-yourinterval"><span class="header-section-number">6.5.1</span> Your own interval</h3>
+<p>Make a graph of per capita growth rate for a time period of your own choosing. Select a time that is different than any other that we have shown here, and make it at least 10 years</p>
+</section>
+<section id="how-does-per-capita-growth-rate-change-with-population-size" class="level3" data-number="6.5.2">
+<h3 data-number="6.5.2" class="anchored" data-anchor-id="how-does-per-capita-growth-rate-change-with-population-size"><span class="header-section-number">6.5.2</span> How does per capita growth rate change with population size?</h3>
+<p>Large populations differ from small populations in a lot of ways. Large populations might make more waste products and do more damage to their own environment, and they also foster more interactions among individuals that might have positive or negative consequences.</p>
+<p>Let’s make a graph of per capita growth rate as a function of population size.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-rn" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="06-DI-pop-growth_files/figure-html/fig-rn-1.png" class="img-fluid figure-img" width="672"></p>
+<p></p><figcaption class="figure-caption">Figure&nbsp;6.8: Per capita growth rate vs.&nbsp;population size, since 1 CE after 1500. What do you make of this? :)</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="projecting-into-the-future" class="level2" data-number="6.6">
+<h2 data-number="6.6" class="anchored" data-anchor-id="projecting-into-the-future"><span class="header-section-number">6.6</span> Projecting into the future</h2>
+<p>Here we use our projection equation from above (<span class="math inline">\(N_t=N_0 e^{rt}\)</span>) to make predictions about the future. Imagine a population of 100 individuals and <span class="math inline">\(r=0.02\)</span> per year, and predict how big that population would become after thirty years. Assume that <span class="math inline">\(r\)</span> is constant over that time period.</p>
+<p><span class="math display">\[\begin{align}
+N_t &amp;= N_0 e^{rt}\\
+    &amp;= 100 e^{0.02 \cdot 30} = 182.21
+\end{align}\]</span></p>
+<p>When we take this approach, we are assuming that the population <em>continues</em> to grow at this rate over the projected time period. That can be a reasonable assumption over short time periods, but not over long time periods. Of course, “short” and “long” are both relative, and depend heavily of the context.</p>
+<p>What can we learn from (<a href="#fig-rn">Figure&nbsp;<span>6.8</span></a>)? Over what time periods would it seem reasonable to assume that the human population grows at a constant rate?</p>
+</section>
+<section id="deliverables" class="level2" data-number="6.7">
+<h2 data-number="6.7" class="anchored" data-anchor-id="deliverables"><span class="header-section-number">6.7</span> Deliverables</h2>
+<p>Turn in two documents: (i) your R script, and (ii) a .docx or PDF formatted file containing the following:</p>
+<ol type="1">
+<li>Calculate by hand the exponential growth rate (<em>r</em>) for the years listed above in <a href="#sec-byhand"><span>Section&nbsp;6.4.2</span></a>. Write out the formula, substitute the values to show you know where they belong, and then finish with the arithmetic to find <span class="math inline">\(r\)</span>.</li>
+<li>A graph showing per capita growth rate for a time period of your own choosing, from <a href="#sec-yourinterval"><span>Section&nbsp;6.5.1</span></a>.</li>
+<li>If the human population continued to grow at the rate you calculated for 2020, how large would the population be in 2050? Calculate this and show your work.</li>
+<li>What assumptions did you make in answering Question 3? Based on results for questions 1 and 2, is it likely that the human population will reach the size that you calculated for 2050? Why or why not? Use <strong>evidence</strong> in the data and the graphs above to justify your explanation.</li>
+</ol>
+<div class="cell">
+
+</div>
+
+
+<div id="refs" class="references csl-bib-body hanging-indent" role="doc-bibliography" style="display: none">
+<div id="ref-hastings2011" class="csl-entry" role="doc-biblioentry">
+Hastings, A. 2011. <span>“Single Species Population Dynamics and Its Theoretical Underpinnings.”</span> In, edited by S. M. Scheiner and M. R. Willig. <span>Chicago, IL, USA</span>: <span>University of Chicago Press</span>.
+</div>
+<div id="ref-lee2011" class="csl-entry" role="doc-biblioentry">
+Lee, Ronald. 2011. <span>“The <span>Outlook</span> for <span>Population Growth</span>.”</span> <em>Science</em> 333 (6042): 569–73. <a href="https://doi.org/10.1126/science.1208859">https://doi.org/10.1126/science.1208859</a>.
+</div>
+</div>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./04-extrapair_copulation.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Behavior: Extra-pair copulation in a monogamous species</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./07-structured-pop-growth_v2.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Structured demography: How a graduate student helped save the loggerhead sea turtle</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+</body></html>

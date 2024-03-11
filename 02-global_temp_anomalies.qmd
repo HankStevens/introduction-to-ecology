@@ -1,5 +1,5 @@
 ---
-title: "A Fate of Earth"
+title: "Physical Environment: A Fate of Earth"
 ---
 
 *...in which we reveal part of our climate reality.*
@@ -12,7 +12,8 @@ In this assignment, you will
 * Describe the current temperature trajectory.
 * Compare and contrast changes in temperature between humans and Earth.
 
-Video lecture on global warming and climate change: 
+* Video lecture on global warming and climate change: TBA
+* Background reading: [Pilla et al. (2020) Deeper waters are changing less consistently than surface waters in a global analysis of 102 lakes](https://drive.google.com/drive/folders/1opLlrmF7kfo0FtWwwJ1CbfPWIyuaISC1?usp=share_link)
 
 ## Background
 The year that you were born was much warmer than usual--and it won't ever be that *cool* again in your lifetime.
@@ -28,18 +29,14 @@ Using the R script, you will construct a 95% confidence interval on expected mea
 
 
 ## Activity
-1.	Download "global_surface_anomalies.csv. Place it in you Rwork folder. This is a text file that you could open with a spreadsheet application, where the data in different columns are separated by commas (Comma-Separated-Values, i.e., a CSV file).
-1.	Open "global_surface_anomalies.csv" in a spreadsheet application and learn what is on
-    a. the first five lines
-    b. the sixth line
-    c. the remaining lines
-1. In R, create a script file that you will call `global_anomalies_YourUniqueID.R`. 
+In this activity, you will download and import data, and then make a forecast about future temperatures. That forecast will include an *expected* value and a measure of uncertainty. The *expected* value is the most likely value, but we also acknowledge that any time we estimate a most-likely value that there is always uncertainty. 
 
-## R code
 Below, we set up or work environment, load data, work with data, and then save deliverables. This work flow will be natural after a while.
 
 ### Set up
-First, we always select the appropriate project and working directory. I do this by...
+First, if you have not already done so, create a script file that you will call `global_anomalies_YourUniqueID.R`. 
+
+After starting a script, we always select the appropriate project and *working directory*. I do this by...
 
 ...glancing at the upper right corner:
 
@@ -53,20 +50,30 @@ The next thing we do is **load packages** that we know we will need. Remember, y
 library(tidyverse)
 ```
 
-## Import data
+### Import data
 
-Make sure that the global surface temperature anomalies data set ("global_surface_anomalies.csv") is in your working directory, Rwork. 
+1. Go to our [class data repository](https://drive.google.com/drive/u/1/folders/1FR2FLiW3xyD4Er52YzVTToPZuXXReGRo){target="_blank"}, and download `global_surface_anomalies.csv`. 
+1. Make sure the file remains in the same simple format, "comma separated values" (.csv).
+1. Put `global_surface_anomalies.csv` in your working directory, `Rwork`.
+1. Open `global_surface_anomalies.csv` in a spreadsheet application. Don't save the file in the spreadsheet application. Do **not** save it in the spreadsheet application because it will try to change the format.
+1. With the file open, learn what is on
+    a. the first three lines
+    b. the fourth line
+    c. the remaining lines.
+1. Do **not** save the file in the spreadsheet application. Just close and don't save it - it will still be there, unchanged.
+1. Continue to make sure the file remains in the same simple format, "comma separated values" (.csv).
+
 
 We import or "read in" the data so that R can work on it. Here we put it in an object called `temps`. We skip lines in the file 
 ```{r}
 # read in data
-temps <- read.csv("global_surface_anomalies.csv", # file name
+temps <- read.csv(file = "global_surface_anomalies.csv", # full file name
                   skip=3, # skip these lines because they contain metadata.
                   header = TRUE # Tell R that the first row is column namaes
                   ) # last parenthesis
 ```
 
-## Finding out information about the temperature anomalies
+### Finding out information about the temperature anomalies
 
 Next we take a peek at the data with a summary.
 ```{r}
@@ -105,7 +112,7 @@ subset(temps, year==1960) # use your year with two equal signs
 ```
 In my birth year, it was just a touch below the 1951-1980 average.
 
-## Plotting information
+### Plotting information
 Here we are going to start visually examining the anomalies. 
 
 We will create a linegraph using `ggplot()`. Our first step will create the graph, but it won't display it right away. I include comments on each line to remind you what everything does.
@@ -158,7 +165,7 @@ The statistical details of this are way beyond this course, and they are not eve
 So, lets start with step one. and create a statistical model of the observations. We start by loading another package.
 ```{r}
 ## Load a necessary R package
-library(mgcv) # stands for "Mixed GAM Computation Vehicle"
+library(mgcv) # stands for "Mixed Generalized Additive Model Computation Vehicle"
 ```
 
 Now we ask R to fit the model. Don't worry about the details of the code. You can ask me if you are interested.
@@ -317,7 +324,7 @@ So, what do you think? Does Earth have a fever? In what ways do you think compar
 
 ## Deliverables
 
-Turn these into the relevant Canvas assignment before the due date. 
+Turn these into the relevant Canvas assignment before the due date.
 
-1. Put all your answers, including your graph with the confidence interval, into a .doc or .docx file and make fit on a single page. Turn in your answers and your graph to the relevant Canvas assignment Make sure that your name is on the file in the header!
-1. In a separate document, turn in your R script, named `global_temps_YourUniqueID.R` This must NOT be a Word document. It must be a .R file.
+1. First, put all your answers, including your graph with the confidence interval, into a .doc or .docx file and make fit on a single page. Turn in your answers and your graph to the relevant Canvas assignment Make sure that your name is on the file in the header!
+1. Second, turn in your R script, named `global_temps_YourUniqueID.R` as a second file. This must NOT be a Word document. It must be a .R file.

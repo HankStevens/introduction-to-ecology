@@ -1,0 +1,31 @@
+Problems students have:
+
+Basic computer knowledge
+
+Directory structure
+
+Dealing with files
+- forcing "smart" applications to do what you want.
+- moving files
+
+R issues
+
+installing vs. loading packages
+
+importing data (a.k.a. reading data)
+
+Sometimes we have trouble importing data, and we get an error message like this:
+> my_data <- read.csv("global_temp_anomalies.CSV")
+Error in file(file, "rt") : cannot open the connection
+In addition: Warning message:
+In file(file, "rt") :
+  cannot open file 'global_temp_anomalies.CSV': No such file or directory
+
+
+There are several reasons this might happen:
+
+    Your data file is not in the same directory as R is. Fix: confirm that the data file is in the same directory as your working directory; use getwd() to see what you are using as the working directory.
+    Your the name of your data file is not precisely the same as your code. Fix: double check that the name of your file matches the name you used in your code.
+        In the above example, I use "global_temp_anomalies.CSV" which is NOT the same as "global_temp_anomalies.csv". Can you spot the difference?
+        Common issue: When we download a file multiple times, our computers often add a number to each additional copy we download. Check to see if that happened.
+        Common issue: When we attempt to download file, sometimes our computers open it in another application and that application saves it in a different format. Apple's spreadsheet application ("Numbers") does this all the time.

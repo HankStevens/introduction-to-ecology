@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Inntroduction to Ecology - 1&nbsp; Computer setup</title>
+<title>Basic Ecological Concepts and Data in R - 1&nbsp; Computer setup and first R script</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -124,6 +124,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   }
 }</script>
 
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 </head>
 
@@ -133,7 +134,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
     <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Computer setup</span></h1>
+      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Computer setup and first R script</span></h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -146,7 +147,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
-      <a href="./">Inntroduction to Ecology</a> 
+      <a href="./">Basic Ecological Concepts and Data in R</a> 
     </div>
       </div>
       <div class="mt-2 flex-shrink-0 align-items-center">
@@ -163,22 +164,62 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./01-computer-setup.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Computer setup</span></a>
+  <a href="./01-computer-setup.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Computer setup and first R script</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./01-trees_and_people.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Tree Cover: an investigation in ecology and in environmental justice</span></a>
+  <a href="./01-trees_and_people.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Environmental Justice: How income relates to environment.</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./02-global_temp_anomalies.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">A Fate of Earth</span></a>
+  <a href="./02-global_temp_anomalies.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Physical Environment: A Fate of Earth</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./summary.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Summary</span></a>
+  <a href="./03-liana-phys.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Individual responses to the environment: What makes lianas relatively successful in stressful habitats?</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./04-extrapair_copulation.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Behavior: Extra-pair copulation in a monogamous species</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./06-DI-pop-growth.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Density-independent Population Growth: Humans on the rise</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./07-structured-pop-growth_v2.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Structured demography: How a graduate student helped save the loggerhead sea turtle</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./08-density-dep-pop-growth.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Density-dependence in population growth</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./09-direct-interactions.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Direct species interactions: understanding mechanisms of invasion in mosquitoes</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./10-mutualisms.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Mutualisms: Do ants protect pea plants?</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./11-predator-prey.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Of wolves and moose, on Isle Royale</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./20-ecosystem-intro.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">An Introduction to the Carbon Cycle and Global Heating</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -196,36 +237,41 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
    
   <ul>
   <li><a href="#goals" id="toc-goals" class="nav-link active" data-scroll-target="#goals"><span class="toc-section-number">1.1</span>  Goals</a></li>
-  <li><a href="#background" id="toc-background" class="nav-link" data-scroll-target="#background"><span class="toc-section-number">1.2</span>  Background</a></li>
+  <li><a href="#background" id="toc-background" class="nav-link" data-scroll-target="#background"><span class="toc-section-number">1.2</span>  Background</a>
+  <ul class="collapse">
+  <li><a href="#understanding-you-computer" id="toc-understanding-you-computer" class="nav-link" data-scroll-target="#understanding-you-computer"><span class="toc-section-number">1.2.1</span>  Understanding you computer</a></li>
+  <li><a href="#folders-directories-and-directory-structure" id="toc-folders-directories-and-directory-structure" class="nav-link" data-scroll-target="#folders-directories-and-directory-structure"><span class="toc-section-number">1.2.2</span>  Folders, directories, and directory structure</a></li>
+  <li><a href="#file-types-and-file-name-extensions" id="toc-file-types-and-file-name-extensions" class="nav-link" data-scroll-target="#file-types-and-file-name-extensions"><span class="toc-section-number">1.2.3</span>  File types and file name extensions</a></li>
+  </ul></li>
   <li><a href="#installing-r" id="toc-installing-r" class="nav-link" data-scroll-target="#installing-r"><span class="toc-section-number">1.3</span>  Installing R</a>
   <ul class="collapse">
   <li><a href="#what-and-why" id="toc-what-and-why" class="nav-link" data-scroll-target="#what-and-why"><span class="toc-section-number">1.3.1</span>  What and Why</a></li>
-  <li><a href="#how" id="toc-how" class="nav-link" data-scroll-target="#how"><span class="toc-section-number">1.3.2</span>  How</a></li>
-  <li><a href="#where" id="toc-where" class="nav-link" data-scroll-target="#where"><span class="toc-section-number">1.3.3</span>  Where</a></li>
-  <li><a href="#installing-rstudio" id="toc-installing-rstudio" class="nav-link" data-scroll-target="#installing-rstudio"><span class="toc-section-number">1.3.4</span>  Installing RStudio</a></li>
-  <li><a href="#windows-tweak" id="toc-windows-tweak" class="nav-link" data-scroll-target="#windows-tweak"><span class="toc-section-number">1.3.5</span>  Windows tweak</a></li>
+  <li><a href="#how-to-videos-optional" id="toc-how-to-videos-optional" class="nav-link" data-scroll-target="#how-to-videos-optional"><span class="toc-section-number">1.3.2</span>  How-to videos (optional)</a></li>
+  <li><a href="#how-to-instructions" id="toc-how-to-instructions" class="nav-link" data-scroll-target="#how-to-instructions"><span class="toc-section-number">1.3.3</span>  How-to instructions</a></li>
+  <li><a href="#where" id="toc-where" class="nav-link" data-scroll-target="#where"><span class="toc-section-number">1.3.4</span>  Where</a></li>
+  <li><a href="#installing-rstudio" id="toc-installing-rstudio" class="nav-link" data-scroll-target="#installing-rstudio"><span class="toc-section-number">1.3.5</span>  Installing RStudio</a></li>
+  <li><a href="#r-neq-rstudio" id="toc-r-neq-rstudio" class="nav-link" data-scroll-target="#r-neq-rstudio"><span class="toc-section-number">1.3.6</span>  R <span class="math inline">\(\neq\)</span> RStudio</a></li>
   </ul></li>
   <li><a href="#set-up-two-folders-for-this-class" id="toc-set-up-two-folders-for-this-class" class="nav-link" data-scroll-target="#set-up-two-folders-for-this-class"><span class="toc-section-number">1.4</span>  Set up two folders for this class</a></li>
   <li><a href="#working-in-r" id="toc-working-in-r" class="nav-link" data-scroll-target="#working-in-r"><span class="toc-section-number">1.5</span>  Working in R</a>
   <ul class="collapse">
-  <li><a href="#set-your-working-directory" id="toc-set-your-working-directory" class="nav-link" data-scroll-target="#set-your-working-directory"><span class="toc-section-number">1.5.1</span>  Set your working directory</a></li>
+  <li><a href="#set-your-working-directory" id="toc-set-your-working-directory" class="nav-link" data-scroll-target="#set-your-working-directory"><span class="toc-section-number">1.5.1</span>  Set your “working directory”</a></li>
   <li><a href="#create-a-project" id="toc-create-a-project" class="nav-link" data-scroll-target="#create-a-project"><span class="toc-section-number">1.5.2</span>  Create a <em>project</em></a></li>
+  <li><a href="#scripts-start-and-save-a-script" id="toc-scripts-start-and-save-a-script" class="nav-link" data-scroll-target="#scripts-start-and-save-a-script"><span class="toc-section-number">1.5.3</span>  Scripts: Start and save a script</a></li>
+  <li><a href="#entering-and-running-code" id="toc-entering-and-running-code" class="nav-link" data-scroll-target="#entering-and-running-code"><span class="toc-section-number">1.5.4</span>  Entering and running code</a></li>
+  <li><a href="#assignment-operator" id="toc-assignment-operator" class="nav-link" data-scroll-target="#assignment-operator"><span class="toc-section-number">1.5.5</span>  Assignment operator</a></li>
+  <li><a href="#examining-objects" id="toc-examining-objects" class="nav-link" data-scroll-target="#examining-objects"><span class="toc-section-number">1.5.6</span>  Examining objects</a></li>
+  <li><a href="#things-youll-find-out-about-r" id="toc-things-youll-find-out-about-r" class="nav-link" data-scroll-target="#things-youll-find-out-about-r"><span class="toc-section-number">1.5.7</span>  Things you’ll find out about R</a></li>
+  <li><a href="#combining-vectors-into-a-data-frame" id="toc-combining-vectors-into-a-data-frame" class="nav-link" data-scroll-target="#combining-vectors-into-a-data-frame"><span class="toc-section-number">1.5.8</span>  Combining vectors into a data frame</a></li>
+  <li><a href="#plotting-data" id="toc-plotting-data" class="nav-link" data-scroll-target="#plotting-data"><span class="toc-section-number">1.5.9</span>  Plotting data</a></li>
   </ul></li>
-  <li><a href="#start-and-save-a-script" id="toc-start-and-save-a-script" class="nav-link" data-scroll-target="#start-and-save-a-script"><span class="toc-section-number">1.6</span>  Start and save a script</a>
+  <li><a href="#install-an-r-package" id="toc-install-an-r-package" class="nav-link" data-scroll-target="#install-an-r-package"><span class="toc-section-number">1.6</span>  Install an R package</a></li>
+  <li><a href="#load-and-use-an-r-package" id="toc-load-and-use-an-r-package" class="nav-link" data-scroll-target="#load-and-use-an-r-package"><span class="toc-section-number">1.7</span>  Load and use an R package</a>
   <ul class="collapse">
-  <li><a href="#entering-and-running-code" id="toc-entering-and-running-code" class="nav-link" data-scroll-target="#entering-and-running-code"><span class="toc-section-number">1.6.1</span>  Entering and running code</a></li>
-  <li><a href="#assignment-operator" id="toc-assignment-operator" class="nav-link" data-scroll-target="#assignment-operator"><span class="toc-section-number">1.6.2</span>  Assignment operator</a></li>
-  <li><a href="#examing-objects" id="toc-examing-objects" class="nav-link" data-scroll-target="#examing-objects"><span class="toc-section-number">1.6.3</span>  Examing objects</a></li>
-  <li><a href="#combining-vectors-into-a-data-frame" id="toc-combining-vectors-into-a-data-frame" class="nav-link" data-scroll-target="#combining-vectors-into-a-data-frame"><span class="toc-section-number">1.6.4</span>  Combining vectors into a data frame</a></li>
-  <li><a href="#plotting-data" id="toc-plotting-data" class="nav-link" data-scroll-target="#plotting-data"><span class="toc-section-number">1.6.5</span>  Plotting data</a></li>
+  <li><a href="#saving-your-graphs" id="toc-saving-your-graphs" class="nav-link" data-scroll-target="#saving-your-graphs"><span class="toc-section-number">1.7.1</span>  Saving your graphs</a></li>
   </ul></li>
-  <li><a href="#install-an-r-package" id="toc-install-an-r-package" class="nav-link" data-scroll-target="#install-an-r-package"><span class="toc-section-number">1.7</span>  Install an R package</a></li>
-  <li><a href="#load-and-use-an-r-package" id="toc-load-and-use-an-r-package" class="nav-link" data-scroll-target="#load-and-use-an-r-package"><span class="toc-section-number">1.8</span>  Load and use an R package</a>
-  <ul class="collapse">
-  <li><a href="#saving-your-graphs" id="toc-saving-your-graphs" class="nav-link" data-scroll-target="#saving-your-graphs"><span class="toc-section-number">1.8.1</span>  Saving your graphs</a></li>
-  </ul></li>
-  <li><a href="#getting-help" id="toc-getting-help" class="nav-link" data-scroll-target="#getting-help"><span class="toc-section-number">1.9</span>  Getting help</a></li>
-  <li><a href="#deliverables" id="toc-deliverables" class="nav-link" data-scroll-target="#deliverables"><span class="toc-section-number">1.10</span>  Deliverables</a></li>
+  <li><a href="#getting-help" id="toc-getting-help" class="nav-link" data-scroll-target="#getting-help"><span class="toc-section-number">1.8</span>  Getting help</a></li>
+  <li><a href="#deliverables" id="toc-deliverables" class="nav-link" data-scroll-target="#deliverables"><span class="toc-section-number">1.9</span>  Deliverables</a></li>
   </ul>
 </nav>
     </div>
@@ -234,7 +280,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title d-none d-lg-block"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Computer setup</span></h1>
+<h1 class="title d-none d-lg-block"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Computer setup and first R script</span></h1>
 </div>
 
 
@@ -252,76 +298,47 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <section id="goals" class="level2" data-number="1.1">
 <h2 data-number="1.1" class="anchored" data-anchor-id="goals"><span class="header-section-number">1.1</span> Goals</h2>
 <ul>
-<li>Install R and RStudio</li>
-<li>Set up your computer to play well with R.</li>
-<li>Begin to learn how to use R.</li>
+<li>Learn about your computer and how to organize its files.</li>
+<li>Install R, an open source programming language.</li>
+<li>Begin to use R effectively.</li>
 </ul>
 </section>
 <section id="background" class="level2" data-number="1.2">
 <h2 data-number="1.2" class="anchored" data-anchor-id="background"><span class="header-section-number">1.2</span> Background</h2>
-<p>In this project, you will download and install R, known formally as the <em>R programming language and environment</em>. You will also install <em>RStudio</em>, an integrated development environment (IDE), designed to be used with R. The R interface looks a little different on Windows, Macs, and Linux computers. RStudio will allow us all share an identical appearance and user experience. You will use R by opening RStudio.</p>
-<p>These videos might be useful, although all the content and instructions are written in text below. Ranked in order of importance and convenience:</p>
-<ol type="1">
-<li><a href="https://youtu.be/4KcNgXS1CUw" target="_blank">Installing R and RStudio</a></li>
-<li><a href="https://youtu.be/vf5El6FVwpw" target="_blank">Set up your computer and start to use R via RStudio</a></li>
-<li><a href="https://youtu.be/p4uT6ycJEjw" target="_blank">Saving figures made with ggplot()</a></li>
-<li><a href="https://youtu.be/uS0_OH8fRls" target="_blank">Introduction to ggplot2 (long - 20 min)</a></li>
-</ol>
+<p>In this project, you will begin to use tools for data exploration and analysis. This tools and your computer are really important for helping you make sense of our really complicated world. Ecology is way more complicated than physics or engineering, and the data are noisy and often unpredictable. We need to use computers to make sense of it.</p>
+<p>We will use open source and free software to help us understand ecological systems. You will download and install R, known formally as the R programming language and environment. You will also install RStudio, an integrated development environment (IDE), designed to be used with R. The R interface looks a little different on Windows, Macs, and Linux computers. RStudio will allow us all share an identical appearance and user experience. You will use R by opening RStudio.</p>
+<section id="understanding-you-computer" class="level3" data-number="1.2.1">
+<h3 data-number="1.2.1" class="anchored" data-anchor-id="understanding-you-computer"><span class="header-section-number">1.2.1</span> Understanding you computer</h3>
+<p>First, we need to make sure we know some basics about computers.</p>
 </section>
-<section id="installing-r" class="level2" data-number="1.3">
-<h2 data-number="1.3" class="anchored" data-anchor-id="installing-r"><span class="header-section-number">1.3</span> Installing R</h2>
-<section id="what-and-why" class="level3" data-number="1.3.1">
-<h3 data-number="1.3.1" class="anchored" data-anchor-id="what-and-why"><span class="header-section-number">1.3.1</span> What and Why</h3>
-<p>We will use the Open Source R programming language and environment for doing science, including,</p>
+<section id="folders-directories-and-directory-structure" class="level3" data-number="1.2.2">
+<h3 data-number="1.2.2" class="anchored" data-anchor-id="folders-directories-and-directory-structure"><span class="header-section-number">1.2.2</span> Folders, directories, and directory structure</h3>
+<p>On your computer,</p>
 <ul>
-<li>exploring data,</li>
-<li>testing ideas, and</li>
-<li>modeling dynamical systems like populations of rare and endangered species, disease dynamics, and ecosystems.</li>
+<li>a folder is a place to put files and other folders,</li>
+<li>“a directory is a file system cataloging structure that contains references to other computer files, and possibly other directories.” (Wikipedia)</li>
+<li>A folder is a part of your computer’s directory system.</li>
 </ul>
-<p>You need to download the application to get started.</p>
+<p>If you have not already done so, <strong>you need to organize your computer.</strong></p>
+<p>Do these:</p>
 <ul>
-<li>R is free.</li>
-<li>R runs on all operating systems.</li>
-<li>R is powerful.</li>
+<li>Make different folders (or directories) for different classes.</li>
+<li>Make different folders for different kinds of content (e.g., data, articles, your writing).</li>
 </ul>
-</section>
-<section id="how" class="level3" data-number="1.3.2">
-<h3 data-number="1.3.2" class="anchored" data-anchor-id="how"><span class="header-section-number">1.3.2</span> How</h3>
-<ol type="1">
-<li>Find out what version of operating system (OS) your computer is using (e.g., Windows 10 or 11, or Linux Ubuntu 22.04, or Mac Monterey or Ventura). This will help determine which version of R to use. If you are using a Mac, this also requires that you determine which version of processor or chip your computer uses (Intel processor vs.&nbsp;Apple M1 chip or higher). Check the processor or chip using the Apple icon menu in the upper left corner.</li>
-<li>Google R (just the letter “R”) to navigate to the <em>R Project for Statistical Computing</em>.</li>
-<li>Find the link in the left Task Bar for <em>CRAN</em> (Comprehensive R Archive Network).</li>
-<li>Find and navigate to a CRAN site near you (e.g., United States or Midwest US or Ohio). These are called <em>mirrors</em> because they are copies of each other.</li>
-<li>Download and install the latest release of R for your operating system (Mac, Windows, or Linux).</li>
-<li>As of January 2023, it was version 4.2.2. It is a single file to download. You should use whatever the latest version is.</li>
-<li>In January 2023, it was worked like this:
-<ol type="a">
-<li>Mac - select R-4.2.2.pkg (for the Intel chip) or R-4.2.2.arm64.pkg (for the Apple M1 chip)</li>
-<li>Windows - select the “base” package, then R 4.2.2</li>
-<li>Linux - select your flavor, and follow instructions.</li>
-</ol></li>
-</ol>
-</section>
-<section id="where" class="level3" data-number="1.3.3">
-<h3 data-number="1.3.3" class="anchored" data-anchor-id="where"><span class="header-section-number">1.3.3</span> Where</h3>
+<p>In addition,</p>
 <ul>
-<li>R and RStudio will be installed along side all your other applications.</li>
+<li>do <em>not</em> use the Desktop or Downloads to store anything important, and</li>
+<li>do <em>not</em> mix personal content and course content.</li>
+</ul>
+<p>Watch one of these to help you understand how your computer is organized. This will save you hours of time and frustration throughout your life.</p>
+<ul>
+<li><a href="https://youtu.be/hUW5MEKDtMM" target="_blank">For Windows users (PCs)</a></li>
+<li><a href="https://youtu.be/5pOu70ta0xY" target="_blank">For Mac users</a></li>
 </ul>
 </section>
-<section id="installing-rstudio" class="level3" data-number="1.3.4">
-<h3 data-number="1.3.4" class="anchored" data-anchor-id="installing-rstudio"><span class="header-section-number">1.3.4</span> Installing RStudio</h3>
-<p>RStudio is an integrated development environment (IDE), designed to be used with R. The R interface looks a little different on Windows, Macs, and Linux computers. RStudio will allow us all share an identical appearance and user experience.</p>
-<ol type="1">
-<li>Navigate online to the RStudio website.</li>
-<li>Under Products find RStudio IDE.</li>
-<li>Select and download the Open Source Edition (RStudio Desktop). You want the desktop version (not the server version).</li>
-<li>Follow instructions to install on your computer.</li>
-</ol>
-<p>RStudio is an interface to R. When we use R in this class, we will use RStudio as our interface, but you need to realize that we are primarily <em>using R</em>. We don’t need RStudio to do the work, but it makes my job as instructor easier, and makes it a little easier for you as well. So, <em>when you start to use R, just open RStudio, and it will load R for you</em>.</p>
-</section>
-<section id="windows-tweak" class="level3" data-number="1.3.5">
-<h3 data-number="1.3.5" class="anchored" data-anchor-id="windows-tweak"><span class="header-section-number">1.3.5</span> Windows tweak</h3>
-<p>You will need to be able to see file extensions on your computer. A file extension is the little label at the end of a file name that comes after the dot, such as</p>
+<section id="file-types-and-file-name-extensions" class="level3" data-number="1.2.3">
+<h3 data-number="1.2.3" class="anchored" data-anchor-id="file-types-and-file-name-extensions"><span class="header-section-number">1.2.3</span> File types and file name extensions</h3>
+<p><strong>File extensions</strong> are little tags at the end of file names taht identify the <em>type</em> of file it is. You will need to be able to see file extensions on your computer. A file extension is the little label at the end of a file name that comes after the dot, such as</p>
 <ul>
 <li>.jpg or .jpeg is the extension for JPEG image files.</li>
 <li>.docx is the extension for Microsoft Word document files.</li>
@@ -330,7 +347,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>.csv is the extension for Comma Separated Value text files - these can be produced by spreadsheet applications. You will work with these.</li>
 <li>.R is the extension for R scripts. You will work with these.</li>
 </ul>
-<p>On Windows 10, you need to make changes to see file extensions by revealing “hidden items”. Windows 10: 1. Open File Explorer; if you do not have an icon for this in the task bar; click Start, click Windows System, and then File Explorer.</p>
+<p>Note that, by default, Windows hides these from the user. <strong>Here is how we fix that on Windows.</strong> (Mac users can skip this.)</p>
+<p>On Windows 10, you need to make changes to see file extensions by revealing “hidden items”. Windows 10:</p>
+<ol type="1">
+<li>Open File Explorer; if you do not have an icon for this in the task bar; click Start, click Windows System, and then File Explorer.</li>
+</ol>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="figs/file-explorer.png" class="img-fluid figure-img" style="width:60.0%"></p>
@@ -353,20 +374,90 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>You should now be able to see file name extensions (e.g., .docx, .R) and hidden files.</p>
 </section>
 </section>
+<section id="installing-r" class="level2" data-number="1.3">
+<h2 data-number="1.3" class="anchored" data-anchor-id="installing-r"><span class="header-section-number">1.3</span> Installing R</h2>
+<p>Armed with a little knowledge of your computer, you now install R.</p>
+<section id="what-and-why" class="level3" data-number="1.3.1">
+<h3 data-number="1.3.1" class="anchored" data-anchor-id="what-and-why"><span class="header-section-number">1.3.1</span> What and Why</h3>
+<p>We will use the Open Source R programming language and environment for doing science, including,</p>
+<ul>
+<li>exploring data,</li>
+<li>testing ideas, and</li>
+<li>modeling dynamical systems like populations of rare and endangered species, disease dynamics, and ecosystems.</li>
+</ul>
+<p>You need to download the application to get started.</p>
+<ul>
+<li>R is free.</li>
+<li>R runs on all operating systems.</li>
+<li>R is powerful.</li>
+</ul>
+</section>
+<section id="how-to-videos-optional" class="level3" data-number="1.3.2">
+<h3 data-number="1.3.2" class="anchored" data-anchor-id="how-to-videos-optional"><span class="header-section-number">1.3.2</span> How-to videos (optional)</h3>
+<p>The following videos might be useful, but they are not required! The next sections describe (in words) how to install R and RStudio.</p>
+<p>Optional videos:</p>
+<ol type="1">
+<li><a href="https://youtu.be/4KcNgXS1CUw" target="_blank">Installing R and RStudio</a></li>
+<li><a href="https://youtu.be/vf5El6FVwpw" target="_blank">Set up your computer and start to use R via RStudio</a></li>
+<li><a href="https://youtu.be/p4uT6ycJEjw" target="_blank">Saving figures made with ggplot()</a></li>
+<li><a href="https://youtu.be/uS0_OH8fRls" target="_blank">Introduction to ggplot2 (20 min)</a></li>
+</ol>
+</section>
+<section id="how-to-instructions" class="level3" data-number="1.3.3">
+<h3 data-number="1.3.3" class="anchored" data-anchor-id="how-to-instructions"><span class="header-section-number">1.3.3</span> How-to instructions</h3>
+<ol type="1">
+<li>Find out what version of operating system (OS) your computer is using (e.g., Windows 10 or 11, or Linux Ubuntu, or Mac Sonoma, or other recent editions). This will help determine which version of R to use. If you are using a Mac, this also requires that you determine which version of processor or chip your computer uses (Intel processor vs.&nbsp;Apple M1 chip or higher). Check the processor or chip under “About this Mac” in the <em>Apple icon menu</em> in the upper left corner of your screen.</li>
+<li>Google R (just the letter “R”) to navigate to the <em>R Project for Statistical Computing</em>.</li>
+<li>Find the link in the left Task Bar for <em>CRAN</em> (Comprehensive R Archive Network).</li>
+<li>Find and navigate to a CRAN site near you (e.g., United States or Midwest US or Ohio). These are called <em>mirrors</em> because they are copies of each other.</li>
+<li>Download and install the latest release of R for your operating system (Mac, Windows, or Linux).</li>
+<li>As of January 2023, it was version 4.2.2. It is a single file to download. You should use whatever the latest version is.</li>
+<li>In January 2023, it was worked like this:
+<ol type="a">
+<li>Mac - select R-4.2.2.pkg (for the Intel chip) or R-4.2.2.arm64.pkg (for the Apple M1 chip)</li>
+<li>Windows - select the “base” package, then R 4.2.2</li>
+<li>Linux - select your flavor, and follow instructions.</li>
+</ol></li>
+</ol>
+</section>
+<section id="where" class="level3" data-number="1.3.4">
+<h3 data-number="1.3.4" class="anchored" data-anchor-id="where"><span class="header-section-number">1.3.4</span> Where</h3>
+<ul>
+<li>R (and RStudio) will be installed along side all your other applications.</li>
+</ul>
+</section>
+<section id="installing-rstudio" class="level3" data-number="1.3.5">
+<h3 data-number="1.3.5" class="anchored" data-anchor-id="installing-rstudio"><span class="header-section-number">1.3.5</span> Installing RStudio</h3>
+<p>RStudio is an integrated development environment (IDE), designed to be used with R. The R interface looks a little different on Windows, Macs, and Linux computers. RStudio will allow us all share an identical appearance and user experience.</p>
+<ol type="1">
+<li>Navigate online to the RStudio website.</li>
+<li>Under Products find RStudio IDE.</li>
+<li>Select and download the Open Source Edition (RStudio Desktop). You want the desktop version (not the server version).</li>
+<li>Follow instructions to install on your computer.</li>
+</ol>
+</section>
+<section id="r-neq-rstudio" class="level3" data-number="1.3.6">
+<h3 data-number="1.3.6" class="anchored" data-anchor-id="r-neq-rstudio"><span class="header-section-number">1.3.6</span> R <span class="math inline">\(\neq\)</span> RStudio</h3>
+<p>RStudio is an interface to R. When we use R in this class, we will use RStudio as our interface, but you need to realize that we are primarily <em>using R</em>. We don’t need RStudio to do the work, but it makes my job as instructor easier, and makes it a little easier for you as well. So, <em>when you start to use R, just open RStudio, and it will load R for you</em>.</p>
+<p>In this class, you will use the English language to write about ecology, and the R language to explore and analyze ecological data.</p>
+</section>
+</section>
 <section id="set-up-two-folders-for-this-class" class="level2" data-number="1.4">
 <h2 data-number="1.4" class="anchored" data-anchor-id="set-up-two-folders-for-this-class"><span class="header-section-number">1.4</span> Set up two folders for this class</h2>
 <ol type="1">
-<li><p>Set up a folder for this class. Call it “BIO209W”. Do not name it “BIO 209W” or “Bio209W” or “ecology”. Just “BIO209W”. It will help us. I don’t really care where you put this folder, but I hope you have a place for all of your classes and you could put it there.</p></li>
-<li><p>Next, set up a <strong>subfolder</strong> inside BIO209W called “Rwork”. Do not call it “RWORK” or “R work” or anything - just “Rwork”. It will help us. A lot. <code>Rwork</code> will be your <em>working directory</em>, which is where R looks automatically for data and where it automatically puts output.</p></li>
+<li><p>Set up a folder for this class. Call it “BIO209W”. Do not name it “BIO_209W” or “Bio209W” or “ecology”. Just “BIO209W”. It will help us. I don’t really care where you put this folder, but you should have a place for all of your classes, and you could put it there. Don’t put it in “Downloads”.</p></li>
+<li><p>Next, set up a <strong>subfolder</strong> inside BIO209W called “Rwork”. Do not call it “RWORK” or “R_work” or anything else - just “Rwork”. It will help us. A lot. <code>Rwork</code> will be your <strong>working directory</strong>, which is where R looks automatically for data and where it automatically puts output.</p></li>
 </ol>
 </section>
 <section id="working-in-r" class="level2" data-number="1.5">
 <h2 data-number="1.5" class="anchored" data-anchor-id="working-in-r"><span class="header-section-number">1.5</span> Working in R</h2>
 <p>To work in R in this class, we will open RStudio. It will open R for you.</p>
 <section id="set-your-working-directory" class="level3" data-number="1.5.1">
-<h3 data-number="1.5.1" class="anchored" data-anchor-id="set-your-working-directory"><span class="header-section-number">1.5.1</span> Set your working directory</h3>
-<p>Your working directory is where R looks to find stuff. R can look anywhere you tell it to, but it looks automatically in your “working directory”. In this class, you should always use “Rwork” as your working directory.</p>
-<p>First, let’s find out what your current working directory is. We will GET your Working Directory with this code:</p>
+<h3 data-number="1.5.1" class="anchored" data-anchor-id="set-your-working-directory"><span class="header-section-number">1.5.1</span> Set your “working directory”</h3>
+<p>In this section, we learn what the “working directory” is and how to set it.</p>
+<p>Your <strong>working directory</strong> is where R looks to find stuff by default. R can look anywhere you tell it to, but it looks automatically in your “working directory”.</p>
+<p>In this class, you should always use “Rwork” as your working directory.</p>
+<p>I can find out where my working directory is by using <code>getwd()</code> to <strong>get</strong> my working directory:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">getwd</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -374,7 +465,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 </div>
 <p>This tells me what R is using as my working directory right now. My current working directory will differ from yours.</p>
-<p>What do you get when you run this code? If it is NOT Rwork, use the “Session” pulldown menu in RStudio to <code>Set Working Directory</code> and then <code>Choose your working directory</code> and always choose <code>Rwork</code> (which should be inside BIO209W).</p>
+<p>You should run this code, and see what you get. What do you get when you run this code (<code>getwd()</code>)?</p>
+<p>Next, use the “Session” in pulldown menu in RStudio to <code>Set Working Directory</code> and then <code>Choose your working directory</code> and always choose <code>Rwork</code> (which should be inside BIO209W).</p>
 </section>
 <section id="create-a-project" class="level3" data-number="1.5.2">
 <h3 data-number="1.5.2" class="anchored" data-anchor-id="create-a-project"><span class="header-section-number">1.5.2</span> Create a <em>project</em></h3>
@@ -388,9 +480,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>RStudio will now shift the working directory to your Rwork directory. You can see evidence of this: in the upper right pane which should have Rwork identified in the upper right corner, or in the lower right pane in the Files tab.</p>
 <p><strong>From now on in this course, make sure that you are using this project.</strong> You can open R by clicking the “Rwork.proj” file in your Rwork directory, or opening RStudio, and selecting the Rwork project in the upper right corner.</p>
 </section>
-</section>
-<section id="start-and-save-a-script" class="level2" data-number="1.6">
-<h2 data-number="1.6" class="anchored" data-anchor-id="start-and-save-a-script"><span class="header-section-number">1.6</span> Start and save a script</h2>
+<section id="scripts-start-and-save-a-script" class="level3" data-number="1.5.3">
+<h3 data-number="1.5.3" class="anchored" data-anchor-id="scripts-start-and-save-a-script"><span class="header-section-number">1.5.3</span> Scripts: Start and save a script</h3>
 <p>Goal: Write a script in R and learn several important programming operations.</p>
 <p>After you have prepared your computer as above, you are ready to begin exploring and modeling data. We do that using <em>scripts</em>.</p>
 <p>A script is a <strong>plain text</strong> file that contains the code and and your own comments that you use to address your questions.</p>
@@ -405,8 +496,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="do">## [add your name]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><strong>ALL OF THE WORK YOU DO SHOULD BE IN A SCRIPT.</strong></p>
-<section id="entering-and-running-code" class="level3" data-number="1.6.1">
-<h3 data-number="1.6.1" class="anchored" data-anchor-id="entering-and-running-code"><span class="header-section-number">1.6.1</span> Entering and running code</h3>
+</section>
+<section id="entering-and-running-code" class="level3" data-number="1.5.4">
+<h3 data-number="1.5.4" class="anchored" data-anchor-id="entering-and-running-code"><span class="header-section-number">1.5.4</span> Entering and running code</h3>
 <p>To enter code, place your cursor on any line in the script, and type, like this.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="sc">-</span><span class="dv">1</span><span class="sc">:</span><span class="dv">5</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -422,16 +514,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>This will pop up in the Console, which is the lower left pane in RStudio.</p>
 <p>What did this create? Do you get what I got above?</p>
 </section>
-<section id="assignment-operator" class="level3" data-number="1.6.2">
-<h3 data-number="1.6.2" class="anchored" data-anchor-id="assignment-operator"><span class="header-section-number">1.6.2</span> Assignment operator</h3>
+<section id="assignment-operator" class="level3" data-number="1.5.5">
+<h3 data-number="1.5.5" class="anchored" data-anchor-id="assignment-operator"><span class="header-section-number">1.5.5</span> Assignment operator</h3>
 <p>W?hen we create something, we typically want to <em>assign</em> it to a labeled object. In this class, we will use an arrow to indicate that we are putting a creation into an object. We create the arrow on our keyboard using shift-comma and a dash (‘less than’ and a dash)</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>a <span class="ot">&lt;-</span> <span class="sc">-</span><span class="dv">1</span><span class="sc">:</span><span class="dv">5</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>This puts the series of integers from -1 to 10 into the object <code>a</code>.</p>
+<p>This puts the series of integers from -1 to 5 into the object <code>a</code>.</p>
 </section>
-<section id="examing-objects" class="level3" data-number="1.6.3">
-<h3 data-number="1.6.3" class="anchored" data-anchor-id="examing-objects"><span class="header-section-number">1.6.3</span> Examing objects</h3>
+<section id="examining-objects" class="level3" data-number="1.5.6">
+<h3 data-number="1.5.6" class="anchored" data-anchor-id="examining-objects"><span class="header-section-number">1.5.6</span> Examining objects</h3>
 <p>If we have an object, like <code>a</code>, how can we figure out what it is? There are several ways of doing that. The simplest is to “print” it out. This doesn’t mean that we print it on paper. Rather we are printing it to the console, like this:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># show or 'print' a</span></span>
@@ -448,88 +540,123 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 </div>
 <p>This tells us that this is a vector of integers that is 7 elements long.</p>
-<p>Another way is to look in the RStudio <em>Environment pane</em> in the upper righthand side of RStudio.</p>
+<p>Another way is to look in the RStudio <em>Environment pane</em> in the upper right hand side of RStudio.</p>
+</section>
+<section id="things-youll-find-out-about-r" class="level3" data-number="1.5.7">
+<h3 data-number="1.5.7" class="anchored" data-anchor-id="things-youll-find-out-about-r"><span class="header-section-number">1.5.7</span> Things you’ll find out about R</h3>
+<p>If you are not used to writing code (and nobody is born that way), here are some thing to keep in mind about R and about coding in general.</p>
+<ol type="1">
+<li>Computers do <strong>exactly</strong> what you tell them. This is both frustrating and also satisfying.</li>
+<li>R does not know anything or do anything until you <strong>run</strong> the code. Typing or pasting code into a script is just the first step; you also need to <strong>run</strong> the code, with Control-return (Windows or Mac) or Command-return (Mac).</li>
+<li>A corollary of no. 5 is that you usually need to run lines of code in sequence. For instance, R won’t be able to run <code>str(a)</code> unless you previously defined <code>a</code>, such as <code>a &lt;- -1:5</code> (this is because R is an <em>interpreted</em> language - R interprets it one line at a time).</li>
+<li>Case matters in R. R interprets <code>a</code> as something completely different than <code>A</code>.</li>
+<li>Spaces <em>between</em> things usually don’t matter in R. R interprets <code>2+3</code> the same as <code>2 + 3</code>.</li>
+<li>Space <em>within</em> things usually breaks them, just the way “thin” “gs” is not the same as “things”. For example, the pseudo-arrow we use in <code>f &lt;- 9</code> is a thing. The compound symbol <code>&lt;-</code> means something different than <code>&lt; -</code>.
+<ol type="i">
+<li><code>&lt;-</code> is the <em>assignment operator</em> and assigns values to objects.</li>
+<li><code>&lt; -</code> means “less than, minus”, where <code>2 &lt; -3</code> tests whether 2 is less than minus 3 (it isn’t).</li>
+</ol></li>
+</ol>
+<p>Try it.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>f <span class="ot">&lt;-</span> <span class="dv">9</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>f</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 9</code></pre>
+</div>
+</div>
+<p>Now <code>f</code> has the value of 9.</p>
+<p>Try this:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="dv">2</span> <span class="sc">&lt;</span> <span class="sc">-</span><span class="dv">3</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] FALSE</code></pre>
+</div>
+</div>
+<p>That tested whether 2 is less than -3.</p>
+<p>Moving on….</p>
 <p>Now let’s create a set of 7 uniformly distributed random numbers that are between 0 and 1.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>b <span class="ot">&lt;-</span> <span class="fu">runif</span>(<span class="dv">7</span>, <span class="at">min=</span><span class="dv">0</span>, <span class="at">max=</span><span class="dv">1</span>)</span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>b</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>b <span class="ot">&lt;-</span> <span class="fu">runif</span>(<span class="dv">7</span>, <span class="at">min=</span><span class="dv">0</span>, <span class="at">max=</span><span class="dv">1</span>)</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>b</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.7008348 0.9543264 0.2879969 0.3321163 0.2133224 0.2698934 0.8975368</code></pre>
+<pre><code>[1] 0.20366385 0.59022893 0.08441556 0.12271363 0.24407806 0.43614139 0.73632568</code></pre>
 </div>
 </div>
 <p>These will differ every time you do this.</p>
 <p>Now we multiply each element in <code>a</code> times the corresponding elements in <code>b</code>.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># multiply a and b</span></span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>ab <span class="ot">&lt;-</span> a <span class="sc">*</span> b</span>
-<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="do">## Show a, b, and ab</span></span>
-<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>a</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co"># multiply a and b</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>ab <span class="ot">&lt;-</span> a <span class="sc">*</span> b</span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a><span class="do">## Show a, b, and ab</span></span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>a</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] -1  0  1  2  3  4  5</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>b</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>b</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.7008348 0.9543264 0.2879969 0.3321163 0.2133224 0.2698934 0.8975368</code></pre>
+<pre><code>[1] 0.20366385 0.59022893 0.08441556 0.12271363 0.24407806 0.43614139 0.73632568</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>ab</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>ab</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] -0.7008348  0.0000000  0.2879969  0.6642325  0.6399671  1.0795738  4.4876838</code></pre>
+<pre><code>[1] -0.20366385  0.00000000  0.08441556  0.24542726  0.73223417  1.74456554
+[7]  3.68162842</code></pre>
 </div>
 </div>
 <p>You can confirm at a glance that the first and second elements in <code>a</code> times the first and second elements in <code>b</code> equal the first and second elements in <code>ab</code>.</p>
 </section>
-<section id="combining-vectors-into-a-data-frame" class="level3" data-number="1.6.4">
-<h3 data-number="1.6.4" class="anchored" data-anchor-id="combining-vectors-into-a-data-frame"><span class="header-section-number">1.6.4</span> Combining vectors into a data frame</h3>
-<p>We will use lots of data frames in this course. Think of a data frame as a kind of spreadsheet of data, in which every column has the same number of entries and every row is an observation comprising all of the variables across all the columns.</p>
+<section id="combining-vectors-into-a-data-frame" class="level3" data-number="1.5.8">
+<h3 data-number="1.5.8" class="anchored" data-anchor-id="combining-vectors-into-a-data-frame"><span class="header-section-number">1.5.8</span> Combining vectors into a data frame</h3>
+<p>We will use lots of <strong>data frames</strong> in this course. Think of a data frame as a kind of spreadsheet of data, in which every column has the same number of entries and every row is an observation comprising all of the variables across all the columns.</p>
 <p>Here is one way to create a data frame. We assign variables using “=”.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>d <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">a=</span>a, <span class="at">b=</span>b, <span class="at">a_times_b =</span> ab)</span>
-<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>d</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>d <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">a=</span>a, <span class="at">b=</span>b, <span class="at">a_times_b =</span> ab)</span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>d</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>   a         b  a_times_b
-1 -1 0.7008348 -0.7008348
-2  0 0.9543264  0.0000000
-3  1 0.2879969  0.2879969
-4  2 0.3321163  0.6642325
-5  3 0.2133224  0.6399671
-6  4 0.2698934  1.0795738
-7  5 0.8975368  4.4876838</code></pre>
+<pre><code>   a          b   a_times_b
+1 -1 0.20366385 -0.20366385
+2  0 0.59022893  0.00000000
+3  1 0.08441556  0.08441556
+4  2 0.12271363  0.24542726
+5  3 0.24407806  0.73223417
+6  4 0.43614139  1.74456554
+7  5 0.73632568  3.68162842</code></pre>
 </div>
 </div>
 <p>You could examine the structure of this data frame with <code>str()</code>.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(d)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(d)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>'data.frame':   7 obs. of  3 variables:
  $ a        : int  -1 0 1 2 3 4 5
- $ b        : num  0.701 0.954 0.288 0.332 0.213 ...
- $ a_times_b: num  -0.701 0 0.288 0.664 0.64 ...</code></pre>
+ $ b        : num  0.2037 0.5902 0.0844 0.1227 0.2441 ...
+ $ a_times_b: num  -0.2037 0 0.0844 0.2454 0.7322 ...</code></pre>
 </div>
 </div>
 <p>You will also notice now that you can see all of our objects in the Environment pane, in the upper right of RStudio.</p>
 <p>You can export data frames from R as well, and programmers call that “writing” a file. The command below will save our data frame as .CSV files that you could open in a spreadsheet application.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="co"># export or write a file</span></span>
-<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a><span class="fu">write.csv</span>(<span class="at">x=</span>d, <span class="at">file=</span><span class="st">"myDataframe.csv"</span>, <span class="at">row.names=</span><span class="cn">FALSE</span>)</span>
-<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a><span class="co"># including row.names=FALSE prevents R from adding row names.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="co"># export or write a file</span></span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a><span class="fu">write.csv</span>(<span class="at">x=</span>d, <span class="at">file=</span><span class="st">"myDataframe.csv"</span>, <span class="at">row.names=</span><span class="cn">FALSE</span>)</span>
+<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a><span class="co"># including row.names=FALSE prevents R from adding row names.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>This should cause the data frame <code>d</code> to get saved to your working directory. Did it work for you?</p>
 </section>
-<section id="plotting-data" class="level3" data-number="1.6.5">
-<h3 data-number="1.6.5" class="anchored" data-anchor-id="plotting-data"><span class="header-section-number">1.6.5</span> Plotting data</h3>
+<section id="plotting-data" class="level3" data-number="1.5.9">
+<h3 data-number="1.5.9" class="anchored" data-anchor-id="plotting-data"><span class="header-section-number">1.5.9</span> Plotting data</h3>
 <p>Now let’s plot some data, including both points and lines connecting them.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="co"># type='p' is for points only</span></span>
-<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(a, ab, <span class="at">type=</span><span class="st">'p'</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="co"># type='p' is for points only</span></span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(a, ab, <span class="at">type=</span><span class="st">'p'</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="01-computer-setup_files/figure-html/unnamed-chunk-13-1.png" class="img-fluid" width="672"></p>
+<p><img src="01-computer-setup_files/figure-html/unnamed-chunk-15-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 <p>R is well known for its graphics capabilities, and we will only just scratch the surface in this course.</p>
 </section>
 </section>
-<section id="install-an-r-package" class="level2" data-number="1.7">
-<h2 data-number="1.7" class="anchored" data-anchor-id="install-an-r-package"><span class="header-section-number">1.7</span> Install an R package</h2>
+<section id="install-an-r-package" class="level2" data-number="1.6">
+<h2 data-number="1.6" class="anchored" data-anchor-id="install-an-r-package"><span class="header-section-number">1.6</span> Install an R package</h2>
 <p>R is open source, and its strength derives in part from the thousands of scientists creating extensions or add-on packages to do particular tasks. By itself, R can do amazing things. With thousands of <em>contributed packages</em> (as they are known), R’s capabilities have exploded.</p>
 <p>You can add a package in a few ways, including.</p>
 <ul>
@@ -538,48 +665,48 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul>
 <p>In this class, you will need to install several packages. Let’s try installing “ggplot2”.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"ggplot2"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"ggplot2"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>This will install ggplot2, and it will also install anything upon which ggplot2 depends. It will install all of its dependencies.</p>
 <p>Once you have installed a package, it is on your computer for good. You do not have to install it again, although you may want to update it once in a while to stay current.</p>
 <p>Now let’s use the plotting functions in the <code>ggplot2</code> package.</p>
 </section>
-<section id="load-and-use-an-r-package" class="level2" data-number="1.8">
-<h2 data-number="1.8" class="anchored" data-anchor-id="load-and-use-an-r-package"><span class="header-section-number">1.8</span> Load and use an R package</h2>
+<section id="load-and-use-an-r-package" class="level2" data-number="1.7">
+<h2 data-number="1.7" class="anchored" data-anchor-id="load-and-use-an-r-package"><span class="header-section-number">1.7</span> Load and use an R package</h2>
 <p>To use a contributed package, we need to <em>load</em> it. This simply means waking it up, and putting its code in R’s working memeory. We do that with <code>library()</code>.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Here we use <code>ggplot()</code> and <code>geom_smooth()</code> to plot our data, and add a fitted curve.</p>
 <p>When we use ggplot(), we tell it the name of our data frame and the variables we want to use go inside <code>aes()</code>, which stands for “aesthetics”. We also begin to add bells and whistles.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="do">## plot data and fit a curve</span></span>
-<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>d, <span class="fu">aes</span>(<span class="at">x=</span>a, <span class="at">y=</span>a_times_b)) <span class="sc">+</span> </span>
-<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>() <span class="sc">+</span></span>
-<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x=</span><span class="st">"a"</span>, <span class="at">y=</span><span class="st">"Product of a and b"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="do">## plot data and fit a curve</span></span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>d, <span class="fu">aes</span>(<span class="at">x=</span>a, <span class="at">y=</span>a_times_b)) <span class="sc">+</span> </span>
+<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>() <span class="sc">+</span></span>
+<span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x=</span><span class="st">"a"</span>, <span class="at">y=</span><span class="st">"Product of a and b"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="01-computer-setup_files/figure-html/unnamed-chunk-16-1.png" class="img-fluid" width="672"></p>
+<p><img src="01-computer-setup_files/figure-html/unnamed-chunk-18-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 <p>Note that with ggplot, we use the plus sign (+) to add elements to our graph.</p>
-<section id="saving-your-graphs" class="level3" data-number="1.8.1">
-<h3 data-number="1.8.1" class="anchored" data-anchor-id="saving-your-graphs"><span class="header-section-number">1.8.1</span> Saving your graphs</h3>
+<section id="saving-your-graphs" class="level3" data-number="1.7.1">
+<h3 data-number="1.7.1" class="anchored" data-anchor-id="saving-your-graphs"><span class="header-section-number">1.7.1</span> Saving your graphs</h3>
 <p>We can save this figure as well, in a variety of formats and sizes. By default, these are saved to our working directory, though we can change that if we want to.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="st">"myPlot.png"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="st">"myPlot.png"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Saving 7 x 5 in image</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="st">"myPlot.jpg"</span>, <span class="at">width=</span><span class="dv">7</span>, <span class="at">height =</span> <span class="dv">3</span>)</span>
-<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="st">"myPlot.pdf"</span>, <span class="at">width=</span><span class="dv">3</span>, <span class="at">height =</span> <span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="st">"myPlot.jpg"</span>, <span class="at">width=</span><span class="dv">7</span>, <span class="at">height =</span> <span class="dv">3</span>)</span>
+<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="st">"myPlot.pdf"</span>, <span class="at">width=</span><span class="dv">3</span>, <span class="at">height =</span> <span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 </section>
-<section id="getting-help" class="level2" data-number="1.9">
-<h2 data-number="1.9" class="anchored" data-anchor-id="getting-help"><span class="header-section-number">1.9</span> Getting help</h2>
+<section id="getting-help" class="level2" data-number="1.8">
+<h2 data-number="1.8" class="anchored" data-anchor-id="getting-help"><span class="header-section-number">1.8</span> Getting help</h2>
 <p>R has a bit of a learning curve. What should you do if you get stuck? It all depends what sort of problem it is.</p>
 <ol type="1">
-<li>First, ask your partner.</li>
+<li>First, ask a classmate.</li>
 <li>Use the Help tab in the lower right pane in RStudio. (Similarly, type <code>?mean</code> in the Console to get help on the function <code>mean()</code>.)</li>
 <li>Ask another classmate.</li>
 <li>Ask me.</li>
@@ -587,11 +714,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Did I mention you could ask me?</li>
 </ol>
 </section>
-<section id="deliverables" class="level2" data-number="1.10">
-<h2 data-number="1.10" class="anchored" data-anchor-id="deliverables"><span class="header-section-number">1.10</span> Deliverables</h2>
+<section id="deliverables" class="level2" data-number="1.9">
+<h2 data-number="1.9" class="anchored" data-anchor-id="deliverables"><span class="header-section-number">1.9</span> Deliverables</h2>
 <p>For the “First R script” assignment on Canvas:</p>
 <ol type="1">
-<li>Upload “myPlot.png” and “myDataframe.csv” to the .</li>
+<li>Upload three files to the Canvas First R Script assignment:
+<ol type="a">
+<li><code>myPlot.png</code></li>
+<li><code>myDataframe.csv</code></li>
+<li>the R script, into which you wrote all your code. This file must be written in RStudio, and the name must end with the file name extension, “.R”, such as “Hanks_script.R”</li>
+</ol></li>
 <li>Explain your biggest surprise in this assignment.</li>
 </ol>
 <p>Congratulations. <em>C’est fini</em>!</p>
@@ -741,7 +873,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   </div>
   <div class="nav-page nav-page-next">
       <a href="./01-trees_and_people.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Tree Cover: an investigation in ecology and in environmental justice</span></span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Environmental Justice: How income relates to environment.</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

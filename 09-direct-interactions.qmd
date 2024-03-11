@@ -1,0 +1,125 @@
+---
+title: "Direct species interactions: understanding mechanisms of invasion in mosquitoes"
+---
+
+![Humans help species move around the planet into new places with species with whom they did not coevolve. Mosquitoes, such as the Asian tiger mosquito (*Aedes albopictus*), wind up in new places, such as North America. Ecologists are trying to understand how they get there and how they persist and spread when they do.](figs/mosquitoes.png){#fig-aedes  width=75%}
+
+Species interact with each other. Sometimes those interactions are negative and cause population sizes to decline, and we call that **competition**. Other times, those interactions are positive and cause population sizes to increase, and we call that **mutualism**. This chapter explores an example of competition, in which investigators attempted to understand whether a native mosquito, *Aedes triseriatus* would compete with and inhibit the growth and spread of the Asian tiger mosquito, *Aedes albopictus* (@fig-aedes) [@livdahl1991].
+
+## Goals
+
+In this chapter, you will,
+
+* learn a simple rule determining whether can species coexist,
+* do a little theory: extend density to include a second species, 
+* do a little algebra: solve simultaneously two growth equations to determine coexistence criteria, and
+* start to develop a greater understanding and intuition for species interactions.
+
+
+## Preparatory Steps
+
+* Download the slides and watch the video on [competition (4b)](https://drive.google.com/drive/folders/1nWLoEGuWKIWdul9Uvse5qiB1Hf8MCwUv?usp=sharing){target="_blank"} before proceeding.
+* This chapter does not use a separate data set, but it does use results from Livdahl and Willey (1991). Download [Livdahl and Willey (1991) from our article archive](https://drive.google.com/drive/folders/1opLlrmF7kfo0FtWwwJ1CbfPWIyuaISC1?usp=sharing).
+* Find out what you need for the deliverables (@sec-deliverables).
+
+
+## Background
+
+We don't often know for sure what determines the establishment and spread of non-native species in a novel environment, but a variety of mechanisms and factors have been shown to play important roles in some situations, includ  ing,
+
+* an environment similar to the home environment, or otherwise hospitable,
+* presence of mutualists from which a species benefits,
+* an absence of enemies that recognize a species,
+* the presence of competitors.
+
+Here we investigate the role of competition in potentially inhibiting the spread of the Asian tiger mosquito (*Aedes albopictus*) outside its native range, in North America [@livdahl1991].
+
+Todd Livdahl and Michelle Willey (1991) investigated how intensely *Aedes albopictus* would compete with the North American species *Aedes triseriatus* to try to predict whether the native species would inhibit the spread of the non-native species. Generally, mosquitoes lay eggs on water, which hatch into aquatic larvae that feed on particles in the water. These larvae grow and eventually pupate, and then emerge as flying adults, when the males feed on plant nectar and the females obtain a blood meal. During the larval stage, *if population densities are high, mosquitoes can compete for food resources and potentially limit their own growth and the growth of competitors.* It was this stage during which Livdahl and Willey measure the strength of intraspecific and interspecific competition (@tbl-mosquito).
+
+The version of the two species Lotka-Volterra competition equations we will use are,
+
+$$\frac{dN_1}{dt} = r_1N_1 \left( 1- \frac{N_1 + \alpha N_2}{K_1}\right)$$
+
+$$\frac{dN_2}{dt} = r_2N_2 \left( 1- \frac{N_2 + \beta N_1}{K_2}\right)$$
+
+
+```{r}
+#| label: tbl-mosquito
+#| tbl-cap: "Lotka-Volterra growth and competition parameters of *A. triseriatus* and *A. albopictus* in water from tree holes and from tires, based on Livdahl and willey (1991). Values of $r$ and $K$ refer to the species on the respective line. Values for alpha or beta refer to the effect of the competitor. For instance, K = 42.83 is the carrying capacity of A. triseriatus in tree hole water, and alpha = 0.4167 is the effect of A. albopictus on A. triseriatus, in tree hole water."
+#| echo: false
+get.comp <- function(ri, bi, bj){
+  r=ri
+  Ki <- -ri/bi
+  a.B <- -bj*Ki/ri
+  c(r = r, Ki=Ki, a.B = a.B)
+}
+#Tree hole:
+tree.hole.At <- get.comp(0.0514, -0.0012, -0.0005)
+tree.hole.Aa <- get.comp(0.0798, -0.0015, -0.0011)
+tire.At <- get.comp(0.0591, -0.0018, -0.0015)
+tire.Aa <- get.comp(0.0904, -0.0020, -0.0005)
+d <- as.data.frame( 
+  rbind(tree.hole.At, tree.hole.Aa, tire.At, tire.Aa) )
+row.names(d) <- c("A. triseriatus (in treehole water)",
+                  "A. albopictus (in treehole water)",
+                  "A. triseriatus (in tire water)",
+                  "A. albopictus (in tire water)")
+colnames(d) <- c("r", "K", "alpha or beta")
+
+
+knitr::kable(d,
+  digits=c(4,4,4),
+  align='c',
+  booktabs=TRUE)
+
+```
+
+## Invasion criteria
+
+Recall from lecture that if $K_2 > \beta K_1$, then species 2 can invade a population of species. Similarly, if $K_1 > \alpha K_2$, the species 1 can invade.
+
+What is the case here?
+
+```{r}
+#| echo: false
+#| results: 'hide'
+
+## in tree hole water...
+# Can Aa invade?
+tree.hole.Aa["Ki"] > tree.hole.Aa["a.B"]*tree.hole.At["Ki"]
+# can At invade?
+tree.hole.At["Ki"] > tree.hole.At["a.B"]*tree.hole.Aa["Ki"]
+
+## in tire water
+# Can Aa invade?
+tire.Aa["Ki"] > tire.Aa["a.B"]*tire.At["Ki"]
+# Can At invade?
+tire.At["Ki"] > tire.At["a.B"]*tire.Aa["Ki"]
+
+```
+
+
+## Deliverables {#sec-deliverables}
+In one document include these two graphs and answers to these questions:
+
+1. Draw the isoclines for both species in water obtained from tree holes. Add one curved line for population trajectories starting at 5 *A. triseriatus* and 5 *A. albopictus*.
+1. Draw the isoclines for both species in water obtained from tires. Add one curved line for the population trajectories starting at 5 *A. triseriatus* and 5 *A. albopictus*.
+1. Do the invasion criteria match the figures? Explain.
+1. Answer the original question for these two environments: will the native *A. triseriatus* inhibit the establishment of the non-native *A. albopictus*?
+
+```{r}
+#| eval: false
+#| echo: false
+
+with(d,
+     {
+       At.th <- c(K[1], K[1]/`alpha or beta`[1])
+        Aa.th <- c(K[2], K[2]/`alpha or beta`[2])
+         At.ti <- c(K[3], K[3]/`alpha or beta`[3])
+          Aa.ti <- c(K[4], K[4]/`alpha or beta`[4])
+          out <- rbind(At.th, Aa.th, At.ti, Aa.ti)
+          colnames(out) <- c("Spp.int", "other.int")
+          out
+     })
+```
+

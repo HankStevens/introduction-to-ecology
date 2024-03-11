@@ -1,0 +1,438 @@
+---
+title: "Of wolves and moose, on Isle Royale"
+---
+
+![As in other northern forests, on Isle Royale in Lake Superior (upper right), moose feed on vegetation such as aquatic plants, and the tender shoots of both deciduous and coniferous trees like the fir (right) and spruce (left). Isle Royale wolves feed on moose, and parasites can hit both populations pretty hard (parvovirus - wolves; ticks - moose). How the moose and wolf populations affect each other is an open question, and this chapter walks through an attempt to evaluate the role of reciprocal feedbacks between the two populations.](figs/mooseWolf.png){#fig-isleRoyale width=75%}
+
+## Goals
+In this chapter, you will, 
+
+* Test the hypothesis that moose and wolves regulate  the size of each other's population.
+* Use algebra to estimate **parameters** in the mathematical model of predator-prey dynamics.
+* Use specific quantitative and qualitative criteria to evaluate how well the model describes the dynamics of the population.
+
+## Preparatory steps
+
+1. General background lectures: Download the slides and watch the video on predation and herbivory (https://drive.google.com/drive/folders/1nWLoEGuWKIWdul9Uvse5qiB1Hf8MCwUv?usp=sharing){target="_blank"} before proceeding.
+1. Data: go to our [class data repository](https://drive.google.com/drive/u/1/folders/1FR2FLiW3xyD4Er52YzVTToPZuXXReGRo){target="_blank"}, and download `isleRoyaleData.csv`. 
+   a. Make sure the file remains in the same simple format, "comma separated values" (.csv).
+   a. Put `isleRoyaleData.csv` in your working directory, `Rwork`.
+   a. Continue to make sure the file remains in the same simple format, "comma separated values" (.csv).
+1. Find out what you need for the deliverables (@sec-deliverables).
+
+## Background
+We have seen examples of how the distribution and abundance of organisms are influenced by 
+
+* the physical environment,
+* adaptations to the physical environment, 
+* the density of individuals in the same population, and
+* interactions with other species which may be prey or enemies or mutualists.
+
+Here we take a closer look out how predator-prey interactions affect populations, and precisely how those interactions can be described. 
+
+As our example, we focus on the pair-wise predator-prey relationship between moose (*Alces alces*) and wolves (*Canis lupus*) on Isle Royale National Park (USA) in Lake Superior. The moose are herbivores, that is, plant enemies, particularly of balsam fir (*Abies balsamea*) which makes up about 50% of their diet. Aside from severe winter weather and wolves, another enemy of the moose is the winter tick (*Dermacentor albipictus*), which can sap the health of moose and reduce survival. The wolves have an enemy of their own, canine parvovirus which can kill wolves. In spite of all this complexity, here we investigate the mathematical mechanics of how predators and prey influence each others abundances, and whether we can learn anything about their biology.
+
+When we use mechanistic models in science, we are following the scientific method we may have first been exposed to in K-12 education:
+
+1. observe a pattern in nature.
+2. propose an explanation (hypothesis) that can generate predictions.
+3. gather data to test the predictions.
+4. re-evaluate the hypothesis in light of the data.
+
+**A mathematical model of predator and prey *is* a hypothesis about how species interact. You will informally evaluate how well a particular model can explain patterns in our data.**
+
+## Details about our data
+
+Our data set comes from censuses of moose and wolf populations on Isle Royale from 1959 to 2011 collected by a number of different researchers over that time [@vucetich:2009].
+
+
+## Your hypothesis and predictions
+**The data you have available** are numbers of moose and wolves each year, 1959-2011. 
+
+What you know:
+
+1. predators can sometimes have negative numerical effects on their prey populations.
+1. prey can sometimes have positive numerical effects on their predator populations.
+1. ratio-dependent and prey-dependent (Lotka-Volterra) mathematical models of predators and prey make different assumptions about whether the killing rate depends on the **ratio** of prey to predators, or simply the **density** of prey.
+1. The ratio-dependent predator-prey model predicts that predators will be a constant fraction of the prey population, and does not generate oscillations. In contrast, the Lotka-Volterra predator-prey model predicts that predators are not a constant fraction of the prey population, the populations undergo regular oscillations, and the predator population lags behind the prey population.
+1. Your data include the abundances of moose and wolves. 
+
+**For this chapter**, *our hypothesis* is that the prey-dependent Lotka-Volterra predator-prey model is a reasonable description of the mechanisms driving moose-wolf dynamics. This model makes these predictions:
+
+* predators are not a constant fraction of the prey population, 
+* the populations undergo regular oscillations, and 
+* the predator population lags behind the prey population.
+
+**In order to evaluate the hypothesis** you will have to answer about a dozen questions *along the way*, as you go. Don't skip these questions. 
+
+These questions will let you estimate the constant **parameters** of the Lotka-Volterra model:
+
+* $r$, the intrinsic rate of increase.
+* $a$, the attack rate, or the rate at which a predator kills a prey, given the prey density. 
+* $b$, the conversion efficiency, or the rate at which predators makes more babies out of all the prey they kills.
+* $m$, per capita mortality rate of the predators.
+
+
+## Data analysis
+
+First, open R using RStudio, and **set your working directory**. You can do this in two ways:
+
+1. using the Session menu in RStudio, or 
+1. with code such as this, in which you customize it to your computer:
+```
+setwd("C:/Users/paltrowg/BIO209W/Rwork")
+```
+
+You can confirm or **get** your *current* working directory using this:
+```{r}
+getwd()
+```
+so when I do that, you can see my working directory is the one for this book. 
+
+Before you proceed, make sure your working directory is your `Rwork` directory.
+
+Second, use RStudio to create a new file of the type "R script". Save it using a name that reflects this chapter, and end the file name with ".R" or ".r".
+
+Third, add a comment as a brief description of the script, and load any R packages you know you will need.
+```{r}
+#| message: false
+## This script is for chapter XX in Hank's Intro to Ecology primer.
+
+## We always use...
+library(tidyverse)
+## or usually just ggplot2 and dplyr packages within the tidyverse.
+```
+
+In this chapter, we need a new package called `deSolve`. This package solves differential equations and so will let us implement the differential equations of our predator-prey model. First use code below, or the Tools menu in RStudio to install `deSolve`. Don't do both.
+```{r }
+#| eval: false
+## For this chapter we also use deSolve
+install.packages("deSolve")
+```
+
+Then load the package.
+```{r}
+library(deSolve)
+```
+
+### Load the data	
+
+Make sure that your data file is in your `Rwork` directory. and is still just a CSV file.
+
+**Open the data file** (.csv file) in a spreadsheet application, a text editor, or in RStudio. Do **not** save it the file the spreadsheet application because it will try to change the format. 
+
+1. With the file open, learn what is on the first several lines. Often, the first line or two will have *metadata* or information about the data (data about the data). 
+1. Below the metadata, you will see column headings, separated by commas, because the data are *CSV* or comma-separated-values.
+1. Below the column headings are the data, with columns separated by commas.
+
+Close the data file, and *do not save it.* If you save it, chances are good that the application will try to save it in a different format. 
+
+**Import the data** or *read* the data into R. Here is code for that. You will notice that we use a function that expects a CSV file. You will also notice that we use an *argument* to tell R how many lines of metadata to skip so it reads only the data and its column headings.
+```{r}
+#| echo: false
+d <- read.csv("data/isleRoyaleData.csv",
+              skip=2)
+```
+
+```{r}
+#| eval: false
+## NOTE that we skip the two lines because they are metadata
+d <- read.csv("isleRoyaleData.csv",
+              skip=2)
+```
+
+Look at your data with one of these two:
+```{r}
+# glimpse(d)
+# or 
+str(d)
+```
+
+A time series graph of the our data reveal how the populations change over time (Fig @fig-mw1).
+
+```{r }
+#| label: fig-mw1
+#| fig-cap: "Natural populations undergo fluctuations. Here we smooth the data over different proportions of the time series to reveal different patterns of squiggliness."
+#| message: false
+ggplot(d, aes(Year, N, colour=Species)) + geom_line() + 
+  facet_grid(Species~., scales = "free") + 
+  geom_smooth( se=FALSE, span=.2, color="red", linewidth=.5) + 
+  geom_smooth( se=FALSE, span=.7, color="black", linewidth=.5) 
+ggsave("MooseWolfTS.png", height=5, width=6)
+```
+
+Next, let's describe a model of predator and prey interaction. Refer back to the lectures for more information. 
+
+## Population growth models
+
+All of our mathematical and conceptual models of populations have the same form:
+
+*Rate of change = rate of gains - rate of losses*
+
+Sometimes these gains and losses are combined:
+
+*Rate of change = net rate of gains*
+
+
+### Examples of population growth models
+
+Exponential growth:
+$$\frac{dN}{dt} = bN-dN = (b-d)N = rN$$
+
+Logistic growth (density-dependence):
+$$\frac{dN}{dt} = rN\left((1-\frac{N}{K}\right) = rN - \frac{r}{K}N^2$$
+
+Mechanistic models such as there have *parameters* and *state variables*. State variables are the quantities that vary through time, such as population size. In contrast, parameters are constants that determine how fast the state variables change. In our exponential growth equation, $dN/dt=rN$, $N$ is the state variable, and $r$ is the parameter.
+
+Next we create a pair of rate equations where one species' loss is another's gain.
+
+## Predator-prey equations 
+
+Maybe the simplest predator prey equation is essentially two-species exponential growth, where exponentially growing prey, $N$, is partly eaten by exponentially growing predators, $P$. First the prey,
+
+$$\frac{dN}{dt} = rN - aN$$
+where $aN$ is the rate of loss of prey to predators; this is the rate at which predators attack and kill prey. The units of $r$ and $d$ are individuals per individual per unit time.
+
+The predators increase only because they kill and eat prey, $aN$, and only a fraction of these, $b$, get converted into new predators,
+$$\frac{dP}{dt} = baN - mP$$
+and predators die at rate $mP$. The parameter $b$ is the *efficiency* with which prey are converted into predators, that is, are ingested, assimilated by the predator, and actually lead to growth and reproduction rather than cellular respiration. The units of $b$ are predators per prey per unit time, and the units of $m$ are the same as those of $r$ and $d$, individuals per individual per unit time.
+
+If we made all these assumptions, and did some algebraic rearrangement, we would learn that predators abundance is predicted to be a constant fraction of prey abundance,
+$$P = \frac{ba}{m}N$$
+where both populations will grow exponentially as long as $r>d$ (why?). 
+
+This model is sometimes referred to as ratio-dependent predation a completely different reason: predation rates can be expressed in terms of the number of prey per predator time number of predators, or
+$$aN = a\frac{N}{P}P$$
+.
+
+## Lotka-Volterra prey-dependent predation
+
+The most widely taught predator-prey equation was developed independently by Vito Volterra and Alfred Lotka. Here, the predation rate is expressed as a function of prey density rather than the ratio of prey to predators.
+
+$$\frac{dN}{dt} = rN-aNP$$
+$$\frac{dP}{dt} = baNP  -mP$$
+In the above equations, 
+
+* $r$ is the intrinsic rate of increase.
+* $a$ is the attack rate, or the rate at which a predator kills a prey, given the prey density. 
+* $b$ is the conversion efficiency, or the rate at which predators makes more babies out of all the prey they kills.
+* $m$ is per capita mortality rate of the predators.
+
+1. How would you characterize the growth of the prey in the absence of predators? (Pretend $P=0$ and solve $dN/dt$)
+2. How would you characterize the growth of the predator in the absence of prey? (Pretend $N=0$, and solve $dP/dt$).
+
+This model is famous for its oscillations. Do our data show evidence of oscillations? Yes they do. Look at the figures below to estimate how often they undergo a cycle.
+
+```{r }
+#| label: fig-MWpp
+#| fig-cap: "Use this phase plane plot to count how many times the populations undergo a complete counterclockwise cycle."
+dw <- pivot_wider(d, names_from=Species, values_from=N)
+ggplot(dw, aes(Moose, Wolf, colour=Year)) + 
+  geom_path(arrow=arrow(length=unit(3, "mm"), angle = 15, type = "open")) + 
+  labs(subtitle="Each arrow is one annual time step.")
+ggsave("MooseWolfPP.png", height=5, width=5.5)
+```
+
+### Equilbria
+One thing we can learn from simple models are the *equilibria* they predict. An equilibrium is a point when the populations stop bouncing around. At these points, the populations stop changing - their *growth rates equal zero*. By setting growth rates equal to zero, we can use the model to make predictions about what those equilibria are. 
+
+Another name for an equilibrium is an *attractor*. We call it an attractor because the population appears to be attracted to it. If some event pushes the abundance of a population away from an equilibrium, the equilibrium seems to *attract* the population back to it. 
+
+Here we solve for the equilibria of the Lotka-Volterra predator-prey model. We set the prey population growth rate equal to zero, and then use algebra to simplify the expression. This is one way we learn the logical consequences of prey growth being zero. 
+
+$$0 = rN-aNP$$
+If we divide both sides by $N$, we get
+$$0 = r-aP$$
+and rearranging we get
+$$P=r/a$$
+This means that the prey population *growth rate* will be zero when the predator population size is $r/a$. This happens to be the intrinsic rate of increase divided by the attack rate. 
+
+If the prey population stops changing when $P=r/a$, do you think the predator population will stop growth too? 
+
+Next, we set the predator population growth rate equal to zero, and then use algebra to simplify the expression.
+
+$$0 = baNP - mP$$
+
+3. Simplify this expression on your own. What do you get? What will $N$ be equal to? 
+
+------------------------
+
+
+If the prey population stops changing when $P=r/a$ and the predator population stops changing when $N=m/(ba)$, this means that at these two abundances, the population sizes will not change. Births and deaths will continue to occur, and they will perfectly balance each other. These are the expected equilibria for these two populations *under this set of assumptions.* Something different happens when $N$ and $P$ are not at these values.
+
+We abbreviate these equilibria as $N^*$ and $P^*$, which we refer to as "N star" and "P star".
+
+**If** our populations are regulated *approximately* according to these rules, we might expect that the average abundances of these populations are approximately equal to these values. 
+
+4. Find the average or mean population size of the wolf population in our data set. Look at the figure and try to guess.
+
+5. Find the average or mean population size of the moose population in our data set. Look at the figure and try to guess.
+
+Use R to see how close your guess is.
+```{r eval=FALSE}
+View(dw)
+mean(dw$Wolf)
+mean(dw$Moose)
+```
+
+
+Next we find values for the model parameters. It will help to have just pieces of our data sets:
+```{r}
+# the number of observations or rows of data
+n <- nrow(dw)
+
+# predator and prey numbers for all years except the last.
+Pt <- dw$Wolf[-n]
+Nt <- dw$Moose[-n]
+
+# predator and prey numbers for all years except the first
+Pt1 <- dw$Wolf[-1]
+Nt1 <- dw$Moose[-1]
+```
+
+
+### Intrinsic rate of increase, r
+
+One way to think about the intrinsic rate of increase of a population, $r$, is that it is the maximum per capita growth rate. A crude way to estimate that is to find the maximum observed value in our data. 
+
+6. Estimate $r$ as the maximum annual per capita rate of increase. Recall that 
+$$r = \log_e \frac{N_{t+1}}{N_t}$$
+```{r}
+# each year's r
+r <- log(Pt1/Pt)
+r
+# the maximum
+rMax <- max(r)
+rMax
+```
+
+
+### Attack rate, a
+It is worth noting that $aN$ is the rate at which the average wolf kills moose. We will estimate the attack rate, $a$, by realizing that the predator equilibrium equals $r/a$, or 
+$$a = r/P^*$$
+where our estimate of $P^*$ is the average size of the wolf population.
+
+7. Estimate $a$ using your above estimates of $r$ and $P^*$.
+
+```{r}
+a <- rMax / mean(dw$Wolf)
+a
+```
+
+### Predator mortality rate, m
+One way to think about the predator mortality rate, $m$, is that it is the maximum rate per capita rate of decline. Put another way, it is the minimum per capita population growth rate, and this will be a negative number. 
+
+8. Estimate $m$. Find the minimum $r$ for the wolf population across all years. Let that the absolute value of that minimum be $m$. Remember that $m$ by itself is a positive number....
+```{r}
+# mortality, estimated as the minimum log( P[t+1] / P[t] )
+m <- abs( min(r) )
+m
+```
+
+
+
+### Conversion efficiency, b
+The predator conversion efficiency is the prey-dependent birth rate of predators. Thus, for each prey killed, an average predator will produce and successfully rear $b$ offspring. Given that only a few females in a population produce pups, and that number is averaged across the entire wolf population, that number is relatively small. However, a single moose is pretty big and so goes a long way.
+
+Here we use our previous estimates of $a$, $m$, and $N^*$ to estimate $b$, where
+$$N^* = \frac{m}{ba}$$
+and 
+$$b=\frac{m}{aN^*}$$
+
+9. Use the above expression to estimate $b$.
+```{r}
+b <- m / (a * mean(dw$Moose))
+b
+```
+
+
+## Predicting population dynamics
+
+This is how you tell R what the differential growth equations are.
+```{r}
+predpreyLV <- function(t, y, p) {
+    with( as.list( c(y,p) ), {
+      dN <- r*N - a*N*P
+      dP <- b*a*N*P - m*P
+      return( list( c(dN, dP) ))
+    })
+}
+```
+
+Here you tell R what the parameters, initial abundances, and years are.
+```{r}
+parms <- c(r = rMax, a=a, b=b, m=m)
+y0 <- c(N=560, P=20)
+times <- seq(0, 52, by=0.1)
+```
+
+Here you use the `deSolve` package to integrate the rate equations over our time points.
+```{r}
+out <- ode(y=y0, t=times, fun=predpreyLV, parms=parms)
+```
+
+Next we rearrange the data, and graph the time series.
+```{r}
+#| label: fig-LVts
+#| fig-cap: "Predicted Lotka-Volterra dynamics based on the Isle Royale moose-wolf data."
+op <- out %>% as.data.frame() %>%
+  pivot_longer(cols=N:P, names_to = "Populations", 
+                   values_to="Number")
+
+ggplot(op, aes(x=time, y=Number, colour=Populations)) + geom_line() +
+      labs(x="Years") + scale_color_discrete(breaks=c("N","P")) + 
+      facet_grid(Populations~., scales="free")
+
+ggsave("LV_MooseWolfTS.png", height=5, width=6)
+```
+
+10. Once you do this, you should get something that looks like Fig. @fig-LVts, or about 3-6 cycles over 52 years, and the minimum and maximum population sizes should differ tremendously from the observed data. If you get something wackier than that, you've gone astray. If so, *ask for help*.
+
+We can rearrange the data, and graph the *phase plane* plot (Fig. @fig-LVpp).
+```{r}
+#| label: fig-LVpp
+#| fig-cap: "Phase plane diagram of the Lotka-Volterra model of moose wolf dynamics. Once the paramters are fixed and the initial abundances are selected, then the dynamics are completely determined. Initial abundances are moose (560) and wolves (20). The line is black and widest in 1959, and becomes progressively more narrow and blue over time."
+outw <- out %>% as.data.frame() 
+
+ggplot(outw, aes(N, P, linewidth= -time, color=time)) + 
+  geom_path() + 
+  labs(x="Moose population size", y="Wolf population size" )
+ggsave("LV_MooseWolfPP.png", height=5, width=6)
+```
+
+
+
+Once you are  confident that you got something reasonably correct, assess the predicted dynamics. 
+
+11. For both the moose and the wolf populations and both the (i) original data and (ii) the Lotka-Volterra model, list the following:
+
+i. the number of cycles, 
+i. the heights of the peaks and troughs, and 
+i. the **averages**.
+
+Write a sentence or two describing these data in your list. 
+
+12. In a short paragraph, explain what you think we can learn from the match (or lack thereof) between the data and the model. Considering only what we have covered in this course, what would you use as an alternative to the Lotka-Volterra model, and how do those compare?
+
+## Discussion questions
+How could you test the effect of the parvovirus that began to affect the wolves in 1981?
+
+For the next exam, be able to,
+
+* Explain the meanings of the Lotka-Volterra model parameters.
+* Derive the prey and predator isoclines.
+* Explain neutral stability.
+
+
+## Deliverables {#sec-deliverables}
+
+Turn in two documents.
+
+The first document is your R script.
+
+In the second document, provide 
+
+* Phase plane diagram of raw data (x-axis, moose; y-axis, wolves), 
+* Time series graph of model output (x-axis, years; y-axes, moose and wolves)
+* answers to questions 11 and 12 above.
+

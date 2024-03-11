@@ -1,0 +1,330 @@
+---
+title: "Structured demography: How a graduate student helped save the loggerhead sea turtle"
+---
+
+![The loggerhead sea turtle is listed as "vulnerable" by the IUCN 3.1. image: By ukanda - originally posted to Flickr as Loggerhead turtle, CC BY 2.0, https://commons.wikimedia.org/w/index.php?curid=10481668](caretta.jpg){#fig-caretta}
+
+## Goals
+In this chapter, you'll connect sea turtle natural history to a demographic model of population growth and learn how we all learned about how to help sea turtles. Along the way, you'll learn about sea turtle natural history, demography, dynamics and model sensitivity.
+
+If you successfully complete this chapter, you will
+
+* discover key stages in a sea turtles life,
+* describe *population structure*, 
+* use natural history information to parameterize a mathematical model to make predictions about sea turtles,
+* distinguish between *transient dynamics* and long-term *asymptotic dynamics*, and
+* recommend management options for sea turtles conservation.
+
+## Preparatory steps
+
+* Watch the lecture video on [Structured population growth](https://drive.google.com/drive/folders/1nWLoEGuWKIWdul9Uvse5qiB1Hf8MCwUv?usp=sharing), and the preceding population ecology videos (distribution and abundance, and density-independent population growth).
+* Download [Crouse et al. (1987) from our article archive](https://drive.google.com/drive/folders/1opLlrmF7kfo0FtWwwJ1CbfPWIyuaISC1?usp=sharing). 
+* This chapter does not use a separate data set, but it does use demographic natural history information in Crouse et al. (1987).
+* Find out what you need for the deliverables (@sec-deliverables).
+
+
+## Demography
+
+**Deomgraphy** includes the structure of a population which is the relative numbers of individuals of different ages or stages. Deomgraphy also includes the rates that control that structure which are primarily age- and stage-specific birth rates, death rates, and survival. We use this detailed information to make informed predictions about the population's future state, including its overall size and its structure. Therefore, demography also includes the overall rates, including population growth, that emerge from all the detailed age/stage-specific information. The study of human demography helps nations make informed policy decisions that take into account how societies will change over time due to populations that are growing, shrinking, aging or getting younger on average [@lee2011]. The study of many rare, threatened or vulnerable species includes *demography* because demography helps us understand and manage populations [@caswell:2001gu]. 
+
+## Loggerhead sea turtles
+The loggerhead sea turtle (*Caretta caretta*) is a widely distributed (i.e. cosmopolitan) species that lives in oceans around the world. The International Union for Conservation of Nature (IUCN, https://www.iucnredlist.org/) lists it as "vulnerable" to extinction, which, sadly, is pretty good these days. The fact that the species is not worse off is in part due to research like that of @crouse1987. This research by Deborah Crouse, Hal Caswell, and many others is the subject of what you will work with in this assignment.
+
+Sea turtles live in warm oceans around the world and reproduce on sandy beaches. Females return to the same beaches most years to lay eggs in clutches. They come ashore, dig a hole in the sand, lay 10-100 eggs, and cover the nest, often disguising it from terrestrial predators who would like to dig them up to eat them. The female then returns to the sea to feed and ovoid enemies. If the everything goes right, the eggs hatch after incubation, hatchlings emerge together, struggle to the surf, and attempt to avoid the many predators (e.g., gulls, raccoons, crabs, people). Sea turtle hatchlings face many threats, including from humans who eat the eggs, and trucks or off-road vehicles can destroy the nests. In addition, lighting from nearby streets and homes can confuse hatchlings as they may crawl toward the lights as opposed to heading out to sea.
+
+### Questions about loggerhead survival
+Include answers to these in Deliverables.
+1.	Consult Table 3 (Crouse et al. 1987). 
+   a. Which two stages have the lowest annual survivorship? 
+   a. Which stages have the highest annual survivorship?
+1.	Why do you suppose that 1st year remigrants have such low fecundity?
+
+Fishing trawlers, which drag nets for long distances to catch shrimp and fish create another source of mortality in juveniles and adults. The sea turtles get caught in these nets and drown. These dead turtles are referred to as "by-catch", that is, animals killed unintentionally while fishing for other species. 
+
+Sea turtle populations have been on the decline for well over a century, and some species are more endangered than others. One common conservation strategy has been to protect the eggs and hatchlings. More recently, some countries have passed laws requiring fishing trawlers (fishing boats dragging huge nets for hours at a time) to use turtle excluders devices (TEDs). These spring-loaded devices fit at the end of a trawler net and will open up when they receive a big bump from a heavy sea turtle. This allows the turtle to escape, and the fishermen lose only a fraction of their catch. 
+
+No one really knew the value of TEDs until Deborah Crouse and others modeled sea turtle populations and showed clearly that (1) saving eggs and hatchlings was not enough, and (2) increasing survival of large turtles (large juveniles and adults) was required to save the turtles from continued declines and extinction.
+
+## Demographic modeling
+
+We use a square matrix to summarize a species' age- or stage-specific demographic rates. A *matrix* is mathematical array of numbers with specified rows and columns. The *dimension* of a matrix is its number of rows and number of columns. A matrix with the same number rows as columns is called a *square matrix*.
+
+The effect of a matrix element on long term asymptotic growth rate (lambda) is known as sensitivity or elasticity, depending on the details of the calculations. There are abstract ways to calculate those using linear algebra, but here we do it the easy and transparent way. We will change annual survivals of particular stages, and then recalculate lambda and r to examine the effect directly.
+
+@crouse1987 performed a demographic analysis of an endangered sea turtle species, the loggerhead (*Caretta caretta*). Management of loggerhead populations seemed essential for their long term survival, and a popular management strategy had been and still is to protect nesting females, eggs, and hatchlings. The ground breaking work by Crouse^[Crouse was a graduate student at the time---graduate students are the life-blood of modern science, doing cutting edge work and pushing their fields forward.] and her colleagues compiled data to create a stage-based projection matrix to analyze quantitatively which stages are most important and least important in influencing long-term growth rate. This work led to US Federal laws requiring that US shrimp fishermen use nets that include Turtle Excluder Devices ([TEDs](https://www.fisheries.noaa.gov/southeast/bycatch/turtle-excluder-device-regulations)). 
+
+A *demographic transition matrix* is merely a compact quantitative summary of a species' life history events. It includes the annual probabilities that an individual remains in a particular stage, grows into a later stage, or even regresses back to an "earlier" stage. It also includes the fertility or number of progeny it contributes to the first stage. These stages may be age classes (e.g., 0-5 y), sizes (e.g., 2-4 leaves), or some other major life history stage (e.g., first year breeder). 
+
+The transition matrix holds each of the probabilities and fertilities in a way that the column identifies the stage at time $t$ whereas the row identifies the next time period $t+1$. 
+
+![A toy demographic transition matrix, with stages of hatchlings (H), juveniles (J), and adults (A). Elements represent the probability that an individual belonging to the stage in the column stays in or transitions to the stage in the row over a single year. Fecundity (f3) represents the total number of offspring that an individual contributes to the stage in that row.](figs/matrix_example_small.png){#fig-matrixex width=75%}
+
+In @fig-matrixex, the element $s_2$ is the probability that a juvenile in year 1 survives to remain a juvenile in year 2. The element $g_2$ represents the probability that a juvenile in year 2 survives and also become a reproductively mature adult in year 2. The element $g_1$ is the probability that a hatchling survives and becomes a juvenile in year 2. The element $s_3$ is the probability that an adult survives and remains an adult. We refer to the elements on the diagonal ($s$) as **stasis** and the elements on the off-diagonal ($g$) as **growth**.
+
+Fecundity or reproduction is seen as adults contributing the to smallest or youngest stage. The element $f_3$ is the number of hatchlings that occur in year 2 based on the survival and reproduction of the average adult. The element $s_1$ is the survival of hatchlings. If the stage only exists for one year, then $s_1=0$ because, by definition, after one year a hatching is a juvenile, or it is dead.
+
+### Connecting life history information to a model
+@crouse1987 gathered data from a variety of sources to estimate loggerhead turtle survival and fertility at different ages and stages. They organized these data in the form of a transition matrix, **A**. They then used this model to evaluate the relative importance of different stage transitions to the population gorwth rate.
+
+On the basis of their analysis, they were able to identify that the survival of juveniles and subadults was the most important determinant of turtle growth rate, under the current circumstances. It was this insight, made possible only because of astructure population model, that led to changes in laws to require the use of turtle excluder devices (TEDs) in fishing and shrimpo trawlers.
+
+In this assignment, you will walk through the types of analyses done by Deborah Crouse and her colleagues. They combed the literature to find information about survival and reproduction by loggerheads and summarized those findings in their tables 1 and 2. They then organized that information into a more con densed form and presented it in Table 3, shown here in @fig-table3.
+
+![Estimates of stage-specific survival and fecundity for loggerhead sea turtles, from Table 3 in Crouse et al. (1987). Based on information described in Tables 1 and 2 in Crouse et al. (1987).](figs/Crouse_table_3.png){#fig-table3}
+
+Their transition matrix (Table 4):
+
+$$\begin{array}{c}
+\\H\\J_s\\J_l \\sub \\ B_1 \\B_2 \\ M
+\end{array}
+ \left(
+\begin{array}{cccccccc}
+H&J_s & J_l & sub & B_1 & B_2 & M\\
+     0&      0&      0&      0&    127&      4& 80\\
+0.6747& 0.7370&      0&      0&      0&      0& 0\\
+     0& 0.0486& 0.6610&      0&      0&      0& 0\\
+     0&      0& 0.0147& 0.6907&      0&      0& 0\\
+     0&      0&      0& 0.0518&      0&      0& 0\\
+      0&      0&      0&      0& 0.8091&      0& 0\\
+      0&      0&      0&      0&      0& 0.8091& 0.8089
+\end{array} 
+\right)$$
+
+
+### Connecting life histories to demographic matrices
+1. Compare Table 3 and Table 4 (Crouse et al. 1987). What are the relationships between survival and fecundity in Table 3, and the diagonal (stasis) and off-diagonal elements (growth) of the matrix in Table 4? How are they related?
+1. Why are the diagonal matrix elements (Table 4) not the same are the annual survivorship in Table 3?
+
+To use the information in Table 3 to make predictions about the long-term viability of the population and to make recommendations for the conservation of the population, Crouse and colleagues need to combine these stage-specific demographic rates into a model, and summarize the behavior of that model.
+
+Their first step was to put the above rates into a demographic transition matrix, where columns represent stages in one year, and the rows represent stages in the next year.
+
+## Analysis of a demographic matrix
+
+As with all of our work, confirm you are in the correct working directory.
+```{r}
+getwd()
+```
+Fix this, if necessary.
+
+Load needed packages.
+```{r}
+## for graphics and data manipulation
+library(tidyverse)
+```
+
+
+Two of the techniques we use to analyze a demographic matrix are **simulation**, and a mathematical technique called **eigenanalysis**. Simulation allows us to reveal the dynamics through time, year after year, generation after generation. Eigenanalysis allows us to very quickly quantify average characteristics of the population, including the population growth rate, $\lambda$, the stable stage distribution, and the elasticities.
+
+* **population growth rate**, $\lambda$,  is the long term *finite rate of increase* and assumes density-independent growth.
+* **stable stage distribution** is the set of expected relative densities of the different stages.
+* **elasticies** are the relative importances of the different transitions to determining the finite rate of increase, $\lambda$.
+
+We will focus on lambda, and do some experiments playing around with survival and growth.
+
+First, we need to create the observed transition matrix.
+
+```{r}
+A <- matrix(
+  c(0,      0,      0,      0,    127,      4,    80,
+    0.6747, 0.7370, 0,      0,      0,      0,     0,
+    0,      0.0486, 0.6610, 0,      0,      0,     0,
+    0,      0,      0.0147, 0.6907, 0,      0,     0,
+    0,      0,      0,      0.0518, 0,      0,      0,
+    0,      0,      0,      0,      0.8091, 0,      0,
+    0,      0,      0,      0,      0,      0.8091, 0.8089), 
+nrow=7, ncol=7, byrow=TRUE)
+rownames(A) <- colnames(A) <- c("H","J_s","J_l", "sub", "B_1", "B_2", "M")
+A
+```
+
+Then we can calculate lambda. Remember that lambda is just the ratio of population sizes in sequential years ($\lambda=N_{t+1}/N_{t}$). 
+```{r}
+original_lambda <- Re( eigen(A)$values[1] )
+original_lambda
+```
+
+This value, $\lambda = 0.94$, is less than $\lambda=1$, and therefore indicates a shrinking population. **This shows that the loggerhead sea turtle was predicted to decline.** 
+
+**What can we do?**
+
+
+## Finding the life history stage that could make the biggest difference
+
+Part of managing rare species is figuring out which part of the population, the age, or **the stage on which to concentrate your efforts.**
+
+A good way to figure out where to focus our effort is to find out which stage could make the biggest difference to the growth rate, $\lambda$.  If we improve survival of an stage and it helps $\lambda$ increase above 1, focusing on that stage could be a good strategy.
+
+
+Your strategy will be to improve the survival in each stage so that individuals in that stage do not die. They either survive and remain in that stage, or they grow into the next stage. That means that with perfect survival, stasis and growth sum to nearly one.
+
+For each stage, we will pretend that we can improve annual survivale 99.9%. Some of our stages are only one year in duration, while others are 7, 8, or 30 years in duration. This makes it a little tricky to calculate our new simulated matrix elements. I will do that part for you.
+
+**In each of seven simulations, you will test the effect on growth rate ($\lambda$) of improved survival.**
+
+### Helping hatchlings
+For your first experiment, you will test the effect on lambda of improving survival and growth of eggs and hatchlings to 99.9%, or annual survivorship of 0.999. Here are the steps:
+
+1. Copy the old matrix and rename it (see below!).
+1. Change the new matrix to include survivorship of 0.999 for the hatchlings (see below!).
+1. Calculate lambda for the new matrix (see below).
+
+```{r}
+## new matrix 
+A1 <- A 
+
+## Change just the hatchling survival/growth
+A1[2,1] <- 0.999
+## look at the new matrix
+A1
+```
+
+In our new matrix, we see that 99.9% of hatchlings (first column, H) survive to grow into being small juveniles that next year (second row, J_s), that is, $a_{2,1} = 0.999$.
+
+Now calculate lambda of the new matrix.
+```{r}
+## using Re() extracts just the real part of the eigenvalue, and not the imaginary part
+Re( eigen(A1)$values[1] )
+```
+
+This is the new growth rate. Is it greater than 1? Does it suggest that improving hatchling survival will allow this turtle population to grow? How does this compare to the original value of lambda of 0.94? That is, *how much did saving all the hatchlings help the loggerhead population?* You'll need this for deliverables.
+
+### Helping small juveniles
+
+Here you will test the effect on lambda of improving survival and growth of small juveniles to 99.9%, or annual survivorship of 0.999. This stage lasts seven years, and so I calculated the new matrix elements for you (see the code).
+
+Here are the steps:
+```{r}
+## new matrix with NEW NAME, A2
+## make sure you start with the ORIGINAL matrix A 
+A2 <- A
+
+## Change just the stasis and growth for small juveniles
+A2[2,2] <- 0.857 # stasis
+A2[3,2] <- 	0.142 # growth
+A2
+```
+
+Now that you have a new matrix, calculate the lambda for this matrix. Do that now by borrowing and editing code from above.
+
+Now calculate the finite rate of increase ($\lambda$)
+```{r}
+Re( eigen(A2)$values[1] )
+```
+
+What does this value of lambda tell you about the effect of increasing survival of small juveniles (if we could do that)?
+
+## Simulating helping other stages
+
+Repeat a similar procedure for each stage, using these values:
+```{r}
+#| label: tbl-changes
+#| tbl-cap: "New values to use  in the loggerhead sea turtle transition matrix, changing only one stage at a time. These changes reflect 99.9% annual survival. Stasis values belong on the diagonal, such as `A[5,5] <- 0`, and growth values belong below the diagonal, such as `A[6,5]<-0.999`. Start with the original matrix, make a copy, and then change only one stage at a time."
+#| echo: false
+
+d <- c(1, 7, 8, 6, 1, 1, 30)
+
+## Calculate survivorship in the 7-year stage
+## confirm that we get what Crouse got
+
+
+## increase annual survival to 99%
+p = 0.999
+
+P <- round( (1-p^(d-1))/(1-p^d)*p, 3)
+G <- round(p^d * (1-p)/(1-p^d), 3)
+G[7] <- 0
+changes <- data.frame(
+  Stage=c("H","J_s","J_l", "sub", "B_1", "B_2", "M"),
+           Stasis = P, Growth=G)
+knitr::kable(changes, booktabs=FALSE)
+```
+
+```{r}
+#| eval: false
+#| echo: false
+#| 
+
+lambda <- numeric(7)
+for(i in 1:6){
+M <- A
+M[i:(i+1), i] <- as.numeric( changes[i, 2:3] )
+lambda[i] <- Re( eigen(M)$values[1] )
+}
+M <- A
+M[7,7] <- as.numeric( changes[7, 2] )
+lambda[7] <- Re( eigen(M)$values[1] )
+
+cbind(changes,lambda)
+```
+
+
+Record the new value of lambda for each separate simulation. 
+
+## Deliverables {#sec-deliverables}
+
+Put the following into a single document:
+
+1. A life cycle graph for the loggerhead population. On your figure, include the numerical elements associated with each transition, based on the original matrix.
+1. A table similar to Table 7.1 with all the stages, the provided values of stasis, and growth, and your new values of lambda. 
+1. Assume it is your interest to maximize long-term population growth rate ($\lambda$), for which stage or stages should you invest in protection measures? Explain why, and use your values of lambda as evidence in your answer.
+
+Upload this document and your R script to the appropriate site.
+
+```{r}
+#| eval: false
+#| echo: false
+#| results: 'hide'
+A <- matrix(
+  c(0,      0,      0,      0,    127,      4,    80,
+    0.6747, 0.7370, 0,      0,      0,      0,     0,
+    0,      0.0486, 0.6610, 0,      0,      0,     0,
+    0,      0,      0.0147, 0.6907, 0,      0,     0,
+    0,      0,      0,      0.0518, 0,      0,      0,
+    0,      0,      0,      0,      0.8091, 0,      0,
+    0,      0,      0,      0,      0,      0.8091, 0.8089), 
+nrow=7, ncol=7, byrow=TRUE)
+rownames(A) <- colnames(A) <- c("H","J_s","J_l", "sub", "B_1", "B_2", "M")
+diagram::plotmat(A, pos=c(7), curve=.4, box.size=.04)
+
+## perfect annual survival
+perfect_s <- function(duration=1, p=0.9999999){
+  P <- (1-p^(duration-1))/(1-p^duration)*p
+  G <- p^duration * (1-p)/(1-p^duration)
+return(c(P=P, G=G))
+}
+
+stage.durations <- c(1,6,7,5,1,1,1000000)
+PG <- sapply(stage.durations, perfect_s )
+PG
+lambda2 <- numeric(7)
+i <- 1
+for(i in 1:7){
+  row <- i
+  col <- i
+  A2 <- A
+  A2[row, col] <- PG[1,i]
+  if(i < 7){
+    A2[row+1, col] <- PG[2,i]
+  } 
+  lambda2[i] <- Re( eigen(A2)$values[1] )
+
+}
+
+
+# Elasticity
+lam <- eigen(A)$value[1]
+r.dev <- eigen(A)$vectors[,1]
+l.dev <- eigen( t(A) )$vectors[,1]
+r.dev <- r.dev/sum(r.dev)
+l.dev <- l.dev/l.dev[1]
+a <- matrix(l.dev, nrow=7) %*% matrix(r.dev, nrow=1)
+s <- a/sum(l.dev*r.dev) 
+e <- Re(A/lam * s)
+
+round(e,3)
+round(lambda2,3)
+
+```
+
+
