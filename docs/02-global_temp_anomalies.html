@@ -362,7 +362,7 @@ gtag('config', 'G-J0R6F7XN66', { 'anonymize_ip': true});
 <li>Go to our <a href="https://drive.google.com/drive/u/1/folders/1FR2FLiW3xyD4Er52YzVTToPZuXXReGRo" target="_blank">class data repository</a>, and download <code>global_surface_anomalies_2025.csv</code>.</li>
 <li>Make sure the file remains in the same simple format, “comma separated values” (.csv).</li>
 <li>Put <code>global_surface_anomalies_2025.csv</code> in your working directory, <code>Rwork</code>.</li>
-<li>Open <code>global_surface_anomalies_2025.csv</code> in a spreadsheet application. Don’t save the file in the spreadsheet application. Do <strong>not</strong> save it in the spreadsheet application because it will try to change the format.</li>
+<li>Open <code>global_surface_anomalies_2025.csv</code> in a spreadsheet application. Don’t save the file in the spreadsheet application. Do <strong>not</strong> save it in the spreadsheet application because it may try to change the format.</li>
 <li>With the file open, learn what is on
 <ol type="a">
 <li>the first three lines</li>
@@ -375,7 +375,7 @@ gtag('config', 'G-J0R6F7XN66', { 'anonymize_ip': true});
 <p>We import or “read in” the data so that R can work on it. Here we put it in an object called <code>temps</code>. We skip lines in the file</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># read in data</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>temps <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="at">file =</span> <span class="st">"global_surface_anomalies.csv"</span>, <span class="co"># full file name</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>temps <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="at">file =</span> <span class="st">"global_surface_anomalies_2025.csv"</span>, <span class="co"># full file name</span></span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>                  <span class="at">skip=</span><span class="dv">3</span>, <span class="co"># skip these lines because they contain metadata.</span></span>
 <span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>                  <span class="at">header =</span> <span class="cn">TRUE</span> <span class="co"># Tell R that the first row is column namaes</span></span>
 <span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>                  ) <span class="co"># last parenthesis</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>

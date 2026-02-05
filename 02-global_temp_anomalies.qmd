@@ -67,7 +67,7 @@ library(tidyverse)
 1. Go to our [class data repository](https://drive.google.com/drive/u/1/folders/1FR2FLiW3xyD4Er52YzVTToPZuXXReGRo){target="_blank"}, and download `global_surface_anomalies_2025.csv`. 
 1. Make sure the file remains in the same simple format, "comma separated values" (.csv).
 1. Put `global_surface_anomalies_2025.csv` in your working directory, `Rwork`.
-1. Open `global_surface_anomalies_2025.csv` in a spreadsheet application. Don't save the file in the spreadsheet application. Do **not** save it in the spreadsheet application because it will try to change the format.
+1. Open `global_surface_anomalies_2025.csv` in a spreadsheet application. Don't save the file in the spreadsheet application. Do **not** save it in the spreadsheet application because it may try to change the format.
 1. With the file open, learn what is on
     a. the first three lines
     b. the fourth line
@@ -79,7 +79,7 @@ library(tidyverse)
 We import or "read in" the data so that R can work on it. Here we put it in an object called `temps`. We skip lines in the file 
 ```{r}
 # read in data
-temps <- read.csv(file = "global_surface_anomalies.csv", # full file name
+temps <- read.csv(file = "global_surface_anomalies_2025.csv", # full file name
                   skip=3, # skip these lines because they contain metadata.
                   header = TRUE # Tell R that the first row is column namaes
                   ) # last parenthesis
