@@ -43,9 +43,22 @@ After starting a script, we always select the appropriate project and *working d
 
 ...and by looking in the File tab in the lower right pane - that should be your working directory, which should be Rwork.
 
-The next thing we do is **load packages** that we know we will need. Remember, you only need to *install* a package onto your computer *once*. We **load** contributed packages in each session that we need them. In this course, you should always load `tidyverse`, at a minimum.
+The next thing we do is **install** and then **load** packages that we know we will need. Remember, you only need to *install* a package onto your computer *once*. We **load** contributed packages in each session that we need them. In this course, you should always load `tidyverse`, at a minimum.
+
+First we install.
 ```{r}
-## load R packages
+#| eval: false
+## install tidyverse 
+## tidyverse is a"universe" or collection of related R packages 
+## that have a particular coding style that helps a lot.
+install.packages("tidyverse", repos = "https://cloud.r-project.org")
+```
+Remember, we only have to do that *once*, and then it is sitting on our computer.
+
+However, anytime we start a new session in R, we have to *load* these packages in order to use them. We do that here.
+```{r}
+## load R packages 
+# this makes these packages available to R in this session.
 library(tidyverse)
 ```
 
