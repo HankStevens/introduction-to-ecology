@@ -670,7 +670,7 @@ window.Quarto = {
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>b <span class="ot">&lt;-</span> <span class="fu">runif</span>(<span class="dv">7</span>, <span class="at">min=</span><span class="dv">0</span>, <span class="at">max=</span><span class="dv">1</span>)</span>
 <span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>b</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.2645754 0.5513640 0.7092297 0.2005955 0.6828500 0.5148882 0.7619810</code></pre>
+<pre><code>[1] 0.90326753 0.09441894 0.23484819 0.26855885 0.76534881 0.95617811 0.48972049</code></pre>
 </div>
 </div>
 <p>These will differ every time you do this.</p>
@@ -685,11 +685,11 @@ window.Quarto = {
 </div>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>b</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.2645754 0.5513640 0.7092297 0.2005955 0.6828500 0.5148882 0.7619810</code></pre>
+<pre><code>[1] 0.90326753 0.09441894 0.23484819 0.26855885 0.76534881 0.95617811 0.48972049</code></pre>
 </div>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>ab</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] -0.2645754  0.0000000  0.7092297  0.4011909  2.0485499  2.0595526  3.8099052</code></pre>
+<pre><code>[1] -0.9032675  0.0000000  0.2348482  0.5371177  2.2960464  3.8247124  2.4486025</code></pre>
 </div>
 </div>
 <p>You can confirm at a glance that the first and second elements in <code>a</code> times the first and second elements in <code>b</code> equal the first and second elements in <code>ab</code>.</p>
@@ -702,14 +702,14 @@ window.Quarto = {
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>d <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">a=</span>a, <span class="at">b=</span>b, <span class="at">a_times_b =</span> ab)</span>
 <span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>d</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>   a         b  a_times_b
-1 -1 0.2645754 -0.2645754
-2  0 0.5513640  0.0000000
-3  1 0.7092297  0.7092297
-4  2 0.2005955  0.4011909
-5  3 0.6828500  2.0485499
-6  4 0.5148882  2.0595526
-7  5 0.7619810  3.8099052</code></pre>
+<pre><code>   a          b  a_times_b
+1 -1 0.90326753 -0.9032675
+2  0 0.09441894  0.0000000
+3  1 0.23484819  0.2348482
+4  2 0.26855885  0.5371177
+5  3 0.76534881  2.2960464
+6  4 0.95617811  3.8247124
+7  5 0.48972049  2.4486025</code></pre>
 </div>
 </div>
 <p>You could examine the structure of this data frame with <code>str()</code>.</p>
@@ -718,8 +718,8 @@ window.Quarto = {
 <div class="cell-output cell-output-stdout">
 <pre><code>'data.frame':   7 obs. of  3 variables:
  $ a        : int  -1 0 1 2 3 4 5
- $ b        : num  0.265 0.551 0.709 0.201 0.683 ...
- $ a_times_b: num  -0.265 0 0.709 0.401 2.049 ...</code></pre>
+ $ b        : num  0.9033 0.0944 0.2348 0.2686 0.7653 ...
+ $ a_times_b: num  -0.903 0 0.235 0.537 2.296 ...</code></pre>
 </div>
 </div>
 <p>You will also notice now that you can see all of our objects in the Environment pane, in the upper right of RStudio.</p>

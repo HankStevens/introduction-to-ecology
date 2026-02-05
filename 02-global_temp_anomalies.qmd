@@ -11,9 +11,7 @@ In this assignment, you will
 *	Use R to display estimates of global temperature anomalies.
 * Describe the current temperature trajectory.
 * Compare and contrast changes in temperature between humans and Earth.
-
-* Video lecture on global warming and climate change: TBA
-* Background reading: Hansen et al. (2012). Perception of climate change. *Proceedings of teh National Academy of Sciences, U.S.A. 
+* Background reading: Hansen et al. (2012). Perception of climate change. *Proceedings of the National Academy of Sciences, U.S.A. 
 
 
 ## Background
