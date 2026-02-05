@@ -1,4 +1,4 @@
-quarto render
-git add .
-git commit -m "Update chapter X" 
-git push
+quarto render          # - regenerates all the HTML files in docs/
+git add .              # - stages all changes
+git commit -m "..."    # - commits with a message describing what you changed
+git push               # - pushes to GitHub, which automatically updates your site
