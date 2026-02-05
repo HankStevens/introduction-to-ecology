@@ -1,0 +1,1133 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.8.27">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>12&nbsp; Determinants of local butterfly species diversity – Basic Ecological Concepts and Data in R</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./20-ecosystem-intro.html" rel="next">
+<link href="./11-predator-prey.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-89ca6ca939e49a4038144f8f28e82152.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-J0R6F7XN66"></script>
+
+<script type="text/javascript">
+
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-J0R6F7XN66', { 'anonymize_ip': true});
+</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+</head>
+
+<body class="nav-sidebar floating quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./13-diversity.html"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Determinants of local butterfly species diversity</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">Basic Ecological Concepts and Data in R</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Preface</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./01-computer-setup.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Computer setup and first R script</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./01-trees_and_people.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Environmental Justice: How income relates to environment.</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./02-global_temp_anomalies.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Physical Environment: A Fate of Earth</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./03-liana-phys.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Individual responses to the environment: What makes lianas relatively successful in stressful habitats?</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./04-extrapair_copulation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Behavior: Extra-pair copulation in a monogamous species</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./06-DI-pop-growth.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Density-independent Population Growth: Humans on the rise</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./07-structured-pop-growth_v2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Structured demography: How a graduate student helped save the loggerhead sea turtle</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./08-density-dep-pop-growth.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Density-dependence in population growth</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./09-direct-interactions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Direct species interactions: understanding mechanisms of invasion in mosquitoes</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./10-mutualisms.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Mutualisms: Do ants protect pea plants?</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./11-predator-prey.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Of wolves and moose, on Isle Royale</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./13-diversity.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Determinants of local butterfly species diversity</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./20-ecosystem-intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">An Introduction to the Carbon Cycle and Global Heating</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./references.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">References</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#goals" id="toc-goals" class="nav-link active" data-scroll-target="#goals"><span class="header-section-number">12.1</span> Goals</a></li>
+  <li><a href="#preparatory-steps" id="toc-preparatory-steps" class="nav-link" data-scroll-target="#preparatory-steps"><span class="header-section-number">12.2</span> Preparatory steps</a></li>
+  <li><a href="#background" id="toc-background" class="nav-link" data-scroll-target="#background"><span class="header-section-number">12.3</span> Background</a></li>
+  <li><a href="#causal-inference" id="toc-causal-inference" class="nav-link" data-scroll-target="#causal-inference"><span class="header-section-number">12.4</span> Causal inference</a></li>
+  <li><a href="#working-with-data-and-ideas-from-stasek-and-colleagues" id="toc-working-with-data-and-ideas-from-stasek-and-colleagues" class="nav-link" data-scroll-target="#working-with-data-and-ideas-from-stasek-and-colleagues"><span class="header-section-number">12.5</span> Working with data and ideas from Stasek and colleagues</a>
+  <ul class="collapse">
+  <li><a href="#connectivity" id="toc-connectivity" class="nav-link" data-scroll-target="#connectivity"><span class="header-section-number">12.5.1</span> Connectivity</a></li>
+  <li><a href="#construct-a-dag-of-your-own" id="toc-construct-a-dag-of-your-own" class="nav-link" data-scroll-target="#construct-a-dag-of-your-own"><span class="header-section-number">12.5.2</span> Construct a DAG of your own</a></li>
+  <li><a href="#getting-going-in-r" id="toc-getting-going-in-r" class="nav-link" data-scroll-target="#getting-going-in-r"><span class="header-section-number">12.5.3</span> Getting going in R</a></li>
+  <li><a href="#reading-and-and-wrangling-the-data" id="toc-reading-and-and-wrangling-the-data" class="nav-link" data-scroll-target="#reading-and-and-wrangling-the-data"><span class="header-section-number">12.5.4</span> Reading and and wrangling the data</a></li>
+  <li><a href="#writing-our-own-functions" id="toc-writing-our-own-functions" class="nav-link" data-scroll-target="#writing-our-own-functions"><span class="header-section-number">12.5.5</span> Writing our own functions</a></li>
+  <li><a href="#evaluate-your-hypotheses" id="toc-evaluate-your-hypotheses" class="nav-link" data-scroll-target="#evaluate-your-hypotheses"><span class="header-section-number">12.5.6</span> Evaluate your hypotheses</a></li>
+  </ul></li>
+  <li><a href="#deliverables" id="toc-deliverables" class="nav-link" data-scroll-target="#deliverables"><span class="header-section-number">12.6</span> Deliverables</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Determinants of local butterfly species diversity</span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<div id="fig-EOA" class="quarto-layout-panel">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-EOA-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="fig-EOA" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div id="fig-EoA" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-subfloat-fig figure">
+<div aria-describedby="fig-EoA-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="figs/EoA.png" class="img-fluid figure-img" style="width:65.0%" data-ref-parent="fig-EOA">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-EoA-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+(a) EoA clusters and patches
+</figcaption>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="fig-EOA" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div id="fig-OH_phsyiog" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-subfloat-fig figure">
+<div aria-describedby="fig-OH_phsyiog-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="figs/OH_physiog.png" class="img-fluid figure-img" style="width:35.0%" data-ref-parent="fig-EOA">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-OH_phsyiog-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+(b) Physiograhic regions.
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="fig-EOA" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div id="fig-prairie" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-subfloat-fig figure">
+<div aria-describedby="fig-prairie-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="figs/prairie.png" class="img-fluid figure-img" data-ref-parent="fig-EOA">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-prairie-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+(c) Small prairie
+</figcaption>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="fig-EOA" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div id="fig-bfly" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-subfloat-fig figure">
+<div aria-describedby="fig-bfly-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="figs/butterflies.png" class="img-fluid figure-img" data-ref-parent="fig-EOA">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-bfly-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+(d) Butterflies
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-EOA-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;12.1: The Edge-of-Appalachia Preserve in southern Ohio comprises six clusters of small prairie patches and lies at the intersection of three different physiograhic regions. The remnant grasslands reflect historical fire regime and the soils, which themselves reflect a lack of recent glaciation during the Wisconson period (~20,000 ybp).
+</figcaption>
+</figure>
+</div>
+<section id="goals" class="level2" data-number="12.1">
+<h2 data-number="12.1" class="anchored" data-anchor-id="goals"><span class="header-section-number">12.1</span> Goals</h2>
+<p>In this chapter, you will,</p>
+<ul>
+<li>Develop a multilevel hypothesis about what controls the number of butterfly species in a prairie remnant.</li>
+<li>Draw a picture of your hypothesis using a <em>causal diagram</em>.</li>
+<li>Write an explain your hypothesis.</li>
+<li>Test each part of your hypothesis using linear regression.</li>
+</ul>
+</section>
+<section id="preparatory-steps" class="level2" data-number="12.2">
+<h2 data-number="12.2" class="anchored" data-anchor-id="preparatory-steps"><span class="header-section-number">12.2</span> Preparatory steps</h2>
+<ol type="1">
+<li>General background lectures: Download the PDF slides and watch the <a href="https://drive.google.com/drive/folders/1nWLoEGuWKIWdul9Uvse5qiB1Hf8MCwUv?usp=sharing" target="_blank">video on species diversity</a> before proceeding.</li>
+<li>Data: go to our <a href="https://drive.google.com/drive/u/1/folders/1FR2FLiW3xyD4Er52YzVTToPZuXXReGRo" target="_blank">class data repository</a>, and download <code>butterflies.csv</code>.
+<ol type="a">
+<li>Make sure the file remains in the same simple format, “comma separated values” (.csv).</li>
+<li>Put <code>butterflies.csv</code> in your data directory, <code>data</code> which should be inside <code>Rwork</code>.</li>
+<li>Continue to make sure the file remains in the same simple format, “comma separated values” (.csv).</li>
+</ol></li>
+<li>Find out what you need for the deliverables.</li>
+</ol>
+</section>
+<section id="background" class="level2" data-number="12.3">
+<h2 data-number="12.3" class="anchored" data-anchor-id="background"><span class="header-section-number">12.3</span> Background</h2>
+<p>Here we investigate <em>determinants of local biodiversity</em>. As you learned in the lecture, many ecological and evolutionary forces contribute to the diversity a local community. From a hierarchial perspective, we’ve seen that the number of species in a local community is influenced by,</p>
+<ul>
+<li>the diversity of the region within which it resides,</li>
+<li>rates of dispersal immigration into the local habitat,</li>
+<li>the environmental conditions of the local habitat, and</li>
+<li>species interactions within the local habitat.</li>
+</ul>
+<p>The data we will explore comes from research by David Stasek, Caitlin Bean and Thomas Crist, a graduate student, an undergraduate, and faculty member of Miami University at the time (Stasek et al.&nbsp;2008. <em>Environ. Entomol.</em> 37:897-906).</p>
+</section>
+<section id="causal-inference" class="level2" data-number="12.4">
+<h2 data-number="12.4" class="anchored" data-anchor-id="causal-inference"><span class="header-section-number">12.4</span> Causal inference</h2>
+<p><a href="https://en.wikipedia.org/wiki/Causal_inference">Causal inference</a> is the practice of estimating what happens to a response variable when another variable is changed. It is an academic discipline and area of research.</p>
+<p>An important tool in causal inference is the <strong>causal graph</strong>, which is a box-and-arrow figure that illustrates putative causal relations. Most often a causal graph is a <strong>directed acyclic graph</strong>, or <strong>DAG</strong>.</p>
+<p>For example, the following causal diagrams show factors that affect how much plants grow.</p>
+<div class="cell quarto-layout-panel" data-layout-ncol="2">
+<div class="quarto-layout-row">
+<div class="cell-output-display quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div id="fig-dag1-1" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-dag1-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="13-diversity_files/figure-html/fig-dag1-1.png" class="img-fluid figure-img" style="width:45.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-dag1-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;12.2: The simplest causal graph or DAG, in which soil moisture affects plant growth.
+</figcaption>
+</figure>
+</div>
+</div>
+<div class="cell-output-display quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div id="fig-dag1-2" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-dag1-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="13-diversity_files/figure-html/fig-dag1-2.png" class="img-fluid figure-img" style="width:45.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-dag1-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;12.3: A more complicated causal graph (DAG), showing only an indirect effect of rain on growth, and two variables each having a direct effect on growth.
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<p>Notice that rain is not predicted to have a direct effect on plant growth but does have an indirect effect via its effect on soil moisture.</p>
+<p><strong>In the next section</strong>, you will use causal graphs to illustrate relationships among factors controlling butterfly diversity.</p>
+</section>
+<section id="working-with-data-and-ideas-from-stasek-and-colleagues" class="level2" data-number="12.5">
+<h2 data-number="12.5" class="anchored" data-anchor-id="working-with-data-and-ideas-from-stasek-and-colleagues"><span class="header-section-number">12.5</span> Working with data and ideas from Stasek and colleagues</h2>
+<p>David Stasek and colleagues collected a lot of data at the Edge of Appalachia Preserve. We will use a subset of their data to assess how butterfly species diversity within a priariew patch (local diversity) may depend directly or indirectly on the size of the patch, how close the patch is to other patches, and the density of flowering plants upon which the butterflies depend.</p>
+<p>Specifically, the data set includes the following variables:</p>
+<ol type="1">
+<li>ID of remnant prairie <strong>cluster</strong> to which the patch belongs (<code>cluster</code>)</li>
+<li>ID of the individual prairie patch (<code>patch</code>)</li>
+<li>size of the prairie patch in hectares (ha, <code>area</code>)</li>
+<li>Connectivity of that patch to other patches (<code>connect</code>).</li>
+<li>Density of potential nectar plants (#/100 sq m, <code>flowers</code>)</li>
+<li>Density of potential host plants (#/100 sq m, <code>hosts</code>)</li>
+<li>and then the other <strong>49 columns</strong> are butterfly species densities (#/100 sq m), where the column name is the first two letters of the genus plus the first two letters of the species.</li>
+</ol>
+<p>Below, you will calculate for each prairie patch,</p>
+<ul>
+<li>total number of butterflies of all species observed,</li>
+<li>species richness observed, and</li>
+<li>Simpson’s diversity of the observed butterflies.</li>
+</ul>
+<p>However, before we do that, we have to create a <strong>working hypothesis.</strong></p>
+<section id="connectivity" class="level3" data-number="12.5.1">
+<h3 data-number="12.5.1" class="anchored" data-anchor-id="connectivity"><span class="header-section-number">12.5.1</span> Connectivity</h3>
+<p>As you saw in lecture, dispersal and immigration from one patch into another can influence local diversity. <em>Connectivity</em> is a measure of how likely dispersal might be into a patch. The connectivity of a patch depends on the number, sizes, and distances away other patches patches are.</p>
+<div id="fig-connect" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-connect-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div id="fig-OH_phsyiog" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-subfloat-fig figure">
+<div aria-describedby="fig-OH_phsyiog-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="figs/distances.png" class="img-fluid figure-img" style="width:50.0%" data-ref-parent="fig-connect">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-OH_phsyiog-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+(a) Connectivity of two different patches.
+</figcaption>
+</figure>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-connect-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;12.4: Connectivity is estimated for each patch, and is the sum of area (<span class="math inline">\(A\)</span>) times distance, <span class="math inline">\(d\)</span> (weighted: <span class="math inline">\(exp(-\alpha d)\)</span>) of all other patches.
+</figcaption>
+</figure>
+</div>
+</section>
+<section id="construct-a-dag-of-your-own" class="level3" data-number="12.5.2">
+<h3 data-number="12.5.2" class="anchored" data-anchor-id="construct-a-dag-of-your-own"><span class="header-section-number">12.5.2</span> Construct a DAG of your own</h3>
+<p>Work alone or with a partner to come up with a hypothesis of what you think will control the species richness OR the species diversity (Simpson’s diversity) in prairie patches from the EoA.</p>
+<ol type="1">
+<li>Consider everything you learned in lecture about how habitats, resources, and abundance all affect estimates of richness and diversity.</li>
+<li>Decide to predict either species richness OR Simpson’s diversity as your <em>dependent variable</em>.</li>
+<li>Consider the variables you have in this data set, and decide which 2-3 variables are most likely to directly or indirectly affect diversity.</li>
+<li>Draw by hand causal graph (DAG) that represents your hypothesis, and take a picture of it.</li>
+</ol>
+<p><strong>This DAG will be your working hypothesis</strong></p>
+</section>
+<section id="getting-going-in-r" class="level3" data-number="12.5.3">
+<h3 data-number="12.5.3" class="anchored" data-anchor-id="getting-going-in-r"><span class="header-section-number">12.5.3</span> Getting going in R</h3>
+<p>We always start the same way: open the relevant project, confirm the location of our working directory, and load packages we’ll need. After all that we’ll begin to read in data and assess our ideas.</p>
+<p>Your project should be <code>Rwork</code>, and your working directory should be called <code>Rwork</code>. You should also have a folder inside <code>Rwork</code> called <code>data</code>.</p>
+<p>Let’s see Hank’s working directory, which will differ from yours:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="do">## GET Hank's working directory</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">getwd</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "/Users/stevenmh/projects/intro_to_ecology"</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="do">## that will differ from yours!</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Make sure that when you run <code>getwd()</code>, you get something that ends with <code>/Rwork</code></p>
+<p>Now we load packages we’ll need:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
+✔ dplyr     1.1.4     ✔ readr     2.1.5
+✔ forcats   1.0.1     ✔ stringr   1.5.2
+✔ lubridate 1.9.4     ✔ tibble    3.3.0
+✔ purrr     1.1.0     ✔ tidyr     1.3.1
+── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+✖ dplyr::filter() masks ggdag::filter(), stats::filter()
+✖ dplyr::lag()    masks stats::lag()
+ℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors</code></pre>
+</div>
+</div>
+<p>…and now we’re ready.</p>
+</section>
+<section id="reading-and-and-wrangling-the-data" class="level3" data-number="12.5.4">
+<h3 data-number="12.5.4" class="anchored" data-anchor-id="reading-and-and-wrangling-the-data"><span class="header-section-number">12.5.4</span> Reading and and wrangling the data</h3>
+<ul>
+<li>make sure you put the data set (<code>butterflies.csv</code>) in your <code>data</code> folder that is inside your <code>BIO209W</code> folder.</li>
+</ul>
+<p>Read the data, and view the column names.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>bfly <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/butterflies.csv"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Rows: 26 Columns: 55
+── Column specification ────────────────────────────────────────────────────────
+Delimiter: ","
+chr  (2): cluster, patch
+dbl (53): area, connect, flowers, hosts, EUMA, PAPO, PACR, PAGL, PATR, BAPH,...
+
+ℹ Use `spec()` to retrieve the full column specification for this data.
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(bfly)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] "cluster" "patch"   "area"    "connect" "flowers" "hosts"   "EUMA"   
+ [8] "PAPO"    "PACR"    "PAGL"    "PATR"    "BAPH"    "COPH"    "COEU"   
+[15] "PHSE"    "EULI"    "PIRA"    "DAPL"    "ENAN"    "CYGE"    "MECY"   
+[22] "HESO"    "CEPE"    "ASCE"    "JUCO"    "LIAR"    "POIN"    "POCO"   
+[29] "PHTH"    "SPCY"    "SPAP"    "CHNY"    "SACA"    "CACE"    "STME"   
+[36] "EVCO"    "CELA"    "CABO"    "ANNU"    "POPE"    "POTH"    "POOR"   
+[43] "WAEG"    "POVE"    "ATCA"    "ATLO"    "POZA"    "EUVE"    "NAIL"   
+[50] "AMVI"    "EPCL"    "THPY"    "THBA"    "ERSP"    "ERHO"   </code></pre>
+</div>
+</div>
+<section id="calculate-aggregate-variables" class="level4" data-number="12.5.4.1">
+<h4 data-number="12.5.4.1" class="anchored" data-anchor-id="calculate-aggregate-variables"><span class="header-section-number">12.5.4.1</span> Calculate aggregate variables</h4>
+<p>Our data set has the densities of each species, but we don’t have aggregate community-level variables. We would like simply the number of observed butterflies, <em>regardless of their identities</em>, that is, just the total butterfly density. We also need the number of species, or species richness. Last, we will calculate a measure of species diversity called Simpson’s diversity, an index that takes into account both the number of different species as well as their relative abundances.</p>
+</section>
+</section>
+<section id="writing-our-own-functions" class="level3" data-number="12.5.5">
+<h3 data-number="12.5.5" class="anchored" data-anchor-id="writing-our-own-functions"><span class="header-section-number">12.5.5</span> Writing our own functions</h3>
+<p>Below, we calculate total butterfly density, butterfly species richness, and Simpson’s diversity. To do that, we need to create our own little functions in R to calculate those things. (After you copy and paste these functions into your script, make sure you run them in this session so that R learns them in this session.)</p>
+<p>Species richness is just the number of species whose abundances are greater than zero. Here is a function that takes a vector of data (x) as input and returns the number of non-zero items.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>richness <span class="ot">&lt;-</span> <span class="cf">function</span>(x) { <span class="fu">sum</span>( x <span class="sc">&gt;</span> <span class="dv">0</span> ) }</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Simpson’s diversity is probability that two individuals selected at random are <em>different</em> species. This is mathematically equivalent to the arithmetic complement (<span class="math inline">\(1-x\)</span>) of the probability that two individuals selected at random are the same species (<span class="math inline">\(\sum_i^S p_i^2\)</span>), or <span class="math display">\[\mathrm{Simpson's\,\,diversity} = 1 - \sum_i^S p_i^2\]</span></p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>simpsons <span class="ot">=</span> <span class="cf">function</span>(x) {</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>  <span class="co"># convert density into proportion</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>  p <span class="ot">&lt;-</span> x <span class="sc">/</span> <span class="fu">sum</span>(x)</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>  <span class="co"># calculate simpson's diversity</span></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>  <span class="dv">1</span> <span class="sc">-</span> <span class="fu">sum</span>( p<span class="sc">^</span><span class="dv">2</span> )</span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Now we use these functions to actually calculate the quantities we want with our data.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># we start with our data,...</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>bfly2 <span class="ot">&lt;-</span> bfly <span class="sc">%&gt;%</span></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>  <span class="co"># operate across each row, one row at a time, ...</span></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rowwise</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>  <span class="co"># operating across only these columns, from EUMA to ERHO, and then</span></span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">total_N =</span>  <span class="fu">sum</span>(<span class="fu">c_across</span>(EUMA<span class="sc">:</span>ERHO)),</span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">richness =</span> <span class="fu">richness</span>(<span class="fu">c_across</span>(EUMA<span class="sc">:</span>ERHO)),</span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">simpsons =</span> <span class="fu">simpsons</span>( <span class="fu">c_across</span>(EUMA<span class="sc">:</span>ERHO) )</span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span></span>
+<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a>  <span class="co"># keep the columns we want, i.e., </span></span>
+<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a>  <span class="co"># get rid of all the columns of particular species ...</span></span>
+<span id="cb12-13"><a href="#cb12-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span> ( cluster, patch, area, connect, flowers, hosts, total_N, richness, simpsons )</span>
+<span id="cb12-14"><a href="#cb12-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-15"><a href="#cb12-15" aria-hidden="true" tabindex="-1"></a><span class="do">## and glimpse the remaing data set</span></span>
+<span id="cb12-16"><a href="#cb12-16" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(bfly2)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Rows: 26
+Columns: 9
+Rowwise: 
+$ cluster  &lt;chr&gt; "BR", "BR", "BR", "BR", "HP", "HP", "HP", "CH", "CH", "CH", "…
+$ patch    &lt;chr&gt; "p1BR", "p2BR", "p3BR", "p4BR", "p5HP", "p6HP", "p7HP", "p8CH…
+$ area     &lt;dbl&gt; 1.838, 0.087, 0.063, 0.331, 0.026, 0.035, 0.250, 0.666, 0.371…
+$ connect  &lt;dbl&gt; 1.487, 2.662, 2.446, 1.870, 1.772, 1.752, 1.238, 1.444, 1.595…
+$ flowers  &lt;dbl&gt; 218, 178, 160, 269, 42, 52, 249, 230, 143, 142, 140, 32, 34, …
+$ hosts    &lt;dbl&gt; 17, 13, 15, 18, 16, 15, 19, 19, 22, 19, 22, 17, 14, 29, 19, 1…
+$ total_N  &lt;dbl&gt; 73, 30, 27, 55, 30, 21, 64, 41, 66, 22, 52, 20, 28, 46, 84, 5…
+$ richness &lt;int&gt; 18, 15, 14, 18, 14, 10, 18, 18, 21, 14, 19, 9, 16, 17, 20, 12…
+$ simpsons &lt;dbl&gt; 0.8639520, 0.8955556, 0.8943759, 0.9104132, 0.8644444, 0.8027…</code></pre>
+</div>
+</div>
+</section>
+<section id="evaluate-your-hypotheses" class="level3" data-number="12.5.6">
+<h3 data-number="12.5.6" class="anchored" data-anchor-id="evaluate-your-hypotheses"><span class="header-section-number">12.5.6</span> Evaluate your hypotheses</h3>
+<p>Above you created your own DAG for your own working hypothesis. Now you will assess the weight of evidence in favor of each part of your hypothesis.</p>
+<section id="create-a-scatterplot-of-each-relationship" class="level4" data-number="12.5.6.1">
+<h4 data-number="12.5.6.1" class="anchored" data-anchor-id="create-a-scatterplot-of-each-relationship"><span class="header-section-number">12.5.6.1</span> Create a scatterplot of each relationship</h4>
+<p>Create a scatterplot of each relationship in your DAG. Make sure each axis is clearly labelled. Put the response on the <em>y</em>-axis, and the cause on the <em>x</em>-axis. Here is an example of a scatterplot in which we assume that height influences volume.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># scatterplot</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> trees, <span class="fu">aes</span>(<span class="at">x =</span> Height, <span class="at">y =</span> Volume) ) <span class="sc">+</span></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>         <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>         <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Height (ft)"</span>,</span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>              <span class="at">y =</span> <span class="st">"Volume (cubic ft)"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="13-diversity_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># save my graph with whatever name I choose.</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="st">"my_scatterplot_trees.png"</span>, <span class="at">width=</span><span class="dv">5</span>, <span class="at">height=</span><span class="dv">5</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Tweak the above code to makes scatterplots of each relationship in your DAG.</p>
+</section>
+<section id="measure-the-degree-of-association" class="level4" data-number="12.5.6.2">
+<h4 data-number="12.5.6.2" class="anchored" data-anchor-id="measure-the-degree-of-association"><span class="header-section-number">12.5.6.2</span> Measure the degree of association</h4>
+<p>You will use correlation to assess the degree of association between each variable. The correlation we will use is the Pearson product moment correlation, <em>r</em>, which varies from -1 to 1, indicating perfect negative correlation to perfect positive correlation. The Pearson correlation coefficient measure the degree of <em>linear</em> relationship between two variables.</p>
+<p>Correlation does <strong>not</strong> guarantee that one variable causes a change in the other. We need other lines of evidence for that.</p>
+<p>The key output of the correlation will be the <strong>confidence interval</strong> of the estimate <em>r</em>. A 95% confidence interval of <em>r</em> is the range of values of <em>r</em> that we would be expected to see if we re-ran the same data collection or experiment millions of times and examined the central 95% of those estimates.</p>
+<p>In R, you do that using <code>cor.test()</code>. Here is an example using made-up variables, x and y.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cor.test</span>(x, y)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    Pearson's product-moment correlation
+
+data:  x and y
+t = 6.1227, df = 23, p-value = 3.026e-06
+alternative hypothesis: true correlation is not equal to 0
+95 percent confidence interval:
+ 0.5691639 0.9018451
+sample estimates:
+      cor 
+0.7872474 </code></pre>
+</div>
+</div>
+<p>The main result is that the 95% confidence interval of the correlation coefficient <em>r</em> is from 0.569 to 0.902, indicting a strong positive association between these variables.</p>
+<p>To do this with variables in our data set, we will use the dollar sign, <code>$</code>, to tell R which variables from <code>bfly2</code> to use. For instance, here is the correlation between connectivity and density of host plants.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cor.test</span>(bfly2<span class="sc">$</span>connect, bfly2<span class="sc">$</span>hosts)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    Pearson's product-moment correlation
+
+data:  bfly2$connect and bfly2$hosts
+t = 0.57468, df = 24, p-value = 0.5709
+alternative hypothesis: true correlation is not equal to 0
+95 percent confidence interval:
+ -0.2836463  0.4821015
+sample estimates:
+      cor 
+0.1165063 </code></pre>
+</div>
+</div>
+<p>This indicates that the 95% confidence interval lies from -0.28 to +0.48, suggesting that the relationship is highly uncertain and is almost as likely to be negative as it is to be positive.</p>
+<p><strong>For each relationship you hypothesized</strong>,</p>
+<ol type="1">
+<li>create a scatterplot in which you label the axes and use <code>ggsave()</code> to save the figure,</li>
+<li>perform a correlation test, and</li>
+<li>interpret the strength of association between the two variables.</li>
+</ol>
+</section>
+</section>
+</section>
+<section id="deliverables" class="level2" data-number="12.6">
+<h2 data-number="12.6" class="anchored" data-anchor-id="deliverables"><span class="header-section-number">12.6</span> Deliverables</h2>
+<p>Turn in two documents, your R script (with lots of comments!!), and <strong>one</strong> document that includes,</p>
+<ul>
+<li>a written explanation of the ecology underlying your hypothesis,</li>
+<li>your DAG (causal diagram) of your working hypothesis drawn by hand,</li>
+<li>for <strong>each</strong> pairwise relationship,
+<ul>
+<li>one scatterplot,</li>
+<li>the estimate and confidence interval for the correlation coefficient, <em>r</em>,</li>
+</ul></li>
+<li>a written assessment of your entire working hypothesis that includes short interpretations of the confidence intervals of each relationship, and a short overall summary.</li>
+</ul>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./11-predator-prey.html" class="pagination-link" aria-label="Of wolves and moose, on Isle Royale">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Of wolves and moose, on Isle Royale</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./20-ecosystem-intro.html" class="pagination-link" aria-label="An Introduction to the Carbon Cycle and Global Heating">
+        <span class="nav-page-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">An Introduction to the Carbon Cycle and Global Heating</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

@@ -1,0 +1,1054 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.8.27">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>5&nbsp; Behavior: Extra-pair copulation in a monogamous species – Basic Ecological Concepts and Data in R</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./06-DI-pop-growth.html" rel="next">
+<link href="./03-liana-phys.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-89ca6ca939e49a4038144f8f28e82152.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-J0R6F7XN66"></script>
+
+<script type="text/javascript">
+
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-J0R6F7XN66', { 'anonymize_ip': true});
+</script>
+
+
+</head>
+
+<body class="nav-sidebar floating quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./04-extrapair_copulation.html"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Behavior: Extra-pair copulation in a monogamous species</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">Basic Ecological Concepts and Data in R</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Preface</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./01-computer-setup.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Computer setup and first R script</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./01-trees_and_people.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Environmental Justice: How income relates to environment.</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./02-global_temp_anomalies.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Physical Environment: A Fate of Earth</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./03-liana-phys.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Individual responses to the environment: What makes lianas relatively successful in stressful habitats?</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./04-extrapair_copulation.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Behavior: Extra-pair copulation in a monogamous species</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./06-DI-pop-growth.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Density-independent Population Growth: Humans on the rise</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./07-structured-pop-growth_v2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Structured demography: How a graduate student helped save the loggerhead sea turtle</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./08-density-dep-pop-growth.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Density-dependence in population growth</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./09-direct-interactions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Direct species interactions: understanding mechanisms of invasion in mosquitoes</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./10-mutualisms.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Mutualisms: Do ants protect pea plants?</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./11-predator-prey.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Of wolves and moose, on Isle Royale</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./13-diversity.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Determinants of local butterfly species diversity</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./20-ecosystem-intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">An Introduction to the Carbon Cycle and Global Heating</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./references.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">References</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#goals" id="toc-goals" class="nav-link active" data-scroll-target="#goals"><span class="header-section-number">5.1</span> Goals</a></li>
+  <li><a href="#preparatory-steps" id="toc-preparatory-steps" class="nav-link" data-scroll-target="#preparatory-steps"><span class="header-section-number">5.2</span> Preparatory Steps</a></li>
+  <li><a href="#background-what-causes-extra-pair-copulation-in-prairie-voles" id="toc-background-what-causes-extra-pair-copulation-in-prairie-voles" class="nav-link" data-scroll-target="#background-what-causes-extra-pair-copulation-in-prairie-voles"><span class="header-section-number">5.3</span> Background: What causes extra pair copulation in prairie voles?</a>
+  <ul class="collapse">
+  <li><a href="#tinbergens-four-questions" id="toc-tinbergens-four-questions" class="nav-link" data-scroll-target="#tinbergens-four-questions"><span class="header-section-number">5.3.1</span> Tinbergen’s four questions</a></li>
+  <li><a href="#determinants-of-extra-pair-copulation-in-voles" id="toc-determinants-of-extra-pair-copulation-in-voles" class="nav-link" data-scroll-target="#determinants-of-extra-pair-copulation-in-voles"><span class="header-section-number">5.3.2</span> Determinants of extra-pair copulation in voles</a></li>
+  </ul></li>
+  <li><a href="#data-from-the-solomonkeane-lab" id="toc-data-from-the-solomonkeane-lab" class="nav-link" data-scroll-target="#data-from-the-solomonkeane-lab"><span class="header-section-number">5.4</span> Data from the Solomon/Keane lab</a></li>
+  <li><a href="#your-objectives" id="toc-your-objectives" class="nav-link" data-scroll-target="#your-objectives"><span class="header-section-number">5.5</span> Your objectives</a>
+  <ul class="collapse">
+  <li><a href="#write-your-own-script" id="toc-write-your-own-script" class="nav-link" data-scroll-target="#write-your-own-script"><span class="header-section-number">5.5.1</span> Write your own script</a></li>
+  <li><a href="#recoding-pairtype" id="toc-recoding-pairtype" class="nav-link" data-scroll-target="#recoding-pairtype"><span class="header-section-number">5.5.2</span> Recoding “pairtype”</a></li>
+  </ul></li>
+  <li><a href="#graphing-in-ggplot" id="toc-graphing-in-ggplot" class="nav-link" data-scroll-target="#graphing-in-ggplot"><span class="header-section-number">5.6</span> Graphing in <code>ggplot()</code></a></li>
+  <li><a href="#deliverables" id="toc-deliverables" class="nav-link" data-scroll-target="#deliverables"><span class="header-section-number">5.7</span> Deliverables</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Behavior: Extra-pair copulation in a monogamous species</span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<div id="fig-voles" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-voles-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="figs/voles1.png" class="img-fluid figure-img" style="width:50.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-voles-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;5.1: Voles are small hamster-like rodents that live in grasslands and fields.
+</figcaption>
+</figure>
+</div>
+<section id="goals" class="level2" data-number="5.1">
+<h2 data-number="5.1" class="anchored" data-anchor-id="goals"><span class="header-section-number">5.1</span> Goals</h2>
+<p>In this assignment, you will</p>
+<ul>
+<li>Develop and use your understanding of evolution, behavior, and prairie voles to make predictions about determinants of extra-pair copulation in a monogamous species.</li>
+<li>Enhance your quantitative reasoning and data analytic skills.</li>
+</ul>
+</section>
+<section id="preparatory-steps" class="level2" data-number="5.2">
+<h2 data-number="5.2" class="anchored" data-anchor-id="preparatory-steps"><span class="header-section-number">5.2</span> Preparatory Steps</h2>
+<ul>
+<li>Watch three video lectures on <a href="https://drive.google.com/drive/folders/1nWLoEGuWKIWdul9Uvse5qiB1Hf8MCwUv?usp=sharing">evolution, life history, and behavior</a></li>
+<li>Download Solomon and Keane (2018), which is available in <a href="https://drive.google.com/drive/folders/1opLlrmF7kfo0FtWwwJ1CbfPWIyuaISC1?usp=share_link" target="_blank">our PDF archive</a>. Read the introduction to help you understand the context of this chapter.</li>
+</ul>
+</section>
+<section id="background-what-causes-extra-pair-copulation-in-prairie-voles" class="level2" data-number="5.3">
+<h2 data-number="5.3" class="anchored" data-anchor-id="background-what-causes-extra-pair-copulation-in-prairie-voles"><span class="header-section-number">5.3</span> Background: What causes extra pair copulation in prairie voles?</h2>
+<p>Monogamy, the mating system in which individuals pair-bond to raise offspring, is relatively rare. We don’t know what causes this rarity, and nor do we know why it persists where it do occur. Prairie voles (<em>Microtus ochrogaster</em>), like humans, are famously monogamous, and behavioral ecologists have studied them for that reason. And, just like humans, voles also engage in extra-pair copulations that result in offspring, and scientists have been trying to understand the causes and consequences of those extra-pair copulations <span class="citation" data-cites="solomon2018">(<a href="references.html#ref-solomon2018" role="doc-biblioref">Solomon and Keane 2018</a>)</span>.</p>
+<p>Monogamy is a mating system (<em>sexual monogamy</em>), but it is also one of many types of social system (<em>social monogamy</em>). Different species of animals engage in many forms of <em>sociality</em> <span class="citation" data-cites="nowak:2010ul nordell2014 kappeler2019">(<a href="references.html#ref-nowak:2010ul" role="doc-biblioref">Nowak, Tarnita, and Wilson 2010</a>; <a href="references.html#ref-nordell2014" role="doc-biblioref">Nordell and Valone 2014</a>; <a href="references.html#ref-kappeler2019" role="doc-biblioref">Kappeler 2019</a>)</span>. For example, all species of ants and many species of bees live in large colonies with several castes of individuals (<em>eusociality</em>). Most species are entirely <em>solitary</em> (think grasshoppers, frogs, flies). Many species live in family social units or have primitive forms of eusociality <span class="citation" data-cites="nordell2014">(<a href="references.html#ref-nordell2014" role="doc-biblioref">Nordell and Valone 2014</a>)</span>. Social monogamy is the particular form of sociality in which a female-male pair lives together, often resulting in more successful rearing of offspring.</p>
+<p><strong>So why would socially monogamous individuals engage in extra-pair copulation?</strong></p>
+<p>One reason that individuals engage in extra-pair copulations is in order to avoid inbreeding depression. Breeding that results from matings between highly related individuals typically causes a decline in vigor and health of individual offspring and a reduction in fitness for those phenotypes. Inbreeding depression is the reduction in fitness due to breeding among relatives.</p>
+<p><em>Fitness is the quantitative representation of natural and sexual selection within evolutionary biology. It can be defined either with respect to a genotype or to a phenotype in a given environment. In either case, it describes individual reproductive success and is equal to the average contribution to the gene pool of the next generation that is made by individuals of the specified genotype or phenotype. The fitness of a genotype is manifested through its phenotype, which is also affected by the developmental environment. The fitness of a given phenotype can also be different in different selective environments.</em> (Quoted from <a href="https://en.wikipedia.org/w/index.php?title=Fitness_(biology)&amp;oldid=1137795350" target="_blank">Wikipedia</a>)</p>
+<section id="tinbergens-four-questions" class="level3" data-number="5.3.1">
+<h3 data-number="5.3.1" class="anchored" data-anchor-id="tinbergens-four-questions"><span class="header-section-number">5.3.1</span> Tinbergen’s four questions</h3>
+<p>This section is from an <a href="https://www.conted.ox.ac.uk/courses/samples/animal-behaviour-an-introduction-online/index.html" target="_blank">online course at Oxford University</a></p>
+<p>In 1963 Niko Tinbergen published a seminal paper entitled <em>On the aims and methods of ethology</em>, which laid the foundation for how to conduct research in the fledging field of animal behaviour. The lasting contribution of the paper is that in it Tinbergen formulated four different, albeit somewhat interlinked, approaches to the study of animal behaviour, or four different types of questions we can ask about an observed behaviour.</p>
+<p>The four questions are:</p>
+<ol type="1">
+<li>Function (or adaption)</li>
+</ol>
+<p>Why is the animal performing the behaviour? In which way does the behaviour increase the animal’s fitness (i.e.&nbsp;its survival and reproduction)? Examples are plentiful and include, among many others, nurturing of young to increase their chance of survival, migration to warmer (and more food rich) habitats, escaping or avoiding attention from predators etc.</p>
+<ol start="2" type="1">
+<li>Evolution (or phylogeny)</li>
+</ol>
+<p>How did the behaviour evolve? How has natural selection modified the behaviour over evolutionary time? This is typically addressed by the comparative approach, where the behaviour in question is compared among closely related species. Examples include how flight in birds may have evolved from gliding in dinosaurs or how the vertebrate and cephalopod eyes have evolved by convergent evolution, with the former having a blind spot, while the latter does not.</p>
+<ol start="3" type="1">
+<li>Causation (or mechanism)</li>
+</ol>
+<p>What causes the behaviour to be performed? Which stimuli elicit or what physiological mechanisms cause the behaviour? Examples include the role of pheromones and hormones, such as increasing testosterone levels (caused by increasing day length) causing male display behaviour in many species of birds, moving shadows causing ragworms to withdraw into their burrows or contrast on beaks causing herring gull chicks to peck.</p>
+<ol start="4" type="1">
+<li>Development (or ontogeny)</li>
+</ol>
+<p>How has the behaviour developed during the lifetime of the individual? In what way has it been influenced by experience and learning? Examples include how courtship behaviour improves with age in many birds and how predators learn to avoid toxic or dangerous prey with experience.</p>
+<p>The four types of questions operate at two different levels. Questions 1 and 2 give ultimate or evolutionary explanations. These are answers that take a longer perspective and try to explain <em>why</em> the behaviour has evolved. On the other hand, questions 3 and 4 give proximate explanations. These are answers that look into the immediate mechanical reasons for <em>how</em> a behaviour is expressed. To obtain a full understanding of the costs, benefits and constraints that have shaped a given behaviour both ultimate and proximate answers must be obtained.</p>
+</section>
+<section id="determinants-of-extra-pair-copulation-in-voles" class="level3" data-number="5.3.2">
+<h3 data-number="5.3.2" class="anchored" data-anchor-id="determinants-of-extra-pair-copulation-in-voles"><span class="header-section-number">5.3.2</span> Determinants of extra-pair copulation in voles</h3>
+<p>So, what causes extra-pair copulation? What influences the probability that an individual enages in extra-pair copulation? We can think about these questions in any of the four contexts that Tinbergen’s questions provide.</p>
+<p>Here are some factors that may help determine to the probability of extra-pair copulation:</p>
+<ul>
+<li>the relatedness of the extra-pair partner, and avoidance of inbreeding.</li>
+<li>the relatedness of the nest- vs.&nbsp;extra-pair partner.</li>
+<li>sex (perhaps females are more or less likely than males to seek opportunities)</li>
+<li>number in nest, if crowding is a proximate cue to mate with a nest partner or extra-pair individual.</li>
+</ul>
+<p>It is not always clear how animals and plants identify individuals that are closely related or not related, but under many circumstances, they somehow seem to mate with individuals that are less related than by chance alone.</p>
+</section>
+</section>
+<section id="data-from-the-solomonkeane-lab" class="level2" data-number="5.4">
+<h2 data-number="5.4" class="anchored" data-anchor-id="data-from-the-solomonkeane-lab"><span class="header-section-number">5.4</span> Data from the Solomon/Keane lab</h2>
+<p>Dr.&nbsp;Nancy Solomon and Dr.&nbsp;Brain Keane have been studying prairie voles for decades, and here we investigate our questions using one of their data sets.</p>
+<p>The data file <code>epr_209.csv</code> contains observations on voles related to those we read about in Solomon and Keane (2018). These data are from sampling of voles from the Indiana site, collected over three years (2006-2008). This data file is available in <a href="https://drive.google.com/drive/folders/1FR2FLiW3xyD4Er52YzVTToPZuXXReGRo?usp=sharing" target="_blank">our data repository</a></p>
+<p>Each row in the data set is a record of a succesful copulation that resulted in at least one offspring. Included in each row we have the ofllowing columns:</p>
+<ul>
+<li>id - identification number of the individual</li>
+<li>sex - biological sex of the individual</li>
+<li>year - calendar year of data collection</li>
+<li>nest - the identity of the home nest of the individual</li>
+<li>size - number of individuals in the nest</li>
+<li>r - relatedness to the partner.</li>
+<li>pairtype - nest partner or extra-pair copulation.</li>
+</ul>
+<p><em>Relatedness</em> to a partner varies between -1 and +1. A value near zero indicates no more related than expected by chance; 1 is self-identity (e.g., clone) and negative values indicate even less related than we expect due to chance.</p>
+</section>
+<section id="your-objectives" class="level2" data-number="5.5">
+<h2 data-number="5.5" class="anchored" data-anchor-id="your-objectives"><span class="header-section-number">5.5</span> Your objectives</h2>
+<p>Ask yourself, “what the heck are these voles doing? is there anything in particular that seems related to the probability that an individual engages or does not engage in extra-pair copulation.</p>
+<p>You will come up with a hypothesis about the conditions to might lead to more extra-pair copulations.</p>
+<ol type="1">
+<li>Pose a question that you can express in a graph <em>using these data</em>. Rely on your understanding of evolution, behavior, and prairie voles to justify your question.</li>
+<li>Make a prediction. Draw a mock-up of the graph that is consistent with the mechanism you propose.</li>
+<li>Create R code to create the graph you want.</li>
+<li>Figure out what the graph tells you about the answer to your question. Does it match you expectations? Rely on your understanding of evolution, behavior, and prairie voles to interpret your result.</li>
+</ol>
+<p>Put all of the above (question, hand-drawn graph mock-up, R figure of data, data-based answer to your question) in a document, and turn it in online. See <strong>Deliverables</strong> at the end of this chapter.</p>
+<section id="write-your-own-script" class="level3" data-number="5.5.1">
+<h3 data-number="5.5.1" class="anchored" data-anchor-id="write-your-own-script"><span class="header-section-number">5.5.1</span> Write your own script</h3>
+<p>To create the graph, you will write your own script. Start as uysual, by finding out what your current working directory. Make sure it is <code>Rwork</code>. The read in your data and look at the variables. Then create the graph you want.</p>
+<p>First we check the current working directory.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">getwd</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>This should show a path to <code>Rwork</code>. If not, use the “Session” menu to set your working directory. If you don’t have an <code>Rwork</code> folder, see Chapter 1.</p>
+<p>Next we load some packages that we will use.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
+✔ dplyr     1.1.4     ✔ readr     2.1.5
+✔ forcats   1.0.1     ✔ stringr   1.5.2
+✔ ggplot2   4.0.0     ✔ tibble    3.3.0
+✔ lubridate 1.9.4     ✔ tidyr     1.3.1
+✔ purrr     1.1.0     
+── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+✖ dplyr::filter() masks stats::filter()
+✖ dplyr::lag()    masks stats::lag()
+ℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors</code></pre>
+</div>
+</div>
+<p>Next, we get the data.</p>
+<ol type="1">
+<li>Go to our <a href="https://drive.google.com/drive/u/1/folders/1FR2FLiW3xyD4Er52YzVTToPZuXXReGRo" target="_blank">class data repository</a>, and download <code>epr.csv</code>.</li>
+<li>Make sure the file remains in the same simple format, “comma separated values” (.csv).</li>
+<li>Put <code>epr.csv</code> in your working directory, <code>Rwork</code>.</li>
+<li>Continue to make sure the file remains in the same simple format, “comma separated values” (.csv).</li>
+</ol>
+<p>Now import the data.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>d209 <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"epr_209.csv"</span>)</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(d209)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>'data.frame':   250 obs. of  7 variables:
+ $ id      : chr  "101" "101" "1021" "1021" ...
+ $ sex     : chr  "male" "male" "female" "female" ...
+ $ year    : int  2006 2006 2007 2006 2006 2007 2007 2006 2006 2006 ...
+ $ nest    : chr  "19/20/21" "19/20/21" "29" "32" ...
+ $ size    : int  7 7 3 2 2 2 2 7 7 2 ...
+ $ r       : num  0.378 -0.183 0.321 -0.109 -0.032 ...
+ $ pairtype: chr  "nest" "nest" "nest" "extra" ...</code></pre>
+</div>
+</div>
+<p>Use everything you have learned thus far, and the tutorial below to make the graph you want. After you make the graph you want, you can use <code>ggsave("myVoles.png")</code> to save the graph to your working directory.</p>
+</section>
+<section id="recoding-pairtype" class="level3" data-number="5.5.2">
+<h3 data-number="5.5.2" class="anchored" data-anchor-id="recoding-pairtype"><span class="header-section-number">5.5.2</span> Recoding “pairtype”</h3>
+<p>We can estimate the probability of something happening or not happening based on a series of successes and failures, like a coin coming up heads. A coin either comes up heads or it doesn’t - success or failure.</p>
+<p>We need to create a variable that represents either an extra-pair copulation or a nest-pair copulation. We will code extra-pair copulation as 1 (success) and nest-pair copulation (failure).</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>d209 <span class="ot">&lt;-</span> d209 <span class="sc">%&gt;%</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">epc =</span> <span class="fu">ifelse</span>(pairtype<span class="sc">==</span><span class="st">"extra"</span>, <span class="dv">1</span>, <span class="dv">0</span>)</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(d209)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>'data.frame':   250 obs. of  8 variables:
+ $ id      : chr  "101" "101" "1021" "1021" ...
+ $ sex     : chr  "male" "male" "female" "female" ...
+ $ year    : int  2006 2006 2007 2006 2006 2007 2007 2006 2006 2006 ...
+ $ nest    : chr  "19/20/21" "19/20/21" "29" "32" ...
+ $ size    : int  7 7 3 2 2 2 2 7 7 2 ...
+ $ r       : num  0.378 -0.183 0.321 -0.109 -0.032 ...
+ $ pairtype: chr  "nest" "nest" "nest" "extra" ...
+ $ epc     : num  0 0 0 1 1 1 1 0 0 1 ...</code></pre>
+</div>
+</div>
+<p>Now we see that extra-pair copulation is coded as a number, just 0 or 1.</p>
+<p>See below for an example of graphing zeros and ones on the y-axis, and a continuous variable on the x-axis, where we describe the probability that a car model has front wheel drive (y-axis), based its city gas mileage.</p>
+</section>
+</section>
+<section id="graphing-in-ggplot" class="level2" data-number="5.6">
+<h2 data-number="5.6" class="anchored" data-anchor-id="graphing-in-ggplot"><span class="header-section-number">5.6</span> Graphing in <code>ggplot()</code></h2>
+<p>Here is some general guidance for using <code>ggplot()</code>:</p>
+<p><code>ggplot(data= myDataset, aes(x= X-variable, y= Y-variable)) + geom_typeOfPlot()</code></p>
+<ul>
+<li>for a box-and-whisker plot: <code>geom_boxplot()</code> This is a more transparent and useful alternative to standard barplot or column graph.</li>
+<li>for a scatterplot <code>geom_point()</code></li>
+<li>for a scatterplot with a fitted straight line <code>geom_point() + geom_smooth(method="lm")</code></li>
+</ul>
+<p>First, we load the packages of the tidyverse. If you already loaded this package as part of <code>tidyverse</code>, then you have already done this step.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Here we use a data set ( <code>mpg</code>) that comes with R to help demonstrate examples. This data set, <code>mpg</code> includes fuel economy data from 1999 to 2008 for 38 popular models of cars.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(mpg)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Rows: 234
+Columns: 11
+$ manufacturer &lt;chr&gt; "audi", "audi", "audi", "audi", "audi", "audi", "audi", "…
+$ model        &lt;chr&gt; "a4", "a4", "a4", "a4", "a4", "a4", "a4", "a4 quattro", "…
+$ displ        &lt;dbl&gt; 1.8, 1.8, 2.0, 2.0, 2.8, 2.8, 3.1, 1.8, 1.8, 2.0, 2.0, 2.…
+$ year         &lt;int&gt; 1999, 1999, 2008, 2008, 1999, 1999, 2008, 1999, 1999, 200…
+$ cyl          &lt;int&gt; 4, 4, 4, 4, 6, 6, 6, 4, 4, 4, 4, 6, 6, 6, 6, 6, 6, 8, 8, …
+$ trans        &lt;chr&gt; "auto(l5)", "manual(m5)", "manual(m6)", "auto(av)", "auto…
+$ drv          &lt;chr&gt; "f", "f", "f", "f", "f", "f", "f", "4", "4", "4", "4", "4…
+$ cty          &lt;int&gt; 18, 21, 20, 21, 16, 18, 18, 18, 16, 20, 19, 15, 17, 17, 1…
+$ hwy          &lt;int&gt; 29, 29, 31, 30, 26, 26, 27, 26, 25, 28, 27, 25, 25, 25, 2…
+$ fl           &lt;chr&gt; "p", "p", "p", "p", "p", "p", "p", "p", "p", "p", "p", "p…
+$ class        &lt;chr&gt; "compact", "compact", "compact", "compact", "compact", "c…</code></pre>
+</div>
+</div>
+<p>For a box-and-whisker plot of highway mileage (<code>hwy</code>) vs.&nbsp;car type (<code>class</code>), with explicit labels.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(mpg, <span class="fu">aes</span>(<span class="at">x =</span> class, <span class="at">y =</span> hwy)) <span class="sc">+</span> <span class="fu">geom_boxplot</span>() <span class="sc">+</span> </span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x=</span><span class="st">"type of car"</span>, <span class="at">y=</span><span class="st">"highway mileage"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="04-extrapair_copulation_files/figure-html/bp1-1.png" class="img-fluid figure-img" width="672"></p>
+<figcaption>Box-and-whisker plot of highway mileage (hwy) vs.&nbsp;car type (class), with explicit labels. A boxplot shows the distribution of data, by groups.</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<section id="scatterplots" class="level4" data-number="5.6.0.1">
+<h4 data-number="5.6.0.1" class="anchored" data-anchor-id="scatterplots"><span class="header-section-number">5.6.0.1</span> Scatterplots</h4>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(mpg, <span class="fu">aes</span>(<span class="at">x=</span>cty, <span class="at">y=</span>hwy)) <span class="sc">+</span> <span class="fu">geom_point</span>() <span class="sc">+</span> </span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x=</span><span class="st">"city mileage"</span>, <span class="at">y=</span><span class="st">"highway mileage"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="04-extrapair_copulation_files/figure-html/sp1-1.png" class="img-fluid figure-img" width="672"></p>
+<figcaption>Scatterplot of highway mileage vs.&nbsp;city mileage (miles per gal).</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(mpg, <span class="fu">aes</span>(<span class="at">x=</span>cty, <span class="at">y=</span>hwy)) <span class="sc">+</span> <span class="fu">geom_point</span>() <span class="sc">+</span> <span class="fu">geom_smooth</span>(<span class="at">method=</span><span class="st">"lm"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>`geom_smooth()` using formula = 'y ~ x'</code></pre>
+</div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="04-extrapair_copulation_files/figure-html/splm-1.png" class="img-fluid figure-img" width="672"></p>
+<figcaption>Scatterplot with a fitted straight line, fitting a linear model.</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="do">## for a scatterplot with a fitted curved line </span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(mpg, <span class="fu">aes</span>(<span class="at">x=</span>cty, <span class="at">y=</span>hwy)) <span class="sc">+</span> <span class="fu">geom_point</span>() <span class="sc">+</span> <span class="fu">geom_smooth</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>`geom_smooth()` using method = 'loess' and formula = 'y ~ x'</code></pre>
+</div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="04-extrapair_copulation_files/figure-html/sploess-1.png" class="img-fluid figure-img" width="672"></p>
+<figcaption>Scatterplot with a flexibly fitted line, using local polynomial regression fitting.</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="categorical-responses" class="level4" data-number="5.6.0.2">
+<h4 data-number="5.6.0.2" class="anchored" data-anchor-id="categorical-responses"><span class="header-section-number">5.6.0.2</span> Categorical responses</h4>
+<p>Often we would like to predict whether individuals fall into <em>one category or another</em>, such as coin flips of heads vs.&nbsp;tails, success vs.&nbsp;failure, sick vs.&nbsp;healthy, or engaging in extra-pair copulation vs.&nbsp;remaining monogamous. These kind of dichotomous data are called <em>binomial</em> data, and we think of these data as zeros and ones (0, 1), perhaps zero for heads and one of tails.</p>
+<p>When we model binomial data (0,1), we put these 0s and 1s on the y-axis. Here is a worked example using <code>mpg</code> data.</p>
+<p><strong>First</strong>, create a dichotomous variable (0, 1) indicating whether a car model is front wheel drive or other (rear- or 4-wheel drive). A plot like this puts <em>probability</em> on the y-axis. In this case it is the probability that a car with a given mileage is a front-wheel drive car.</p>
+<p>Convert a factor or character variable to zeros and ones. Here we convert the category of drive train (rear vs.&nbsp;front wheel drive) into ones for front wheel drive, and zeros for rear wheel drive. We use an “if-else” statement to do that.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>mpg2 <span class="ot">&lt;-</span> mpg <span class="sc">%&gt;%</span> </span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">prob.front.wheel.drive =</span> <span class="fu">ifelse</span>(drv<span class="sc">==</span><span class="st">"f"</span>, <span class="dv">1</span>, <span class="dv">0</span>)</span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Next we plot the zeros and ones on the y-axis against city mileage on the x-axis. We also add a particular kind of fitted line that shows us the expected probability that a car with a particular city mileage is front wheel drive. This curve is the result of a <em>logistic regression model</em> that we use for binomial data. The graph tells us that</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(mpg2, <span class="fu">aes</span>(cty, prob.front.wheel.drive)) <span class="sc">+</span> </span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span> </span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method=</span><span class="st">"glm"</span>, </span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>              <span class="at">method.args =</span> <span class="fu">list</span>(<span class="at">family =</span> <span class="st">"binomial"</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>`geom_smooth()` using formula = 'y ~ x'</code></pre>
+</div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="04-extrapair_copulation_files/figure-html/bp2-1.png" class="img-fluid figure-img" width="672"></p>
+<figcaption>Higher mileage cars tend to have front-wheel drive. Graph shows the probability that a car with a particular city mileage is front wheel drive. The curve is the result of a type of generalized linear model (glm) called <em>logistic regression</em> which assumes binomial data.</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="deliverables" class="level2" data-number="5.7">
+<h2 data-number="5.7" class="anchored" data-anchor-id="deliverables"><span class="header-section-number">5.7</span> Deliverables</h2>
+<p>Create one document (presentation slide or other document) that,</p>
+<ul>
+<li>places the hand-drawn graph of your predictions side by side with the graph of the observed data,</li>
+<li>includes a succinct <em>explanation</em> of
+<ol type="i">
+<li>basis of your original prediction; explain why voles would behave the way you predicted they would. Do not rely on your intuition. Instead, use your knowledge of evolutionary biology, behavior, and voles in your explanation, and</li>
+<li>your observed result.</li>
+</ol></li>
+<li>includes a <em>headline</em>, that is, a title that provides your result or takeaway message, such as “Living in small groups enhances monogamy”.</li>
+</ul>
+<p>Turn this in to the assignment on Canvas. (<em>Previous versions asked to submit this to a Google Slide deck, but we will no longer do that.</em>)</p>
+
+
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
+<div id="ref-kappeler2019" class="csl-entry" role="listitem">
+Kappeler, Peter M. 2019. <span>“A Framework for Studying Social Complexity.”</span> <em>Behavioral Ecology and Sociobiology</em> 73 (1): 13. <a href="https://doi.org/10.1007/s00265-018-2601-8">https://doi.org/10.1007/s00265-018-2601-8</a>.
+</div>
+<div id="ref-nordell2014" class="csl-entry" role="listitem">
+Nordell, Shawn E., and Thomas J. Valone. 2014. <em>Animal <span>Behavior</span>: <span>Concepts</span>, <span>Methods</span>, and <span>Applications</span></em>. <span>New York</span>: <span>Oxford University Press</span>.
+</div>
+<div id="ref-nowak:2010ul" class="csl-entry" role="listitem">
+Nowak, Martin A, Corina E Tarnita, and Edward O Wilson. 2010. <span>“The Evolution of Eusociality.”</span> <em>Nature</em> 466 (7310): 1057–62.
+</div>
+<div id="ref-solomon2018" class="csl-entry" role="listitem">
+Solomon, Nancy G., and Brian Keane. 2018. <span>“Dispatches from the Field: Sociality and Reproductive Success in Prairie Voles.”</span> <em>Animal Behaviour</em> 143 (September): 193–203. <a href="https://doi.org/10.1016/j.anbehav.2018.07.001">https://doi.org/10.1016/j.anbehav.2018.07.001</a>.
+</div>
+</div>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./03-liana-phys.html" class="pagination-link" aria-label="Individual responses to the environment: What makes lianas relatively successful in stressful habitats?">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Individual responses to the environment: What makes lianas relatively successful in stressful habitats?</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./06-DI-pop-growth.html" class="pagination-link" aria-label="Density-independent Population Growth: Humans on the rise">
+        <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Density-independent Population Growth: Humans on the rise</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

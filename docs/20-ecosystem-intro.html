@@ -1,0 +1,1477 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.8.27">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>13&nbsp; An Introduction to the Carbon Cycle and Global Heating – Basic Ecological Concepts and Data in R</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./references.html" rel="next">
+<link href="./13-diversity.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-89ca6ca939e49a4038144f8f28e82152.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-J0R6F7XN66"></script>
+
+<script type="text/javascript">
+
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-J0R6F7XN66', { 'anonymize_ip': true});
+</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+</head>
+
+<body class="nav-sidebar floating quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./20-ecosystem-intro.html"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">An Introduction to the Carbon Cycle and Global Heating</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">Basic Ecological Concepts and Data in R</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Preface</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./01-computer-setup.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Computer setup and first R script</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./01-trees_and_people.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Environmental Justice: How income relates to environment.</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./02-global_temp_anomalies.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Physical Environment: A Fate of Earth</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./03-liana-phys.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Individual responses to the environment: What makes lianas relatively successful in stressful habitats?</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./04-extrapair_copulation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Behavior: Extra-pair copulation in a monogamous species</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./06-DI-pop-growth.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Density-independent Population Growth: Humans on the rise</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./07-structured-pop-growth_v2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Structured demography: How a graduate student helped save the loggerhead sea turtle</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./08-density-dep-pop-growth.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Density-dependence in population growth</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./09-direct-interactions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Direct species interactions: understanding mechanisms of invasion in mosquitoes</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./10-mutualisms.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Mutualisms: Do ants protect pea plants?</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./11-predator-prey.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Of wolves and moose, on Isle Royale</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./13-diversity.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Determinants of local butterfly species diversity</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./20-ecosystem-intro.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">An Introduction to the Carbon Cycle and Global Heating</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./references.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">References</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#goals" id="toc-goals" class="nav-link active" data-scroll-target="#goals"><span class="header-section-number">13.1</span> Goals</a></li>
+  <li><a href="#preparatory-steps" id="toc-preparatory-steps" class="nav-link" data-scroll-target="#preparatory-steps"><span class="header-section-number">13.2</span> Preparatory steps</a></li>
+  <li><a href="#get-r-ready-for-work" id="toc-get-r-ready-for-work" class="nav-link" data-scroll-target="#get-r-ready-for-work"><span class="header-section-number">13.3</span> Get R ready for work</a></li>
+  <li><a href="#background-on-ecosystems" id="toc-background-on-ecosystems" class="nav-link" data-scroll-target="#background-on-ecosystems"><span class="header-section-number">13.4</span> Background on ecosystems</a></li>
+  <li><a href="#a-simple-budget-provides-one-explanation-for-why-we-have-so-much-carbon-in-the-atmosphere" id="toc-a-simple-budget-provides-one-explanation-for-why-we-have-so-much-carbon-in-the-atmosphere" class="nav-link" data-scroll-target="#a-simple-budget-provides-one-explanation-for-why-we-have-so-much-carbon-in-the-atmosphere"><span class="header-section-number">13.5</span> A simple budget provides one explanation for why we have so much carbon in the atmosphere</a>
+  <ul class="collapse">
+  <li><a href="#rate-of-change" id="toc-rate-of-change" class="nav-link" data-scroll-target="#rate-of-change"><span class="header-section-number">13.5.1</span> Rate of change</a></li>
+  </ul></li>
+  <li><a href="#simple-dynamics-emerge-from-processes-like-diffusion-and-complicate-prediction" id="toc-simple-dynamics-emerge-from-processes-like-diffusion-and-complicate-prediction" class="nav-link" data-scroll-target="#simple-dynamics-emerge-from-processes-like-diffusion-and-complicate-prediction"><span class="header-section-number">13.6</span> Simple dynamics emerge from processes like diffusion and complicate prediction</a>
+  <ul class="collapse">
+  <li><a href="#a-first-order-flux" id="toc-a-first-order-flux" class="nav-link" data-scroll-target="#a-first-order-flux"><span class="header-section-number">13.6.1</span> A first order flux</a></li>
+  <li><a href="#earths-atmosphere-as-a-first-order-equation" id="toc-earths-atmosphere-as-a-first-order-equation" class="nav-link" data-scroll-target="#earths-atmosphere-as-a-first-order-equation"><span class="header-section-number">13.6.2</span> Earth’s atmosphere as a first order equation</a></li>
+  </ul></li>
+  <li><a href="#sec-deliverables1" id="toc-sec-deliverables1" class="nav-link" data-scroll-target="#sec-deliverables1"><span class="header-section-number">13.7</span> Deliverables, part 1</a></li>
+  <li><a href="#linking-two-different-ecosystem-processes-shows-lagged-effects" id="toc-linking-two-different-ecosystem-processes-shows-lagged-effects" class="nav-link" data-scroll-target="#linking-two-different-ecosystem-processes-shows-lagged-effects"><span class="header-section-number">13.8</span> Linking two different ecosystem processes shows lagged effects</a>
+  <ul class="collapse">
+  <li><a href="#adding-greenhouse-heat-trapping-gases" id="toc-adding-greenhouse-heat-trapping-gases" class="nav-link" data-scroll-target="#adding-greenhouse-heat-trapping-gases"><span class="header-section-number">13.8.1</span> Adding greenhouse (heat-trapping) gases</a></li>
+  <li><a href="#why-is-all-this-math-important" id="toc-why-is-all-this-math-important" class="nav-link" data-scroll-target="#why-is-all-this-math-important"><span class="header-section-number">13.8.2</span> Why is all this math important?</a></li>
+  <li><a href="#expected-temperatures-now-and-also-what-the-temperature-would-become" id="toc-expected-temperatures-now-and-also-what-the-temperature-would-become" class="nav-link" data-scroll-target="#expected-temperatures-now-and-also-what-the-temperature-would-become"><span class="header-section-number">13.8.3</span> Expected temperatures now, and also what the temperature would become</a></li>
+  </ul></li>
+  <li><a href="#simulations-in-silico-experiments" id="toc-simulations-in-silico-experiments" class="nav-link" data-scroll-target="#simulations-in-silico-experiments"><span class="header-section-number">13.9</span> Simulations: <em>in silico</em> experiments</a>
+  <ul class="collapse">
+  <li><a href="#experiment-1-business-as-usual" id="toc-experiment-1-business-as-usual" class="nav-link" data-scroll-target="#experiment-1-business-as-usual"><span class="header-section-number">13.9.1</span> Experiment 1: Business as usual</a></li>
+  <li><a href="#experiment-2-keep-co2-at-2023-levels-420-ppm" id="toc-experiment-2-keep-co2-at-2023-levels-420-ppm" class="nav-link" data-scroll-target="#experiment-2-keep-co2-at-2023-levels-420-ppm"><span class="header-section-number">13.9.2</span> Experiment 2: Keep CO2 at 2023 levels (420 ppm)</a></li>
+  <li><a href="#experiment-3-reduce-co2-to-1980-levels-338-ppm" id="toc-experiment-3-reduce-co2-to-1980-levels-338-ppm" class="nav-link" data-scroll-target="#experiment-3-reduce-co2-to-1980-levels-338-ppm"><span class="header-section-number">13.9.3</span> Experiment 3: Reduce CO2 to 1980 levels (338 ppm)</a></li>
+  </ul></li>
+  <li><a href="#sec-deliverables2" id="toc-sec-deliverables2" class="nav-link" data-scroll-target="#sec-deliverables2"><span class="header-section-number">13.10</span> Deliverables, part 2</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">An Introduction to the Carbon Cycle and Global Heating</span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<div id="fig-ecosys1" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-ecosys1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="figs/ecosystems1.png" class="img-fluid figure-img" style="width:75.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ecosys1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;13.1: Ecosystems comprise pools (compartments) and fluxes in and out of those pools. Ecosystem ecologists typically study ecosystems by tracking a particular chemical element from compartment to compartment. Note the units are consistent throughout an ecosystem. In the above example of a lake, fluxes of phosphorus are milligrams per day in or out. At the global scale, we can estimate fluxes of carbon in gigatonnes per year.
+</figcaption>
+</figure>
+</div>
+<section id="goals" class="level2" data-number="13.1">
+<h2 data-number="13.1" class="anchored" data-anchor-id="goals"><span class="header-section-number">13.1</span> Goals</h2>
+<p>In this chapter, you will, address three related questions:</p>
+<ol type="1">
+<li>Why do we have so much carbon in the atmosphere?</li>
+<li>How does including the physical process of diffusion of alter predictions about future atmospheric carbon?</li>
+<li>What is the connection between atmospheric CO<span class="math inline">\(_2\)</span> and temperature, and how does that relationship affect our appreciation of Earth’s current and future status?</li>
+</ol>
+<p>To address these questions, we will</p>
+<ol type="1">
+<li>practice building a simple ecosystem budget with steady fluxes and changing pools, 1 create a dynamic ecosystem in which the fluxes change, depending on the amount in pools, and 1 investigate how matter can relate dynamically to energy.</li>
+</ol>
+<p>One of the main the points of doing these activities is to help to develop an intuition for <em>system thinking</em>. Systems are “<a href="https://en.wikipedia.org/wiki/Systems_theory" target="_blank">a group of interacting, interdependent parts that form a complex whole”</a> and ecosystem ecology is a central subdisicpline of ecology and the one that has contributed the most to our understanding of climate change and ecosystem services.</p>
+<p>The other main point of these activities is to reinforce simple ideas related to the global carbon cycle and global warming.</p>
+</section>
+<section id="preparatory-steps" class="level2" data-number="13.2">
+<h2 data-number="13.2" class="anchored" data-anchor-id="preparatory-steps"><span class="header-section-number">13.2</span> Preparatory steps</h2>
+<ol type="1">
+<li>General background lectures: <a href="https://drive.google.com/drive/folders/1nWLoEGuWKIWdul9Uvse5qiB1Hf8MCwUv?usp=sharing" target="_blank">Download the slides and watch the video on at least the carbon cycle</a> before proceeding.</li>
+<li>We will not need data for this chapter.</li>
+<li>Find out what you need for the deliverables parts 1 (<a href="#sec-deliverables1" class="quarto-xref"><span>Section 13.7</span></a>) and 2 (<a href="#sec-deliverables2" class="quarto-xref"><span>Section 13.10</span></a>).</li>
+<li>Get R ready for work - see the next section.</li>
+</ol>
+</section>
+<section id="get-r-ready-for-work" class="level2" data-number="13.3">
+<h2 data-number="13.3" class="anchored" data-anchor-id="get-r-ready-for-work"><span class="header-section-number">13.3</span> Get R ready for work</h2>
+<p>Open R using RStudio, and <strong>set your working directory</strong>. You can do this in two ways:</p>
+<ol type="1">
+<li>using the Session menu in RStudio, or</li>
+<li>with code such as this, in which you customize it to your computer:</li>
+</ol>
+<pre><code>setwd("C:/Users/chenjoe/BIO209W/Rwork")</code></pre>
+<p>You can confirm or <strong>get</strong> your <em>current</em> working directory using this:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">getwd</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "/Users/stevenmh/projects/intro_to_ecology"</code></pre>
+</div>
+</div>
+<p>so when I do that, you can see my working directory is the one for this book.</p>
+<p><strong>Before you proceed</strong>, make sure your working directory is your <code>Rwork</code> directory.</p>
+<p>Next, use RStudio to create a new file of the type <em>R script</em>. Save it using a name that reflects this chapter, and end the file name with “.R” or “.r”.</p>
+<p>Third, add a comment as a brief description of the script, and load any R packages you know you will need.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="do">## This script is for chapter XX in Hank's Intro to Ecology primer.</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="do">## We always use...</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="do">## or usually just ggplot2 and dplyr packages within the tidyverse.</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="do">## In this chapter we also need</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(deSolve)</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="co"># for solving or integrating differential equations</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="background-on-ecosystems" class="level2" data-number="13.4">
+<h2 data-number="13.4" class="anchored" data-anchor-id="background-on-ecosystems"><span class="header-section-number">13.4</span> Background on ecosystems</h2>
+<p>An ecosystem is a biological community of interacting organisms and their physical environment. Ecosystem ecologists study an ecosystem by tracking a particular chemical element such as carbon (C) or nitrogen (N) through the environment. We conceive of the environment in terms of compartments that contain the element (a.k.a. pools, stocks) and movement between compartments (fluxes, inflows, outflows).</p>
+<p>Examples of ecosystem budgets:</p>
+<ul>
+<li><strong>Phosphorus budget of a lake ecosystem.</strong> Phosphorus (P) flows in via a stream coming into the lake, and discharges in a stream leaving the lake.</li>
+<li><strong>Carbon budget of Earth’s atmosphere.</strong>: Carbon enters as CO<span class="math inline">\(_2\)</span> via biological respiration and fossil fuel combustion and exits via uptake in photosynthesis in land plants and aquatic algae, and also via diffusion into oceans.</li>
+<li><strong>Energy budget of mountain stream.</strong> Energy is captured from sunlight via photosynthesis in aquatic algae and falls in as dead leaves, and exits via molecules of CO<span class="math inline">\(_2\)</span> respired by organisms and as organic molecules and particles flowing flowing downstream.</li>
+</ul>
+<p>The ecosystem paradigm connects energy and matter to the evolution and ecology of life. Ecosystem scientists focus on the flow of energy or matter through all parts of the environment, especially as those flows are mediated by living organisms.</p>
+</section>
+<section id="a-simple-budget-provides-one-explanation-for-why-we-have-so-much-carbon-in-the-atmosphere" class="level2" data-number="13.5">
+<h2 data-number="13.5" class="anchored" data-anchor-id="a-simple-budget-provides-one-explanation-for-why-we-have-so-much-carbon-in-the-atmosphere"><span class="header-section-number">13.5</span> A simple budget provides one explanation for why we have so much carbon in the atmosphere</h2>
+<p>Why do we have so much carbon in the atmosphere? One answer to that question comes from simply tallying up the inputs and the outflows. In this sense, it is a lot like our household budget.</p>
+<p>Ecosystem budgets are simple<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>, at least conceptually. An ecosystem budget is just like your household budget or bank account: if more money goes in than goes out, you accumulate money. In contrast, if you spend more money than you bring in, your wealth declines.</p>
+<p>An ecosystem budget simply keeps track of the amount of a chemical element, such as nitrogen or carbon, that, is in a compartment, goes into a compartment, and leaves a compartment, over a specified time interval such as a year. The <strong>size</strong> of a pool or compartment is the amount of an element in that pool.</p>
+<section id="rate-of-change" class="level3" data-number="13.5.1">
+<h3 data-number="13.5.1" class="anchored" data-anchor-id="rate-of-change"><span class="header-section-number">13.5.1</span> Rate of change</h3>
+<p>For a simple ecosystem carbon budget, the <em>rate of change</em> of the size of a pool is the <strong>difference</strong> between the input and the output over a specified time interval,</p>
+<p><span class="math display">\[\Delta~\mathrm{Pool} = \mathrm{Inputs} - \mathrm{Outputs}\]</span></p>
+<p>For instance, consider the carbon budget for Earth’s atmosphere from the 1990’s that we described in lecture. We had these inputs and outputs (units are petagrams, 10<span class="math inline">\(^{15}\)</span> g):</p>
+<ul>
+<li>Inputs to the atmosphere
+<ul>
+<li>diffusion from the ocean (respiration, 91 Pg/y)</li>
+<li>River outgassing (1 Pg/y)</li>
+<li>Fire (4 Pg/y)</li>
+<li>Cement production (0.1 Pg/y)</li>
+<li>Fossil fuel (7.6 Pg/y)</li>
+<li>Land use change (1.5 Pg/y)</li>
+<li>Terrestrial respiration (mostly soil microbes 56 Pg/y)</li>
+</ul></li>
+<li>Outputs from the atmosphere
+<ul>
+<li>diffusion into the ocean (photosynthesis, and carbonic acid formation 92 Pg/y)</li>
+<li>Weathering (0.2 Pg/y)</li>
+<li>Land sink (2.8 Pg/y)</li>
+<li>NPP on land (60 Pg/y)</li>
+</ul></li>
+</ul>
+<p>At the time, the <strong>atmosphere held 762 Pg C</strong> mostly in the forms of carbon dioxide, carbon monoxide, and methane (CO<span class="math inline">\(_2\)</span>, CO, CH<span class="math inline">\(_4\)</span>).</p>
+<p>Given this budget, how much carbon would be in the atmosphere,</p>
+<ul>
+<li>one year later?</li>
+<li>two years later?</li>
+<li>fifty years later?</li>
+</ul>
+<p>To figure this out with a simple budget, we simply start with the pool, add the inputs and subtract the outputs. <span class="math display">\[\mathrm{Atmosphere_{t+1}} = \mathrm{Atmosphere_{t}} + \mathrm{inputs} -  \mathrm{outputs}\]</span></p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># the pool</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>At <span class="ot">&lt;-</span> <span class="dv">762</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="co"># fluxes</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="co"># separate statements with semicolons</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>or <span class="ot">&lt;-</span> <span class="dv">91</span>; ro <span class="ot">&lt;-</span> <span class="dv">1</span>; fi <span class="ot">&lt;-</span> <span class="dv">4</span>; cp <span class="ot">&lt;-</span> <span class="fl">0.1</span>; ff <span class="ot">&lt;-</span> <span class="fl">7.6</span>; lu <span class="ot">&lt;-</span> <span class="fl">1.5</span>; tr <span class="ot">&lt;-</span> <span class="dv">56</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>inputs <span class="ot">&lt;-</span> or <span class="sc">+</span> ro <span class="sc">+</span> fi <span class="sc">+</span> cp <span class="sc">+</span> ff <span class="sc">+</span> lu <span class="sc">+</span> tr</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>npp.o <span class="ot">&lt;-</span> <span class="dv">92</span>; we <span class="ot">&lt;-</span> <span class="fl">0.2</span>; ls <span class="ot">&lt;-</span> <span class="fl">2.8</span>; npp.l <span class="ot">&lt;-</span> <span class="dv">60</span></span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>outputs <span class="ot">&lt;-</span> npp.o <span class="sc">+</span> we <span class="sc">+</span> ls <span class="sc">+</span> npp.l</span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>net.flux <span class="ot">&lt;-</span> inputs <span class="sc">-</span> outputs</span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>net.flux</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 6.2</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>Atp1 <span class="ot">&lt;-</span> At <span class="sc">+</span> net.flux</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>Atp1</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 768.2</code></pre>
+</div>
+</div>
+<p>What about two years later? What about 3 or 25 or 75 years later? If we choose to assume that these rates won’t change, the answer is easy, but only because we are working with a simple budget. We simply add the annual flux for each year, starting at year 0.</p>
+<p><span class="math display">\[\mathrm{Atmosphere_{t}} = \mathrm{Atmosphere_{0}} + \mathrm{net~flux} + \mathrm{net~flux} + \ldots + \mathrm{net~flux}\]</span> That is equivalent to multiplying the annual flux by the number of years, <span class="math inline">\(t\)</span>. <span class="math display">\[\mathrm{Atmosphere_{t}} = \mathrm{Atmosphere_{0}} + \mathrm{net~flux}\cdot t\]</span></p>
+<p>Now it is your turn to do that next for two years and for 25 years.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="do">## write code two years and for 25 years</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="do">## </span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Note that as long as these fluxes remain constant the system will continue to change at this rate. There is no equilibrium or <em>balance of nature</em>.</p>
+</section>
+</section>
+<section id="simple-dynamics-emerge-from-processes-like-diffusion-and-complicate-prediction" class="level2" data-number="13.6">
+<h2 data-number="13.6" class="anchored" data-anchor-id="simple-dynamics-emerge-from-processes-like-diffusion-and-complicate-prediction"><span class="header-section-number">13.6</span> Simple dynamics emerge from processes like diffusion and complicate prediction</h2>
+<p>How does including the physical process of diffusion of alter predictions about future atmospheric carbon? A simple budget is a great starting place, but it ignores a lot of biological and physical reality. Here we add one piece of that reality: diffusion of CO<span class="math inline">\(_2\)</span> between the air and water.</p>
+<p>In the above example, carbon went into the atmosphere at a constant rate and left at a constant rate. What if a flux depends on the amount in the pool? It’s actually very common for a flux to depend on the amount in one or more pools. Here are some examples:</p>
+<ul>
+<li>The flux of water leaving a bathtub depends on the height of water in the bathtub.</li>
+<li>The flux of radiant heat from the body of a basking lizard depends on the temperature (or amount of heat energy) of the lizard.</li>
+<li>Rate of diffusion of CO<span class="math inline">\(2\)</span> into the oceans depends on the concentration in the atmosphere, due to a concentration gradient.</li>
+<li>Rate of carbon capture by plants depends on the amount of vegetation (compare a potted plant in a parking lot to an intact forest).</li>
+</ul>
+<section id="a-first-order-flux" class="level3" data-number="13.6.1">
+<h3 data-number="13.6.1" class="anchored" data-anchor-id="a-first-order-flux"><span class="header-section-number">13.6.1</span> A first order flux</h3>
+<p>A <em>first order</em> flux is one in which each term in the rate equation depends on no more than <em>one</em> pool.</p>
+<p>Imagine we have bathtub that we are filling with water, and that the drain has a leak. Just like with our simple budget above, rate of change in the depth (or height) of the water is <span class="math display">\[\Delta \mathrm{height} = \mathrm{inflow} -\mathrm{outflow}.\]</span></p>
+<div id="fig-ecosys1" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-ecosys1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="figs/bathtub.png" class="img-fluid figure-img" style="width:50.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ecosys1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;13.2: Filling a bathtub with a leaky drain.
+</figcaption>
+</figure>
+</div>
+<p>Complication: while the inflow is fixed by the faucet, the outflow is determined by two things: how big the leak is, and how deep the water is or the height of the water in the tub. The deeper the water, the more pressure there is that pushes the water out faster. We can approximate that as <span class="math display">\[\mathrm{Outflow} = e \cdot \mathrm{height}\]</span> where <span class="math inline">\(e\)</span> is a constant that depends on the size of the leak. As the height decreases, the outflow rate will decrease. With this detail, the rate equation is now, <span class="math display">\[\Delta \mathrm{height} = \mathrm{inflow} -e \cdot \mathrm{height}\]</span> and when the change in the height slows to zero (<span class="math inline">\(\Delta \mathrm{height} = 0\)</span>), that means the depth will stop changing. That happens when, <span class="math display">\[\mathrm{inflow}  = e \cdot \mathrm{height}.\]</span> We can <em>solve for height</em> to figure out what the height will be. Rearranging, we get,</p>
+<p><span class="math display">\[\mathrm{height} = \frac{\mathrm{inflow}}{e}.\]</span> We refer to this height as an equilibrium because it is predicted to not change.</p>
+<p>Let’s see this operate in an ecosystem.</p>
+</section>
+<section id="earths-atmosphere-as-a-first-order-equation" class="level3" data-number="13.6.2">
+<h3 data-number="13.6.2" class="anchored" data-anchor-id="earths-atmosphere-as-a-first-order-equation"><span class="header-section-number">13.6.2</span> Earth’s atmosphere as a first order equation</h3>
+<p>Let’s assume that at first approximation, the diffusion of CO<span class="math inline">\(_2\)</span> from the atmosphere into the ocean is a first order process - that it is <em>proportional to the amount</em> of CO<span class="math inline">\(_2\)</span> in the atmosphere. We can represent that in the differential rate equation <span class="math display">\[\frac{dA}{dt} = I - eA\]</span> where <span class="math inline">\(A\)</span> is the amount of CO<span class="math inline">\(_2\)</span> in the atmosphere, <span class="math inline">\(I\)</span> is a constant flux, and <span class="math inline">\(e\)</span> is the diffusion rate into the ocean.</p>
+<p>Note that <em>all</em> of the uptake by the ocean is via diffusion, because it has to leave the air and move into the water in the process of diffusion. However, most of what moves into the water is captured via photosynthesis, by phytoplankton<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>, coral symbionts<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a>, and kelp. The CO<span class="math inline">\(_2\)</span> that is <em>not</em> captured this way <strong>increases in concentration and acidifies the ocean</strong>, as</p>
+<p><span class="math display">\[\mathrm{CO_2 + H_2O \rightarrow H_2CO_3 \rightleftharpoons HCO_3^- + H^+ }\]</span>.</p>
+<p>If we assume that in the ocean, photosynthesis is balanced by respiration, then we can pretend that the difference leads to ocean acidification. Using data presented above, that means that</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>respiration <span class="ot">&lt;-</span> <span class="dv">91</span> <span class="co"># Pg</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>photosynthesis <span class="ot">&lt;-</span> <span class="dv">91</span> <span class="co"># Pg</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>carbonic_acid <span class="ot">&lt;-</span> <span class="dv">1</span> <span class="co">#Pg</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>We will estimate the approximate value of <span class="math inline">\(e\)</span> using the net carbon flux.</p>
+<p><span class="math display">\[F_{oa} = \mathrm{photosynthesis }\]</span></p>
+<p>If the net flux into the atmosphere were <span class="math inline">\(I=6.2\)</span> Pg C/y, and the current diffusion rate out of the atmosphere is <span class="math inline">\(e=0.008\)</span>/y<a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a>, <strong>what would happen?</strong> What is the predicted equilibrium and how fast would it get there?</p>
+<p>Let’s ask R to show us the dynamics. First, we make an R function with the rate equation.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="do">## simple first order equation.</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="do">## start</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>atmosphere1 <span class="ot">&lt;-</span> <span class="cf">function</span>(t,y,p){</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">with</span>( <span class="fu">as.list</span>(<span class="fu">c</span>(y, p)), {</span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>    <span class="do">## this is the bit to recognize</span></span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>    dA.dt <span class="ot">&lt;-</span> I <span class="sc">-</span> e<span class="sc">*</span>A</span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>    <span class="fu">return</span>(<span class="fu">list</span>( <span class="fu">c</span>(dA.dt), </span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a>                 <span class="do">## convert gigatonnes C to CO2 equivalent mass </span></span>
+<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a>                 <span class="at">CO2_global_mass =</span> A <span class="sc">*</span> (<span class="dv">12</span> <span class="sc">+</span> <span class="dv">2</span><span class="sc">*</span><span class="dv">16</span>)<span class="sc">/</span><span class="dv">12</span>,</span>
+<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a>                 <span class="do">## convert gigatonnes C to CO2 equivalent ppm</span></span>
+<span id="cb11-13"><a href="#cb11-13" aria-hidden="true" tabindex="-1"></a>                 <span class="at">CO2_ppm =</span> A <span class="sc">/</span> <span class="fl">2.13</span></span>
+<span id="cb11-14"><a href="#cb11-14" aria-hidden="true" tabindex="-1"></a>    ) )</span>
+<span id="cb11-15"><a href="#cb11-15" aria-hidden="true" tabindex="-1"></a>  })</span>
+<span id="cb11-16"><a href="#cb11-16" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb11-17"><a href="#cb11-17" aria-hidden="true" tabindex="-1"></a><span class="do">## end</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Next, we tell R what parameters to use, and the initial amount of carbon in the atmosphere at time zero.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Constant influx, and diffusion rate</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>p1 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="at">I=</span><span class="fl">6.2</span>, <span class="at">e=</span><span class="fl">0.008</span>)</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="co"># starting atmospheric carbon pool</span></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>y0 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="at">A=</span><span class="dv">762</span>);</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Next we tell R the time points we want it to show us. Let’s get annual estimates for 1000 years.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># from zero to 100, by steps of one year</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>t <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="at">from=</span><span class="dv">0</span>, <span class="at">to=</span><span class="dv">1000</span>, <span class="at">by=</span><span class="dv">1</span>)</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="co"># integrate the rate equation for all time points, </span></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="co"># starting with y0 at time zero, using our function and parameters.</span></span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>output <span class="ot">&lt;-</span> <span class="fu">ode</span>(<span class="at">y=</span>y0, <span class="at">times=</span>t, <span class="at">func=</span>atmosphere1, <span class="at">parms=</span>p1)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Next we plot the dynamics of the atmospheric carbon. I have hidden the graphic in order to allow you to create it on your own.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Finally, we plot the output.</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>out_df <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(output) </span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>firstorderA <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(out_df, <span class="fu">aes</span>(time, A)) <span class="sc">+</span> <span class="fu">geom_line</span>() <span class="sc">+</span> </span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">y=</span><span class="st">"Atmospheric carbon pool (Pg)"</span>,</span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>       <span class="at">x=</span><span class="st">"Year"</span>) <span class="sc">+</span> </span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>firstorderA</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="20-ecosystem-intro_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="st">"firstOrderAtmosphere.png"</span>, <span class="at">width=</span><span class="dv">5</span>, <span class="at">height=</span><span class="dv">4</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Next, solve the rate equation directly by setting <span class="math inline">\(\frac{dA}{dt} = 0 = I - eA\)</span> and solving for <span class="math inline">\(A^*\)</span>, the equilibrium. <span class="math display">\[A^* = \mathrm{?}\]</span></p>
+<p>What does the above solution tell us should happen if <span class="math inline">\(e\)</span> gets smaller? gets larger?</p>
+</section>
+</section>
+<section id="sec-deliverables1" class="level2" data-number="13.7">
+<h2 data-number="13.7" class="anchored" data-anchor-id="sec-deliverables1"><span class="header-section-number">13.7</span> Deliverables, part 1</h2>
+<p>Two documents:</p>
+<p>The first document is your R script (just the R script - do not save it in any other format).</p>
+<p>The second document should provide the following written responses and quantities you calculated in R:</p>
+<ol type="1">
+<li>Quantities from the simple budget, including units:
+<ol type="a">
+<li>the annual flux</li>
+<li>the size of the pool in years 2 and 25.</li>
+</ol></li>
+<li>Quantities from the simple dynamic model, including units:
+<ol type="a">
+<li>the graph of atmospheric carbon dynamics.</li>
+<li>solution to the dynamic rate equation (i.e.&nbsp;what is <span class="math inline">\(A^*\)</span> predicted to be at equilibrium?). Show your work.</li>
+</ol></li>
+<li>State what the above solution tells us should happen the <span class="math inline">\(A^*\)</span> if <span class="math inline">\(e\)</span> gets smaller and also if it gets larger.</li>
+<li>Compare and contrast the simple budget and the simple dynamic system above, in terms of how they represent a system, and in what they predict about future atmospheric carbon levels.</li>
+<li>Explain what the simple dynamic system would predict about the ocean acidification due to fossil fuel emissions?</li>
+<li>Warmer water holds lower concentrations of gases such as oxygen and carbon dioxide than does colder water. Explain how this might alter predictions about ocean acidification assuming the atmosphere and oceans continue to warm. If you know a little about chemistry, include anything you know about the effect of temperature on the dissociation of acids.</li>
+</ol>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="20-ecosystem-intro_files/figure-html/unnamed-chunk-12-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="linking-two-different-ecosystem-processes-shows-lagged-effects" class="level2" data-number="13.8">
+<h2 data-number="13.8" class="anchored" data-anchor-id="linking-two-different-ecosystem-processes-shows-lagged-effects"><span class="header-section-number">13.8</span> Linking two different ecosystem processes shows lagged effects</h2>
+<div id="fig-blackbody" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-blackbody-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="figs/earth_energy.png" class="img-fluid figure-img" style="width:90.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-blackbody-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;13.3: Earth is approximately a black body absorbing and emitting radiant energy. Straight-ish and curved lines indicate high energy, shortwave radiation. Wiggly lines indicate lower energy infrared radiation emitted from the warmed surface of Earth. Greenhouse gases (not illustrated here), would slow the escape of infrared radiation, by absorbing and re-emitting it.
+</figcaption>
+</figure>
+</div>
+<p>In this section we connect the carbon cycle to an entirely different set of fluxes, those of heat, or radiant <strong>energy</strong>.</p>
+<p>What is the connection between atmospheric CO<span class="math inline">\(_2\)</span> and temperature, and how does that relationship affect our appreciation of Earth’s current and future status? Most of us don’t care much about the amount of CO<span class="math inline">\(_2\)</span> in the atmosphere (per se), but we care <em>a lot</em> about how CO<span class="math inline">\(_2\)</span> and other greenhouse gases trap and re-radiate heat. In this section, we quantify this connection.</p>
+<p>Nearly all of the heating of Earth’s atmosphere occurs when warmed land or ocean surface emits infrared radiation that is then captured by greenhouse gases which then re-radiate this energy. This all starts when our sun radiates energy that travels through space (Fig. <a href="#fig-blackbody" class="quarto-xref">Figure&nbsp;<span>13.3</span></a>) and eventually encounters Earth’s atmosphere. That incoming radiation is high energy short-wave radiation which penetrates and <em>passes through the atmosphere</em>, and hits Earth’s surface. Most of this energy is absorbed, and then re-emitted as long-wave infrared radiation which we can experience as heat. It is this infrared radiation that is trapped by greenhouse gases prior to eventually exiting, back out into space (not shown in Fig. <a href="#fig-blackbody" class="quarto-xref">Figure&nbsp;<span>13.3</span></a>).</p>
+<p>Greenhouse gases re-radiate the heat they absorb. In doing so, they heat up Earth’s surface even more. Because of that, Earth’s surface never has a chance to really cool down, because it is always being re-warmed by the atmosphere that it made warm in the first place. The energy is bouncing back and forth between the atmosphere and the Earth’s surface (land and oceans). It also bounces back and forth between layers of the atmosphere. The energy will <em>eventually</em> find its way back into outer space, but not before it has bounced around a lot.</p>
+<p>The flux of solar radiation (Fig. <a href="#fig-blackbody" class="quarto-xref">Figure&nbsp;<span>13.3</span></a>) coming at Earth is about <span class="math inline">\(\Omega = 1372\)</span> W/m<span class="math inline">\(^2\)</span><a href="#fn5" class="footnote-ref" id="fnref5" role="doc-noteref"><sup>5</sup></a>. However, because Earth is round, that energy get spread out and each square meter would receive only about a fourth of that, or <span class="math inline">\(\Omega/4\)</span>, <em>if</em> it all reached the surface. Thus, the effective incoming flux is <span class="math inline">\(F_{in} = \Omega/4\)</span>.</p>
+<p>Unlike the incoming flux, the outgoing flux comprises two basic types of radiation (Fig. <a href="#fig-blackbody" class="quarto-xref">Figure&nbsp;<span>13.3</span></a>). About 30% the incoming radiation is <em>reflected</em> back out into space, unchanged. It bounces off of clouds and snow and ice, and we refer to this reflectance as <strong>albedo</strong>. Thus, part of the outgoing flux is <span class="math inline">\(F_{out1} = a\cdot1372/4\)</span>, where <span class="math inline">\(a\)</span> is for <em>albedo</em> which is about 0.3.</p>
+<p>The second part of the outgoing flux is the infrared radiation that first bounces around the atmosphere before it makes its way out into the universe (Fig. <a href="#fig-blackbody" class="quarto-xref">Figure&nbsp;<span>13.3</span></a>). The rate rate which that happens is proportional to the Stefan-Boltzmann constant<a href="#fn6" class="footnote-ref" id="fnref6" role="doc-noteref"><sup>6</sup></a>, <span class="math inline">\(\sigma\)</span>, which quantifies radiation emitted from a perfect black body in relation to it’s temperature. Needless to say, we won’t get into <em>why</em> it happens at that rate. What we <em>will</em> say is that the second part of the outgoing energy flux is <span class="math inline">\(F_{out2} = \sigma T^4\)</span>, where <span class="math inline">\(T\)</span> is temperature in degrees Kelvin, and sigma is the Stefan-Boltzmann constant, <span class="math inline">\(\sigma \approx 5.67 \times 10^{-8}\)</span>. Or, at least it would be <em>if we ignored greenhouse gases</em>.</p>
+<p>All together, we might approximate Earth’s energy flux as <span class="math display">\[\Delta E_E = F_{in} - F_{out1} - F_{out2} = \frac{\Omega}{4} - a\frac{\Omega}{4} - \sigma T^4\]</span> if we ignore the effect of greenhouse gases.</p>
+<p>If we want to express temperature at equilibrium in terms of fluxes, we set <span class="math inline">\(\Delta E_E = 0\)</span> and solve for <span class="math inline">\(T\)</span>, <span class="math display">\[F_{in} = F_{out1} + F_{out2}\]</span> and using algebra to rearrange, and we get <span class="math display">\[T^4 = \left(1-a\right)\frac{\Omega}{4\sigma}\]</span> or,</p>
+<p><span class="math display">\[T = \left[ \left(1-a\right)\frac{\Omega}{4\sigma} \right] ^{1/4}\]</span> where <span class="math inline">\(T\)</span> is degrees Kelvin.</p>
+<p>If we calculate the predicted temperature, what would we get? Here is code that can help you answer that.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>Omega <span class="ot">&lt;-</span> <span class="dv">1372</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>sigma <span class="ot">&lt;-</span> <span class="fl">5.67e-8</span></span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>albedo <span class="ot">&lt;-</span> <span class="fl">0.3</span></span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>temp_K <span class="ot">&lt;-</span> ( (<span class="dv">1</span><span class="sc">-</span>albedo) <span class="sc">*</span> Omega<span class="sc">/</span>(<span class="dv">4</span><span class="sc">*</span>sigma) )<span class="sc">^</span>(<span class="dv">1</span><span class="sc">/</span><span class="dv">4</span>)</span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>temp_K</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<section id="adding-greenhouse-heat-trapping-gases" class="level3" data-number="13.8.1">
+<h3 data-number="13.8.1" class="anchored" data-anchor-id="adding-greenhouse-heat-trapping-gases"><span class="header-section-number">13.8.1</span> Adding greenhouse (heat-trapping) gases</h3>
+<p>As we mentioned, the above approximation ignores the effect of greenhouse gases. Thousands of scientists around the world are attempting to model Earth’s energy balance, including the dynamics and effects of greenhouse gases that trap outgoing radiation. That research is well beyond the scope of this class, but we will approximate the relationship.</p>
+<p>We will approximate the effect of greenhouse gases by merely adjusting the Stefan-Boltzmann constant by an amount related to the amount of CO<span class="math inline">\(_2\)</span> in the atmosphere, <span class="math inline">\(A^g\)</span>, where <span class="math inline">\(A\)</span> is the CO<span class="math inline">\(_2\)</span> concentration in parts per million (~420 ppm in 2023), and <span class="math inline">\(g\)</span> is what I call <em>Hank’s greenhouse constant</em>. This gives us <span class="math inline">\(F_{out2} = \sigma A^g T^4\)</span>.</p>
+<p>We can now rewrite the predicted atmospheric temperature as</p>
+<p><span class="math display">\[T = \left[ \left(1-a\right)\frac{\Omega}{4}\frac{A^g}{\sigma} \right] ^{1/4} + \epsilon\]</span> where <span class="math inline">\(\epsilon\)</span> is statistical error or residual.</p>
+<section id="intuition-about-t-fa" class="level4" data-number="13.8.1.1">
+<h4 data-number="13.8.1.1" class="anchored" data-anchor-id="intuition-about-t-fa"><span class="header-section-number">13.8.1.1</span> Intuition about <span class="math inline">\(T = F(A)\)</span></h4>
+<p>Let’s use the above equation to reinforce our understanding of how atmospheric temperature is a function<a href="#fn7" class="footnote-ref" id="fnref7" role="doc-noteref"><sup>7</sup></a> of the amount of carbon compounds in the atmosphere (<span class="math inline">\(T = F(A)\)</span>).</p>
+<p>First, we re-inject meaning into the equation:</p>
+<ul>
+<li><span class="math inline">\((1-a)\)</span>: <strong>fraction</strong> of incoming radiation initially absorbed.</li>
+<li><span class="math inline">\(\Omega/4\)</span>: <strong>incoming radiation</strong>.</li>
+<li><span class="math inline">\(\sigma\)</span>: scales the relationship between radiant energy and temperature as well as the <strong>radiant loss</strong> of heat energy escaping the atmosphere into the universe.</li>
+<li><span class="math inline">\(A\)</span>: <strong>CO<span class="math inline">\(_2\)</span> concentration</strong> in the atmosphere.</li>
+<li><span class="math inline">\(g\)</span>: scaling constant that quantifies the <strong>heat trapping</strong> relation between CO<span class="math inline">\(_2\)</span> in parts per million (ppm) and temperature.</li>
+</ul>
+<p>Re-writing the equation, we have <span class="math display">\[ \mathrm{temp = fraction \times incoming~rad \times} \frac{\mathrm{CO}_2~ \mathrm{heat~trapping}}{\mathrm{radiant~loss}}\]</span></p>
+<p>Hank’s greenhouse constant <span class="math inline">\(g\)</span> is just a statistically-fitted constant to draw a smooth curve through known temperatures that researchers have shown would occur at CO<span class="math inline">\(_2\)</span> concentrations of (0, 280, 450 ppm). These concentrations reflect zero, pre-industrial, and near future CO<span class="math inline">\(_2\)</span> predictions. These concentrations have been shown to result in predicted temperatures 255, 288, and 290 deg K.</p>
+<p>Note that we can represent heat trapping gases in the atmosphere as “CO2-equivalents”, which represent all of the carbon based molecules that help trap heat, especially carbon dioxide (CO2) and methane (CH4). These relate directly to the total amount of carbon in the atmosphere. The total mass of carbon in gigatonnes is about 2.13 times the CO2 concentration in ppm (parts per million). The total mass of carbon dioxide (CO2) in gigatonnes is about 7.82 times the CO2 concentration in ppm (<a href="*https://en.wikipedia.org/wiki/Carbon_dioxide_in_Earth's_atmosphere">source</a> ).</p>
+<p>Hank’s greenhouse constant is related to the <strong>radiative forcing</strong> of greenhouse gases. <a href="https://en.wikipedia.org/wiki/Radiative_forcing" target="_blank">Radiative forcing</a> is the potential for a system to undergo energy change.</p>
+<p>Using the fitted expectation of <span class="math inline">\(g = 0.0849\)</span> gives us the following:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="do">## graphing the curve of temperature vs. CO2</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>g <span class="ot">&lt;-</span> <span class="fl">0.08488</span></span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>Omega <span class="ot">&lt;-</span> <span class="dv">1372</span></span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>sigma <span class="ot">&lt;-</span> <span class="fl">5.67e-8</span></span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>albedo <span class="ot">&lt;-</span> <span class="fl">0.3</span></span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a><span class="co"># function to describe the relationship</span></span>
+<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a>predict.warming <span class="ot">&lt;-</span> </span>
+<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a>  <span class="cf">function</span>(x, g, Omega, sigma, albedo){ </span>
+<span id="cb17-10"><a href="#cb17-10" aria-hidden="true" tabindex="-1"></a>    ((<span class="dv">1</span><span class="sc">-</span>albedo)<span class="sc">*</span>Omega<span class="sc">/</span>(<span class="dv">4</span><span class="sc">*</span>sigma)<span class="sc">*</span>x<span class="sc">^</span>g )<span class="sc">^</span>(<span class="dv">1</span><span class="sc">/</span><span class="dv">4</span>)</span>
+<span id="cb17-11"><a href="#cb17-11" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb17-12"><a href="#cb17-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-13"><a href="#cb17-13" aria-hidden="true" tabindex="-1"></a>base <span class="ot">&lt;-</span> <span class="fu">ggplot</span>() <span class="sc">+</span> <span class="fu">lims</span>(<span class="at">x=</span><span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">500</span>), <span class="at">y=</span><span class="fu">c</span>(<span class="dv">250</span>,<span class="dv">300</span>))</span>
+<span id="cb17-14"><a href="#cb17-14" aria-hidden="true" tabindex="-1"></a>base <span class="sc">+</span> </span>
+<span id="cb17-15"><a href="#cb17-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_function</span>(<span class="at">fun =</span> predict.warming, </span>
+<span id="cb17-16"><a href="#cb17-16" aria-hidden="true" tabindex="-1"></a>                     <span class="at">args =</span> <span class="fu">list</span>(<span class="at">g =</span> g, Omega, sigma, albedo),</span>
+<span id="cb17-17"><a href="#cb17-17" aria-hidden="true" tabindex="-1"></a>                <span class="at">n=</span><span class="dv">5001</span>) <span class="sc">+</span></span>
+<span id="cb17-18"><a href="#cb17-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">annotate</span>(<span class="at">geom=</span><span class="st">"point"</span>, <span class="at">x=</span><span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">280</span>, <span class="dv">450</span>), </span>
+<span id="cb17-19"><a href="#cb17-19" aria-hidden="true" tabindex="-1"></a>           <span class="at">y=</span><span class="fu">c</span>(<span class="dv">250</span>, <span class="dv">288</span>, <span class="dv">290</span>) ) <span class="sc">+</span></span>
+<span id="cb17-20"><a href="#cb17-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb17-21"><a href="#cb17-21" aria-hidden="true" tabindex="-1"></a>    <span class="at">x=</span><span class="st">"Carbon dioxide (ppm)"</span>, </span>
+<span id="cb17-22"><a href="#cb17-22" aria-hidden="true" tabindex="-1"></a>      <span class="at">y=</span><span class="st">"Predicted temperatures"</span>,</span>
+<span id="cb17-23"><a href="#cb17-23" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span> </span>
+<span id="cb17-24"><a href="#cb17-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div id="fig-g" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-g-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="20-ecosystem-intro_files/figure-html/fig-g-1.png" class="img-fluid figure-img" width="672">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-g-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;13.4: Temperatures predicted from first principles and using Hank’s greenhouse constant, <span class="math inline">\(g\)</span>, which adjusts for observed and predicted temperatures, based on actual CO2 and temperature data and extremely complex and well-tested models used in IPCC reports.
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="why-is-all-this-math-important" class="level3" data-number="13.8.2">
+<h3 data-number="13.8.2" class="anchored" data-anchor-id="why-is-all-this-math-important"><span class="header-section-number">13.8.2</span> Why is all this math important?</h3>
+<p>All this math is important for several reasons.</p>
+<p><strong>First</strong>, we want to estimate both the expected temperatures now, and also what the temperature <em>would become even if we stop emitting any greenhouse gases today</em>.</p>
+<p><strong>Second</strong>, we all need practice understanding quantitative approximations. Also known as “back of the envelope calculations”, these rough estimates give us approximate information about our world so that we can make timely decisions. We cannot wait for answers with ten sig-figs of precision. Here are some important questions to which there is no single answer, but for which approximations can help:</p>
+<ul>
+<li>What is my relative risk of dying if I drive 500 miles to my wife’s house vs.&nbsp;if I flew?</li>
+<li>What is the probability that this stranger I am with will give me a disease?</li>
+<li>If I add $25 dollars to my IRA every month, what would that be worth in 20 years?</li>
+<li>If the planet warms by 2 deg C, how big of a change is that, relative to its usual temperature?</li>
+<li>If I get a positive HIV test result, what is the probability that I am actually infected with HIV?</li>
+</ul>
+<p>We live better lives when we are comfortable with good quantitative approximations.</p>
+<p><strong>Third</strong>, and finally, it’s just nerdy-fun to realize that this is really how the planet works!</p>
+</section>
+<section id="expected-temperatures-now-and-also-what-the-temperature-would-become" class="level3" data-number="13.8.3">
+<h3 data-number="13.8.3" class="anchored" data-anchor-id="expected-temperatures-now-and-also-what-the-temperature-would-become"><span class="header-section-number">13.8.3</span> Expected temperatures now, and also what the temperature would become</h3>
+<p>One important reason that we are creating rate equations is because <em>what we observe now is not what we will get in the future</em>. Solving rate equations over time shows us change through time, not just the end result.</p>
+<p>Because the amount of atmospheric CO<span class="math inline">\(_2\)</span> is constantly increasing, <strong>the temperature has never caught up to what it would become</strong> if CO<span class="math inline">\(_2\)</span> weren’t steadily increasing.</p>
+<p>Here is an analogy. You put a pot of cold water on the stove. You turn the burner to “high” and the gas ignites or the coils start to glow red. The burner is emitting heat, but the water is not yet boiling. In this analogy, the water is the atmosphere and the burner is the increasing greenhouse gases. The temperature difference between the burner and the water is the <strong>radiative forcing</strong>. On Earth, the greenhouse gases are accumulating and trapping lots of heat energy, but <strong>Earth has not yet warmed up as much as it would given the current levels of greenhouse gases</strong>.</p>
+<p>So, now we know there is a lag or delay between greenhouse gas concentrations and atmsopheric temperatures. What we DON’T know is how <em>big</em> is this lag between CO<span class="math inline">\(_2\)</span> concentration and temperature actually is. Is the lag only a day, or year, or is it longer, like a decade or a century? Quantifying the <em>importance</em> of the lag is the kind of thing that only a quantitative model can tell us.</p>
+</section>
+</section>
+<section id="simulations-in-silico-experiments" class="level2" data-number="13.9">
+<h2 data-number="13.9" class="anchored" data-anchor-id="simulations-in-silico-experiments"><span class="header-section-number">13.9</span> Simulations: <em>in silico</em> experiments</h2>
+<p>In order to explore these connections between greenhouse gases and global temperatures, and the lag between them, we will do several simulations to examine the consequences of our assumptions. In each case, we will track atmospheric carbon concentration and temperature to 2100. This interval of less than 80 years is likely to be about the life span of you, or your children if you have any, or your young nieces and nephews.</p>
+<ol type="1">
+<li>Business as usual anthropogenic carbon emissions.</li>
+<li>Keep atmospheric CO2 at the 2023 level by reducing anthropogenic inputs to <span class="math inline">\(I=0.5\)</span>.</li>
+<li>Reduce anthropogenic carbon emissions to 1980 levels (338 ppm) by reducing anthropogenic inputs to <span class="math inline">\(I=0.357\)</span>.</li>
+</ol>
+<p>For each simulation, you will run the simulation, make a graph of its outputs, and extract certain data from the output data sets, specifically,</p>
+<ul>
+<li>atmospheric CO2 concentration at the start and end of your simulation.</li>
+<li>modeled “observed” or contemporaneous temperature (deg C) at the start and end of your simulation.</li>
+<li>equilibrium temperature (deg C) at the start and end of your simulation.</li>
+<li>calculated difference between the contemporaneous and equilibrium temperatures at the start and end of your simulation.</li>
+</ul>
+<p><strong>Remember</strong> that the <em>equilibrium temperature</em> is the temperature to which the atmosphere will eventually rise if kept at a particular CO2 concentration. In contrast the modeled “observed” or <em>contemporaneous temperature</em> is the temperature that we are predicted to experience at any moment in time, given the changing CO2 concentrations and background uptake rates.</p>
+<hr>
+<p>To do these simulations, we need a set of rate equations that incorporate everything we have covered above. Here they are, in one R function. Copy and paste this into your R script, and run it so that R creates this function in its working memory.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>Earth1 <span class="ot">&lt;-</span> <span class="cf">function</span>(t,y,p){</span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">with</span>( <span class="fu">as.list</span>(<span class="fu">c</span>(y, p)), {</span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>    <span class="do">## hypothesized relation of carbon inputs and outputs for </span></span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>    <span class="do">## the atmosphere</span></span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>    <span class="do">## constant input I, diffusion loss out eA</span></span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a>    <span class="do">## CO2 rate equation, units CO2 / year</span></span>
+<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a>    dA.dt <span class="ot">&lt;-</span> I <span class="sc">+</span> (<span class="dv">1</span><span class="sc">-</span>A<span class="sc">/</span><span class="dv">280</span>)</span>
+<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a>    <span class="do">## incoming radiant energy</span></span>
+<span id="cb18-10"><a href="#cb18-10" aria-hidden="true" tabindex="-1"></a>    F.in <span class="ot">&lt;-</span> Omega<span class="sc">/</span><span class="dv">4</span> </span>
+<span id="cb18-11"><a href="#cb18-11" aria-hidden="true" tabindex="-1"></a>    <span class="do">## outgoing radiant energy</span></span>
+<span id="cb18-12"><a href="#cb18-12" aria-hidden="true" tabindex="-1"></a>    F.out <span class="ot">&lt;-</span> a<span class="sc">*</span>Omega<span class="sc">/</span><span class="dv">4</span> <span class="sc">+</span> (sigma<span class="sc">/</span>A<span class="sc">^</span>g)<span class="sc">*</span>K<span class="sc">^</span><span class="dv">4</span></span>
+<span id="cb18-13"><a href="#cb18-13" aria-hidden="true" tabindex="-1"></a>    <span class="do">## heat energy rate equation</span></span>
+<span id="cb18-14"><a href="#cb18-14" aria-hidden="true" tabindex="-1"></a>    dK.dt <span class="ot">&lt;-</span> (F.in <span class="sc">-</span> F.out)<span class="sc">/</span>lag</span>
+<span id="cb18-15"><a href="#cb18-15" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb18-16"><a href="#cb18-16" aria-hidden="true" tabindex="-1"></a>    <span class="do">## What the temperature WOULD be, </span></span>
+<span id="cb18-17"><a href="#cb18-17" aria-hidden="true" tabindex="-1"></a>    <span class="do">## without a lag </span></span>
+<span id="cb18-18"><a href="#cb18-18" aria-hidden="true" tabindex="-1"></a>    Equilibrium_K <span class="ot">=</span> ( (<span class="dv">1</span><span class="sc">-</span>a) <span class="sc">*</span> Omega <span class="sc">/</span> (<span class="dv">4</span><span class="sc">*</span>(sigma)) <span class="sc">*</span> A<span class="sc">^</span>g )<span class="sc">^</span>(<span class="dv">1</span><span class="sc">/</span><span class="dv">4</span>)</span>
+<span id="cb18-19"><a href="#cb18-19" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb18-20"><a href="#cb18-20" aria-hidden="true" tabindex="-1"></a>    <span class="do">### Have R return these results to us</span></span>
+<span id="cb18-21"><a href="#cb18-21" aria-hidden="true" tabindex="-1"></a>    <span class="fu">return</span>(<span class="fu">list</span>( <span class="fu">c</span>(dA.dt, dK.dt) , </span>
+<span id="cb18-22"><a href="#cb18-22" aria-hidden="true" tabindex="-1"></a>                 <span class="at">K_eq =</span> Equilibrium_K</span>
+<span id="cb18-23"><a href="#cb18-23" aria-hidden="true" tabindex="-1"></a>    ) )</span>
+<span id="cb18-24"><a href="#cb18-24" aria-hidden="true" tabindex="-1"></a>  })</span>
+<span id="cb18-25"><a href="#cb18-25" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>For all our simulations, we’ll simulate the years from 2023 to 2100. We will consider 2023 to be time zero (<span class="math inline">\(t=0\)</span>), and project every week until 2100 (<span class="math inline">\(t=77\)</span>).</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>t <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">77</span>, <span class="dv">1</span><span class="sc">/</span><span class="dv">52</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Next, we specify initial state of the system, including carbon concentration and temperature.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>y0 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="at">A=</span><span class="dv">420</span>, <span class="co"># CO2 equivalents in ppm in 2023</span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>        <span class="at">K=</span><span class="dv">289</span> <span class="co"># degrees Kelvin in 2023</span></span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>        )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Finally, and as always, make sure that you have loaded functions we will need, as you did for the beginning of this chapter.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse) <span class="co"># data wrangling and graphics</span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(deSolve) <span class="co"># for numerical integration of ODE models</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<section id="experiment-1-business-as-usual" class="level3" data-number="13.9.1">
+<h3 data-number="13.9.1" class="anchored" data-anchor-id="experiment-1-business-as-usual"><span class="header-section-number">13.9.1</span> Experiment 1: Business as usual</h3>
+<p>Here we simulate some of the situations we discussed above. First, let’s assume <em>business as usual</em>, that our net greenhouse emissions continue as they have been. Those emissions result in a net increase of about 2.1 ppm (<span class="math inline">\(I=2.1\)</span>). We specify particular constants or <em>parameters</em> for our equations. We create a vector of those here.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>parameters1 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="at">Omega =</span> <span class="dv">1372</span>, <span class="co"># incoming solar radiative forcing</span></span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>       <span class="at">a=</span><span class="fl">0.3</span>, <span class="co"># albedo</span></span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>       <span class="at">sigma =</span> <span class="fl">5.67e-8</span>, <span class="co"># Stefan-Boltzmann constant for radiative loss</span></span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>       <span class="at">g =</span> <span class="fl">0.08488</span>, <span class="co"># greenhouse constant</span></span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a>       <span class="at">I =</span> <span class="fl">2.1</span>, <span class="co"># increase in CO2 ppm per year</span></span>
+<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a>       <span class="at">lag =</span> <span class="dv">50</span> <span class="co"># lag time to partial temp equilibration</span></span>
+<span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Next we project the dynamics of atmospheric carbon and temperature, starting at a particular concentration and temperature (<code>y0</code>), for particular times in the future (<code>t</code>), using our system of equations (<code>Earth</code>), and particular values of each parameter (<code>parameters1</code>, including <code>I=2.1</code>).</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>output1 <span class="ot">&lt;-</span> <span class="fu">ode</span>(<span class="at">y=</span>y0, </span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>               <span class="at">times=</span>t, </span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>               <span class="at">func=</span>Earth1, </span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>               <span class="at">parms=</span>parameters1)</span>
+<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(output1)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>           time        A        K     K_eq
+[1,] 0.00000000 420.0000 289.0000 289.9797
+[2,] 0.01923077 420.0308 289.0012 289.9802
+[3,] 0.03846154 420.0615 289.0025 289.9806
+[4,] 0.05769231 420.0923 289.0037 289.9811
+[5,] 0.07692308 420.1231 289.0050 289.9815
+[6,] 0.09615385 420.1538 289.0062 289.9820</code></pre>
+</div>
+</div>
+<p>The first six lines of data show us daily predicted changes in atmospheric carbon (A), temperature (K), and what the temperature would be at equilibrium *if the temperature could catch up to the increasing CO2 concentrations (K_eq).</p>
+<p><strong>What is the equilibrium temperature for 2023, and how much higher is it compared to the current temperature?</strong></p>
+<p>Here are the last six lines of the data set, leading up to the year 2100.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tail</span>(output1)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>            time        A        K     K_eq
+[4000,] 76.90385 527.5948 291.1446 291.3865
+[4001,] 76.92308 527.6182 291.1449 291.3868
+[4002,] 76.94231 527.6416 291.1452 291.3871
+[4003,] 76.96154 527.6649 291.1455 291.3874
+[4004,] 76.98077 527.6883 291.1459 291.3876
+[4005,] 77.00000 527.7117 291.1462 291.3879</code></pre>
+</div>
+</div>
+<p><strong>Based on these data, what is the equilibrium temperature for 2100, and how much higher is it compared to theobserved temperature predicted for 2100?</strong></p>
+<p>Use this code to make a graph of this output.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>p1<span class="fl">.1</span> <span class="ot">&lt;-</span> output1 <span class="sc">%&gt;%</span> <span class="fu">as.data.frame</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">Year =</span> time <span class="sc">+</span> <span class="dv">2023</span></span>
+<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span></span>
+<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x=</span>Year, <span class="at">y=</span>A)) <span class="sc">+</span> </span>
+<span id="cb27-6"><a href="#cb27-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>() <span class="sc">+</span> <span class="fu">labs</span>(<span class="at">y=</span><span class="st">"Atmospheric CO2 (ppm)"</span>) <span class="sc">+</span></span>
+<span id="cb27-7"><a href="#cb27-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span>
+<span id="cb27-8"><a href="#cb27-8" aria-hidden="true" tabindex="-1"></a>p1<span class="fl">.1</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="20-ecosystem-intro_files/figure-html/unnamed-chunk-21-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="st">"Exp1_CO2.png"</span>, <span class="at">plot=</span>p1<span class="fl">.1</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Saving 7 x 5 in image</code></pre>
+</div>
+</div>
+<p>Now make a graph of temperatures.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>out.long1 <span class="ot">&lt;-</span> output1 <span class="sc">%&gt;%</span> <span class="fu">as.data.frame</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(time, K, K_eq) <span class="sc">%&gt;%</span></span>
+<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">transmute</span>(</span>
+<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">Year =</span> time <span class="sc">+</span> <span class="dv">2023</span>,</span>
+<span id="cb30-5"><a href="#cb30-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">degC =</span> K <span class="sc">-</span><span class="dv">273</span>,</span>
+<span id="cb30-6"><a href="#cb30-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">degC_eq =</span> K_eq <span class="sc">-</span><span class="dv">273</span></span>
+<span id="cb30-7"><a href="#cb30-7" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span></span>
+<span id="cb30-8"><a href="#cb30-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="at">cols=</span><span class="sc">-</span>Year, <span class="at">names_to =</span> <span class="st">"State_variable"</span>, </span>
+<span id="cb30-9"><a href="#cb30-9" aria-hidden="true" tabindex="-1"></a>               <span class="at">values_to=</span><span class="st">"Value"</span>)</span>
+<span id="cb30-10"><a href="#cb30-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-11"><a href="#cb30-11" aria-hidden="true" tabindex="-1"></a>p2<span class="fl">.1</span> <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(out.long1, <span class="fu">aes</span>(<span class="at">x=</span>Year, <span class="at">y=</span>Value, <span class="at">color=</span>State_variable)) <span class="sc">+</span> </span>
+<span id="cb30-12"><a href="#cb30-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>() <span class="sc">+</span> </span>
+<span id="cb30-13"><a href="#cb30-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">y=</span><span class="st">"Degrees Celcius"</span>)  <span class="sc">+</span></span>
+<span id="cb30-14"><a href="#cb30-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span>
+<span id="cb30-15"><a href="#cb30-15" aria-hidden="true" tabindex="-1"></a>p2<span class="fl">.1</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="20-ecosystem-intro_files/figure-html/unnamed-chunk-22-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="st">"Exp1_temps.png"</span>, <span class="at">plot=</span>p2<span class="fl">.1</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Saving 7 x 5 in image</code></pre>
+</div>
+</div>
+<p>If you want to put two graphs together, I recommend you install the <code>patchwork</code> package, and then load it.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="co"># eval: false</span></span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a><span class="co"># uncomment and run</span></span>
+<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a><span class="co"># install.package("patchwork", dep=TRUE)</span></span>
+<span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-5"><a href="#cb33-5" aria-hidden="true" tabindex="-1"></a><span class="co"># after installation, load it:</span></span>
+<span id="cb33-6"><a href="#cb33-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(patchwork)</span>
+<span id="cb33-7"><a href="#cb33-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-8"><a href="#cb33-8" aria-hidden="true" tabindex="-1"></a><span class="co"># use it.</span></span>
+<span id="cb33-9"><a href="#cb33-9" aria-hidden="true" tabindex="-1"></a><span class="co"># try</span></span>
+<span id="cb33-10"><a href="#cb33-10" aria-hidden="true" tabindex="-1"></a>p2<span class="fl">.1</span> <span class="sc">/</span> p1<span class="fl">.1</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="20-ecosystem-intro_files/figure-html/unnamed-chunk-23-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="co"># or </span></span>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>p1<span class="fl">.1</span> <span class="sc">+</span> p2<span class="fl">.1</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="20-ecosystem-intro_files/figure-html/unnamed-chunk-23-2.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="st">"Exp1_CO2andK.png"</span>, <span class="at">height=</span><span class="dv">4</span>, <span class="at">width=</span><span class="dv">8</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="experiment-2-keep-co2-at-2023-levels-420-ppm" class="level3" data-number="13.9.2">
+<h3 data-number="13.9.2" class="anchored" data-anchor-id="experiment-2-keep-co2-at-2023-levels-420-ppm"><span class="header-section-number">13.9.2</span> Experiment 2: Keep CO2 at 2023 levels (420 ppm)</h3>
+<p>Here we make one change: <span class="math inline">\(I=0.5\)</span> in the parameters so that we keep CO2 at 420 ppm.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>parameters2 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="at">Omega =</span> <span class="dv">1372</span>, <span class="co"># incoming solar radiative forcing</span></span>
+<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a>       <span class="at">a=</span><span class="fl">0.3</span>, <span class="co"># albedo</span></span>
+<span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a>       <span class="at">sigma =</span> <span class="fl">5.67e-8</span>, <span class="co"># Stefan-Boltzmann constant for radiative loss</span></span>
+<span id="cb36-4"><a href="#cb36-4" aria-hidden="true" tabindex="-1"></a>       <span class="at">g =</span> <span class="fl">0.08492</span>, <span class="co"># greenhouse constant</span></span>
+<span id="cb36-5"><a href="#cb36-5" aria-hidden="true" tabindex="-1"></a>       <span class="at">I =</span> <span class="fl">0.5</span>, <span class="co"># increase in CO2 ppm per year</span></span>
+<span id="cb36-6"><a href="#cb36-6" aria-hidden="true" tabindex="-1"></a>       <span class="at">lag =</span> <span class="dv">50</span> <span class="co"># lag time to partial temp equilibration</span></span>
+<span id="cb36-7"><a href="#cb36-7" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Rerun the model, keeping everything else the same.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a>output2 <span class="ot">&lt;-</span> <span class="fu">ode</span>(<span class="at">y=</span>y0, <span class="at">times=</span>t, <span class="at">func=</span>Earth1, <span class="at">parms=</span>parameters2)</span>
+<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a><span class="fu">tail</span>(output2)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>            time   A        K     K_eq
+[4000,] 76.90385 420 289.9911 289.9972
+[4001,] 76.92308 420 289.9911 289.9972
+[4002,] 76.94231 420 289.9911 289.9972
+[4003,] 76.96154 420 289.9911 289.9972
+[4004,] 76.98077 420 289.9911 289.9972
+[4005,] 77.00000 420 289.9911 289.9972</code></pre>
+</div>
+</div>
+<p>Use this code to make a graph of this output.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a>p1<span class="fl">.2</span> <span class="ot">&lt;-</span> output2 <span class="sc">%&gt;%</span> <span class="fu">as.data.frame</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">Year =</span> time <span class="sc">+</span> <span class="dv">2023</span></span>
+<span id="cb39-4"><a href="#cb39-4" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span></span>
+<span id="cb39-5"><a href="#cb39-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x=</span>Year, <span class="at">y=</span>A)) <span class="sc">+</span> </span>
+<span id="cb39-6"><a href="#cb39-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>() <span class="sc">+</span> <span class="fu">labs</span>(<span class="at">y=</span><span class="st">"Atmospheric CO2 (ppm)"</span>) <span class="sc">+</span></span>
+<span id="cb39-7"><a href="#cb39-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span>
+<span id="cb39-8"><a href="#cb39-8" aria-hidden="true" tabindex="-1"></a>p1<span class="fl">.2</span></span>
+<span id="cb39-9"><a href="#cb39-9" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="st">"Exp2_CO2.png"</span>, <span class="at">plot=</span>p1<span class="fl">.2</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Now make a graph of temperatures.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a>out.long2 <span class="ot">&lt;-</span> output2 <span class="sc">%&gt;%</span> <span class="fu">as.data.frame</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(time, K, K_eq) <span class="sc">%&gt;%</span></span>
+<span id="cb40-3"><a href="#cb40-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">transmute</span>(</span>
+<span id="cb40-4"><a href="#cb40-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">Year =</span> time <span class="sc">+</span> <span class="dv">2023</span>,</span>
+<span id="cb40-5"><a href="#cb40-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">degC =</span> K <span class="sc">-</span><span class="dv">273</span>,</span>
+<span id="cb40-6"><a href="#cb40-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">degC_eq =</span> K_eq <span class="sc">-</span><span class="dv">273</span></span>
+<span id="cb40-7"><a href="#cb40-7" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span></span>
+<span id="cb40-8"><a href="#cb40-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="at">cols=</span><span class="sc">-</span>Year, <span class="at">names_to =</span> <span class="st">"State_variable"</span>, </span>
+<span id="cb40-9"><a href="#cb40-9" aria-hidden="true" tabindex="-1"></a>               <span class="at">values_to=</span><span class="st">"Value"</span>)</span>
+<span id="cb40-10"><a href="#cb40-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-11"><a href="#cb40-11" aria-hidden="true" tabindex="-1"></a>p2<span class="fl">.2</span> <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(out.long2, <span class="fu">aes</span>(<span class="at">x=</span>Year, <span class="at">y=</span>Value, <span class="at">color=</span>State_variable)) <span class="sc">+</span> </span>
+<span id="cb40-12"><a href="#cb40-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>() <span class="sc">+</span> </span>
+<span id="cb40-13"><a href="#cb40-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">y=</span><span class="st">"Degrees Celcius"</span>)  <span class="sc">+</span></span>
+<span id="cb40-14"><a href="#cb40-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span>
+<span id="cb40-15"><a href="#cb40-15" aria-hidden="true" tabindex="-1"></a>p2<span class="fl">.2</span></span>
+<span id="cb40-16"><a href="#cb40-16" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="st">"Exp2_temps.png"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="experiment-3-reduce-co2-to-1980-levels-338-ppm" class="level3" data-number="13.9.3">
+<h3 data-number="13.9.3" class="anchored" data-anchor-id="experiment-3-reduce-co2-to-1980-levels-338-ppm"><span class="header-section-number">13.9.3</span> Experiment 3: Reduce CO2 to 1980 levels (338 ppm)</h3>
+<p>Here we make one change: <span class="math inline">\(I=0.357\)</span> in the parameters so that we begin to drive atmospheric CO2 concentration down toward 1980 levels (338 ppm).</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb41"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a>parameters3 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="at">Omega =</span> <span class="dv">1372</span>, <span class="co"># incoming solar radiative forcing</span></span>
+<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a>       <span class="at">a=</span><span class="fl">0.3</span>, <span class="co"># albedo</span></span>
+<span id="cb41-3"><a href="#cb41-3" aria-hidden="true" tabindex="-1"></a>       <span class="at">sigma =</span> <span class="fl">5.67e-8</span>, <span class="co"># Stefan-Boltzmann constant for radiative loss</span></span>
+<span id="cb41-4"><a href="#cb41-4" aria-hidden="true" tabindex="-1"></a>       <span class="at">g =</span> <span class="fl">0.08492</span>, <span class="co"># greenhouse constant</span></span>
+<span id="cb41-5"><a href="#cb41-5" aria-hidden="true" tabindex="-1"></a>       <span class="at">I =</span> <span class="fl">0.357</span>, <span class="co"># increase in CO2 ppm per year</span></span>
+<span id="cb41-6"><a href="#cb41-6" aria-hidden="true" tabindex="-1"></a>       <span class="at">lag =</span> <span class="dv">50</span> <span class="co"># lag time to partial temp equilibration</span></span>
+<span id="cb41-7"><a href="#cb41-7" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Rerun the model, keeping everything else the same.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb42"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a>output3 <span class="ot">&lt;-</span> <span class="fu">ode</span>(<span class="at">y=</span>y0, <span class="at">times=</span>t, <span class="at">func=</span>Earth1, <span class="at">parms=</span>parameters3)</span>
+<span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a><span class="fu">tail</span>(output3)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>            time        A        K     K_eq
+[4000,] 76.90385 410.3837 289.8742 289.8547
+[4001,] 76.92308 410.3816 289.8742 289.8546
+[4002,] 76.94231 410.3795 289.8742 289.8546
+[4003,] 76.96154 410.3774 289.8741 289.8546
+[4004,] 76.98077 410.3754 289.8741 289.8545
+[4005,] 77.00000 410.3733 289.8741 289.8545</code></pre>
+</div>
+</div>
+<p>Use this code to make a graph of this output.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb44"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a>p1<span class="fl">.3</span> <span class="ot">&lt;-</span> output3 <span class="sc">%&gt;%</span> <span class="fu">as.data.frame</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb44-3"><a href="#cb44-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">Year =</span> time <span class="sc">+</span> <span class="dv">2023</span></span>
+<span id="cb44-4"><a href="#cb44-4" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span></span>
+<span id="cb44-5"><a href="#cb44-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x=</span>Year, <span class="at">y=</span>A)) <span class="sc">+</span> </span>
+<span id="cb44-6"><a href="#cb44-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>() <span class="sc">+</span> <span class="fu">labs</span>(<span class="at">y=</span><span class="st">"Atmospheric CO2 (ppm)"</span>) <span class="sc">+</span></span>
+<span id="cb44-7"><a href="#cb44-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span>
+<span id="cb44-8"><a href="#cb44-8" aria-hidden="true" tabindex="-1"></a>p1<span class="fl">.3</span></span>
+<span id="cb44-9"><a href="#cb44-9" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="st">"Exp3_CO2.png"</span>, <span class="at">plot=</span>p1<span class="fl">.3</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Now make a graph of temperatures.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb45"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a>out.long3 <span class="ot">&lt;-</span> output3 <span class="sc">%&gt;%</span> <span class="fu">as.data.frame</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb45-2"><a href="#cb45-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(time, K, K_eq) <span class="sc">%&gt;%</span></span>
+<span id="cb45-3"><a href="#cb45-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">transmute</span>(</span>
+<span id="cb45-4"><a href="#cb45-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">Year =</span> time <span class="sc">+</span> <span class="dv">2023</span>,</span>
+<span id="cb45-5"><a href="#cb45-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">degC =</span> K <span class="sc">-</span><span class="dv">273</span>,</span>
+<span id="cb45-6"><a href="#cb45-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">degC_eq =</span> K_eq <span class="sc">-</span><span class="dv">273</span></span>
+<span id="cb45-7"><a href="#cb45-7" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span></span>
+<span id="cb45-8"><a href="#cb45-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="at">cols=</span><span class="sc">-</span>Year, <span class="at">names_to =</span> <span class="st">"State_variable"</span>, </span>
+<span id="cb45-9"><a href="#cb45-9" aria-hidden="true" tabindex="-1"></a>               <span class="at">values_to=</span><span class="st">"Value"</span>)</span>
+<span id="cb45-10"><a href="#cb45-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-11"><a href="#cb45-11" aria-hidden="true" tabindex="-1"></a>p2<span class="fl">.3</span> <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(out.long3, <span class="fu">aes</span>(<span class="at">x=</span>Year, <span class="at">y=</span>Value, <span class="at">color=</span>State_variable)) <span class="sc">+</span> </span>
+<span id="cb45-12"><a href="#cb45-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>() <span class="sc">+</span> </span>
+<span id="cb45-13"><a href="#cb45-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">y=</span><span class="st">"Degrees Celcius"</span>)  <span class="sc">+</span></span>
+<span id="cb45-14"><a href="#cb45-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span>
+<span id="cb45-15"><a href="#cb45-15" aria-hidden="true" tabindex="-1"></a>p2<span class="fl">.3</span></span>
+<span id="cb45-16"><a href="#cb45-16" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="st">"Exp3_temps.png"</span>, <span class="at">plot=</span>p2<span class="fl">.3</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+</section>
+<section id="sec-deliverables2" class="level2" data-number="13.10">
+<h2 data-number="13.10" class="anchored" data-anchor-id="sec-deliverables2"><span class="header-section-number">13.10</span> Deliverables, part 2</h2>
+<p>Include two documents; the first is your R script.</p>
+<p>In the second document, provide results for each experiment (1-3). For each experiment include a graph of CO2 concentration and a graph of observed and equilibrium temperatures, as well as these data:</p>
+<ul>
+<li><span class="math inline">\(A\)</span>, atmospheric CO2 concentration at the start and end of your simulation.</li>
+<li><span class="math inline">\(K\)</span>, modeled “observed” or contemporaneous temperature (deg C) at the start and end of your simulation.</li>
+<li><span class="math inline">\(K_eq\)</span>, equilibrium temperature (deg C) at the start and end of your simulation.</li>
+<li><span class="math inline">\(K_eq-K\)</span>, calculated difference between the contemporaneous and equilibrium temperatures at the start and end of your simulation.</li>
+</ul>
+<p>At the end, use your data and figures to <strong>tell the story</strong> of how our activities alter the planet. Be sure to mention how we have not yet experience the consequences of greenhouse gases that we have already produced.</p>
+<p>In sum, your one document should include results of three experiments and then a short narrative or story explaining what your simulations show.</p>
+
+
+</section>
+<section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn1"><p>A <em>zeroth order</em> flux is one in which the rate depends on the amounts in zero pools - it doesn’t depend on pools.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>floating single-celled algae<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn3"><p>dinoflagellates <em>Symbiodinium</em><a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn4"><p>Units for e are Pg C lost per Pg C in the atmosphere per y; the Pg/Pg cancels out, leaves “per year” or 1/y.<a href="#fnref4" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn5"><p>a watt is a energy per second, technically one Joule per second, J/s<a href="#fnref5" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn6"><p>This constant derives from Plank’s constant, the speed of light in a vacuum, Boltzmann’s constant relating temperature to kinetic energy, and of course, <span class="math inline">\(\pi\)</span>, the ratio of the diameter of a circle to its circumference. Well, of course it does….<a href="#fnref6" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn7"><p>We can represent any function with ‘F()’, so “some function of X” could be written as F(X).<a href="#fnref7" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./13-diversity.html" class="pagination-link" aria-label="Determinants of local butterfly species diversity">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Determinants of local butterfly species diversity</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./references.html" class="pagination-link" aria-label="References">
+        <span class="nav-page-text">References</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
