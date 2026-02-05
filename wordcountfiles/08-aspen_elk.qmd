@@ -1,0 +1,23 @@
+---
+title: "Are Mega-Fires and Browsing by Elk Contributing to the Decline of Quaking Aspen Populations?"
+---
+
+## Goals
+
+* Watch this video lecture: 
+* Data are from this article: [Smith et al. (2016)](https://drive.google.com/drive/folders/1opLlrmF7kfo0FtWwwJ1CbfPWIyuaISC1?usp=share_link){target="_blank"}
+
+## Background
+
+Quaking aspen (*Populus tremuloides*) is one of the most widespread tree species in North America. Although quaking aspen has been a key component of forest ecosystems for more than ten thousand years, it is currently in decline across broad portions of its range.
+
+Historically, aspen recruitment (i.e., new seedlings and saplings) has been favored by the occurrence of low intensity fires, which create openings in forest canopies that allow young aspens to grow and eventually reproduce. In recent decades, however, the number of fires per year and the area burned per fire have increased - a lot. These increases in the frequency and magnitude of fires are caused by the hotter droughts that have resulted from (i) previous fire suppression policies, and (ii) human-caused climate change. Some recent fires have destroyed more than 100,000 acres (400 km$^2$) of forest; such fires are referred to as "mega-fires."
+
+Monica Turner and her colleagues investigated forest responses to the 1988 megafires of Yellowstone National Park [adjacent figure, @turner:2003a]. Their research provided greater insights into how climate is the primary driver of megafires, how fires create greater spatial heterogeneity in the landscape, and how they alter many aspects of forest ecology and evolution. For instance, they found that quaking aspen were far more able to reproduce from its wind-dispersed seeds than was previously understood, allowing aspen to recruit into large areas opened up by the fires. They also found that browsing by elk had large negative effects on aspen recruitment, and the intensity of this browsing depended on the amount of burned and fallen trees that made it difficult for elk to move through some previously burned areas (see adjacent figure).
+
+Forests near the Bandelier National Monument and the Santa Fe National Forest in Northern New Mexico have experienced three major fires since 1996. The second of these, the Cerro Grande fire (2000), burned the vast majority of the high elevation forests in this area. @smith2016a conducted experiments to evaluate the combined effects of a mega-fire and browsing by elk (Cervus elaphus) as factors that may be affecting the decline of quaking aspen. Historically, elk were a minor component of these ecosystems, but they have increased a great deal over the past 100 years [@smith2016a].
+Smith et al. were interested in elk because browsing by these large herbivores can prevent young aspen trees from becoming large enough to reproduce. Immediately after a mega-fire, the researchers established 60 m x 60 m fenced-in plots that prevented by browsing by elk (the "Elk absent" treatment) along with nearby control plots from which elk were not excluded (the "Elk present" treatment). Five fenced-in plots and five unfenced plots (five pairs) were established in a section of forest that was not burned (the "unburned" treatment). One additional pair of plots was established in an area that burned. After 6 years, the researchers estimated the number and mean height of young aspen trees in each plot. They used these data to evaluate the relative importance of fire and elk browse in controlling aspen development. 
+
+Use the following data set and script (available on Canvas) to evaluate how elk browsing and fire combine to influence aspen recruitment, and answer questions below.
+
+The code below guides you through making graphs that help you to evaluate our hypotheses and predictions. Smith et al. (2016) used Fisher’s Exact Test to also evaluate whether the effect of elk browse was the same in both burned and unburned plots.^[Ronald Fisher (1890-1962) was a unapologetic racist; unfortunately, he was also a founder of much of modern statistics and we continue to use many of his ideas and methods]. We will use the same test. Fisher's Exact Test is used on count data in 2 x 2 *contingency tables*, that is, where data can be categorized in two ways. In the case of Smith et al., a plot could be burned (yes, no) and also browsed (yes, no). The test evaluates whether the effect of one category appears to depend on the other category (does the effect of browsing depend on whether the plot had been burned?).  It will not test whether elk (by themselves) influenced density, nor will it test whether fire (by itself) influenced density.

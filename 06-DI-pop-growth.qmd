@@ -383,6 +383,7 @@ Turn in two documents: (i) your R script, and (ii) a .docx or PDF formatted file
 1. A graph showing per capita growth rate for a time period of your own choosing, from @sec-yourinterval.
 1. If the human population continued to grow at the rate you calculated for 2020, how large would the population be in 2050? Calculate this and show your work.
 1. What assumptions did you make in answering Question 3? Based on results for questions 1 and 2, is it likely that the human population will reach the size that you calculated for 2050? Why or why not? Use **evidence** in the data and the graphs above to justify your explanation.
+1. How many people were alive when you were born? How many people will there be at the end of your lifetime? Are you going to live through a doubling of the human population? Why or why not?
 
 ```{r}
 #| label: answersDIgrowth

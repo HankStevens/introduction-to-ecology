@@ -14,6 +14,8 @@ In this project, you will begin to use tools for data exploration and analysis. 
 
 We will use open source and free software to help us understand ecological systems. You will download and install R, known formally as the R programming language and environment. You will also install RStudio, an integrated development environment (IDE), designed to be used with R. The R interface looks a little different on Windows, Macs, and Linux computers. RStudio will allow us all share an identical appearance and user experience. You will use R by opening RStudio.
 
+In this class, you will use the English language to write about ecology, and the R language to explore and analyze ecological data.
+
 ### Understanding you computer
 
 First, we need to make sure we know some basics about computers.
@@ -30,19 +32,51 @@ If you have not already done so, **you need to organize your computer.**
 
 Do these:
 
-- Make different folders (or directories) for different classes.
+- Make different folders (or directories) for different classes that you are taking.
 - Make different folders for different kinds of content (e.g., data, articles, your writing).
 
 In addition,
 
-- do *not* use the Desktop or Downloads to store anything important, and
+- do *not* use the Downloads folder to store anything important, and
 - do *not* mix personal content and course content.
 
 Watch one of these to help you understand how your computer is organized. This will save you hours of time and frustration throughout your life.
 
 * [For Windows users (PCs)](https://youtu.be/hUW5MEKDtMM){target="_blank"}
 * [For Mac users](https://youtu.be/5pOu70ta0xY){target="_blank"}
+* If you are a Linux user, I am betting that you already know this stuff.
 
+### The location of a folder or file: The Path
+
+A "path" is the complete location and name of a file, starting from the hard drive, down to the file or folder of interest. Here are a two examples:
+
+* (Windows 11) C:\Users\Stevenmh\Documents/BIO209W
+* (Mac) /Users/stevenmh/courses/209W/
+
+Note they both start big and get more narrow. On Windows, the directory for the harddrive is typically "C:" and on a Mac it is just "/".
+
+Here are ways to find those paths.
+
+#### File paths in Windows 11 operating system
+
+Open File Explorer, navigate to the file, and click the three-dot menu (...) in the top toolbar to select Copy path. Alternatively, right-click the file and select "Copy as path" (or "Show more options" then "Copy as path") to paste the full location. 
+
+Here are the fastest methods to find a file path on Windows 11:
+
+* Copy as Path (Fastest): Right-click the file in File Explorer and select Copy as path. If you don't see it, select "Show more options" first.
+* Top Menu Option: Click the file, then click the three dots (...) in the top menu and select Copy path.
+* Address Bar Method: Navigate to the file in File Explorer, click the blank space in the address bar at the top, and it will highlight the full path, which you can copy with Ctrl+C.
+* Properties Menu: Right-click the file, select Properties, and look at the "Location" field to see the folder path.
+
+#### File paths on Mac Tahoe operating system
+
+To find a file's path on a Mac, select the file in Finder and press Option-Command-C to copy the path directly. Alternatively, right-click (or Control-click) the file and select "Copy" while holding the Option key to change it to "Copy as Pathname". 
+
+Other Methods to Find File Paths:
+
+* Path Bar: In Finder, select View > Show Path Bar to see the file location at the bottom of the window.
+* Get Info: Select the file and press Command-I, then look under "Where".
+* In the Terminal app: Drag and drop the file into the Terminal window to display its full path. 
 
 
 ### File types and file name extensions
@@ -56,7 +90,8 @@ Watch one of these to help you understand how your computer is organized. This w
 - .csv is the extension for Comma Separated Value text files - these can be produced by spreadsheet applications. You will work with these.
 - .R is the extension for R scripts. You will work with these.
 
-Note that, by default, Windows hides these from the user. **Here is how we fix that on Windows.** (Mac users can skip this.)
+#### Windows
+Note that, by default, Windows hides these from the user. Here is how we fix that on Windows.
 
 On Windows 10, you need to make changes to see file extensions by revealing "hidden items". Windows 10: 
 
@@ -74,6 +109,14 @@ On Windows 10, you need to make changes to see file extensions by revealing "hid
 4.  Click the box next to Hidden items to see hidden files.
 
 You should now be able to see file name extensions (e.g., .docx, .R) and hidden files.
+
+Windows 11 has a similar, and slightly less complicated layout. In File Explorer, select "Show" and then "File extensions".
+
+#### Macs
+
+To show all file extensions in macOS (including the latest Tahoe version), open Finder, select Finder > Settings (or Preferences, Command-,) in the top menu bar, click the Advanced tab, and check the box for "Show all filename extensions". 
+
+
 
 ## Installing R
 
@@ -111,19 +154,19 @@ Optional videos:
 3.  Find the link in the left Task Bar for *CRAN* (Comprehensive R Archive Network).
 4.  Find and navigate to a CRAN site near you (e.g., United States or Midwest US or Ohio). These are called *mirrors* because they are copies of each other.
 5.  Download and install the latest release of R for your operating system (Mac, Windows, or Linux).
-6.  As of January 2023, it was version 4.2.2. It is a single file to download. You should use whatever the latest version is.
-7.  In January 2023, it was worked like this:
-    a.  Mac - select R-4.2.2.pkg (for the Intel chip) or R-4.2.2.arm64.pkg (for the Apple M1 chip)
-    b.  Windows - select the "base" package, then R 4.2.2
+6.  As of January 2026, it was version 4.5.2. It is a single file to download. You should use whatever the latest version is.
+7.  In January 2026, it was worked like this:
+    a.  Mac - select R-4.2.2.arm64.pkg (for the Apple M1, M2, etc. chip) or R-4.5.2-x86_.pkg (for the older Intel chip)
+    b.  Windows - select the "base" package, then "Download R-4.5.2 for Windows".
     c.  Linux - select your flavor, and follow instructions.
 
 ### Where
 
-- R (and RStudio) will be installed along side all your other applications.
+R (and RStudio) will be installed along with all your other applications.
 
 ### Installing RStudio
 
-RStudio is an integrated development environment (IDE), designed to be used with R. The R interface looks a little different on Windows, Macs, and Linux computers. RStudio will allow us all share an identical appearance and user experience. 
+RStudio is an integrated development environment (IDE), designed to be used with R. Most importantly for us, it provides a graphical user interface (GUI) that appears identical on Windows, Mac, and Linux computers.
 
 1. Navigate online to the RStudio website.
 1. Under Products find RStudio IDE.
@@ -134,7 +177,7 @@ RStudio is an integrated development environment (IDE), designed to be used with
 
 RStudio is an interface to R. When we use R in this class, we will use RStudio as our interface, but you need to realize that we are primarily *using R*. We don't need RStudio to do the work, but it makes my job as instructor easier, and makes it a little easier for you as well. So, *when you start to use R, just open RStudio, and it will load R for you*.
 
-In this class, you will use the English language to write about ecology, and the R language to explore and analyze ecological data.
+As we said at the beginning, you will use the English language to write about ecology, and the R language to explore and analyze ecological data.
 
 ## Set up two folders for this class
 
@@ -193,13 +236,17 @@ The following steps will let you accomplish the goal of this section. The video 
 
 
 - Use the File menu in RStudio to start a New File, specifically, an R Script. This will open a file in the upper left of RStudio.
-- write the following in the new script, and include the hastags.
+- write the following in the new script, and include the hashtags.
 ```{r}
-## My first R script in BIO 209W Spring 2023
-## [add your name]
+## [title] e.g., My first R script in BIO 209W
+## [Date]
+## [your name]
+## [the full path to your Rwork directory]
 ```
 
-**ALL OF THE WORK YOU DO SHOULD BE IN A SCRIPT.**
+**Make sure to start each comment with at least one hashtag, #,** and remove the square brackets seen above.
+
+**ALL OF THE WORK YOU DO MUST BE IN A SCRIPT.**
 
 ### Entering and running code
 To enter code, place your cursor on any line in the script, and type, like this.
@@ -385,12 +432,13 @@ R has a bit of a learning curve. What should you do if you get stuck? It all dep
 
 ## Deliverables
 
-For the "First R script" assignment on Canvas:
+For this assignment, upload to the LMS three files that you created:
 
-1. Upload three files to the Canvas First R Script assignment:
-   a. `myPlot.png`
-   a. `myDataframe.csv`
-   a. the R script, into which you wrote all your code. This file must be written in RStudio, and the name must end with the file name extension, ".R", such as "Hanks_script.R"
-1. Explain your biggest surprise in this assignment.
+1. `myPlot.png`
+1. `myDataframe.csv`
+1. the R script, into which you wrote all your code. 
+    a. This file must be written in R/RStudio, and the name must end with the file name extension, ".R", such as "Stevens_script_1.R",
+    a. comments, including at least a title, the date, your name, and the path to your Rwork folder.
+
 
 Congratulations. *C'est fini*!

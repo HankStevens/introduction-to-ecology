@@ -1,0 +1,223 @@
+---
+title: "Live Demonstration: Habitat selection and socioeconomic status"
+---
+
+```{r setup, include=FALSE}
+options(gargle_oauth_email = "stevenmh@miamioh.edu", message=FALSE)
+library(patchwork)
+```
+
+## Background
+
+The types of places that organisms live--their habitats--depends on a variety factors. *Habitat selection*, the selection of particular habitats, results from real and perceived tradeoffs between the benefits from foraging and reproducing versus perceived risks of mortality.
+
+## Live Demo 
+
+First we load a required package (we need to install this if we haven't already)
+```{r}
+library(readr)
+# also we will use some other packages
+library(tidyr)
+library(dplyr)
+library(ggplot2)
+```
+
+
+Now read in the data, using the read_csv() function. We give it the URL of the published version of the google sheet data.
+
+```{r}
+# our URL
+the_URL <- "https://docs.google.com/spreadsheets/d/e/2PACX-1vTLbXmj6GagHw1e3zADJKtZTQn9m-QsERpzvBEvLeIRwZyg-EOno_q0JUwPP_PD4seEqcLd8BSCDbYa/pub?gid=1086215999&single=true&output=csv"
+
+# skip the first two lines before the column headers.
+class_tree_data <- read_csv(the_URL)
+```
+
+Have a look at the data in R
+```{r}
+#View(class_RTs)
+# or just do
+class_tree_data
+names(class_tree_data)
+```
+## Now we need to do some data wrangling (cleaning and tidying)
+
+Clean up the column / variable names: 
+```{r}
+# Must be very careful to get the next line right!!! Really important!!!
+
+## Rename City and State column headings
+
+names(class_tree_data) <- c("Timestamp", "email", "City", "State",
+                            "Tree_canopy_cover", "Median_Income",
+                            "Median_age", "Minority")
+names(class_tree_data)
+```
+Check the variable types are correct.
+
+* Timestamp, email, city, and state should be character vectors.
+* The remaining four variables should be numeric (dbl = double precision).
+
+```{r}
+glimpse( class_tree_data )
+```
+
+Correct or exclude problematic data. If we have problems here, with variables of the wrong type, it probably means some of the data entry is a bit messed up.
+```{r}
+# e.g. to exclude observations with character entries in Reaction_time variable
+summary(class_tree_data)
+```
+
+
+```{r}
+# view Median_Income
+class_tree_data %>% select(Median_Income)
+```
+Correct raw data?
+
+Convert Median_Income and remove anomalies.
+```{r}
+class_tree_data <- class_tree_data %>%
+  mutate(
+    Median_Income = as.numeric(Median_Income)
+    ) 
+
+class_tree_data %>% select(Median_Income) %>%
+  summary()
+
+class_tree_data <- class_tree_data %>%
+  filter( !is.na( Median_Income ) )
+
+class_tree_data %>% select(Median_Income) %>%
+  summary()
+```
+
+Check numbers of data points in each state and city
+
+```{r}
+table(class_tree_data$State)
+table(class_tree_data$City)
+#table(class_tree_data$State, class_tree_data$City)
+```
+
+
+
+Check the number of observations. This should be the same as we saw in the datasheet, which should be number of you in this classroom.
+
+The number of observations and variables is given by R in the first line of output when we type the name of the data object:
+```{r}
+class_tree_data
+nrow(class_tree_data)
+```
+
+## Consider comparisons
+Perhaps we would like to consider above vs. below the poverty line for a family of four.
+```{r}
+class_tree_data <- class_tree_data %>%
+  mutate(
+    Poverty_threshold = ifelse(Median_Income <= 31200, 
+                               "Below", "Above")
+  )
+
+ class_tree_data %>% 
+   select( Poverty_threshold ) %>%
+   table()
+```
+
+
+## Visualize the data
+
+When we visualise the data, we’re trying to do at least three things, and are not trying to do at least one.
+
+We’re not trying to make the most beautiful graph in the world, so we can put it in our report / presentation, etc. We just want to clearly see the data.
+
+We are trying to 
+
+1. do further checks for possible errors in the data, 
+1. making some initial assessments of how the data is distributed, and
+1. see what we think is the answer to our question.
+
+A histogram of all the data:
+
+```{r}
+ggplot() +
+  geom_histogram(data = class_tree_data, aes(x=Median_Income))
+ggplot() +
+  geom_histogram(data = class_tree_data, aes(x=Tree_canopy_cover))
+```
+
+Visualize tree cover by poverty threshold, as histograms,
+```{r}
+ggplot() +
+  geom_histogram(data = class_tree_data, aes(x=Tree_canopy_cover)) +
+  facet_grid(Poverty_threshold ~ .)
+```
+
+as box and whisker plots,
+```{r}
+p <- ggplot() +
+  geom_boxplot(data = class_tree_data, 
+               aes(y=Tree_canopy_cover, x=Poverty_threshold)) 
+p
+```
+
+
+```{r}
+ggplot() +
+  geom_boxplot(data = class_tree_data, aes(x=Tree_canopy_cover)) +
+  facet_grid(Poverty_threshold ~ .) 
+```
+
+or just the data points (with some jitter, to separate overlapping points).
+```{r}
+ggplot() +
+  geom_jitter(data = class_tree_data,
+              aes(x=Poverty_threshold, y=Tree_canopy_cover),
+              width=0.05)
+```
+
+or a scatterplot.
+```{r}
+p2 <- ggplot(data = class_tree_data, 
+       aes(x=Median_Income, y=Tree_canopy_cover)) +
+  geom_point() + geom_smooth(method="lm")
+p2
+```
+
+
+## Get numerical summaries
+
+By groups:
+```{r}
+class_tree_data %>%
+  group_by(Poverty_threshold) %>%
+  summarize(
+    mean_tcc = mean(Tree_canopy_cover),
+    median_tcc = median(Tree_canopy_cover),
+    sd_tcc = sd(Tree_canopy_cover)
+  )
+
+```
+
+A continuous relationship
+
+```{r}
+reg.model <- lm(
+  formula=Tree_canopy_cover ~ Median_Income, 
+  data=class_tree_data
+  )
+summary(reg.model)
+```
+
+
+## Effect size and practical importance?
+
+Does the difference between the means or medians (i.e. the effect size) seem of practical importance? Consider all the ecological, environmental, cultural, and economic reasons why there might be a lot of tree cover.
+
+```{r}
+p+p2
+```
+
+
+
+

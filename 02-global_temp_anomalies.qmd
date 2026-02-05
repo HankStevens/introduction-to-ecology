@@ -13,7 +13,8 @@ In this assignment, you will
 * Compare and contrast changes in temperature between humans and Earth.
 
 * Video lecture on global warming and climate change: TBA
-* Background reading: [Pilla et al. (2020) Deeper waters are changing less consistently than surface waters in a global analysis of 102 lakes](https://drive.google.com/drive/folders/1opLlrmF7kfo0FtWwwJ1CbfPWIyuaISC1?usp=share_link)
+* Background reading: Hansen et al. (2012). Perception of climate change. *Proceedings of teh National Academy of Sciences, U.S.A. 
+
 
 ## Background
 The year that you were born was much warmer than usual--and it won't ever be that *cool* again in your lifetime.
@@ -52,10 +53,10 @@ library(tidyverse)
 
 ### Import data
 
-1. Go to our [class data repository](https://drive.google.com/drive/u/1/folders/1FR2FLiW3xyD4Er52YzVTToPZuXXReGRo){target="_blank"}, and download `global_surface_anomalies.csv`. 
+1. Go to our [class data repository](https://drive.google.com/drive/u/1/folders/1FR2FLiW3xyD4Er52YzVTToPZuXXReGRo){target="_blank"}, and download `global_surface_anomalies_2025.csv`. 
 1. Make sure the file remains in the same simple format, "comma separated values" (.csv).
-1. Put `global_surface_anomalies.csv` in your working directory, `Rwork`.
-1. Open `global_surface_anomalies.csv` in a spreadsheet application. Don't save the file in the spreadsheet application. Do **not** save it in the spreadsheet application because it will try to change the format.
+1. Put `global_surface_anomalies_2025.csv` in your working directory, `Rwork`.
+1. Open `global_surface_anomalies_2025.csv` in a spreadsheet application. Don't save the file in the spreadsheet application. Do **not** save it in the spreadsheet application because it will try to change the format.
 1. With the file open, learn what is on
     a. the first three lines
     b. the fourth line

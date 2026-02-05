@@ -1,4 +1,4 @@
 - source: project
   quarto-pub:
     - id: d39f077a-4ade-4221-a0a6-2e2c0542d87f
-      url: 'https://quartopub.com/sites/hankstevens/introduction-to-ecology'
+      url: https://hankstevens.quarto.pub/introduction-to-ecology
