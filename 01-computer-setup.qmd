@@ -81,19 +81,33 @@ Other Methods to Find File Paths:
 
 ### File types and file name extensions
 
-**File extensions** are little tags at the end of file names taht identify the *type* of file it is. You will need to be able to see file extensions on your computer. A file extension is the little label at the end of a file name that comes after the dot, such as
+Here we describe three file types (.R, .csv, and .txt) that you are probably not familiar with. First, we need some background.
 
-- .jpg or .jpeg is the extension for JPEG image files.
-- .docx is the extension for Microsoft Word document files.
-- .txt is the extension for plain text files.
-- .xlsx is the extension for Microsoft Excel files. You will work with these.
-- .csv is the extension for Comma Separated Value text files - these can be produced by spreadsheet applications. You will work with these.
-- .R is the extension for R scripts. You will work with these.
+Different **file types** allow you to do different sorts of things, and different types are labelled with different **file extensions**. File extensions are little tags at the end of file names that identify the *type* of file it is. A file extension is the little label at the end of a file name that comes after a dot.
+
+Common file extensions include .jpg or .jpeg for many image files, .docx for Microsoft Word documents, and .pages for Apple Pages documents.
+
+Think of a file extension as a label on a container that tells both you and your computer what's inside. Just like you'd label a jar in your fridge as "pickles" or "jam" so you know what to expect, file extensions (those letters after the dot in a filename) tell your computer what kind of information is in that file and which program should open it.
+
+#### Three important file types
+
+- A **.R** file contains your code—the commands you write to analyze data and make graphs. Save your work as "my_Chapter_1.R" so R knows it's code, not just notes.
+- A **.csv** file (comma-separated values) stores your data in rows and columns. This is the standard format for datasets because almost every program—-Excel, Numbers, R, Google Sheets, even Word-—can read it. When you have data, such as measurements, it's probably in a .csv file.
+- A **.txt** file is plain text with no formatting—useful for notes, project descriptions, or simple lists. Almost any application can open these types of files.
+
+Why it matters: Without the right extension, your computer won't know what to do with a file. If you save code without .R, R and R RStudio won't recognize it properly. If data aren't marked as .csv, R might not read it correctly.
+
+**One essential tip**: Make extensions visible on your computer. On Mac, go to Finder preferences and check "show all filename extensions." On Windows, uncheck "hide extensions for known file types" in folder options. You'll always know what you're working with.
+
+
+**You will need to be able to see file extensions on your computer.**
+
 
 #### Windows
-Note that, by default, Windows hides these from the user. Here is how we fix that on Windows.
 
-On Windows 10, you need to make changes to see file extensions by revealing "hidden items". Windows 10: 
+On Windows 10, you need to make changes to see file extensions by revealing "hidden items".
+
+Windows 10: 
 
 1. Open File Explorer; if you do not have an icon for this in the task bar; click Start, click Windows System, and then File Explorer. 
 
@@ -110,11 +124,26 @@ On Windows 10, you need to make changes to see file extensions by revealing "hid
 
 You should now be able to see file name extensions (e.g., .docx, .R) and hidden files.
 
-Windows 11 has a similar, and slightly less complicated layout. In File Explorer, select "Show" and then "File extensions".
+**Windows 11** has a similar, and slightly less complicated layout. In File Explorer, select "Show" and then "File extensions".
 
 #### Macs
 
 To show all file extensions in macOS (including the latest Tahoe version), open Finder, select Finder > Settings (or Preferences, Command-,) in the top menu bar, click the Advanced tab, and check the box for "Show all filename extensions". 
+
+## Working with CSV files on Windows and Apple computers
+
+It is important that you keep CSV files unchanged. These are our data, and *data are sacrosanct*.
+
+CSV files are easily opened in Microsoft Excel and Apple Numbers, but these applications also encourage you, or force you, to change their format. Below, we explain how to fix that.
+
+Microsoft Excel usually recognizes your CSV file and opens it without any problem. At other times, it will ask you to confirm what kind of file it is, and you will need to specify that values are "delimited" or separated by commas.
+
+When you close a .csv file in Excel, you will be prompted to save it in a different format, as a .xlsx file. Do not do that. Save it as a .csv file.
+
+Apple Numbers will recognize and open your .csv file, similar to Excel. Unfortunately, it always automatically converts it to a different format, .numbers. That means that you have to always **export** to a .csv file type.
+
+When you want to close your file in Numbers - pause! *You must export your file* from Numbers, not merely save it. Do not bother to save it. Just export it. Use the File menu, specifically, File > Export To > CSV, and use whatever name you need to.
+
 
 
 
