@@ -686,7 +686,7 @@ window.Quarto = {
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>b <span class="ot">&lt;-</span> <span class="fu">runif</span>(<span class="dv">7</span>, <span class="at">min=</span><span class="dv">0</span>, <span class="at">max=</span><span class="dv">1</span>)</span>
 <span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>b</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.04191334 0.12602553 0.43922056 0.22951491 0.55683137 0.65466084 0.45332266</code></pre>
+<pre><code>[1] 0.11800968 0.19205693 0.02916493 0.83971265 0.66273855 0.45460258 0.07602446</code></pre>
 </div>
 </div>
 <p>These will differ every time you do this.</p>
@@ -701,12 +701,12 @@ window.Quarto = {
 </div>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>b</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.04191334 0.12602553 0.43922056 0.22951491 0.55683137 0.65466084 0.45332266</code></pre>
+<pre><code>[1] 0.11800968 0.19205693 0.02916493 0.83971265 0.66273855 0.45460258 0.07602446</code></pre>
 </div>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>ab</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] -0.04191334  0.00000000  0.43922056  0.45902983  1.67049412  2.61864337
-[7]  2.26661328</code></pre>
+<pre><code>[1] -0.11800968  0.00000000  0.02916493  1.67942529  1.98821564  1.81841030
+[7]  0.38012228</code></pre>
 </div>
 </div>
 <p>You can confirm at a glance that the first and second elements in <code>a</code> times the first and second elements in <code>b</code> equal the first and second elements in <code>ab</code>.</p>
@@ -720,13 +720,13 @@ window.Quarto = {
 <span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>d</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>   a          b   a_times_b
-1 -1 0.04191334 -0.04191334
-2  0 0.12602553  0.00000000
-3  1 0.43922056  0.43922056
-4  2 0.22951491  0.45902983
-5  3 0.55683137  1.67049412
-6  4 0.65466084  2.61864337
-7  5 0.45332266  2.26661328</code></pre>
+1 -1 0.11800968 -0.11800968
+2  0 0.19205693  0.00000000
+3  1 0.02916493  0.02916493
+4  2 0.83971265  1.67942529
+5  3 0.66273855  1.98821564
+6  4 0.45460258  1.81841030
+7  5 0.07602446  0.38012228</code></pre>
 </div>
 </div>
 <p>You could examine the structure of this data frame with <code>str()</code>.</p>
@@ -735,8 +735,8 @@ window.Quarto = {
 <div class="cell-output cell-output-stdout">
 <pre><code>'data.frame':   7 obs. of  3 variables:
  $ a        : int  -1 0 1 2 3 4 5
- $ b        : num  0.0419 0.126 0.4392 0.2295 0.5568 ...
- $ a_times_b: num  -0.0419 0 0.4392 0.459 1.6705 ...</code></pre>
+ $ b        : num  0.118 0.1921 0.0292 0.8397 0.6627 ...
+ $ a_times_b: num  -0.118 0 0.0292 1.6794 1.9882 ...</code></pre>
 </div>
 </div>
 <p>You will also notice now that you can see all of our objects in the Environment pane, in the upper right of RStudio.</p>

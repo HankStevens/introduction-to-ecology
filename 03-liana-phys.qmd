@@ -11,10 +11,12 @@ In this assignment, you will
 * Investigate reasons for the unreasonable success of lianas.
 * Develop and use your understanding of plant growth and responses to water deficits to help make predictions about the relative success of lianas and trees.
 * Evaluate scientific hypotheses and predictions by (i) enhancing your data visualization skills using `ggplot()`, and (ii) making graphs of your own design.
+* Background reading: 
+
 
 ## Background
 
-* Watch videos on responses by organisms to temperature and water [(videos 1e and 1f)](https://drive.google.com/drive/folders/1nWLoEGuWKIWdul9Uvse5qiB1Hf8MCwUv?usp=sharing){target="_blank"}
+
 * Download Smith-Martin et al. (2019), which is available in [our PDF archive](https://drive.google.com/drive/folders/1opLlrmF7kfo0FtWwwJ1CbfPWIyuaISC1?usp=share_link){target="_blank"}. Read the introduction to help you understand the context of this chapter.
 
 The term "liana" refers to tropical woody vines, which can be very common and can account for as much as 25% of the woody plant biodiversity in some tropical forests. They achieve some of their highest abundance in seasonal subtropical forests [@fig-lianas, @schnitzer2005]. These are regions with distinct wet and dry seasons; why are lianas successful in these seasonal subtropical forests? 
@@ -223,7 +225,7 @@ Two documents:
 A. The first document will contain:
 
 1. A restatement, in your own words, of the hypothesis of Smith-Martin and her colleagues.
-1. Two predictions of the hypothesis that you can evaluate using the data we have (see above).
+1. Two predictions of the hypothesis that you can evaluate using the data we have (see above). You should take pictures of these hand-drawn images, and put them into this document.
 1. Two graphs done in R that evaluate the hypothesis of Smith-Martin and her colleagues. The variables in the graphs must match the variables in you predictions.
 1.	For each graph, identify the independent variable(s) and the dependent variable(s).
 1.	For each graph, explain what the graph shows and what it tells us about the hypothesis. We can’t draw firm conclusions, so use terms such as "suggests", "is consistent with", "seems to show", or others, which help avoid expressing unwarranted certainty. Even with careful analysis, we always have to be cautious.
