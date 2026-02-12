@@ -220,17 +220,23 @@ The dimensions (in inches) of your *saved* graph dictate how big the labels and 
 
 ## Deliverables
 
-Two documents:
+Turn in two documents, one document has your ideas, graphs, and answers, and the other document is your R script.
 
 A. The first document will contain:
 
 1. A restatement, in your own words, of the hypothesis of Smith-Martin and her colleagues.
 1. Two predictions of the hypothesis that you can evaluate using the data we have (see above). You should take pictures of these hand-drawn images, and put them into this document.
-1. Two graphs done in R that evaluate the hypothesis of Smith-Martin and her colleagues. The variables in the graphs must match the variables in you predictions.
+1. Two graphs done in R that use data to evaluate the hypothesis of Smith-Martin and her colleagues. The variables in the graphs must match the variables in your predictions.
 1.	For each graph, identify the independent variable(s) and the dependent variable(s).
 1.	For each graph, explain what the graph shows and what it tells us about the hypothesis. We can’t draw firm conclusions, so use terms such as "suggests", "is consistent with", "seems to show", or others, which help avoid expressing unwarranted certainty. Even with careful analysis, we always have to be cautious.
 
-B. Your second document is your R script.
+B. Your second document is your R script. The R script should contain *everything a person would need* aside from the data itself to make the figures that you turn in, as well as identifying information. For instance, this should include:
+
+- Your name, the course, the chapter or assignment, and the date, all as comments with leading hastags (#s).
+- Loading any packages you need, such as `ggplot2`, or others.
+- code to load (or "read") any data you need, and comments that explain what the code does,
+- code to organize the data if you need to, and comments that explain what the code does,
+- code to create, and to save any graphs you make, and comments that explain what the code does.
 
 ```{r}
 #| echo: false
