@@ -135,6 +135,35 @@ gtag('js', new Date());
 gtag('config', 'G-J0R6F7XN66', { 'anonymize_ip': true});
 </script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 </head>
 
@@ -336,15 +365,15 @@ Figure&nbsp;5.1: Voles are small hamster-like rodents that live in grasslands an
 </section>
 <section id="background-what-causes-extra-pair-copulation-in-prairie-voles" class="level2" data-number="5.3">
 <h2 data-number="5.3" class="anchored" data-anchor-id="background-what-causes-extra-pair-copulation-in-prairie-voles"><span class="header-section-number">5.3</span> Background: What causes extra pair copulation in prairie voles?</h2>
-<p>Monogamy, the mating system in which individuals pair-bond to raise offspring, is relatively rare. We don’t know what causes this rarity, and nor do we know why it persists where it do occur. Prairie voles (<em>Microtus ochrogaster</em>), like humans, are famously monogamous, and behavioral ecologists have studied them for that reason. And, just like humans, voles also engage in extra-pair copulations that result in offspring, and scientists have been trying to understand the causes and consequences of those extra-pair copulations <span class="citation" data-cites="solomon2018">(<a href="references.html#ref-solomon2018" role="doc-biblioref">Solomon and Keane 2018</a>)</span>.</p>
-<p>Monogamy is a mating system (<em>sexual monogamy</em>), but it is also one of many types of social system (<em>social monogamy</em>). Different species of animals engage in many forms of <em>sociality</em> <span class="citation" data-cites="nowak:2010ul nordell2014 kappeler2019">(<a href="references.html#ref-nowak:2010ul" role="doc-biblioref">Nowak, Tarnita, and Wilson 2010</a>; <a href="references.html#ref-nordell2014" role="doc-biblioref">Nordell and Valone 2014</a>; <a href="references.html#ref-kappeler2019" role="doc-biblioref">Kappeler 2019</a>)</span>. For example, all species of ants and many species of bees live in large colonies with several castes of individuals (<em>eusociality</em>). Most species are entirely <em>solitary</em> (think grasshoppers, frogs, flies). Many species live in family social units or have primitive forms of eusociality <span class="citation" data-cites="nordell2014">(<a href="references.html#ref-nordell2014" role="doc-biblioref">Nordell and Valone 2014</a>)</span>. Social monogamy is the particular form of sociality in which a female-male pair lives together, often resulting in more successful rearing of offspring.</p>
+<p>Monogamy, the mating system in which individuals pair-bond to raise offspring, is relatively rare. We don’t know what causes this rarity, and nor do we know why it persists where it does occur. Prairie voles (<em>Microtus ochrogaster</em>), like humans, are famously monogamous, and behavioral ecologists have studied them for that reason. And, just like humans, voles also engage in extra-pair copulations that result in offspring, and scientists have been trying to understand the causes and consequences of those extra-pair copulations <span class="citation" data-cites="solomon2018">(<a href="references.html#ref-solomon2018" role="doc-biblioref">Solomon and Keane 2018</a>)</span>.</p>
+<p>Monogamy is a mating system (<em>sexual monogamy</em>), but it is also one of many types of social system (<em>social monogamy</em>). Most species are entirely <em>solitary</em> (think grasshoppers, frogs, flies), but some species engage in persistant social behavior, or exhibit <em>sociality</em> <span class="citation" data-cites="nowak:2010ul nordell2014 kappeler2019">(<a href="references.html#ref-nowak:2010ul" role="doc-biblioref">Nowak, Tarnita, and Wilson 2010</a>; <a href="references.html#ref-nordell2014" role="doc-biblioref">Nordell and Valone 2014</a>; <a href="references.html#ref-kappeler2019" role="doc-biblioref">Kappeler 2019</a>)</span>. For example, all species of ants and many species of bees live in large colonies with several castes of individuals (<em>eusociality</em>). Many species live in family social units or have primitive forms of eusociality <span class="citation" data-cites="nordell2014">(<a href="references.html#ref-nordell2014" role="doc-biblioref">Nordell and Valone 2014</a>)</span>. Social monogamy is the particular form of sociality in which a female-male pair lives together, often resulting in more successful rearing of offspring.</p>
 <p><strong>So why would socially monogamous individuals engage in extra-pair copulation?</strong></p>
 <p>One reason that individuals engage in extra-pair copulations is in order to avoid inbreeding depression. Breeding that results from matings between highly related individuals typically causes a decline in vigor and health of individual offspring and a reduction in fitness for those phenotypes. Inbreeding depression is the reduction in fitness due to breeding among relatives.</p>
 <p><em>Fitness is the quantitative representation of natural and sexual selection within evolutionary biology. It can be defined either with respect to a genotype or to a phenotype in a given environment. In either case, it describes individual reproductive success and is equal to the average contribution to the gene pool of the next generation that is made by individuals of the specified genotype or phenotype. The fitness of a genotype is manifested through its phenotype, which is also affected by the developmental environment. The fitness of a given phenotype can also be different in different selective environments.</em> (Quoted from <a href="https://en.wikipedia.org/w/index.php?title=Fitness_(biology)&amp;oldid=1137795350" target="_blank">Wikipedia</a>)</p>
 <section id="tinbergens-four-questions" class="level3" data-number="5.3.1">
 <h3 data-number="5.3.1" class="anchored" data-anchor-id="tinbergens-four-questions"><span class="header-section-number">5.3.1</span> Tinbergen’s four questions</h3>
 <p>This section is from an <a href="https://www.conted.ox.ac.uk/courses/samples/animal-behaviour-an-introduction-online/index.html" target="_blank">online course at Oxford University</a></p>
-<p>In 1963 Niko Tinbergen published a seminal paper entitled <em>On the aims and methods of ethology</em>, which laid the foundation for how to conduct research in the fledging field of animal behaviour. The lasting contribution of the paper is that in it Tinbergen formulated four different, albeit somewhat interlinked, approaches to the study of animal behaviour, or four different types of questions we can ask about an observed behaviour.</p>
+<p>In 1963, Niko Tinbergen published a seminal paper entitled <em>On the aims and methods of ethology</em>, which laid the foundation for how to conduct research in the fledging field of animal behaviour. The lasting contribution of the paper is that in it Tinbergen formulated four different, albeit somewhat interlinked, approaches to the study of animal behaviour, or four different types of questions we can ask about an observed behaviour.</p>
 <p>The four questions are:</p>
 <ol type="1">
 <li>Function (or adaption)</li>
@@ -366,7 +395,7 @@ Figure&nbsp;5.1: Voles are small hamster-like rodents that live in grasslands an
 </section>
 <section id="determinants-of-extra-pair-copulation-in-voles" class="level3" data-number="5.3.2">
 <h3 data-number="5.3.2" class="anchored" data-anchor-id="determinants-of-extra-pair-copulation-in-voles"><span class="header-section-number">5.3.2</span> Determinants of extra-pair copulation in voles</h3>
-<p>So, what causes extra-pair copulation? What influences the probability that an individual enages in extra-pair copulation? We can think about these questions in any of the four contexts that Tinbergen’s questions provide.</p>
+<p>So, what causes extra-pair copulation? What influences the probability that an individual engages in extra-pair copulation? We can think about these questions in any of the four contexts that Tinbergen’s questions provide.</p>
 <p>Here are some factors that may help determine to the probability of extra-pair copulation:</p>
 <ul>
 <li>the relatedness of the extra-pair partner, and avoidance of inbreeding.</li>
@@ -380,7 +409,7 @@ Figure&nbsp;5.1: Voles are small hamster-like rodents that live in grasslands an
 <section id="data-from-the-solomonkeane-lab" class="level2" data-number="5.4">
 <h2 data-number="5.4" class="anchored" data-anchor-id="data-from-the-solomonkeane-lab"><span class="header-section-number">5.4</span> Data from the Solomon/Keane lab</h2>
 <p>Dr.&nbsp;Nancy Solomon and Dr.&nbsp;Brain Keane have been studying prairie voles for decades, and here we investigate our questions using one of their data sets.</p>
-<p>The data file <code>epr_209.csv</code> contains observations on voles related to those we read about in Solomon and Keane (2018). These data are from sampling of voles from the Indiana site, collected over three years (2006-2008). This data file is available in <a href="https://drive.google.com/drive/folders/1FR2FLiW3xyD4Er52YzVTToPZuXXReGRo?usp=sharing" target="_blank">our data repository</a></p>
+<p>The data file <code>epr_209.csv</code> contains observations on voles related to those we read about in Keane et al.&nbsp;(2024). These data are from sampling of voles from the Indiana site, collected over three years (2006-2008). These data are available in <a href="https://drive.google.com/drive/folders/1FR2FLiW3xyD4Er52YzVTToPZuXXReGRo?usp=sharing" target="_blank">our data repository</a></p>
 <p>Each row in the data set is a record of a succesful copulation that resulted in at least one offspring. Included in each row we have the ofllowing columns:</p>
 <ul>
 <li>id - identification number of the individual</li>
@@ -391,30 +420,42 @@ Figure&nbsp;5.1: Voles are small hamster-like rodents that live in grasslands an
 <li>r - relatedness to the partner.</li>
 <li>pairtype - nest partner or extra-pair copulation.</li>
 </ul>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>    id    sex year     nest size       r pairtype
+1  101   male 2006 19/20/21    7  0.3776     nest
+2  101   male 2006 19/20/21    7 -0.1830     nest
+3 1021 female 2007       29    3  0.3208     nest
+4 1021 female 2006       32    2 -0.1093    extra</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in rm(d209): object 'd209' not found</code></pre>
+</div>
+</div>
 <p><em>Relatedness</em> to a partner varies between -1 and +1. A value near zero indicates no more related than expected by chance; 1 is self-identity (e.g., clone) and negative values indicate even less related than we expect due to chance.</p>
 </section>
 <section id="your-objectives" class="level2" data-number="5.5">
 <h2 data-number="5.5" class="anchored" data-anchor-id="your-objectives"><span class="header-section-number">5.5</span> Your objectives</h2>
-<p>Ask yourself, “what the heck are these voles doing? is there anything in particular that seems related to the probability that an individual engages or does not engage in extra-pair copulation.</p>
-<p>You will come up with a hypothesis about the conditions to might lead to more extra-pair copulations.</p>
+<p>Ask yourself, “what the heck are these voles doing?” What is might be a cause of extra-pair copulations?</p>
+<p>You consider what you learned in your readings, and come up with a question or hypothesis about what conditions to might lead to more extra-pair copulations. In particular, you will</p>
 <ol type="1">
-<li>Pose a question that you can express in a graph <em>using these data</em>. Rely on your understanding of evolution, behavior, and prairie voles to justify your question.</li>
-<li>Make a prediction. Draw a mock-up of the graph that is consistent with the mechanism you propose.</li>
-<li>Create R code to create the graph you want.</li>
-<li>Figure out what the graph tells you about the answer to your question. Does it match you expectations? Rely on your understanding of evolution, behavior, and prairie voles to interpret your result.</li>
+<li>Hypothesis: Pose a hypothesis that you can address <em>using these data</em>. Your hypothesis should reflect a mechanism of what you think is going on. Rely on your understanding of evolution, behavior, and prairie voles to justify your the mechanism and hypothesis.</li>
+<li>Prediction: Make a prediction that is based on your hypothesis. Draw <em>on paper</em> a mock-up of the graph that uses the sort of data we have access to, and is consistent with the mechanism you propose.</li>
+<li>Data: Write R code to create a graph that mimicks your prediction, but uses the actual data you download.</li>
+<li>Evaluation: Figure out what the graph tells you about the answer to your question. In what ways are your results consistent with your prediction or not? Rely on your understanding of evolution, behavior, and prairie voles to interpret your result.</li>
 </ol>
-<p>Put all of the above (question, hand-drawn graph mock-up, R figure of data, data-based answer to your question) in a document, and turn it in online. See <strong>Deliverables</strong> at the end of this chapter.</p>
+<p>Put all of the above (hypothesis, hand-drawn prediction, R figure of data, data-based evalution) in a document, and turn it in online. See <strong>Deliverables</strong> at the end of this chapter.</p>
 <section id="write-your-own-script" class="level3" data-number="5.5.1">
 <h3 data-number="5.5.1" class="anchored" data-anchor-id="write-your-own-script"><span class="header-section-number">5.5.1</span> Write your own script</h3>
-<p>To create the graph, you will write your own script. Start as uysual, by finding out what your current working directory. Make sure it is <code>Rwork</code>. The read in your data and look at the variables. Then create the graph you want.</p>
+<p>To create the graph, you will write your own script. Start as usual, by finding out what your current working directory. Make sure it is <code>Rwork</code>. The read in your data and look at the variables. Then create the graph you want.</p>
 <p>First we check the current working directory.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">getwd</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">getwd</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>This should show a path to <code>Rwork</code>. If not, use the “Session” menu to set your working directory. If you don’t have an <code>Rwork</code> folder, see Chapter 1.</p>
 <p>Next we load some packages that we will use.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
 ✔ dplyr     1.1.4     ✔ readr     2.1.5
@@ -435,10 +476,10 @@ Figure&nbsp;5.1: Voles are small hamster-like rodents that live in grasslands an
 <li>Put <code>epr.csv</code> in your working directory, <code>Rwork</code>.</li>
 <li>Continue to make sure the file remains in the same simple format, “comma separated values” (.csv).</li>
 </ol>
-<p>Now import the data.</p>
+<p>Now import the data, and display its <em>str</em>ucture.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>d209 <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"epr_209.csv"</span>)</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(d209)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>d209 <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"epr_209.csv"</span>)</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(d209)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>'data.frame':   250 obs. of  7 variables:
  $ id      : chr  "101" "101" "1021" "1021" ...
@@ -450,18 +491,18 @@ Figure&nbsp;5.1: Voles are small hamster-like rodents that live in grasslands an
  $ pairtype: chr  "nest" "nest" "nest" "extra" ...</code></pre>
 </div>
 </div>
-<p>Use everything you have learned thus far, and the tutorial below to make the graph you want. After you make the graph you want, you can use <code>ggsave("myVoles.png")</code> to save the graph to your working directory.</p>
+<p>Use everything you have learned thus far in previous chapters, and the tutorial below to make the graph you want. After you make the graph you want, you can use <code>ggsave("myVoles.png")</code> to save the graph to your working directory.</p>
 </section>
 <section id="recoding-pairtype" class="level3" data-number="5.5.2">
 <h3 data-number="5.5.2" class="anchored" data-anchor-id="recoding-pairtype"><span class="header-section-number">5.5.2</span> Recoding “pairtype”</h3>
-<p>We can estimate the probability of something happening or not happening based on a series of successes and failures, like a coin coming up heads. A coin either comes up heads or it doesn’t - success or failure.</p>
+<p>We can estimate the probability of something happening or not happening based on a series of successes and failures, like a coin coming up heads. A coin either comes up heads or it doesn’t - success or failure. We can estimate the probability that it comes up heads (<span class="math inline">\(P = 0.5\)</span>), even though we have only heads or tails, successes or failures.</p>
 <p>We need to create a variable that represents either an extra-pair copulation or a nest-pair copulation. We will code extra-pair copulation as 1 (success) and nest-pair copulation (failure).</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>d209 <span class="ot">&lt;-</span> d209 <span class="sc">%&gt;%</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">epc =</span> <span class="fu">ifelse</span>(pairtype<span class="sc">==</span><span class="st">"extra"</span>, <span class="dv">1</span>, <span class="dv">0</span>)</span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>  )</span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(d209)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>d209 <span class="ot">&lt;-</span> d209 <span class="sc">%&gt;%</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">epc =</span> <span class="fu">ifelse</span>(pairtype<span class="sc">==</span><span class="st">"extra"</span>, <span class="dv">1</span>, <span class="dv">0</span>)</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(d209)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>'data.frame':   250 obs. of  8 variables:
  $ id      : chr  "101" "101" "1021" "1021" ...
@@ -489,11 +530,11 @@ Figure&nbsp;5.1: Voles are small hamster-like rodents that live in grasslands an
 </ul>
 <p>First, we load the packages of the tidyverse. If you already loaded this package as part of <code>tidyverse</code>, then you have already done this step.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>Here we use a data set ( <code>mpg</code>) that comes with R to help demonstrate examples. This data set, <code>mpg</code> includes fuel economy data from 1999 to 2008 for 38 popular models of cars.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(mpg)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(mpg)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Rows: 234
 Columns: 11
@@ -512,8 +553,8 @@ $ class        &lt;chr&gt; "compact", "compact", "compact", "compact", "compact"
 </div>
 <p>For a box-and-whisker plot of highway mileage (<code>hwy</code>) vs.&nbsp;car type (<code>class</code>), with explicit labels.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(mpg, <span class="fu">aes</span>(<span class="at">x =</span> class, <span class="at">y =</span> hwy)) <span class="sc">+</span> <span class="fu">geom_boxplot</span>() <span class="sc">+</span> </span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x=</span><span class="st">"type of car"</span>, <span class="at">y=</span><span class="st">"highway mileage"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(mpg, <span class="fu">aes</span>(<span class="at">x =</span> class, <span class="at">y =</span> hwy)) <span class="sc">+</span> <span class="fu">geom_boxplot</span>() <span class="sc">+</span> </span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x=</span><span class="st">"type of car"</span>, <span class="at">y=</span><span class="st">"highway mileage"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -526,8 +567,8 @@ $ class        &lt;chr&gt; "compact", "compact", "compact", "compact", "compact"
 <section id="scatterplots" class="level4" data-number="5.6.0.1">
 <h4 data-number="5.6.0.1" class="anchored" data-anchor-id="scatterplots"><span class="header-section-number">5.6.0.1</span> Scatterplots</h4>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(mpg, <span class="fu">aes</span>(<span class="at">x=</span>cty, <span class="at">y=</span>hwy)) <span class="sc">+</span> <span class="fu">geom_point</span>() <span class="sc">+</span> </span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x=</span><span class="st">"city mileage"</span>, <span class="at">y=</span><span class="st">"highway mileage"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(mpg, <span class="fu">aes</span>(<span class="at">x=</span>cty, <span class="at">y=</span>hwy)) <span class="sc">+</span> <span class="fu">geom_point</span>() <span class="sc">+</span> </span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x=</span><span class="st">"city mileage"</span>, <span class="at">y=</span><span class="st">"highway mileage"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -538,7 +579,7 @@ $ class        &lt;chr&gt; "compact", "compact", "compact", "compact", "compact"
 </div>
 </div>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(mpg, <span class="fu">aes</span>(<span class="at">x=</span>cty, <span class="at">y=</span>hwy)) <span class="sc">+</span> <span class="fu">geom_point</span>() <span class="sc">+</span> <span class="fu">geom_smooth</span>(<span class="at">method=</span><span class="st">"lm"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(mpg, <span class="fu">aes</span>(<span class="at">x=</span>cty, <span class="at">y=</span>hwy)) <span class="sc">+</span> <span class="fu">geom_point</span>() <span class="sc">+</span> <span class="fu">geom_smooth</span>(<span class="at">method=</span><span class="st">"lm"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>`geom_smooth()` using formula = 'y ~ x'</code></pre>
 </div>
@@ -552,8 +593,8 @@ $ class        &lt;chr&gt; "compact", "compact", "compact", "compact", "compact"
 </div>
 </div>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="do">## for a scatterplot with a fitted curved line </span></span>
-<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(mpg, <span class="fu">aes</span>(<span class="at">x=</span>cty, <span class="at">y=</span>hwy)) <span class="sc">+</span> <span class="fu">geom_point</span>() <span class="sc">+</span> <span class="fu">geom_smooth</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="do">## for a scatterplot with a fitted curved line </span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(mpg, <span class="fu">aes</span>(<span class="at">x=</span>cty, <span class="at">y=</span>hwy)) <span class="sc">+</span> <span class="fu">geom_point</span>() <span class="sc">+</span> <span class="fu">geom_smooth</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>`geom_smooth()` using method = 'loess' and formula = 'y ~ x'</code></pre>
 </div>
@@ -574,17 +615,17 @@ $ class        &lt;chr&gt; "compact", "compact", "compact", "compact", "compact"
 <p><strong>First</strong>, create a dichotomous variable (0, 1) indicating whether a car model is front wheel drive or other (rear- or 4-wheel drive). A plot like this puts <em>probability</em> on the y-axis. In this case it is the probability that a car with a given mileage is a front-wheel drive car.</p>
 <p>Convert a factor or character variable to zeros and ones. Here we convert the category of drive train (rear vs.&nbsp;front wheel drive) into ones for front wheel drive, and zeros for rear wheel drive. We use an “if-else” statement to do that.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>mpg2 <span class="ot">&lt;-</span> mpg <span class="sc">%&gt;%</span> </span>
-<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
-<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">prob.front.wheel.drive =</span> <span class="fu">ifelse</span>(drv<span class="sc">==</span><span class="st">"f"</span>, <span class="dv">1</span>, <span class="dv">0</span>)</span>
-<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>mpg2 <span class="ot">&lt;-</span> mpg <span class="sc">%&gt;%</span> </span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">prob.front.wheel.drive =</span> <span class="fu">ifelse</span>(drv<span class="sc">==</span><span class="st">"f"</span>, <span class="dv">1</span>, <span class="dv">0</span>)</span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>Next we plot the zeros and ones on the y-axis against city mileage on the x-axis. We also add a particular kind of fitted line that shows us the expected probability that a car with a particular city mileage is front wheel drive. This curve is the result of a <em>logistic regression model</em> that we use for binomial data. The graph tells us that</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(mpg2, <span class="fu">aes</span>(cty, prob.front.wheel.drive)) <span class="sc">+</span> </span>
-<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span> </span>
-<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method=</span><span class="st">"glm"</span>, </span>
-<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>              <span class="at">method.args =</span> <span class="fu">list</span>(<span class="at">family =</span> <span class="st">"binomial"</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(mpg2, <span class="fu">aes</span>(cty, prob.front.wheel.drive)) <span class="sc">+</span> </span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span> </span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method=</span><span class="st">"glm"</span>, </span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>              <span class="at">method.args =</span> <span class="fu">list</span>(<span class="at">family =</span> <span class="st">"binomial"</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>`geom_smooth()` using formula = 'y ~ x'</code></pre>
 </div>

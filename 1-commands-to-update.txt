@@ -1,3 +1,5 @@
+All in the terminal:
+
 quarto render          # - regenerates all the HTML files in docs/
 git add .              # - stages all changes
 git commit -m "..."    # - commits with a message describing what you changed

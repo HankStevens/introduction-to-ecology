@@ -15,9 +15,9 @@ Download Keane et al. (2024), which is available in [our PDF archive](https://dr
 
 ## Background: What causes extra pair copulation in prairie voles? 
 
-Monogamy, the mating system in which individuals pair-bond to raise offspring, is relatively rare. We don't know what causes this rarity, and nor do we know why it persists  where it do occur. Prairie voles (*Microtus ochrogaster*), like humans, are famously monogamous, and behavioral ecologists have studied them for that reason. And, just like humans, voles also engage in extra-pair copulations that result in offspring, and scientists have been trying to understand the causes and consequences of those extra-pair copulations [@solomon2018].
+Monogamy, the mating system in which individuals pair-bond to raise offspring, is relatively rare. We don't know what causes this rarity, and nor do we know why it persists where it does occur. Prairie voles (*Microtus ochrogaster*), like humans, are famously monogamous, and behavioral ecologists have studied them for that reason. And, just like humans, voles also engage in extra-pair copulations that result in offspring, and scientists have been trying to understand the causes and consequences of those extra-pair copulations [@solomon2018].
 
-Monogamy is a mating system (*sexual monogamy*), but it is also one of many types of social system (*social monogamy*). Different species of animals engage in many forms of *sociality* [@nowak:2010ul; @nordell2014; @kappeler2019]. For example, all species of ants and many species of bees live in large colonies with several castes of individuals (*eusociality*). Most species are entirely *solitary* (think grasshoppers, frogs, flies). Many species live in family social units or have primitive forms of eusociality [@nordell2014]. Social monogamy is the particular form of sociality in which a female-male pair lives together, often resulting in more successful rearing of offspring. 
+Monogamy is a mating system (*sexual monogamy*), but it is also one of many types of social system (*social monogamy*). Most species are entirely *solitary* (think grasshoppers, frogs, flies), but some species engage in persistant social behavior, or exhibit *sociality* [@nowak:2010ul; @nordell2014; @kappeler2019]. For example, all species of ants and many species of bees live in large colonies with several castes of individuals (*eusociality*). Many species live in family social units or have primitive forms of eusociality [@nordell2014]. Social monogamy is the particular form of sociality in which a female-male pair lives together, often resulting in more successful rearing of offspring. 
 
 **So why would socially monogamous individuals engage in extra-pair copulation?**
 
@@ -28,7 +28,7 @@ One reason that individuals engage in extra-pair copulations is in order to avoi
 ### Tinbergen's four questions 
 This section is from an [online course at Oxford University](https://www.conted.ox.ac.uk/courses/samples/animal-behaviour-an-introduction-online/index.html){target="_blank"}
 
-In 1963 Niko Tinbergen published a seminal paper entitled *On the aims and methods of ethology*, which laid the foundation for how to conduct research in the fledging field of animal behaviour. The lasting contribution of the paper is that in it Tinbergen formulated four different, albeit somewhat interlinked, approaches to the study of animal behaviour, or four different types of questions we can ask about an observed behaviour.
+In 1963, Niko Tinbergen published a seminal paper entitled *On the aims and methods of ethology*, which laid the foundation for how to conduct research in the fledging field of animal behaviour. The lasting contribution of the paper is that in it Tinbergen formulated four different, albeit somewhat interlinked, approaches to the study of animal behaviour, or four different types of questions we can ask about an observed behaviour.
 
 The four questions are:
 
@@ -53,7 +53,7 @@ The four types of questions operate at two different levels. Questions 1 and 2 g
 
 ### Determinants of extra-pair copulation in voles
 
-So, what causes extra-pair copulation? What influences the probability that an individual enages in extra-pair copulation? We can think about these questions in any of the four contexts that Tinbergen's questions provide.
+So, what causes extra-pair copulation? What influences the probability that an individual engages in extra-pair copulation? We can think about these questions in any of the four contexts that Tinbergen's questions provide.
 
 Here are some factors that may help determine to the probability of extra-pair copulation: 
 
@@ -68,7 +68,7 @@ It is not always clear how animals and plants identify individuals that are clos
 
 Dr. Nancy Solomon and Dr. Brain Keane have been studying prairie voles for decades, and here we investigate our questions using one of their data sets. 
 
-The data file `epr_209.csv` contains observations on voles related to those we read about in Solomon and Keane (2018). These data are from sampling of voles from the Indiana site, collected over three years (2006-2008). This data file is available in [our data repository](https://drive.google.com/drive/folders/1FR2FLiW3xyD4Er52YzVTToPZuXXReGRo?usp=sharing){target="_blank"}
+The data file `epr_209.csv` contains observations on voles related to those we read about in Keane et al. (2024). These data are from sampling of voles from the Indiana site, collected over three years (2006-2008). These data are available in [our data repository](https://drive.google.com/drive/folders/1FR2FLiW3xyD4Er52YzVTToPZuXXReGRo?usp=sharing){target="_blank"}
 
 Each row in the data set is a record of a succesful copulation that resulted in at least one offspring. Included in each row we have the ofllowing columns:
 
@@ -80,24 +80,32 @@ Each row in the data set is a record of a succesful copulation that resulted in 
 * r - relatedness to the partner. 
 * pairtype - nest partner or extra-pair copulation.
 
+```{r}
+#| echo: false
+a <- read.csv("epr_209.csv")
+a[1:4,]
+rm(d209)
+```
+
+
 *Relatedness* to a partner varies between -1 and +1. A value near zero indicates no more related than expected by chance; 1 is self-identity (e.g., clone) and negative values indicate even less related than we expect due to chance. 
 
 
 ## Your objectives
 
-Ask yourself, "what the heck are these voles doing? is there anything in particular that seems related to the probability that an individual engages or does not engage in extra-pair copulation.
+Ask yourself, "what the heck are these voles doing?" What is might be a cause of extra-pair copulations?
 
-You will come up with a hypothesis about the conditions to might lead to more extra-pair copulations.
+You consider what you learned in your readings, and come up with a question or hypothesis about what conditions to might lead to more extra-pair copulations. In particular, you will
 
-1. Pose a question that you can express in a graph *using these data*. Rely on your understanding of evolution, behavior, and prairie voles to justify your question.
-1. Make a prediction. Draw a mock-up of the graph that is consistent with the mechanism you propose.
-1. Create R code to create the graph you want. 
-1. Figure out what the graph tells you about the answer to your question. Does it match you expectations? Rely on your understanding of evolution, behavior, and prairie voles to interpret your result.
+1. Hypothesis: Pose a hypothesis that you can address *using these data*. Your hypothesis should reflect a mechanism of what you think is going on. Rely on your understanding of evolution, behavior, and prairie voles to justify your the mechanism and hypothesis.
+1. Prediction: Make a prediction that is based on your hypothesis. Draw *on paper* a mock-up of the graph that uses the sort of data we have access to, and is consistent with the mechanism you propose.
+1. Data: Write R code to create a graph that mimicks your prediction, but uses the actual data you download. 
+1. Evaluation: Figure out what the graph tells you about the answer to your question. In what ways are your results consistent with your prediction or not? Rely on your understanding of evolution, behavior, and prairie voles to interpret your result.
 
-Put all of the above (question, hand-drawn graph mock-up, R figure of data, data-based answer to your question) in a document, and turn it in online. See **Deliverables** at the end of this chapter.
+Put all of the above (hypothesis, hand-drawn prediction, R figure of data, data-based evalution) in a document, and turn it in online. See **Deliverables** at the end of this chapter.
 
 ### Write your own script
-To create the graph, you will write your own script. Start as uysual, by finding out what your current working directory. Make sure it is `Rwork`. The read in your data and look at the variables. Then create the graph you want. 
+To create the graph, you will write your own script. Start as usual, by finding out what your current working directory. Make sure it is `Rwork`. The read in your data and look at the variables. Then create the graph you want. 
 
 First we check the current working directory.
 ```{r}
@@ -118,17 +126,17 @@ Next, we get the data.
 1. Put `epr.csv` in your working directory, `Rwork`.
 1. Continue to make sure the file remains in the same simple format, "comma separated values" (.csv).
 
-Now import the data.
+Now import the data, and display its *str*ucture.
 ```{r}
 d209 <- read.csv("epr_209.csv")
 str(d209)
 ```
 
-Use everything you have learned thus far, and the tutorial below to make the graph you want. After you make the graph you want, you can use `ggsave("myVoles.png")` to save the graph to your working directory.
+Use everything you have learned thus far in previous chapters, and the tutorial below to make the graph you want. After you make the graph you want, you can use `ggsave("myVoles.png")` to save the graph to your working directory.
 
 ### Recoding "pairtype"
 
-We can estimate the probability of something happening or not happening based on a series of successes and failures, like a coin coming up heads. A coin either comes up heads or it doesn't - success or failure.
+We can estimate the probability of something happening or not happening based on a series of successes and failures, like a coin coming up heads. A coin either comes up heads or it doesn't - success or failure. We can estimate the probability that it comes up heads ($P = 0.5$), even though we have only heads or tails, successes or failures.
 
 We need to create a variable that represents either an extra-pair copulation or a nest-pair copulation. We will code extra-pair copulation as 1 (success) and nest-pair copulation (failure). 
 
