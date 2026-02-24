@@ -20,7 +20,7 @@ In this chapter, you will
 
 ## Preparatory Steps
 
-* Watch these videos: [lectures 3a and 3b](https://drive.google.com/drive/folders/1nWLoEGuWKIWdul9Uvse5qiB1Hf8MCwUv?usp=sharing){target="_blank"} before proceeding.
+* Read Cohen (1995) in Perusall through our Canvas site. It is also available in our class archive: [Cohen (1995)](https://drive.google.com/drive/folders/1opLlrmF7kfo0FtWwwJ1CbfPWIyuaISC1?usp=sharing)
 1. Go to our [class data repository](https://drive.google.com/drive/u/1/folders/1FR2FLiW3xyD4Er52YzVTToPZuXXReGRo){target="_blank"}, and download `HumanPopData-2023-0101.csv`. Make sure the file remains in the same simple format, "comma separated values" (.csv).
 * If you are curious, check Deliverables, at the end.
 
