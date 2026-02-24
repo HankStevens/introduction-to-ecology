@@ -55,7 +55,7 @@ Even when populations don't grow exponentially, we often describe population gro
 * over short periods of time, deviations to exponential growth still result in patterns that are very similar to exponential growth, and
 * we typically don't know precisely what mechanisms limit exponential growth or by how much, and therefore exponential growth is as good a mathematical description as any.
 
-*If you have not already done so, watch [lectures 3a and 3b](https://drive.google.com/drive/folders/1nWLoEGuWKIWdul9Uvse5qiB1Hf8MCwUv?usp=sharing){target="_blank"} before proceeding.*
+
 
 ### Population growth of *Homo sapiens*: a case study
 
@@ -67,7 +67,7 @@ Here we examine changes in human population size from 10,000 y ago to 2021. The 
 
 We will calculate the density-independent per capita growth rate for pairs of years in the data set. We'll do this by written out by hand, and also in R, using code to do everything quickly, efficiently and, importantly, reproducibly, so that you--or anyone--could check your estimatation procedure.
 
-Recall from lecture (link above) that we often use estimates of $\lambda$ and $r$  to quantify how rapidly a population is growing (or declining) at various points in time. For a population with overlapping generations and reproducing continuously, we can estimate the *per capita* exponential growth rate at a particular point in time ($r_t$) using the following equation:
+We often use estimates of $\lambda$ and $r$  to quantify how rapidly a population is growing (or declining) at various points in time. For a population with overlapping generations and reproducing continuously, we can estimate the *per capita* exponential growth rate at a particular point in time ($r_t$) using the following equation:
 
 
 $$r_t = \frac{\frac{\ln N_{t+h}}{\ln N_t}}{(t+h) - t}$${#eq-r}
