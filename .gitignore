@@ -58,3 +58,4 @@ po/*~
 # RStudio Connect folder
 rsconnect/
 >>>>>>> 4bcb9dd51b8ae684c94d548468331e0d23cd4a0f
+.claude/
