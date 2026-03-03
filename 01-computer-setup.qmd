@@ -50,8 +50,8 @@ Watch one of these to help you understand how your computer is organized. This w
 
 A "path" is the complete location and name of a file, starting from the hard drive, down to the file or folder of interest. Here are a two examples:
 
-* (Windows 11) C:\Users\Stevenmh\Documents/BIO209W
-* (Mac) /Users/stevenmh/courses/209W/
+* (Windows 11) `C:\Users\Stevenmh\Documents/BIO209W`
+* (Mac) `/Users/stevenmh/courses/209W/`
 
 Note they both start big and get more narrow. On Windows, the directory for the harddrive is typically "C:" and on a Mac it is just "/".
 

@@ -313,14 +313,17 @@ window.Quarto = {
   <li><a href="#connecting-life-history-information-to-a-model" id="toc-connecting-life-history-information-to-a-model" class="nav-link" data-scroll-target="#connecting-life-history-information-to-a-model"><span class="header-section-number">7.5.1</span> Connecting life history information to a model</a></li>
   <li><a href="#connecting-life-histories-to-demographic-matrices" id="toc-connecting-life-histories-to-demographic-matrices" class="nav-link" data-scroll-target="#connecting-life-histories-to-demographic-matrices"><span class="header-section-number">7.5.2</span> Connecting life histories to demographic matrices</a></li>
   </ul></li>
-  <li><a href="#analysis-of-a-demographic-matrix" id="toc-analysis-of-a-demographic-matrix" class="nav-link" data-scroll-target="#analysis-of-a-demographic-matrix"><span class="header-section-number">7.6</span> Analysis of a demographic matrix</a></li>
+  <li><a href="#analysis-of-a-demographic-matrix" id="toc-analysis-of-a-demographic-matrix" class="nav-link" data-scroll-target="#analysis-of-a-demographic-matrix"><span class="header-section-number">7.6</span> Analysis of a demographic matrix</a>
+  <ul class="collapse">
+  <li><a href="#population-growth-rate-lambda" id="toc-population-growth-rate-lambda" class="nav-link" data-scroll-target="#population-growth-rate-lambda"><span class="header-section-number">7.6.1</span> Population growth rate, <span class="math inline">\(\lambda\)</span></a></li>
+  </ul></li>
   <li><a href="#finding-the-life-history-stage-that-could-make-the-biggest-difference" id="toc-finding-the-life-history-stage-that-could-make-the-biggest-difference" class="nav-link" data-scroll-target="#finding-the-life-history-stage-that-could-make-the-biggest-difference"><span class="header-section-number">7.7</span> Finding the life history stage that could make the biggest difference</a>
   <ul class="collapse">
   <li><a href="#helping-hatchlings" id="toc-helping-hatchlings" class="nav-link" data-scroll-target="#helping-hatchlings"><span class="header-section-number">7.7.1</span> Helping hatchlings</a></li>
   <li><a href="#helping-small-juveniles" id="toc-helping-small-juveniles" class="nav-link" data-scroll-target="#helping-small-juveniles"><span class="header-section-number">7.7.2</span> Helping small juveniles</a></li>
   </ul></li>
   <li><a href="#simulating-helping-other-stages" id="toc-simulating-helping-other-stages" class="nav-link" data-scroll-target="#simulating-helping-other-stages"><span class="header-section-number">7.8</span> Simulating helping other stages</a></li>
-  <li><a href="#sec-deliverables" id="toc-sec-deliverables" class="nav-link" data-scroll-target="#sec-deliverables"><span class="header-section-number">7.9</span> Deliverables</a></li>
+  <li><a href="#sec-deliverables-spg" id="toc-sec-deliverables-spg" class="nav-link" data-scroll-target="#sec-deliverables-spg"><span class="header-section-number">7.9</span> Deliverables</a></li>
   </ul>
 </nav>
     </div>
@@ -371,10 +374,9 @@ Figure&nbsp;7.1: The loggerhead sea turtle is listed as “vulnerable” by the 
 <section id="preparatory-steps" class="level2" data-number="7.2">
 <h2 data-number="7.2" class="anchored" data-anchor-id="preparatory-steps"><span class="header-section-number">7.2</span> Preparatory steps</h2>
 <ul>
-<li>Watch the lecture video on <a href="https://drive.google.com/drive/folders/1nWLoEGuWKIWdul9Uvse5qiB1Hf8MCwUv?usp=sharing">Structured population growth</a>, and the preceding population ecology videos (distribution and abundance, and density-independent population growth).</li>
-<li>Download <a href="https://drive.google.com/drive/folders/1opLlrmF7kfo0FtWwwJ1CbfPWIyuaISC1?usp=sharing">Crouse et al.&nbsp;(1987) from our article archive</a>.</li>
+<li>Read Crouse et al.&nbsp;(1987) in Perusall through our Canvas site. It is also available in our class archive: <a href="https://drive.google.com/drive/folders/1opLlrmF7kfo0FtWwwJ1CbfPWIyuaISC1?usp=sharing">Cohen (1995)</a></li>
 <li>This chapter does not use a separate data set, but it does use demographic natural history information in Crouse et al.&nbsp;(1987).</li>
-<li>Find out what you need for the deliverables (<a href="11-predator-prey.html#sec-deliverables" class="quarto-xref"><span>Section 11.12</span></a>).</li>
+<li>If you are curious, check Deliverables, at the end (<a href="#sec-deliverables-spg" class="quarto-xref"><span>Section 7.9</span></a>).</li>
 </ul>
 </section>
 <section id="demography" class="level2" data-number="7.3">
@@ -387,7 +389,17 @@ Figure&nbsp;7.1: The loggerhead sea turtle is listed as “vulnerable” by the 
 <p>Sea turtles live in warm oceans around the world and reproduce on sandy beaches. Females return to the same beaches most years to lay eggs in clutches. They come ashore, dig a hole in the sand, lay 10-100 eggs, and cover the nest, often disguising it from terrestrial predators who would like to dig them up to eat them. The female then returns to the sea to feed and ovoid enemies. If the everything goes right, the eggs hatch after incubation, hatchlings emerge together, struggle to the surf, and attempt to avoid the many predators (e.g., gulls, raccoons, crabs, people). Sea turtle hatchlings face many threats, including from humans who eat the eggs, and trucks or off-road vehicles can destroy the nests. In addition, lighting from nearby streets and homes can confuse hatchlings as they may crawl toward the lights as opposed to heading out to sea.</p>
 <section id="questions-about-loggerhead-survival" class="level3" data-number="7.4.1">
 <h3 data-number="7.4.1" class="anchored" data-anchor-id="questions-about-loggerhead-survival"><span class="header-section-number">7.4.1</span> Questions about loggerhead survival</h3>
-<p>Include answers to these in Deliverables. 1. Consult Table 3 (Crouse et al.&nbsp;1987). a. Which two stages have the lowest annual survivorship? a. Which stages have the highest annual survivorship? 1. Why do you suppose that 1st year remigrants have such low fecundity?</p>
+<p>Include answers to these in Deliverables.</p>
+<ol type="1">
+<li>Consult Table 3 (Crouse et al.&nbsp;1987).</li>
+</ol>
+<ol type="a">
+<li>Which two stages have the lowest annual survivorship?</li>
+<li>Which stages have the highest annual survivorship?</li>
+</ol>
+<ol type="1">
+<li>Why do you suppose that 1st year remigrants have such low fecundity?</li>
+</ol>
 <p>Fishing trawlers, which drag nets for long distances to catch shrimp and fish create another source of mortality in juveniles and adults. The sea turtles get caught in these nets and drown. These dead turtles are referred to as “by-catch”, that is, animals killed unintentionally while fishing for other species.</p>
 <p>Sea turtle populations have been on the decline for well over a century, and some species are more endangered than others. One common conservation strategy has been to protect the eggs and hatchlings. More recently, some countries have passed laws requiring fishing trawlers (fishing boats dragging huge nets for hours at a time) to use turtle excluders devices (TEDs). These spring-loaded devices fit at the end of a trawler net and will open up when they receive a big bump from a heavy sea turtle. This allows the turtle to escape, and the fishermen lose only a fraction of their catch.</p>
 <p>No one really knew the value of TEDs until Deborah Crouse and others modeled sea turtle populations and showed clearly that (1) saving eggs and hatchlings was not enough, and (2) increasing survival of large turtles (large juveniles and adults) was required to save the turtles from continued declines and extinction.</p>
@@ -447,8 +459,8 @@ H&amp;J_s &amp; J_l &amp; sub &amp; B_1 &amp; B_2 &amp; M\\
 <section id="connecting-life-histories-to-demographic-matrices" class="level3" data-number="7.5.2">
 <h3 data-number="7.5.2" class="anchored" data-anchor-id="connecting-life-histories-to-demographic-matrices"><span class="header-section-number">7.5.2</span> Connecting life histories to demographic matrices</h3>
 <ol type="1">
-<li>Compare Table 3 and Table 4 (Crouse et al.&nbsp;1987). What are the relationships between survival and fecundity in Table 3, and the diagonal (stasis) and off-diagonal elements (growth) of the matrix in Table 4? How are they related?</li>
-<li>Why are the diagonal matrix elements (Table 4) not the same are the annual survivorship in Table 3?</li>
+<li>Compare Table 3 and Table 4 (above). What are the relationships between survival and fecundity in Table 3, and the diagonal (stasis) and off-diagonal elements (growth) of the matrix in Table 4? How are they related?</li>
+<li>Why do you think that the diagonal matrix elements (Table 4) not the same are the annual survivorship in Table 3?</li>
 </ol>
 <p>To use the information in Table 3 to make predictions about the long-term viability of the population and to make recommendations for the conservation of the population, Crouse and colleagues need to combine these stage-specific demographic rates into a model, and summarize the behavior of that model.</p>
 <p>Their first step was to put the above rates into a demographic transition matrix, where columns represent stages in one year, and the rows represent stages in the next year.</p>
@@ -456,6 +468,25 @@ H&amp;J_s &amp; J_l &amp; sub &amp; B_1 &amp; B_2 &amp; M\\
 </section>
 <section id="analysis-of-a-demographic-matrix" class="level2" data-number="7.6">
 <h2 data-number="7.6" class="anchored" data-anchor-id="analysis-of-a-demographic-matrix"><span class="header-section-number">7.6</span> Analysis of a demographic matrix</h2>
+<p>As we try to understand and appreciate the meaning of sea turtle life history, demography, and survival, we will focus on three characteristics:</p>
+<ul>
+<li><strong>population growth rate</strong>, <span class="math inline">\(\lambda\)</span>, is the long term <em>finite rate of increase</em> and assumes density-independent growth.</li>
+<li><strong>stable stage distribution</strong> is the set of expected relative densities of the different stages.</li>
+<li><strong>elasticies</strong> are the relative importances of the different transitions to determining the finite rate of increase, <span class="math inline">\(\lambda\)</span>.</li>
+</ul>
+<p>We will focus on lambda, and do some experiments playing around with survival and growth.</p>
+<section id="population-growth-rate-lambda" class="level3" data-number="7.6.1">
+<h3 data-number="7.6.1" class="anchored" data-anchor-id="population-growth-rate-lambda"><span class="header-section-number">7.6.1</span> Population growth rate, <span class="math inline">\(\lambda\)</span></h3>
+<p>Lambda, <span class="math inline">\(\lambda\)</span>, is the long term <em>finite rate of increase</em>.</p>
+<ul>
+<li>It assumes density-independent growth.</li>
+<li>It is a long term prediction which assumes the <em>population structure</em> will be constant.</li>
+<li>It is the proportional change in the size of the population from one year to the next.
+<ul>
+<li><span class="math inline">\(\lambda = 1.10\)</span> means the population will grow by 10%.</li>
+<li><span class="math inline">\(\lambda = 0.95\)</span> means the population will shrink by 5%.</li>
+</ul></li>
+</ul>
 <p>As with all of our work, confirm you are in the correct working directory.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">getwd</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -482,12 +513,6 @@ H&amp;J_s &amp; J_l &amp; sub &amp; B_1 &amp; B_2 &amp; M\\
 </div>
 </div>
 <p>Two of the techniques we use to analyze a demographic matrix are <strong>simulation</strong>, and a mathematical technique called <strong>eigenanalysis</strong>. Simulation allows us to reveal the dynamics through time, year after year, generation after generation. Eigenanalysis allows us to very quickly quantify average characteristics of the population, including the population growth rate, <span class="math inline">\(\lambda\)</span>, the stable stage distribution, and the elasticities.</p>
-<ul>
-<li><strong>population growth rate</strong>, <span class="math inline">\(\lambda\)</span>, is the long term <em>finite rate of increase</em> and assumes density-independent growth.</li>
-<li><strong>stable stage distribution</strong> is the set of expected relative densities of the different stages.</li>
-<li><strong>elasticies</strong> are the relative importances of the different transitions to determining the finite rate of increase, <span class="math inline">\(\lambda\)</span>.</li>
-</ul>
-<p>We will focus on lambda, and do some experiments playing around with survival and growth.</p>
 <p>First, we need to create the observed transition matrix.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>A <span class="ot">&lt;-</span> <span class="fu">matrix</span>(</span>
@@ -522,6 +547,7 @@ M   0.0000 0.0000 0.0000 0.0000   0.0000 0.8091  0.8089</code></pre>
 </div>
 <p>This value, <span class="math inline">\(\lambda = 0.94\)</span>, is less than <span class="math inline">\(\lambda=1\)</span>, and therefore indicates a shrinking population. <strong>This shows that the loggerhead sea turtle was predicted to decline.</strong></p>
 <p><strong>What can we do?</strong></p>
+</section>
 </section>
 <section id="finding-the-life-history-stage-that-could-make-the-biggest-difference" class="level2" data-number="7.7">
 <h2 data-number="7.7" class="anchored" data-anchor-id="finding-the-life-history-stage-that-could-make-the-biggest-difference"><span class="header-section-number">7.7</span> Finding the life history stage that could make the biggest difference</h2>
@@ -593,7 +619,7 @@ M   0.0000 0.000 0.0000 0.0000   0.0000 0.8091  0.8089</code></pre>
 </div>
 </div>
 <p>Now that you have a new matrix, calculate the lambda for this matrix. Do that now by borrowing and editing code from above.</p>
-<p>Now calculate the finite rate of increase (<span class="math inline">\(\lambda\)</span>)</p>
+<p>Now calculate the finite rate of increase (<span class="math inline">\(\lambda\)</span>).</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">Re</span>( <span class="fu">eigen</span>(A2)<span class="sc">$</span>values[<span class="dv">1</span>] )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
@@ -667,13 +693,13 @@ Table&nbsp;7.1: New values to use in the loggerhead sea turtle transition matrix
 </div>
 <p>Record the new value of lambda for each separate simulation.</p>
 </section>
-<section id="sec-deliverables" class="level2" data-number="7.9">
-<h2 data-number="7.9" class="anchored" data-anchor-id="sec-deliverables"><span class="header-section-number">7.9</span> Deliverables</h2>
+<section id="sec-deliverables-spg" class="level2" data-number="7.9">
+<h2 data-number="7.9" class="anchored" data-anchor-id="sec-deliverables-spg"><span class="header-section-number">7.9</span> Deliverables</h2>
 <p>Put the following into a single document:</p>
 <ol type="1">
 <li>A life cycle graph for the loggerhead population. On your figure, include the numerical elements associated with each transition, based on the original matrix.</li>
 <li>A table similar to Table 7.1 with all the stages, the provided values of stasis, and growth, and your new values of lambda.</li>
-<li>Assume it is your interest to maximize long-term population growth rate (<span class="math inline">\(\lambda\)</span>), for which stage or stages should you invest in protection measures? Explain why, and use your values of lambda as evidence in your answer.</li>
+<li>Assume you want to maximize long-term population growth rate (<span class="math inline">\(\lambda\)</span>). For which stage or stages should you invest in protection measures? Explain why, and use your values of lambda as evidence in your answer.</li>
 </ol>
 <p>Upload this document and your R script to the appropriate site.</p>
 

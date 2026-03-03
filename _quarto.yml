@@ -31,8 +31,8 @@ format:
   html:
     theme: default
     mainfont: serif
-  # pdf:
-  #   documentclass: scrreprt
+  pdf:
+    documentclass: scrreprt
 
 editor: source
 

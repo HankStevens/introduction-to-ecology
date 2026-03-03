@@ -20,7 +20,7 @@ If you successfully complete this chapter, you will
 * Watch the lecture video on [Structured population growth](https://drive.google.com/drive/folders/1nWLoEGuWKIWdul9Uvse5qiB1Hf8MCwUv?usp=sharing), and the preceding population ecology videos (distribution and abundance, and density-independent population growth).
 * Download [Crouse et al. (1987) from our article archive](https://drive.google.com/drive/folders/1opLlrmF7kfo0FtWwwJ1CbfPWIyuaISC1?usp=sharing). 
 * This chapter does not use a separate data set, but it does use demographic natural history information in Crouse et al. (1987).
-* Find out what you need for the deliverables (@sec-deliverables).
+* Find out what you need for the deliverables (@sec-deliverables-spg).
 
 
 ## Demography
@@ -192,7 +192,7 @@ Now that you have a new matrix, calculate the lambda for this matrix.
 
 
 
-## Deliverables {#sec-deliverables}
+## Deliverables {#sec-deliverables-spg}
 
 1. Draw a life cycle graph for this loggerhead population. Include the matrix elements associated with each transition.
 1. Determine lambda for the original matrix, and for new matrices, each with perfect survival for each one of the seven stages alone, holding the other rates at their original values.

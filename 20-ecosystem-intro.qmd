@@ -26,7 +26,7 @@ The other main point of these activities is to reinforce simple ideas related to
 
 1. General background lectures: [Download the slides and watch the video on at least the carbon cycle](https://drive.google.com/drive/folders/1nWLoEGuWKIWdul9Uvse5qiB1Hf8MCwUv?usp=sharing){target="_blank"} before proceeding.
 1. We will not need data for this chapter.
-1. Find out what you need for the deliverables parts 1 (@sec-deliverables1) and 2 (@sec-deliverables2).
+1. Find out what you need for the deliverables parts 1 (@sec-deliverables-ei1) and 2 (@sec-deliverables-ei2).
 1. Get R ready for work - see the next section.
 
 ## Get R ready for work
@@ -279,7 +279,7 @@ asymp
 
 What does the above solution tell us should happen if $e$ gets smaller? gets larger?
 
-## Deliverables, part 1 {#sec-deliverables1}
+## Deliverables, part 1 {#sec-deliverables-ei1}
 
 Two documents:
 
@@ -729,7 +729,7 @@ ggsave("Exp3_temps.png", plot=p2.3)
 
 
 
-## Deliverables, part 2 {#sec-deliverables2}
+## Deliverables, part 2 {#sec-deliverables-ei2}
 
 Include two documents; the first is your R script.
 

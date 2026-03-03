@@ -188,7 +188,7 @@ ggsave("dynamics-rd-0.2.png", height=5, width=6)
 - the number of stable points to which the population returns.
 
 
-## Deliverables {#sec-deliverables}
+## Deliverables {#sec-deliverables-ddpg}
 
 Put your work from section 8.3 (Assignment 1) and section 8.4 (Assignment 2) into one document and turn in by the due date.
 

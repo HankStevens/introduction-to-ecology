@@ -20,7 +20,7 @@ In this chapter, you will,
 
 * Download the slides and watch the video on [competition (4b)](https://drive.google.com/drive/folders/1nWLoEGuWKIWdul9Uvse5qiB1Hf8MCwUv?usp=sharing){target="_blank"} before proceeding.
 * This chapter does not use a separate data set, but it does use results from Livdahl and Willey (1991). Download [Livdahl and Willey (1991) from our article archive](https://drive.google.com/drive/folders/1opLlrmF7kfo0FtWwwJ1CbfPWIyuaISC1?usp=sharing).
-* Find out what you need for the deliverables (@sec-deliverables).
+* Find out what you need for the deliverables (@sec-deliverables-di).
 
 
 ## Background
@@ -99,7 +99,7 @@ tire.At["Ki"] > tire.At["a.B"]*tire.Aa["Ki"]
 ```
 
 
-## Deliverables {#sec-deliverables}
+## Deliverables {#sec-deliverables-di}
 In one document include these two graphs and answers to these questions:
 
 1. Draw the isoclines for both species in water obtained from tree holes. Add one curved line for population trajectories starting at 5 *A. triseriatus* and 5 *A. albopictus*.

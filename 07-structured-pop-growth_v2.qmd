@@ -16,11 +16,9 @@ If you successfully complete this chapter, you will
 * recommend management options for sea turtles conservation.
 
 ## Preparatory steps
-
-* Watch the lecture video on [Structured population growth](https://drive.google.com/drive/folders/1nWLoEGuWKIWdul9Uvse5qiB1Hf8MCwUv?usp=sharing), and the preceding population ecology videos (distribution and abundance, and density-independent population growth).
-* Download [Crouse et al. (1987) from our article archive](https://drive.google.com/drive/folders/1opLlrmF7kfo0FtWwwJ1CbfPWIyuaISC1?usp=sharing). 
+* Read Crouse et al. (1987) in Perusall through our Canvas site. It is also available in our class archive: [Cohen (1995)](https://drive.google.com/drive/folders/1opLlrmF7kfo0FtWwwJ1CbfPWIyuaISC1?usp=sharing)
 * This chapter does not use a separate data set, but it does use demographic natural history information in Crouse et al. (1987).
-* Find out what you need for the deliverables (@sec-deliverables).
+* If you are curious, check Deliverables, at the end (@sec-deliverables-spg).
 
 
 ## Demography
@@ -33,7 +31,9 @@ The loggerhead sea turtle (*Caretta caretta*) is a widely distributed (i.e. cosm
 Sea turtles live in warm oceans around the world and reproduce on sandy beaches. Females return to the same beaches most years to lay eggs in clutches. They come ashore, dig a hole in the sand, lay 10-100 eggs, and cover the nest, often disguising it from terrestrial predators who would like to dig them up to eat them. The female then returns to the sea to feed and ovoid enemies. If the everything goes right, the eggs hatch after incubation, hatchlings emerge together, struggle to the surf, and attempt to avoid the many predators (e.g., gulls, raccoons, crabs, people). Sea turtle hatchlings face many threats, including from humans who eat the eggs, and trucks or off-road vehicles can destroy the nests. In addition, lighting from nearby streets and homes can confuse hatchlings as they may crawl toward the lights as opposed to heading out to sea.
 
 ### Questions about loggerhead survival
+
 Include answers to these in Deliverables.
+
 1.	Consult Table 3 (Crouse et al. 1987). 
    a. Which two stages have the lowest annual survivorship? 
    a. Which stages have the highest annual survivorship?
@@ -92,14 +92,33 @@ H&J_s & J_l & sub & B_1 & B_2 & M\\
 
 
 ### Connecting life histories to demographic matrices
-1. Compare Table 3 and Table 4 (Crouse et al. 1987). What are the relationships between survival and fecundity in Table 3, and the diagonal (stasis) and off-diagonal elements (growth) of the matrix in Table 4? How are they related?
-1. Why are the diagonal matrix elements (Table 4) not the same are the annual survivorship in Table 3?
+
+1. Compare Table 3 and Table 4 (above). What are the relationships between survival and fecundity in Table 3, and the diagonal (stasis) and off-diagonal elements (growth) of the matrix in Table 4? How are they related?
+1. Why do you think that the diagonal matrix elements (Table 4) not the same are the annual survivorship in Table 3?
 
 To use the information in Table 3 to make predictions about the long-term viability of the population and to make recommendations for the conservation of the population, Crouse and colleagues need to combine these stage-specific demographic rates into a model, and summarize the behavior of that model.
 
 Their first step was to put the above rates into a demographic transition matrix, where columns represent stages in one year, and the rows represent stages in the next year.
 
 ## Analysis of a demographic matrix
+
+As we try to understand and appreciate the meaning of sea turtle life history, demography, and survival, we will focus on three characteristics:
+
+* **population growth rate**, $\lambda$,  is the long term *finite rate of increase* and assumes density-independent growth.
+* **stable stage distribution** is the set of expected relative densities of the different stages.
+* **elasticies** are the relative importances of the different transitions to determining the finite rate of increase, $\lambda$.
+
+We will focus on lambda, and do some experiments playing around with survival and growth.
+
+### Population growth rate, $\lambda$
+
+Lambda, $\lambda$, is the long term *finite rate of increase*. 
+
+* It assumes density-independent growth.
+* It is a long term prediction which assumes the *population structure* will be constant.
+* It is the proportional change in the size of the population from one year to the next.
+   + $\lambda = 1.10$ means the population will grow by 10%.
+   + $\lambda = 0.95$ means the population will shrink by 5%.
 
 As with all of our work, confirm you are in the correct working directory.
 ```{r}
@@ -116,11 +135,6 @@ library(tidyverse)
 
 Two of the techniques we use to analyze a demographic matrix are **simulation**, and a mathematical technique called **eigenanalysis**. Simulation allows us to reveal the dynamics through time, year after year, generation after generation. Eigenanalysis allows us to very quickly quantify average characteristics of the population, including the population growth rate, $\lambda$, the stable stage distribution, and the elasticities.
 
-* **population growth rate**, $\lambda$,  is the long term *finite rate of increase* and assumes density-independent growth.
-* **stable stage distribution** is the set of expected relative densities of the different stages.
-* **elasticies** are the relative importances of the different transitions to determining the finite rate of increase, $\lambda$.
-
-We will focus on lambda, and do some experiments playing around with survival and growth.
 
 First, we need to create the observed transition matrix.
 
@@ -207,7 +221,7 @@ A2
 
 Now that you have a new matrix, calculate the lambda for this matrix. Do that now by borrowing and editing code from above.
 
-Now calculate the finite rate of increase ($\lambda$)
+Now calculate the finite rate of increase ($\lambda$).
 ```{r}
 Re( eigen(A2)$values[1] )
 ```
@@ -261,13 +275,13 @@ cbind(changes,lambda)
 
 Record the new value of lambda for each separate simulation. 
 
-## Deliverables {#sec-deliverables}
+## Deliverables {#sec-deliverables-spg}
 
 Put the following into a single document:
 
 1. A life cycle graph for the loggerhead population. On your figure, include the numerical elements associated with each transition, based on the original matrix.
 1. A table similar to Table 7.1 with all the stages, the provided values of stasis, and growth, and your new values of lambda. 
-1. Assume it is your interest to maximize long-term population growth rate ($\lambda$), for which stage or stages should you invest in protection measures? Explain why, and use your values of lambda as evidence in your answer.
+1. Assume you want to maximize long-term population growth rate ($\lambda$). For which stage or stages should you invest in protection measures? Explain why, and use your values of lambda as evidence in your answer.
 
 Upload this document and your R script to the appropriate site.
 
