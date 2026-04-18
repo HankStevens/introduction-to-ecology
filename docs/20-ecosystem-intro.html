@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>13&nbsp; An Introduction to the Carbon Cycle and Global Heating – Basic Ecological Concepts and Data in R</title>
+<title>14&nbsp; An Introduction to the Carbon Cycle and Global Heating – Basic Ecological Concepts and Data in R</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -66,7 +66,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
 <link href="./references.html" rel="next">
-<link href="./13-diversity.html" rel="prev">
+<link href="./14-metabolic-ecology.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
@@ -156,7 +156,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./20-ecosystem-intro.html"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">An Introduction to the Carbon Cycle and Global Heating</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./20-ecosystem-intro.html"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">An Introduction to the Carbon Cycle and Global Heating</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -261,8 +261,14 @@ window.Quarto = {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./14-metabolic-ecology.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Metabolic Ecology: How do body size and temperature affect nutrient cycling?</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./20-ecosystem-intro.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">An Introduction to the Carbon Cycle and Global Heating</span></span></a>
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">An Introduction to the Carbon Cycle and Global Heating</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -281,33 +287,33 @@ window.Quarto = {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#goals" id="toc-goals" class="nav-link active" data-scroll-target="#goals"><span class="header-section-number">13.1</span> Goals</a></li>
-  <li><a href="#preparatory-steps" id="toc-preparatory-steps" class="nav-link" data-scroll-target="#preparatory-steps"><span class="header-section-number">13.2</span> Preparatory steps</a></li>
-  <li><a href="#get-r-ready-for-work" id="toc-get-r-ready-for-work" class="nav-link" data-scroll-target="#get-r-ready-for-work"><span class="header-section-number">13.3</span> Get R ready for work</a></li>
-  <li><a href="#background-on-ecosystems" id="toc-background-on-ecosystems" class="nav-link" data-scroll-target="#background-on-ecosystems"><span class="header-section-number">13.4</span> Background on ecosystems</a></li>
-  <li><a href="#a-simple-budget-provides-one-explanation-for-why-we-have-so-much-carbon-in-the-atmosphere" id="toc-a-simple-budget-provides-one-explanation-for-why-we-have-so-much-carbon-in-the-atmosphere" class="nav-link" data-scroll-target="#a-simple-budget-provides-one-explanation-for-why-we-have-so-much-carbon-in-the-atmosphere"><span class="header-section-number">13.5</span> A simple budget provides one explanation for why we have so much carbon in the atmosphere</a>
+  <li><a href="#goals" id="toc-goals" class="nav-link active" data-scroll-target="#goals"><span class="header-section-number">14.1</span> Goals</a></li>
+  <li><a href="#preparatory-steps" id="toc-preparatory-steps" class="nav-link" data-scroll-target="#preparatory-steps"><span class="header-section-number">14.2</span> Preparatory steps</a></li>
+  <li><a href="#get-r-ready-for-work" id="toc-get-r-ready-for-work" class="nav-link" data-scroll-target="#get-r-ready-for-work"><span class="header-section-number">14.3</span> Get R ready for work</a></li>
+  <li><a href="#background-on-ecosystems" id="toc-background-on-ecosystems" class="nav-link" data-scroll-target="#background-on-ecosystems"><span class="header-section-number">14.4</span> Background on ecosystems</a></li>
+  <li><a href="#a-simple-budget-provides-one-explanation-for-why-we-have-so-much-carbon-in-the-atmosphere" id="toc-a-simple-budget-provides-one-explanation-for-why-we-have-so-much-carbon-in-the-atmosphere" class="nav-link" data-scroll-target="#a-simple-budget-provides-one-explanation-for-why-we-have-so-much-carbon-in-the-atmosphere"><span class="header-section-number">14.5</span> A simple budget provides one explanation for why we have so much carbon in the atmosphere</a>
   <ul class="collapse">
-  <li><a href="#rate-of-change" id="toc-rate-of-change" class="nav-link" data-scroll-target="#rate-of-change"><span class="header-section-number">13.5.1</span> Rate of change</a></li>
+  <li><a href="#rate-of-change" id="toc-rate-of-change" class="nav-link" data-scroll-target="#rate-of-change"><span class="header-section-number">14.5.1</span> Rate of change</a></li>
   </ul></li>
-  <li><a href="#simple-dynamics-emerge-from-processes-like-diffusion-and-complicate-prediction" id="toc-simple-dynamics-emerge-from-processes-like-diffusion-and-complicate-prediction" class="nav-link" data-scroll-target="#simple-dynamics-emerge-from-processes-like-diffusion-and-complicate-prediction"><span class="header-section-number">13.6</span> Simple dynamics emerge from processes like diffusion and complicate prediction</a>
+  <li><a href="#simple-dynamics-emerge-from-processes-like-diffusion-and-complicate-prediction" id="toc-simple-dynamics-emerge-from-processes-like-diffusion-and-complicate-prediction" class="nav-link" data-scroll-target="#simple-dynamics-emerge-from-processes-like-diffusion-and-complicate-prediction"><span class="header-section-number">14.6</span> Simple dynamics emerge from processes like diffusion and complicate prediction</a>
   <ul class="collapse">
-  <li><a href="#a-first-order-flux" id="toc-a-first-order-flux" class="nav-link" data-scroll-target="#a-first-order-flux"><span class="header-section-number">13.6.1</span> A first order flux</a></li>
-  <li><a href="#earths-atmosphere-as-a-first-order-equation" id="toc-earths-atmosphere-as-a-first-order-equation" class="nav-link" data-scroll-target="#earths-atmosphere-as-a-first-order-equation"><span class="header-section-number">13.6.2</span> Earth’s atmosphere as a first order equation</a></li>
+  <li><a href="#a-first-order-flux" id="toc-a-first-order-flux" class="nav-link" data-scroll-target="#a-first-order-flux"><span class="header-section-number">14.6.1</span> A first order flux</a></li>
+  <li><a href="#earths-atmosphere-as-a-first-order-equation" id="toc-earths-atmosphere-as-a-first-order-equation" class="nav-link" data-scroll-target="#earths-atmosphere-as-a-first-order-equation"><span class="header-section-number">14.6.2</span> Earth’s atmosphere as a first order equation</a></li>
   </ul></li>
-  <li><a href="#sec-deliverables-ei1" id="toc-sec-deliverables-ei1" class="nav-link" data-scroll-target="#sec-deliverables-ei1"><span class="header-section-number">13.7</span> Deliverables, part 1</a></li>
-  <li><a href="#linking-two-different-ecosystem-processes-shows-lagged-effects" id="toc-linking-two-different-ecosystem-processes-shows-lagged-effects" class="nav-link" data-scroll-target="#linking-two-different-ecosystem-processes-shows-lagged-effects"><span class="header-section-number">13.8</span> Linking two different ecosystem processes shows lagged effects</a>
+  <li><a href="#sec-deliverables-ei1" id="toc-sec-deliverables-ei1" class="nav-link" data-scroll-target="#sec-deliverables-ei1"><span class="header-section-number">14.7</span> Deliverables, part 1</a></li>
+  <li><a href="#linking-two-different-ecosystem-processes-shows-lagged-effects" id="toc-linking-two-different-ecosystem-processes-shows-lagged-effects" class="nav-link" data-scroll-target="#linking-two-different-ecosystem-processes-shows-lagged-effects"><span class="header-section-number">14.8</span> Linking two different ecosystem processes shows lagged effects</a>
   <ul class="collapse">
-  <li><a href="#adding-greenhouse-heat-trapping-gases" id="toc-adding-greenhouse-heat-trapping-gases" class="nav-link" data-scroll-target="#adding-greenhouse-heat-trapping-gases"><span class="header-section-number">13.8.1</span> Adding greenhouse (heat-trapping) gases</a></li>
-  <li><a href="#why-is-all-this-math-important" id="toc-why-is-all-this-math-important" class="nav-link" data-scroll-target="#why-is-all-this-math-important"><span class="header-section-number">13.8.2</span> Why is all this math important?</a></li>
-  <li><a href="#expected-temperatures-now-and-also-what-the-temperature-would-become" id="toc-expected-temperatures-now-and-also-what-the-temperature-would-become" class="nav-link" data-scroll-target="#expected-temperatures-now-and-also-what-the-temperature-would-become"><span class="header-section-number">13.8.3</span> Expected temperatures now, and also what the temperature would become</a></li>
+  <li><a href="#adding-greenhouse-heat-trapping-gases" id="toc-adding-greenhouse-heat-trapping-gases" class="nav-link" data-scroll-target="#adding-greenhouse-heat-trapping-gases"><span class="header-section-number">14.8.1</span> Adding greenhouse (heat-trapping) gases</a></li>
+  <li><a href="#why-is-all-this-math-important" id="toc-why-is-all-this-math-important" class="nav-link" data-scroll-target="#why-is-all-this-math-important"><span class="header-section-number">14.8.2</span> Why is all this math important?</a></li>
+  <li><a href="#expected-temperatures-now-and-also-what-the-temperature-would-become" id="toc-expected-temperatures-now-and-also-what-the-temperature-would-become" class="nav-link" data-scroll-target="#expected-temperatures-now-and-also-what-the-temperature-would-become"><span class="header-section-number">14.8.3</span> Expected temperatures now, and also what the temperature would become</a></li>
   </ul></li>
-  <li><a href="#simulations-in-silico-experiments" id="toc-simulations-in-silico-experiments" class="nav-link" data-scroll-target="#simulations-in-silico-experiments"><span class="header-section-number">13.9</span> Simulations: <em>in silico</em> experiments</a>
+  <li><a href="#simulations-in-silico-experiments" id="toc-simulations-in-silico-experiments" class="nav-link" data-scroll-target="#simulations-in-silico-experiments"><span class="header-section-number">14.9</span> Simulations: <em>in silico</em> experiments</a>
   <ul class="collapse">
-  <li><a href="#experiment-1-business-as-usual" id="toc-experiment-1-business-as-usual" class="nav-link" data-scroll-target="#experiment-1-business-as-usual"><span class="header-section-number">13.9.1</span> Experiment 1: Business as usual</a></li>
-  <li><a href="#experiment-2-keep-co2-at-2023-levels-420-ppm" id="toc-experiment-2-keep-co2-at-2023-levels-420-ppm" class="nav-link" data-scroll-target="#experiment-2-keep-co2-at-2023-levels-420-ppm"><span class="header-section-number">13.9.2</span> Experiment 2: Keep CO2 at 2023 levels (420 ppm)</a></li>
-  <li><a href="#experiment-3-reduce-co2-to-1980-levels-338-ppm" id="toc-experiment-3-reduce-co2-to-1980-levels-338-ppm" class="nav-link" data-scroll-target="#experiment-3-reduce-co2-to-1980-levels-338-ppm"><span class="header-section-number">13.9.3</span> Experiment 3: Reduce CO2 to 1980 levels (338 ppm)</a></li>
+  <li><a href="#experiment-1-business-as-usual" id="toc-experiment-1-business-as-usual" class="nav-link" data-scroll-target="#experiment-1-business-as-usual"><span class="header-section-number">14.9.1</span> Experiment 1: Business as usual</a></li>
+  <li><a href="#experiment-2-keep-co2-at-2023-levels-420-ppm" id="toc-experiment-2-keep-co2-at-2023-levels-420-ppm" class="nav-link" data-scroll-target="#experiment-2-keep-co2-at-2023-levels-420-ppm"><span class="header-section-number">14.9.2</span> Experiment 2: Keep CO2 at 2023 levels (420 ppm)</a></li>
+  <li><a href="#experiment-3-reduce-co2-to-1980-levels-338-ppm" id="toc-experiment-3-reduce-co2-to-1980-levels-338-ppm" class="nav-link" data-scroll-target="#experiment-3-reduce-co2-to-1980-levels-338-ppm"><span class="header-section-number">14.9.3</span> Experiment 3: Reduce CO2 to 1980 levels (338 ppm)</a></li>
   </ul></li>
-  <li><a href="#sec-deliverables-ei2" id="toc-sec-deliverables-ei2" class="nav-link" data-scroll-target="#sec-deliverables-ei2"><span class="header-section-number">13.10</span> Deliverables, part 2</a></li>
+  <li><a href="#sec-deliverables-ei2" id="toc-sec-deliverables-ei2" class="nav-link" data-scroll-target="#sec-deliverables-ei2"><span class="header-section-number">14.10</span> Deliverables, part 2</a></li>
   </ul>
 </nav>
     </div>
@@ -316,7 +322,7 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">An Introduction to the Carbon Cycle and Global Heating</span></h1>
+<h1 class="title"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">An Introduction to the Carbon Cycle and Global Heating</span></h1>
 </div>
 
 
@@ -339,12 +345,12 @@ window.Quarto = {
 <img src="figs/ecosystems1.png" class="img-fluid figure-img" style="width:75.0%">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ecosys1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;13.1: Ecosystems comprise pools (compartments) and fluxes in and out of those pools. Ecosystem ecologists typically study ecosystems by tracking a particular chemical element from compartment to compartment. Note the units are consistent throughout an ecosystem. In the above example of a lake, fluxes of phosphorus are milligrams per day in or out. At the global scale, we can estimate fluxes of carbon in gigatonnes per year.
+Figure&nbsp;14.1: Ecosystems comprise pools (compartments) and fluxes in and out of those pools. Ecosystem ecologists typically study ecosystems by tracking a particular chemical element from compartment to compartment. Note the units are consistent throughout an ecosystem. In the above example of a lake, fluxes of phosphorus are milligrams per day in or out. At the global scale, we can estimate fluxes of carbon in gigatonnes per year.
 </figcaption>
 </figure>
 </div>
-<section id="goals" class="level2" data-number="13.1">
-<h2 data-number="13.1" class="anchored" data-anchor-id="goals"><span class="header-section-number">13.1</span> Goals</h2>
+<section id="goals" class="level2" data-number="14.1">
+<h2 data-number="14.1" class="anchored" data-anchor-id="goals"><span class="header-section-number">14.1</span> Goals</h2>
 <p>In this chapter, you will, address three related questions:</p>
 <ol type="1">
 <li>Why do we have so much carbon in the atmosphere?</li>
@@ -358,17 +364,17 @@ Figure&nbsp;13.1: Ecosystems comprise pools (compartments) and fluxes in and out
 <p>One of the main the points of doing these activities is to help to develop an intuition for <em>system thinking</em>. Systems are “<a href="https://en.wikipedia.org/wiki/Systems_theory" target="_blank">a group of interacting, interdependent parts that form a complex whole”</a> and ecosystem ecology is a central subdisicpline of ecology and the one that has contributed the most to our understanding of climate change and ecosystem services.</p>
 <p>The other main point of these activities is to reinforce simple ideas related to the global carbon cycle and global warming.</p>
 </section>
-<section id="preparatory-steps" class="level2" data-number="13.2">
-<h2 data-number="13.2" class="anchored" data-anchor-id="preparatory-steps"><span class="header-section-number">13.2</span> Preparatory steps</h2>
+<section id="preparatory-steps" class="level2" data-number="14.2">
+<h2 data-number="14.2" class="anchored" data-anchor-id="preparatory-steps"><span class="header-section-number">14.2</span> Preparatory steps</h2>
 <ol type="1">
 <li>General background lectures: <a href="https://drive.google.com/drive/folders/1nWLoEGuWKIWdul9Uvse5qiB1Hf8MCwUv?usp=sharing" target="_blank">Download the slides and watch the video on at least the carbon cycle</a> before proceeding.</li>
 <li>We will not need data for this chapter.</li>
-<li>Find out what you need for the deliverables parts 1 (<a href="#sec-deliverables-ei1" class="quarto-xref"><span>Section 13.7</span></a>) and 2 (<a href="#sec-deliverables-ei2" class="quarto-xref"><span>Section 13.10</span></a>).</li>
+<li>Find out what you need for the deliverables parts 1 (<a href="#sec-deliverables-ei1" class="quarto-xref"><span>Section 14.7</span></a>) and 2 (<a href="#sec-deliverables-ei2" class="quarto-xref"><span>Section 14.10</span></a>).</li>
 <li>Get R ready for work - see the next section.</li>
 </ol>
 </section>
-<section id="get-r-ready-for-work" class="level2" data-number="13.3">
-<h2 data-number="13.3" class="anchored" data-anchor-id="get-r-ready-for-work"><span class="header-section-number">13.3</span> Get R ready for work</h2>
+<section id="get-r-ready-for-work" class="level2" data-number="14.3">
+<h2 data-number="14.3" class="anchored" data-anchor-id="get-r-ready-for-work"><span class="header-section-number">14.3</span> Get R ready for work</h2>
 <p>Open R using RStudio, and <strong>set your working directory</strong>. You can do this in two ways:</p>
 <ol type="1">
 <li>using the Session menu in RStudio, or</li>
@@ -397,8 +403,8 @@ Figure&nbsp;13.1: Ecosystems comprise pools (compartments) and fluxes in and out
 <span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="co"># for solving or integrating differential equations</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
-<section id="background-on-ecosystems" class="level2" data-number="13.4">
-<h2 data-number="13.4" class="anchored" data-anchor-id="background-on-ecosystems"><span class="header-section-number">13.4</span> Background on ecosystems</h2>
+<section id="background-on-ecosystems" class="level2" data-number="14.4">
+<h2 data-number="14.4" class="anchored" data-anchor-id="background-on-ecosystems"><span class="header-section-number">14.4</span> Background on ecosystems</h2>
 <p>An ecosystem is a biological community of interacting organisms and their physical environment. Ecosystem ecologists study an ecosystem by tracking a particular chemical element such as carbon (C) or nitrogen (N) through the environment. We conceive of the environment in terms of compartments that contain the element (a.k.a. pools, stocks) and movement between compartments (fluxes, inflows, outflows).</p>
 <p>Examples of ecosystem budgets:</p>
 <ul>
@@ -408,13 +414,13 @@ Figure&nbsp;13.1: Ecosystems comprise pools (compartments) and fluxes in and out
 </ul>
 <p>The ecosystem paradigm connects energy and matter to the evolution and ecology of life. Ecosystem scientists focus on the flow of energy or matter through all parts of the environment, especially as those flows are mediated by living organisms.</p>
 </section>
-<section id="a-simple-budget-provides-one-explanation-for-why-we-have-so-much-carbon-in-the-atmosphere" class="level2" data-number="13.5">
-<h2 data-number="13.5" class="anchored" data-anchor-id="a-simple-budget-provides-one-explanation-for-why-we-have-so-much-carbon-in-the-atmosphere"><span class="header-section-number">13.5</span> A simple budget provides one explanation for why we have so much carbon in the atmosphere</h2>
+<section id="a-simple-budget-provides-one-explanation-for-why-we-have-so-much-carbon-in-the-atmosphere" class="level2" data-number="14.5">
+<h2 data-number="14.5" class="anchored" data-anchor-id="a-simple-budget-provides-one-explanation-for-why-we-have-so-much-carbon-in-the-atmosphere"><span class="header-section-number">14.5</span> A simple budget provides one explanation for why we have so much carbon in the atmosphere</h2>
 <p>Why do we have so much carbon in the atmosphere? One answer to that question comes from simply tallying up the inputs and the outflows. In this sense, it is a lot like our household budget.</p>
 <p>Ecosystem budgets are simple<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>, at least conceptually. An ecosystem budget is just like your household budget or bank account: if more money goes in than goes out, you accumulate money. In contrast, if you spend more money than you bring in, your wealth declines.</p>
 <p>An ecosystem budget simply keeps track of the amount of a chemical element, such as nitrogen or carbon, that, is in a compartment, goes into a compartment, and leaves a compartment, over a specified time interval such as a year. The <strong>size</strong> of a pool or compartment is the amount of an element in that pool.</p>
-<section id="rate-of-change" class="level3" data-number="13.5.1">
-<h3 data-number="13.5.1" class="anchored" data-anchor-id="rate-of-change"><span class="header-section-number">13.5.1</span> Rate of change</h3>
+<section id="rate-of-change" class="level3" data-number="14.5.1">
+<h3 data-number="14.5.1" class="anchored" data-anchor-id="rate-of-change"><span class="header-section-number">14.5.1</span> Rate of change</h3>
 <p>For a simple ecosystem carbon budget, the <em>rate of change</em> of the size of a pool is the <strong>difference</strong> between the input and the output over a specified time interval,</p>
 <p><span class="math display">\[\Delta~\mathrm{Pool} = \mathrm{Inputs} - \mathrm{Outputs}\]</span></p>
 <p>For instance, consider the carbon budget for Earth’s atmosphere from the 1990’s that we described in lecture. We had these inputs and outputs (units are petagrams, 10<span class="math inline">\(^{15}\)</span> g):</p>
@@ -478,8 +484,8 @@ Figure&nbsp;13.1: Ecosystems comprise pools (compartments) and fluxes in and out
 <p>Note that as long as these fluxes remain constant the system will continue to change at this rate. There is no equilibrium or <em>balance of nature</em>.</p>
 </section>
 </section>
-<section id="simple-dynamics-emerge-from-processes-like-diffusion-and-complicate-prediction" class="level2" data-number="13.6">
-<h2 data-number="13.6" class="anchored" data-anchor-id="simple-dynamics-emerge-from-processes-like-diffusion-and-complicate-prediction"><span class="header-section-number">13.6</span> Simple dynamics emerge from processes like diffusion and complicate prediction</h2>
+<section id="simple-dynamics-emerge-from-processes-like-diffusion-and-complicate-prediction" class="level2" data-number="14.6">
+<h2 data-number="14.6" class="anchored" data-anchor-id="simple-dynamics-emerge-from-processes-like-diffusion-and-complicate-prediction"><span class="header-section-number">14.6</span> Simple dynamics emerge from processes like diffusion and complicate prediction</h2>
 <p>How does including the physical process of diffusion of alter predictions about future atmospheric carbon? A simple budget is a great starting place, but it ignores a lot of biological and physical reality. Here we add one piece of that reality: diffusion of CO<span class="math inline">\(_2\)</span> between the air and water.</p>
 <p>In the above example, carbon went into the atmosphere at a constant rate and left at a constant rate. What if a flux depends on the amount in the pool? It’s actually very common for a flux to depend on the amount in one or more pools. Here are some examples:</p>
 <ul>
@@ -488,8 +494,8 @@ Figure&nbsp;13.1: Ecosystems comprise pools (compartments) and fluxes in and out
 <li>Rate of diffusion of CO<span class="math inline">\(2\)</span> into the oceans depends on the concentration in the atmosphere, due to a concentration gradient.</li>
 <li>Rate of carbon capture by plants depends on the amount of vegetation (compare a potted plant in a parking lot to an intact forest).</li>
 </ul>
-<section id="a-first-order-flux" class="level3" data-number="13.6.1">
-<h3 data-number="13.6.1" class="anchored" data-anchor-id="a-first-order-flux"><span class="header-section-number">13.6.1</span> A first order flux</h3>
+<section id="a-first-order-flux" class="level3" data-number="14.6.1">
+<h3 data-number="14.6.1" class="anchored" data-anchor-id="a-first-order-flux"><span class="header-section-number">14.6.1</span> A first order flux</h3>
 <p>A <em>first order</em> flux is one in which each term in the rate equation depends on no more than <em>one</em> pool.</p>
 <p>Imagine we have bathtub that we are filling with water, and that the drain has a leak. Just like with our simple budget above, rate of change in the depth (or height) of the water is <span class="math display">\[\Delta \mathrm{height} = \mathrm{inflow} -\mathrm{outflow}.\]</span></p>
 <div id="fig-ecosys1" class="quarto-float quarto-figure quarto-figure-center anchored">
@@ -498,7 +504,7 @@ Figure&nbsp;13.1: Ecosystems comprise pools (compartments) and fluxes in and out
 <img src="figs/bathtub.png" class="img-fluid figure-img" style="width:50.0%">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ecosys1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;13.2: Filling a bathtub with a leaky drain.
+Figure&nbsp;14.2: Filling a bathtub with a leaky drain.
 </figcaption>
 </figure>
 </div>
@@ -506,8 +512,8 @@ Figure&nbsp;13.2: Filling a bathtub with a leaky drain.
 <p><span class="math display">\[\mathrm{height} = \frac{\mathrm{inflow}}{e}.\]</span> We refer to this height as an equilibrium because it is predicted to not change.</p>
 <p>Let’s see this operate in an ecosystem.</p>
 </section>
-<section id="earths-atmosphere-as-a-first-order-equation" class="level3" data-number="13.6.2">
-<h3 data-number="13.6.2" class="anchored" data-anchor-id="earths-atmosphere-as-a-first-order-equation"><span class="header-section-number">13.6.2</span> Earth’s atmosphere as a first order equation</h3>
+<section id="earths-atmosphere-as-a-first-order-equation" class="level3" data-number="14.6.2">
+<h3 data-number="14.6.2" class="anchored" data-anchor-id="earths-atmosphere-as-a-first-order-equation"><span class="header-section-number">14.6.2</span> Earth’s atmosphere as a first order equation</h3>
 <p>Let’s assume that at first approximation, the diffusion of CO<span class="math inline">\(_2\)</span> from the atmosphere into the ocean is a first order process - that it is <em>proportional to the amount</em> of CO<span class="math inline">\(_2\)</span> in the atmosphere. We can represent that in the differential rate equation <span class="math display">\[\frac{dA}{dt} = I - eA\]</span> where <span class="math inline">\(A\)</span> is the amount of CO<span class="math inline">\(_2\)</span> in the atmosphere, <span class="math inline">\(I\)</span> is a constant flux, and <span class="math inline">\(e\)</span> is the diffusion rate into the ocean.</p>
 <p>Note that <em>all</em> of the uptake by the ocean is via diffusion, because it has to leave the air and move into the water in the process of diffusion. However, most of what moves into the water is captured via photosynthesis, by phytoplankton<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>, coral symbionts<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a>, and kelp. The CO<span class="math inline">\(_2\)</span> that is <em>not</em> captured this way <strong>increases in concentration and acidifies the ocean</strong>, as</p>
 <p><span class="math display">\[\mathrm{CO_2 + H_2O \rightarrow H_2CO_3 \rightleftharpoons HCO_3^- + H^+ }\]</span>.</p>
@@ -577,8 +583,8 @@ Figure&nbsp;13.2: Filling a bathtub with a leaky drain.
 <p>What does the above solution tell us should happen if <span class="math inline">\(e\)</span> gets smaller? gets larger?</p>
 </section>
 </section>
-<section id="sec-deliverables-ei1" class="level2" data-number="13.7">
-<h2 data-number="13.7" class="anchored" data-anchor-id="sec-deliverables-ei1"><span class="header-section-number">13.7</span> Deliverables, part 1</h2>
+<section id="sec-deliverables-ei1" class="level2" data-number="14.7">
+<h2 data-number="14.7" class="anchored" data-anchor-id="sec-deliverables-ei1"><span class="header-section-number">14.7</span> Deliverables, part 1</h2>
 <p>Two documents:</p>
 <p>The first document is your R script (just the R script - do not save it in any other format).</p>
 <p>The second document should provide the following written responses and quantities you calculated in R:</p>
@@ -608,25 +614,25 @@ Figure&nbsp;13.2: Filling a bathtub with a leaky drain.
 </div>
 </div>
 </section>
-<section id="linking-two-different-ecosystem-processes-shows-lagged-effects" class="level2" data-number="13.8">
-<h2 data-number="13.8" class="anchored" data-anchor-id="linking-two-different-ecosystem-processes-shows-lagged-effects"><span class="header-section-number">13.8</span> Linking two different ecosystem processes shows lagged effects</h2>
+<section id="linking-two-different-ecosystem-processes-shows-lagged-effects" class="level2" data-number="14.8">
+<h2 data-number="14.8" class="anchored" data-anchor-id="linking-two-different-ecosystem-processes-shows-lagged-effects"><span class="header-section-number">14.8</span> Linking two different ecosystem processes shows lagged effects</h2>
 <div id="fig-blackbody" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-blackbody-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="figs/earth_energy.png" class="img-fluid figure-img" style="width:90.0%">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-blackbody-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;13.3: Earth is approximately a black body absorbing and emitting radiant energy. Straight-ish and curved lines indicate high energy, shortwave radiation. Wiggly lines indicate lower energy infrared radiation emitted from the warmed surface of Earth. Greenhouse gases (not illustrated here), would slow the escape of infrared radiation, by absorbing and re-emitting it.
+Figure&nbsp;14.3: Earth is approximately a black body absorbing and emitting radiant energy. Straight-ish and curved lines indicate high energy, shortwave radiation. Wiggly lines indicate lower energy infrared radiation emitted from the warmed surface of Earth. Greenhouse gases (not illustrated here), would slow the escape of infrared radiation, by absorbing and re-emitting it.
 </figcaption>
 </figure>
 </div>
 <p>In this section we connect the carbon cycle to an entirely different set of fluxes, those of heat, or radiant <strong>energy</strong>.</p>
 <p>What is the connection between atmospheric CO<span class="math inline">\(_2\)</span> and temperature, and how does that relationship affect our appreciation of Earth’s current and future status? Most of us don’t care much about the amount of CO<span class="math inline">\(_2\)</span> in the atmosphere (per se), but we care <em>a lot</em> about how CO<span class="math inline">\(_2\)</span> and other greenhouse gases trap and re-radiate heat. In this section, we quantify this connection.</p>
-<p>Nearly all of the heating of Earth’s atmosphere occurs when warmed land or ocean surface emits infrared radiation that is then captured by greenhouse gases which then re-radiate this energy. This all starts when our sun radiates energy that travels through space (Fig. <a href="#fig-blackbody" class="quarto-xref">Figure&nbsp;<span>13.3</span></a>) and eventually encounters Earth’s atmosphere. That incoming radiation is high energy short-wave radiation which penetrates and <em>passes through the atmosphere</em>, and hits Earth’s surface. Most of this energy is absorbed, and then re-emitted as long-wave infrared radiation which we can experience as heat. It is this infrared radiation that is trapped by greenhouse gases prior to eventually exiting, back out into space (not shown in Fig. <a href="#fig-blackbody" class="quarto-xref">Figure&nbsp;<span>13.3</span></a>).</p>
+<p>Nearly all of the heating of Earth’s atmosphere occurs when warmed land or ocean surface emits infrared radiation that is then captured by greenhouse gases which then re-radiate this energy. This all starts when our sun radiates energy that travels through space (Fig. <a href="#fig-blackbody" class="quarto-xref">Figure&nbsp;<span>14.3</span></a>) and eventually encounters Earth’s atmosphere. That incoming radiation is high energy short-wave radiation which penetrates and <em>passes through the atmosphere</em>, and hits Earth’s surface. Most of this energy is absorbed, and then re-emitted as long-wave infrared radiation which we can experience as heat. It is this infrared radiation that is trapped by greenhouse gases prior to eventually exiting, back out into space (not shown in Fig. <a href="#fig-blackbody" class="quarto-xref">Figure&nbsp;<span>14.3</span></a>).</p>
 <p>Greenhouse gases re-radiate the heat they absorb. In doing so, they heat up Earth’s surface even more. Because of that, Earth’s surface never has a chance to really cool down, because it is always being re-warmed by the atmosphere that it made warm in the first place. The energy is bouncing back and forth between the atmosphere and the Earth’s surface (land and oceans). It also bounces back and forth between layers of the atmosphere. The energy will <em>eventually</em> find its way back into outer space, but not before it has bounced around a lot.</p>
-<p>The flux of solar radiation (Fig. <a href="#fig-blackbody" class="quarto-xref">Figure&nbsp;<span>13.3</span></a>) coming at Earth is about <span class="math inline">\(\Omega = 1372\)</span> W/m<span class="math inline">\(^2\)</span><a href="#fn5" class="footnote-ref" id="fnref5" role="doc-noteref"><sup>5</sup></a>. However, because Earth is round, that energy get spread out and each square meter would receive only about a fourth of that, or <span class="math inline">\(\Omega/4\)</span>, <em>if</em> it all reached the surface. Thus, the effective incoming flux is <span class="math inline">\(F_{in} = \Omega/4\)</span>.</p>
-<p>Unlike the incoming flux, the outgoing flux comprises two basic types of radiation (Fig. <a href="#fig-blackbody" class="quarto-xref">Figure&nbsp;<span>13.3</span></a>). About 30% the incoming radiation is <em>reflected</em> back out into space, unchanged. It bounces off of clouds and snow and ice, and we refer to this reflectance as <strong>albedo</strong>. Thus, part of the outgoing flux is <span class="math inline">\(F_{out1} = a\cdot1372/4\)</span>, where <span class="math inline">\(a\)</span> is for <em>albedo</em> which is about 0.3.</p>
-<p>The second part of the outgoing flux is the infrared radiation that first bounces around the atmosphere before it makes its way out into the universe (Fig. <a href="#fig-blackbody" class="quarto-xref">Figure&nbsp;<span>13.3</span></a>). The rate rate which that happens is proportional to the Stefan-Boltzmann constant<a href="#fn6" class="footnote-ref" id="fnref6" role="doc-noteref"><sup>6</sup></a>, <span class="math inline">\(\sigma\)</span>, which quantifies radiation emitted from a perfect black body in relation to it’s temperature. Needless to say, we won’t get into <em>why</em> it happens at that rate. What we <em>will</em> say is that the second part of the outgoing energy flux is <span class="math inline">\(F_{out2} = \sigma T^4\)</span>, where <span class="math inline">\(T\)</span> is temperature in degrees Kelvin, and sigma is the Stefan-Boltzmann constant, <span class="math inline">\(\sigma \approx 5.67 \times 10^{-8}\)</span>. Or, at least it would be <em>if we ignored greenhouse gases</em>.</p>
+<p>The flux of solar radiation (Fig. <a href="#fig-blackbody" class="quarto-xref">Figure&nbsp;<span>14.3</span></a>) coming at Earth is about <span class="math inline">\(\Omega = 1372\)</span> W/m<span class="math inline">\(^2\)</span><a href="#fn5" class="footnote-ref" id="fnref5" role="doc-noteref"><sup>5</sup></a>. However, because Earth is round, that energy get spread out and each square meter would receive only about a fourth of that, or <span class="math inline">\(\Omega/4\)</span>, <em>if</em> it all reached the surface. Thus, the effective incoming flux is <span class="math inline">\(F_{in} = \Omega/4\)</span>.</p>
+<p>Unlike the incoming flux, the outgoing flux comprises two basic types of radiation (Fig. <a href="#fig-blackbody" class="quarto-xref">Figure&nbsp;<span>14.3</span></a>). About 30% the incoming radiation is <em>reflected</em> back out into space, unchanged. It bounces off of clouds and snow and ice, and we refer to this reflectance as <strong>albedo</strong>. Thus, part of the outgoing flux is <span class="math inline">\(F_{out1} = a\cdot1372/4\)</span>, where <span class="math inline">\(a\)</span> is for <em>albedo</em> which is about 0.3.</p>
+<p>The second part of the outgoing flux is the infrared radiation that first bounces around the atmosphere before it makes its way out into the universe (Fig. <a href="#fig-blackbody" class="quarto-xref">Figure&nbsp;<span>14.3</span></a>). The rate rate which that happens is proportional to the Stefan-Boltzmann constant<a href="#fn6" class="footnote-ref" id="fnref6" role="doc-noteref"><sup>6</sup></a>, <span class="math inline">\(\sigma\)</span>, which quantifies radiation emitted from a perfect black body in relation to it’s temperature. Needless to say, we won’t get into <em>why</em> it happens at that rate. What we <em>will</em> say is that the second part of the outgoing energy flux is <span class="math inline">\(F_{out2} = \sigma T^4\)</span>, where <span class="math inline">\(T\)</span> is temperature in degrees Kelvin, and sigma is the Stefan-Boltzmann constant, <span class="math inline">\(\sigma \approx 5.67 \times 10^{-8}\)</span>. Or, at least it would be <em>if we ignored greenhouse gases</em>.</p>
 <p>All together, we might approximate Earth’s energy flux as <span class="math display">\[\Delta E_E = F_{in} - F_{out1} - F_{out2} = \frac{\Omega}{4} - a\frac{\Omega}{4} - \sigma T^4\]</span> if we ignore the effect of greenhouse gases.</p>
 <p>If we want to express temperature at equilibrium in terms of fluxes, we set <span class="math inline">\(\Delta E_E = 0\)</span> and solve for <span class="math inline">\(T\)</span>, <span class="math display">\[F_{in} = F_{out1} + F_{out2}\]</span> and using algebra to rearrange, and we get <span class="math display">\[T^4 = \left(1-a\right)\frac{\Omega}{4\sigma}\]</span> or,</p>
 <p><span class="math display">\[T = \left[ \left(1-a\right)\frac{\Omega}{4\sigma} \right] ^{1/4}\]</span> where <span class="math inline">\(T\)</span> is degrees Kelvin.</p>
@@ -639,14 +645,14 @@ Figure&nbsp;13.3: Earth is approximately a black body absorbing and emitting rad
 <span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>temp_K <span class="ot">&lt;-</span> ( (<span class="dv">1</span><span class="sc">-</span>albedo) <span class="sc">*</span> Omega<span class="sc">/</span>(<span class="dv">4</span><span class="sc">*</span>sigma) )<span class="sc">^</span>(<span class="dv">1</span><span class="sc">/</span><span class="dv">4</span>)</span>
 <span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>temp_K</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<section id="adding-greenhouse-heat-trapping-gases" class="level3" data-number="13.8.1">
-<h3 data-number="13.8.1" class="anchored" data-anchor-id="adding-greenhouse-heat-trapping-gases"><span class="header-section-number">13.8.1</span> Adding greenhouse (heat-trapping) gases</h3>
+<section id="adding-greenhouse-heat-trapping-gases" class="level3" data-number="14.8.1">
+<h3 data-number="14.8.1" class="anchored" data-anchor-id="adding-greenhouse-heat-trapping-gases"><span class="header-section-number">14.8.1</span> Adding greenhouse (heat-trapping) gases</h3>
 <p>As we mentioned, the above approximation ignores the effect of greenhouse gases. Thousands of scientists around the world are attempting to model Earth’s energy balance, including the dynamics and effects of greenhouse gases that trap outgoing radiation. That research is well beyond the scope of this class, but we will approximate the relationship.</p>
 <p>We will approximate the effect of greenhouse gases by merely adjusting the Stefan-Boltzmann constant by an amount related to the amount of CO<span class="math inline">\(_2\)</span> in the atmosphere, <span class="math inline">\(A^g\)</span>, where <span class="math inline">\(A\)</span> is the CO<span class="math inline">\(_2\)</span> concentration in parts per million (~420 ppm in 2023), and <span class="math inline">\(g\)</span> is what I call <em>Hank’s greenhouse constant</em>. This gives us <span class="math inline">\(F_{out2} = \sigma A^g T^4\)</span>.</p>
 <p>We can now rewrite the predicted atmospheric temperature as</p>
 <p><span class="math display">\[T = \left[ \left(1-a\right)\frac{\Omega}{4}\frac{A^g}{\sigma} \right] ^{1/4} + \epsilon\]</span> where <span class="math inline">\(\epsilon\)</span> is statistical error or residual.</p>
-<section id="intuition-about-t-fa" class="level4" data-number="13.8.1.1">
-<h4 data-number="13.8.1.1" class="anchored" data-anchor-id="intuition-about-t-fa"><span class="header-section-number">13.8.1.1</span> Intuition about <span class="math inline">\(T = F(A)\)</span></h4>
+<section id="intuition-about-t-fa" class="level4" data-number="14.8.1.1">
+<h4 data-number="14.8.1.1" class="anchored" data-anchor-id="intuition-about-t-fa"><span class="header-section-number">14.8.1.1</span> Intuition about <span class="math inline">\(T = F(A)\)</span></h4>
 <p>Let’s use the above equation to reinforce our understanding of how atmospheric temperature is a function<a href="#fn7" class="footnote-ref" id="fnref7" role="doc-noteref"><sup>7</sup></a> of the amount of carbon compounds in the atmosphere (<span class="math inline">\(T = F(A)\)</span>).</p>
 <p>First, we re-inject meaning into the equation:</p>
 <ul>
@@ -693,7 +699,7 @@ Figure&nbsp;13.3: Earth is approximately a black body absorbing and emitting rad
 <img src="20-ecosystem-intro_files/figure-html/fig-g-1.png" class="img-fluid figure-img" width="672">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-g-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;13.4: Temperatures predicted from first principles and using Hank’s greenhouse constant, <span class="math inline">\(g\)</span>, which adjusts for observed and predicted temperatures, based on actual CO2 and temperature data and extremely complex and well-tested models used in IPCC reports.
+Figure&nbsp;14.4: Temperatures predicted from first principles and using Hank’s greenhouse constant, <span class="math inline">\(g\)</span>, which adjusts for observed and predicted temperatures, based on actual CO2 and temperature data and extremely complex and well-tested models used in IPCC reports.
 </figcaption>
 </figure>
 </div>
@@ -701,8 +707,8 @@ Figure&nbsp;13.4: Temperatures predicted from first principles and using Hank’
 </div>
 </section>
 </section>
-<section id="why-is-all-this-math-important" class="level3" data-number="13.8.2">
-<h3 data-number="13.8.2" class="anchored" data-anchor-id="why-is-all-this-math-important"><span class="header-section-number">13.8.2</span> Why is all this math important?</h3>
+<section id="why-is-all-this-math-important" class="level3" data-number="14.8.2">
+<h3 data-number="14.8.2" class="anchored" data-anchor-id="why-is-all-this-math-important"><span class="header-section-number">14.8.2</span> Why is all this math important?</h3>
 <p>All this math is important for several reasons.</p>
 <p><strong>First</strong>, we want to estimate both the expected temperatures now, and also what the temperature <em>would become even if we stop emitting any greenhouse gases today</em>.</p>
 <p><strong>Second</strong>, we all need practice understanding quantitative approximations. Also known as “back of the envelope calculations”, these rough estimates give us approximate information about our world so that we can make timely decisions. We cannot wait for answers with ten sig-figs of precision. Here are some important questions to which there is no single answer, but for which approximations can help:</p>
@@ -716,16 +722,16 @@ Figure&nbsp;13.4: Temperatures predicted from first principles and using Hank’
 <p>We live better lives when we are comfortable with good quantitative approximations.</p>
 <p><strong>Third</strong>, and finally, it’s just nerdy-fun to realize that this is really how the planet works!</p>
 </section>
-<section id="expected-temperatures-now-and-also-what-the-temperature-would-become" class="level3" data-number="13.8.3">
-<h3 data-number="13.8.3" class="anchored" data-anchor-id="expected-temperatures-now-and-also-what-the-temperature-would-become"><span class="header-section-number">13.8.3</span> Expected temperatures now, and also what the temperature would become</h3>
+<section id="expected-temperatures-now-and-also-what-the-temperature-would-become" class="level3" data-number="14.8.3">
+<h3 data-number="14.8.3" class="anchored" data-anchor-id="expected-temperatures-now-and-also-what-the-temperature-would-become"><span class="header-section-number">14.8.3</span> Expected temperatures now, and also what the temperature would become</h3>
 <p>One important reason that we are creating rate equations is because <em>what we observe now is not what we will get in the future</em>. Solving rate equations over time shows us change through time, not just the end result.</p>
 <p>Because the amount of atmospheric CO<span class="math inline">\(_2\)</span> is constantly increasing, <strong>the temperature has never caught up to what it would become</strong> if CO<span class="math inline">\(_2\)</span> weren’t steadily increasing.</p>
 <p>Here is an analogy. You put a pot of cold water on the stove. You turn the burner to “high” and the gas ignites or the coils start to glow red. The burner is emitting heat, but the water is not yet boiling. In this analogy, the water is the atmosphere and the burner is the increasing greenhouse gases. The temperature difference between the burner and the water is the <strong>radiative forcing</strong>. On Earth, the greenhouse gases are accumulating and trapping lots of heat energy, but <strong>Earth has not yet warmed up as much as it would given the current levels of greenhouse gases</strong>.</p>
 <p>So, now we know there is a lag or delay between greenhouse gas concentrations and atmsopheric temperatures. What we DON’T know is how <em>big</em> is this lag between CO<span class="math inline">\(_2\)</span> concentration and temperature actually is. Is the lag only a day, or year, or is it longer, like a decade or a century? Quantifying the <em>importance</em> of the lag is the kind of thing that only a quantitative model can tell us.</p>
 </section>
 </section>
-<section id="simulations-in-silico-experiments" class="level2" data-number="13.9">
-<h2 data-number="13.9" class="anchored" data-anchor-id="simulations-in-silico-experiments"><span class="header-section-number">13.9</span> Simulations: <em>in silico</em> experiments</h2>
+<section id="simulations-in-silico-experiments" class="level2" data-number="14.9">
+<h2 data-number="14.9" class="anchored" data-anchor-id="simulations-in-silico-experiments"><span class="header-section-number">14.9</span> Simulations: <em>in silico</em> experiments</h2>
 <p>In order to explore these connections between greenhouse gases and global temperatures, and the lag between them, we will do several simulations to examine the consequences of our assumptions. In each case, we will track atmospheric carbon concentration and temperature to 2100. This interval of less than 80 years is likely to be about the life span of you, or your children if you have any, or your young nieces and nephews.</p>
 <ol type="1">
 <li>Business as usual anthropogenic carbon emissions.</li>
@@ -784,8 +790,8 @@ Figure&nbsp;13.4: Temperatures predicted from first principles and using Hank’
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse) <span class="co"># data wrangling and graphics</span></span>
 <span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(deSolve) <span class="co"># for numerical integration of ODE models</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<section id="experiment-1-business-as-usual" class="level3" data-number="13.9.1">
-<h3 data-number="13.9.1" class="anchored" data-anchor-id="experiment-1-business-as-usual"><span class="header-section-number">13.9.1</span> Experiment 1: Business as usual</h3>
+<section id="experiment-1-business-as-usual" class="level3" data-number="14.9.1">
+<h3 data-number="14.9.1" class="anchored" data-anchor-id="experiment-1-business-as-usual"><span class="header-section-number">14.9.1</span> Experiment 1: Business as usual</h3>
 <p>Here we simulate some of the situations we discussed above. First, let’s assume <em>business as usual</em>, that our net greenhouse emissions continue as they have been. Those emissions result in a net increase of about 2.1 ppm (<span class="math inline">\(I=2.1\)</span>). We specify particular constants or <em>parameters</em> for our equations. We create a vector of those here.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>parameters1 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="at">Omega =</span> <span class="dv">1372</span>, <span class="co"># incoming solar radiative forcing</span></span>
@@ -911,8 +917,8 @@ Figure&nbsp;13.4: Temperatures predicted from first principles and using Hank’
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="st">"Exp1_CO2andK.png"</span>, <span class="at">height=</span><span class="dv">4</span>, <span class="at">width=</span><span class="dv">8</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
-<section id="experiment-2-keep-co2-at-2023-levels-420-ppm" class="level3" data-number="13.9.2">
-<h3 data-number="13.9.2" class="anchored" data-anchor-id="experiment-2-keep-co2-at-2023-levels-420-ppm"><span class="header-section-number">13.9.2</span> Experiment 2: Keep CO2 at 2023 levels (420 ppm)</h3>
+<section id="experiment-2-keep-co2-at-2023-levels-420-ppm" class="level3" data-number="14.9.2">
+<h3 data-number="14.9.2" class="anchored" data-anchor-id="experiment-2-keep-co2-at-2023-levels-420-ppm"><span class="header-section-number">14.9.2</span> Experiment 2: Keep CO2 at 2023 levels (420 ppm)</h3>
 <p>Here we make one change: <span class="math inline">\(I=0.5\)</span> in the parameters so that we keep CO2 at 420 ppm.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>parameters2 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="at">Omega =</span> <span class="dv">1372</span>, <span class="co"># incoming solar radiative forcing</span></span>
@@ -969,8 +975,8 @@ Figure&nbsp;13.4: Temperatures predicted from first principles and using Hank’
 <span id="cb40-16"><a href="#cb40-16" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="st">"Exp2_temps.png"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
-<section id="experiment-3-reduce-co2-to-1980-levels-338-ppm" class="level3" data-number="13.9.3">
-<h3 data-number="13.9.3" class="anchored" data-anchor-id="experiment-3-reduce-co2-to-1980-levels-338-ppm"><span class="header-section-number">13.9.3</span> Experiment 3: Reduce CO2 to 1980 levels (338 ppm)</h3>
+<section id="experiment-3-reduce-co2-to-1980-levels-338-ppm" class="level3" data-number="14.9.3">
+<h3 data-number="14.9.3" class="anchored" data-anchor-id="experiment-3-reduce-co2-to-1980-levels-338-ppm"><span class="header-section-number">14.9.3</span> Experiment 3: Reduce CO2 to 1980 levels (338 ppm)</h3>
 <p>Here we make one change: <span class="math inline">\(I=0.357\)</span> in the parameters so that we begin to drive atmospheric CO2 concentration down toward 1980 levels (338 ppm).</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb41"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a>parameters3 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="at">Omega =</span> <span class="dv">1372</span>, <span class="co"># incoming solar radiative forcing</span></span>
@@ -1028,8 +1034,8 @@ Figure&nbsp;13.4: Temperatures predicted from first principles and using Hank’
 </div>
 </section>
 </section>
-<section id="sec-deliverables-ei2" class="level2" data-number="13.10">
-<h2 data-number="13.10" class="anchored" data-anchor-id="sec-deliverables-ei2"><span class="header-section-number">13.10</span> Deliverables, part 2</h2>
+<section id="sec-deliverables-ei2" class="level2" data-number="14.10">
+<h2 data-number="14.10" class="anchored" data-anchor-id="sec-deliverables-ei2"><span class="header-section-number">14.10</span> Deliverables, part 2</h2>
 <p>Include two documents; the first is your R script.</p>
 <p>In the second document, provide results for each experiment (1-3). For each experiment include a graph of CO2 concentration and a graph of observed and equilibrium temperatures, as well as these data:</p>
 <ul>
@@ -1459,8 +1465,8 @@ Figure&nbsp;13.4: Temperatures predicted from first principles and using Hank’
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./13-diversity.html" class="pagination-link" aria-label="Determinants of local butterfly species diversity">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Determinants of local butterfly species diversity</span></span>
+      <a href="./14-metabolic-ecology.html" class="pagination-link" aria-label="Metabolic Ecology: How do body size and temperature affect nutrient cycling?">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Metabolic Ecology: How do body size and temperature affect nutrient cycling?</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">

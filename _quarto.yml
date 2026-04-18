@@ -22,10 +22,13 @@ book:
     - 10-mutualisms.qmd
     - 11-predator-prey.qmd
     - 13-diversity.qmd
+    - 14-metabolic-ecology.qmd
     - 20-ecosystem-intro.qmd
     - references.qmd
 
-bibliography: myLibrary.bib
+bibliography: 
+   - /Users/stevenmh/tidy.bib
+   - /Users/stevenmh/MyLibrary_zotero.bib
 
 format:
   html:

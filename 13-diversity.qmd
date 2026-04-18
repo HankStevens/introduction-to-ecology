@@ -55,38 +55,39 @@ An important tool in causal inference is the **causal graph**, which is a box-an
 For example, the following causal diagrams show factors that affect how much plants grow.
 ```{r}
 #| label: fig-dag1
-#| layout-ncol: 2
-#| fig-cap: 
-#|   - "The simplest causal graph or DAG, in which soil moisture affects plant growth."
-#|   - "A more complicated causal graph (DAG), showing only an indirect effect of rain on growth, and two variables each having a direct effect on growth."
+#| layout-ncol: 1
+#| fig-cap: "The simplest causal graph or DAG, in which soil moisture affects plant growth."
 #| echo: false
 #| message: false
-#| out-width: "45%" 
+#| out-width: "80%" 
 library(ggraph)
 # library(igraph)
 library(dagitty)
 library(ggdag)
 
 coords <- list(
-  x = c(x2=0, y=1),
-  y = c(x2=0, y=0)
+  x = c(M=0, G=1),
+  y = c(M=0, G=0)
 )
   
+dag <- dagify("G" ~ "M", coords = coords)
 
-dag <- dagify(
-  y ~ x2 ,
-  labels=c(
+ggdag(dag) +
+  geom_dag_edges(
+    arrow_directed = arrow(length = unit(10, "pt"), type = "closed")
+  ) +
+  theme_dag()
 
-    y = "Growth",
-    x2 = "Soil moisture"
-  ),
-  coords = coords
-)
-
-ggdag(dag, text=FALSE, use_labels="label") + theme_void()
+```
 
 
-
+```{r}
+#| label: fig-dag2
+#| layout-ncol: 1
+#| fig-cap: "A more complicated causal graph (DAG), showing only an indirect effect of rain on growth, and two variables each having a direct effect on growth."
+#| echo: false
+#| message: false
+#| out-width: "80%" 
 coords <- list(
   x = c(x1=0, x2=1, x3=1, y=2),
   y = c(x1=1, x2=1, x3=0, y=0)

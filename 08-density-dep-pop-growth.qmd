@@ -17,7 +17,8 @@ If you successfully complete this chapter, you will
 ## Preparatory steps
 
 * Watch the lecture videos on [density-dependent population growth (parts 1 & 2)](https://drive.google.com/drive/folders/1nWLoEGuWKIWdul9Uvse5qiB1Hf8MCwUv?usp=sharing). These videos assume that you watched the preceding population ecology videos.
-* Find out what you need for the deliverables.
+* Download [Chamaille-Jammes (2008) from our article archive](https://drive.google.com/drive/folders/1opLlrmF7kfo0FtWwwJ1CbfPWIyuaISC1?usp=sharing)
+* If you are curious, check Deliverables for this chapter(@sec-deliverables-ddpg).
 
 
 ![The Hwange elephant population grew dramatically after the end of hunting ("culling") that had kept the population size small [@chamaille-jammes2008].](figs/figs13_C-J.png){#fig-elephantN}

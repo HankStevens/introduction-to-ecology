@@ -65,7 +65,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./20-ecosystem-intro.html" rel="next">
+<link href="./14-metabolic-ecology.html" rel="next">
 <link href="./11-predator-prey.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
@@ -261,8 +261,14 @@ window.Quarto = {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./14-metabolic-ecology.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Metabolic Ecology: How do body size and temperature affect nutrient cycling?</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./20-ecosystem-intro.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">An Introduction to the Carbon Cycle and Global Heating</span></span></a>
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">An Introduction to the Carbon Cycle and Global Heating</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -420,27 +426,31 @@ Figure&nbsp;12.1: The Edge-of-Appalachia Preserve in southern Ohio comprises six
 <p><a href="https://en.wikipedia.org/wiki/Causal_inference">Causal inference</a> is the practice of estimating what happens to a response variable when another variable is changed. It is an academic discipline and area of research.</p>
 <p>An important tool in causal inference is the <strong>causal graph</strong>, which is a box-and-arrow figure that illustrates putative causal relations. Most often a causal graph is a <strong>directed acyclic graph</strong>, or <strong>DAG</strong>.</p>
 <p>For example, the following causal diagrams show factors that affect how much plants grow.</p>
-<div class="cell quarto-layout-panel" data-layout-ncol="2">
+<div class="cell quarto-layout-panel" data-layout-ncol="1">
 <div class="quarto-layout-row">
-<div class="cell-output-display quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
-<div id="fig-dag1-1" class="quarto-float quarto-figure quarto-figure-center anchored">
+<div class="cell-output-display quarto-layout-cell" style="flex-basis: 100.0%;justify-content: flex-start;">
+<div id="fig-dag1" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-dag1-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="13-diversity_files/figure-html/fig-dag1-1.png" class="img-fluid figure-img" style="width:45.0%">
+<div aria-describedby="fig-dag1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="13-diversity_files/figure-html/fig-dag1-1.png" class="img-fluid figure-img" style="width:80.0%">
 </div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-dag1-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-dag1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;12.2: The simplest causal graph or DAG, in which soil moisture affects plant growth.
 </figcaption>
 </figure>
 </div>
 </div>
-<div class="cell-output-display quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
-<div id="fig-dag1-2" class="quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-dag1-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="13-diversity_files/figure-html/fig-dag1-2.png" class="img-fluid figure-img" style="width:45.0%">
 </div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-dag1-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+</div>
+<div class="cell quarto-layout-panel" data-layout-ncol="1">
+<div class="quarto-layout-row">
+<div class="cell-output-display quarto-layout-cell" style="flex-basis: 100.0%;justify-content: flex-start;">
+<div id="fig-dag2" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-dag2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="13-diversity_files/figure-html/fig-dag2-1.png" class="img-fluid figure-img" style="width:80.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-dag2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;12.3: A more complicated causal graph (DAG), showing only an indirect effect of rain on growth, and two variables each having a direct effect on growth.
 </figcaption>
 </figure>
@@ -524,10 +534,10 @@ Figure&nbsp;12.4: Connectivity is estimated for each patch, and is the sum of ar
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
-✔ dplyr     1.1.4     ✔ readr     2.1.5
-✔ forcats   1.0.1     ✔ stringr   1.5.2
-✔ lubridate 1.9.4     ✔ tibble    3.3.0
-✔ purrr     1.1.0     ✔ tidyr     1.3.1
+✔ dplyr     1.2.0     ✔ readr     2.1.5
+✔ forcats   1.0.1     ✔ stringr   1.6.0
+✔ lubridate 1.9.4     ✔ tibble    3.3.1
+✔ purrr     1.2.1     ✔ tidyr     1.3.2
 ── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
 ✖ dplyr::filter() masks ggdag::filter(), stats::filter()
 ✖ dplyr::lag()    masks stats::lag()
@@ -1120,8 +1130,8 @@ sample estimates:
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./20-ecosystem-intro.html" class="pagination-link" aria-label="An Introduction to the Carbon Cycle and Global Heating">
-        <span class="nav-page-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">An Introduction to the Carbon Cycle and Global Heating</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./14-metabolic-ecology.html" class="pagination-link" aria-label="Metabolic Ecology: How do body size and temperature affect nutrient cycling?">
+        <span class="nav-page-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Metabolic Ecology: How do body size and temperature affect nutrient cycling?</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

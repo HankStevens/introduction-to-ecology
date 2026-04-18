@@ -1,0 +1,392 @@
+# Metabolic Ecology: How do body size and temperature affect nutrient cycling? {#sec-metabolic-ecology}
+
+```{r}
+#| label: setup
+#| include: false
+library(tidyverse)
+library(broom)
+```
+
+![Gizzard shad, *Dorosoma cepedianum*, are probably the most abundant fish (by biomass) in lakes of the southern and lower Midwest USA. They eat mud---sediment detritus from lake bottoms---and in doing so they cycle enormous quantities of nitrogen and phosphorus back into the water, fueling algal growth. In some lakes, nutrient fluxes mediated by gizzard shad support more than 25% of algal primary production. Photo courtesy M.J. Vanni.](figs/gizzard_shad.jpg){#fig-shad}
+
+## Goals
+
+In this chapter, you will explore how two fundamental properties of organisms---body size and temperature---control rates of nutrient cycling. Along the way, you will test specific quantitative predictions of the **Metabolic Theory of Ecology** (MTE), and discover how well those predictions hold up under real field conditions.
+
+If you successfully complete this chapter, you will be able to
+
+* explain how metabolic rates scale with body size (allometry),
+* explain how metabolic rates depend on temperature ($Q_{10}$),
+* use log-transformations to linearize power-law relationships,
+* fit and interpret linear regressions in R,
+* evaluate the support for specific quantitative hypotheses, and
+* reason about how body size and temperature act simultaneously on a biological rate.
+
+## Preparatory steps
+
+1. General background: Read the sections below on allometry and temperature dependence. If your instructor has assigned background readings or lectures on metabolic ecology, complete those first.
+2. Data: go to our class data repository, and download `fish_nutrient_excretion.csv`.
+   a. Put `fish_nutrient_excretion.csv` in your `data` directory (inside `Rwork`).
+3. Find out what you need for the deliverables (@sec-deliv-metabolic).
+
+## Background
+
+### Why body size and temperature matter
+
+The metabolic rates of organisms---plants, microbes, and animals---are strongly influenced by body size and body temperature [@gillooly2001est; @brown2004mte]. Large organisms obviously have higher metabolic rates than small ones, when rates are expressed on a *per individual* basis. And because biochemical reactions are temperature-dependent, most metabolic rates increase with body temperature, at least up to some upper tolerance limit.
+
+Understanding how biological rates scale with size and temperature is important for several reasons. There is enormous variation in body size among Earth's life forms, from tiny bacteria to great whales and giant sequoia trees. Even within a single species, body size can vary dramatically. Knowledge of how rates vary with size tells us how individuals of different sizes use resources, process materials like nutrients and energy, and interact with other species. Similarly, because organisms experience a wide range of temperatures---both naturally and increasingly due to human activity---understanding temperature effects helps us predict how organisms and ecosystems may respond to environmental change.
+
+### Allometry: how rates scale with body size
+
+At a constant temperature, the effect of body size on metabolic rate can be described with a simple power law:
+
+$$B = B_0 M^b$$ {#eq-allometry}
+
+where $B$ is the organism's metabolic rate (e.g., micromoles of nitrogen excreted per hour), $B_0$ is a normalization constant, $b$ is the **allometric scaling exponent**, and $M$ is the organism's body mass.
+
+::: {.callout-note icon=false}
+## Follow the Logic: Why log-transform?
+
+@eq-allometry is a *power law*---the dependent variable ($B$) is a power function of the independent variable ($M$). Power laws are curved on arithmetic axes, which makes them hard to interpret visually and statistically. But watch what happens when we take the logarithm of both sides:
+
+$$\log B = \log B_0 + b \cdot \log M$$ {#eq-allometry-log}
+
+This is the equation of a straight line! The slope is $b$ (the allometric exponent) and the intercept is $\log B_0$. This is why ecologists plot metabolic data on log-log axes: it turns a curved relationship into a linear one, and the slope tells us directly how metabolic rate scales with body size.
+
+This is a case where the mathematics *is* the ecological reasoning. The log-transformation isn't just a trick to make a pretty graph---it reveals the fundamental scaling relationship and lets us estimate the parameter ($b$) that captures how biology works.
+:::
+
+Allometric theory and extensive empirical data show that for many biological rates, the increase in metabolic rate is less than proportional to the increase in body mass. Mathematically, this means $b < 1$, sometimes called **negative allometry**. The **Metabolic Theory of Ecology** (MTE) makes a very specific prediction: $b = 0.75$ [@west1997gmo;  @brown2004; @banavar2014ffe]. This prediction arises from theory about how resource distribution networks (like circulatory systems) scale with body size.
+
+To get a feel for why $b < 1$ matters, consider this: an elephant ($5 \times 10^6$ g) weighs about 500,000 times more than a mouse (10 g). If $b = 0.75$, the elephant's metabolic rate is only about 19,000 times greater than the mouse's---proportionally much less than the difference in body mass. Per gram, the mouse burns hotter.
+
+However, the prediction that $b = 0.75$ is somewhat controversial. Some data suggest that the exponent is closer to 1.0 for many organisms [e.g., @reich2006usr], and others argue that $b \approx 0.75$ only when averaged across many species but varies considerably among them [@isaac2010wam].
+
+### Temperature dependence and $Q_{10}$
+
+MTE also incorporates the effects of temperature. @gillooly2001est showed that metabolic rate can be predicted from both body mass and body temperature:
+
+$$B = B_0 M^b e^{-E/(kT)}$$ {#eq-mte-full}
+
+where $e$ is the base of the natural logarithm, $E$ is the activation energy of metabolic enzymes, $k$ is Boltzmann's constant ($8.617 \times 10^{-5}$ eV K$^{-1}$), and $T$ is temperature in Kelvin.
+
+A simpler way to describe temperature sensitivity is **$Q_{10}$**: the factor by which a rate increases when temperature rises by 10°C. If an organism's excretion rate doubles when temperature goes from 15°C to 25°C, then $Q_{10} = 2$. Most $Q_{10}$ values for biological rates fall between 1.5 and 3.
+
+You can calculate $Q_{10}$ for any temperature interval using:
+
+$$Q_{10} = \left(\frac{R_2}{R_1}\right)^{10/(T_2 - T_1)}$$ {#eq-q10}
+
+where $R_1$ and $R_2$ are the rates at temperatures $T_1$ and $T_2$, respectively. This formula works for any temperature interval, not just exactly 10°C.
+
+::: {.callout-note icon=false}
+## Follow the Logic: Where does the $Q_{10}$ formula come from?
+
+$Q_{10}$ is defined as the factor by which a rate changes over a 10°C interval. If we only have data at temperatures that differ by some amount other than 10°C, we need to *extrapolate* to what the change would be over a full 10°C.
+
+Start with the ratio $R_2/R_1$, which tells us the factor of change over the interval $T_2 - T_1$. We want to know what the factor would be over 10°. If the relationship between rate and temperature is exponential (which biochemical kinetics predicts), then the rate of change *per degree* is constant on a log scale. So we raise the observed ratio to the power $10/(T_2 - T_1)$ to scale it to a 10° interval.
+
+If $T_2 - T_1 = 10$, the exponent is just 1, and $Q_{10} = R_2/R_1$ exactly as you'd expect. If your interval is smaller than 10°, the exponent is greater than 1, stretching the observed change out to what it would be over 10°. If larger, the exponent shrinks it.
+
+This kind of mathematical reasoning---working through *why* the formula has the structure it does---is exactly the skill that lets you check whether a calculation makes sense. Anyone (or any AI) can plug numbers into a formula. Understanding *why* the formula works is what lets you catch mistakes.
+:::
+
+### Nutrient excretion by fish
+
+Most tests of MTE have been done in the lab, where activity, temperature, and diet can be controlled and *basal metabolic rate* is measured. But organisms in nature are often active, experience variable temperatures, and are feeding---they display *active metabolic rates.* Far fewer studies have tested whether MTE predictions hold under field conditions, where diet, activity, and other factors add noise.
+
+The data we will analyze come from field studies of nutrient excretion by gizzard shad (*Dorosoma cepedianum*) in three Ohio lakes [@schaus1997npe; @higgins2006dsn]. Excretion rate is a type of metabolic rate: it represents the quantity of nutrient released after metabolic and structural needs are met. The excretion of nitrogen (N) and phosphorus (P) by fish is ecologically important because these nutrients, released in dissolved form that algae can readily use, can fuel a significant fraction of primary production in lakes [@vanni2006ncf].
+
+The data set contains 200 observations---each one an individual fish whose excretion rate was measured in the field. Fish were captured, placed in filtered lake water, and the change in dissolved N and P concentration over time was measured. The variables are:
+
+* `temp_C` --- water temperature (°C) experienced by the fish
+* `mass_g` --- wet body mass (grams)
+* `N_u.h` --- nitrogen excretion rate ($\mu$mol N per fish per hour)
+* `P_u.h` --- phosphorus excretion rate ($\mu$mol P per fish per hour)
+
+
+## Get R ready for work
+
+Open RStudio and load the packages we'll need.
+
+```{r}
+#| eval: false
+library(tidyverse)
+library(broom)
+```
+
+Now read in the data and take a look.
+
+```{r}
+fish <- read.csv("data/fish_nutrient_excretion.csv", skip=8)
+glimpse(fish)
+```
+
+```{r}
+summary(fish)
+```
+
+You should have 200 rows and 5 columns. The fish range in mass from about 2 g to over 200 g, and temperatures range from about 16°C to 29°C.
+
+## Exploring the data
+
+Before testing any hypotheses, let's look at the data. Always plot your data before you analyze it.
+
+### Raw-scale plots
+
+```{r}
+#| label: fig-raw-N
+#| fig-cap: "Nitrogen excretion rate vs. body mass on arithmetic (raw) axes."
+ggplot(fish, aes(x = mass_g, y = N_u.h)) +
+  geom_point(alpha = 0.5) +
+  labs(x = "Body mass (g)",
+       y = expression(paste("N excretion (", mu, "mol ", fish^{-1}, " ", hr^{-1}, ")")),
+       title = "N excretion vs. body mass") +
+  theme_minimal()
+```
+
+Make a similar plot for P excretion rate. What do you notice about the shape of these relationships? They are curved---larger fish excrete more, but the relationship is not a straight line.
+
+### Log-transformed plots
+
+Now let's see what happens when we log-transform both axes, as suggested by the allometric equation (@eq-allometry-log).
+
+```{r}
+#| label: fig-log-N
+#| fig-cap: "Log nitrogen excretion rate vs. log body mass. If the allometric model holds, this should be approximately linear."
+ggplot(fish, aes(x = log10(mass_g), y = log10(N_u.h))) +
+  geom_point(alpha = 0.5) +
+  labs(x = expression(log[10]~"(body mass, g)"),
+       y = expression(log[10]~"(N excretion, " * mu * "mol " * fish^{-1} * " " * hr^{-1} * ")"),
+       title = "Allometric scaling of N excretion") +
+  theme_minimal()
+```
+
+That looks much more linear! The log-transformation did exactly what @eq-allometry-log predicted. Make the same plot for P excretion.
+
+## Testing the hypotheses
+
+### Hypotheses
+
+We will test four hypotheses:
+
+**H1:** N excretion rate scales with body size with an allometric exponent of $b \approx 0.75$ (as predicted by MTE).
+
+**H2:** P excretion rate scales with body size with an allometric exponent of $b \approx 0.75$.
+
+**H1~alt~:** The allometric exponent for N excretion is closer to 1 (isometric scaling).
+
+**H2~alt~:** The allometric exponent for P excretion is closer to 1.
+
+**H3:** N excretion rate increases with temperature with $Q_{10} \approx 2$.
+
+**H4:** P excretion rate increases with temperature with $Q_{10} \approx 2$.
+
+### Assignment 1: Allometric scaling of excretion rates {#sec-assign1}
+
+Here you need to estimate the allometric scaling exponent ($b$) for both N and P excretion rates. The key question is: how do you deal with the fact that excretion rates were measured at different temperatures?
+
+There is more than one reasonable approach. Think about this before reading on. One approach is to pool all the data together and fit a single regression. Another is to fit separate regressions for each temperature and then compare slopes. You should try both and think about what you learn from each approach.
+
+::: {.callout-note icon=false}
+## Follow the Logic: What does the slope of a log-log regression mean?
+
+When we regress $\log_{10}(B)$ on $\log_{10}(M)$, the slope of the line *is* the allometric exponent $b$ from @eq-allometry. This follows directly from the math:
+
+$$\log B = \log B_0 + b \cdot \log M$$
+
+This is in the form $y = a + bx$, so ordinary linear regression gives us $b$ as the slope. If MTE is correct, $b \approx 0.75$. If scaling is isometric, $b \approx 1.0$.
+
+The $R^2$ value tells us how much of the variance in $\log B$ is explained by $\log M$ alone. In field data, where many other factors vary, even an $R^2$ of 0.5 is quite respectable.
+:::
+
+#### Approach 1: All data pooled
+
+First, create log-transformed variables, then fit a linear model.
+
+```{r}
+## Add log-transformed columns to the data
+fish <- fish %>%
+  mutate(log_mass = log10(mass_g),
+         log_N = log10(N_u.h),
+         log_P = log10(P_u.h))
+```
+
+Now fit a linear regression for log N excretion vs. log mass:
+
+```{r}
+## Fit the regression
+m_N_all <- lm(log_N ~ log_mass, data = fish)
+
+## View the results
+summary(m_N_all)
+```
+
+The slope is our estimate of the allometric scaling exponent $b$. Is it closer to 0.75 or to 1?
+
+Now make a plot with the regression line overlaid:
+
+```{r}
+#| label: fig-regression-N
+#| fig-cap: "Linear regression of log N excretion on log body mass, all data pooled."
+ggplot(fish, aes(x = log_mass, y = log_N)) +
+  geom_point(alpha = 0.5) +
+  geom_smooth(method = "lm", se = TRUE) +
+  labs(x = expression(log[10]~"(body mass, g)"),
+       y = expression(log[10]~"(N excretion)"),
+       title = "Allometric scaling of N excretion") +
+  theme_minimal()
+```
+
+**Do the same** for P excretion. Fit the model, report the slope, $R^2$, and make the plot.
+
+#### Approach 2: Separate regressions by temperature
+
+The data were collected at several different temperatures. If temperature also affects excretion rate, pooling all the data might obscure or alter the size-excretion relationship. Let's fit separate regressions for each temperature.
+
+```{r}
+## Fit a separate regression for each temperature
+slopes_N <- fish %>%
+  nest_by(temp_C) %>%
+  mutate(mod = list(lm(log_N ~ log_mass, data = data))) %>%
+  reframe(tidy(mod)) %>%
+  filter(term == "log_mass") %>%
+  select(temp_C, estimate, std.error, p.value)
+
+slopes_N
+```
+
+```{r}
+## Get the mean slope and its standard error
+mean_slope_N <- slopes_N %>%
+  summarize(
+    mean_b = mean(estimate),
+    se_b = sd(estimate) / sqrt(n()),
+    n_temps = n()
+  )
+
+mean_slope_N
+```
+
+Now you can ask: is the mean slope significantly different from 0.75? From 1.0? A rough 95% confidence interval is the mean $\pm$ 2 $\times$ SE. Does 0.75 fall within that interval? Does 1.0?
+
+**Do the same** for P excretion.
+
+You can also visualize the separate regressions:
+
+```{r}
+#| label: fig-by-temp
+#| fig-cap: "Separate regressions at each temperature. Note how the slopes and intercepts vary."
+ggplot(fish, aes(x = log_mass, y = log_N)) +
+  geom_point(alpha = 0.5) +
+  geom_smooth(method = "lm", se = FALSE) +
+  facet_wrap(~ temp_C) +
+  labs(x = expression(log[10]~"(body mass, g)"),
+       y = expression(log[10]~"(N excretion)"),
+       title = "N excretion vs. body mass at each temperature") +
+  theme_minimal()
+```
+
+#### Comparing approaches
+
+Write a short paragraph comparing your two approaches:
+
+* Are the slopes similar between the pooled and per-temperature analyses?
+* Is the relationship between body size and excretion rate stronger (higher $R^2$) when you account for temperature?
+* Which approach do you think is more appropriate, and why?
+
+### Assignment 2: Temperature dependence and $Q_{10}$ {#sec-assign2}
+
+Now we tackle hypotheses H3 and H4. We want to estimate $Q_{10}$ for N and P excretion. This is trickier than the allometry analysis, because body size also varies among the fish and we can't set temperature exactly---we are at the mercy of what the lake gives us.
+
+Here is where you need to think creatively. There is more than one reasonable approach. Consider the following:
+
+**One approach:** Find pairs (or groups) of fish that are similar in body size but were measured at different temperatures. Then use @eq-q10 to calculate $Q_{10}$.
+
+For example, you could group fish by size classes and compute mean excretion rates at each temperature within a size class. Here is a start:
+
+```{r}
+## Create size classes using 10mm bins
+## First, convert mass to approximate length isn't available,
+## so let's just bin by mass
+fish <- fish %>%
+  mutate(size_class = cut(mass_g, breaks = seq(0, 220, by = 20)))
+
+## Compute mean excretion by size class and temperature
+means_by_group <- fish %>%
+  group_by(size_class, temp_C) %>%
+  summarize(
+    mean_N = mean(N_u.h),
+    mean_P = mean(P_u.h),
+    n = n(),
+    .groups = "drop"
+  )
+
+## Look at what you have
+means_by_group
+```
+
+Now look for size classes where you have measurements at two or more temperatures, and calculate $Q_{10}$ using @eq-q10.
+
+**Another approach** uses the multiple regression from the pooled analysis. If you include temperature as a second predictor:
+
+```{r}
+## Multiple regression: log excretion vs. log mass AND temperature
+m_N_multi <- lm(log_N ~ log_mass + temp_C, data = fish)
+summary(m_N_multi)
+```
+
+::: {.callout-note icon=false}
+## Follow the Logic: Extracting $Q_{10}$ from a multiple regression
+
+In the multiple regression $\log_{10}(B) = a + b \cdot \log_{10}(M) + c \cdot T$, the coefficient $c$ tells us how much $\log_{10}(B)$ increases per 1°C increase in temperature, holding body size constant. Over a 10°C increase, $\log_{10}(B)$ increases by $10c$. Converting back from log units:
+
+$$Q_{10} = 10^{10c}$$
+
+For example, if $c = 0.021$, then $Q_{10} = 10^{0.21} = 1.62$.
+
+Why does this work? Because $\log_{10}(B)$ changes by $c$ for each degree, so it changes by $10c$ for 10 degrees. Since $B = 10^{\log_{10}(B)}$, the multiplicative factor is $10^{10c}$.
+
+This approach uses *all* the data simultaneously and accounts for body size variation, rather than relying on a few matched pairs of fish. It's what a trained ecologist would probably do---but the matched-pair approach builds more intuition, and both are valid.
+:::
+
+**Do the same** for P excretion.
+
+Compare the $Q_{10}$ values from your matched-pair approach and your multiple regression approach. Are they similar? Is $Q_{10}$ near 2 for both N and P?
+
+### Thinking bigger: ecosystem consequences
+
+We have focused on excretion by individual fish. But remember the bigger picture (@fig-shad): gizzard shad are extremely abundant in many Midwestern lakes. They consume sediment detritus, extract what they need, and excrete the rest as dissolved N and P that algae can immediately use.
+
+Consider this: if you know the allometric scaling exponent and $Q_{10}$, and you know the size distribution and temperature regime of a lake, you could *predict* the total nutrient flux from the fish population to the water column. This is exactly the kind of scaling-up that makes metabolic ecology so powerful---and so important for understanding ecosystem function.
+
+Think about the following:
+
+1. Suppose a lake warms by 2°C due to climate change. Based on your $Q_{10}$ estimate, by what factor would individual excretion rates change?
+2. If warming also shifts the fish population toward smaller body sizes (as has been observed in some systems), how would that interact with the temperature effect on total nutrient flux?
+
+These are the kinds of questions where mathematical reasoning, ecological knowledge, and careful quantitative thinking all come together.
+
+
+## Deliverables {#sec-deliv-metabolic}
+
+Compile the following into one document and submit by the due date.
+
+1. **Allometric analysis** (from @sec-assign1):
+   a. Log-log scatter plots of N and P excretion vs. body mass (at minimum: pooled data with regression lines).
+   b. Estimates of the allometric scaling exponent ($b$) for both N and P excretion, from both the pooled analysis and the per-temperature analysis.
+   c. A statement of whether the data support MTE's prediction of $b = 0.75$, or the alternative of $b \approx 1$, and your reasoning.
+
+2. **Temperature analysis** (from @sec-assign2):
+   a. Your estimated $Q_{10}$ values for N and P excretion, showing your calculations.
+   b. A brief description of the approach(es) you used and why.
+   c. A statement of whether the data support $Q_{10} \approx 2$, and your reasoning.
+
+3. **Synthesis** (1--2 paragraphs):
+   a. Overall, how well do the predictions of the Metabolic Theory of Ecology hold up for nutrient excretion by fish under field conditions?
+   b. What factors might cause deviations from MTE predictions in the field?
+
+## References
+
+::: {#refs}
+:::

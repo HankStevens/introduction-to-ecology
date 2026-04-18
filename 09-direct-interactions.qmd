@@ -16,11 +16,16 @@ In this chapter, you will,
 * start to develop a greater understanding and intuition for species interactions.
 
 
-## Preparatory Steps
+## Preparatory steps
 
-* Download the slides and watch the video on [competition (4b)](https://drive.google.com/drive/folders/1nWLoEGuWKIWdul9Uvse5qiB1Hf8MCwUv?usp=sharing){target="_blank"} before proceeding.
-* This chapter does not use a separate data set, but it does use results from Livdahl and Willey (1991). Download [Livdahl and Willey (1991) from our article archive](https://drive.google.com/drive/folders/1opLlrmF7kfo0FtWwwJ1CbfPWIyuaISC1?usp=sharing).
-* Find out what you need for the deliverables (@sec-deliverables-di).
+* The preceding chapter on density-dependent population growth provides important background
+* Read Livdahl and Willey (1991) in Perusall through our Canvas site. It is also available in our class archive: [Livdahl and Willey (1991)](https://drive.google.com/drive/folders/1opLlrmF7kfo0FtWwwJ1CbfPWIyuaISC1?usp=sharing)
+* If you are curious, check Deliverables, at the end (@sec-deliverables-di).
+
+
+### Optional background
+
+If you are interested, you can download slides and watch the video on [competition (4b)](https://drive.google.com/drive/folders/1nWLoEGuWKIWdul9Uvse5qiB1Hf8MCwUv?usp=sharing){target="_blank"} before proceeding.)
 
 
 ## Background
@@ -110,16 +115,43 @@ In one document include these two graphs and answers to these questions:
 ```{r}
 #| eval: false
 #| echo: false
-
-with(d,
+library(tidyverse)
+out <- with(d,
      {
-       At.th <- c(K[1], K[1]/`alpha or beta`[1])
-        Aa.th <- c(K[2], K[2]/`alpha or beta`[2])
-         At.ti <- c(K[3], K[3]/`alpha or beta`[3])
-          Aa.ti <- c(K[4], K[4]/`alpha or beta`[4])
-          out <- rbind(At.th, Aa.th, At.ti, Aa.ti)
-          colnames(out) <- c("Spp.int", "other.int")
-          out
+       A.triseriatus.treehole <- c(K[1], K[1]/`alpha or beta`[1])
+        A.albopictus.treehole <- c(K[2], K[2]/`alpha or beta`[2])
+         A.triseriatus.tire <- c(K[3], K[3]/`alpha or beta`[3])
+          A.albopictus.tire <- c(K[4], K[4]/`alpha or beta`[4])
+          out <- rbind(A.triseriatus.treehole, 
+                       A.albopictus.treehole, 
+                       A.triseriatus.tire, 
+                       A.albopictus.tire)
+          colnames(out) <- c("Ki", "Ki/coef")
+          as.data.frame(out)
      })
+out
+out2 <- data.frame(
+  Water_type = c("Treehole", "Treehole", "Treehole", "Treehole",
+                 "Tire", "Tire", "Tire", "Tire"),
+  x=c(0, out[1,2], out[2,1], 0, 
+      0, out[3,2], out[4,1], 0),
+  
+  y=c(out[1,1], 0, 0, out[2,2],
+      out[3,1], 0, 0, out[4,2])
+)
+out2
+
+
+ 
+{plot(out2[1:2,], type="l", 
+     xlim=c(0, max(out2[,1])), ylim=c(0, max(out2[,2]))); 
+  lines(out2[3:4,1], out2[3:4,2], lty=2)
+title("Treehole Water")
+}
+  
+{plot(out2[5:6,], type="l", 
+     xlim=c(0, max(out2[,1])), ylim=c(0, max(out2[,2]))); lines(out2[7:8,1],out2[7:8,2], lty=2)
+title("Tire Water")
+}
 ```
 
