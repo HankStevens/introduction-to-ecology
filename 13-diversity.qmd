@@ -56,7 +56,7 @@ For example, the following causal diagrams show factors that affect how much pla
 ```{r}
 #| label: fig-dag1
 #| layout-ncol: 1
-#| fig-cap: "The simplest causal graph or DAG, in which soil moisture affects plant growth."
+#| fig-cap: "The simplest causal graph or DAG, in which soil moisture (M) affects plant growth (G)."
 #| echo: false
 #| message: false
 #| out-width: "80%" 
@@ -84,29 +84,26 @@ ggdag(dag) +
 ```{r}
 #| label: fig-dag2
 #| layout-ncol: 1
-#| fig-cap: "A more complicated causal graph (DAG), showing only an indirect effect of rain on growth, and two variables each having a direct effect on growth."
+#| fig-cap: "A more complicated causal graph (DAG), showing only an indirect effect of rain  on growth, and two variables each having a direct effect on growth."
 #| echo: false
 #| message: false
 #| out-width: "80%" 
 coords <- list(
-  x = c(x1=0, x2=1, x3=1, y=2),
-  y = c(x1=1, x2=1, x3=0, y=0)
+  x = c(R=0, M=1, N=1, G=2),
+  y = c(R=1, M=1, N=0, G=0)
 )
   
 dag <- dagify(
-  y ~ x2 + x3,
-  x2 ~ x1,
-  labels=c(
-    x1 = "Rain",
-    y = "Growth",
-    x2 = "Soil moisture",
-    x3 = "Soil nitrogen"
-  ),
+  G ~ M + N,
+  M ~ R,
   coords = coords
 )
 
-ggdag(dag, text=FALSE, use_labels="label") + theme_void()
-
+ggdag(dag) + 
+  geom_dag_edges(
+    arrow_directed = arrow(length = unit(10, "pt"), type = "closed")
+  ) +
+  theme_dag()
 ```
 
 

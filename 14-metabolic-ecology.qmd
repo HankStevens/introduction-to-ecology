@@ -8,10 +8,14 @@ library(broom)
 ```
 
 ![Gizzard shad, *Dorosoma cepedianum*, are probably the most abundant fish (by biomass) in lakes of the southern and lower Midwest USA. They eat mud---sediment detritus from lake bottoms---and in doing so they cycle enormous quantities of nitrogen and phosphorus back into the water, fueling algal growth. In some lakes, nutrient fluxes mediated by gizzard shad support more than 25% of algal primary production. Photo courtesy M.J. Vanni.](figs/gizzard_shad.jpg){#fig-shad}
+![The data we use in this chapter were collected from gizzard shad at three man-made lakes (reservoirs) in Ohio, U.S.A.[@higgins2006dsn; @schaus1997npe](figs/reservoirs.png){#fig-res}
+
+## Acknowledgement
+This chapter is an R version of @vanni2011meh. I am grateful to Mike and Jessica and the Ecological Society of America for making the data and the article available.
 
 ## Goals
 
-In this chapter, you will explore how two fundamental properties of organisms---body size and temperature---control rates of nutrient cycling. Along the way, you will test specific quantitative predictions of the **Metabolic Theory of Ecology** (MTE), and discover how well those predictions hold up under real field conditions.
+In this chapter, you will explore how two fundamental properties of organisms---body size and temperature---control rates of nutrient cycling. Along the way, you will test specific quantitative predictions of the **Metabolic Theory of Ecology** (MTE), and discover how well those predictions hold up under real field conditions. 
 
 If you successfully complete this chapter, you will be able to
 
@@ -57,21 +61,23 @@ This is the equation of a straight line! The slope is $b$ (the allometric expone
 This is a case where the mathematics *is* the ecological reasoning. The log-transformation isn't just a trick to make a pretty graph---it reveals the fundamental scaling relationship and lets us estimate the parameter ($b$) that captures how biology works.
 :::
 
-Allometric theory and extensive empirical data show that for many biological rates, the increase in metabolic rate is less than proportional to the increase in body mass. Mathematically, this means $b < 1$, sometimes called **negative allometry**. The **Metabolic Theory of Ecology** (MTE) makes a very specific prediction: $b = 0.75$ [@west1997gmo;  @brown2004; @banavar2014ffe]. This prediction arises from theory about how resource distribution networks (like circulatory systems) scale with body size.
+Allometric theory and extensive empirical data show that for many biological rates, the increase in metabolic rate is less than proportional to the increase in body mass. Mathematically, this means $b < 1$, sometimes called **negative allometry**. The **Metabolic Theory of Ecology** (MTE) makes a very specific prediction: $b = 0.75$ [@west1997gmo;  @brown2004mte; @banavar2014ffe]. This prediction arises from theory about how resource distribution networks (like circulatory systems) scale with body size.
 
 To get a feel for why $b < 1$ matters, consider this: an elephant ($5 \times 10^6$ g) weighs about 500,000 times more than a mouse (10 g). If $b = 0.75$, the elephant's metabolic rate is only about 19,000 times greater than the mouse's---proportionally much less than the difference in body mass. Per gram, the mouse burns hotter.
 
 However, the prediction that $b = 0.75$ is somewhat controversial. Some data suggest that the exponent is closer to 1.0 for many organisms [e.g., @reich2006usr], and others argue that $b \approx 0.75$ only when averaged across many species but varies considerably among them [@isaac2010wam].
 
-### Temperature dependence and $Q_{10}$
+### Temperature dependence, the Arrhanius Equation, and $Q_{10}$
 
 MTE also incorporates the effects of temperature. @gillooly2001est showed that metabolic rate can be predicted from both body mass and body temperature:
 
 $$B = B_0 M^b e^{-E/(kT)}$$ {#eq-mte-full}
 
-where $e$ is the base of the natural logarithm, $E$ is the activation energy of metabolic enzymes, $k$ is Boltzmann's constant ($8.617 \times 10^{-5}$ eV K$^{-1}$), and $T$ is temperature in Kelvin.
+where $e$ is the base of the natural logarithm, $E$ is the activation energy of metabolic enzymes, $k$ is Boltzmann's constant ($8.617 \times 10^{-5}$ eV K$^{-1}$), and $T$ is temperature in Kelvin. 
 
-A simpler way to describe temperature sensitivity is **$Q_{10}$**: the factor by which a rate increases when temperature rises by 10°C. If an organism's excretion rate doubles when temperature goes from 15°C to 25°C, then $Q_{10} = 2$. Most $Q_{10}$ values for biological rates fall between 1.5 and 3.
+In the late 1800s, Svante Arrhenius described the power law relation for the temperature dependence of chemical reaction rates; you may have encountered this in your chemistry class. This was quantified from first principles by Ludwig Boltzmann[^Boltzmann's work on this and on *entropy* have connections throughout science, including Plank's constant, blackbody radiation, and even the meaning of time.], who showed how the emergent property we call temperature emerges from the thermal energy of individual molecules. You will encounter Boltzmann's constant in our last chapter, on global heating.
+
+Another way to describe temperature sensitivity is **$Q_{10}$**: the multiplication factor by which a rate increases when temperature rises by 10°C. If an organism's excretion rate *doubles* when temperature goes from 15°C to 25°C, then $Q_{10} = 2$. Most $Q_{10}$ values for biological rates fall between 1.5 and 3.
 
 You can calculate $Q_{10}$ for any temperature interval using:
 
@@ -88,7 +94,7 @@ Start with the ratio $R_2/R_1$, which tells us the factor of change over the int
 
 If $T_2 - T_1 = 10$, the exponent is just 1, and $Q_{10} = R_2/R_1$ exactly as you'd expect. If your interval is smaller than 10°, the exponent is greater than 1, stretching the observed change out to what it would be over 10°. If larger, the exponent shrinks it.
 
-This kind of mathematical reasoning---working through *why* the formula has the structure it does---is exactly the skill that lets you check whether a calculation makes sense. Anyone (or any AI) can plug numbers into a formula. Understanding *why* the formula works is what lets you catch mistakes.
+This kind of mathematical reasoning---working through *why* the formula has the structure it does---is exactly the skill that lets you check whether a calculation makes sense. Anyone (or any AI) can plug numbers into a formula. Understanding *why* the formula works is what builds connections among neurons in your brain ... aad lets you catch mistakes.
 :::
 
 ### Nutrient excretion by fish
