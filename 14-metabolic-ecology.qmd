@@ -25,9 +25,9 @@ If you successfully complete this chapter, you will be able to
 ## Preparatory steps
 
 1. General background: Read the sections below on allometry and temperature dependence. If your instructor has assigned background readings or lectures on metabolic ecology, complete those first.
-2. Data: go to our class data repository, and download `fish_nutrient_excretion.csv`.
+1. Data: go to our [class data repository](https://drive.google.com/drive/u/1/folders/1FR2FLiW3xyD4Er52YzVTToPZuXXReGRo){target="_blank"}, and download `fish_nutrient_excretion.csv`.
    a. Put `fish_nutrient_excretion.csv` in your `data` directory (inside `Rwork`).
-3. Find out what you need for the deliverables (@sec-deliv-metabolic).
+1. Find out what you need for the deliverables (@sec-deliv-metabolic).
 
 ## Background
 
