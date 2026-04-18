@@ -385,8 +385,3 @@ Compile the following into one document and submit by the due date.
 3. **Synthesis** (1--2 paragraphs):
    a. Overall, how well do the predictions of the Metabolic Theory of Ecology hold up for nutrient excretion by fish under field conditions?
    b. What factors might cause deviations from MTE predictions in the field?
-
-## References
-
-::: {#refs}
-:::

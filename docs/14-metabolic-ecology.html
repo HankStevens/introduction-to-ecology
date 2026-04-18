@@ -330,7 +330,6 @@ window.Quarto = {
   <li><a href="#thinking-bigger-ecosystem-consequences" id="toc-thinking-bigger-ecosystem-consequences" class="nav-link" data-scroll-target="#thinking-bigger-ecosystem-consequences"><span class="header-section-number">13.6.4</span> Thinking bigger: ecosystem consequences</a></li>
   </ul></li>
   <li><a href="#sec-deliv-metabolic" id="toc-sec-deliv-metabolic" class="nav-link" data-scroll-target="#sec-deliv-metabolic"><span class="header-section-number">13.7</span> Deliverables</a></li>
-  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references"><span class="header-section-number">13.8</span> References</a></li>
   </ul>
 </nav>
     </div>
@@ -394,7 +393,7 @@ Figure&nbsp;13.1: Gizzard shad, <em>Dorosoma cepedianum</em>, are probably the m
 <h2 data-number="13.3" class="anchored" data-anchor-id="background"><span class="header-section-number">13.3</span> Background</h2>
 <section id="why-body-size-and-temperature-matter" class="level3" data-number="13.3.1">
 <h3 data-number="13.3.1" class="anchored" data-anchor-id="why-body-size-and-temperature-matter"><span class="header-section-number">13.3.1</span> Why body size and temperature matter</h3>
-<p>The metabolic rates of organisms—plants, microbes, and animals—are strongly influenced by body size and body temperature <span class="citation" data-cites="gillooly2001est brown2004mte">(<a href="14-metabolic-ecology.html#ref-gillooly2001est" role="doc-biblioref">Gillooly et al. 2001</a>; <a href="14-metabolic-ecology.html#ref-brown2004mte" role="doc-biblioref">J. H. Brown et al. 2004</a>)</span>. Large organisms obviously have higher metabolic rates than small ones, when rates are expressed on a <em>per individual</em> basis. And because biochemical reactions are temperature-dependent, most metabolic rates increase with body temperature, at least up to some upper tolerance limit.</p>
+<p>The metabolic rates of organisms—plants, microbes, and animals—are strongly influenced by body size and body temperature <span class="citation" data-cites="gillooly2001est brown2004mte">(<a href="references.html#ref-gillooly2001est" role="doc-biblioref">Gillooly et al. 2001</a>; <a href="references.html#ref-brown2004mte" role="doc-biblioref">J. H. Brown et al. 2004</a>)</span>. Large organisms obviously have higher metabolic rates than small ones, when rates are expressed on a <em>per individual</em> basis. And because biochemical reactions are temperature-dependent, most metabolic rates increase with body temperature, at least up to some upper tolerance limit.</p>
 <p>Understanding how biological rates scale with size and temperature is important for several reasons. There is enormous variation in body size among Earth’s life forms, from tiny bacteria to great whales and giant sequoia trees. Even within a single species, body size can vary dramatically. Knowledge of how rates vary with size tells us how individuals of different sizes use resources, process materials like nutrients and energy, and interact with other species. Similarly, because organisms experience a wide range of temperatures—both naturally and increasingly due to human activity—understanding temperature effects helps us predict how organisms and ecosystems may respond to environmental change.</p>
 </section>
 <section id="allometry-how-rates-scale-with-body-size" class="level3" data-number="13.3.2">
@@ -418,13 +417,13 @@ Figure&nbsp;13.1: Gizzard shad, <em>Dorosoma cepedianum</em>, are probably the m
 <p>This is a case where the mathematics <em>is</em> the ecological reasoning. The log-transformation isn’t just a trick to make a pretty graph—it reveals the fundamental scaling relationship and lets us estimate the parameter (<span class="math inline">\(b\)</span>) that captures how biology works.</p>
 </div>
 </div>
-<p>Allometric theory and extensive empirical data show that for many biological rates, the increase in metabolic rate is less than proportional to the increase in body mass. Mathematically, this means <span class="math inline">\(b &lt; 1\)</span>, sometimes called <strong>negative allometry</strong>. The <strong>Metabolic Theory of Ecology</strong> (MTE) makes a very specific prediction: <span class="math inline">\(b = 0.75\)</span> <span class="citation" data-cites="west1997gmo brown2004 banavar2014ffe">(<a href="14-metabolic-ecology.html#ref-west1997gmo" role="doc-biblioref">West, Brown, and Enquist 1997</a>; <a href="14-metabolic-ecology.html#ref-brown2004" role="doc-biblioref">K. A. Brown and Gurevitch 2004</a>; <a href="14-metabolic-ecology.html#ref-banavar2014ffe" role="doc-biblioref">Banavar et al. 2014</a>)</span>. This prediction arises from theory about how resource distribution networks (like circulatory systems) scale with body size.</p>
+<p>Allometric theory and extensive empirical data show that for many biological rates, the increase in metabolic rate is less than proportional to the increase in body mass. Mathematically, this means <span class="math inline">\(b &lt; 1\)</span>, sometimes called <strong>negative allometry</strong>. The <strong>Metabolic Theory of Ecology</strong> (MTE) makes a very specific prediction: <span class="math inline">\(b = 0.75\)</span> <span class="citation" data-cites="west1997gmo brown2004 banavar2014ffe">(<a href="references.html#ref-west1997gmo" role="doc-biblioref">West, Brown, and Enquist 1997</a>; <a href="references.html#ref-brown2004" role="doc-biblioref">K. A. Brown and Gurevitch 2004</a>; <a href="references.html#ref-banavar2014ffe" role="doc-biblioref">Banavar et al. 2014</a>)</span>. This prediction arises from theory about how resource distribution networks (like circulatory systems) scale with body size.</p>
 <p>To get a feel for why <span class="math inline">\(b &lt; 1\)</span> matters, consider this: an elephant (<span class="math inline">\(5 \times 10^6\)</span> g) weighs about 500,000 times more than a mouse (10 g). If <span class="math inline">\(b = 0.75\)</span>, the elephant’s metabolic rate is only about 19,000 times greater than the mouse’s—proportionally much less than the difference in body mass. Per gram, the mouse burns hotter.</p>
-<p>However, the prediction that <span class="math inline">\(b = 0.75\)</span> is somewhat controversial. Some data suggest that the exponent is closer to 1.0 for many organisms <span class="citation" data-cites="reich2006usr">(e.g., <a href="14-metabolic-ecology.html#ref-reich2006usr" role="doc-biblioref">Reich et al. 2006</a>)</span>, and others argue that <span class="math inline">\(b \approx 0.75\)</span> only when averaged across many species but varies considerably among them <span class="citation" data-cites="isaac2010wam">(<a href="14-metabolic-ecology.html#ref-isaac2010wam" role="doc-biblioref">Isaac and Carbone 2010</a>)</span>.</p>
+<p>However, the prediction that <span class="math inline">\(b = 0.75\)</span> is somewhat controversial. Some data suggest that the exponent is closer to 1.0 for many organisms <span class="citation" data-cites="reich2006usr">(e.g., <a href="references.html#ref-reich2006usr" role="doc-biblioref">Reich et al. 2006</a>)</span>, and others argue that <span class="math inline">\(b \approx 0.75\)</span> only when averaged across many species but varies considerably among them <span class="citation" data-cites="isaac2010wam">(<a href="references.html#ref-isaac2010wam" role="doc-biblioref">Isaac and Carbone 2010</a>)</span>.</p>
 </section>
 <section id="temperature-dependence-and-q_10" class="level3" data-number="13.3.3">
 <h3 data-number="13.3.3" class="anchored" data-anchor-id="temperature-dependence-and-q_10"><span class="header-section-number">13.3.3</span> Temperature dependence and <span class="math inline">\(Q_{10}\)</span></h3>
-<p>MTE also incorporates the effects of temperature. <span class="citation" data-cites="gillooly2001est">Gillooly et al. (<a href="14-metabolic-ecology.html#ref-gillooly2001est" role="doc-biblioref">2001</a>)</span> showed that metabolic rate can be predicted from both body mass and body temperature:</p>
+<p>MTE also incorporates the effects of temperature. <span class="citation" data-cites="gillooly2001est">Gillooly et al. (<a href="references.html#ref-gillooly2001est" role="doc-biblioref">2001</a>)</span> showed that metabolic rate can be predicted from both body mass and body temperature:</p>
 <p><span id="eq-mte-full"><span class="math display">\[B = B_0 M^b e^{-E/(kT)} \tag{13.3}\]</span></span></p>
 <p>where <span class="math inline">\(e\)</span> is the base of the natural logarithm, <span class="math inline">\(E\)</span> is the activation energy of metabolic enzymes, <span class="math inline">\(k\)</span> is Boltzmann’s constant (<span class="math inline">\(8.617 \times 10^{-5}\)</span> eV K<span class="math inline">\(^{-1}\)</span>), and <span class="math inline">\(T\)</span> is temperature in Kelvin.</p>
 <p>A simpler way to describe temperature sensitivity is <strong><span class="math inline">\(Q_{10}\)</span></strong>: the factor by which a rate increases when temperature rises by 10°C. If an organism’s excretion rate doubles when temperature goes from 15°C to 25°C, then <span class="math inline">\(Q_{10} = 2\)</span>. Most <span class="math inline">\(Q_{10}\)</span> values for biological rates fall between 1.5 and 3.</p>
@@ -451,7 +450,7 @@ Figure&nbsp;13.1: Gizzard shad, <em>Dorosoma cepedianum</em>, are probably the m
 <section id="nutrient-excretion-by-fish" class="level3" data-number="13.3.4">
 <h3 data-number="13.3.4" class="anchored" data-anchor-id="nutrient-excretion-by-fish"><span class="header-section-number">13.3.4</span> Nutrient excretion by fish</h3>
 <p>Most tests of MTE have been done in the lab, where activity, temperature, and diet can be controlled and <em>basal metabolic rate</em> is measured. But organisms in nature are often active, experience variable temperatures, and are feeding—they display <em>active metabolic rates.</em> Far fewer studies have tested whether MTE predictions hold under field conditions, where diet, activity, and other factors add noise.</p>
-<p>The data we will analyze come from field studies of nutrient excretion by gizzard shad (<em>Dorosoma cepedianum</em>) in three Ohio lakes <span class="citation" data-cites="schaus1997npe higgins2006dsn">(<a href="14-metabolic-ecology.html#ref-schaus1997npe" role="doc-biblioref">Schaus et al. 1997</a>; <a href="14-metabolic-ecology.html#ref-higgins2006dsn" role="doc-biblioref">Higgins, Vanni, and González 2006</a>)</span>. Excretion rate is a type of metabolic rate: it represents the quantity of nutrient released after metabolic and structural needs are met. The excretion of nitrogen (N) and phosphorus (P) by fish is ecologically important because these nutrients, released in dissolved form that algae can readily use, can fuel a significant fraction of primary production in lakes <span class="citation" data-cites="vanni2006ncf">(<a href="14-metabolic-ecology.html#ref-vanni2006ncf" role="doc-biblioref">Vanni et al. 2006</a>)</span>.</p>
+<p>The data we will analyze come from field studies of nutrient excretion by gizzard shad (<em>Dorosoma cepedianum</em>) in three Ohio lakes <span class="citation" data-cites="schaus1997npe higgins2006dsn">(<a href="references.html#ref-schaus1997npe" role="doc-biblioref">Schaus et al. 1997</a>; <a href="references.html#ref-higgins2006dsn" role="doc-biblioref">Higgins, Vanni, and González 2006</a>)</span>. Excretion rate is a type of metabolic rate: it represents the quantity of nutrient released after metabolic and structural needs are met. The excretion of nitrogen (N) and phosphorus (P) by fish is ecologically important because these nutrients, released in dissolved form that algae can readily use, can fuel a significant fraction of primary production in lakes <span class="citation" data-cites="vanni2006ncf">(<a href="references.html#ref-vanni2006ncf" role="doc-biblioref">Vanni et al. 2006</a>)</span>.</p>
 <p>The data set contains 200 observations—each one an individual fish whose excretion rate was measured in the field. Fish were captured, placed in filtered lake water, and the change in dissolved N and P concentration over time was measured. The variables are:</p>
 <ul>
 <li><code>temp_C</code> — water temperature (°C) experienced by the fish</li>
@@ -863,193 +862,40 @@ F-statistic:   270 on 2 and 197 DF,  p-value: &lt; 2.2e-16</code></pre>
 <li>What factors might cause deviations from MTE predictions in the field?</li>
 </ol></li>
 </ol>
-</section>
-<section id="references" class="level2" data-number="13.8">
-<h2 data-number="13.8" class="anchored" data-anchor-id="references"><span class="header-section-number">13.8</span> References</h2>
-<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+
+
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
 <div id="ref-banavar2014ffe" class="csl-entry" role="listitem">
-Banavar, Jayanth R, Todd J Cooke, Andrea Rinaldo, and Amos Maritan.
-2014. <span>“Form, <span>Function</span>, and <span>Evolution</span> of
-<span>Living Organisms</span>.”</span> <em>Proceedings of the National
-Academy of Sciences of the United States of America</em> 111: 3332–37.
-<a href="https://www.ncbi.nlm.nih.gov/pubmed/24550479">https://www.ncbi.nlm.nih.gov/pubmed/24550479</a>.
+Banavar, Jayanth R, Todd J Cooke, Andrea Rinaldo, and Amos Maritan. 2014. <span>“Form, <span>Function</span>, and <span>Evolution</span> of <span>Living Organisms</span>.”</span> <em>Proceedings of the National Academy of Sciences of the United States of America</em> 111: 3332–37. <a href="https://www.ncbi.nlm.nih.gov/pubmed/24550479">https://www.ncbi.nlm.nih.gov/pubmed/24550479</a>.
 </div>
 <div id="ref-brown2004mte" class="csl-entry" role="listitem">
-Brown, James H., James F. Gillooly, Andrew P. Allen, Van M. Savage, and
-Geoffrey B. West. 2004. <span>“Toward a <span>Metabolic Theory</span> of
-<span>Eology</span>.”</span> <em>Ecology</em> 85 (7): 1771–89. <a href="https://doi.org/10.1890/03-9000">https://doi.org/10.1890/03-9000</a>.
+Brown, James H., James F. Gillooly, Andrew P. Allen, Van M. Savage, and Geoffrey B. West. 2004. <span>“Toward a <span>Metabolic Theory</span> of <span>Eology</span>.”</span> <em>Ecology</em> 85 (7): 1771–89. <a href="https://doi.org/10.1890/03-9000">https://doi.org/10.1890/03-9000</a>.
 </div>
 <div id="ref-brown2004" class="csl-entry" role="listitem">
-Brown, K. A., and J. Gurevitch. 2004. <span>“<a href="https://www.ncbi.nlm.nih.gov/pubmed/15067121">Long-Term Impacts of
-Logging on Forest Diversity in <span>Madagascar</span></a>.”</span>
-<em>Proceedings of the National Academy of Sciences</em> 101 (16):
-6045–49.
-</div>
-<div id="ref-caswell:2001gu" class="csl-entry" role="listitem">
-Caswell, H. 2001. <em>Matrix Population Models:
-<span>Construction</span>, Analysis, and Interpretation</em>. 2nd ed.
-<span>Sinauer Associates, Inc., Sunderland, MA, USA</span>.
-</div>
-<div id="ref-chamaille-jammes2008" class="csl-entry" role="listitem">
-Chamaillé-Jammes, Simon, Hervé Fritz, Marion Valeix, Felix Murindagomo,
-and Jean Clobert. 2008. <span>“<a href="https://www.ncbi.nlm.nih.gov/pubmed/17986249">Resource
-Variability, Aggregation and Direct Density Dependence in an Open
-Context: <span>The</span> Local Regulation of an <span>African</span>
-Elephant Population</a>.”</span> <em>Journal of Animal Ecology</em> 77
-(1): 135–44.
-</div>
-<div id="ref-crouse1987" class="csl-entry" role="listitem">
-Crouse, D T, L B Crowder, and H Caswell. 1987. <span>“A Stage-Based
-Population Model for Loggerhead Sea Turtles and Implications for
-Conservation.”</span> <em>Ecology</em> 68: 1412–23.
-</div>
-<div id="ref-fehling2022" class="csl-entry" role="listitem">
-Fehling, Laura Sharon. 2022. <span>“Reward <span>Complementarity</span>
-and <span>Context Dependency</span> in <span>Multispecies Mutualist
-Interactions</span> in <span>Partridge Pea</span>
-(<span>Chamaecrista</span> Fasciculata).”</span> PhD thesis, Miami
-University.
-</div>
-<div id="ref-franklin2012" class="csl-entry" role="listitem">
-Franklin, Deborah. 2012. <span>“Nature That Nutures.”</span>
-<em>Scientific American</em> 306 (3): 24–25.
+Brown, K. A., and J. Gurevitch. 2004. <span>“<a href="https://www.ncbi.nlm.nih.gov/pubmed/15067121">Long-Term Impacts of Logging on Forest Diversity in <span>Madagascar</span></a>.”</span> <em>Proceedings of the National Academy of Sciences</em> 101 (16): 6045–49.
 </div>
 <div id="ref-gillooly2001est" class="csl-entry" role="listitem">
-Gillooly, James F., James H. Brown, Geoffrey B. West, Van M. Savage, and
-Eric L. Charnov. 2001. <span>“Effects of <span>Size</span> and
-<span>Temperature</span> on <span>Metabolic Rate</span>.”</span>
-<em>Science</em> 293 (5538): 2248–51. <a href="https://doi.org/10.1126/science.1061967">https://doi.org/10.1126/science.1061967</a>.
-</div>
-<div id="ref-hastings2011" class="csl-entry" role="listitem">
-Hastings, A. 2011. <span>“Single Species Population Dynamics and Its
-Theoretical Underpinnings.”</span> In, edited by S. M. Scheiner and M.
-R. Willig. <span>Chicago, IL, USA</span>: <span>University of Chicago
-Press</span>.
+Gillooly, James F., James H. Brown, Geoffrey B. West, Van M. Savage, and Eric L. Charnov. 2001. <span>“Effects of <span>Size</span> and <span>Temperature</span> on <span>Metabolic Rate</span>.”</span> <em>Science</em> 293 (5538): 2248–51. <a href="https://doi.org/10.1126/science.1061967">https://doi.org/10.1126/science.1061967</a>.
 </div>
 <div id="ref-higgins2006dsn" class="csl-entry" role="listitem">
-Higgins, Karen A., M. J. Vanni, and María J. González. 2006.
-<span>“Detritivory and the Stoichiometry of Nutrient Cycling by a
-Dominant Fish Species in Lakes of Varying Productivity.”</span>
-<em>Oikos</em> 114 (3): 419–30. <a href="https://doi.org/10.1111/j.2006.0030-1299.14745.x">https://doi.org/10.1111/j.2006.0030-1299.14745.x</a>.
+Higgins, Karen A., M. J. Vanni, and María J. González. 2006. <span>“Detritivory and the Stoichiometry of Nutrient Cycling by a Dominant Fish Species in Lakes of Varying Productivity.”</span> <em>Oikos</em> 114 (3): 419–30. <a href="https://doi.org/10.1111/j.2006.0030-1299.14745.x">https://doi.org/10.1111/j.2006.0030-1299.14745.x</a>.
 </div>
 <div id="ref-isaac2010wam" class="csl-entry" role="listitem">
-Isaac, Nick J. B., and Chris Carbone. 2010. <span>“Why Are Metabolic
-Scaling Exponents so Controversial? <span>Quantifying</span> Variance
-and Testing Hypotheses.”</span> <em>Ecology Letters</em> 13 (6): 728–35.
-<a href="https://doi.org/10.1111/j.1461-0248.2010.01461.x">https://doi.org/10.1111/j.1461-0248.2010.01461.x</a>.
-</div>
-<div id="ref-kappeler2019" class="csl-entry" role="listitem">
-Kappeler, Peter M. 2019. <span>“A Framework for Studying Social
-Complexity.”</span> <em>Behavioral Ecology and Sociobiology</em> 73 (1):
-13. <a href="https://doi.org/10.1007/s00265-018-2601-8">https://doi.org/10.1007/s00265-018-2601-8</a>.
-</div>
-<div id="ref-lee2011" class="csl-entry" role="listitem">
-Lee, Ronald. 2011. <span>“The <span>Outlook</span> for <span>Population
-Growth</span>.”</span> <em>Science</em> 333 (6042): 569–73. <a href="https://doi.org/10.1126/science.1208859">https://doi.org/10.1126/science.1208859</a>.
-</div>
-<div id="ref-livdahl1991" class="csl-entry" role="listitem">
-Livdahl, Todd P., and Michelle S. Willey. 1991. <span>“Prospects for an
-<span>Invasion</span>: <span>Competition Between</span>
-<span><em>Aedes</em></span><span> <em></em>
-</span><span><em>Albopictus</em></span> and <span>Native</span>
-<span><em>Aedes</em></span><span> <em></em>
-</span><span><em>Triseriatus</em></span>.”</span> <em>Science (New York,
-N.Y.)</em> 253 (5016): 189–91. <a href="https://doi.org/10.1126/science.1853204">https://doi.org/10.1126/science.1853204</a>.
-</div>
-<div id="ref-mcelreath2020" class="csl-entry" role="listitem">
-McElreath, Richard. 2020. <em>Statistical <span>Rethinking</span>:
-<span>A Bayesian Course</span> with <span>Examples</span> in
-<span>R</span> and <span>Stan</span></em>. Second Edition. Texts in
-<span>Statistical Science</span>. <span>Boca Raton, FL</span>: <span>CRC
-Press</span>.
-</div>
-<div id="ref-morin1999a" class="csl-entry" role="listitem">
-Morin, P J. 1999. <em>Community <span>Ecology</span></em>. <span>Malden,
-MA</span>: <span>Blackwell Science, Inc.</span>
-</div>
-<div id="ref-nordell2014" class="csl-entry" role="listitem">
-Nordell, Shawn E., and Thomas J. Valone. 2014. <em>Animal
-<span>Behavior</span>: <span>Concepts</span>, <span>Methods</span>, and
-<span>Applications</span></em>. <span>New York</span>: <span>Oxford
-University Press</span>.
-</div>
-<div id="ref-nowak:2010ul" class="csl-entry" role="listitem">
-Nowak, Martin A, Corina E Tarnita, and Edward O Wilson. 2010. <span>“The
-Evolution of Eusociality.”</span> <em>Nature</em> 466 (7310): 1057–62.
-</div>
-<div id="ref-odling-smee2013" class="csl-entry" role="listitem">
-Odling-Smee, J, and DH Erwin. 2013. <span>“Niche Construction Theory:
-<span>A</span> Practical Guide for Ecologists.”</span> <em>The Quarterly
-Review of Biology</em> 88 (1): 3–28. <a href="https://www.jstor.org/stable/10.1086/669266">https://www.jstor.org/stable/10.1086/669266</a>.
+Isaac, Nick J. B., and Chris Carbone. 2010. <span>“Why Are Metabolic Scaling Exponents so Controversial? <span>Quantifying</span> Variance and Testing Hypotheses.”</span> <em>Ecology Letters</em> 13 (6): 728–35. <a href="https://doi.org/10.1111/j.1461-0248.2010.01461.x">https://doi.org/10.1111/j.1461-0248.2010.01461.x</a>.
 </div>
 <div id="ref-reich2006usr" class="csl-entry" role="listitem">
-Reich, Peter B., Mark G. Tjoelker, Jose-Luis Machado, and Jacek Oleksyn.
-2006. <span>“Universal Scaling of Respiratory Metabolism, Size and
-Nitrogen in Plants.”</span> <em>Nature</em> 439 (7075): 457–61. <a href="https://doi.org/10.1038/nature04282">https://doi.org/10.1038/nature04282</a>.
+Reich, Peter B., Mark G. Tjoelker, Jose-Luis Machado, and Jacek Oleksyn. 2006. <span>“Universal Scaling of Respiratory Metabolism, Size and Nitrogen in Plants.”</span> <em>Nature</em> 439 (7075): 457–61. <a href="https://doi.org/10.1038/nature04282">https://doi.org/10.1038/nature04282</a>.
 </div>
 <div id="ref-schaus1997npe" class="csl-entry" role="listitem">
-Schaus, M. H., M. J. Vanni, T. E. Wissing, M. T. Bremigan, J. E. Garvey,
-and R. A. Stein. 1997. <span>“Nitrogen and Phosphorus Excretion by
-Detritivorous Gizzard Shad in a Reservoir Ecosystem.”</span>
-<em>Limnology and Oceanography</em> 42 (6): 1386–97. <a href="https://doi.org/10.4319/lo.1997.42.6.1386">https://doi.org/10.4319/lo.1997.42.6.1386</a>.
-</div>
-<div id="ref-schnitzer2005" class="csl-entry" role="listitem">
-Schnitzer, S A. 2005. <span>“A Mechanistic Explanation for Global
-Patterns of Liana Abundance and Distribution.”</span> <em>American
-Naturalist</em> 166 (2): 262–76.
-</div>
-<div id="ref-smithmartin:2019aa" class="csl-entry" role="listitem">
-Smith-Martin, Chris M., Carolina L. Bastos, Omar R. Lopez, Jennifer S.
-Powers, and Stefan A. Schnitzer. 2019. <span>“Effects of Dry-Season
-Irrigation on Leaf Physiology and Biomass Allocation in Tropical Lianas
-and Trees.”</span> <em>Ecology</em> 100.
-</div>
-<div id="ref-solomon2018" class="csl-entry" role="listitem">
-Solomon, Nancy G., and Brian Keane. 2018. <span>“Dispatches from the
-Field: Sociality and Reproductive Success in Prairie Voles.”</span>
-<em>Animal Behaviour</em> 143 (September): 193–203. <a href="https://doi.org/10.1016/j.anbehav.2018.07.001">https://doi.org/10.1016/j.anbehav.2018.07.001</a>.
-</div>
-<div id="ref-stephens1986" class="csl-entry" role="listitem">
-Stephens, D W, and J R Krebs. 1986. <em>Foraging
-<span>Theory</span></em>. Edited by J. R. Krebs and T. H. Clutton-Brock.
-Monographs in Behavior and Ecology. <span>Princeton, University Press,
-Princeton, NJ, USA</span>: <span>Princeton University Press</span>.
+Schaus, M. H., M. J. Vanni, T. E. Wissing, M. T. Bremigan, J. E. Garvey, and R. A. Stein. 1997. <span>“Nitrogen and Phosphorus Excretion by Detritivorous Gizzard Shad in a Reservoir Ecosystem.”</span> <em>Limnology and Oceanography</em> 42 (6): 1386–97. <a href="https://doi.org/10.4319/lo.1997.42.6.1386">https://doi.org/10.4319/lo.1997.42.6.1386</a>.
 </div>
 <div id="ref-vanni2006ncf" class="csl-entry" role="listitem">
-Vanni, Michael J., Anna M. Bowling, Elizabeth M. Dickman, R. Scott Hale,
-Karen A. Higgins, Martin J. Horgan, Lesley B. Knoll, William H. Renwick,
-and Roy A. Stein. 2006. <span>“<span>NUTRIENT CYCLING BY FISH SUPPORTS
-RELATIVELY MORE PRIMARY PRODUCTION AS LAKE PRODUCTIVITY
-INCREASES</span>.”</span> <em>Ecology</em> 87 (7): 1696–1709. <a href="https://doi.org/10.1890/0012-9658(2006)87[1696:NCBFSR]2.0.CO;2">https://doi.org/10.1890/0012-9658(2006)87[1696:NCBFSR]2.0.CO;2</a>.
-</div>
-<div id="ref-vucetich:2009" class="csl-entry" role="listitem">
-Vucetich, John A., and Rolf O. Peterson. 2009. <span>“Recovery of Gray
-Wolves in the Great Lakes Region of the United States.”</span> In,
-edited by A. P. Wydeven et al., 35–48. <span>Springer</span>.
+Vanni, Michael J., Anna M. Bowling, Elizabeth M. Dickman, R. Scott Hale, Karen A. Higgins, Martin J. Horgan, Lesley B. Knoll, William H. Renwick, and Roy A. Stein. 2006. <span>“<span>NUTRIENT CYCLING BY FISH SUPPORTS RELATIVELY MORE PRIMARY PRODUCTION AS LAKE PRODUCTIVITY INCREASES</span>.”</span> <em>Ecology</em> 87 (7): 1696–1709. <a href="https://doi.org/10.1890/0012-9658(2006)87[1696:NCBFSR]2.0.CO;2">https://doi.org/10.1890/0012-9658(2006)87[1696:NCBFSR]2.0.CO;2</a>.
 </div>
 <div id="ref-west1997gmo" class="csl-entry" role="listitem">
-West, G B, J H Brown, and B J Enquist. 1997. <span>“A <span>General
-Model</span> for the <span>Origin</span> of <span>Allometric Scaling
-Laws</span> in <span>Biology</span>.”</span> <em>Science (New York,
-N.Y.)</em> 276: 122–26.
-</div>
-<div id="ref-wickham2016" class="csl-entry" role="listitem">
-Wickham, Hadley. 2016. <em>Ggplot2: <span>Elegant Graphics</span> for
-<span>Data Analysis</span></em>. <span>New York, NY</span>:
-<span>Springer-Verlag</span>.
-</div>
-<div id="ref-wilkinson2005" class="csl-entry" role="listitem">
-Wilkinson, Leland. 2005. <em>The <span>Grammar</span> of
-<span>Graphics</span></em>. Second. Statistics and Computing. <span>New
-York, NY</span>: <span>Spinger</span>.
-</div>
-<div id="ref-wilson1984a" class="csl-entry" role="listitem">
-Wilson, Edward O. 1984. <em>Biophiia</em>. <span>Cambridge, MA</span>:
-<span>: Harvard University Press</span>.
+West, G B, J H Brown, and B J Enquist. 1997. <span>“A <span>General Model</span> for the <span>Origin</span> of <span>Allometric Scaling Laws</span> in <span>Biology</span>.”</span> <em>Science (New York, N.Y.)</em> 276: 122–26.
 </div>
 </div>
-
-
 </section>
 
 </main> <!-- /main -->
