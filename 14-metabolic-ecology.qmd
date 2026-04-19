@@ -7,8 +7,15 @@ library(tidyverse)
 library(broom)
 ```
 
-![Gizzard shad, *Dorosoma cepedianum*, are probably the most abundant fish (by biomass) in lakes of the southern and lower Midwest USA. They eat mud---sediment detritus from lake bottoms---and in doing so they cycle enormous quantities of nitrogen and phosphorus back into the water, fueling algal growth. In some lakes, nutrient fluxes mediated by gizzard shad support more than 25% of algal primary production. Photo courtesy M.J. Vanni.](figs/gizzard_shad.jpg){#fig-shad}
-![The data we use in this chapter were collected from gizzard shad at three man-made lakes (reservoirs) in Ohio, U.S.A.[@higgins2006dsn; @schaus1997npe](figs/reservoirs.png){#fig-res}
+::: {#fig-shad layout-ncol=2}
+
+![Gizzard shad](figs/gizzard_shad.jpg){#fig-shad}
+
+![Three reservoirs](figs/reservoirs.png){#fig-res}
+
+Gizzard shad, *Dorosoma cepedianum*, are probably the most abundant fish (by biomass) in lakes of the southern and lower Midwest USA. They eat mud---sediment detritus from lake bottoms---and in doing so they cycle enormous quantities of nitrogen and phosphorus back into the water, fueling algal growth. In some lakes, nutrient fluxes mediated by gizzard shad support more than 25% of algal primary production. The data we use in this chapter were collected from gizzard shad at three man-made lakes (reservoirs) in Ohio, U.S.A. (Schaus et al. 1997, Higgins et al. 2006). Shad photo courtesy M.J. Vanni.
+:::
+
 
 ## Acknowledgement
 This chapter is an R version of @vanni2011meh. I am grateful to Mike and Jessica and the Ecological Society of America for making the data and the article available.
