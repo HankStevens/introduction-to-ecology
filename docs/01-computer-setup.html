@@ -692,8 +692,8 @@ window.Quarto = {
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>b <span class="ot">&lt;-</span> <span class="fu">runif</span>(<span class="dv">7</span>, <span class="at">min=</span><span class="dv">0</span>, <span class="at">max=</span><span class="dv">1</span>)</span>
 <span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>b</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.7550011270 0.6054813634 0.0005730973 0.1740951338 0.4422787733
-[6] 0.7340528732 0.7854120564</code></pre>
+<pre><code>[1] 0.4625295808 0.2616951442 0.7184534532 0.0004881928 0.1994059924
+[6] 0.1814408340 0.1380807918</code></pre>
 </div>
 </div>
 <p>These will differ every time you do this.</p>
@@ -708,13 +708,13 @@ window.Quarto = {
 </div>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>b</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.7550011270 0.6054813634 0.0005730973 0.1740951338 0.4422787733
-[6] 0.7340528732 0.7854120564</code></pre>
+<pre><code>[1] 0.4625295808 0.2616951442 0.7184534532 0.0004881928 0.1994059924
+[6] 0.1814408340 0.1380807918</code></pre>
 </div>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>ab</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] -0.7550011270  0.0000000000  0.0005730973  0.3481902676  1.3268363199
-[6]  2.9362114929  3.9270602819</code></pre>
+<pre><code>[1] -0.4625295808  0.0000000000  0.7184534532  0.0009763855  0.5982179772
+[6]  0.7257633358  0.6904039590</code></pre>
 </div>
 </div>
 <p>You can confirm at a glance that the first and second elements in <code>a</code> times the first and second elements in <code>b</code> equal the first and second elements in <code>ab</code>.</p>
@@ -728,13 +728,13 @@ window.Quarto = {
 <span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>d</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>   a            b     a_times_b
-1 -1 0.7550011270 -0.7550011270
-2  0 0.6054813634  0.0000000000
-3  1 0.0005730973  0.0005730973
-4  2 0.1740951338  0.3481902676
-5  3 0.4422787733  1.3268363199
-6  4 0.7340528732  2.9362114929
-7  5 0.7854120564  3.9270602819</code></pre>
+1 -1 0.4625295808 -0.4625295808
+2  0 0.2616951442  0.0000000000
+3  1 0.7184534532  0.7184534532
+4  2 0.0004881928  0.0009763855
+5  3 0.1994059924  0.5982179772
+6  4 0.1814408340  0.7257633358
+7  5 0.1380807918  0.6904039590</code></pre>
 </div>
 </div>
 <p>You could examine the structure of this data frame with <code>str()</code>.</p>
@@ -743,8 +743,8 @@ window.Quarto = {
 <div class="cell-output cell-output-stdout">
 <pre><code>'data.frame':   7 obs. of  3 variables:
  $ a        : int  -1 0 1 2 3 4 5
- $ b        : num  0.755001 0.605481 0.000573 0.174095 0.442279 ...
- $ a_times_b: num  -0.755001 0 0.000573 0.34819 1.326836 ...</code></pre>
+ $ b        : num  0.46253 0.261695 0.718453 0.000488 0.199406 ...
+ $ a_times_b: num  -0.46253 0 0.718453 0.000976 0.598218 ...</code></pre>
 </div>
 </div>
 <p>You will also notice now that you can see all of our objects in the Environment pane, in the upper right of RStudio.</p>

@@ -82,7 +82,7 @@ $$B = B_0 M^b e^{-E/(kT)}$$ {#eq-mte-full}
 
 where $e$ is the base of the natural logarithm, $E$ is the activation energy of metabolic enzymes, $k$ is Boltzmann's constant ($8.617 \times 10^{-5}$ eV K$^{-1}$), and $T$ is temperature in Kelvin. 
 
-In the late 1800s, Svante Arrhenius described the power law relation for the temperature dependence of chemical reaction rates; you may have encountered this in your chemistry class. This was quantified from first principles by Ludwig Boltzmann[^Boltzmann's work on this and on *entropy* have connections throughout science, including Plank's constant, blackbody radiation, and even the meaning of time.], who showed how the emergent property we call temperature emerges from the thermal energy of individual molecules. You will encounter Boltzmann's constant in our last chapter, on global heating.
+In the late 1800s, Svante Arrhenius described the power law relation for the temperature dependence of chemical reaction rates; you may have encountered this in your chemistry class. This was quantified from first principles by Ludwig Boltzmann^[Boltzmann's work on this and on *entropy* have connections throughout science, including Plank's constant, blackbody radiation, and even the meaning of time.], who showed how the emergent property we call temperature emerges from the thermal energy of individual molecules. You will encounter Boltzmann's constant in our last chapter, on global heating.
 
 Another way to describe temperature sensitivity is **$Q_{10}$**: the multiplication factor by which a rate increases when temperature rises by 10°C. If an organism's excretion rate *doubles* when temperature goes from 15°C to 25°C, then $Q_{10} = 2$. Most $Q_{10}$ values for biological rates fall between 1.5 and 3.
 
