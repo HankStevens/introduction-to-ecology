@@ -320,6 +320,35 @@ Think about the following:
 
 These are the kinds of questions where mathematical reasoning, ecological knowledge, and careful quantitative thinking all come together.
 
+```{r}
+#| eval: false
+#| echo: false
+cf <- coef(m_N_all)
+
+# Temperature
+degC <- c(14, 16, 18, 20)
+inv.kT2 <- 1/(boltzmann_k *(273.15+degC))
+logM <- log(46)
+d <- data.frame(inv.kT=inv.kT2, log_mass=logM)
+
+p <- predict(m_N_all, newdata=d)
+p[-1] / p[-4] - 1
+
+## body mass
+degC <- c(20)
+inv.kT2 <- 1/(boltzmann_k *(273.15+degC))
+quantile(fish$mass_g)
+logM <- log(c(25, 35, 45, 55, 65))
+d <- data.frame(inv.kT=inv.kT2, log_mass=logM)
+
+p <- predict(m_N_all, newdata=d)
+p
+p[-1] / p[-5] - 1
+
+
+```
+
+
 
 ## Deliverables {#sec-deliv-metabolic}
 
@@ -327,4 +356,4 @@ Compile the following into one document and submit by the due date. Turn in a Wo
 
 1. Log-log scatter plots of N and P excretion vs. body mass for each temperature.
 1. Confidence intervals of the allometric scaling exponent ($z$) for both N and P excretion.
-1. A statement of whether the data support MTE's prediction of $b = 0.75$ and $E_a = 0.23$. Overall, how well do the predictions of the Metabolic Theory of Ecology hold up for nutrient excretion by fish under field conditions? What specific factor or factors might cause deviations from MTE predictions in the field?
+1. A statement of whether the data support MTE's prediction of $z = 0.75$ and $E_a = 0.23$. Overall, how well do the predictions of the Metabolic Theory of Ecology hold up for nutrient excretion by fish under field conditions? What specific factor or factors might cause deviations from MTE predictions in the field?
