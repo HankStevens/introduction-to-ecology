@@ -10,7 +10,7 @@ book:
     tracking-id: "G-J0R6F7XN66"
   chapters:
     - index.qmd
-    - AI-v4.qmd
+    - 00-AI-v4.qmd
     - 01-computer-setup.qmd
     - 01-trees_and_people.qmd
     - 02-global_temp_anomalies.qmd
@@ -18,10 +18,10 @@ book:
     - 04-extrapair_copulation.qmd
     - 06-DI-pop-growth.qmd
     - 07-structured-pop-growth_v2.qmd
-    - 08-density-dep-pop-growth.qmd
-    - 09-direct-interactions.qmd
+    - 08-density-dep-pop-growth-Claude.qmd
+    - 09-direct-interactions-Claude.qmd
     - 10-mutualisms.qmd
-    - 11-predator-prey.qmd
+    - 11-predator-prey-Claude.qmd
     - 13-diversity.qmd
     - 14-metabolic-ecology_v_2.qmd
     - 20-ecosystem-intro.qmd
