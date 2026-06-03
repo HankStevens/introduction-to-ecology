@@ -1,0 +1,6 @@
+---
+title: "Untitled"
+format: docx
+---
+
+$$\Delta E_E = F_{in} - F_{out1} - F_{out2} = \frac{\Omega}{4} - a\frac{\Omega}{4} - \frac{\sigma}{A^g} T^4$$

@@ -6,27 +6,28 @@ output: pdf
 ![Ecosystems comprise pools (compartments) and fluxes in and out of those pools. Ecosystem ecologists typically study ecosystems by tracking a particular chemical element from compartment to compartment. Note the units are consistent throughout an ecosystem. In the above example of a lake, fluxes of phosphorus are milligrams per day in or out. At the global scale, we can estimate fluxes of carbon in gigatonnes per year.](figs/ecosystems1.png){#fig-ecosys1 width=75%}
 
 ## Goals
-In this chapter, you will, address three related questions:
+In this chapter, you will provide partial answers for these questions:
 
-1. Why do we have so much carbon in the atmosphere?
+1. Why do we have this much carbon in the atmosphere?
 1. How does including the physical process of diffusion of alter predictions about future atmospheric carbon?
 1. What is the connection between atmospheric CO$_2$ and temperature, and how does that relationship affect our appreciation of Earth's current and future status?
 
-To address these questions, we will
+To address these questions, we will use pencil and paper and R to,
 
-1. practice building a simple ecosystem budget with steady fluxes and changing pools,
-1 create a dynamic ecosystem in which the fluxes change, depending on the amount in pools, and
-1 investigate how matter can relate dynamically to energy.
+1. build a simple ecosystem budget with steady fluxes and changing pools,
+1. create a dynamic ecosystem in which the fluxes change, depending on the amount in pools, and
+1. investigate how matter can relate dynamically to energy.
 
-One of the main the points of doing these activities is to help to develop an intuition for *system thinking*. Systems are "[a group of interacting, interdependent parts that form a complex whole"](https://en.wikipedia.org/wiki/Systems_theory){target="_blank"} and ecosystem ecology is a central subdisicpline of ecology and the one that has contributed the most to our understanding of climate change and ecosystem services.
+One of the main the points of doing these activities is to help to develop an intuition for *systems thinking*. A system is "[a group of interacting, interdependent parts that form a complex whole"](https://en.wikipedia.org/wiki/Systems_theory){target="_blank"} and ecosystem ecology is a central subdisicpline of ecology and the one that has contributed the most to our understanding of climate change and ecosystem services.
 
 The other main point of these activities is to reinforce simple ideas related to the global carbon cycle and global warming.
 
 ## Preparatory steps
 
-1. General background lectures: [Download the slides and watch the video on at least the carbon cycle](https://drive.google.com/drive/folders/1nWLoEGuWKIWdul9Uvse5qiB1Hf8MCwUv?usp=sharing){target="_blank"} before proceeding.
+1. General background lectures: [Download and watch the video on the carbon cycle](https://drive.google.com/drive/folders/1nWLoEGuWKIWdul9Uvse5qiB1Hf8MCwUv?usp=sharing){target="_blank"} before proceeding.
 1. We will not need data for this chapter.
-1. Find out what you need for the deliverables parts 1 (@sec-deliverables-ei1) and 2 (@sec-deliverables-ei2).
+1. This chapter will ask you to complete some work by hand (without R) and turn that in in class. Find out what you need for the deliverables parts 1 (@sec-deliverables-ei1) and 2 (@sec-deliverables-ei2).
+1. Get some paper and pencil.
 1. Get R ready for work - see the next section.
 
 ## Get R ready for work
@@ -34,7 +35,7 @@ The other main point of these activities is to reinforce simple ideas related to
 Open R using RStudio, and **set your working directory**. You can do this in two ways:
 
 1. using the Session menu in RStudio, or 
-1. with code such as this, in which you customize it to your computer:
+1. with code such as this, in which you must customize it to your computer!
 ```
 setwd("C:/Users/chenjoe/BIO209W/Rwork")
 ```
@@ -99,11 +100,16 @@ For instance, consider the carbon budget for Earth's atmosphere from the 1990's 
    - Fossil fuel (7.6 Pg/y)
    - Land use change (1.5 Pg/y) 
    - Terrestrial respiration (mostly soil microbes 56 Pg/y)
+   
+These total to $91+1+4+0.1+7.6+1.5+56=161$ Pg C / y.
+
 * Outputs from the atmosphere
    - diffusion into the ocean (photosynthesis, and carbonic acid formation 92 Pg/y)
    - Weathering (0.2 Pg/y)
    - Land sink (2.8 Pg/y)
    - NPP on land (60 Pg/y)
+   
+These total to $0.2 +2.8+60=161$ Pg C / y.
 
 At the time, the **atmosphere held 762 Pg C** mostly in the forms of carbon dioxide, carbon monoxide, and methane (CO$_2$, CO, CH$_4$). 
 
@@ -115,23 +121,47 @@ Given this budget, how much carbon would be in the atmosphere,
 
 To figure this out with a simple budget, we simply start with the pool, add the inputs and subtract the outputs.
 $$\mathrm{Atmosphere_{t+1}} = \mathrm{Atmosphere_{t}} + \mathrm{inputs} -  \mathrm{outputs}$$
+
+Here we have inputs into the atmosphere.
+```{r}
+or <- 91 # diffusion out of the ocean, due to respiration of microbes
+ro <- 1 # river outgassing (diffusion)
+fi <- 4 # fire
+cp <- 0.1 # cement production
+ff <- 7.6 # fossil fuel combustion (1998) 
+lu <- 1.5 # land use change 
+tr <- 56 # terrestrial respiration
+inputs <- or + ro + fi + cp + ff + lu + tr
+inputs
+```
+
+Here we have outputs from the atmosphere mostly into plants on land and into the oceans where most of it is taken up by phytoplankton, kelp, seagrasses, and corals. A small amount of it remains in the water and makes it more acidic.
+```{r}
+npp.o <- 92 # net primary production in the ocean (diffusion)
+we <- 0.2 # Weathering of carbonate rock
+ls <- 2.8 # land sink (burial)
+npp.l <- 60 # net primary production on land
+
+outputs <- npp.o + we + ls + npp.l
+outputs
+```
+
+The difference between inputs and outputs is *net flux*:
+```{r}
+net.flux <- inputs - outputs
+net.flux # in Pg C per year
+```
+
+At that time, Earth had a pool of carbon in the atmosphere of about 762 Pg C.
 ```{r}
 # the pool
 At <- 762
+```
 
-# fluxes
-# separate statements with semicolons
-or <- 91; ro <- 1; fi <- 4; cp <- 0.1; ff <- 7.6; lu <- 1.5; tr <- 56
-inputs <- or + ro + fi + cp + ff + lu + tr
-
-npp.o <- 92; we <- 0.2; ls <- 2.8; npp.l <- 60
-outputs <- npp.o + we + ls + npp.l
-
-net.flux <- inputs - outputs
-net.flux
-
-Atp1 <- At + net.flux
-Atp1
+So, what would it have one year later? It would have the pool plus the net flux.
+```{r}
+At.plus.1 <- At + net.flux
+At.plus.1
 ```
 
 What about two years later? What about 3 or 25 or 75 years later? If we choose to assume that these rates won't change, the answer is easy, but only because we are working with a simple budget. We simply add the annual flux for each year, starting at year 0.
@@ -148,7 +178,8 @@ Now it is your turn to do that next for two years and for 25 years.
 net.flux
 
 t <- c(2,25)
-(at2and25 <- At + net.flux * t)
+at.2.and.25 <- At + net.flux * t
+at.2.and.25
 ```
 
 ```{r}
@@ -158,7 +189,7 @@ t <- c(2,25)
 
 Note that as long as these fluxes remain constant the system will continue to change at this rate. There is no equilibrium or *balance of nature*. 
 
-## Simple dynamics emerge from processes like diffusion and complicate prediction
+## Simple dynamics emerge from processes like diffusion, and complicate prediction
 
 How does including the physical process of diffusion of alter predictions about future atmospheric carbon? A simple budget is a great starting place, but it ignores a lot of biological and physical reality. Here we add one piece of that reality: diffusion of CO$_2$ between the air and water.
 
@@ -302,11 +333,11 @@ The second document should provide the following written responses and quantitie
 #| echo: false
 #| results: hide
 
-net.flux
-at2and25
+# net.flux
+# at2and25
 
-firstorderA
-asymp
+# firstorderA
+# asymp
 
 ## 1. A* varies inversely with e (the per-concentration export rate)
 ## 1. Simple budget has no limit, while the first order has an asymptote

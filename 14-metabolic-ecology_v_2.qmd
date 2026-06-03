@@ -313,12 +313,7 @@ We have focused on excretion by individual fish. But remember the bigger picture
 
 Consider this: if you know the allometric scaling exponent and $E_a$, and you know the size distribution and temperature regime of a lake, you could *predict* the total nutrient flux from the fish population to the water column. This is exactly the kind of scaling-up that makes metabolic ecology so powerful---and so important for understanding ecosystem function.
 
-Think about the following:
 
-1. Suppose a lake warms by 2°C due to climate change. Based on your $E_a$ estimate, by how much would individual excretion rates change?
-2. If warming also shifts the fish population toward smaller body sizes (as has been observed in some systems), how would that interact with the temperature effect on total nutrient flux?
-
-These are the kinds of questions where mathematical reasoning, ecological knowledge, and careful quantitative thinking all come together.
 
 ```{r}
 #| eval: false
@@ -355,5 +350,8 @@ p[-1] / p[-5] - 1
 Compile the following into one document and submit by the due date. Turn in a Word document or PDF with the following:
 
 1. Log-log scatter plots of N and P excretion vs. body mass for each temperature.
-1. Confidence intervals of the allometric scaling exponent ($z$) for both N and P excretion.
-1. A statement of whether the data support MTE's prediction of $z = 0.75$ and $E_a = 0.23$. Overall, how well do the predictions of the Metabolic Theory of Ecology hold up for nutrient excretion by fish under field conditions? What specific factor or factors might cause deviations from MTE predictions in the field?
+1. Confidence intervals of the allometric scaling exponent ($z$) for both N and P excretion, and for temperature sensitivity ($E_a$).
+1. Address these questions:
+   a. How well do the predictions of the Metabolic Theory of Ecology hold up for nutrient excretion by fish under field conditions? What specific factor or factors might cause deviations from MTE predictions in the field?
+   a. Suppose a lake warms by 2°C due to climate change. Based on your $E_a$ estimate, by how much would individual excretion rates change?
+   a. If warming also shifts the fish population toward smaller body sizes (as has been observed in some systems), how would that interact with the temperature effect on total nutrient flux?

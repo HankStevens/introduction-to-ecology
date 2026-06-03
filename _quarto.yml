@@ -5,11 +5,12 @@ project:
 book:
   title: "Basic Ecological Concepts and Data in R"
   author: "Dr. Hank Stevens"
-  date: "14 January 2026"
+  date: "03 June 2026"
   google-analytics:
     tracking-id: "G-J0R6F7XN66"
   chapters:
     - index.qmd
+    - AI-v4.qmd
     - 01-computer-setup.qmd
     - 01-trees_and_people.qmd
     - 02-global_temp_anomalies.qmd
