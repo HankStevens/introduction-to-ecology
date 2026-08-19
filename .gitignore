@@ -19,10 +19,23 @@ misc/
 pedagogy/
 practice_problems/
 worcountfiles/
+
+# Stale pre-"docs/" book output dir. _quarto.yml now sets
+# `output-dir: docs`, so `quarto render` no longer writes here at all --
+# this folder is an orphaned build artifact left from before that change.
+_book/
+
+# ============================================
+# OS junk
+# ============================================
+.DS_Store
+
 # ============================================
 # Local-only files
 # ============================================
 1-command-to-update.txt
+Untitled.qmd
 .claude/
 .positai
 /*.pdf
+/.quarto/

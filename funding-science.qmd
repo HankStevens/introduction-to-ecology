@@ -1,0 +1,534 @@
+---
+title: "Funding Ecological and Environmental Science: Following the Money"
+---
+
+*...in which we discover who pays for ecology, and why that answer keeps changing.*
+
+## Goals
+
+In this assignment, you will
+
+* Identify the major federal agencies--and one major federal-to-state funding stream--that pay for ecological and environmental research.
+* Use R to pull live budget data directly from a government API, rather than a file someone else already cleaned for you.
+* Construct and compare time series of funding across agencies and across a fundamentally different funding *mechanism* (formula-based state apportionments).
+* Distinguish nominal dollars from inflation-adjusted ("real") dollars, and explain why the distinction matters when you compare years.
+* Distinguish an agency's *entire* budget from the slice of it that actually funds research--and see, concretely, how much bigger the difference can be for some agencies (NASA, USDA) than others (NSF).
+* Find and explain research that interests you; describe the scientific motivation for the research and explain how the investigators used or plan to use the research award.
+* Evaluate what recent (2025-2026) federal budget changes mean for the pipeline of ecological research, and for your own options as an early-career scientist.
+
+## Background
+
+Ecological and environmental science does not fund itself. Someone decides, every year, how many dollars go toward understanding populations, ecosystems, and environmental change--and those decisions shape which questions get asked, which species and places get studied, and who gets to be a scientist. If you take classes in university science departments, or plan to do research, apply for a grant, or simply understand why a particular topic is (or is not) well studied, it helps to know where the money for research comes from.
+
+In the United States, most federal money for ecological and environmental research flows through a handful of agencies, each with a different mission.
+
+* The **National Science Foundation (NSF)** is the primary funder of basic, curiosity-driven ecological research at universities. Within NSF, the Directorate for Biological Sciences, and, inside that, the Division of Environmental Biology (DEB), funds most of the population, community, and ecosystem ecology done at U.S. universities.
+* The **Environmental Protection Agency (EPA)**, mainly through its Office of Research and Development, funds applied research on pollution, toxicology, and environmental health. Its competitive extramural program, **Science to Achieve Results (STAR)**, has historically funded university research connecting environmental quality to human and ecological health.
+* The **U.S. Department of Agriculture (USDA)** funds applied ecology two ways: through the National Institute of Food and Agriculture (NIFA), which makes competitive grants to university researchers (for example, the Agriculture and Food Research Initiative and the McIntire-Stennis forestry program), and through its own **Forest Service Research and Development** branch, which conducts forest and rangeland ecology research directly--often at USDA's own experimental forests--rather than by funding outside investigators.
+* The **National Oceanic and Atmospheric Administration (NOAA)**, part of the Department of Commerce, funds fisheries, coastal, and climate-related ecological research.
+* The **Department of Energy (DOE)** funds a large research portfolio, but most of it is about energy technology--fossil fuels, nuclear power, renewables--not ecology. The slice that funds ecosystem, watershed, and climate science sits in a single office inside DOE's Office of Science, **Biological and Environmental Research (BER)**; later in this chapter we isolate BER's own numbers to see how small a share of DOE's total research budget it really is.
+* The **National Aeronautics and Space Administration (NASA)** funds Earth-observing satellites and remote sensing research that ecologists use to track land cover, wildfire, drought, and ecosystem change--a smaller, less obvious slice of an agency best known for astronauts and telescopes.
+* The **U.S. Fish and Wildlife Service (FWS)**, an agency inside the **Department of the Interior (DOI)**--alongside the U.S. Geological Survey, the Bureau of Land Management, and the National Park Service--funds and conducts wildlife research directly. FWS also plays a second, very different role you will meet in Part 2: it is the agency that administers the formula-based apportionments that send hunting- and fishing-tax revenue to state wildlife agencies.
+* The **U.S. Geological Survey (USGS)**, also inside DOI, is--by dollars obligated to research--the single largest source of federal ecological field science: climate, ecosystems, wildlife disease, and water research, carried out mostly by USGS's own scientists rather than through grants to universities.
+* **Private foundations** fund ecological and environmental science too, outside the federal appropriations process entirely. The Gordon and Betty Moore Foundation is one of the largest funders of marine and environmental science in the country; the David and Lucile Packard Foundation and the Pew Charitable Trusts fund ocean conservation and environmental research as well. Foundation funding is a much smaller pool than federal funding in total, but it can move faster and more flexibly, since a foundation sets its own priorities rather than waiting on an annual congressional appropriation.
+
+Scientists, teams of scientists, and universities compete with each other for this funding via *competitive grants*.
+
+1. In response to Requests for Proposals (RFPs), scientists write extensive proposals for carefully crafted research projects and submit them.
+2. The agencies review all of the submitted proposals, relying extensively on review panels made up of other scientists, typically from universities.
+3. Based largely on the recommendations of these review panels, the agency chooses a small fraction to fund. These awards are driven by the number and quality of proposals and, critically, by Congress's annual appropriations decisions.
+
+Federal money also reaches ecological work at the *state* level, but often through a completely different mechanism: not a competed, peer-reviewed grant, but a **formula-based apportionment**. The clearest example is the pair of laws that fund most state fish and wildlife agencies: the **Pittman-Robertson Wildlife Restoration Act (1937)** and the **Dingell-Johnson/Wallop-Breaux Sport Fish Restoration Act (1950)**. Both work the same way: the federal government levies an excise tax on hunting and fishing equipment, and the U.S. Fish and Wildlife Service apportions that money to every state automatically, using a formula based on land area and the number of licensed hunters or anglers--no competition, no proposal, no peer review. State wildlife agencies use these funds to support a great deal of applied wildlife and fisheries ecology, including much of the work that eventually shows up in conservation plans. In contrast to the competitive process described above, state fish and wildlife agencies are funded through a legitimate *entitlement*, which is driven by consumer purchases on hunting and fishing equipment and licenses, and a fixed formula.
+
+A word of caution about all of these numbers: an agency's *total budget* is not the same thing as its *research budget*. NASA's budget includes crewed spaceflight and space station operations; USDA's includes crop insurance and nutrition assistance programs; EPA's includes pollution cleanup and regulatory enforcement. None of that is research. The federal government does track a "research and development obligations" figure for each agency that is meant to exclude exactly this kind of non-research spending--we will use it later in this chapter to see how much of each agency's total budget is actually research.
+
+**Why this matters right now.** Federal science funding has been unusually volatile the last two years, which makes this a good moment to look at the data rather than rely on impressions. A few reported, verifiable facts, current as of mid-2026:
+
+* NSF's FY2026 appropriation came in at about \$8.75 billion--close to its FY2024 level--after the Trump administration had proposed cutting it by roughly 55%, to \$3.9 billion; Congress pushed back and did not adopt that cut. (See the [AIP FYI summary](https://www.aip.org/fyi/fy2026-national-science-foundation){target="_blank"} and the [Congressional Research Service report on NSF's FY2026 appropriations](https://www.congress.gov/crs-product/R48783){target="_blank"}.)
+* Even so, in spring 2025 NSF terminated roughly 1,750 already-active grants, worth a combined \$1.4 billion, as part of a federal review of research spending led by the Department of Government Efficiency (DOGE). These were grants that were already awarded and for which the research had already begun. Terminating them resulted in a tremendous waste of time and money that had already been spent. Terminations were concentrated in STEM education and the social and behavioral sciences, with the biological sciences affected less, in the single digits as a percentage of active awards. (See [Eos, "NSF Cuts Hundreds of Science Program Budgets"](https://eos.org/research-and-developments/nsf-cuts-hundreds-of-science-program-budgets-by-up-to-30){target="_blank"}.) DOGE-driven terminations and office closures were not limited to NSF--see the note on obligations vs. outcomes later in this chapter, where NOAA, USGS, and FWS examples are discussed in more detail.
+* EPA's FY2026 budget request proposed a substantial overall reduction, and in spring 2025 EPA leadership directed staff to cancel a number of active research grants, including some STAR grants. (See the [CRS brief on EPA's FY2026 budget request](https://www.congress.gov/crs-product/R48575){target="_blank"} and [reporting in *Science*](https://www.science.org/content/article/epa-orders-staff-begin-canceling-research-grants){target="_blank"}.)
+
+These are contested political decisions, and reasonable people disagree about whether they are good policy. Our job in this chapter is not to take a side, but to look directly at the numbers and let the data show us what actually happened, and to keep watching--this is a fast-moving topic and today's figures will keep changing. The Ecological Society of America maintains a running [Federal Budget Tracker](https://esa.org/esablog/science-policy/federal-budget-tracker/){target="_blank"} if you want to follow along after this course ends.
+
+## Activity
+
+### Set up
+
+If you have not already done so, create a script file for this assignment, `funding_science_YourUniqueID.R`, in your `Rwork` project.
+
+Install and load the packages we'll need. `jsonlite` lets R talk directly to a web API and turn the response into a data frame; you have already used `tidyverse` and `googlesheets4` in earlier chapters.
+
+```{r}
+#| eval: false
+install.packages("jsonlite", repos = "https://cloud.r-project.org")
+```
+
+```{r}
+## load packages
+library(jsonlite)
+library(tidyverse)
+library(googlesheets4)
+```
+
+### Part 1: Federal agency budgets, straight from the source
+
+Rather than downloading a file that someone else already cleaned, we are going to pull data directly from [USAspending.gov](https://www.usaspending.gov/){target="_blank"}, the federal government's official spending transparency site. USAspending.gov has a public web **API** (Application Programming Interface): instead of a web page built for a human to read, an API endpoint is a URL that returns structured data--here, in a format called JSON--for a program like R to parse directly. You build the URL yourself (below, we paste an agency's toptier code into it), visit it the same way you'd visit any web address, and the server sends back an answer instead of a page of formatted text. USAspending's API requires no login or password, which is typical for public government data. Because it is *live*, your numbers will reflect whatever the most recent fiscal year is when you run the code, which is a nice feature, but it also means your plot may look slightly different than a classmate's if you run this weeks apart.
+
+Every federal agency has an identifying **toptier code**. Here are six agencies relevant to ecological and environmental science:
+
+| Agency | Toptier code | Why it matters to ecologists |
+|---|---|---|
+| National Science Foundation (NSF) | 049 | Main funder of basic academic ecology (Division of Environmental Biology) |
+| Environmental Protection Agency (EPA) | 068 | Applied environmental and human-health research (STAR grants) |
+| U.S. Department of Agriculture (USDA) | 012 | Agricultural and forest ecology (NIFA) |
+| U.S. Department of Energy (DOE) | 089 | Ecosystem and climate science, via its Biological and Environmental Research program--a small slice of DOE's total, isolated later in this chapter |
+| U.S. Department of the Interior (DOI) | 014 | Parent agency of USGS and the U.S. Fish and Wildlife Service |
+| National Aeronautics and Space Administration (NASA) | 080 | Earth-observation satellites and remote sensing |
+
+Notice that **NOAA, FWS, USGS, and the Forest Service are missing**. USAspending only assigns toptier codes to top-level, cabinet-style agencies; NOAA is a *sub-agency* inside the Department of Commerce, FWS and USGS are *sub-agencies* inside the Department of the Interior, and the Forest Service is a *sub-agency* inside USDA. Their dollars are already folded into their parent department's toptier total in the table above--DOI's total includes FWS, USGS, the Bureau of Land Management, and the National Park Service all lumped together, and USDA's includes the Forest Service along with NIFA and everything else USDA does. This is a real feature of how the federal government is organized, not a limitation of our code--and it is exactly why, later in this chapter, we will switch to a different data source that reports each of these sub-agencies on its own.
+
+We will write a small function that asks USAspending.gov for one agency's budget history, and then apply that function to all six agencies at once.
+
+```{r}
+## a named vector: the names are labels we choose, the values are USAspending's codes
+agency_codes <- c(NSF  = "049",
+                   EPA  = "068",
+                   USDA = "012",
+                   DOE  = "089",
+                   DOI  = "014",
+                   NASA = "080")
+
+## a function that, given one toptier code, returns that agency's
+## budgetary resources for every fiscal year USAspending has on file
+get_budget <- function(code) {
+  url <- paste0("https://api.usaspending.gov/api/v2/agency/", code,
+                "/budgetary_resources/")
+  result <- fromJSON(url)          # ask the API, and parse its JSON response
+  result$agency_data_by_year       # this is the part we actually want: one row per fiscal year
+}
+```
+
+Now we apply that function to every agency code in `agency_codes`, and stick the six results together into one data frame, with a new column (`agency`) recording which agency each row came from.
+
+```{r}
+## map() applies get_budget() to each element of agency_codes;
+## bind_rows(..., .id="agency") stacks the six results and labels each
+budget_list <- map(agency_codes, get_budget)
+budget_data <- bind_rows(budget_list, .id = "agency")
+
+## take a look at what we got
+names(budget_data)
+head(budget_data)
+```
+
+You should see several columns you didn't ask for by name--the API sends back everything it has for that agency and year, not just one number. The ones we'll use in this chapter:
+
+* `fiscal_year`: the federal fiscal year (October-September) the row describes.
+* `agency_budgetary_resources`: the total funds available for this agency to spend that year--new appropriations, plus any unspent balances carried over from prior years. This is the number we'll plot as each agency's "budget."
+* `agency_total_obligated`: how much of that the agency has legally committed to spend--signed a contract, made a grant award--whether or not the money has actually gone out the door yet.
+* `agency_total_outlayed`: how much has actually been paid out in cash. Outlays typically lag obligations, sometimes by years, because a multi-year grant or construction contract gets paid out gradually as the work happens.
+* `total_budgetary_resources`: not specific to this agency--this is the whole federal government's budgetary resources for that year, included so you can see roughly what share of total government resources one agency controls.
+
+Let's plot all six agencies together, using `agency_budgetary_resources`.
+
+```{r}
+#| label: fig-agency-budgets
+#| fig-cap: "Total budgetary resources for six federal agencies relevant to ecological and environmental science, in nominal (not inflation-adjusted) dollars."
+p_agency_budgets <- ggplot(data = budget_data,
+       aes(x = fiscal_year, y = agency_budgetary_resources / 1e9,
+           color = agency)) +
+  geom_line(linewidth = 1) +
+  geom_point() +
+  labs(x = "Fiscal year",
+       y = "Budgetary resources (billion $, nominal)",
+       color = "Agency",
+       title = "Federal budgets for science-relevant agencies")
+p_agency_budgets
+```
+
+```{r}
+#| eval: false
+## Save a PNG file to your working directory--this is the figure to
+## insert into your deliverable document.
+ggsave("figs/fig-agency-budgets.png", plot = p_agency_budgets,
+       width = 7, height = 5)
+```
+
+Refer to your version of @fig-agency-budgets. A couple of things to keep in mind:
+
+* These numbers are the agency's *entire* budget--not just the part that funds ecological research. NSF, for example, also funds physics, computer science, and engineering. Think of this as an upper bound on what could be available for ecology, not a direct measure of ecology funding.
+* These are **nominal dollars**: the actual number of dollars appropriated that year, with no adjustment for inflation. A dollar in 2010 bought more than a dollar today. If an agency's budget looks flat over ten years in nominal dollars, its *purchasing power* has actually shrunk.
+
+### Adjusting for inflation
+
+To compare dollars from different years fairly, we need to convert everyone's budget into the purchasing power of a single reference year. We'll use the **Consumer Price Index (CPI-U)**, the standard cost-of-living measure published monthly by the U.S. Bureau of Labor Statistics.
+
+Rather than fetching this from an API, we'll use a small table you keep directly in your script. CPI values are revised only rarely and change slowly, so a short, clearly-sourced table is actually the more reliable choice here--it has no dependency on a web service being available, and everyone in the class gets exactly the same numbers.
+
+```{r}
+## Annual average CPI-U (all items, U.S. city average), 1982-84 = 100.
+## Source, 2017-2025: U.S. Bureau of Labor Statistics,
+## https://www.bls.gov/regions/mid-atlantic/data/consumerpriceindexannualandsemiannual_table.htm
+## Note: the 2025 average is BLS's own preliminary figure--October 2025 data
+## could not be collected during a lapse in appropriations that year.
+## Source, 2026: BLS has not published a 2026 annual average yet--the year
+## isn't over. Rather than leave 2026 blank, we use a *projected* value:
+## the Federal Reserve Bank of Philadelphia's Survey of Professional
+## Forecasters (SPF), Q2 2026 release, put median expected headline CPI
+## inflation for 2026 at 3.5% (Q4-over-Q4 basis):
+## https://www.philadelphiafed.org/surveys-and-data/real-time-data-research/spf-q2-2026
+## We applied that growth rate to the 2025 annual average (321.943 * 1.035
+## = ~333.2) to get a rough 2026 estimate. This is explicitly an estimate,
+## not an official BLS figure--replace it with the real annual average
+## once BLS publishes it (early the following year).
+## Stored in data/cpi.csv; add a row there each time you re-teach this
+## chapter, replacing last year's projection with the real BLS figure and
+## adding a new projected row for the new current year.
+cpi <- read_csv("data/cpi.csv")
+```
+
+Federal fiscal years run October through September, while CPI is published by calendar year; matching a fiscal year to the calendar year with the same number is a common simplification, not an exact correspondence--worth knowing, not worth losing sleep over in an introductory exercise.
+
+Now we join this table to our budget data by `fiscal_year`, and re-express every year's budget in a single reference year's dollars--here, 2025.
+
+```{r}
+## the CPI value for our reference year
+base_cpi <- cpi$cpi_u[cpi$fiscal_year == 2025]
+
+budget_real <- budget_data %>%
+  left_join(cpi, by = "fiscal_year") %>%
+  ## multiplying by (base year's CPI / that year's CPI) rescales every
+  ## year's dollars into 2025 purchasing power
+  mutate(budget_real_2025usd = agency_budgetary_resources * (base_cpi / cpi_u))
+```
+
+Notice that the current fiscal year, 2026, uses the *projected* CPI value described above rather than an official BLS annual average--BLS won't publish that until early 2027. Everything downstream (the inflation-adjusted figure below, and any questions you answer about 2026) is therefore built on an estimate for that one year, not a final number. `left_join()` would fill any genuinely missing year with `NA`; we keep the `filter(!is.na(...))` step below as a safeguard in case a future year is missing from `data/cpi.csv` before you've had a chance to add a projection for it.
+
+```{r}
+#| label: fig-agency-budgets-real
+#| fig-cap: "The same six agency budgets as @fig-agency-budgets, expressed in constant 2025 dollars."
+p_agency_budgets_real <- budget_real %>%
+  filter(!is.na(budget_real_2025usd)) %>%
+  ggplot(aes(x = fiscal_year, y = budget_real_2025usd / 1e9, color = agency)) +
+  geom_line(linewidth = 1) +
+  geom_point() +
+  labs(x = "Fiscal year",
+       y = "Budgetary resources (billion 2025 $)",
+       color = "Agency",
+       title = "Federal budgets for science-relevant agencies, inflation-adjusted")
+p_agency_budgets_real
+```
+
+```{r}
+#| eval: false
+## Save a PNG file to your working directory--this is the figure to
+## insert into your deliverable document.
+ggsave("figs/fig-agency-budgets-real.png", plot = p_agency_budgets_real,
+       width = 7, height = 5)
+```
+
+Compare @fig-agency-budgets and @fig-agency-budgets-real side by side. Any agency whose nominal line looked flat should now show a gentle *decline* in @fig-agency-budgets-real--that's inflation quietly eroding purchasing power even when Congress technically kept the dollar amount "the same."
+
+### How much of that is actually research?
+
+Everything so far has used each agency's *entire* budget, which for some agencies is a poor stand-in for "money available for ecological research." NASA's total budget includes the International Space Station and crewed spaceflight. USDA's includes crop insurance and nutrition assistance. EPA's includes cleanup and enforcement. None of that funds research.
+
+The federal government has an office that exists specifically to separate research spending from everything else: NCSES, the National Center for Science and Engineering Statistics (part of NSF), conducts an annual **Survey of Federal Funds for Research and Development**. Every year, each agency reports which of its budget accounts count as "R&D obligations" under a common federal definition, and NCSES compiles the results. The distinction is not cosmetic--NCSES's own documentation notes, for example, that it reclassified NASA's Space Operations account (which includes the Hubble Space Telescope and crewed missions) out of NASA's R&D total. The same logic keeps USDA's crop insurance and SNAP out of USDA's R&D total. Usefully for us, NCSES also reports sub-agencies separately from their parent department--which is how we can finally see NOAA on its own apart from the rest of Commerce, and FWS, USGS, and the Forest Service each on their own apart from the rest of DOI and USDA.
+
+This survey is not a live API--it is a set of tables NCSES publishes once a year, usually as Excel and PDF files, at [ncses.nsf.gov/surveys/federal-funds-research-development](https://ncses.nsf.gov/surveys/federal-funds-research-development/){target="_blank"}. That makes it a good second example of when a small, well-sourced table you maintain yourself (like the CPI table above) is more practical than trying to script a live connection to it.
+
+```{r}
+## Federal R&D OBLIGATIONS by agency--NOT each agency's entire budget, but the
+## slice NCSES classifies as research and development (plus R&D facilities/
+## equipment, i.e. "R&D plant"). In millions of dollars.
+##
+## IMPORTANT: nine of these ten rows are OBLIGATIONS, but DOE_BER is not.
+## Source (NSF, EPA, USDA, NOAA, NASA, DOE, DOI, FWS, USGS, USFS): NCSES Survey
+## of Federal Funds for Research and Development, Table 3, multiple survey
+## years: https://ncses.nsf.gov/surveys/federal-funds-research-development.
+## This is OBLIGATIONS: a legal commitment the agency made that year (a grant
+## awarded, a contract signed)--the same "obligated" concept as
+## agency_total_obligated back in Part 1. It is NOT the same as an OUTLAY
+## (cash actually paid out, which can lag obligations by months or years),
+## and it is NOT the same as an APPROPRIATION (the budget authority Congress
+## granted, which an agency can carry into future years without fully
+## obligating it the same year).
+## Source (DOE_BER only): NCSES does not break DOE down by program office, so
+## this row comes directly from DOE Office of Science's own congressional
+## budget justifications for Biological and Environmental Research (BER).
+## Those documents report ENACTED APPROPRIATIONS, not obligations--a related
+## but different number (see above). Treat the DOE_BER row as "what Congress
+## gave BER to work with," not "what BER legally committed," and keep that
+## distinction in mind when comparing it to the other nine rows in
+## @fig-rd-only-subagencies. See
+## https://science.osti.gov/budget/Budget-by-Program/BER-Budget for the source
+## documents by year.
+## Stored in data/rd_only.csv. NCSES (and DOE) revise their own estimates in
+## the following year's release (a "preliminary" figure becomes "final"), so a
+## few of these will differ slightly from whatever is on the source website
+## when you read this--that is normal for survey/budget data, not a mistake.
+## Update/extend data/rd_only.csv when you re-teach the chapter.
+rd_only <- read_csv("data/rd_only.csv")
+```
+
+All of the dollar figures in `rd_only` (fiscal years, not calendar years--see the CPI section above for why that distinction matters) are **obligations**, except `DOE_BER`, which is an **appropriation**, for the reasons explained in the code comment above. Obligations and appropriations are close cousins but not the same thing, and neither one is the same as an *outlay*--Part 1 already introduced all three: `agency_budgetary_resources` (roughly, the appropriation), `agency_total_obligated`, and `agency_total_outlayed`.
+
+That distinction matters more than usual right now. An obligation is a real, legally binding commitment--but a legal commitment is not a guarantee. Under the current administration, a substantial number of already-obligated federal research grants have been terminated after the fact, and some research offices have been downsized or closed outright, largely at the direction of the Department of Government Efficiency (DOGE) and newly appointed agency leadership. This is not unique to NSF (mentioned in Background above): NOAA canceled leases on research facilities, including its National Centers for Environmental Prediction building in College Park, MD and its Radar Operations Center in Norman, OK, alongside broad workforce cuts--reported at roughly 10% of staff as of early 2025, with some former officials warning the total could reach half the agency. USGS's Ecosystems Mission Area--the program behind avian-influenza monitoring, invasive-species tracking, and dozens of other applied wildlife and ecosystem research efforts across 16 research centers--was funded at about \$293 million in FY2025 and proposed for complete elimination in FY2026; USGS's total workforce is projected to shrink from about 7,870 employees (FY2024) to roughly 5,150 (FY2026). FWS's own staff fell from 9,957 to 8,179 between 2024 and May 2025 (about 18%), with concrete on-the-ground effects--at one California refuge, wetland habitat went unflooded for an entire winter because no staff remained to operate the water-control structures. Government-wide, DOGE had terminated nearly 16,000 federal grants worth an estimated \$49 billion as of January 2026. Some of this is being contested in court--several federal judges have ruled specific terminations unlawful and blocked them--but litigation moves slowly, and many terminated grants and closed offices remain terminated and closed while cases proceed. (See [DataCenterDynamics on NOAA facility and staffing cuts](https://www.datacenterdynamics.com/en/news/doge-noaa-cuts-jobs-and-cancels-leases-for-research-centers/){target="_blank"}, [E&E News on USGS's Ecosystems Mission Area](https://www.eenews.net/articles/trump-cuts-would-scrap-usgs-biological-research-arm/){target="_blank"}, [CalMatters on FWS refuge staffing](https://calmatters.org/environment/2026/08/wildlife-refuge-after-doge/){target="_blank"}, and [reporting on DOGE's grant-termination totals and legal challenges](https://grantedai.com/blog/doge-federal-grant-terminations-nonprofit-survival-guide-2026){target="_blank"}.)
+
+The practical lesson for this chapter: in most years, treating an obligated dollar as money that funded real research was a safe simplification. For FY2025 and FY2026 specifically, it is not--some of the dollars counted as "obligated" in this chapter's data were later clawed back. Keep that in mind especially when you get to FWS's and USGS's most recent numbers below.
+
+Look closely at FWS's and USGS's last two rows: FWS drops from \$48 million in FY2024 to \$6 million in FY2025 (an 87% cut), and USGS drops from \$803 million in FY2023 to \$378 million in FY2024 (more than half). Both are inside DOI, and together they explain most of the decline you may already have noticed in DOI's whole-department line in @fig-agency-budgets. Some of this reflects the obligations-vs-outcomes gap just described; some of it (as you'll see if you investigate further) also reflects one-time infrastructure-law funding from 2022-2023 working its way through the system on its own schedule, unrelated to any single year's political decisions. Untangling exactly how much of a given year's change comes from which cause is a real, current, and genuinely open research question--not something this chapter can answer for you. FWS's formula-funded apportionments to the states (Part 2) come from a completely different pot of money (excise tax revenue, not annual appropriations)--that contrast is worth keeping in mind once you get to Part 2.
+
+DOE's row tells a different kind of story, and it needs a slightly different fix. NOAA, FWS, USGS, and the Forest Service are missing from @fig-agency-budgets and @fig-rd-only-departments because they are *sub-agencies* with no toptier code of their own--their dollars are folded into a parent department's total. DOE is not like that: it is already a toptier agency, and its row in @fig-rd-only-departments is a real, complete R&D total. The problem is what that total contains. NCSES's R&D figure for DOE bundles energy-technology research--fossil fuels, nuclear power, renewables, DOE's national labs doing all of the above--together with DOE's actual ecological and environmental science. Splitting those apart means going one level deeper than NCSES goes, into DOE's own Office of Science budget, to the **Biological and Environmental Research (BER)** program specifically. BER's numbers (`DOE_BER` below) are consistently a small fraction of DOE's whole R&D total--well under 10% most years--which tells you something about what most of DOE's research budget actually buys.
+
+Eleven agencies is a lot of colors for one line graph to hold at once--past six or seven categories, a line chart gets hard to read no matter how careful the color choices are. Rather than force all eleven into a single crowded plot, we'll split them the same way the data itself is organized: toptier departments and agencies (the six you already have live budgets for) in one figure, and the five agency- and program-level drilldowns--NOAA, FWS, USGS, and the Forest Service (true sub-agencies), plus DOE BER (a program office inside an agency that is already toptier)--in a second.
+
+```{r}
+#| label: fig-rd-only-departments
+#| fig-cap: "Research and development obligations only (not total agency budget), for the six toptier agencies, FY2019-2025."
+p_rd_departments <- rd_only %>%
+  filter(agency %in% c("NSF", "EPA", "USDA", "DOE", "DOI", "NASA")) %>%
+  ggplot(aes(x = fiscal_year, y = rd_obligations / 1000, color = agency)) +
+  geom_line(linewidth = 1) +
+  geom_point() +
+  labs(x = "Fiscal year", y = "R&D obligations (billion $, nominal)",
+       color = "Agency",
+       title = "Research-only funding, toptier agencies")
+p_rd_departments
+```
+
+```{r}
+#| eval: false
+## Save a PNG file to your working directory--this is the figure to
+## insert into your deliverable document.
+ggsave("figs/fig-rd-only-departments.png", plot = p_rd_departments,
+       width = 7, height = 5)
+```
+
+```{r}
+#| label: fig-rd-only-subagencies
+#| fig-cap: "Research and development obligations only, for NOAA, FWS, USGS, and the Forest Service (sub-agencies USAspending can't show on their own) and DOE BER (a program office isolated from DOE's much larger, mostly non-ecological R&D total), FY2019-2025."
+p_rd_subagencies <- rd_only %>%
+  filter(agency %in% c("NOAA", "FWS", "USGS", "USFS", "DOE_BER")) %>%
+  ggplot(aes(x = fiscal_year, y = rd_obligations, color = agency)) +
+  geom_line(linewidth = 1) +
+  geom_point() +
+  labs(x = "Fiscal year", y = "R&D obligations (million $, nominal)",
+       color = "Agency",
+       title = "Research-only funding, sub-agencies and DOE BER")
+p_rd_subagencies
+```
+
+```{r}
+#| eval: false
+## Save a PNG file to your working directory--this is the figure to
+## insert into your deliverable document.
+ggsave("figs/fig-rd-only-subagencies.png", plot = p_rd_subagencies,
+       width = 7, height = 5)
+```
+
+Notice NASA switches rank between the two budget figures: it is one of the biggest budgets in @fig-agency-budgets, but a much smaller share of its money counts as research once we exclude everything else NASA does. In @fig-rd-only-subagencies, notice how much larger USGS's research funding is than FWS's or the Forest Service's--despite USGS rarely making headlines the way FWS (endangered species) or the Forest Service (wildfire) do--and compare DOE BER's line to DOE's full R&D line in @fig-rd-only-departments: BER is a similar size to USGS, but it is a much smaller piece of its own parent agency's total than USGS is of DOI's.
+
+Now let's make that contrast explicit, by putting each agency's *entire* budget next to its *research-only* obligations for a single year.
+
+```{r}
+#| label: fig-total-vs-research
+#| fig-cap: "Total agency budget (USAspending) versus research-only obligations (NCSES, or DOE's own budget justifications for DOE BER) for fiscal year 2024. NOAA, FWS, USGS, the Forest Service, and DOE BER have no bar for 'entire agency budget': the first four are not toptier agencies (see above), and DOE BER is a program office, not an agency--DOE's own 'entire agency budget' bar is what its BER bar should be compared against."
+compare_year <- 2024
+
+total_fy <- budget_data %>%
+  filter(fiscal_year == compare_year) %>%
+  transmute(agency, amount = agency_budgetary_resources / 1e6,
+            category = "Entire agency budget")
+
+research_fy <- rd_only %>%
+  filter(fiscal_year == compare_year) %>%
+  transmute(agency, amount = rd_obligations,
+            category = "Research (R&D) obligations only")
+
+p_total_vs_research <- bind_rows(total_fy, research_fy) %>%
+  ggplot(aes(x = agency, y = amount / 1000, fill = category)) +
+  geom_col(position = "dodge") +
+  labs(x = "Agency", y = "Billion $",
+       fill = NULL,
+       title = paste("How much of each agency's FY", compare_year, "budget is research?"))
+p_total_vs_research
+```
+
+```{r}
+#| eval: false
+## Save a PNG file to your working directory--this is the figure to
+## insert into your deliverable document.
+ggsave("figs/fig-total-vs-research.png", plot = p_total_vs_research,
+       width = 7, height = 5)
+```
+
+@fig-total-vs-research is the figure that directly answers "how much of NASA's or USDA's budget is really research"--look at how much shorter the research-only bar is than the entire-budget bar for those two agencies, compared to NSF, where the two bars are close to each other.
+
+### Part 2: A different funding mechanism--state wildlife agencies
+
+Now compare that competitive, congressionally-appropriated funding to a formula-based stream: the Pittman-Robertson (Wildlife Restoration) and Dingell-Johnson (Sport Fish Restoration) apportionments that the U.S. Fish and Wildlife Service sends to every state's fish and wildlife agency every year.
+
+Work in pairs, and coordinate with the rest of the class so that no two groups pick the same state.
+
+1. Go to our class Google Sheet for **state wildlife funding** (ask your instructor for the link if it is not already posted). Enter the name of the U.S. state you will investigate, and add your name so no one else picks the same one.
+2. Go to the [Partner with a Payer funding-sources page](https://partnerwithapayer.org/funding-sources/){target="_blank"}, which the U.S. Fish and Wildlife Service maintains as the public source for current and historic Wildlife and Sport Fish Restoration apportionment data by state and year.
+3. Go to the Funding Sources tab, and look up your selected state's **Wildlife Restoration** apportionments for each of the five most recent fiscal years available. Place your cursor over the column of your state, and write down the dollar amount for that year. Do this for each of the five most recent years.
+4. Enter each year, program, and dollar amount as its own row in the class Google Sheet, along with your state and your uniqueID.
+5. Repeat this process for **Sport Fish Restoration.**
+
+Once the whole class has entered data, read the shared sheet into R the same way you did in the tree-cover assignment.
+
+```{r}
+#| eval: false
+d_state <- read_sheet("PASTE_YOUR_CLASS_GOOGLE_SHEET_URL_HERE")
+```
+
+```{r}
+#| echo: false
+## a small stand-in data set so this document renders without a live class sheet
+d_state <- tibble::tribble(
+  ~state,     ~program,               ~fiscal_year, ~apportionment,
+  "Ohio",     "Wildlife Restoration", 2022,          9800000,
+  "Ohio",     "Wildlife Restoration", 2023,          10100000,
+  "Ohio",     "Wildlife Restoration", 2024,          10400000,
+  "Montana",  "Wildlife Restoration", 2022,          16200000,
+  "Montana",  "Wildlife Restoration", 2023,          16500000,
+  "Montana",  "Wildlife Restoration", 2024,          16900000
+)
+```
+
+```{r}
+#| label: fig-state-funding
+#| fig-cap: "Wildlife Restoration apportionments for a sample of states. Your class figure will include every state your classmates collected."
+p_state_funding <- ggplot(data = d_state,
+       aes(x = fiscal_year, y = apportionment / 1e6, color = state)) +
+  geom_line(linewidth = 1) +
+  geom_point() +
+  facet_wrap(~program) +
+  labs(x = "Fiscal year", y = "Apportionment (million $)", color = "State")
+p_state_funding
+```
+
+```{r}
+#| eval: false
+## Save a PNG file to your working directory--this is the figure to
+## insert into your deliverable document.
+ggsave("figs/fig-state-funding.png", plot = p_state_funding,
+       width = 7, height = 5)
+```
+
+### Part 3: Find and explain one funded research award
+
+Everything so far has been about dollar totals. This part is about a single, real research award--so that "funding" stops being an abstract number and becomes an actual project someone is doing.
+
+NSF exposes every award it has ever made through its own public [Award Search API](https://www.nsf.gov/awardsearch/){target="_blank"}. Unlike USAspending, this lets you search by keyword, so you can find awards on a specific research topic rather than an entire agency's totals.
+
+```{r}
+## pick a keyword related to something you're curious about--
+## try your own before settling on "biodiversity"
+url <- "https://api.nsf.gov/services/v1/awards.json?keyword=biodiversity"
+nsf_result <- fromJSON(url)
+
+## the awards themselves are nested inside the response--explore its structure
+## before assuming you know what's in it
+str(nsf_result, max.level = 3)
+```
+
+If "biodiversity" doesn't interest you, or returns awards that feel too broad, try a keyword closer to a specific subfield instead. Some options, across a few areas of ecology:
+
+* **Population ecology:** population dynamics, demography, life history evolution, density dependence, metapopulation
+* **Community ecology:** species interactions, competition, predator-prey, community assembly, invasive species
+* **Food webs:** food web, trophic cascade, trophic ecology, consumer-resource dynamics, bioaccumulation
+* **Ecosystem structure and function:** nutrient cycling, primary productivity, carbon cycling, ecosystem services, biogeochemistry
+
+Each award record includes fields like `title`, `piFirstName`/`piLastName` (the Principal Investigator), `awardeeName` (the PI's institution), `fundsObligatedAmt` (the award's dollar value), `startDate`, and--usefully for this part--`abstractText`, a plain-language summary the investigator wrote explaining what the project will do.
+
+```{r}
+## look at the list of award titles to help you pick one that interests you
+nsf_result$response$award$title
+
+## pick one (change the row number to whichever award you chose)
+my_award <- nsf_result$response$award[1, ]
+my_award$title
+my_award$abstractText
+
+## the total dollar amount NSF obligated to this award
+my_award$fundsObligatedAmt
+```
+
+Read the abstract of the award you picked. In your own words--not copied from the abstract--write a short paragraph explaining:
+
+1. What scientific question or problem motivated this research?
+2. How did (or will) the investigators use the award--what will the money actually pay for (fieldwork, equipment, student support, lab analysis, and so on)?
+
+Notice that `fundsObligatedAmt` is a single total, not an itemized budget. NSF does not publish a line-item breakdown of how much of an award goes to salaries, equipment, travel, or overhead--that level of detail is part of the confidential budget justification submitted with the original proposal, and it stays between NSF and the awardee institution. The total award amount is public; the itemized budget is not. That is exactly why question 2 above asks you to *infer* what the money likely paid for from the abstract, rather than look it up.
+
+NSF's API documentation describes additional parameters (date ranges, award amount thresholds, and more) that you can use to narrow your search--worth a look if this topic becomes useful for your own research question later in the semester.
+
+## Overthinking: how much of NSF is really DEB?
+
+Everything in this chapter so far has treated NSF as one number--all of @fig-agency-budgets, @fig-agency-budgets-real, and @fig-rd-only-departments show NSF's *entire* budget, several billion dollars a year covering physics, computer science, engineering, and every other field NSF funds, not just ecology. Background mentioned that the part of NSF most directly relevant to this course is one specific division: the **Division of Environmental Biology (DEB)**, inside the Directorate for Biological Sciences (BIO). This section isolates DEB's own numbers, the same way the chapter earlier isolated DOE BER from DOE's total.
+
+```{r}
+## NSF's Division of Environmental Biology (DEB) budget--not NSF's total
+## budget, and not even all of BIO's budget, but the one division that most
+## directly funds population, community, and ecosystem ecology. In millions
+## of dollars.
+## Source: NSF's own Congressional Budget Justification, Biological Sciences
+## (BIO) directorate chapter, which breaks BIO's budget down by division.
+## Unlike DOE (which reports clean enacted appropriations for BER every
+## year), NSF's public budget documents do not give DEB a consistent,
+## fully-enacted multi-year series--figures are a mix of "Actual," "Base
+## Plan," and "Request," and some years are marked "TBD" in the document
+## available when that year's chapter was written. The `status` column
+## below tells you which is which; do not treat all rows as equally solid.
+## FY2021 Actual: https://nsf-gov-resources.nsf.gov/about/budget/fy2023/pdf/69_fy2023.pdf
+## FY2023 Actual, FY2025 Request: https://nsf-gov-resources.nsf.gov/files/66_fy2025.pdf
+## Stored in data/deb_budget.csv. Replace the FY2025 row with the enacted
+## figure once it's final, and add newer years as NSF publishes them.
+deb_budget <- read_csv("data/deb_budget.csv")
+```
+
+```{r}
+#| label: fig-deb-budget
+#| fig-cap: "NSF's Division of Environmental Biology (DEB) budget--the part of NSF most directly funding population, community, and ecosystem ecology. FY2025 is a request, not yet a final enacted figure; see the `status` column."
+p_deb_budget <- ggplot(deb_budget,
+       aes(x = factor(fiscal_year), y = deb_budget_millions, fill = status)) +
+  geom_col() +
+  labs(x = "Fiscal year", y = "DEB budget (million $)", fill = "Status",
+       title = "NSF's Division of Environmental Biology (DEB)")
+p_deb_budget
+```
+
+```{r}
+#| eval: false
+## Save a PNG file to your working directory.
+ggsave("figs/fig-deb-budget.png", plot = p_deb_budget, width = 7, height = 5)
+```
+
+For scale: DEB's entire annual budget--somewhere around \$160-180 million--is a small slice of BIO's roughly \$800-950 million, which is itself a small slice of NSF's total budget of several billion dollars in @fig-agency-budgets. If your own interests are specifically in population, community, or ecosystem ecology, DEB, not NSF's headline number, is the figure that actually describes the funding available to you.
+
+## Questions to answer
+
+1. Looking at @fig-agency-budgets, which agency's nominal budget grew the most over the years you plotted? Which shrank, or grew the least?
+2. NSF's FY2026 appropriation was reported as roughly flat compared to FY2024, yet in the months before that NSF terminated over 1,700 already-active grants worth about \$1.4 billion. How can an agency's total annual budget stay flat while individual grants it already promised to pay get cancelled? What does this tell you about the difference between an agency's *annual appropriation* and the multi-year *obligations* it has already made?
+3. How does the funding mechanism for your assigned state's Wildlife Restoration/Sport Fish Restoration apportionment differ from how NSF or EPA award money? Based on your figure, does the state funding stream look more or less stable year-to-year than the federal agency budgets in Part 1? Does that match what you would predict from how each mechanism works?
+4. Pick one agency and compare its line in @fig-agency-budgets to its line in @fig-agency-budgets-real. Does adjusting for inflation change the story you would tell about that agency's funding trend? Is there a year where the nominal and real dollar amounts tell noticeably different stories?
+5. Look at @fig-total-vs-research. For NASA and USDA, the research-only bar is much shorter than the entire-budget bar; for NSF, the two bars are close together. Explain why, in terms of what each agency actually spends most of its money on. Why don't NOAA, FWS, USGS, or the Forest Service have an "entire agency budget" bar at all?
+6. FWS's own R&D obligations (@fig-rd-only-subagencies) dropped about 87% from FY2024 to FY2025, but the Wildlife Restoration/Sport Fish Restoration apportionments you collected in Part 2 come from earmarked excise tax revenue, not FWS's regular appropriated budget. Does your class's state-level data in @fig-state-funding show anything similar happening to the apportionments over the same period? What does that suggest about which of FWS's funding streams is more insulated from short-term budget cuts?
+7. Compare @fig-rd-only-subagencies to @fig-agency-budgets. USGS obligates far more research funding than FWS or the Forest Service, yet DOI as a whole (which contains all three) is one of the smaller lines in @fig-agency-budgets. What does that tell you about the relationship between an agency's public visibility and the size of its research budget?
+8. If you were choosing a research area for graduate school today, would any of the trends you found here factor into your decision? Why or why not?
+9. DOE's row in @fig-rd-only-departments is DOE's entire R&D total--energy-technology research (fossil fuels, nuclear power, renewables) together with its ecological and environmental science. Compare that line to DOE BER's line in @fig-rd-only-subagencies. Roughly what fraction of DOE's total research funding actually goes to ecological/environmental science? Does that fraction surprise you, given how DOE is usually described in the news?
+
+## Deliverables
+
+Turn these in to the relevant Canvas assignment before the due date. Use the `ggsave()` code in each section above to produce a PNG file for each figure. Each one lands in your `figs` folder; insert those PNGs into your document from there.
+
+1. A single document (.docx) containing:
+    i. Your version of @fig-agency-budgets and @fig-agency-budgets-real (nominal and inflation-adjusted, all six federal agencies).
+    i. Your version of @fig-rd-only-departments, @fig-rd-only-subagencies, and @fig-total-vs-research (research-only obligations, department and sub-agency views, and the total-vs-research comparison).
+    i. Your class's version of @fig-state-funding (all states your classmates collected).
+    i. Your short write-up from Part 3: the title, PI, and institution of the award you chose, and your two-question answer explaining its scientific motivation and how the funding was or will be used.
+    i. Written answers to the nine questions above.
+1. Your R script, named `funding_science_YourUniqueID.R`. This must be a `.R` file, not a Word document.

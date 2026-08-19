@@ -191,7 +191,7 @@ ggplot(data=my.N, aes(x=year, y=N )) +
        subtitle=paste("rd =", rd))
 
 ## save your graph USING A UNIQUE NAME
-ggsave("dynamics-rd-0.2.png", height=5, width=6)
+ggsave("figs/dynamics-rd-0.2.png", height=5, width=6)
 ```
 
 

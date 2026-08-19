@@ -158,7 +158,7 @@ ggplot(d, aes(Year, N, colour=Species)) + geom_line() +
   facet_grid(Species~., scales = "free") + 
   geom_smooth( se=FALSE, span=.2, color="red", linewidth=.5) + 
   geom_smooth( se=FALSE, span=.7, color="black", linewidth=.5) 
-ggsave("MooseWolfTS.png", height=5, width=6)
+ggsave("figs/MooseWolfTS.png", height=5, width=6)
 ```
 
 Next, let's describe a model of predator and prey interaction. Refer back to the lectures for more information. 
@@ -240,7 +240,7 @@ dw <- pivot_wider(d, names_from=Species, values_from=N)
 ggplot(dw, aes(Moose, Wolf, colour=Year)) + 
   geom_path(arrow=arrow(length=unit(3, "mm"), angle = 15, type = "open")) + 
   labs(subtitle="Each arrow is one annual time step.")
-ggsave("MooseWolfPP.png", height=5, width=5.5)
+ggsave("figs/MooseWolfPP.png", height=5, width=5.5)
 ```
 
 ### Equilbria
@@ -403,7 +403,7 @@ ggplot(op, aes(x=time, y=Number, colour=Populations)) + geom_line() +
       labs(x="Years") + scale_color_discrete(breaks=c("N","P")) + 
       facet_grid(Populations~., scales="free")
 
-ggsave("LV_MooseWolfTS.png", height=5, width=6)
+ggsave("figs/LV_MooseWolfTS.png", height=5, width=6)
 ```
 
 10. Once you do this, you should get something that looks like Fig. @fig-LVts, or about 3-6 cycles over 52 years, and the minimum and maximum population sizes should differ tremendously from the observed data. If you get something wackier than that, you've gone astray. If so, *ask for help*.
@@ -417,7 +417,7 @@ outw <- out %>% as.data.frame()
 ggplot(outw, aes(N, P, linewidth= -time, color=time)) + 
   geom_path() + 
   labs(x="Moose population size", y="Wolf population size" )
-ggsave("LV_MooseWolfPP.png", height=5, width=6)
+ggsave("figs/LV_MooseWolfPP.png", height=5, width=6)
 ```
 
 

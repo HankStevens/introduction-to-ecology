@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>12&nbsp; Of wolves and moose, on Isle Royale – Basic Ecological Concepts and Data in R</title>
+<title>13&nbsp; Of wolves and moose, on Isle Royale – Basic Ecological Concepts and Data in R</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -85,7 +85,7 @@ div.csl-indent {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./13-diversity.html" rel="next">
+<link href="./13-diversity-forestgeo.html" rel="next">
 <link href="./10-mutualisms.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
@@ -134,6 +134,12 @@ function gtag(){dataLayer.push(arguments);}
 gtag('js', new Date());
 gtag('config', 'G-J0R6F7XN66', { 'anonymize_ip': true});
 </script>
+<style>
+h1, h2, h3, h4, h5, h6,
+.title, .quarto-title-block .title, .chapter-title {
+  font-family: serif;
+}
+</style>
 
   <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
@@ -176,7 +182,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./11-predator-prey-Claude.html"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Of wolves and moose, on Isle Royale</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./11-predator-prey-Claude.html"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Of wolves and moose, on Isle Royale</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -221,80 +227,104 @@ window.Quarto = {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./01-trees_and_people.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Environmental Justice: How income relates to environment.</span></span></a>
+  <a href="./thinking.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Thinking about thinking about concepts</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./02-global_temp_anomalies.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Physical Environment: A Fate of Earth</span></span></a>
+  <a href="./02-trees_and_people.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Environmental Justice: How income relates to environment.</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./03-liana-phys.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Individual responses to the environment: What makes lianas relatively successful in stressful habitats?</span></span></a>
+  <a href="./03-global_temp_anomalies_v2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Physical Environment: A Fate of Earth</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./04-extrapair_copulation.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Behavior: Extra-pair copulation in a monogamous species</span></span></a>
+  <a href="./traits-physiology.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Traits, Physiology, and the Global Spectrum of Plant Form and Function</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./05-extrapair_copulation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Behavior: Extra-pair copulation in a monogamous species</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./06-DI-pop-growth-Claude.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Density-independent Population Growth: Humans on the rise</span></span></a>
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Density-independent Population Growth: Humans on the rise</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./07-structured-pop-growth_v2.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Structured demography: How a graduate student helped save the loggerhead sea turtle</span></span></a>
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Structured demography: How a graduate student helped save the loggerhead sea turtle</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./08-density-dep-pop-growth-Claude.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Density-dependence in population growth</span></span></a>
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Density-dependence in population growth</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./09-direct-interactions-Claude.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Direct species interactions: understanding mechanisms of invasion in mosquitoes</span></span></a>
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Direct species interactions: understanding mechanisms of invasion in mosquitoes</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./10-mutualisms.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Mutualisms: Do ants protect pea plants?</span></span></a>
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Mutualisms: Do ants protect pea plants?</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./11-predator-prey-Claude.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Of wolves and moose, on Isle Royale</span></span></a>
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Of wolves and moose, on Isle Royale</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./13-diversity.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Determinants of local butterfly species diversity</span></span></a>
+  <a href="./13-diversity-forestgeo.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">ForestGEO Community Ecology: Why are there so many tree species, and where?</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./14-metabolic-ecology_v_2.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Metabolic Ecology: How do body size and temperature affect nutrient cycling?</span></span></a>
+  <a href="./13-diversity-gbif.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">GBIF: Why are there so many species, and where?</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./20-ecosystem-intro.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">An Introduction to the Carbon Cycle and Global Heating</span></span></a>
+  <a href="./15-metabolic-ecology_v_2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Metabolic Ecology: How do body size and temperature affect nutrient cycling?</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./16-ecosystem-intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">An Introduction to the Carbon Cycle and Global Heating</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./funding-science.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Funding Ecological and Environmental Science: Following the Money</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./career-skills-crosswalk.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">From This Book to Your Résumé: A Skills Crosswalk</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -313,31 +343,31 @@ window.Quarto = {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#goals" id="toc-goals" class="nav-link active" data-scroll-target="#goals"><span class="header-section-number">12.1</span> Goals</a></li>
-  <li><a href="#preparatory-steps" id="toc-preparatory-steps" class="nav-link" data-scroll-target="#preparatory-steps"><span class="header-section-number">12.2</span> Preparatory steps</a></li>
-  <li><a href="#background" id="toc-background" class="nav-link" data-scroll-target="#background"><span class="header-section-number">12.3</span> Background</a></li>
-  <li><a href="#details-about-our-data" id="toc-details-about-our-data" class="nav-link" data-scroll-target="#details-about-our-data"><span class="header-section-number">12.4</span> Details about our data</a></li>
-  <li><a href="#your-hypothesis-and-predictions" id="toc-your-hypothesis-and-predictions" class="nav-link" data-scroll-target="#your-hypothesis-and-predictions"><span class="header-section-number">12.5</span> Your hypothesis and predictions</a></li>
-  <li><a href="#data-analysis" id="toc-data-analysis" class="nav-link" data-scroll-target="#data-analysis"><span class="header-section-number">12.6</span> Data analysis</a>
+  <li><a href="#goals" id="toc-goals" class="nav-link active" data-scroll-target="#goals"><span class="header-section-number">13.1</span> Goals</a></li>
+  <li><a href="#preparatory-steps" id="toc-preparatory-steps" class="nav-link" data-scroll-target="#preparatory-steps"><span class="header-section-number">13.2</span> Preparatory steps</a></li>
+  <li><a href="#background" id="toc-background" class="nav-link" data-scroll-target="#background"><span class="header-section-number">13.3</span> Background</a></li>
+  <li><a href="#details-about-our-data" id="toc-details-about-our-data" class="nav-link" data-scroll-target="#details-about-our-data"><span class="header-section-number">13.4</span> Details about our data</a></li>
+  <li><a href="#your-hypothesis-and-predictions" id="toc-your-hypothesis-and-predictions" class="nav-link" data-scroll-target="#your-hypothesis-and-predictions"><span class="header-section-number">13.5</span> Your hypothesis and predictions</a></li>
+  <li><a href="#data-analysis" id="toc-data-analysis" class="nav-link" data-scroll-target="#data-analysis"><span class="header-section-number">13.6</span> Data analysis</a>
   <ul class="collapse">
-  <li><a href="#load-the-data" id="toc-load-the-data" class="nav-link" data-scroll-target="#load-the-data"><span class="header-section-number">12.6.1</span> Load the data</a></li>
+  <li><a href="#load-the-data" id="toc-load-the-data" class="nav-link" data-scroll-target="#load-the-data"><span class="header-section-number">13.6.1</span> Load the data</a></li>
   </ul></li>
-  <li><a href="#population-growth-models" id="toc-population-growth-models" class="nav-link" data-scroll-target="#population-growth-models"><span class="header-section-number">12.7</span> Population growth models</a>
+  <li><a href="#population-growth-models" id="toc-population-growth-models" class="nav-link" data-scroll-target="#population-growth-models"><span class="header-section-number">13.7</span> Population growth models</a>
   <ul class="collapse">
-  <li><a href="#examples-of-population-growth-models" id="toc-examples-of-population-growth-models" class="nav-link" data-scroll-target="#examples-of-population-growth-models"><span class="header-section-number">12.7.1</span> Examples of population growth models</a></li>
+  <li><a href="#examples-of-population-growth-models" id="toc-examples-of-population-growth-models" class="nav-link" data-scroll-target="#examples-of-population-growth-models"><span class="header-section-number">13.7.1</span> Examples of population growth models</a></li>
   </ul></li>
-  <li><a href="#predator-prey-equations" id="toc-predator-prey-equations" class="nav-link" data-scroll-target="#predator-prey-equations"><span class="header-section-number">12.8</span> Predator-prey equations</a></li>
-  <li><a href="#lotka-volterra-prey-dependent-predation" id="toc-lotka-volterra-prey-dependent-predation" class="nav-link" data-scroll-target="#lotka-volterra-prey-dependent-predation"><span class="header-section-number">12.9</span> Lotka-Volterra prey-dependent predation</a>
+  <li><a href="#predator-prey-equations" id="toc-predator-prey-equations" class="nav-link" data-scroll-target="#predator-prey-equations"><span class="header-section-number">13.8</span> Predator-prey equations</a></li>
+  <li><a href="#lotka-volterra-prey-dependent-predation" id="toc-lotka-volterra-prey-dependent-predation" class="nav-link" data-scroll-target="#lotka-volterra-prey-dependent-predation"><span class="header-section-number">13.9</span> Lotka-Volterra prey-dependent predation</a>
   <ul class="collapse">
-  <li><a href="#equilbria" id="toc-equilbria" class="nav-link" data-scroll-target="#equilbria"><span class="header-section-number">12.9.1</span> Equilbria</a></li>
-  <li><a href="#intrinsic-rate-of-increase-r" id="toc-intrinsic-rate-of-increase-r" class="nav-link" data-scroll-target="#intrinsic-rate-of-increase-r"><span class="header-section-number">12.9.2</span> Intrinsic rate of increase, r</a></li>
-  <li><a href="#attack-rate-a" id="toc-attack-rate-a" class="nav-link" data-scroll-target="#attack-rate-a"><span class="header-section-number">12.9.3</span> Attack rate, a</a></li>
-  <li><a href="#predator-mortality-rate-m" id="toc-predator-mortality-rate-m" class="nav-link" data-scroll-target="#predator-mortality-rate-m"><span class="header-section-number">12.9.4</span> Predator mortality rate, m</a></li>
-  <li><a href="#conversion-efficiency-b" id="toc-conversion-efficiency-b" class="nav-link" data-scroll-target="#conversion-efficiency-b"><span class="header-section-number">12.9.5</span> Conversion efficiency, b</a></li>
+  <li><a href="#equilbria" id="toc-equilbria" class="nav-link" data-scroll-target="#equilbria"><span class="header-section-number">13.9.1</span> Equilbria</a></li>
+  <li><a href="#intrinsic-rate-of-increase-r" id="toc-intrinsic-rate-of-increase-r" class="nav-link" data-scroll-target="#intrinsic-rate-of-increase-r"><span class="header-section-number">13.9.2</span> Intrinsic rate of increase, r</a></li>
+  <li><a href="#attack-rate-a" id="toc-attack-rate-a" class="nav-link" data-scroll-target="#attack-rate-a"><span class="header-section-number">13.9.3</span> Attack rate, a</a></li>
+  <li><a href="#predator-mortality-rate-m" id="toc-predator-mortality-rate-m" class="nav-link" data-scroll-target="#predator-mortality-rate-m"><span class="header-section-number">13.9.4</span> Predator mortality rate, m</a></li>
+  <li><a href="#conversion-efficiency-b" id="toc-conversion-efficiency-b" class="nav-link" data-scroll-target="#conversion-efficiency-b"><span class="header-section-number">13.9.5</span> Conversion efficiency, b</a></li>
   </ul></li>
-  <li><a href="#predicting-population-dynamics" id="toc-predicting-population-dynamics" class="nav-link" data-scroll-target="#predicting-population-dynamics"><span class="header-section-number">12.10</span> Predicting population dynamics</a></li>
-  <li><a href="#discussion-questions" id="toc-discussion-questions" class="nav-link" data-scroll-target="#discussion-questions"><span class="header-section-number">12.11</span> Discussion questions</a></li>
-  <li><a href="#sec-deliverables-pp" id="toc-sec-deliverables-pp" class="nav-link" data-scroll-target="#sec-deliverables-pp"><span class="header-section-number">12.12</span> Deliverables</a></li>
+  <li><a href="#predicting-population-dynamics" id="toc-predicting-population-dynamics" class="nav-link" data-scroll-target="#predicting-population-dynamics"><span class="header-section-number">13.10</span> Predicting population dynamics</a></li>
+  <li><a href="#discussion-questions" id="toc-discussion-questions" class="nav-link" data-scroll-target="#discussion-questions"><span class="header-section-number">13.11</span> Discussion questions</a></li>
+  <li><a href="#sec-deliverables-pp" id="toc-sec-deliverables-pp" class="nav-link" data-scroll-target="#sec-deliverables-pp"><span class="header-section-number">13.12</span> Deliverables</a></li>
   </ul>
 </nav>
     </div>
@@ -346,7 +376,7 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Of wolves and moose, on Isle Royale</span></h1>
+<h1 class="title"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Of wolves and moose, on Isle Royale</span></h1>
 </div>
 
 
@@ -369,12 +399,12 @@ window.Quarto = {
 <img src="figs/mooseWolf.png" class="img-fluid figure-img" style="width:75.0%">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-isleRoyale-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;12.1: As in other northern forests, on Isle Royale in Lake Superior (upper right), moose feed on vegetation such as aquatic plants, and the tender shoots of both deciduous and coniferous trees like the fir (right) and spruce (left). Isle Royale wolves feed on moose, and parasites can hit both populations pretty hard (parvovirus - wolves; ticks - moose). How the moose and wolf populations affect each other is an open question, and this chapter walks through an attempt to evaluate the role of reciprocal feedbacks between the two populations.
+Figure&nbsp;13.1: As in other northern forests, on Isle Royale in Lake Superior (upper right), moose feed on vegetation such as aquatic plants, and the tender shoots of both deciduous and coniferous trees like the fir (right) and spruce (left). Isle Royale wolves feed on moose, and parasites can hit both populations pretty hard (parvovirus - wolves; ticks - moose). How the moose and wolf populations affect each other is an open question, and this chapter walks through an attempt to evaluate the role of reciprocal feedbacks between the two populations.
 </figcaption>
 </figure>
 </div>
-<section id="goals" class="level2" data-number="12.1">
-<h2 data-number="12.1" class="anchored" data-anchor-id="goals"><span class="header-section-number">12.1</span> Goals</h2>
+<section id="goals" class="level2" data-number="13.1">
+<h2 data-number="13.1" class="anchored" data-anchor-id="goals"><span class="header-section-number">13.1</span> Goals</h2>
 <p>In this chapter, you will,</p>
 <ul>
 <li>Test the hypothesis that moose and wolves regulate the size of each other’s population.</li>
@@ -382,8 +412,8 @@ Figure&nbsp;12.1: As in other northern forests, on Isle Royale in Lake Superior 
 <li>Use specific quantitative and qualitative criteria to evaluate how well the model describes the dynamics of the population.</li>
 </ul>
 </section>
-<section id="preparatory-steps" class="level2" data-number="12.2">
-<h2 data-number="12.2" class="anchored" data-anchor-id="preparatory-steps"><span class="header-section-number">12.2</span> Preparatory steps</h2>
+<section id="preparatory-steps" class="level2" data-number="13.2">
+<h2 data-number="13.2" class="anchored" data-anchor-id="preparatory-steps"><span class="header-section-number">13.2</span> Preparatory steps</h2>
 <ol type="1">
 <li>General background lectures: Download the PDF slides and watch the <a href="https://drive.google.com/drive/folders/1nWLoEGuWKIWdul9Uvse5qiB1Hf8MCwUv?usp=sharing" target="_blank">video on predation and herbivory</a> before proceeding.</li>
 <li>Data: go to our <a href="https://drive.google.com/drive/u/1/folders/1FR2FLiW3xyD4Er52YzVTToPZuXXReGRo" target="_blank">class data repository</a>, and download <code>isleRoyaleData.csv</code>.
@@ -395,8 +425,8 @@ Figure&nbsp;12.1: As in other northern forests, on Isle Royale in Lake Superior 
 <li>Find out what you need for the deliverables.</li>
 </ol>
 </section>
-<section id="background" class="level2" data-number="12.3">
-<h2 data-number="12.3" class="anchored" data-anchor-id="background"><span class="header-section-number">12.3</span> Background</h2>
+<section id="background" class="level2" data-number="13.3">
+<h2 data-number="13.3" class="anchored" data-anchor-id="background"><span class="header-section-number">13.3</span> Background</h2>
 <p>We have seen examples of how the distribution and abundance of organisms are influenced by</p>
 <ul>
 <li>the physical environment,</li>
@@ -415,12 +445,12 @@ Figure&nbsp;12.1: As in other northern forests, on Isle Royale in Lake Superior 
 </ol>
 <p><strong>A mathematical model of predator and prey <em>is</em> a hypothesis about how species interact. You will informally evaluate how well a particular model can explain patterns in our data.</strong></p>
 </section>
-<section id="details-about-our-data" class="level2" data-number="12.4">
-<h2 data-number="12.4" class="anchored" data-anchor-id="details-about-our-data"><span class="header-section-number">12.4</span> Details about our data</h2>
+<section id="details-about-our-data" class="level2" data-number="13.4">
+<h2 data-number="13.4" class="anchored" data-anchor-id="details-about-our-data"><span class="header-section-number">13.4</span> Details about our data</h2>
 <p>Our data set comes from censuses of moose and wolf populations on Isle Royale from 1959 to 2011 collected by a number of different researchers over that time <span class="citation" data-cites="vucetich:2009">(<a href="references.html#ref-vucetich:2009" role="doc-biblioref">Vucetich and Peterson 2009</a>)</span>.</p>
 </section>
-<section id="your-hypothesis-and-predictions" class="level2" data-number="12.5">
-<h2 data-number="12.5" class="anchored" data-anchor-id="your-hypothesis-and-predictions"><span class="header-section-number">12.5</span> Your hypothesis and predictions</h2>
+<section id="your-hypothesis-and-predictions" class="level2" data-number="13.5">
+<h2 data-number="13.5" class="anchored" data-anchor-id="your-hypothesis-and-predictions"><span class="header-section-number">13.5</span> Your hypothesis and predictions</h2>
 <p><strong>The data you have available</strong> are numbers of moose and wolves each year, 1959-2011.</p>
 <p>What you know:</p>
 <ol type="1">
@@ -445,8 +475,8 @@ Figure&nbsp;12.1: As in other northern forests, on Isle Royale in Lake Superior 
 <li><span class="math inline">\(m\)</span>, per capita mortality rate of the predators.</li>
 </ul>
 </section>
-<section id="data-analysis" class="level2" data-number="12.6">
-<h2 data-number="12.6" class="anchored" data-anchor-id="data-analysis"><span class="header-section-number">12.6</span> Data analysis</h2>
+<section id="data-analysis" class="level2" data-number="13.6">
+<h2 data-number="13.6" class="anchored" data-anchor-id="data-analysis"><span class="header-section-number">13.6</span> Data analysis</h2>
 <p>First, open R using RStudio, and <strong>set your working directory</strong>. You can do this in two ways:</p>
 <ol type="1">
 <li>using the Session menu in RStudio, or</li>
@@ -480,8 +510,8 @@ Figure&nbsp;12.1: As in other northern forests, on Isle Royale in Lake Superior 
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(deSolve)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<section id="load-the-data" class="level3" data-number="12.6.1">
-<h3 data-number="12.6.1" class="anchored" data-anchor-id="load-the-data"><span class="header-section-number">12.6.1</span> Load the data</h3>
+<section id="load-the-data" class="level3" data-number="13.6.1">
+<h3 data-number="13.6.1" class="anchored" data-anchor-id="load-the-data"><span class="header-section-number">13.6.1</span> Load the data</h3>
 <p>Make sure that your data file is in your <code>Rwork</code> directory. and is still just a CSV file.</p>
 <p><strong>Open the data file</strong> (.csv file) in a spreadsheet application, a text editor, or in RStudio. Do <strong>not</strong> save it the file the spreadsheet application because it will try to change the format.</p>
 <ol type="1">
@@ -508,13 +538,13 @@ Figure&nbsp;12.1: As in other northern forests, on Isle Royale in Lake Superior 
  $ N      : int  560 600 625 640 660 700 720 760 900 1050 ...</code></pre>
 </div>
 </div>
-<p>A time series graph of the our data reveal how the populations change over time (Fig <a href="#fig-mw1" class="quarto-xref">Figure&nbsp;<span>12.2</span></a>).</p>
+<p>A time series graph of the our data reveal how the populations change over time (Fig <a href="#fig-mw1" class="quarto-xref">Figure&nbsp;<span>13.2</span></a>).</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(d, <span class="fu">aes</span>(Year, N, <span class="at">colour=</span>Species)) <span class="sc">+</span> <span class="fu">geom_line</span>() <span class="sc">+</span> </span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_grid</span>(Species<span class="sc">~</span>., <span class="at">scales =</span> <span class="st">"free"</span>) <span class="sc">+</span> </span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>( <span class="at">se=</span><span class="cn">FALSE</span>, <span class="at">span=</span>.<span class="dv">2</span>, <span class="at">color=</span><span class="st">"red"</span>, <span class="at">linewidth=</span>.<span class="dv">5</span>) <span class="sc">+</span> </span>
 <span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>( <span class="at">se=</span><span class="cn">FALSE</span>, <span class="at">span=</span>.<span class="dv">7</span>, <span class="at">color=</span><span class="st">"black"</span>, <span class="at">linewidth=</span>.<span class="dv">5</span>) </span>
-<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="st">"MooseWolfTS.png"</span>, <span class="at">height=</span><span class="dv">5</span>, <span class="at">width=</span><span class="dv">6</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="st">"figs/MooseWolfTS.png"</span>, <span class="at">height=</span><span class="dv">5</span>, <span class="at">width=</span><span class="dv">6</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div id="fig-mw1" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
@@ -522,7 +552,7 @@ Figure&nbsp;12.1: As in other northern forests, on Isle Royale in Lake Superior 
 <img src="11-predator-prey-Claude_files/figure-html/fig-mw1-1.png" class="img-fluid figure-img" width="672">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-mw1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;12.2: Natural populations undergo fluctuations. Here we smooth the data over different proportions of the time series to reveal different patterns of squiggliness.
+Figure&nbsp;13.2: Natural populations undergo fluctuations. Here we smooth the data over different proportions of the time series to reveal different patterns of squiggliness.
 </figcaption>
 </figure>
 </div>
@@ -531,30 +561,30 @@ Figure&nbsp;12.2: Natural populations undergo fluctuations. Here we smooth the d
 <p>Next, let’s describe a model of predator and prey interaction. Refer back to the lectures for more information.</p>
 </section>
 </section>
-<section id="population-growth-models" class="level2" data-number="12.7">
-<h2 data-number="12.7" class="anchored" data-anchor-id="population-growth-models"><span class="header-section-number">12.7</span> Population growth models</h2>
+<section id="population-growth-models" class="level2" data-number="13.7">
+<h2 data-number="13.7" class="anchored" data-anchor-id="population-growth-models"><span class="header-section-number">13.7</span> Population growth models</h2>
 <p>All of our mathematical and conceptual models of populations have the same form:</p>
 <p><em>Rate of change = rate of gains - rate of losses</em></p>
 <p>Sometimes these gains and losses are combined:</p>
 <p><em>Rate of change = net rate of gains</em></p>
-<section id="examples-of-population-growth-models" class="level3" data-number="12.7.1">
-<h3 data-number="12.7.1" class="anchored" data-anchor-id="examples-of-population-growth-models"><span class="header-section-number">12.7.1</span> Examples of population growth models</h3>
+<section id="examples-of-population-growth-models" class="level3" data-number="13.7.1">
+<h3 data-number="13.7.1" class="anchored" data-anchor-id="examples-of-population-growth-models"><span class="header-section-number">13.7.1</span> Examples of population growth models</h3>
 <p>Exponential growth: <span class="math display">\[\frac{dN}{dt} = bN-dN = (b-d)N = rN\]</span></p>
 <p>Logistic growth (density-dependence): <span class="math display">\[\frac{dN}{dt} = rN\left((1-\frac{N}{K}\right) = rN - \frac{r}{K}N^2\]</span></p>
 <p>Mechanistic models such as there have <em>parameters</em> and <em>state variables</em>. State variables are the quantities that vary through time, such as population size. In contrast, parameters are constants that determine how fast the state variables change. In our exponential growth equation, <span class="math inline">\(dN/dt=rN\)</span>, <span class="math inline">\(N\)</span> is the state variable, and <span class="math inline">\(r\)</span> is the parameter.</p>
 <p>Next we create a pair of rate equations where one species’ loss is another’s gain.</p>
 </section>
 </section>
-<section id="predator-prey-equations" class="level2" data-number="12.8">
-<h2 data-number="12.8" class="anchored" data-anchor-id="predator-prey-equations"><span class="header-section-number">12.8</span> Predator-prey equations</h2>
+<section id="predator-prey-equations" class="level2" data-number="13.8">
+<h2 data-number="13.8" class="anchored" data-anchor-id="predator-prey-equations"><span class="header-section-number">13.8</span> Predator-prey equations</h2>
 <p>Maybe the simplest predator prey equation is essentially two-species exponential growth, where exponentially growing prey, <span class="math inline">\(N\)</span>, is partly eaten by exponentially growing predators, <span class="math inline">\(P\)</span>. First the prey,</p>
 <p><span class="math display">\[\frac{dN}{dt} = rN - aN\]</span> where <span class="math inline">\(aN\)</span> is the rate of loss of prey to predators; this is the rate at which predators attack and kill prey. The units of <span class="math inline">\(r\)</span> and <span class="math inline">\(d\)</span> are individuals per individual per unit time.</p>
 <p>The predators increase only because they kill and eat prey, <span class="math inline">\(aN\)</span>, and only a fraction of these, <span class="math inline">\(b\)</span>, get converted into new predators, <span class="math display">\[\frac{dP}{dt} = baN - mP\]</span> and predators die at rate <span class="math inline">\(mP\)</span>. The parameter <span class="math inline">\(b\)</span> is the <em>efficiency</em> with which prey are converted into predators, that is, are ingested, assimilated by the predator, and actually lead to growth and reproduction rather than cellular respiration. The units of <span class="math inline">\(b\)</span> are predators per prey per unit time, and the units of <span class="math inline">\(m\)</span> are the same as those of <span class="math inline">\(r\)</span> and <span class="math inline">\(d\)</span>, individuals per individual per unit time.</p>
 <p>If we made all these assumptions, and did some algebraic rearrangement, we would learn that predators abundance is predicted to be a constant fraction of prey abundance, <span class="math display">\[P = \frac{ba}{m}N\]</span> where both populations will grow exponentially as long as <span class="math inline">\(r&gt;d\)</span> (why?).</p>
 <p>This model is sometimes referred to as ratio-dependent predation a completely different reason: predation rates can be expressed in terms of the number of prey per predator time number of predators, or <span class="math display">\[aN = a\frac{N}{P}P\]</span> .</p>
 </section>
-<section id="lotka-volterra-prey-dependent-predation" class="level2" data-number="12.9">
-<h2 data-number="12.9" class="anchored" data-anchor-id="lotka-volterra-prey-dependent-predation"><span class="header-section-number">12.9</span> Lotka-Volterra prey-dependent predation</h2>
+<section id="lotka-volterra-prey-dependent-predation" class="level2" data-number="13.9">
+<h2 data-number="13.9" class="anchored" data-anchor-id="lotka-volterra-prey-dependent-predation"><span class="header-section-number">13.9</span> Lotka-Volterra prey-dependent predation</h2>
 <p>The most widely taught predator-prey equation was developed independently by Vito Volterra and Alfred Lotka. Here, the predation rate is expressed as a function of prey density rather than the ratio of prey to predators.</p>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -588,7 +618,7 @@ Figure&nbsp;12.2: Natural populations undergo fluctuations. Here we smooth the d
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(dw, <span class="fu">aes</span>(Moose, Wolf, <span class="at">colour=</span>Year)) <span class="sc">+</span> </span>
 <span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_path</span>(<span class="at">arrow=</span><span class="fu">arrow</span>(<span class="at">length=</span><span class="fu">unit</span>(<span class="dv">3</span>, <span class="st">"mm"</span>), <span class="at">angle =</span> <span class="dv">15</span>, <span class="at">type =</span> <span class="st">"open"</span>)) <span class="sc">+</span> </span>
 <span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">subtitle=</span><span class="st">"Each arrow is one annual time step."</span>)</span>
-<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="st">"MooseWolfPP.png"</span>, <span class="at">height=</span><span class="dv">5</span>, <span class="at">width=</span><span class="fl">5.5</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="st">"figs/MooseWolfPP.png"</span>, <span class="at">height=</span><span class="dv">5</span>, <span class="at">width=</span><span class="fl">5.5</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div id="fig-MWpp" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
@@ -596,14 +626,14 @@ Figure&nbsp;12.2: Natural populations undergo fluctuations. Here we smooth the d
 <img src="11-predator-prey-Claude_files/figure-html/fig-MWpp-1.png" class="img-fluid figure-img" width="672">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-MWpp-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;12.3: Use this phase plane plot to count how many times the populations undergo a complete counterclockwise cycle.
+Figure&nbsp;13.3: Use this phase plane plot to count how many times the populations undergo a complete counterclockwise cycle.
 </figcaption>
 </figure>
 </div>
 </div>
 </div>
-<section id="equilbria" class="level3" data-number="12.9.1">
-<h3 data-number="12.9.1" class="anchored" data-anchor-id="equilbria"><span class="header-section-number">12.9.1</span> Equilbria</h3>
+<section id="equilbria" class="level3" data-number="13.9.1">
+<h3 data-number="13.9.1" class="anchored" data-anchor-id="equilbria"><span class="header-section-number">13.9.1</span> Equilbria</h3>
 <p>One thing we can learn from simple models are the <em>equilibria</em> they predict. An equilibrium is a point when the populations stop bouncing around. At these points, the populations stop changing - their <em>growth rates equal zero</em>. By setting growth rates equal to zero, we can use the model to make predictions about what those equilibria are.</p>
 <p>Another name for an equilibrium is an <em>attractor</em>. We call it an attractor because the population appears to be attracted to it. If some event pushes the abundance of a population away from an equilibrium, the equilibrium seems to <em>attract</em> the population back to it.</p>
 <p>Here we solve for the equilibria of the Lotka-Volterra predator-prey model. We set the prey population growth rate equal to zero, and then use algebra to simplify the expression. This is one way we learn the logical consequences of prey growth being zero.</p>
@@ -657,8 +687,8 @@ Figure&nbsp;12.3: Use this phase plane plot to count how many times the populati
 <span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a>Nt1 <span class="ot">&lt;-</span> dw<span class="sc">$</span>Moose[<span class="sc">-</span><span class="dv">1</span>]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
-<section id="intrinsic-rate-of-increase-r" class="level3" data-number="12.9.2">
-<h3 data-number="12.9.2" class="anchored" data-anchor-id="intrinsic-rate-of-increase-r"><span class="header-section-number">12.9.2</span> Intrinsic rate of increase, r</h3>
+<section id="intrinsic-rate-of-increase-r" class="level3" data-number="13.9.2">
+<h3 data-number="13.9.2" class="anchored" data-anchor-id="intrinsic-rate-of-increase-r"><span class="header-section-number">13.9.2</span> Intrinsic rate of increase, r</h3>
 <p>One way to think about the intrinsic rate of increase of a population, <span class="math inline">\(r\)</span>, is that it is the maximum per capita growth rate. A crude way to estimate that is to find the maximum observed value in our data.</p>
 <ol start="6" type="1">
 <li>Estimate <span class="math inline">\(r\)</span> as the maximum annual per capita rate of increase. Recall that <span class="math display">\[r = \log_e \frac{N_{t+1}}{N_t}\]</span></li>
@@ -686,8 +716,8 @@ Figure&nbsp;12.3: Use this phase plane plot to count how many times the populati
 </div>
 </div>
 </section>
-<section id="attack-rate-a" class="level3" data-number="12.9.3">
-<h3 data-number="12.9.3" class="anchored" data-anchor-id="attack-rate-a"><span class="header-section-number">12.9.3</span> Attack rate, a</h3>
+<section id="attack-rate-a" class="level3" data-number="13.9.3">
+<h3 data-number="13.9.3" class="anchored" data-anchor-id="attack-rate-a"><span class="header-section-number">13.9.3</span> Attack rate, a</h3>
 <p>It is worth noting that <span class="math inline">\(aN\)</span> is the rate at which the average wolf kills moose. We will estimate the attack rate, <span class="math inline">\(a\)</span>, by realizing that the predator equilibrium equals <span class="math inline">\(r/a\)</span>, or <span class="math display">\[a = r/P^*\]</span> where our estimate of <span class="math inline">\(P^*\)</span> is the average size of the wolf population.</p>
 <ol start="7" type="1">
 <li>Estimate <span class="math inline">\(a\)</span> using your above estimates of <span class="math inline">\(r\)</span> and <span class="math inline">\(P^*\)</span>.</li>
@@ -700,8 +730,8 @@ Figure&nbsp;12.3: Use this phase plane plot to count how many times the populati
 </div>
 </div>
 </section>
-<section id="predator-mortality-rate-m" class="level3" data-number="12.9.4">
-<h3 data-number="12.9.4" class="anchored" data-anchor-id="predator-mortality-rate-m"><span class="header-section-number">12.9.4</span> Predator mortality rate, m</h3>
+<section id="predator-mortality-rate-m" class="level3" data-number="13.9.4">
+<h3 data-number="13.9.4" class="anchored" data-anchor-id="predator-mortality-rate-m"><span class="header-section-number">13.9.4</span> Predator mortality rate, m</h3>
 <p>One way to think about the predator mortality rate, <span class="math inline">\(m\)</span>, is that it is the maximum rate per capita rate of decline. Put another way, it is the minimum per capita population growth rate, and this will be a negative number.</p>
 <ol start="8" type="1">
 <li>Estimate <span class="math inline">\(m\)</span>. Find the minimum <span class="math inline">\(r\)</span> for the wolf population across all years. Let that the absolute value of that minimum be <span class="math inline">\(m\)</span>. Remember that <span class="math inline">\(m\)</span> by itself is a positive number….</li>
@@ -715,8 +745,8 @@ Figure&nbsp;12.3: Use this phase plane plot to count how many times the populati
 </div>
 </div>
 </section>
-<section id="conversion-efficiency-b" class="level3" data-number="12.9.5">
-<h3 data-number="12.9.5" class="anchored" data-anchor-id="conversion-efficiency-b"><span class="header-section-number">12.9.5</span> Conversion efficiency, b</h3>
+<section id="conversion-efficiency-b" class="level3" data-number="13.9.5">
+<h3 data-number="13.9.5" class="anchored" data-anchor-id="conversion-efficiency-b"><span class="header-section-number">13.9.5</span> Conversion efficiency, b</h3>
 <p>The predator conversion efficiency is the prey-dependent birth rate of predators. Thus, for each prey killed, an average predator will produce and successfully rear <span class="math inline">\(b\)</span> offspring. Given that only a few females in a population produce pups, and that number is averaged across the entire wolf population, that number is relatively small. However, a single moose is pretty big and so goes a long way.</p>
 <p>Here we use our previous estimates of <span class="math inline">\(a\)</span>, <span class="math inline">\(m\)</span>, and <span class="math inline">\(N^*\)</span> to estimate <span class="math inline">\(b\)</span>, where <span class="math display">\[N^* = \frac{m}{ba}\]</span> and <span class="math display">\[b=\frac{m}{aN^*}\]</span></p>
 <ol start="9" type="1">
@@ -731,8 +761,8 @@ Figure&nbsp;12.3: Use this phase plane plot to count how many times the populati
 </div>
 </section>
 </section>
-<section id="predicting-population-dynamics" class="level2" data-number="12.10">
-<h2 data-number="12.10" class="anchored" data-anchor-id="predicting-population-dynamics"><span class="header-section-number">12.10</span> Predicting population dynamics</h2>
+<section id="predicting-population-dynamics" class="level2" data-number="13.10">
+<h2 data-number="13.10" class="anchored" data-anchor-id="predicting-population-dynamics"><span class="header-section-number">13.10</span> Predicting population dynamics</h2>
 <p>This is how you tell R what the differential growth equations are.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>predpreyLV <span class="ot">&lt;-</span> <span class="cf">function</span>(t, y, p) {</span>
@@ -763,7 +793,7 @@ Figure&nbsp;12.3: Use this phase plane plot to count how many times the populati
 <span id="cb27-6"><a href="#cb27-6" aria-hidden="true" tabindex="-1"></a>      <span class="fu">labs</span>(<span class="at">x=</span><span class="st">"Years"</span>) <span class="sc">+</span> <span class="fu">scale_color_discrete</span>(<span class="at">breaks=</span><span class="fu">c</span>(<span class="st">"N"</span>,<span class="st">"P"</span>)) <span class="sc">+</span> </span>
 <span id="cb27-7"><a href="#cb27-7" aria-hidden="true" tabindex="-1"></a>      <span class="fu">facet_grid</span>(Populations<span class="sc">~</span>., <span class="at">scales=</span><span class="st">"free"</span>)</span>
 <span id="cb27-8"><a href="#cb27-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-9"><a href="#cb27-9" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="st">"LV_MooseWolfTS.png"</span>, <span class="at">height=</span><span class="dv">5</span>, <span class="at">width=</span><span class="dv">6</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb27-9"><a href="#cb27-9" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="st">"figs/LV_MooseWolfTS.png"</span>, <span class="at">height=</span><span class="dv">5</span>, <span class="at">width=</span><span class="dv">6</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div id="fig-LVts" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
@@ -771,23 +801,23 @@ Figure&nbsp;12.3: Use this phase plane plot to count how many times the populati
 <img src="11-predator-prey-Claude_files/figure-html/fig-LVts-1.png" class="img-fluid figure-img" width="672">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-LVts-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;12.4: Predicted Lotka-Volterra dynamics based on the Isle Royale moose-wolf data.
+Figure&nbsp;13.4: Predicted Lotka-Volterra dynamics based on the Isle Royale moose-wolf data.
 </figcaption>
 </figure>
 </div>
 </div>
 </div>
 <ol start="10" type="1">
-<li>Once you do this, you should get something that looks like Fig. <a href="#fig-LVts" class="quarto-xref">Figure&nbsp;<span>12.4</span></a>, or about 3-6 cycles over 52 years, and the minimum and maximum population sizes should differ tremendously from the observed data. If you get something wackier than that, you’ve gone astray. If so, <em>ask for help</em>.</li>
+<li>Once you do this, you should get something that looks like Fig. <a href="#fig-LVts" class="quarto-xref">Figure&nbsp;<span>13.4</span></a>, or about 3-6 cycles over 52 years, and the minimum and maximum population sizes should differ tremendously from the observed data. If you get something wackier than that, you’ve gone astray. If so, <em>ask for help</em>.</li>
 </ol>
-<p>We can rearrange the data, and graph the <em>phase plane</em> plot (Fig. <a href="#fig-LVpp" class="quarto-xref">Figure&nbsp;<span>12.5</span></a>).</p>
+<p>We can rearrange the data, and graph the <em>phase plane</em> plot (Fig. <a href="#fig-LVpp" class="quarto-xref">Figure&nbsp;<span>13.5</span></a>).</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>outw <span class="ot">&lt;-</span> out <span class="sc">%&gt;%</span> <span class="fu">as.data.frame</span>() </span>
 <span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(outw, <span class="fu">aes</span>(N, P, <span class="at">linewidth=</span> <span class="sc">-</span>time, <span class="at">color=</span>time)) <span class="sc">+</span> </span>
 <span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_path</span>() <span class="sc">+</span> </span>
 <span id="cb28-5"><a href="#cb28-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x=</span><span class="st">"Moose population size"</span>, <span class="at">y=</span><span class="st">"Wolf population size"</span> )</span>
-<span id="cb28-6"><a href="#cb28-6" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="st">"LV_MooseWolfPP.png"</span>, <span class="at">height=</span><span class="dv">5</span>, <span class="at">width=</span><span class="dv">6</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb28-6"><a href="#cb28-6" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="st">"figs/LV_MooseWolfPP.png"</span>, <span class="at">height=</span><span class="dv">5</span>, <span class="at">width=</span><span class="dv">6</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div id="fig-LVpp" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
@@ -795,7 +825,7 @@ Figure&nbsp;12.4: Predicted Lotka-Volterra dynamics based on the Isle Royale moo
 <img src="11-predator-prey-Claude_files/figure-html/fig-LVpp-1.png" class="img-fluid figure-img" width="672">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-LVpp-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;12.5: Phase plane diagram of the Lotka-Volterra model of moose wolf dynamics. Once the paramters are fixed and the initial abundances are selected, then the dynamics are completely determined. Initial abundances are moose (560) and wolves (20). The line is black and widest in 1959, and becomes progressively more narrow and blue over time.
+Figure&nbsp;13.5: Phase plane diagram of the Lotka-Volterra model of moose wolf dynamics. Once the paramters are fixed and the initial abundances are selected, then the dynamics are completely determined. Initial abundances are moose (560) and wolves (20). The line is black and widest in 1959, and becomes progressively more narrow and blue over time.
 </figcaption>
 </figure>
 </div>
@@ -815,8 +845,8 @@ Figure&nbsp;12.5: Phase plane diagram of the Lotka-Volterra model of moose wolf 
 <li>In a short paragraph, explain what you think we can learn from the match (or lack thereof) between the data and the model. Considering only what we have covered in this course, what would you use as an alternative to the Lotka-Volterra model, and how do those compare?</li>
 </ol>
 </section>
-<section id="discussion-questions" class="level2" data-number="12.11">
-<h2 data-number="12.11" class="anchored" data-anchor-id="discussion-questions"><span class="header-section-number">12.11</span> Discussion questions</h2>
+<section id="discussion-questions" class="level2" data-number="13.11">
+<h2 data-number="13.11" class="anchored" data-anchor-id="discussion-questions"><span class="header-section-number">13.11</span> Discussion questions</h2>
 <p>How could you test the effect of the parvovirus that began to affect the wolves in 1981?</p>
 <p>For the next exam, be able to,</p>
 <ul>
@@ -825,8 +855,8 @@ Figure&nbsp;12.5: Phase plane diagram of the Lotka-Volterra model of moose wolf 
 <li>Explain neutral stability.</li>
 </ul>
 </section>
-<section id="sec-deliverables-pp" class="level2" data-number="12.12">
-<h2 data-number="12.12" class="anchored" data-anchor-id="sec-deliverables-pp"><span class="header-section-number">12.12</span> Deliverables</h2>
+<section id="sec-deliverables-pp" class="level2" data-number="13.12">
+<h2 data-number="13.12" class="anchored" data-anchor-id="sec-deliverables-pp"><span class="header-section-number">13.12</span> Deliverables</h2>
 <p>Turn in two documents.</p>
 <p>The first document is your R script.</p>
 <p>In the second document, provide</p>
@@ -1248,12 +1278,12 @@ Vucetich, John A., and Rolf O. Peterson. 2009. <span>“Recovery of Gray Wolves 
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
       <a href="./10-mutualisms.html" class="pagination-link" aria-label="Mutualisms: Do ants protect pea plants?">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Mutualisms: Do ants protect pea plants?</span></span>
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Mutualisms: Do ants protect pea plants?</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./13-diversity.html" class="pagination-link" aria-label="Determinants of local butterfly species diversity">
-        <span class="nav-page-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Determinants of local butterfly species diversity</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./13-diversity-forestgeo.html" class="pagination-link" aria-label="ForestGEO Community Ecology: Why are there so many tree species, and where?">
+        <span class="nav-page-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">ForestGEO Community Ecology: Why are there so many tree species, and where?</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

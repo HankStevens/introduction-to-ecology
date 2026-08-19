@@ -21,6 +21,8 @@ Each chapter provides,
 
 Each chapter mixes (i) ecological content and (ii) coding practices. Students will get the most out of the content if they understand and *accept* this from the start. Avoiding one or the other reduces their ability to understand, appreciate, and use both.
 
+Two R skills recur across nearly every chapter: wrangling data with **tidyverse**-style functions (things like `read_csv`, `subset`, `mutate`), and visualizing it with **`ggplot2`**. You will practice these so often that, by the end of the book, they should feel like second nature. If you ever want help translating that practice into language for a résumé, cover letter, or job application, see the *Skills Crosswalk* appendix near the end of the book.
+
 ## Guidance
 
 Use these tips to help reduce frustration and make things work better:

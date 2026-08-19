@@ -250,7 +250,7 @@ ggplot(data = trees, aes(x = Height, y = Volume) ) +
               y = "Volume (cubic ft)")
 
 # save my graph with whatever name I choose.
-ggsave("my_scatterplot_trees.png", width=5, height=5)
+ggsave("figs/my_scatterplot_trees.png", width=5, height=5)
 ```
 
 Tweak the above code to makes scatterplots of each relationship in your DAG.

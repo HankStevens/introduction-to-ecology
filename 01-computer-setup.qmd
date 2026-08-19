@@ -208,11 +208,55 @@ RStudio is an interface to R. When we use R in this class, we will use RStudio a
 
 As we said at the beginning, you will use the English language to write about ecology, and the R language to explore and analyze ecological data.
 
-## Set up two folders for this class
+## Set up your folders for this class
 
 1. Set up a folder for this class. Call it "BIO209W". Do not name it "BIO_209W" or "Bio209W" or "ecology". Just "BIO209W". It will help us. I don't really care where you put this folder, but you should have a place for all of your classes, and you could put it there. Don't put it in "Downloads".
 
 2. Next, set up a **subfolder** inside BIO209W called "Rwork". Do not call it "RWORK" or "R_work" or anything else - just "Rwork". It will help us. A lot. `Rwork` will be your **working directory**, which is where R looks automatically for data and where it automatically puts output.
+
+3. Finally, set up three subfolders *inside* Rwork, called "data", "figs", and "output". All lower case, no spaces, no capital letters. Your finished structure should look exactly like this:
+
+```
+BIO209W/
+└── Rwork/            <- your working directory and RStudio project
+    ├── Rwork.Rproj   <- this appears after you create the project, below
+    ├── data/         <- files you download or are given; you read these IN
+    ├── figs/         <- figures that R draws and saves
+    ├── output/       <- everything else R writes OUT (.csv files, mostly)
+    └── my_script.R   <- your scripts live here, at the top of Rwork
+```
+
+The rule for deciding where a file goes is short:
+
+- You didn't make it, you were given it, and you must not change it $\rightarrow$ `data/`
+- R made it and it is a picture $\rightarrow$ `figs/`
+- R made it and it is not a picture $\rightarrow$ `output/`
+
+Yes, figures are a kind of output too. `figs` gets its own folder because you will make far more figures than anything else, and because a folder containing nothing but pictures is a genuinely useful thing to be able to scroll through.
+
+### Why we all use the same structure
+
+You could organize `Rwork` any way you liked, and R would not care. There are three reasons we all use the same arrangement anyway.
+
+**Everyone's code becomes portable.** If your data are in `data/` and mine are in `data/`, then a line of code I hand you, such as `read.csv("data/temps.csv")`, runs on your computer without any editing, and a line you send me runs on mine. That short, relative path is what makes code shareable. The alternative is a path like `/Users/stevenmh/courses/209W/Rwork/temps.csv`, which works on exactly one computer in the world - mine. **Never put a path like that in a script.**
+
+**It keeps data separate from output.** Recall that *data are sacrosanct*. Files in `data/` were given to you and must not be modified. Files in `figs/` and `output/` are things R made, and R can always make them again by re-running your script. If you delete everything in `figs/` by accident, you have lost nothing but a few seconds. If you overwrite something in `data/`, you may have lost a great deal. Separate folders make that distinction visible every time you look at your project.
+
+**It scales.** Right now you have one script and three files. By the end of the semester you will have a dozen scripts, a pile of .csv files, and several dozen .png figures. A single folder holding all sixty of them is a junk drawer, and you will spend real time hunting through it.
+
+There are costs, and you should know them.
+
+- R does **not** create folders for you. If you write `ggsave("figs/myPlot.png")` and there is no `figs` folder, you get an error rather than a folder. Make all three folders yourself, in Finder or File Explorer, right now, before you need them.
+- A misspelled folder is a broken path. `Figs/`, `figures/`, and `figs /` are all different from `figs/`. Macs and Windows machines are often forgiving about capitalization; R, and every server you will ever use, is not.
+- Every command that writes a file gets a little longer: `ggsave("figs/myPlot.png")` instead of just `ggsave("myPlot.png")`. That is a small price for always knowing where the file went.
+
+### Where do scripts go?
+
+Notice that scripts are **not** in a subfolder. They sit at the top level of `Rwork`, right next to `Rwork.Rproj`. Many professional projects do keep their scripts in a `scripts/` folder, and you will meet that convention if you go on to a thesis or a job. We are not doing it here, on purpose, because of the way R actually behaves.
+
+**Your working directory is the project folder, not the folder your script is sitting in.** When you open the `Rwork` project, R sets its working directory to `Rwork` and leaves it there, no matter which script you happen to have open. If you moved a script down into `Rwork/scripts/`, R would *still* be looking in `Rwork`. The path `data/temps.csv` would still be correct, and the path `../data/temps.csv` - which looks as though it ought to work, since the data really are one level up from the script - would fail.
+
+That is a sensible design, and it is also a reliable source of confusion. Keeping your scripts at the top of `Rwork` makes the simplest possible statement true: *the folder my script is in is the folder R is looking in.* Every path you write starts from that one place. Once paths are second nature, moving scripts into their own subfolder costs you nothing, and you should feel free to do it in your own later projects.
 
 ## Working in R
 
@@ -381,14 +425,16 @@ str(d)
 
 You will also notice now that you can see all of our objects in the Environment pane, in the upper right of RStudio.
 
-You can export data frames from R as well, and programmers call that "writing" a file. The command below will save our data frame as .CSV files that you could open in a spreadsheet application.
+You can export data frames from R as well, and programmers call that "writing" a file. The command below will save our data frame as a .CSV file that you could open in a spreadsheet application. Note the `output/` at the front of the file name: that is us telling R which folder to put it in.
 ```{r}
 # export or write a file
-write.csv(x=d, file="myDataframe.csv", row.names=FALSE)
+write.csv(x=d, file="output/myDataframe.csv", row.names=FALSE)
 # including row.names=FALSE prevents R from adding row names.
 ```
 
-This should cause the data frame `d` to get saved to your working directory. Did it work for you?
+This should cause the data frame `d` to get saved into the `output` folder inside your working directory. Go look in that folder. Did it work for you?
+
+If instead you got an error that says something like "cannot open file 'output/myDataframe.csv': No such file or directory", that almost always means the `output` folder does not exist yet, or is spelled differently than you think. Go make it, or fix the spelling, and run the line again.
 
 
 ### Plotting data
@@ -441,12 +487,14 @@ ggplot(data=d, aes(x=a, y=a_times_b)) +
 Note that with ggplot, we use the plus sign (+) to add elements to our graph.
 
 ### Saving your graphs
-We can save this figure as well, in a variety of formats and sizes. By default, these are saved to our working directory, though we can change that if we want to.
+We can save this figure as well, in a variety of formats and sizes. If we gave `ggsave()` nothing but a file name, R would drop the figure straight into our working directory. Instead we put `figs/` at the front of each name, which sends every figure into the `figs` folder where it belongs.
 ```{r}
-ggsave("myPlot.png")
-ggsave("myPlot.jpg", width=7, height = 3)
-ggsave("myPlot.pdf", width=3, height = 5)
+ggsave("figs/myPlot.png")
+ggsave("figs/myPlot.jpg", width=7, height = 3)
+ggsave("figs/myPlot.pdf", width=3, height = 5)
 ```
+
+Look in your `figs` folder and confirm that all three files are there. From here on, **every figure you save in this course goes in `figs/`, and every data file you write goes in `output/`.** I will do the same in every chapter that follows, so the code you read is the code you run.
 
 ## Getting help
 
@@ -463,11 +511,13 @@ R has a bit of a learning curve. What should you do if you get stuck? It all dep
 
 For this assignment, upload to the LMS three files that you created:
 
-1. `myPlot.png`
-1. `myDataframe.csv`
-1. the R script, into which you wrote all your code. 
+1. `myPlot.png`, from your `figs` folder,
+1. `myDataframe.csv`, from your `output` folder,
+1. the R script, from the top level of `Rwork`, into which you wrote all your code.
     a. This file must be written in R/RStudio, and the name must end with the file name extension, ".R", such as "Stevens_script_1.R",
     a. comments, including at least a title, the date, your name, and the path to your Rwork folder.
+
+If you cannot find one of these files, that is useful information rather than a disaster: it means the file went somewhere other than where you thought, which is exactly the problem this folder structure exists to prevent. Check the top level of `Rwork` first, since that is where a file lands when you forget the `figs/` or `output/` prefix.
 
 
 Congratulations. *C'est fini*!

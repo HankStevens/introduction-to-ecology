@@ -1,0 +1,187 @@
+---
+title: "Bayesian reasoning"
+---
+
+## Bayes at work
+
+```{r}
+library(tidyverse)
+library(patchwork)
+```
+
+
+Posterior Shape: $\alpha' = \alpha + \sum y_i$
+Posterior Rate: $\beta' = \beta + n$
+
+```{r}
+# parameter priors
+alpha.prior <- 1.5  # shape
+beta.prior <- 1.5 # rate
+mean( rgamma(1e6, shape=alpha.prior, rate=beta.prior))
+
+# data
+sum_y <- 100
+n  <- 10
+
+# naive parameters based on data only
+alpha.lik <- sum_y
+beta.lik <- n
+
+mean( rgamma(1e6, shape=alpha.lik, rate=beta.lik))
+
+# parameter posteriors
+alpha.post <- alpha + sum_y
+beta.post <- beta + n
+
+mean( rgamma(1e6, shape=alpha.post, rate=beta.post))
+
+curve(dgamma(x, shape=alpha.prior, rate=beta.prior), 0, 15, col="darkgrey", lty=3, lwd=2)
+curve(dgamma(x, shape=alpha.lik, rate=beta.lik), 0, 15, add=TRUE, col="red", lty=2)
+curve(dgamma(x, shape=alpha.post, rate=beta.post), 0, 15, add=TRUE)
+legend("topright", legend=c("prior belief", "data (naive)", "updated belief"))
+```
+
+## curve() in  ggplot
+In brief,
+
+`curve(expr,from, to) == ggplot() + geom_fun(fun, xlim)`
+
+Simplest
+```{r}
+# Base R
+curve(sin(x), from = 0, to = 2*pi)
+
+# ggplot2
+library(ggplot2)
+ggplot() +
+  geom_function(fun = sin, xlim = c(0, 2*pi))
+```
+
+One step more abstract: `ggplot() + geom_function(f, xlim=c(min, max))`
+```{r}
+f <- function(x) x^2 - 3*x + 1
+
+# Base R
+curve(f, from = -5, to = 5)
+
+# ggplot2
+ggplot() +
+  geom_function(fun = f, xlim = c(-5, 5))
+```
+
+Multiple curves
+```{r}
+ggplot() +
+  geom_function(aes(color = "sin"), fun = sin, xlim = c(0, 2*pi)) +
+  geom_function(aes(color = "cos"), fun = cos, xlim = c(0, 2*pi)) +
+  labs(color = "function")
+
+```
+
+curve plus data
+```{r}
+mydata <- tibble(
+  x = -5:5,
+  y = f(x)
+)
+ggplot(mydata, aes(x, y)) +
+  geom_point() +
+  geom_function(fun = f, color = "steelblue")
+```
+
+A function with extra parameters (`curve()`'s ... becomes `args = list(...)`)
+```{r}
+g <- function(x, k) k * x^2
+
+ggplot() +
+  geom_function(fun = g, args = list(k = 2), xlim = c(-3, 3))
+```
+
+## now dgamma in ggplot
+
+Posterior Shape: $\alpha' = \alpha + \sum y_i$
+Posterior Rate: $\beta' = \beta + n$
+
+```{r}
+# parameter priors
+alpha.prior <- 2.2  # shape
+beta.prior <- 1.1 # rate
+mean( rgamma(1e6, shape=alpha.prior, rate=beta.prior))
+
+# data
+sum_y <- 100
+n  <- 10
+
+
+# naive parameters based on data only
+alpha.lik <- sum_y
+beta.lik <- n
+
+set.seed(1)
+data <- tibble(bug_counts = rpois(n, lambda=alpha.lik/beta.lik))
+
+mean( rgamma(1e6, shape=alpha.lik, rate=beta.lik))
+
+# parameter posteriors
+alpha.post <- alpha + sum_y
+beta.post <- beta + n
+
+mean( rgamma(1e6, shape=alpha.post, rate=beta.post))
+
+xmin <- 0
+xmax <- 15
+ymin <- 0; ymax <- 0.8
+
+data_hist <- ggplot(data=data, aes(x=bug_counts)) + geom_histogram() +
+  theme_bw() +
+  labs(subtitle="Raw data")
+
+prior_distr <- ggplot() +
+  geom_function(fun=dgamma, args=list(shape = alpha.prior, rate = beta.prior),
+                xlim=c(xmin, xmax), 
+                n=1001, lty="dotted", color="#6FA8DC", linewidth=1) + 
+  coord_cartesian(ylim=c(ymin, ymax)) + 
+  labs(x="Expected average bug count", y="Probably density", subtitle="Prior understanding") +
+  theme_bw() 
+
+data_only_distr <- ggplot() +
+  geom_function(fun=dgamma, args=list(shape = alpha.lik, rate = beta.lik),
+                xlim=c(xmin, xmax), 
+                n=1001, lty="dashed", color="#E59866", linewidth=1) +
+  coord_cartesian(ylim=c(ymin, ymax)) +
+  labs(x="Expected average bug count", y="Probably density", subtitle="Likelihood of data") +
+  theme_bw() 
+
+all_distr <- ggplot() +
+  geom_function(aes(color = "Prior", linetype = "Prior"),
+                fun = dgamma, args = list(shape = alpha.prior, rate = beta.prior),
+                xlim = c(xmin, xmax), n = 1001, linewidth = 1) +
+  geom_function(aes(color = "Likelihood", linetype = "Likelihood"),
+                fun = dgamma, args = list(shape = alpha.lik, rate = beta.lik),
+                xlim = c(xmin, xmax), n = 1001, linewidth = 1) +
+  geom_function(aes(color = "Posterior", linetype = "Posterior"),
+                fun = dgamma, args = list(shape = alpha.post, rate = beta.post),
+                xlim = c(xmin, xmax), n = 1001, linewidth = 1) +
+  coord_cartesian(ylim = c(ymin, ymax)) +
+  labs(x="Expected average bug count", y="Probably density", subtitle="Updated understanding") +
+  scale_color_manual(name = "Distribution",
+                    breaks = c("Prior", "Likelihood", "Posterior"),
+                    values = c(Prior = "#6FA8DC", Likelihood = "#E59866", Posterior = "#BAA0A1")) +
+scale_linetype_manual(name = "Distribution",
+                       breaks = c("Prior", "Likelihood", "Posterior"),
+                       values = c(Prior = "dotted", Likelihood = "dashed", Posterior = "solid")) +
+    guides(color = guide_legend(ncol = 1), linetype = guide_legend(ncol = 1)) +
+  theme_bw() 
+
+design <- "
+ABC
+DEF
+"
+
+plot_spacer() + data_hist + guide_area() +
+  prior_distr + data_only_distr + all_distr +
+  plot_layout(design = design, guides = "collect")
+
+
+```
+

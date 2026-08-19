@@ -120,11 +120,11 @@ $$N_{t+h} = N_t e^{rh}$$
 
 where the parameter $r$ is the per capita instantaneous rate of increase, and $t$ is the amount of time, or time interval. The letter $e$ is the exponential, or Euler's constant. The exponential is the base of the natural logarithm. **The important thing here is the time interval in the exponent ($t$ or $h$) has to be the time interval from the starting value of $N$ to the projected value of $N$.**
 
-![Common duckweed (*Lemna minor*) populations can grow fast. Credit: https://commons.wikimedia.org/w/index.php?curid=1085476](Dam_with_lemna_minor.jpg){#fig-lemna width=.75}
+![Common duckweed (*Lemna minor*) populations can grow fast. Credit: https://commons.wikimedia.org/w/index.php?curid=1085476](figs/Dam_with_lemna_minor.jpg){#fig-lemna width=.75}
 
 Imagine we have a population of the small floating plant duckweed (*Lemna minor*), that can double in about two weeks . In that case, $r = 0.35$ new lemna per old lemna per week. Pretend we start with a population of 100 lemna individuals ($N_0 = 100$). How many lemna should we have in three weeks? Show your work (e.g., @fig-project).
 
-![Projecting the size of the duckweed population three weeks into the future.](projection_calc.png){#fig-project}
+![Projecting the size of the duckweed population three weeks into the future.](figs/projection_calc.png){#fig-project}
 
 
 
@@ -160,7 +160,7 @@ Next, we get the data, if you haven't already done so.
 
 Now import the data into R, and *glimpse* the structure of the data frame.
 ```{r}
-d <- read_csv("HumanPopData-2023-01-01.csv", 
+d <- read_csv("data/HumanPopData-2023-01-01.csv", 
               skip=3 # skip three lines of metadata
               )
 glimpse(d)
@@ -401,7 +401,7 @@ Turn in two documents: (i) your R script, and (ii) a .docx or PDF formatted file
 #| eval: false
 
 library(tidyverse)
-d <- read.csv("HumanPopData-2023-01-01.csv", 
+d <- read.csv("data/HumanPopData-2023-01-01.csv", 
               skip=3 # skip three lines of metadata
               )
 

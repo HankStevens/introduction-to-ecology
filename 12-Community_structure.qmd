@@ -271,7 +271,7 @@ plot(m2, type="t")
 
 These data (this data set) is arranged by species in rows, and sites in columns. Usually we do analyses of sites by having sites in rows and species in columns.
 ```{r}
-dw <- read.csv("~/Courses/671/lectures/communities/WHITTAKER_TABLE_3.csv")
+dw <- read.csv("data/WHITTAKER_TABLE_3.csv")
 dw[is.na(dw)] <- 0
 # transpose the data, but exclude the first column of species names
 

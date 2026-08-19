@@ -5,38 +5,53 @@ project:
 book:
   title: "Basic Ecological Concepts and Data in R"
   author: "Dr. Hank Stevens"
-  date: "03 June 2026"
+  date: "15 August 2026"
   google-analytics:
     tracking-id: "G-J0R6F7XN66"
   chapters:
     - index.qmd
     - 00-AI-v4.qmd
     - 01-computer-setup.qmd
-    - 01-trees_and_people.qmd
-    - 02-global_temp_anomalies.qmd
-    - 03-liana-phys.qmd
-    - 04-extrapair_copulation.qmd
-    - 06-DI-pop-growth.qmd
+    - thinking.qmd
+    - 02-trees_and_people.qmd
+    - 03-global_temp_anomalies_v2.qmd
+    - traits-physiology.qmd
+    - 05-extrapair_copulation.qmd
+    - 06-DI-pop-growth-Claude.qmd
     - 07-structured-pop-growth_v2.qmd
     - 08-density-dep-pop-growth-Claude.qmd
     - 09-direct-interactions-Claude.qmd
     - 10-mutualisms.qmd
     - 11-predator-prey-Claude.qmd
-    - 13-diversity.qmd
-    - 14-metabolic-ecology_v_2.qmd
-    - 20-ecosystem-intro.qmd
+    - 13-diversity-forestgeo.qmd
+    - 13-diversity-gbif.qmd
+    - 15-metabolic-ecology_v_2.qmd
+    - 16-ecosystem-intro.qmd
+    - funding-science.qmd
+    - career-skills-crosswalk.qmd
     - references.qmd
 
 bibliography: 
-   - /Users/stevenmh/tidy.bib
-   - /Users/stevenmh/MyLibrary_zotero.bib
+    - local_refs.bib
+   #- /Users/stevenmh/tidy.bib
+   #- /Users/stevenmh/MyLibrary_zotero.bib #local_refs.bib
 
 format:
   html:
     theme: default
     mainfont: serif
+    include-in-header:
+      text: |
+        <style>
+        h1, h2, h3, h4, h5, h6,
+        .title, .quarto-title-block .title, .chapter-title {
+          font-family: serif;
+        }
+        </style>
   pdf:
     documentclass: scrreprt
+    header-includes:
+      - \addtokomafont{disposition}{\rmfamily}
 
 editor: source
 
