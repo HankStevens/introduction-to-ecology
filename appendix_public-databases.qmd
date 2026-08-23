@@ -1,0 +1,160 @@
+---
+title: "Accessing Public Ecological Databases"
+---
+
+*...in which we collect, in one place, every live database this book has already sent you to query -- plus a map of where to look next.*
+
+## Goals
+
+In this appendix, you will
+
+- Find, in one place, every live public database used elsewhere in this book, with the R package (or API) that reaches it, a minimal worked query, and a note on what it costs to use.
+- Learn a few habits that apply to *any* live data source: how to avoid hammering a server, when to save a local copy, and how to cite data that changes from one day to the next.
+- Get a short, honest map of other public ecological databases worth knowing about, for a class project, an independent study, or just curiosity, beyond the ones this book puts you through directly.
+
+This appendix does not re-teach any chapter. It is a reference -- a place to come back to when you remember "there was a package for that" but not which chapter, or when you want to point a new project at a database this book never used.
+
+## Why bother with live databases?
+
+Every dataset in this book could have been handed to you as a clean `.csv`. Several of them are not, on purpose. Ecology today runs on databases that update continuously -- new occurrence records, new budget lines, new trait measurements -- and a large part of learning to do ecological data analysis is learning to reach into one of these moving targets and pull out exactly what you need, in a form you can trust and reproduce. A `read_csv()` teaches you to wrangle a table. An `occ_count()` or a `fromJSON()` call teaches you that too, plus something a static file cannot: how to ask a real, living system a specific question.
+
+## Quick reference
+
+| Database | What it holds | R access | Used in | Needs a key? |
+|---|---|---|---|---|
+| Google Sheets | Any spreadsheet a class or collaborator is actively adding to | `googlesheets4::read_sheet()` | 02. Trees and People | No (browser sign-in the first time) |
+| BIEN (Botanical Information and Ecology Network) | Plant trait, range, and checklist data for the Americas | `BIEN` package (`BIEN_trait_*()`, `BIEN_list_*()`) | 04. Traits, Physiology, and Plant Form | No |
+| GBIF (Global Biodiversity Information Facility) | 2+ billion species occurrence records worldwide | `rgbif` package (`occ_count()`, `occ_search()`, `occ_download()`) | 14. GBIF Biodiversity Data | No for search/count; free account for `occ_download()` |
+| USAspending.gov | Federal agency budgets, obligations, and outlays | `jsonlite::fromJSON()` on the REST API | Funding Ecological Science | No |
+| NSF Award Search | Individual NSF grant records, including funded amounts | `jsonlite::fromJSON()` on the REST API | Funding Ecological Science | No |
+
+None of the five require you to register for an API key just to follow along with this book. That is not universal -- some of the databases in the "where to look next" section below do require one -- so get in the habit of checking a package's documentation for an `Authentication` or `API key` section before you assume a query will just work.
+
+## 1. Crowdsourced data: Google Sheets
+
+**Package:** `googlesheets4`
+
+Chapter 02 has an entire class contributing rows to the same live spreadsheet, and `read_sheet()` pulls whatever is currently in it, including rows that were not there yesterday.
+
+```r
+library(googlesheets4)
+
+d <- read_sheet(
+  "https://docs.google.com/spreadsheets/d/YOUR_SHEET_ID/edit",
+  sheet = 1
+)
+```
+
+The first time you run this in a session, R opens a browser tab and asks you to sign in to a Google account; after that it caches the authorization. If the sheet is set to "anyone with the link can view," you can also call `gs4_deauth()` first to skip sign-in entirely for read-only access.
+
+::: {.callout-tip}
+## When to use a live sheet vs. a csv
+A Google Sheet is the right tool when the data are still being *collected* -- a class survey, a shared field log. Once collection is finished, export a static snapshot (File > Download > csv) into `data/` so your analysis does not silently change if someone edits the sheet later.
+:::
+
+## 2. Plant trait data: BIEN
+
+**Package:** `BIEN`
+
+Chapter 04 queries BIEN for whole-plant height and leaf area across a species list, then reshapes the result from long to wide.
+
+```r
+library(BIEN)
+
+BIEN_trait_list()  # see every trait name BIEN recognizes
+
+my_species <- BIEN_list_country(country = "Costa Rica")$scrubbed_species_binomial
+
+my_traits_data <- BIEN_trait_traitbyspecies(
+  species = my_species,
+  trait   = c("whole plant height", "leaf area")
+)
+```
+
+`BIEN_trait_list()` is worth running before you commit to a trait name -- BIEN's trait vocabulary is specific (e.g., "whole plant height", not "height"), and a mismatched string returns zero rows rather than an error. There are equivalent `BIEN_list_state()`, `BIEN_trait_traitbygenus()`, and `BIEN_trait_traitbyfamily()` functions for narrower or broader species lists.
+
+## 3. Biodiversity occurrences: GBIF
+
+**Package:** `rgbif`
+
+Chapter 14 uses GBIF to compare species richness across countries and across a latitudinal gradient, entirely through live queries -- no files downloaded.
+
+```r
+library(rgbif)
+
+palm_key <- name_backbone(name = "Arecaceae")$usageKey
+
+richness_by_country <- occ_count(
+  taxonKey   = palm_key,
+  facet      = "speciesKey",
+  facetLimit = 99999,
+  country    = "CR"
+)
+
+effort_by_country <- occ_count(taxonKey = palm_key, country = "CR")
+```
+
+`name_backbone()` translates a taxonomic name into GBIF's internal numeric key. `occ_count(facet = "speciesKey", ...)` returns one row per species, so its row count is species richness; the same call without `facet` returns total records, a rough proxy for sampling effort. `occ_search()` returns the actual occurrence records (coordinates, dates, collector) rather than just counts.
+
+::: {.callout-important}
+## GBIF data are biased, and citing them takes an extra step
+GBIF is assembled from museum specimens, herbaria, and citizen-science apps, so coverage tracks where people (and phone cameras) are, not where organisms are. Treat any pattern you find as "difference in recorded occurrences" until you have reason to think it reflects a real ecological signal.
+
+The quick `occ_count()`/`occ_search()` calls above are fine for exploring, but are not a citable, reproducible snapshot -- GBIF's holdings change daily. For any real analysis, use `occ_download()` instead: it asks GBIF to assemble your exact record set and issues a DOI that pins the data and credits every contributing dataset. Cite that DOI, GBIF itself [@gbif], and the `rgbif` package [@rgbif].
+:::
+
+## 4. Federal spending data: USAspending.gov
+
+**Package:** `jsonlite` (talking to a REST API directly -- there is no dedicated USAspending R package)
+
+The Funding Ecological Science chapter builds agency budget comparisons this way:
+
+```r
+library(jsonlite)
+
+code <- "049"  # NSF's toptier agency code
+url <- paste0("https://api.usaspending.gov/api/v2/agency/", code, "/")
+result <- fromJSON(url)
+```
+
+`fromJSON()` fetches the URL and parses the response straight into an R list/data frame -- no separate download step. USAspending.gov needs no key and has no rate limit aggressive enough to matter for classroom use, but every agency has its own numeric "toptier code" (NSF is `049`), and some ecologically relevant agencies (NOAA, USGS, USFS, FWS) are *sub-agencies* without their own toptier code, so they have to be reached through their parent department instead.
+
+## 5. Grant-level data: NSF Award Search
+
+**Package:** `jsonlite`, same pattern as above, different host
+
+```r
+url <- "https://api.nsf.gov/services/v1/awards.json?keyword=biodiversity"
+nsf_result <- fromJSON(url)
+```
+
+This returns individual award records, including `fundsObligatedAmt` -- the funded amount for that specific grant. That is public; the PI's detailed line-item budget within the award is not, so do not expect (or need) more granularity than the award total.
+
+## Practical habits for working with live data
+
+**Save a snapshot when the data need to stay fixed, not when they are just large.** The book's own convention (see `01-computer-setup.qmd`) is that hand-built or one-time reference datasets live in `data/` and get read back in with `read_csv()`, rather than being rebuilt from a live source every render. Apply the same logic to your own project: if you need the numbers to be identical every time you re-run your script -- for a report, a manuscript, a comparison over time -- pull once, `write_csv()` the result into `data/`, and read *that* back in from then on. If you genuinely want "whatever is current right now," call the live API every time and skip the local copy.
+
+**Respect rate limits, even generous ones.** None of the five databases above will complain about the handful of queries a course assignment makes. That changes fast if you write a loop that queries thousands of times without pausing. If you are ever iterating over a long list (many species, many grid cells, many years), check the API's documentation for a stated rate limit and add a short `Sys.sleep()` between calls if one is not built into the package already.
+
+**An API key, when one is required, is not optional and not something to hardcode.** A few databases below (eBird, Movebank) require a free registration before you can query them at all. Store the key as an environment variable (an `.Renviron` file, never committed to git) rather than typing it directly into a script -- the same reason you would not paste a password into code that might end up on GitHub.
+
+**Cite the data, not just the package.** `library(rgbif)` gets you the records; it does not by itself credit the people who collected and digitized them. Most of these databases either issue a citable DOI for a specific pull (GBIF's `occ_download()`) or ask for a standard attribution string (check the database's own "how to cite" page). Get in the habit of copying that citation into your script or report at the same time you pull the data, not weeks later when you can no longer remember exactly what you queried.
+
+## Where to look next
+
+The five databases above are the ones this book actually puts you through. They are nowhere near the whole landscape. If you are looking for data for a class project, an independent study, or your own curiosity, these are worth knowing exist. Function names below are illustrative of what each package is *for*, not verified worked examples the way the sections above are -- read that package's own documentation before you build an assignment or a project around one.
+
+- **NEON (National Ecological Observatory Network)** -- standardized, continent-scale sensor and field data (climate, soil, vegetation, organisms) from ~80 U.S. sites. R access: the `neonUtilities` package.
+- **iNaturalist** -- citizen-science species observations with photos, often used alongside or instead of GBIF (which actually ingests research-grade iNaturalist records itself). R access: the `rinat` package, or GBIF directly.
+- **eBird** -- bird sightings, one of the largest citizen-science datasets in existence. R access: the `auk` or `rebird` packages; querying eBird's own API requires a free key.
+- **Movebank** -- GPS and satellite tracking data for individual tagged animals. R access: the `move` package; many datasets require the data owner's permission to download.
+- **NOAA climate and ocean data** -- weather station records, sea surface temperature, and related long-term monitoring data. R access: the `rnoaa` package.
+- **USA National Phenology Network (USA-NPN)** -- crowdsourced plant and animal phenology observations (leaf-out, flowering, migration) submitted through the Nature's Notebook program, nationwide. R access: the `rnpn` package, an actively maintained client for USA-NPN's own API.
+- **LTER Network and the Environmental Data Initiative (EDI)** -- curated, citable datasets from the U.S. Long Term Ecological Research sites and beyond, each with its own DOI. Two different entry points depending on what you want: `lterdatasampler` bundles a small set of real LTER datasets already cleaned up for teaching, ready to load with no API calls at all; `EDIutils` is a live API client for the full EDI repository (every published LTER dataset, not just the teaching subset), for when you know roughly what you are looking for and want to query it directly.
+- **Global Population Dynamics Database (GPDD)** -- long time series of population abundance across thousands of animal and plant populations worldwide, a classic source for population-ecology questions (population cycles, extinction risk, density dependence). Access has changed: the old `rgpdd` package talked to a database API that no longer exists and is now deprecated -- do not install it. Instead, download the data directly as csv files from its permanent home at the KNB (Knowledge Network for Biocomplexity) repository, DOI `10.5063/F1BZ63Z8`, and read them in with `read_csv()` like any other static dataset. A useful reminder that "public database" sometimes means "a DOI-cited file," not an API.
+- **RMBL Phenology Project** ([rmblphenologyproject.weebly.com](https://rmblphenologyproject.weebly.com/)) -- worth knowing as a contrast to the big federated databases above: a single, long-running field program at the Rocky Mountain Biological Laboratory in Gothic, Colorado, tracking flowering phenology in permanent plots for 150+ plant species since 1973, native bee communities since 2009, and climate/animal-arrival records since 1974. There is no live API or R package -- this is one research group's monitoring program, not a data service. Specific datasets from it have been published, tied to individual papers, through RMBL's own data catalog (rmbl.org) and through general-purpose repositories like OSF and Dryad. If a project idea points you toward a single well-known field site or long-term study rather than a global database, this is the kind of place you end up: search the study's own site or the paper's data-availability statement for a repository link and a DOI, rather than expecting a package.
+- **Dryad and other data repositories** -- data deposited alongside individual published papers, useful when you want the exact dataset behind a specific result rather than a whole live database.
+
+## A note on why some of this book's chapters use live queries and others use `data/`
+
+You may notice this book is inconsistent, on purpose: some chapters query a live database every time they render, and others read a fixed `.csv` from `data/`. That is not sloppiness -- it reflects the same choice described in "Practical habits" above, made deliberately for each chapter. A chapter built around teaching *how to query a live source* (BIEN, GBIF, USAspending, NSF) leaves the query live, so what you see is really happening in real time. A chapter that needed a small, specific, one-time dataset (inflation figures, a curated budget table) built it once and saved it to `data/`, so the numbers in the book do not drift out from under the prose describing them. When you design your own project, make that same choice deliberately, not by default.

@@ -19,6 +19,7 @@ misc/
 pedagogy/
 practice_problems/
 worcountfiles/
+site-snapshots/
 
 # Stale pre-"docs/" book output dir. _quarto.yml now sets
 # `output-dir: docs`, so `quarto render` no longer writes here at all --
