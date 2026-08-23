@@ -6,7 +6,7 @@ title: "Funding Ecological and Environmental Science: Following the Money"
 
 ## Goals
 
-In this assignment, you will
+In this chapter, you will
 
 * Identify the major federal agencies--and one major federal-to-state funding stream--that pay for ecological and environmental research.
 * Use R to pull live budget data directly from a government API, rather than a file someone else already cleaned for you.

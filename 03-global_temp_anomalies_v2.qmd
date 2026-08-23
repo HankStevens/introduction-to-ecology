@@ -5,7 +5,7 @@ title: "Physical Environment: A Fate of Earth"
 *...in which we reveal part of our climate reality.*
 
 ## Goals
-In this assignment, you will
+In this chapter, you will
 
 * Learn about the history of our perspective on global warming.
 *	Use R to display estimates of global temperature anomalies.

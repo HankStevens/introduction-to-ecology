@@ -10,12 +10,11 @@ book:
     tracking-id: "G-J0R6F7XN66"
   chapters:
     - index.qmd
-    - 00-AI-v4.qmd
+    - 00-thinking.qmd
     - 01-computer-setup.qmd
-    - thinking.qmd
     - 02-trees_and_people.qmd
     - 03-global_temp_anomalies_v2.qmd
-    - traits-physiology.qmd
+    - 04-traits-physiology.qmd
     - 05-extrapair_copulation.qmd
     - 06-DI-pop-growth-Claude.qmd
     - 07-structured-pop-growth_v2.qmd
@@ -24,14 +23,17 @@ book:
     - 10-mutualisms.qmd
     - 11-predator-prey-Claude.qmd
     - 13-diversity-forestgeo.qmd
-    - 13-diversity-gbif.qmd
+    - 14-diversity-gbif.qmd
     - 15-metabolic-ecology_v_2.qmd
     - 16-ecosystem-intro.qmd
     - funding-science.qmd
-    - career-skills-crosswalk.qmd
     - references.qmd
+  appendices:
+    - appendix_A_career-skills-crosswalk.qmd
+    - appendix_AI-v4.qmd
+    - appendix_public-databases.qmd
 
-bibliography: 
+bibliography:
     - local_refs.bib
    #- /Users/stevenmh/tidy.bib
    #- /Users/stevenmh/MyLibrary_zotero.bib #local_refs.bib
@@ -54,5 +56,4 @@ format:
       - \addtokomafont{disposition}{\rmfamily}
 
 editor: source
-
 

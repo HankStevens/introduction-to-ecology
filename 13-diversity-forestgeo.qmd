@@ -15,6 +15,8 @@ knitr::opts_chunk$set(message = FALSE, warning = FALSE)
 
 ## Goals
 
+In this chapter, you will,
+
 * Evaluate the consistency of the latitudinal gradient of species diversity.
 * Define species richness, evenness, and diversity, and explain why these are three different things.
 * Use a real forest-census data set to measure diversity, and to see why the number you get depends on how hard you looked.
@@ -25,7 +27,7 @@ knitr::opts_chunk$set(message = FALSE, warning = FALSE)
 
 ## Preparatory Steps
 
-1. Find out what you need for the deliverables (@sec-deliverables-diversity) **before** you start, including the parts you will sketch by hand and turn in.
+1. Find out what you need for the deliverables (@sec-deliverables-diversity-forestgeo) **before** you start, including the parts you will sketch by hand and turn in.
 2. Watch the video lectures on biodiversity and the latitudinal diversity gradient.
 3. Skim @davies2021 for one paragraph on what the ForestGEO network is. You do not need the details---just the idea that many forests around the world have been censused *the same way*.
 4. Install the `vegan` package once (instructions below). Everything else uses packages you already have.
@@ -286,7 +288,7 @@ Two things should jump out. First, the broad **latitudinal gradient**: the tempe
 The latitudinal-gradient hypothesis *deduced* a prediction (richness falls with latitude) and the data largely confirmed it. But Korup is a surprise the hypothesis did not predict. Now you reason **abductively**: what is the best explanation for a depauperate African tropics? Candidate explanations in the literature include a drier, more variable climate history (Pleistocene contractions of African rainforest), a smaller total area of lowland tropical forest on the continent, and higher past extinction. You do not have to settle this---you have to recognize that a good observation generates the *next* hypothesis, and to be able to say what data would help you choose among these explanations.
 :::
 
-## Deliverables {#sec-deliverables-diversity}
+## Deliverables {#sec-deliverables-diversity-forestgeo}
 
 Assemble the following into a single document and submit it online.
 

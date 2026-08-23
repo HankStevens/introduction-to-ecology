@@ -7,6 +7,15 @@ options(gargle_oauth_email = "stevenmh@miamioh.edu", message=FALSE)
 library(patchwork)
 ```
 
+## Goals
+
+In this chapter, you will,
+
+- Test Wilson's *biophilia* hypothesis --- that humans prefer greater connection to nature --- using real socioeconomic and tree-cover data.
+- Practice web-based, crowdsourced data collection: contribute your own city or location to a shared class Google Sheet using the Tree Equity Score and i-Tree/OurTrees platforms.
+- Graph and interpret the relationship between wealth (median income, percent poverty) and tree cover.
+- Consider what else, beyond wealth, might explain--or obscure--a relationship between people and tree cover.
+
 ## Background
 
 The types of places that organisms live--their habitats--depends on a variety factors. *Habitat selection*, the selection of particular habitats, results from real and perceived tradeoffs between the benefits from foraging and reproducing versus perceived risks of mortality [@stephens1986; @morin1999a]. 

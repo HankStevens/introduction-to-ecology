@@ -4,7 +4,9 @@ title: "Computer setup and first R script"
 
 ## Goals
 
-- Learn about your computer and how to organize its files. 
+In this chapter, you will,
+
+- Learn about your computer and how to organize its files.
 - Install R, an open source programming language.
 - Begin to use R effectively.
 

@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>15&nbsp; GBIF: Why are there so many species, and where? – Basic Ecological Concepts and Data in R</title>
+<title>14&nbsp; GBIF: Why are there so many species, and where? – Basic Ecological Concepts and Data in R</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -61,7 +61,26 @@ div.sourceCode
 @media screen {
 pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
@@ -138,7 +157,7 @@ h1, h2, h3, h4, h5, h6,
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./13-diversity-gbif.html"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">GBIF: Why are there so many species, and where?</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./14-diversity-gbif.html"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">GBIF: Why are there so many species, and where?</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -171,8 +190,8 @@ h1, h2, h3, h4, h5, h6,
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./00-AI-v4.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">AI and the Changing Landscape of Skills in Ecology</span></span></a>
+  <a href="./00-thinking.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Thinking about thinking about concepts</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -183,104 +202,92 @@ h1, h2, h3, h4, h5, h6,
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./thinking.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Thinking about thinking about concepts</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
   <a href="./02-trees_and_people.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Environmental Justice: How income relates to environment.</span></span></a>
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Environmental Justice: How income relates to environment.</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./03-global_temp_anomalies_v2.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Physical Environment: A Fate of Earth</span></span></a>
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Physical Environment: A Fate of Earth</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./traits-physiology.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Traits, Physiology, and the Global Spectrum of Plant Form and Function</span></span></a>
+  <a href="./04-traits-physiology.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Traits, Physiology, and the Global Spectrum of Plant Form and Function</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./05-extrapair_copulation.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Behavior: Extra-pair copulation in a monogamous species</span></span></a>
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Behavior: Extra-pair copulation in a monogamous species</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./06-DI-pop-growth-Claude.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Density-independent Population Growth: Humans on the rise</span></span></a>
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Density-independent Population Growth: Humans on the rise</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./07-structured-pop-growth_v2.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Structured demography: How a graduate student helped save the loggerhead sea turtle</span></span></a>
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Structured demography: How a graduate student helped save the loggerhead sea turtle</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./08-density-dep-pop-growth-Claude.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Density-dependence in population growth</span></span></a>
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Density-dependence in population growth</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./09-direct-interactions-Claude.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Direct species interactions: understanding mechanisms of invasion in mosquitoes</span></span></a>
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Direct species interactions: understanding mechanisms of invasion in mosquitoes</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./10-mutualisms.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Mutualisms: Do ants protect pea plants?</span></span></a>
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Mutualisms: Do ants protect pea plants?</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./11-predator-prey-Claude.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Of wolves and moose, on Isle Royale</span></span></a>
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Of wolves and moose, on Isle Royale</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./13-diversity-forestgeo.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">ForestGEO Community Ecology: Why are there so many tree species, and where?</span></span></a>
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">ForestGEO Community Ecology: Why are there so many tree species, and where?</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./13-diversity-gbif.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">GBIF: Why are there so many species, and where?</span></span></a>
+  <a href="./14-diversity-gbif.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">GBIF: Why are there so many species, and where?</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./15-metabolic-ecology_v_2.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Metabolic Ecology: How do body size and temperature affect nutrient cycling?</span></span></a>
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Metabolic Ecology: How do body size and temperature affect nutrient cycling?</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./16-ecosystem-intro.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">An Introduction to the Carbon Cycle and Global Heating</span></span></a>
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">An Introduction to the Carbon Cycle and Global Heating</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./funding-science.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Funding Ecological and Environmental Science: Following the Money</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./career-skills-crosswalk.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">From This Book to Your Résumé: A Skills Crosswalk</span></span></a>
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Funding Ecological and Environmental Science: Following the Money</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -289,6 +296,35 @@ h1, h2, h3, h4, h5, h6,
  <span class="menu-text">References</span></a>
   </div>
 </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Appendices</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./appendix_A_career-skills-crosswalk.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">From This Book to Your Résumé: A Skills Crosswalk</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./appendix_AI-v4.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">The Changing Landscape of Skills in Ecology</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./appendix_public-databases.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">C</span>&nbsp; <span class="chapter-title">Accessing Public Ecological Databases</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
     </ul>
     </div>
 </nav>
@@ -299,22 +335,22 @@ h1, h2, h3, h4, h5, h6,
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#goals" id="toc-goals" class="nav-link active" data-scroll-target="#goals"><span class="header-section-number">15.1</span> Goals</a></li>
-  <li><a href="#preparatory-steps" id="toc-preparatory-steps" class="nav-link" data-scroll-target="#preparatory-steps"><span class="header-section-number">15.2</span> Preparatory Steps</a></li>
-  <li><a href="#background" id="toc-background" class="nav-link" data-scroll-target="#background"><span class="header-section-number">15.3</span> Background</a>
+  <li><a href="#goals" id="toc-goals" class="nav-link active" data-scroll-target="#goals"><span class="header-section-number">14.1</span> Goals</a></li>
+  <li><a href="#preparatory-steps" id="toc-preparatory-steps" class="nav-link" data-scroll-target="#preparatory-steps"><span class="header-section-number">14.2</span> Preparatory Steps</a></li>
+  <li><a href="#background" id="toc-background" class="nav-link" data-scroll-target="#background"><span class="header-section-number">14.3</span> Background</a>
   <ul class="collapse">
-  <li><a href="#a-gold-standard-and-why-we-usually-cant-use-it" id="toc-a-gold-standard-and-why-we-usually-cant-use-it" class="nav-link" data-scroll-target="#a-gold-standard-and-why-we-usually-cant-use-it"><span class="header-section-number">15.3.1</span> A gold standard, and why we usually can’t use it</a></li>
-  <li><a href="#three-things-people-mean-by-diversity" id="toc-three-things-people-mean-by-diversity" class="nav-link" data-scroll-target="#three-things-people-mean-by-diversity"><span class="header-section-number">15.3.2</span> Three things people mean by “diversity”</a></li>
-  <li><a href="#richness-depends-on-how-hard-you-looked" id="toc-richness-depends-on-how-hard-you-looked" class="nav-link" data-scroll-target="#richness-depends-on-how-hard-you-looked"><span class="header-section-number">15.3.3</span> Richness depends on how hard you looked</a></li>
-  <li><a href="#the-latitudinal-diversity-gradientand-an-exception" id="toc-the-latitudinal-diversity-gradientand-an-exception" class="nav-link" data-scroll-target="#the-latitudinal-diversity-gradientand-an-exception"><span class="header-section-number">15.3.4</span> The latitudinal diversity gradient—and an exception</a></li>
+  <li><a href="#a-gold-standard-and-why-we-usually-cant-use-it" id="toc-a-gold-standard-and-why-we-usually-cant-use-it" class="nav-link" data-scroll-target="#a-gold-standard-and-why-we-usually-cant-use-it"><span class="header-section-number">14.3.1</span> A gold standard, and why we usually can’t use it</a></li>
+  <li><a href="#three-things-people-mean-by-diversity" id="toc-three-things-people-mean-by-diversity" class="nav-link" data-scroll-target="#three-things-people-mean-by-diversity"><span class="header-section-number">14.3.2</span> Three things people mean by “diversity”</a></li>
+  <li><a href="#richness-depends-on-how-hard-you-looked" id="toc-richness-depends-on-how-hard-you-looked" class="nav-link" data-scroll-target="#richness-depends-on-how-hard-you-looked"><span class="header-section-number">14.3.3</span> Richness depends on how hard you looked</a></li>
+  <li><a href="#the-latitudinal-diversity-gradientand-an-exception" id="toc-the-latitudinal-diversity-gradientand-an-exception" class="nav-link" data-scroll-target="#the-latitudinal-diversity-gradientand-an-exception"><span class="header-section-number">14.3.4</span> The latitudinal diversity gradient—and an exception</a></li>
   </ul></li>
-  <li><a href="#hypotheses-and-predictions" id="toc-hypotheses-and-predictions" class="nav-link" data-scroll-target="#hypotheses-and-predictions"><span class="header-section-number">15.4</span> Hypotheses and Predictions</a></li>
-  <li><a href="#get-r-ready-for-work" id="toc-get-r-ready-for-work" class="nav-link" data-scroll-target="#get-r-ready-for-work"><span class="header-section-number">15.5</span> Get R ready for work</a></li>
-  <li><a href="#q1-same-latitude-different-continents" id="toc-q1-same-latitude-different-continents" class="nav-link" data-scroll-target="#q1-same-latitude-different-continents"><span class="header-section-number">15.6</span> Q1 — Same latitude, different continents</a></li>
-  <li><a href="#q3-how-much-is-effort-rarefaction" id="toc-q3-how-much-is-effort-rarefaction" class="nav-link" data-scroll-target="#q3-how-much-is-effort-rarefaction"><span class="header-section-number">15.7</span> Q3 — How much is effort? Rarefaction</a></li>
-  <li><a href="#q2-the-gradient-done-right" id="toc-q2-the-gradient-done-right" class="nav-link" data-scroll-target="#q2-the-gradient-done-right"><span class="header-section-number">15.8</span> Q2 — The gradient, done right</a></li>
-  <li><a href="#sec-deliverables-diversity" id="toc-sec-deliverables-diversity" class="nav-link" data-scroll-target="#sec-deliverables-diversity"><span class="header-section-number">15.9</span> Deliverables</a></li>
-  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references"><span class="header-section-number">15.10</span> References</a></li>
+  <li><a href="#hypotheses-and-predictions" id="toc-hypotheses-and-predictions" class="nav-link" data-scroll-target="#hypotheses-and-predictions"><span class="header-section-number">14.4</span> Hypotheses and Predictions</a></li>
+  <li><a href="#get-r-ready-for-work" id="toc-get-r-ready-for-work" class="nav-link" data-scroll-target="#get-r-ready-for-work"><span class="header-section-number">14.5</span> Get R ready for work</a></li>
+  <li><a href="#q1-same-latitude-different-continents" id="toc-q1-same-latitude-different-continents" class="nav-link" data-scroll-target="#q1-same-latitude-different-continents"><span class="header-section-number">14.6</span> Q1 — Same latitude, different continents</a></li>
+  <li><a href="#q3-how-much-is-effort-rarefaction" id="toc-q3-how-much-is-effort-rarefaction" class="nav-link" data-scroll-target="#q3-how-much-is-effort-rarefaction"><span class="header-section-number">14.7</span> Q3 — How much is effort? Rarefaction</a></li>
+  <li><a href="#q2-the-gradient-done-right" id="toc-q2-the-gradient-done-right" class="nav-link" data-scroll-target="#q2-the-gradient-done-right"><span class="header-section-number">14.8</span> Q2 — The gradient, done right</a></li>
+  <li><a href="#sec-deliverables-diversity-gbif" id="toc-sec-deliverables-diversity-gbif" class="nav-link" data-scroll-target="#sec-deliverables-diversity-gbif"><span class="header-section-number">14.9</span> Deliverables</a></li>
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references"><span class="header-section-number">14.10</span> References</a></li>
   </ul>
 </nav>
     </div>
@@ -323,7 +359,7 @@ h1, h2, h3, h4, h5, h6,
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">GBIF: Why are there so many species, and where?</span></h1>
+<h1 class="title"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">GBIF: Why are there so many species, and where?</span></h1>
 </div>
 
 
@@ -347,12 +383,13 @@ h1, h2, h3, h4, h5, h6,
 <i class="callout-icon"></i>
 </div>
 <div class="callout-body-container">
-<p><strong>If you haven’t met these before:</strong> this chapter treats a <em>count</em> of individuals as a population size (the population-growth chapters) and reuses the log-transformation logic from the metabolic ecology chapter (<a href="15-metabolic-ecology_v_2.html" class="quarto-xref"><span>Chapter 16</span></a>). You can do this chapter on its own, but a glance back will help.</p>
+<p><strong>If you haven’t met these before:</strong> this chapter treats a <em>count</em> of individuals as a population size (the population-growth chapters) and reuses the log-transformation logic from the metabolic ecology chapter (<a href="15-metabolic-ecology_v_2.html" class="quarto-xref"><span>Chapter 15</span></a>). You can do this chapter on its own, but a glance back will help.</p>
 </div>
 </div>
 </div>
-<section id="goals" class="level2" data-number="15.1">
-<h2 data-number="15.1" class="anchored" data-anchor-id="goals"><span class="header-section-number">15.1</span> Goals</h2>
+<section id="goals" class="level2" data-number="14.1">
+<h2 data-number="14.1" class="anchored" data-anchor-id="goals"><span class="header-section-number">14.1</span> Goals</h2>
+<p>In this chapter, you will,</p>
 <ul>
 <li>Define species richness, evenness, and diversity, and explain why they are three different things.</li>
 <li>Pull real biodiversity data <strong>live</strong> from a public scientific data repository (GBIF) and measure diversity with it.</li>
@@ -361,25 +398,25 @@ h1, h2, h3, h4, h5, h6,
 </ul>
 <p><em>Time: ~3 h. Most students start the activity in one 80-minute class period and finish the deliverables at home. You need an internet connection.</em></p>
 </section>
-<section id="preparatory-steps" class="level2" data-number="15.2">
-<h2 data-number="15.2" class="anchored" data-anchor-id="preparatory-steps"><span class="header-section-number">15.2</span> Preparatory Steps</h2>
+<section id="preparatory-steps" class="level2" data-number="14.2">
+<h2 data-number="14.2" class="anchored" data-anchor-id="preparatory-steps"><span class="header-section-number">14.2</span> Preparatory Steps</h2>
 <ol type="1">
-<li>Find out what you need for the deliverables (<a href="#sec-deliverables-diversity" class="quarto-xref"><span>Section 15.9</span></a>) <strong>before</strong> you start, including the parts you will sketch by hand and turn in.</li>
+<li>Find out what you need for the deliverables (<a href="#sec-deliverables-diversity-gbif" class="quarto-xref"><span>Section 14.9</span></a>) <strong>before</strong> you start, including the parts you will sketch by hand and turn in.</li>
 <li>Watch the video lectures on biodiversity and the latitudinal diversity gradient.</li>
 <li>Open <a href="https://www.gbif.org">gbif.org</a> in a browser. Search for “Arecaceae” (the palm family) and look at the occurrence map. You are about to query that same database from R.</li>
 <li>Install the <code>rgbif</code> and <code>vegan</code> packages once (instructions below).</li>
 </ol>
 </section>
-<section id="background" class="level2" data-number="15.3">
-<h2 data-number="15.3" class="anchored" data-anchor-id="background"><span class="header-section-number">15.3</span> Background</h2>
+<section id="background" class="level2" data-number="14.3">
+<h2 data-number="14.3" class="anchored" data-anchor-id="background"><span class="header-section-number">14.3</span> Background</h2>
 <p>Walk into a forest in Ohio and you could learn most of the trees in an afternoon: a few oaks, some maples, hickory, beech, ash. Walk into a lowland forest in Colombia or Malaysia and you could spend a career and not finish. Why the enormous difference—and how would you measure it <em>fairly</em>, when one place hands you twenty species and another hands you eight hundred, and nobody counted either one the same way?</p>
-<section id="a-gold-standard-and-why-we-usually-cant-use-it" class="level3" data-number="15.3.1">
-<h3 data-number="15.3.1" class="anchored" data-anchor-id="a-gold-standard-and-why-we-usually-cant-use-it"><span class="header-section-number">15.3.1</span> A gold standard, and why we usually can’t use it</h3>
-<p>The cleanest way to compare forests is to measure them identically. That is what the <strong>Forest Global Earth Observatory (ForestGEO)</strong> does: in each of its large plots, every woody stem at least 1 cm in diameter is mapped, tagged, and identified, then re-measured every few years <span class="citation" data-cites="davies2021">(<a href="references.html#ref-davies2021" role="doc-biblioref"><strong>davies2021?</strong></a>)</span>. Effort is held constant, so a difference in the numbers is a difference in the <em>forests</em>.</p>
-<p>The catch is that there are only a few dozen such plots on Earth, and the data often require formal requests. Most of what humanity knows about <em>where</em> species live is not tidy plot censuses—it is hundreds of years of messy, uneven observations: museum specimens, herbarium sheets, naturalists’ notebooks, and now millions of smartphone photos. The <strong>Global Biodiversity Information Facility (GBIF)</strong> gathers those records into one searchable repository of more than two billion occurrences <span class="citation" data-cites="rgbif">(<a href="references.html#ref-rgbif" role="doc-biblioref"><strong>rgbif?</strong></a>)</span>. It is gloriously real, gloriously global, and gloriously <em>biased</em>—and learning to work with it honestly is one of the most valuable data skills in modern ecology.</p>
+<section id="a-gold-standard-and-why-we-usually-cant-use-it" class="level3" data-number="14.3.1">
+<h3 data-number="14.3.1" class="anchored" data-anchor-id="a-gold-standard-and-why-we-usually-cant-use-it"><span class="header-section-number">14.3.1</span> A gold standard, and why we usually can’t use it</h3>
+<p>The cleanest way to compare forests is to measure them identically. That is what the <strong>Forest Global Earth Observatory (ForestGEO)</strong> does: in each of its large plots, every woody stem at least 1 cm in diameter is mapped, tagged, and identified, then re-measured every few years <span class="citation" data-cites="davies2021">(<a href="references.html#ref-davies2021" role="doc-biblioref"><span class="nocase">Davies et al.</span> 2021</a>)</span>. Effort is held constant, so a difference in the numbers is a difference in the <em>forests</em>.</p>
+<p>The catch is that there are only a few dozen such plots on Earth, and the data often require formal requests. Most of what humanity knows about <em>where</em> species live is not tidy plot censuses—it is hundreds of years of messy, uneven observations: museum specimens, herbarium sheets, naturalists’ notebooks, and now millions of smartphone photos. The <strong>Global Biodiversity Information Facility (GBIF)</strong> gathers those records into one searchable repository of more than two billion occurrences <span class="citation" data-cites="rgbif">(<a href="references.html#ref-rgbif" role="doc-biblioref">Chamberlain et al. 2026</a>)</span>. It is gloriously real, gloriously global, and gloriously <em>biased</em>—and learning to work with it honestly is one of the most valuable data skills in modern ecology.</p>
 </section>
-<section id="three-things-people-mean-by-diversity" class="level3" data-number="15.3.2">
-<h3 data-number="15.3.2" class="anchored" data-anchor-id="three-things-people-mean-by-diversity"><span class="header-section-number">15.3.2</span> Three things people mean by “diversity”</h3>
+<section id="three-things-people-mean-by-diversity" class="level3" data-number="14.3.2">
+<h3 data-number="14.3.2" class="anchored" data-anchor-id="three-things-people-mean-by-diversity"><span class="header-section-number">14.3.2</span> Three things people mean by “diversity”</h3>
 <ul>
 <li><strong>Richness</strong> is the <em>number</em> of species present. It ignores how common each one is.</li>
 <li><strong>Evenness</strong> describes how equally individuals are spread among species.</li>
@@ -399,17 +436,17 @@ h1, h2, h3, h4, h5, h6,
 </div>
 </div>
 </section>
-<section id="richness-depends-on-how-hard-you-looked" class="level3" data-number="15.3.3">
-<h3 data-number="15.3.3" class="anchored" data-anchor-id="richness-depends-on-how-hard-you-looked"><span class="header-section-number">15.3.3</span> Richness depends on how hard you looked</h3>
-<p>Here is the uncomfortable part, and it is the heart of this chapter. Richness is not a fixed property you can read off a place like its temperature. The more you look, the more species you find, because rare species only appear once you have sampled enough to stumble onto them. In a ForestGEO plot, “how hard you looked” is fixed by protocol. In GBIF, it is wildly uneven: a well-studied national park in Europe may have a hundred thousand records, while an equally rich forest in central Africa has a few hundred—not because one is poorer, but because more people with more cameras have walked the first one. Comparing raw richness between them measures <em>researcher effort</em> at least as much as it measures <em>biology</em>. Ecologists deal with this using <strong>rarefaction</strong>: asking how many species you would expect if every place were sampled to the same number of records <span class="citation" data-cites="gotelli2001">(<a href="references.html#ref-gotelli2001" role="doc-biblioref"><strong>gotelli2001?</strong></a>)</span>. You will do this below, with real data.</p>
+<section id="richness-depends-on-how-hard-you-looked" class="level3" data-number="14.3.3">
+<h3 data-number="14.3.3" class="anchored" data-anchor-id="richness-depends-on-how-hard-you-looked"><span class="header-section-number">14.3.3</span> Richness depends on how hard you looked</h3>
+<p>Here is the uncomfortable part, and it is the heart of this chapter. Richness is not a fixed property you can read off a place like its temperature. The more you look, the more species you find, because rare species only appear once you have sampled enough to stumble onto them. In a ForestGEO plot, “how hard you looked” is fixed by protocol. In GBIF, it is wildly uneven: a well-studied national park in Europe may have a hundred thousand records, while an equally rich forest in central Africa has a few hundred—not because one is poorer, but because more people with more cameras have walked the first one. Comparing raw richness between them measures <em>researcher effort</em> at least as much as it measures <em>biology</em>. Ecologists deal with this using <strong>rarefaction</strong>: asking how many species you would expect if every place were sampled to the same number of records <span class="citation" data-cites="gotelli2001">(<a href="references.html#ref-gotelli2001" role="doc-biblioref">Gotelli and Colwell 2001</a>)</span>. You will do this below, with real data.</p>
 </section>
-<section id="the-latitudinal-diversity-gradientand-an-exception" class="level3" data-number="15.3.4">
-<h3 data-number="15.3.4" class="anchored" data-anchor-id="the-latitudinal-diversity-gradientand-an-exception"><span class="header-section-number">15.3.4</span> The latitudinal diversity gradient—and an exception</h3>
-<p>Across most groups of organisms, diversity rises from the poles toward the equator <span class="citation" data-cites="hillebrand2004">(<a href="references.html#ref-hillebrand2004" role="doc-biblioref"><strong>hillebrand2004?</strong></a>)</span>. Palms are a textbook case: there are essentially no wild palms in Canada and thousands in the equatorial tropics. But the tropics are not uniform. Mainland tropical <strong>Africa</strong> is strikingly <em>palm-poor</em> compared to equally wet, equally warm forests in tropical Asia and the Americas—a real biogeographic puzzle usually attributed to Africa’s drier, more turbulent climate history <span class="citation" data-cites="kissling2012">(<a href="references.html#ref-kissling2012" role="doc-biblioref"><strong>kissling2012?</strong></a>)</span>. A good theory of diversity has to explain both the broad gradient <em>and</em> its exceptions.</p>
+<section id="the-latitudinal-diversity-gradientand-an-exception" class="level3" data-number="14.3.4">
+<h3 data-number="14.3.4" class="anchored" data-anchor-id="the-latitudinal-diversity-gradientand-an-exception"><span class="header-section-number">14.3.4</span> The latitudinal diversity gradient—and an exception</h3>
+<p>Across most groups of organisms, diversity rises from the poles toward the equator <span class="citation" data-cites="hillebrand2004">(<a href="references.html#ref-hillebrand2004" role="doc-biblioref">Hillebrand 2004</a>)</span>. Palms are a textbook case: there are essentially no wild palms in Canada and thousands in the equatorial tropics. But the tropics are not uniform. Mainland tropical <strong>Africa</strong> is strikingly <em>palm-poor</em> compared to equally wet, equally warm forests in tropical Asia and the Americas—a real biogeographic puzzle usually attributed to Africa’s drier, more turbulent climate history <span class="citation" data-cites="kissling2012">(<a href="references.html#ref-kissling2012" role="doc-biblioref">Kissling et al. 2012</a>)</span>. A good theory of diversity has to explain both the broad gradient <em>and</em> its exceptions.</p>
 </section>
 </section>
-<section id="hypotheses-and-predictions" class="level2" data-number="15.4">
-<h2 data-number="15.4" class="anchored" data-anchor-id="hypotheses-and-predictions"><span class="header-section-number">15.4</span> Hypotheses and Predictions</h2>
+<section id="hypotheses-and-predictions" class="level2" data-number="14.4">
+<h2 data-number="14.4" class="anchored" data-anchor-id="hypotheses-and-predictions"><span class="header-section-number">14.4</span> Hypotheses and Predictions</h2>
 <p>We pursue three questions, each with its own logic.</p>
 <p><strong>Q1 (across continents):</strong> At roughly the <em>same</em> latitude, do equally tropical forests on different continents have the same palm richness? — an <strong>inductive</strong> look for a pattern.</p>
 <p><strong>Q2 (across latitudes):</strong> Does palm richness decline as we move away from the equator? — a <strong>deductive</strong> test of the latitudinal-gradient hypothesis.</p>
@@ -434,8 +471,8 @@ h1, h2, h3, h4, h5, h6,
 </div>
 </div>
 </section>
-<section id="get-r-ready-for-work" class="level2" data-number="15.5">
-<h2 data-number="15.5" class="anchored" data-anchor-id="get-r-ready-for-work"><span class="header-section-number">15.5</span> Get R ready for work</h2>
+<section id="get-r-ready-for-work" class="level2" data-number="14.5">
+<h2 data-number="14.5" class="anchored" data-anchor-id="get-r-ready-for-work"><span class="header-section-number">14.5</span> Get R ready for work</h2>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Run ONCE, then comment out.</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="fu">c</span>(<span class="st">"rgbif"</span>, <span class="st">"vegan"</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -465,8 +502,8 @@ h1, h2, h3, h4, h5, h6,
 </div>
 </div>
 </section>
-<section id="q1-same-latitude-different-continents" class="level2" data-number="15.6">
-<h2 data-number="15.6" class="anchored" data-anchor-id="q1-same-latitude-different-continents"><span class="header-section-number">15.6</span> Q1 — Same latitude, different continents</h2>
+<section id="q1-same-latitude-different-continents" class="level2" data-number="14.6">
+<h2 data-number="14.6" class="anchored" data-anchor-id="q1-same-latitude-different-continents"><span class="header-section-number">14.6</span> Q1 — Same latitude, different continents</h2>
 <p>We ask GBIF how many palm species have been recorded in each of several countries. Three of them—Colombia, Malaysia, Cameroon—sit at almost the same distance from the equator but on three different continents. We add Madagascar (an African island famous for endemic palms) and two temperate countries for contrast.</p>
 <p>The modern <code>occ_count()</code> returns one row per species when we facet on <code>speciesKey</code>, so the <em>number of rows</em> is the species richness.</p>
 <div class="cell">
@@ -498,12 +535,12 @@ h1, h2, h3, h4, h5, h6,
 <pre><code># A tibble: 6 × 5
   country        continent       abs_latitude richness records
   &lt;chr&gt;          &lt;chr&gt;                  &lt;dbl&gt;    &lt;int&gt;   &lt;dbl&gt;
-1 Colombia       S. America                 4      381  212092
-2 Malaysia       Asia                       4      503   14144
-3 Cameroon       Africa                     6       54    2047
-4 Madagascar     Africa (island)           19      235   11954
-5 United States  N. America                38      624   71099
-6 United Kingdom Europe                    54       87     703</code></pre>
+1 Colombia       S. America                 4      374  204700
+2 Malaysia       Asia                       4      508   14311
+3 Cameroon       Africa                     6       55    2054
+4 Madagascar     Africa (island)           19      238   12048
+5 United States  N. America                38      625   72975
+6 United Kingdom Europe                    54       85     711</code></pre>
 </div>
 </div>
 <div class="callout callout-style-default callout-note callout-titled">
@@ -534,10 +571,10 @@ h1, h2, h3, h4, h5, h6,
 <div id="fig-country-richness" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-country-richness-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="13-diversity-gbif_files/figure-html/fig-country-richness-1.png" class="img-fluid figure-img" width="672">
+<img src="14-diversity-gbif_files/figure-html/fig-country-richness-1.png" class="img-fluid figure-img" width="672">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-country-richness-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;15.1: Recorded palm species richness by country. The three left-hand bars sit at nearly the same latitude but on different continents.
+Figure&nbsp;14.1: Recorded palm species richness by country. The three left-hand bars sit at nearly the same latitude but on different continents.
 </figcaption>
 </figure>
 </div>
@@ -558,8 +595,8 @@ Figure&nbsp;15.1: Recorded palm species richness by country. The three left-hand
 </div>
 </div>
 </section>
-<section id="q3-how-much-is-effort-rarefaction" class="level2" data-number="15.7">
-<h2 data-number="15.7" class="anchored" data-anchor-id="q3-how-much-is-effort-rarefaction"><span class="header-section-number">15.7</span> Q3 — How much is effort? Rarefaction</h2>
+<section id="q3-how-much-is-effort-rarefaction" class="level2" data-number="14.7">
+<h2 data-number="14.7" class="anchored" data-anchor-id="q3-how-much-is-effort-rarefaction"><span class="header-section-number">14.7</span> Q3 — How much is effort? Rarefaction</h2>
 <p>Plot richness against effort directly. If richer countries are mostly the better-sampled ones, the points will climb together.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(countries, <span class="fu">aes</span>(<span class="at">x =</span> records, <span class="at">y =</span> richness, <span class="at">label =</span> country)) <span class="sc">+</span></span>
@@ -572,10 +609,10 @@ Figure&nbsp;15.1: Recorded palm species richness by country. The three left-hand
 <div id="fig-effort" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-effort-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="13-diversity-gbif_files/figure-html/fig-effort-1.png" class="img-fluid figure-img" width="672">
+<img src="14-diversity-gbif_files/figure-html/fig-effort-1.png" class="img-fluid figure-img" width="672">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-effort-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;15.2: Recorded richness rises with sampling effort (number of records). Raw richness is partly a map of where people have looked.
+Figure&nbsp;14.2: Recorded richness rises with sampling effort (number of records). Raw richness is partly a map of where people have looked.
 </figcaption>
 </figure>
 </div>
@@ -610,8 +647,8 @@ Figure&nbsp;15.2: Recorded richness rises with sampling effort (number of record
 <pre><code># A tibble: 2 × 3
   country  raw_species rarefied_species
   &lt;chr&gt;          &lt;int&gt;            &lt;dbl&gt;
-1 Colombia          85             70.0
-2 Cameroon          45             45  </code></pre>
+1 Colombia          98             79.8
+2 Cameroon          46             46  </code></pre>
 </div>
 </div>
 <div class="callout callout-style-default callout-tip callout-titled">
@@ -628,8 +665,8 @@ Figure&nbsp;15.2: Recorded richness rises with sampling effort (number of record
 </div>
 </div>
 </section>
-<section id="q2-the-gradient-done-right" class="level2" data-number="15.8">
-<h2 data-number="15.8" class="anchored" data-anchor-id="q2-the-gradient-done-right"><span class="header-section-number">15.8</span> Q2 — The gradient, done right</h2>
+<section id="q2-the-gradient-done-right" class="level2" data-number="14.8">
+<h2 data-number="14.8" class="anchored" data-anchor-id="q2-the-gradient-done-right"><span class="header-section-number">14.8</span> Q2 — The gradient, done right</h2>
 <p>Comparing whole countries confounds latitude with <em>area</em>: Brazil is enormous and the UK is small, and bigger areas hold more species regardless of latitude. To isolate latitude, query equal-sized boxes (10° × 10°) marching down the Americas, so area is held roughly constant and only latitude changes.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>boxes <span class="ot">&lt;-</span> <span class="fu">tribble</span>(</span>
@@ -663,11 +700,11 @@ Figure&nbsp;15.2: Recorded richness rises with sampling effort (number of record
 <pre><code># A tibble: 6 × 4
     lon   lat abs_latitude richness
   &lt;dbl&gt; &lt;dbl&gt;        &lt;dbl&gt;    &lt;int&gt;
-1  -110    50           50        4
+1  -110    50           50        3
 2  -100    35           35       60
 3  -100    20           20      102
-4   -75     5            5      383
-5   -70   -10           10      172
+4   -75     5            5      377
+5   -70   -10           10      173
 6   -60   -25           25       59</code></pre>
 </div>
 </div>
@@ -682,10 +719,10 @@ Figure&nbsp;15.2: Recorded richness rises with sampling effort (number of record
 <div id="fig-gradient" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-gradient-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="13-diversity-gbif_files/figure-html/fig-gradient-1.png" class="img-fluid figure-img" width="672">
+<img src="14-diversity-gbif_files/figure-html/fig-gradient-1.png" class="img-fluid figure-img" width="672">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-gradient-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;15.3: Palm species richness in equal-sized 10°×10° boxes vs.&nbsp;absolute latitude, with a fitted line.
+Figure&nbsp;14.3: Palm species richness in equal-sized 10°×10° boxes vs.&nbsp;absolute latitude, with a fitted line.
 </figcaption>
 </figure>
 </div>
@@ -698,15 +735,15 @@ Figure&nbsp;15.3: Palm species richness in equal-sized 10°×10° boxes vs.&nbsp
 <pre><code># A tibble: 2 × 5
   term         estimate std.error statistic p.value
   &lt;chr&gt;           &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;   &lt;dbl&gt;
-1 (Intercept)    296.       64.3       4.60  0.0100
-2 abs_latitude    -6.86      2.26     -3.04  0.0384</code></pre>
+1 (Intercept)    293.       62.4       4.70 0.00929
+2 abs_latitude    -6.80      2.19     -3.11 0.0360 </code></pre>
 </div>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">glance</span>(fit)    <span class="co"># r.squared: how much of the variation latitude explains</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 1 × 12
   r.squared adj.r.squared sigma statistic p.value    df logLik   AIC   BIC
       &lt;dbl&gt;         &lt;dbl&gt; &lt;dbl&gt;     &lt;dbl&gt;   &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
-1     0.698         0.622  83.5      9.24  0.0384     1  -33.8  73.7  73.1
+1     0.707         0.634  81.0      9.66  0.0360     1  -33.7  73.3  72.7
 # ℹ 3 more variables: deviance &lt;dbl&gt;, df.residual &lt;int&gt;, nobs &lt;int&gt;</code></pre>
 </div>
 </div>
@@ -728,13 +765,13 @@ Figure&nbsp;15.3: Palm species richness in equal-sized 10°×10° boxes vs.&nbsp
 </div>
 <p>The slope should be negative: palm richness falls as you leave the equator, exactly as the latitudinal-gradient hypothesis predicts—and now with area controlled, so you can believe it.</p>
 </section>
-<section id="sec-deliverables-diversity" class="level2" data-number="15.9">
-<h2 data-number="15.9" class="anchored" data-anchor-id="sec-deliverables-diversity"><span class="header-section-number">15.9</span> Deliverables</h2>
+<section id="sec-deliverables-diversity-gbif" class="level2" data-number="14.9">
+<h2 data-number="14.9" class="anchored" data-anchor-id="sec-deliverables-diversity-gbif"><span class="header-section-number">14.9</span> Deliverables</h2>
 <p>Assemble the following into a single document and submit it online.</p>
 <ol type="1">
 <li><p><strong>Your three hand-drawn predictions</strong> (richness vs.&nbsp;latitude; the three equatorial countries; richness vs.&nbsp;effort), photographed <em>before</em> you ran any code.</p></li>
 <li><p><strong>In your own words (2–3 sentences each):</strong> a. the difference between richness, evenness, and diversity; b. why GBIF richness reflects sampling effort, and what rarefaction does about it; c.&nbsp;why comparing whole countries confounds latitude with area.</p></li>
-<li><p><strong>Reproduce and include</strong> the country-richness figure (<a href="#fig-country-richness" class="quarto-xref">Figure&nbsp;<span>15.1</span></a>) and the gradient figure (<a href="#fig-gradient" class="quarto-xref">Figure&nbsp;<span>15.3</span></a>). For each, write one sentence comparing the real figure to your hand-drawn prediction, and <em>explain</em> any mismatch.</p></li>
+<li><p><strong>Reproduce and include</strong> the country-richness figure (<a href="#fig-country-richness" class="quarto-xref">Figure&nbsp;<span>14.1</span></a>) and the gradient figure (<a href="#fig-gradient" class="quarto-xref">Figure&nbsp;<span>14.3</span></a>). For each, write one sentence comparing the real figure to your hand-drawn prediction, and <em>explain</em> any mismatch.</p></li>
 <li><p><strong>The African anomaly.</strong> Using the <code>records</code> column and your rarefaction result, argue whether Cameroon’s low palm richness is mostly <em>biology</em> or mostly <em>under-sampling</em>. State one additional piece of evidence that would strengthen your case.</p></li>
 <li><p><strong>Oaks vs.&nbsp;palms.</strong> Re-run the country analysis for the oak family, <code>name_backbone(name = "Fagaceae")$usageKey</code>, across the same countries. Do oaks show the <em>same</em> latitudinal pattern as palms? In two or three sentences, explain what it means that “the latitudinal gradient” can point different directions for different groups.</p></li>
 <li><p><strong>Audit the machine.</strong> Below is a paragraph an AI chatbot produced when asked to summarize this chapter. It is fluent and mostly right, but contains at least one substantive error. Quote the offending sentence(s) and correct them:</p>
@@ -752,13 +789,13 @@ Figure&nbsp;15.3: Palm species richness in equal-sized 10°×10° boxes vs.&nbsp
 <i class="callout-icon"></i>
 </div>
 <div class="callout-body-container">
-<p><strong>Citing GBIF properly.</strong> The quick <code>occ_count()</code>/<code>occ_search()</code> calls here are perfect for learning but are not citable snapshots. For research, <code>rgbif</code>’s <code>occ_download()</code> workflow asks GBIF to assemble your exact records and issues a <strong>DOI</strong> that pins the data and credits every contributing dataset. Always cite that DOI plus GBIF itself <span class="citation" data-cites="gbif">(<a href="references.html#ref-gbif" role="doc-biblioref"><strong>gbif?</strong></a>)</span> and the <code>rgbif</code> package <span class="citation" data-cites="rgbif">(<a href="references.html#ref-rgbif" role="doc-biblioref"><strong>rgbif?</strong></a>)</span>.</p>
+<p><strong>Citing GBIF properly.</strong> The quick <code>occ_count()</code>/<code>occ_search()</code> calls here are perfect for learning but are not citable snapshots. For research, <code>rgbif</code>’s <code>occ_download()</code> workflow asks GBIF to assemble your exact records and issues a <strong>DOI</strong> that pins the data and credits every contributing dataset. Always cite that DOI plus GBIF itself <span class="citation" data-cites="gbif">(<a href="references.html#ref-gbif" role="doc-biblioref">GBIF.org 2026</a>)</span> and the <code>rgbif</code> package <span class="citation" data-cites="rgbif">(<a href="references.html#ref-rgbif" role="doc-biblioref">Chamberlain et al. 2026</a>)</span>.</p>
 </div>
 </div>
 </div>
 </section>
-<section id="references" class="level2" data-number="15.10">
-<h2 data-number="15.10" class="anchored" data-anchor-id="references"><span class="header-section-number">15.10</span> References</h2>
+<section id="references" class="level2" data-number="14.10">
+<h2 data-number="14.10" class="anchored" data-anchor-id="references"><span class="header-section-number">14.10</span> References</h2>
 <!--
 BibTeX entries to add to your .bib (verify keys against your Zotero export).
 
@@ -780,12 +817,32 @@ BibTeX entries to add to your .bib (verify keys against your Zotero export).
 <i class="callout-icon"></i>
 </div>
 <div class="callout-body-container">
-<p>This chapter cites <span class="citation" data-cites="davies2021">(<a href="references.html#ref-davies2021" role="doc-biblioref"><strong>davies2021?</strong></a>)</span>, <span class="citation" data-cites="hillebrand2004">(<a href="references.html#ref-hillebrand2004" role="doc-biblioref"><strong>hillebrand2004?</strong></a>)</span>, <span class="citation" data-cites="gotelli2001">(<a href="references.html#ref-gotelli2001" role="doc-biblioref"><strong>gotelli2001?</strong></a>)</span>, <span class="citation" data-cites="kissling2012">(<a href="references.html#ref-kissling2012" role="doc-biblioref"><strong>kissling2012?</strong></a>)</span>, the GBIF repository <span class="citation" data-cites="gbif">(<a href="references.html#ref-gbif" role="doc-biblioref"><strong>gbif?</strong></a>)</span>, and the <code>rgbif</code> package <span class="citation" data-cites="rgbif">(<a href="references.html#ref-rgbif" role="doc-biblioref"><strong>rgbif?</strong></a>)</span>. Full references appear in the book’s reference list once these keys are in your <code>.bib</code>.</p>
+<p>This chapter cites <span class="citation" data-cites="davies2021"><span class="nocase">Davies et al.</span> (<a href="references.html#ref-davies2021" role="doc-biblioref">2021</a>)</span>, <span class="citation" data-cites="hillebrand2004">Hillebrand (<a href="references.html#ref-hillebrand2004" role="doc-biblioref">2004</a>)</span>, <span class="citation" data-cites="gotelli2001">Gotelli and Colwell (<a href="references.html#ref-gotelli2001" role="doc-biblioref">2001</a>)</span>, <span class="citation" data-cites="kissling2012">Kissling et al. (<a href="references.html#ref-kissling2012" role="doc-biblioref">2012</a>)</span>, the GBIF repository <span class="citation" data-cites="gbif">(<a href="references.html#ref-gbif" role="doc-biblioref">GBIF.org 2026</a>)</span>, and the <code>rgbif</code> package <span class="citation" data-cites="rgbif">(<a href="references.html#ref-rgbif" role="doc-biblioref">Chamberlain et al. 2026</a>)</span>. Full references appear in the book’s reference list once these keys are in your <code>.bib</code>.</p>
 </div>
 </div>
 </div>
 
 
+<div id="refs" class="references csl-bib-body hanging-indent" role="list" style="display: none">
+<div id="ref-rgbif" class="csl-entry" role="listitem">
+Chamberlain, Scott, Vijay Barve, Dan Mcglinn, et al. 2026. <em>Rgbif: Interface to the Global Biodiversity Information Facility API</em>. <a href="https://docs.ropensci.org/rgbif/">https://docs.ropensci.org/rgbif/</a>.
+</div>
+<div id="ref-davies2021" class="csl-entry" role="listitem">
+<span class="nocase">Davies, Stuart J., Iveren Abiem, Kamariah Abu Salim, et al.</span> 2021. <span>“<span>ForestGEO</span>: Understanding Forest Diversity and Dynamics Through a Global Observatory Network.”</span> <em>Biological Conservation</em> 253: 108907. <a href="https://doi.org/10.1016/j.biocon.2020.108907">https://doi.org/10.1016/j.biocon.2020.108907</a>.
+</div>
+<div id="ref-gbif" class="csl-entry" role="listitem">
+GBIF.org. 2026. <em><span>GBIF</span>: The Global Biodiversity Information Facility</em>. <a href="https://www.gbif.org" class="uri">Https://www.gbif.org</a>.
+</div>
+<div id="ref-gotelli2001" class="csl-entry" role="listitem">
+Gotelli, Nicholas J., and Robert K. Colwell. 2001. <span>“Quantifying Biodiversity: Procedures and Pitfalls in the Measurement and Comparison of Species Richness.”</span> <em>Ecology Letters</em> 4 (4): 379–91. <a href="https://doi.org/10.1046/j.1461-0248.2001.00230.x">https://doi.org/10.1046/j.1461-0248.2001.00230.x</a>.
+</div>
+<div id="ref-hillebrand2004" class="csl-entry" role="listitem">
+Hillebrand, Helmut. 2004. <span>“On the Generality of the Latitudinal Diversity Gradient.”</span> <em>The American Naturalist</em> 163 (2): 192–211. <a href="https://doi.org/10.1086/381004">https://doi.org/10.1086/381004</a>.
+</div>
+<div id="ref-kissling2012" class="csl-entry" role="listitem">
+Kissling, W. Daniel, William J. Baker, Henrik Balslev, et al. 2012. <span>“Quaternary and Pre-Quaternary Historical Legacies in the Global Distribution of a Major Tropical Plant Lineage.”</span> <em>Global Ecology and Biogeography</em> 21 (9): 909–21. <a href="https://doi.org/10.1111/j.1466-8238.2011.00728.x">https://doi.org/10.1111/j.1466-8238.2011.00728.x</a>.
+</div>
+</div>
 </section>
 
 </main> <!-- /main -->
@@ -1192,12 +1249,12 @@ BibTeX entries to add to your .bib (verify keys against your Zotero export).
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
       <a href="./13-diversity-forestgeo.html" class="pagination-link" aria-label="ForestGEO Community Ecology: Why are there so many tree species, and where?">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">ForestGEO Community Ecology: Why are there so many tree species, and where?</span></span>
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">ForestGEO Community Ecology: Why are there so many tree species, and where?</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
       <a href="./15-metabolic-ecology_v_2.html" class="pagination-link" aria-label="Metabolic Ecology: How do body size and temperature affect nutrient cycling?">
-        <span class="nav-page-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Metabolic Ecology: How do body size and temperature affect nutrient cycling?</span></span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Metabolic Ecology: How do body size and temperature affect nutrient cycling?</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

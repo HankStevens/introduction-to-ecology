@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>14&nbsp; ForestGEO Community Ecology: Why are there so many tree species, and where? – Basic Ecological Concepts and Data in R</title>
+<title>13&nbsp; ForestGEO Community Ecology: Why are there so many tree species, and where? – Basic Ecological Concepts and Data in R</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -61,7 +61,26 @@ div.sourceCode
 @media screen {
 pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
@@ -71,7 +90,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./13-diversity-gbif.html" rel="next">
+<link href="./14-diversity-gbif.html" rel="next">
 <link href="./11-predator-prey-Claude.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
@@ -138,7 +157,7 @@ h1, h2, h3, h4, h5, h6,
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./13-diversity-forestgeo.html"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">ForestGEO Community Ecology: Why are there so many tree species, and where?</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./13-diversity-forestgeo.html"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">ForestGEO Community Ecology: Why are there so many tree species, and where?</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -171,8 +190,8 @@ h1, h2, h3, h4, h5, h6,
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./00-AI-v4.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">AI and the Changing Landscape of Skills in Ecology</span></span></a>
+  <a href="./00-thinking.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Thinking about thinking about concepts</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -183,104 +202,92 @@ h1, h2, h3, h4, h5, h6,
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./thinking.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Thinking about thinking about concepts</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
   <a href="./02-trees_and_people.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Environmental Justice: How income relates to environment.</span></span></a>
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Environmental Justice: How income relates to environment.</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./03-global_temp_anomalies_v2.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Physical Environment: A Fate of Earth</span></span></a>
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Physical Environment: A Fate of Earth</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./traits-physiology.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Traits, Physiology, and the Global Spectrum of Plant Form and Function</span></span></a>
+  <a href="./04-traits-physiology.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Traits, Physiology, and the Global Spectrum of Plant Form and Function</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./05-extrapair_copulation.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Behavior: Extra-pair copulation in a monogamous species</span></span></a>
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Behavior: Extra-pair copulation in a monogamous species</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./06-DI-pop-growth-Claude.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Density-independent Population Growth: Humans on the rise</span></span></a>
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Density-independent Population Growth: Humans on the rise</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./07-structured-pop-growth_v2.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Structured demography: How a graduate student helped save the loggerhead sea turtle</span></span></a>
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Structured demography: How a graduate student helped save the loggerhead sea turtle</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./08-density-dep-pop-growth-Claude.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Density-dependence in population growth</span></span></a>
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Density-dependence in population growth</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./09-direct-interactions-Claude.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Direct species interactions: understanding mechanisms of invasion in mosquitoes</span></span></a>
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Direct species interactions: understanding mechanisms of invasion in mosquitoes</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./10-mutualisms.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Mutualisms: Do ants protect pea plants?</span></span></a>
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Mutualisms: Do ants protect pea plants?</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./11-predator-prey-Claude.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Of wolves and moose, on Isle Royale</span></span></a>
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Of wolves and moose, on Isle Royale</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./13-diversity-forestgeo.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">ForestGEO Community Ecology: Why are there so many tree species, and where?</span></span></a>
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">ForestGEO Community Ecology: Why are there so many tree species, and where?</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./13-diversity-gbif.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">GBIF: Why are there so many species, and where?</span></span></a>
+  <a href="./14-diversity-gbif.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">GBIF: Why are there so many species, and where?</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./15-metabolic-ecology_v_2.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Metabolic Ecology: How do body size and temperature affect nutrient cycling?</span></span></a>
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Metabolic Ecology: How do body size and temperature affect nutrient cycling?</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./16-ecosystem-intro.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">An Introduction to the Carbon Cycle and Global Heating</span></span></a>
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">An Introduction to the Carbon Cycle and Global Heating</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./funding-science.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Funding Ecological and Environmental Science: Following the Money</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./career-skills-crosswalk.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">From This Book to Your Résumé: A Skills Crosswalk</span></span></a>
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Funding Ecological and Environmental Science: Following the Money</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -289,6 +296,35 @@ h1, h2, h3, h4, h5, h6,
  <span class="menu-text">References</span></a>
   </div>
 </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Appendices</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./appendix_A_career-skills-crosswalk.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">From This Book to Your Résumé: A Skills Crosswalk</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./appendix_AI-v4.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">The Changing Landscape of Skills in Ecology</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./appendix_public-databases.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">C</span>&nbsp; <span class="chapter-title">Accessing Public Ecological Databases</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
     </ul>
     </div>
 </nav>
@@ -299,27 +335,27 @@ h1, h2, h3, h4, h5, h6,
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#goals" id="toc-goals" class="nav-link active" data-scroll-target="#goals"><span class="header-section-number">14.1</span> Goals</a></li>
-  <li><a href="#preparatory-steps" id="toc-preparatory-steps" class="nav-link" data-scroll-target="#preparatory-steps"><span class="header-section-number">14.2</span> Preparatory Steps</a></li>
-  <li><a href="#background" id="toc-background" class="nav-link" data-scroll-target="#background"><span class="header-section-number">14.3</span> Background</a>
+  <li><a href="#goals" id="toc-goals" class="nav-link active" data-scroll-target="#goals"><span class="header-section-number">13.1</span> Goals</a></li>
+  <li><a href="#preparatory-steps" id="toc-preparatory-steps" class="nav-link" data-scroll-target="#preparatory-steps"><span class="header-section-number">13.2</span> Preparatory Steps</a></li>
+  <li><a href="#background" id="toc-background" class="nav-link" data-scroll-target="#background"><span class="header-section-number">13.3</span> Background</a>
   <ul class="collapse">
-  <li><a href="#three-things-people-mean-by-diversity" id="toc-three-things-people-mean-by-diversity" class="nav-link" data-scroll-target="#three-things-people-mean-by-diversity"><span class="header-section-number">14.3.1</span> Three things people mean by “diversity”</a></li>
-  <li><a href="#richness-depends-on-how-hard-you-looked" id="toc-richness-depends-on-how-hard-you-looked" class="nav-link" data-scroll-target="#richness-depends-on-how-hard-you-looked"><span class="header-section-number">14.3.2</span> Richness depends on how hard you looked</a></li>
-  <li><a href="#the-latitudinal-diversity-gradientand-an-exception" id="toc-the-latitudinal-diversity-gradientand-an-exception" class="nav-link" data-scroll-target="#the-latitudinal-diversity-gradientand-an-exception"><span class="header-section-number">14.3.3</span> The latitudinal diversity gradient—and an exception</a></li>
+  <li><a href="#three-things-people-mean-by-diversity" id="toc-three-things-people-mean-by-diversity" class="nav-link" data-scroll-target="#three-things-people-mean-by-diversity"><span class="header-section-number">13.3.1</span> Three things people mean by “diversity”</a></li>
+  <li><a href="#richness-depends-on-how-hard-you-looked" id="toc-richness-depends-on-how-hard-you-looked" class="nav-link" data-scroll-target="#richness-depends-on-how-hard-you-looked"><span class="header-section-number">13.3.2</span> Richness depends on how hard you looked</a></li>
+  <li><a href="#the-latitudinal-diversity-gradientand-an-exception" id="toc-the-latitudinal-diversity-gradientand-an-exception" class="nav-link" data-scroll-target="#the-latitudinal-diversity-gradientand-an-exception"><span class="header-section-number">13.3.3</span> The latitudinal diversity gradient—and an exception</a></li>
   </ul></li>
-  <li><a href="#hypotheses-and-predictions" id="toc-hypotheses-and-predictions" class="nav-link" data-scroll-target="#hypotheses-and-predictions"><span class="header-section-number">14.4</span> Hypotheses and Predictions</a></li>
-  <li><a href="#get-r-ready-for-work" id="toc-get-r-ready-for-work" class="nav-link" data-scroll-target="#get-r-ready-for-work"><span class="header-section-number">14.5</span> Get R ready for work</a></li>
-  <li><a href="#measuring-diversity-at-bci" id="toc-measuring-diversity-at-bci" class="nav-link" data-scroll-target="#measuring-diversity-at-bci"><span class="header-section-number">14.6</span> Measuring diversity at BCI</a>
+  <li><a href="#hypotheses-and-predictions" id="toc-hypotheses-and-predictions" class="nav-link" data-scroll-target="#hypotheses-and-predictions"><span class="header-section-number">13.4</span> Hypotheses and Predictions</a></li>
+  <li><a href="#get-r-ready-for-work" id="toc-get-r-ready-for-work" class="nav-link" data-scroll-target="#get-r-ready-for-work"><span class="header-section-number">13.5</span> Get R ready for work</a></li>
+  <li><a href="#measuring-diversity-at-bci" id="toc-measuring-diversity-at-bci" class="nav-link" data-scroll-target="#measuring-diversity-at-bci"><span class="header-section-number">13.6</span> Measuring diversity at BCI</a>
   <ul class="collapse">
-  <li><a href="#richness-plot-by-plot" id="toc-richness-plot-by-plot" class="nav-link" data-scroll-target="#richness-plot-by-plot"><span class="header-section-number">14.6.1</span> Richness, plot by plot</a></li>
-  <li><a href="#evenness-and-the-rankabundance-curve" id="toc-evenness-and-the-rankabundance-curve" class="nav-link" data-scroll-target="#evenness-and-the-rankabundance-curve"><span class="header-section-number">14.6.2</span> Evenness and the rank–abundance curve</a></li>
-  <li><a href="#one-number-shannon-and-simpson-diversity" id="toc-one-number-shannon-and-simpson-diversity" class="nav-link" data-scroll-target="#one-number-shannon-and-simpson-diversity"><span class="header-section-number">14.6.3</span> One number: Shannon and Simpson diversity</a></li>
-  <li><a href="#rarefaction-comparing-fairly" id="toc-rarefaction-comparing-fairly" class="nav-link" data-scroll-target="#rarefaction-comparing-fairly"><span class="header-section-number">14.6.4</span> Rarefaction: comparing fairly</a></li>
-  <li><a href="#does-richness-just-track-the-number-of-stems" id="toc-does-richness-just-track-the-number-of-stems" class="nav-link" data-scroll-target="#does-richness-just-track-the-number-of-stems"><span class="header-section-number">14.6.5</span> Does richness just track the number of stems?</a></li>
+  <li><a href="#richness-plot-by-plot" id="toc-richness-plot-by-plot" class="nav-link" data-scroll-target="#richness-plot-by-plot"><span class="header-section-number">13.6.1</span> Richness, plot by plot</a></li>
+  <li><a href="#evenness-and-the-rankabundance-curve" id="toc-evenness-and-the-rankabundance-curve" class="nav-link" data-scroll-target="#evenness-and-the-rankabundance-curve"><span class="header-section-number">13.6.2</span> Evenness and the rank–abundance curve</a></li>
+  <li><a href="#one-number-shannon-and-simpson-diversity" id="toc-one-number-shannon-and-simpson-diversity" class="nav-link" data-scroll-target="#one-number-shannon-and-simpson-diversity"><span class="header-section-number">13.6.3</span> One number: Shannon and Simpson diversity</a></li>
+  <li><a href="#rarefaction-comparing-fairly" id="toc-rarefaction-comparing-fairly" class="nav-link" data-scroll-target="#rarefaction-comparing-fairly"><span class="header-section-number">13.6.4</span> Rarefaction: comparing fairly</a></li>
+  <li><a href="#does-richness-just-track-the-number-of-stems" id="toc-does-richness-just-track-the-number-of-stems" class="nav-link" data-scroll-target="#does-richness-just-track-the-number-of-stems"><span class="header-section-number">13.6.5</span> Does richness just track the number of stems?</a></li>
   </ul></li>
-  <li><a href="#comparing-forests-across-the-globe" id="toc-comparing-forests-across-the-globe" class="nav-link" data-scroll-target="#comparing-forests-across-the-globe"><span class="header-section-number">14.7</span> Comparing forests across the globe</a></li>
-  <li><a href="#sec-deliverables-diversity" id="toc-sec-deliverables-diversity" class="nav-link" data-scroll-target="#sec-deliverables-diversity"><span class="header-section-number">14.8</span> Deliverables</a></li>
-  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references"><span class="header-section-number">14.9</span> References</a></li>
+  <li><a href="#comparing-forests-across-the-globe" id="toc-comparing-forests-across-the-globe" class="nav-link" data-scroll-target="#comparing-forests-across-the-globe"><span class="header-section-number">13.7</span> Comparing forests across the globe</a></li>
+  <li><a href="#sec-deliverables-diversity-forestgeo" id="toc-sec-deliverables-diversity-forestgeo" class="nav-link" data-scroll-target="#sec-deliverables-diversity-forestgeo"><span class="header-section-number">13.8</span> Deliverables</a></li>
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references"><span class="header-section-number">13.9</span> References</a></li>
   </ul>
 </nav>
     </div>
@@ -328,7 +364,7 @@ h1, h2, h3, h4, h5, h6,
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">ForestGEO Community Ecology: Why are there so many tree species, and where?</span></h1>
+<h1 class="title"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">ForestGEO Community Ecology: Why are there so many tree species, and where?</span></h1>
 </div>
 
 
@@ -352,12 +388,13 @@ h1, h2, h3, h4, h5, h6,
 <i class="callout-icon"></i>
 </div>
 <div class="callout-body-container">
-<p><strong>If you haven’t met these before:</strong> this chapter uses ideas about counting and comparing populations from the population-growth chapters (a <em>count</em> of stems is just population size), and the log-transformation logic from the metabolic ecology chapter (<a href="15-metabolic-ecology_v_2.html" class="quarto-xref"><span>Chapter 16</span></a>). You can do this chapter without having finished those, but a glance back will help.</p>
+<p><strong>If you haven’t met these before:</strong> this chapter uses ideas about counting and comparing populations from the population-growth chapters (a <em>count</em> of stems is just population size), and the log-transformation logic from the metabolic ecology chapter (<a href="15-metabolic-ecology_v_2.html" class="quarto-xref"><span>Chapter 15</span></a>). You can do this chapter without having finished those, but a glance back will help.</p>
 </div>
 </div>
 </div>
-<section id="goals" class="level2" data-number="14.1">
-<h2 data-number="14.1" class="anchored" data-anchor-id="goals"><span class="header-section-number">14.1</span> Goals</h2>
+<section id="goals" class="level2" data-number="13.1">
+<h2 data-number="13.1" class="anchored" data-anchor-id="goals"><span class="header-section-number">13.1</span> Goals</h2>
+<p>In this chapter, you will,</p>
 <ul>
 <li>Evaluate the consistency of the latitudinal gradient of species diversity.</li>
 <li>Define species richness, evenness, and diversity, and explain why these are three different things.</li>
@@ -367,21 +404,21 @@ h1, h2, h3, h4, h5, h6,
 </ul>
 <p><em>Time: ~2–3 h. Most students start the activity in one 80-minute class period and finish the deliverables at home.</em></p>
 </section>
-<section id="preparatory-steps" class="level2" data-number="14.2">
-<h2 data-number="14.2" class="anchored" data-anchor-id="preparatory-steps"><span class="header-section-number">14.2</span> Preparatory Steps</h2>
+<section id="preparatory-steps" class="level2" data-number="13.2">
+<h2 data-number="13.2" class="anchored" data-anchor-id="preparatory-steps"><span class="header-section-number">13.2</span> Preparatory Steps</h2>
 <ol type="1">
-<li>Find out what you need for the deliverables (<a href="13-diversity-gbif.html#sec-deliverables-diversity" class="quarto-xref"><span>Section 15.9</span></a>) <strong>before</strong> you start, including the parts you will sketch by hand and turn in.</li>
+<li>Find out what you need for the deliverables (<a href="#sec-deliverables-diversity-forestgeo" class="quarto-xref"><span>Section 13.8</span></a>) <strong>before</strong> you start, including the parts you will sketch by hand and turn in.</li>
 <li>Watch the video lectures on biodiversity and the latitudinal diversity gradient.</li>
-<li>Skim <span class="citation" data-cites="davies2021">(<a href="references.html#ref-davies2021" role="doc-biblioref"><strong>davies2021?</strong></a>)</span> for one paragraph on what the ForestGEO network is. You do not need the details—just the idea that many forests around the world have been censused <em>the same way</em>.</li>
+<li>Skim <span class="citation" data-cites="davies2021"><span class="nocase">Davies et al.</span> (<a href="references.html#ref-davies2021" role="doc-biblioref">2021</a>)</span> for one paragraph on what the ForestGEO network is. You do not need the details—just the idea that many forests around the world have been censused <em>the same way</em>.</li>
 <li>Install the <code>vegan</code> package once (instructions below). Everything else uses packages you already have.</li>
 </ol>
 </section>
-<section id="background" class="level2" data-number="14.3">
-<h2 data-number="14.3" class="anchored" data-anchor-id="background"><span class="header-section-number">14.3</span> Background</h2>
+<section id="background" class="level2" data-number="13.3">
+<h2 data-number="13.3" class="anchored" data-anchor-id="background"><span class="header-section-number">13.3</span> Background</h2>
 <p>Walk into a forest in Ohio and you might learn most of the trees in an afternoon: a few oaks, some maples, hickory, beech, ash. Walk into a lowland forest in Panama or Malaysia and you could spend a career and not finish. Why the enormous difference? And how would you even <em>measure</em> it fairly, when one forest hands you twenty species and another hands you eight hundred?</p>
-<p>To compare forests honestly, ecologists needed forests measured the same way. That is exactly what the <strong>Forest Global Earth Observatory (ForestGEO)</strong> provides. Beginning with a single 50-hectare plot on Barro Colorado Island (BCI) in Panama in 1980, the network has grown to dozens of large forest dynamics plots spread across the world’s major forests <span class="citation" data-cites="davies2021">(<a href="references.html#ref-davies2021" role="doc-biblioref"><strong>davies2021?</strong></a>)</span>. In every plot, field crews follow the same protocol: every free-standing woody stem at least 1 cm in diameter is mapped, tagged, identified to species, and then <em>re-measured</em> every five years or so <span class="citation" data-cites="anderson-teixeira2015">(<a href="references.html#ref-anderson-teixeira2015" role="doc-biblioref"><strong>anderson-teixeira2015?</strong></a>)</span>. A single 50-ha plot can hold a few hundred thousand individual trees. Because the protocol is identical across continents, a difference in the numbers reflects a difference in the <em>forests</em>, not a difference in the <em>method</em>.</p>
-<section id="three-things-people-mean-by-diversity" class="level3" data-number="14.3.1">
-<h3 data-number="14.3.1" class="anchored" data-anchor-id="three-things-people-mean-by-diversity"><span class="header-section-number">14.3.1</span> Three things people mean by “diversity”</h3>
+<p>To compare forests honestly, ecologists needed forests measured the same way. That is exactly what the <strong>Forest Global Earth Observatory (ForestGEO)</strong> provides. Beginning with a single 50-hectare plot on Barro Colorado Island (BCI) in Panama in 1980, the network has grown to dozens of large forest dynamics plots spread across the world’s major forests <span class="citation" data-cites="davies2021">(<a href="references.html#ref-davies2021" role="doc-biblioref"><span class="nocase">Davies et al.</span> 2021</a>)</span>. In every plot, field crews follow the same protocol: every free-standing woody stem at least 1 cm in diameter is mapped, tagged, identified to species, and then <em>re-measured</em> every five years or so <span class="citation" data-cites="anderson-teixeira2015">(<a href="references.html#ref-anderson-teixeira2015" role="doc-biblioref"><span class="nocase">Anderson-Teixeira et al.</span> 2015</a>)</span>. A single 50-ha plot can hold a few hundred thousand individual trees. Because the protocol is identical across continents, a difference in the numbers reflects a difference in the <em>forests</em>, not a difference in the <em>method</em>.</p>
+<section id="three-things-people-mean-by-diversity" class="level3" data-number="13.3.1">
+<h3 data-number="13.3.1" class="anchored" data-anchor-id="three-things-people-mean-by-diversity"><span class="header-section-number">13.3.1</span> Three things people mean by “diversity”</h3>
 <p>“Diversity” is used loosely in conversation, but it bundles together at least three distinct ideas, and confusing them is one of the most common mistakes in ecology.</p>
 <ul>
 <li><strong>Richness</strong> is simply the <em>number</em> of species present. It ignores how common each one is. A forest with 100 species, 99 of them represented by a single tree, has the same richness as a forest with 100 evenly abundant species.</li>
@@ -402,18 +439,18 @@ h1, h2, h3, h4, h5, h6,
 </div>
 </div>
 </section>
-<section id="richness-depends-on-how-hard-you-looked" class="level3" data-number="14.3.2">
-<h3 data-number="14.3.2" class="anchored" data-anchor-id="richness-depends-on-how-hard-you-looked"><span class="header-section-number">14.3.2</span> Richness depends on how hard you looked</h3>
-<p>Here is the uncomfortable part. Richness is not a fixed property you can read off a forest like its temperature. The more individuals you count, the more species you find, because rare species only show up once you have sampled enough trees to stumble onto them. Census 1 hectare at BCI and you find about 168 tree species; census all 50 hectares and you find roughly 300 <span class="citation" data-cites="condit1996">(<a href="references.html#ref-condit1996" role="doc-biblioref"><strong>condit1996?</strong></a>)</span>. The forest did not change—your <em>sample</em> got bigger.</p>
-<p>This is the <strong>species–accumulation</strong> (or species–area) relationship, and it means two numbers are only comparable if they come from the same amount of effort. Comparing “168 species” from a 1-ha plot to “493 species” from a 50-ha plot tells you almost nothing, because the second number had fifty times the chance to find rarities. Ecologists handle this with <strong>rarefaction</strong>: ask how many species you would <em>expect</em> if every sample were thinned to the same number of individuals <span class="citation" data-cites="gotelli2001">(<a href="references.html#ref-gotelli2001" role="doc-biblioref"><strong>gotelli2001?</strong></a>)</span>. You will do this below.</p>
+<section id="richness-depends-on-how-hard-you-looked" class="level3" data-number="13.3.2">
+<h3 data-number="13.3.2" class="anchored" data-anchor-id="richness-depends-on-how-hard-you-looked"><span class="header-section-number">13.3.2</span> Richness depends on how hard you looked</h3>
+<p>Here is the uncomfortable part. Richness is not a fixed property you can read off a forest like its temperature. The more individuals you count, the more species you find, because rare species only show up once you have sampled enough trees to stumble onto them. Census 1 hectare at BCI and you find about 168 tree species; census all 50 hectares and you find roughly 300 <span class="citation" data-cites="condit1996">(<a href="references.html#ref-condit1996" role="doc-biblioref">Condit et al. 1996</a>)</span>. The forest did not change—your <em>sample</em> got bigger.</p>
+<p>This is the <strong>species–accumulation</strong> (or species–area) relationship, and it means two numbers are only comparable if they come from the same amount of effort. Comparing “168 species” from a 1-ha plot to “493 species” from a 50-ha plot tells you almost nothing, because the second number had fifty times the chance to find rarities. Ecologists handle this with <strong>rarefaction</strong>: ask how many species you would <em>expect</em> if every sample were thinned to the same number of individuals <span class="citation" data-cites="gotelli2001">(<a href="references.html#ref-gotelli2001" role="doc-biblioref">Gotelli and Colwell 2001</a>)</span>. You will do this below.</p>
 </section>
-<section id="the-latitudinal-diversity-gradientand-an-exception" class="level3" data-number="14.3.3">
-<h3 data-number="14.3.3" class="anchored" data-anchor-id="the-latitudinal-diversity-gradientand-an-exception"><span class="header-section-number">14.3.3</span> The latitudinal diversity gradient—and an exception</h3>
-<p>Across most groups of organisms, diversity rises as you move from the poles toward the equator <span class="citation" data-cites="hillebrand2004">(<a href="references.html#ref-hillebrand2004" role="doc-biblioref"><strong>hillebrand2004?</strong></a>)</span>. Tropical forests are the headline example. But the tropics are not uniform. Compared per hectare, lowland forests in the Neotropics and Southeast Asia are staggeringly rich, while African rainforests are consistently <em>less</em> rich—a pattern old enough that ecologists once called Africa “the odd man out” <span class="citation" data-cites="kenfack2007">(<a href="references.html#ref-kenfack2007" role="doc-biblioref"><strong>kenfack2007?</strong></a>)</span>. The 50-ha plot at Korup in Cameroon holds about 493 tree species among more than 329,000 individuals—extraordinary by temperate standards, yet well below comparable Asian and Neotropical plots censused the same way <span class="citation" data-cites="kenfack2007">(<a href="references.html#ref-kenfack2007" role="doc-biblioref"><strong>kenfack2007?</strong></a>)</span>. A good theory of diversity has to explain both the broad gradient <em>and</em> its exceptions.</p>
+<section id="the-latitudinal-diversity-gradientand-an-exception" class="level3" data-number="13.3.3">
+<h3 data-number="13.3.3" class="anchored" data-anchor-id="the-latitudinal-diversity-gradientand-an-exception"><span class="header-section-number">13.3.3</span> The latitudinal diversity gradient—and an exception</h3>
+<p>Across most groups of organisms, diversity rises as you move from the poles toward the equator <span class="citation" data-cites="hillebrand2004">(<a href="references.html#ref-hillebrand2004" role="doc-biblioref">Hillebrand 2004</a>)</span>. Tropical forests are the headline example. But the tropics are not uniform. Compared per hectare, lowland forests in the Neotropics and Southeast Asia are staggeringly rich, while African rainforests are consistently <em>less</em> rich—a pattern old enough that ecologists once called Africa “the odd man out” <span class="citation" data-cites="kenfack2007">(<a href="references.html#ref-kenfack2007" role="doc-biblioref">Kenfack et al. 2007</a>)</span>. The 50-ha plot at Korup in Cameroon holds about 493 tree species among more than 329,000 individuals—extraordinary by temperate standards, yet well below comparable Asian and Neotropical plots censused the same way <span class="citation" data-cites="kenfack2007">(<a href="references.html#ref-kenfack2007" role="doc-biblioref">Kenfack et al. 2007</a>)</span>. A good theory of diversity has to explain both the broad gradient <em>and</em> its exceptions.</p>
 </section>
 </section>
-<section id="hypotheses-and-predictions" class="level2" data-number="14.4">
-<h2 data-number="14.4" class="anchored" data-anchor-id="hypotheses-and-predictions"><span class="header-section-number">14.4</span> Hypotheses and Predictions</h2>
+<section id="hypotheses-and-predictions" class="level2" data-number="13.4">
+<h2 data-number="13.4" class="anchored" data-anchor-id="hypotheses-and-predictions"><span class="header-section-number">13.4</span> Hypotheses and Predictions</h2>
 <p>We will pursue two questions, each with its own logic.</p>
 <p><strong>Question 1 (within one forest):</strong> How is diversity structured at BCI—are species roughly equal in abundance, or are a few common and most rare?</p>
 <p>This is an <strong>inductive</strong> question: we will let a large, carefully collected data set reveal a pattern, rather than deducing the pattern from a model first.</p>
@@ -439,8 +476,8 @@ h1, h2, h3, h4, h5, h6,
 </div>
 </div>
 </section>
-<section id="get-r-ready-for-work" class="level2" data-number="14.5">
-<h2 data-number="14.5" class="anchored" data-anchor-id="get-r-ready-for-work"><span class="header-section-number">14.5</span> Get R ready for work</h2>
+<section id="get-r-ready-for-work" class="level2" data-number="13.5">
+<h2 data-number="13.5" class="anchored" data-anchor-id="get-r-ready-for-work"><span class="header-section-number">13.5</span> Get R ready for work</h2>
 <p>We use the <code>vegan</code> package, the standard toolkit for community ecology in R, together with the tidyverse and <code>broom</code>. <code>vegan</code> ships with the <strong>BCI</strong> data set: counts of tree species in fifty 1-hectare plots from the Barro Colorado Island census—real data, already in R, so nothing can break or go offline.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Run this ONCE, then comment it out.</span></span>
@@ -491,10 +528,10 @@ h1, h2, h3, h4, h5, h6,
 </div>
 </div>
 </section>
-<section id="measuring-diversity-at-bci" class="level2" data-number="14.6">
-<h2 data-number="14.6" class="anchored" data-anchor-id="measuring-diversity-at-bci"><span class="header-section-number">14.6</span> Measuring diversity at BCI</h2>
-<section id="richness-plot-by-plot" class="level3" data-number="14.6.1">
-<h3 data-number="14.6.1" class="anchored" data-anchor-id="richness-plot-by-plot"><span class="header-section-number">14.6.1</span> Richness, plot by plot</h3>
+<section id="measuring-diversity-at-bci" class="level2" data-number="13.6">
+<h2 data-number="13.6" class="anchored" data-anchor-id="measuring-diversity-at-bci"><span class="header-section-number">13.6</span> Measuring diversity at BCI</h2>
+<section id="richness-plot-by-plot" class="level3" data-number="13.6.1">
+<h3 data-number="13.6.1" class="anchored" data-anchor-id="richness-plot-by-plot"><span class="header-section-number">13.6.1</span> Richness, plot by plot</h3>
 <p><code>specnumber()</code> counts the species present (abundance &gt; 0) in each plot.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>richness <span class="ot">&lt;-</span> <span class="fu">specnumber</span>(BCI)     <span class="co"># one richness value per 1-ha plot</span></span>
@@ -517,7 +554,7 @@ h1, h2, h3, h4, h5, h6,
 <img src="13-diversity-forestgeo_files/figure-html/fig-richness-hist-1.png" class="img-fluid figure-img" width="672">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-richness-hist-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;14.1: Distribution of tree species richness across the fifty 1-ha BCI plots.
+Figure&nbsp;13.1: Distribution of tree species richness across the fifty 1-ha BCI plots.
 </figcaption>
 </figure>
 </div>
@@ -525,8 +562,8 @@ Figure&nbsp;14.1: Distribution of tree species richness across the fifty 1-ha BC
 </div>
 <p>Notice that even within a single 50-ha forest, 1-ha richness varies from plot to plot. Diversity is patchy at small scales.</p>
 </section>
-<section id="evenness-and-the-rankabundance-curve" class="level3" data-number="14.6.2">
-<h3 data-number="14.6.2" class="anchored" data-anchor-id="evenness-and-the-rankabundance-curve"><span class="header-section-number">14.6.2</span> Evenness and the rank–abundance curve</h3>
+<section id="evenness-and-the-rankabundance-curve" class="level3" data-number="13.6.2">
+<h3 data-number="13.6.2" class="anchored" data-anchor-id="evenness-and-the-rankabundance-curve"><span class="header-section-number">13.6.2</span> Evenness and the rank–abundance curve</h3>
 <p>To <em>see</em> evenness, pool all 50 plots, sort species from most to least abundant, and plot abundance against rank. This is a <strong>Whittaker (rank–abundance) plot</strong>.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>pooled <span class="ot">&lt;-</span> <span class="fu">colSums</span>(BCI)                      <span class="co"># total trees of each species, all plots</span></span>
@@ -550,7 +587,7 @@ Figure&nbsp;14.1: Distribution of tree species richness across the fifty 1-ha BC
 <img src="13-diversity-forestgeo_files/figure-html/fig-rankabundance-1.png" class="img-fluid figure-img" width="672">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-rankabundance-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;14.2: Rank–abundance (Whittaker) plot for pooled BCI trees. A few species are very common; a long tail is rare.
+Figure&nbsp;13.2: Rank–abundance (Whittaker) plot for pooled BCI trees. A few species are very common; a long tail is rare.
 </figcaption>
 </figure>
 </div>
@@ -570,8 +607,8 @@ Figure&nbsp;14.2: Rank–abundance (Whittaker) plot for pooled BCI trees. A few 
 </div>
 </div>
 </section>
-<section id="one-number-shannon-and-simpson-diversity" class="level3" data-number="14.6.3">
-<h3 data-number="14.6.3" class="anchored" data-anchor-id="one-number-shannon-and-simpson-diversity"><span class="header-section-number">14.6.3</span> One number: Shannon and Simpson diversity</h3>
+<section id="one-number-shannon-and-simpson-diversity" class="level3" data-number="13.6.3">
+<h3 data-number="13.6.3" class="anchored" data-anchor-id="one-number-shannon-and-simpson-diversity"><span class="header-section-number">13.6.3</span> One number: Shannon and Simpson diversity</h3>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>shannon <span class="ot">&lt;-</span> <span class="fu">diversity</span>(BCI, <span class="at">index =</span> <span class="st">"shannon"</span>)   <span class="co"># accounts for richness + evenness</span></span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>simpson <span class="ot">&lt;-</span> <span class="fu">diversity</span>(BCI, <span class="at">index =</span> <span class="st">"simpson"</span>)   <span class="co"># prob. two random trees differ</span></span>
@@ -609,8 +646,8 @@ Figure&nbsp;14.2: Rank–abundance (Whittaker) plot for pooled BCI trees. A few 
 </div>
 </div>
 </section>
-<section id="rarefaction-comparing-fairly" class="level3" data-number="14.6.4">
-<h3 data-number="14.6.4" class="anchored" data-anchor-id="rarefaction-comparing-fairly"><span class="header-section-number">14.6.4</span> Rarefaction: comparing fairly</h3>
+<section id="rarefaction-comparing-fairly" class="level3" data-number="13.6.4">
+<h3 data-number="13.6.4" class="anchored" data-anchor-id="rarefaction-comparing-fairly"><span class="header-section-number">13.6.4</span> Rarefaction: comparing fairly</h3>
 <p>Plots differ in how many trees they contain, so a plot with more stems gets more chances to accumulate species. Rarefaction asks: at a <em>common</em> number of individuals, how many species would we expect?</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>stems <span class="ot">&lt;-</span> <span class="fu">rowSums</span>(BCI)                 <span class="co"># total trees per plot</span></span>
@@ -629,8 +666,8 @@ Figure&nbsp;14.2: Rank–abundance (Whittaker) plot for pooled BCI trees. A few 
 </div>
 <p>Why does the rarefied richness come out lower than the observed richness? Make sure you can answer that in your own words before moving on—it is the whole reason rarefaction exists.</p>
 </section>
-<section id="does-richness-just-track-the-number-of-stems" class="level3" data-number="14.6.5">
-<h3 data-number="14.6.5" class="anchored" data-anchor-id="does-richness-just-track-the-number-of-stems"><span class="header-section-number">14.6.5</span> Does richness just track the number of stems?</h3>
+<section id="does-richness-just-track-the-number-of-stems" class="level3" data-number="13.6.5">
+<h3 data-number="13.6.5" class="anchored" data-anchor-id="does-richness-just-track-the-number-of-stems"><span class="header-section-number">13.6.5</span> Does richness just track the number of stems?</h3>
 <p>If richer plots are simply the ones with more trees, that is worth knowing. We can fit a quick linear model and read it with <code>broom</code>.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>model_df <span class="ot">&lt;-</span> <span class="fu">tibble</span>(<span class="at">richness =</span> richness, <span class="at">stems =</span> <span class="fu">rowSums</span>(BCI))</span>
@@ -667,7 +704,7 @@ Figure&nbsp;14.2: Rank–abundance (Whittaker) plot for pooled BCI trees. A few 
 <img src="13-diversity-forestgeo_files/figure-html/fig-richness-stems-1.png" class="img-fluid figure-img" width="672">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-richness-stems-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;14.3: Plot-level richness vs.&nbsp;number of stems, with a fitted line.
+Figure&nbsp;13.3: Plot-level richness vs.&nbsp;number of stems, with a fitted line.
 </figcaption>
 </figure>
 </div>
@@ -691,8 +728,8 @@ Figure&nbsp;14.3: Plot-level richness vs.&nbsp;number of stems, with a fitted li
 </div>
 </section>
 </section>
-<section id="comparing-forests-across-the-globe" class="level2" data-number="14.7">
-<h2 data-number="14.7" class="anchored" data-anchor-id="comparing-forests-across-the-globe"><span class="header-section-number">14.7</span> Comparing forests across the globe</h2>
+<section id="comparing-forests-across-the-globe" class="level2" data-number="13.7">
+<h2 data-number="13.7" class="anchored" data-anchor-id="comparing-forests-across-the-globe"><span class="header-section-number">13.7</span> Comparing forests across the globe</h2>
 <p>Now the cross-continental question. Below is a small table of ForestGEO (and sister) plots, with the species richness reported for each and the plot area it came from. The numbers are drawn from the published site descriptions and papers cited at the end of the chapter.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>sites <span class="ot">&lt;-</span> <span class="fu">tribble</span>(</span>
@@ -726,7 +763,7 @@ Figure&nbsp;14.3: Plot-level richness vs.&nbsp;number of stems, with a fitted li
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>These richness numbers come from <strong>different plot areas</strong> (25.6 ha vs.&nbsp;50 ha). You just spent half a chapter learning that richness depends on sampling effort. So before you compare these numbers, ask: is it fair to compare a 25.6-ha count to a 50-ha count? For the cleanest comparison, ecologists use <em>1-hectare</em> richness, where the published values are roughly: BCI <strong>168</strong>, Pasoh <strong>497</strong>, Yasuni <strong>670</strong> species per hectare <span class="citation" data-cites="condit1996">(<a href="references.html#ref-condit1996" role="doc-biblioref"><strong>condit1996?</strong></a>)</span>. Carry that caveat into every conclusion you draw below.</p>
+<p>These richness numbers come from <strong>different plot areas</strong> (25.6 ha vs.&nbsp;50 ha). You just spent half a chapter learning that richness depends on sampling effort. So before you compare these numbers, ask: is it fair to compare a 25.6-ha count to a 50-ha count? For the cleanest comparison, ecologists use <em>1-hectare</em> richness, where the published values are roughly: BCI <strong>168</strong>, Pasoh <strong>497</strong>, Yasuni <strong>670</strong> species per hectare <span class="citation" data-cites="condit1996">(<a href="references.html#ref-condit1996" role="doc-biblioref">Condit et al. 1996</a>)</span>. Carry that caveat into every conclusion you draw below.</p>
 </div>
 </div>
 <div class="cell">
@@ -745,7 +782,7 @@ Figure&nbsp;14.3: Plot-level richness vs.&nbsp;number of stems, with a fitted li
 <img src="13-diversity-forestgeo_files/figure-html/fig-latitude-1.png" class="img-fluid figure-img" width="672">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-latitude-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;14.4: Tree species richness vs.&nbsp;absolute latitude across forest plots. Point size shows plot area; colour shows continent. Mind the area caveat.
+Figure&nbsp;13.4: Tree species richness vs.&nbsp;absolute latitude across forest plots. Point size shows plot area; colour shows continent. Mind the area caveat.
 </figcaption>
 </figure>
 </div>
@@ -766,13 +803,13 @@ Figure&nbsp;14.4: Tree species richness vs.&nbsp;absolute latitude across forest
 </div>
 </div>
 </section>
-<section id="sec-deliverables-diversity" class="level2" data-number="14.8">
-<h2 data-number="14.8" class="anchored" data-anchor-id="sec-deliverables-diversity"><span class="header-section-number">14.8</span> Deliverables</h2>
+<section id="sec-deliverables-diversity-forestgeo" class="level2" data-number="13.8">
+<h2 data-number="13.8" class="anchored" data-anchor-id="sec-deliverables-diversity-forestgeo"><span class="header-section-number">13.8</span> Deliverables</h2>
 <p>Assemble the following into a single document and submit it online.</p>
 <ol type="1">
 <li><p><strong>Your three hand-drawn predictions</strong> (rank–abundance, species accumulation, richness vs.&nbsp;latitude), photographed, <em>before</em> you ran any code.</p></li>
 <li><p><strong>In your own words (2–3 sentences each):</strong> a. the difference between richness, evenness, and diversity; b. why rarefied richness came out lower than observed richness; c.&nbsp;what <code>exp(H)</code> (effective number of species) tells you that raw Shannon <em>H</em> does not.</p></li>
-<li><p><strong>Reproduce and include</strong> the rank–abundance plot (<a href="#fig-rankabundance" class="quarto-xref">Figure&nbsp;<span>14.2</span></a>) and the global latitude plot (<a href="#fig-latitude" class="quarto-xref">Figure&nbsp;<span>14.4</span></a>). For each, write one sentence comparing the real figure to your hand-drawn prediction. Where they differ, explain <em>why</em>—this is the point of the assignment.</p></li>
+<li><p><strong>Reproduce and include</strong> the rank–abundance plot (<a href="#fig-rankabundance" class="quarto-xref">Figure&nbsp;<span>13.2</span></a>) and the global latitude plot (<a href="#fig-latitude" class="quarto-xref">Figure&nbsp;<span>13.4</span></a>). For each, write one sentence comparing the real figure to your hand-drawn prediction. Where they differ, explain <em>why</em>—this is the point of the assignment.</p></li>
 <li><p><strong>Build a species–accumulation curve</strong> for BCI and include it. Starter code:</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>accum <span class="ot">&lt;-</span> <span class="fu">specaccum</span>(BCI)   <span class="co"># cumulative species as plots are added</span></span>
@@ -799,8 +836,8 @@ Figure&nbsp;14.4: Tree species richness vs.&nbsp;absolute latitude across forest
 </ol>
 <p>This is exactly the skill this whole book is built around: a machine can produce a fluent paragraph in seconds, and only someone who understands the mechanisms can catch where it is subtly—or badly—wrong.</p>
 </section>
-<section id="references" class="level2" data-number="14.9">
-<h2 data-number="14.9" class="anchored" data-anchor-id="references"><span class="header-section-number">14.9</span> References</h2>
+<section id="references" class="level2" data-number="13.9">
+<h2 data-number="13.9" class="anchored" data-anchor-id="references"><span class="header-section-number">13.9</span> References</h2>
 <!--
 BibTeX entries to add to your .bib (verify keys against your Zotero export). Several of these are likely already in MyLibrary_zotero.bib.
 
@@ -823,12 +860,35 @@ BibTeX entries to add to your .bib (verify keys against your Zotero export). Sev
 <i class="callout-icon"></i>
 </div>
 <div class="callout-body-container">
-<p>This chapter cites <span class="citation" data-cites="davies2021">(<a href="references.html#ref-davies2021" role="doc-biblioref"><strong>davies2021?</strong></a>)</span>, <span class="citation" data-cites="anderson-teixeira2015">(<a href="references.html#ref-anderson-teixeira2015" role="doc-biblioref"><strong>anderson-teixeira2015?</strong></a>)</span>, <span class="citation" data-cites="condit1996">(<a href="references.html#ref-condit1996" role="doc-biblioref"><strong>condit1996?</strong></a>)</span>, <span class="citation" data-cites="kenfack2007">(<a href="references.html#ref-kenfack2007" role="doc-biblioref"><strong>kenfack2007?</strong></a>)</span>, <span class="citation" data-cites="hillebrand2004">(<a href="references.html#ref-hillebrand2004" role="doc-biblioref"><strong>hillebrand2004?</strong></a>)</span>, <span class="citation" data-cites="gotelli2001">(<a href="references.html#ref-gotelli2001" role="doc-biblioref"><strong>gotelli2001?</strong></a>)</span>, and the <code>vegan</code> package <span class="citation" data-cites="oksanen2026vce">(<a href="references.html#ref-oksanen2026vce" role="doc-biblioref"><strong>oksanen2026vce?</strong></a>)</span>. Full references appear in the book’s reference list once these keys are in your <code>.bib</code>.</p>
+<p>This chapter cites <span class="citation" data-cites="davies2021"><span class="nocase">Davies et al.</span> (<a href="references.html#ref-davies2021" role="doc-biblioref">2021</a>)</span>, <span class="citation" data-cites="anderson-teixeira2015"><span class="nocase">Anderson-Teixeira et al.</span> (<a href="references.html#ref-anderson-teixeira2015" role="doc-biblioref">2015</a>)</span>, <span class="citation" data-cites="condit1996">Condit et al. (<a href="references.html#ref-condit1996" role="doc-biblioref">1996</a>)</span>, <span class="citation" data-cites="kenfack2007">Kenfack et al. (<a href="references.html#ref-kenfack2007" role="doc-biblioref">2007</a>)</span>, <span class="citation" data-cites="hillebrand2004">Hillebrand (<a href="references.html#ref-hillebrand2004" role="doc-biblioref">2004</a>)</span>, <span class="citation" data-cites="gotelli2001">Gotelli and Colwell (<a href="references.html#ref-gotelli2001" role="doc-biblioref">2001</a>)</span>, and the <code>vegan</code> package <span class="citation" data-cites="oksanen2026vce">(<a href="references.html#ref-oksanen2026vce" role="doc-biblioref">Oksanen et al. 2026</a>)</span>. Full references appear in the book’s reference list once these keys are in your <code>.bib</code>.</p>
 </div>
 </div>
 </div>
 
 
+<div id="refs" class="references csl-bib-body hanging-indent" role="list" style="display: none">
+<div id="ref-anderson-teixeira2015" class="csl-entry" role="listitem">
+<span class="nocase">Anderson-Teixeira, Kristina J., Stuart J. Davies, Amy C. Bennett, et al.</span> 2015. <span>“<span>CTFS-ForestGEO</span>: A Worldwide Network Monitoring Forests in an Era of Global Change.”</span> <em>Global Change Biology</em> 21 (2): 528–49. <a href="https://doi.org/10.1111/gcb.12712">https://doi.org/10.1111/gcb.12712</a>.
+</div>
+<div id="ref-condit1996" class="csl-entry" role="listitem">
+Condit, Richard, Stephen P. Hubbell, James V. Lafrankie, et al. 1996. <span>“Species-Area and Species-Individual Relationships for Tropical Trees: A Comparison of Three 50-Ha Plots.”</span> <em>Journal of Ecology</em> 84 (4): 549–62. <a href="https://doi.org/10.2307/2261477">https://doi.org/10.2307/2261477</a>.
+</div>
+<div id="ref-davies2021" class="csl-entry" role="listitem">
+<span class="nocase">Davies, Stuart J., Iveren Abiem, Kamariah Abu Salim, et al.</span> 2021. <span>“<span>ForestGEO</span>: Understanding Forest Diversity and Dynamics Through a Global Observatory Network.”</span> <em>Biological Conservation</em> 253: 108907. <a href="https://doi.org/10.1016/j.biocon.2020.108907">https://doi.org/10.1016/j.biocon.2020.108907</a>.
+</div>
+<div id="ref-gotelli2001" class="csl-entry" role="listitem">
+Gotelli, Nicholas J., and Robert K. Colwell. 2001. <span>“Quantifying Biodiversity: Procedures and Pitfalls in the Measurement and Comparison of Species Richness.”</span> <em>Ecology Letters</em> 4 (4): 379–91. <a href="https://doi.org/10.1046/j.1461-0248.2001.00230.x">https://doi.org/10.1046/j.1461-0248.2001.00230.x</a>.
+</div>
+<div id="ref-hillebrand2004" class="csl-entry" role="listitem">
+Hillebrand, Helmut. 2004. <span>“On the Generality of the Latitudinal Diversity Gradient.”</span> <em>The American Naturalist</em> 163 (2): 192–211. <a href="https://doi.org/10.1086/381004">https://doi.org/10.1086/381004</a>.
+</div>
+<div id="ref-kenfack2007" class="csl-entry" role="listitem">
+Kenfack, David, Duncan W. Thomas, George B. Chuyong, and Richard Condit. 2007. <span>“Rarity and Abundance in a Diverse <span>African</span> Forest.”</span> <em>Biodiversity and Conservation</em> 16 (7): 2045–74. <a href="https://doi.org/10.1007/s10531-006-9065-2">https://doi.org/10.1007/s10531-006-9065-2</a>.
+</div>
+<div id="ref-oksanen2026vce" class="csl-entry" role="listitem">
+Oksanen, Jari, Gavin L. Simpson, F. Guillaume Blanchet, et al. 2026. <em>Vegan: Community Ecology Package</em>. <a href="https://CRAN.R-project.org/package=vegan">https://CRAN.R-project.org/package=vegan</a>.
+</div>
+</div>
 </section>
 
 </main> <!-- /main -->
@@ -1235,12 +1295,12 @@ BibTeX entries to add to your .bib (verify keys against your Zotero export). Sev
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
       <a href="./11-predator-prey-Claude.html" class="pagination-link" aria-label="Of wolves and moose, on Isle Royale">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Of wolves and moose, on Isle Royale</span></span>
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Of wolves and moose, on Isle Royale</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./13-diversity-gbif.html" class="pagination-link" aria-label="GBIF: Why are there so many species, and where?">
-        <span class="nav-page-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">GBIF: Why are there so many species, and where?</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./14-diversity-gbif.html" class="pagination-link" aria-label="GBIF: Why are there so many species, and where?">
+        <span class="nav-page-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">GBIF: Why are there so many species, and where?</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

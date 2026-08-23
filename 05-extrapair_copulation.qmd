@@ -4,7 +4,7 @@ title: "Behavior: Extra-pair copulation in a monogamous species"
 ![Voles are small hamster-like rodents that live in grasslands and fields.](figs/voles1.png){#fig-voles width=50%}
 
 ## Goals
-In this assignment, you will
+In this chapter, you will
 
 * Develop and use your understanding of evolution, behavior, and prairie voles to make predictions about determinants of extra-pair copulation in a monogamous species.
 * Enhance your quantitative reasoning and data analytic skills.

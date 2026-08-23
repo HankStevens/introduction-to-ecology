@@ -11,31 +11,93 @@ library(ggdag)
 library(googlesheets4)
 ```
 
+*Students (that's you) and other interested parties should read this preface. Consider it the real chapter 1.* 
+
 This book provides an activity-based approach introduction to the science and practice of ecology. It is designed to form the basis of an undergraduate general ecology course. It includes real-world assessment activities, and so answer keys are not generally available, even if they might be appropriate in some situations.
 
 Each chapter provides,
 
-* links to background information in the form of a video lecture, peer-reviewed publications, and sometimes other sources,
-* one or more writing assignments, and
-* data exploration and modeling.
+* sources in the form of video lecture, references to peer-reviewed publications, and other sources were relevant,
+* data exploration and modeling, and 
+* one or more writing assignments.
 
-Each chapter mixes (i) ecological content and (ii) coding practices. Students will get the most out of the content if they understand and *accept* this from the start. Avoiding one or the other reduces their ability to understand, appreciate, and use both.
+Each chapter mixes (i) ecological content and (ii) coding practices. You will get the most out of the content if you understand and accept this from the start. Avoiding one or the other reduces your ability to understand, appreciate, and use both.
 
-Two R skills recur across nearly every chapter: wrangling data with **tidyverse**-style functions (things like `read_csv`, `subset`, `mutate`), and visualizing it with **`ggplot2`**. You will practice these so often that, by the end of the book, they should feel like second nature. If you ever want help translating that practice into language for a résumé, cover letter, or job application, see the *Skills Crosswalk* appendix near the end of the book.
+
 
 ## Guidance
 
 Use these tips to help reduce frustration and make things work better:
 
-
-* The book should be read and the code implemented in sequence. For example, you should complete chapter 1 before chapter 2, complete chapter 2 before chapter 3, and so on. That is for two reasons. First, you will learn things about R and your computer in earlier chapters that you may need to know for later chapters. This is especially true for the first few chapters. Second, you will gain ecological knowledge in earlier chapters that enrich your experience in later chapters.
 * When the text provides an enumerated list or *numbered* bullet items (e.g., 1, 2, 3 or a, b, c), it is usually very important or even essential to do these steps in sequence. There will be times that it is impossible to succeed unless you do the steps in *sequence*.
 * When the text provides a simple, unnumbered list, it is usually not important to consider these items as representing a sequence.
-* I included a few sections entitled *Overthinking*. I stole this idea from Richard McElreath [@mcelreath2020], and these are sections that you can skip on the first read, and are not essentially for getting things to *work*. They provide deeper, more detailed explanations than is typically required.
+* I included a few sections entitled *Overthinking*, and I got this idea from Richard McElreath [@mcelreath2020]. These are sections that you can skip on the first read, and are not essentially for getting things to *work*. They provide deeper, more detailed explanations than is typically required.
 
+## Skills for a résumé
+
+You may never apply for a job that requires coding but putting it on your résumé or answering questions about it in an interview will show eployers that you have qualities that they want. Demonstrating that you have done coding shows that you can,
+
+* manage details, 
+* troubleshoot problems, 
+* learn to new skills to complete tasks. 
+
+You will show that you can understand tasks you've taken on and can communicate them to others. In the event you work with coders or do some coding yourself, you will be better prepared to work with others to accomplish meaningful work.
+
+Two R skills recur across nearly every chapter: *wrangling* and *displaying* data. "Wrangling" data refers to the majority of data management and data set rearrangement that we inevitably need to do in any serious work. "Displaying" data in ways that communicate effectively is not simple, and doing it badly hampers communication and reflects poorly on whoever made it. It must communicate an important idea, and not hide any relevant information. 
+
+In this book, you will wrangle data with **tidyverse**-style functions (things like `read_csv`, `subset`, `mutate`), and display or visualize it with **`ggplot2`**. This book will introduce these functions and styles organically, as they are mixed throughout each chapter. You will practice these so often that, by the end of the book, they should feel like second nature. 
+
+If you ever want help translating that practice into language for a résumé, cover letter, or job application, see the chapter-by-chapter breakdown of how these skills translate into résumé language, see the Appendix A, [From This Book to Your Résumé: A Skills Crosswalk](appendix_A_career-skills-crosswalk.qmd).
+
+
+## Coding for Science in a Changing Workplace Landscape
+AI is doing more and more for us, and here I describe some issues that I think are critical to keep in mind throughout your schooling and career.
+
+AI can now write passable R code, summarize articles, and define terms almost instantly. That doesn't reduce how much you need to learn — it shifts what you need to learn. Because AI is fluent in the language of ecology, it becomes more important, not less, that you develop real understanding of ecological mechanisms, model assumptions, and data interpretation: only a trained ecologist can recognize when a fluent AI answer is subtly wrong. 
+
+### Durable skills vs. AI-augmentable tasks
+Durable human skills — ecological intuition, mechanistic and mathematical reasoning, model-assumption literacy, data literacy, multi-scale synthesis — require judgment AI doesn't reliably have. AI-augmentable tasks (summarizing papers, boilerplate code, definitions, outlines) are things AI already does well. But AI-augmentable doesn't mean unimportant: you still need to understand a task well enough to judge whether the AI did it correctly.
+
+### Why AI makes ecological understanding more important
+Offloading a task to AI without the underlying knowledge means you can't tell whether its output — code, an explanation, a derivation — is right. This is the “plausibility trap”: AI-generated ecological content is trained to sound like an expert wrote it, not to be correct about the natural world. The better AI sounds, the more ecological training you need to catch what it gets wrong.
+
+### Six categories of skills to develop
+Mechanistic reasoning explains why a pattern exists, not just that it exists. Mathematical reasoning is itself a form of ecological understanding — deriving a result is how you learn what controls a system, not a hurdle before the real learning. Model assumption literacy means knowing what a model assumes and when that breaks. Predicting an outcome before running the code (and being wrong) is where real learning happens. Data literacy means judging bias, sample size, and what data can't tell you. Multi-scale synthesis connects individual-level processes to population, community, and ecosystem patterns.
+
+### Understanding vs. doing
+Code that displays data is checked by its output — does it look right? Code that builds a mechanistic or statistical model has to be checked by examining the assumptions built into it. When a model's results seem off, the cause is usually one of three things: a plain coding error, a mismatch between the math and the intended ecology, or ecological assumptions with unexpected (but real) consequences. Mathematical reasoning is the tool for telling these apart, and for verifying that an AI's code actually implements the biology you intended.
+
+### Using AI responsibly in this classroom setting using this book
+AI is useful the way a calculator is useful — it saves time on mechanical tasks but can't replace the thinking that makes them meaningful. Good uses: debugging code, syntax refreshers, first-draft outlines, alternative explanations of material you've already studied. Risky uses: learning a new concept from AI, running AI code you don't understand, or letting AI interpret your results. The rule of thumb: if you can't explain every line of AI-written code, you haven't learned what you needed to.
+
+### The skills that will define your career
+Future ecologists will work alongside AI tools that can process imagery, classify species, and generate statistical code. Human value won't lie in doing these tasks manually — it will lie in asking the right ecological questions, designing studies that can answer them, recognizing when a tool is wrong, connecting math to biological reality, and communicating findings to non-specialists. The tools will keep changing; the need for ecologists who understand the living world will not.
+
+### A note for instructors
+Design assignments that require judgment, not just output that AI could produce alone. Make AI use transparent rather than banned. Foreground model assumptions explicitly as content, not fine print. Build in a predict-before-you-compute step. Use AI's mistakes as teaching moments for critical evaluation.
+
+For a more extensive discussion of these topics, see [Appendix B The Changing Landscape of Skills in Ecology](@app-ai-skills).
 
 ## Other books
 
 My other books include [*A Primer of Ecology using R*](https://hankstevens.github.io/Primer-of-Ecology/) and [*A Primer of Ecosystem Modeling*](https://hankstevens.github.io/ecosystems-primer/). The former (Primer of Ecology) is designed primarily for beginning graduate students as a primer to theory in population and community ecology. It was first published with Springer in 2009, and the current GitHub version is quite updated. I use the latter (ecosystem modeling) when I co-instruct a graduate course led by colleagues who are real ecosystem ecologists (Drs. Melany Fisk, Mike Vanni, and Lesley Knoll).
+
+## Questions for you
+
+**Career skills**
+
+1. Have you ever written computer code before this class? Have you ever typed a function into a spreadsheet like Microsoft Excel? Explain briefly the level of your experience with coding.
+1. What do you anticipate the coding in this book will be like? What is your *a priori* expectation?
+1. Have you ever put computer use on a résumé? If so, how did you list or describe your experience, knowledge, or skill?
+1. What kind of job do you have now, and what do you hope to do some day? At this moment, can you imagine how writing and using code to do scientific research in ecology might help you--directly or indirectly--in your future career?
+
+
+**Generative AI**
+
+1. How do you use generative AI in your current life?
+1. Describe environmental impacts of AI, and identify (as much as you can), the sources of that information. Do you hear or read something in a reputable news story? Did you learn about it in a class (and if so, can you remember the source)? Did you hear about it from a friend? Was the information quantitative? 
+1. List potential risks and benefits of AI generated content (not data center risks). Rank them, based on your intuition, knowledge, or evidence at hand, from most beneficial to most harmful. Consider both the likelihood of something happening and also the size or magnitude of the benefit/risk.
+1. How do you feel about AI?
+
 
 *Mazel tov!*
