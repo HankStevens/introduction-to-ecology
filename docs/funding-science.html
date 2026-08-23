@@ -1,0 +1,1504 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.11.1">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>18&nbsp; Funding Ecological and Environmental Science: Following the Money – Basic Ecological Concepts and Data in R</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./career-skills-crosswalk.html" rel="next">
+<link href="./16-ecosystem-intro.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-d5b4e69c7e37b49c6591bcc5116dd748.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-14bcb87515fe8119cbeaa577ee4acfcc.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-J0R6F7XN66"></script>
+
+<script type="text/javascript">
+
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-J0R6F7XN66', { 'anonymize_ip': true});
+</script>
+<style>
+h1, h2, h3, h4, h5, h6,
+.title, .quarto-title-block .title, .chapter-title {
+  font-family: serif;
+}
+</style>
+
+
+</head>
+
+<body class="nav-sidebar floating quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./funding-science.html"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Funding Ecological and Environmental Science: Following the Money</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">Basic Ecological Concepts and Data in R</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Preface</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./00-AI-v4.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">AI and the Changing Landscape of Skills in Ecology</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./01-computer-setup.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Computer setup and first R script</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./thinking.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Thinking about thinking about concepts</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./02-trees_and_people.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Environmental Justice: How income relates to environment.</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./03-global_temp_anomalies_v2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Physical Environment: A Fate of Earth</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./traits-physiology.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Traits, Physiology, and the Global Spectrum of Plant Form and Function</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./05-extrapair_copulation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Behavior: Extra-pair copulation in a monogamous species</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./06-DI-pop-growth-Claude.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Density-independent Population Growth: Humans on the rise</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./07-structured-pop-growth_v2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Structured demography: How a graduate student helped save the loggerhead sea turtle</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./08-density-dep-pop-growth-Claude.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Density-dependence in population growth</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./09-direct-interactions-Claude.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Direct species interactions: understanding mechanisms of invasion in mosquitoes</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./10-mutualisms.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Mutualisms: Do ants protect pea plants?</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./11-predator-prey-Claude.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Of wolves and moose, on Isle Royale</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./13-diversity-forestgeo.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">ForestGEO Community Ecology: Why are there so many tree species, and where?</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./13-diversity-gbif.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">GBIF: Why are there so many species, and where?</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./15-metabolic-ecology_v_2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Metabolic Ecology: How do body size and temperature affect nutrient cycling?</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./16-ecosystem-intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">An Introduction to the Carbon Cycle and Global Heating</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./funding-science.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Funding Ecological and Environmental Science: Following the Money</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./career-skills-crosswalk.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">From This Book to Your Résumé: A Skills Crosswalk</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./references.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">References</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#goals" id="toc-goals" class="nav-link active" data-scroll-target="#goals"><span class="header-section-number">18.1</span> Goals</a></li>
+  <li><a href="#background" id="toc-background" class="nav-link" data-scroll-target="#background"><span class="header-section-number">18.2</span> Background</a></li>
+  <li><a href="#activity" id="toc-activity" class="nav-link" data-scroll-target="#activity"><span class="header-section-number">18.3</span> Activity</a>
+  <ul class="collapse">
+  <li><a href="#set-up" id="toc-set-up" class="nav-link" data-scroll-target="#set-up"><span class="header-section-number">18.3.1</span> Set up</a></li>
+  <li><a href="#part-1-federal-agency-budgets-straight-from-the-source" id="toc-part-1-federal-agency-budgets-straight-from-the-source" class="nav-link" data-scroll-target="#part-1-federal-agency-budgets-straight-from-the-source"><span class="header-section-number">18.3.2</span> Part 1: Federal agency budgets, straight from the source</a></li>
+  <li><a href="#adjusting-for-inflation" id="toc-adjusting-for-inflation" class="nav-link" data-scroll-target="#adjusting-for-inflation"><span class="header-section-number">18.3.3</span> Adjusting for inflation</a></li>
+  <li><a href="#how-much-of-that-is-actually-research" id="toc-how-much-of-that-is-actually-research" class="nav-link" data-scroll-target="#how-much-of-that-is-actually-research"><span class="header-section-number">18.3.4</span> How much of that is actually research?</a></li>
+  <li><a href="#part-2-a-different-funding-mechanismstate-wildlife-agencies" id="toc-part-2-a-different-funding-mechanismstate-wildlife-agencies" class="nav-link" data-scroll-target="#part-2-a-different-funding-mechanismstate-wildlife-agencies"><span class="header-section-number">18.3.5</span> Part 2: A different funding mechanism–state wildlife agencies</a></li>
+  <li><a href="#part-3-find-and-explain-one-funded-research-award" id="toc-part-3-find-and-explain-one-funded-research-award" class="nav-link" data-scroll-target="#part-3-find-and-explain-one-funded-research-award"><span class="header-section-number">18.3.6</span> Part 3: Find and explain one funded research award</a></li>
+  </ul></li>
+  <li><a href="#overthinking-how-much-of-nsf-is-really-deb" id="toc-overthinking-how-much-of-nsf-is-really-deb" class="nav-link" data-scroll-target="#overthinking-how-much-of-nsf-is-really-deb"><span class="header-section-number">18.4</span> Overthinking: how much of NSF is really DEB?</a></li>
+  <li><a href="#questions-to-answer" id="toc-questions-to-answer" class="nav-link" data-scroll-target="#questions-to-answer"><span class="header-section-number">18.5</span> Questions to answer</a></li>
+  <li><a href="#deliverables" id="toc-deliverables" class="nav-link" data-scroll-target="#deliverables"><span class="header-section-number">18.6</span> Deliverables</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Funding Ecological and Environmental Science: Following the Money</span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p><em>…in which we discover who pays for ecology, and why that answer keeps changing.</em></p>
+<section id="goals" class="level2" data-number="18.1">
+<h2 data-number="18.1" class="anchored" data-anchor-id="goals"><span class="header-section-number">18.1</span> Goals</h2>
+<p>In this assignment, you will</p>
+<ul>
+<li>Identify the major federal agencies–and one major federal-to-state funding stream–that pay for ecological and environmental research.</li>
+<li>Use R to pull live budget data directly from a government API, rather than a file someone else already cleaned for you.</li>
+<li>Construct and compare time series of funding across agencies and across a fundamentally different funding <em>mechanism</em> (formula-based state apportionments).</li>
+<li>Distinguish nominal dollars from inflation-adjusted (“real”) dollars, and explain why the distinction matters when you compare years.</li>
+<li>Distinguish an agency’s <em>entire</em> budget from the slice of it that actually funds research–and see, concretely, how much bigger the difference can be for some agencies (NASA, USDA) than others (NSF).</li>
+<li>Find and explain research that interests you; describe the scientific motivation for the research and explain how the investigators used or plan to use the research award.</li>
+<li>Evaluate what recent (2025-2026) federal budget changes mean for the pipeline of ecological research, and for your own options as an early-career scientist.</li>
+</ul>
+</section>
+<section id="background" class="level2" data-number="18.2">
+<h2 data-number="18.2" class="anchored" data-anchor-id="background"><span class="header-section-number">18.2</span> Background</h2>
+<p>Ecological and environmental science does not fund itself. Someone decides, every year, how many dollars go toward understanding populations, ecosystems, and environmental change–and those decisions shape which questions get asked, which species and places get studied, and who gets to be a scientist. If you take classes in university science departments, or plan to do research, apply for a grant, or simply understand why a particular topic is (or is not) well studied, it helps to know where the money for research comes from.</p>
+<p>In the United States, most federal money for ecological and environmental research flows through a handful of agencies, each with a different mission.</p>
+<ul>
+<li>The <strong>National Science Foundation (NSF)</strong> is the primary funder of basic, curiosity-driven ecological research at universities. Within NSF, the Directorate for Biological Sciences, and, inside that, the Division of Environmental Biology (DEB), funds most of the population, community, and ecosystem ecology done at U.S. universities.</li>
+<li>The <strong>Environmental Protection Agency (EPA)</strong>, mainly through its Office of Research and Development, funds applied research on pollution, toxicology, and environmental health. Its competitive extramural program, <strong>Science to Achieve Results (STAR)</strong>, has historically funded university research connecting environmental quality to human and ecological health.</li>
+<li>The <strong>U.S. Department of Agriculture (USDA)</strong> funds applied ecology two ways: through the National Institute of Food and Agriculture (NIFA), which makes competitive grants to university researchers (for example, the Agriculture and Food Research Initiative and the McIntire-Stennis forestry program), and through its own <strong>Forest Service Research and Development</strong> branch, which conducts forest and rangeland ecology research directly–often at USDA’s own experimental forests–rather than by funding outside investigators.</li>
+<li>The <strong>National Oceanic and Atmospheric Administration (NOAA)</strong>, part of the Department of Commerce, funds fisheries, coastal, and climate-related ecological research.</li>
+<li>The <strong>Department of Energy (DOE)</strong> funds a large research portfolio, but most of it is about energy technology–fossil fuels, nuclear power, renewables–not ecology. The slice that funds ecosystem, watershed, and climate science sits in a single office inside DOE’s Office of Science, <strong>Biological and Environmental Research (BER)</strong>; later in this chapter we isolate BER’s own numbers to see how small a share of DOE’s total research budget it really is.</li>
+<li>The <strong>National Aeronautics and Space Administration (NASA)</strong> funds Earth-observing satellites and remote sensing research that ecologists use to track land cover, wildfire, drought, and ecosystem change–a smaller, less obvious slice of an agency best known for astronauts and telescopes.</li>
+<li>The <strong>U.S. Fish and Wildlife Service (FWS)</strong>, an agency inside the <strong>Department of the Interior (DOI)</strong>–alongside the U.S. Geological Survey, the Bureau of Land Management, and the National Park Service–funds and conducts wildlife research directly. FWS also plays a second, very different role you will meet in Part 2: it is the agency that administers the formula-based apportionments that send hunting- and fishing-tax revenue to state wildlife agencies.</li>
+<li>The <strong>U.S. Geological Survey (USGS)</strong>, also inside DOI, is–by dollars obligated to research–the single largest source of federal ecological field science: climate, ecosystems, wildlife disease, and water research, carried out mostly by USGS’s own scientists rather than through grants to universities.</li>
+<li><strong>Private foundations</strong> fund ecological and environmental science too, outside the federal appropriations process entirely. The Gordon and Betty Moore Foundation is one of the largest funders of marine and environmental science in the country; the David and Lucile Packard Foundation and the Pew Charitable Trusts fund ocean conservation and environmental research as well. Foundation funding is a much smaller pool than federal funding in total, but it can move faster and more flexibly, since a foundation sets its own priorities rather than waiting on an annual congressional appropriation.</li>
+</ul>
+<p>Scientists, teams of scientists, and universities compete with each other for this funding via <em>competitive grants</em>.</p>
+<ol type="1">
+<li>In response to Requests for Proposals (RFPs), scientists write extensive proposals for carefully crafted research projects and submit them.</li>
+<li>The agencies review all of the submitted proposals, relying extensively on review panels made up of other scientists, typically from universities.</li>
+<li>Based largely on the recommendations of these review panels, the agency chooses a small fraction to fund. These awards are driven by the number and quality of proposals and, critically, by Congress’s annual appropriations decisions.</li>
+</ol>
+<p>Federal money also reaches ecological work at the <em>state</em> level, but often through a completely different mechanism: not a competed, peer-reviewed grant, but a <strong>formula-based apportionment</strong>. The clearest example is the pair of laws that fund most state fish and wildlife agencies: the <strong>Pittman-Robertson Wildlife Restoration Act (1937)</strong> and the <strong>Dingell-Johnson/Wallop-Breaux Sport Fish Restoration Act (1950)</strong>. Both work the same way: the federal government levies an excise tax on hunting and fishing equipment, and the U.S. Fish and Wildlife Service apportions that money to every state automatically, using a formula based on land area and the number of licensed hunters or anglers–no competition, no proposal, no peer review. State wildlife agencies use these funds to support a great deal of applied wildlife and fisheries ecology, including much of the work that eventually shows up in conservation plans. In contrast to the competitive process described above, state fish and wildlife agencies are funded through a legitimate <em>entitlement</em>, which is driven by consumer purchases on hunting and fishing equipment and licenses, and a fixed formula.</p>
+<p>A word of caution about all of these numbers: an agency’s <em>total budget</em> is not the same thing as its <em>research budget</em>. NASA’s budget includes crewed spaceflight and space station operations; USDA’s includes crop insurance and nutrition assistance programs; EPA’s includes pollution cleanup and regulatory enforcement. None of that is research. The federal government does track a “research and development obligations” figure for each agency that is meant to exclude exactly this kind of non-research spending–we will use it later in this chapter to see how much of each agency’s total budget is actually research.</p>
+<p><strong>Why this matters right now.</strong> Federal science funding has been unusually volatile the last two years, which makes this a good moment to look at the data rather than rely on impressions. A few reported, verifiable facts, current as of mid-2026:</p>
+<ul>
+<li>NSF’s FY2026 appropriation came in at about $8.75 billion–close to its FY2024 level–after the Trump administration had proposed cutting it by roughly 55%, to $3.9 billion; Congress pushed back and did not adopt that cut. (See the <a href="https://www.aip.org/fyi/fy2026-national-science-foundation" target="_blank">AIP FYI summary</a> and the <a href="https://www.congress.gov/crs-product/R48783" target="_blank">Congressional Research Service report on NSF’s FY2026 appropriations</a>.)</li>
+<li>Even so, in spring 2025 NSF terminated roughly 1,750 already-active grants, worth a combined $1.4 billion, as part of a federal review of research spending led by the Department of Government Efficiency (DOGE). These were grants that were already awarded and for which the research had already begun. Terminating them resulted in a tremendous waste of time and money that had already been spent. Terminations were concentrated in STEM education and the social and behavioral sciences, with the biological sciences affected less, in the single digits as a percentage of active awards. (See <a href="https://eos.org/research-and-developments/nsf-cuts-hundreds-of-science-program-budgets-by-up-to-30" target="_blank">Eos, “NSF Cuts Hundreds of Science Program Budgets”</a>.) DOGE-driven terminations and office closures were not limited to NSF–see the note on obligations vs.&nbsp;outcomes later in this chapter, where NOAA, USGS, and FWS examples are discussed in more detail.</li>
+<li>EPA’s FY2026 budget request proposed a substantial overall reduction, and in spring 2025 EPA leadership directed staff to cancel a number of active research grants, including some STAR grants. (See the <a href="https://www.congress.gov/crs-product/R48575" target="_blank">CRS brief on EPA’s FY2026 budget request</a> and <a href="https://www.science.org/content/article/epa-orders-staff-begin-canceling-research-grants" target="_blank">reporting in <em>Science</em></a>.)</li>
+</ul>
+<p>These are contested political decisions, and reasonable people disagree about whether they are good policy. Our job in this chapter is not to take a side, but to look directly at the numbers and let the data show us what actually happened, and to keep watching–this is a fast-moving topic and today’s figures will keep changing. The Ecological Society of America maintains a running <a href="https://esa.org/esablog/science-policy/federal-budget-tracker/" target="_blank">Federal Budget Tracker</a> if you want to follow along after this course ends.</p>
+</section>
+<section id="activity" class="level2" data-number="18.3">
+<h2 data-number="18.3" class="anchored" data-anchor-id="activity"><span class="header-section-number">18.3</span> Activity</h2>
+<section id="set-up" class="level3" data-number="18.3.1">
+<h3 data-number="18.3.1" class="anchored" data-anchor-id="set-up"><span class="header-section-number">18.3.1</span> Set up</h3>
+<p>If you have not already done so, create a script file for this assignment, <code>funding_science_YourUniqueID.R</code>, in your <code>Rwork</code> project.</p>
+<p>Install and load the packages we’ll need. <code>jsonlite</code> lets R talk directly to a web API and turn the response into a data frame; you have already used <code>tidyverse</code> and <code>googlesheets4</code> in earlier chapters.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"jsonlite"</span>, <span class="at">repos =</span> <span class="st">"https://cloud.r-project.org"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="do">## load packages</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(jsonlite)</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
+✔ dplyr     1.2.1     ✔ readr     2.2.0
+✔ forcats   1.0.1     ✔ stringr   1.6.0
+✔ ggplot2   4.0.3     ✔ tibble    3.3.1
+✔ lubridate 1.9.5     ✔ tidyr     1.3.2
+✔ purrr     1.2.2     
+── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+✖ dplyr::filter()  masks stats::filter()
+✖ purrr::flatten() masks jsonlite::flatten()
+✖ dplyr::lag()     masks stats::lag()
+ℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(googlesheets4)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="part-1-federal-agency-budgets-straight-from-the-source" class="level3" data-number="18.3.2">
+<h3 data-number="18.3.2" class="anchored" data-anchor-id="part-1-federal-agency-budgets-straight-from-the-source"><span class="header-section-number">18.3.2</span> Part 1: Federal agency budgets, straight from the source</h3>
+<p>Rather than downloading a file that someone else already cleaned, we are going to pull data directly from <a href="https://www.usaspending.gov/" target="_blank">USAspending.gov</a>, the federal government’s official spending transparency site. USAspending.gov has a public web <strong>API</strong> (Application Programming Interface): instead of a web page built for a human to read, an API endpoint is a URL that returns structured data–here, in a format called JSON–for a program like R to parse directly. You build the URL yourself (below, we paste an agency’s toptier code into it), visit it the same way you’d visit any web address, and the server sends back an answer instead of a page of formatted text. USAspending’s API requires no login or password, which is typical for public government data. Because it is <em>live</em>, your numbers will reflect whatever the most recent fiscal year is when you run the code, which is a nice feature, but it also means your plot may look slightly different than a classmate’s if you run this weeks apart.</p>
+<p>Every federal agency has an identifying <strong>toptier code</strong>. Here are six agencies relevant to ecological and environmental science:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Agency</th>
+<th>Toptier code</th>
+<th>Why it matters to ecologists</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>National Science Foundation (NSF)</td>
+<td>049</td>
+<td>Main funder of basic academic ecology (Division of Environmental Biology)</td>
+</tr>
+<tr class="even">
+<td>Environmental Protection Agency (EPA)</td>
+<td>068</td>
+<td>Applied environmental and human-health research (STAR grants)</td>
+</tr>
+<tr class="odd">
+<td>U.S. Department of Agriculture (USDA)</td>
+<td>012</td>
+<td>Agricultural and forest ecology (NIFA)</td>
+</tr>
+<tr class="even">
+<td>U.S. Department of Energy (DOE)</td>
+<td>089</td>
+<td>Ecosystem and climate science, via its Biological and Environmental Research program–a small slice of DOE’s total, isolated later in this chapter</td>
+</tr>
+<tr class="odd">
+<td>U.S. Department of the Interior (DOI)</td>
+<td>014</td>
+<td>Parent agency of USGS and the U.S. Fish and Wildlife Service</td>
+</tr>
+<tr class="even">
+<td>National Aeronautics and Space Administration (NASA)</td>
+<td>080</td>
+<td>Earth-observation satellites and remote sensing</td>
+</tr>
+</tbody>
+</table>
+<p>Notice that <strong>NOAA, FWS, USGS, and the Forest Service are missing</strong>. USAspending only assigns toptier codes to top-level, cabinet-style agencies; NOAA is a <em>sub-agency</em> inside the Department of Commerce, FWS and USGS are <em>sub-agencies</em> inside the Department of the Interior, and the Forest Service is a <em>sub-agency</em> inside USDA. Their dollars are already folded into their parent department’s toptier total in the table above–DOI’s total includes FWS, USGS, the Bureau of Land Management, and the National Park Service all lumped together, and USDA’s includes the Forest Service along with NIFA and everything else USDA does. This is a real feature of how the federal government is organized, not a limitation of our code–and it is exactly why, later in this chapter, we will switch to a different data source that reports each of these sub-agencies on its own.</p>
+<p>We will write a small function that asks USAspending.gov for one agency’s budget history, and then apply that function to all six agencies at once.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="do">## a named vector: the names are labels we choose, the values are USAspending's codes</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>agency_codes <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="at">NSF  =</span> <span class="st">"049"</span>,</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>                   <span class="at">EPA  =</span> <span class="st">"068"</span>,</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>                   <span class="at">USDA =</span> <span class="st">"012"</span>,</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>                   <span class="at">DOE  =</span> <span class="st">"089"</span>,</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>                   <span class="at">DOI  =</span> <span class="st">"014"</span>,</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>                   <span class="at">NASA =</span> <span class="st">"080"</span>)</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a><span class="do">## a function that, given one toptier code, returns that agency's</span></span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a><span class="do">## budgetary resources for every fiscal year USAspending has on file</span></span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>get_budget <span class="ot">&lt;-</span> <span class="cf">function</span>(code) {</span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>  url <span class="ot">&lt;-</span> <span class="fu">paste0</span>(<span class="st">"https://api.usaspending.gov/api/v2/agency/"</span>, code,</span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>                <span class="st">"/budgetary_resources/"</span>)</span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>  result <span class="ot">&lt;-</span> <span class="fu">fromJSON</span>(url)          <span class="co"># ask the API, and parse its JSON response</span></span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>  result<span class="sc">$</span>agency_data_by_year       <span class="co"># this is the part we actually want: one row per fiscal year</span></span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Now we apply that function to every agency code in <code>agency_codes</code>, and stick the six results together into one data frame, with a new column (<code>agency</code>) recording which agency each row came from.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="do">## map() applies get_budget() to each element of agency_codes;</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="do">## bind_rows(..., .id="agency") stacks the six results and labels each</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>budget_list <span class="ot">&lt;-</span> <span class="fu">map</span>(agency_codes, get_budget)</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>budget_data <span class="ot">&lt;-</span> <span class="fu">bind_rows</span>(budget_list, <span class="at">.id =</span> <span class="st">"agency"</span>)</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="do">## take a look at what we got</span></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(budget_data)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "agency"                      "fiscal_year"                
+[3] "agency_budgetary_resources"  "agency_total_obligated"     
+[5] "agency_total_outlayed"       "total_budgetary_resources"  
+[7] "agency_obligation_by_period"</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(budget_data)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  agency fiscal_year agency_budgetary_resources agency_total_obligated
+1    NSF        2026                10172124519             2802516096
+2    NSF        2025                10738133526             9885079238
+3    NSF        2024                10751753768             9746030086
+4    NSF        2023                11074706436             9861960524
+5    NSF        2022                10217493512             9523708321
+6    NSF        2021                 9975738810             9018208185
+  agency_total_outlayed total_budgetary_resources
+1            6302771858              1.604684e+13
+2           10153840633              1.326370e+13
+3            9614870757              1.224855e+13
+4            9201120908              1.188986e+13
+5            8328424648              1.140981e+13
+6            7540839187              1.221910e+13
+                                                                                                                                           agency_obligation_by_period
+1                                                     2, 3, 4, 5, 6, 7, 8, 9, 12007312, 305843689, 544135092, 729869844, 958970606, 1431143778, 2122419362, 2802516096
+2 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 259157056, 794313662, 1050845347, 1516591847, 1932680742, 2217339136, 2592569683, 3473544082, 5314345721, 8368173707, 9885079238
+3 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 348155303, 778081228, 1338132973, 1619581610, 2240834442, 2744463181, 3252556366, 4209667874, 5921507757, 8466376552, 9746030086
+4  2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 240428993, 690189001, 995167687, 1281071903, 1925374299, 2459931484, 3293996282, 4204697559, 5923684535, 7866112064, 9861960524
+5 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 316195091, 827514797, 1218195618, 1690650294, 2104712341, 2638100357, 3096507876, 4284895627, 5787601542, 8563093406, 9523708321
+6                                                                                                           3, 6, 9, 12, 636386354, 1867800211, 3930914758, 9018208185</code></pre>
+</div>
+</div>
+<p>You should see several columns you didn’t ask for by name–the API sends back everything it has for that agency and year, not just one number. The ones we’ll use in this chapter:</p>
+<ul>
+<li><code>fiscal_year</code>: the federal fiscal year (October-September) the row describes.</li>
+<li><code>agency_budgetary_resources</code>: the total funds available for this agency to spend that year–new appropriations, plus any unspent balances carried over from prior years. This is the number we’ll plot as each agency’s “budget.”</li>
+<li><code>agency_total_obligated</code>: how much of that the agency has legally committed to spend–signed a contract, made a grant award–whether or not the money has actually gone out the door yet.</li>
+<li><code>agency_total_outlayed</code>: how much has actually been paid out in cash. Outlays typically lag obligations, sometimes by years, because a multi-year grant or construction contract gets paid out gradually as the work happens.</li>
+<li><code>total_budgetary_resources</code>: not specific to this agency–this is the whole federal government’s budgetary resources for that year, included so you can see roughly what share of total government resources one agency controls.</li>
+</ul>
+<p>Let’s plot all six agencies together, using <code>agency_budgetary_resources</code>.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>p_agency_budgets <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(<span class="at">data =</span> budget_data,</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>       <span class="fu">aes</span>(<span class="at">x =</span> fiscal_year, <span class="at">y =</span> agency_budgetary_resources <span class="sc">/</span> <span class="fl">1e9</span>,</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>           <span class="at">color =</span> agency)) <span class="sc">+</span></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">linewidth =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Fiscal year"</span>,</span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Budgetary resources (billion $, nominal)"</span>,</span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>       <span class="at">color =</span> <span class="st">"Agency"</span>,</span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>       <span class="at">title =</span> <span class="st">"Federal budgets for science-relevant agencies"</span>)</span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>p_agency_budgets</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div id="fig-agency-budgets" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-agency-budgets-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="funding-science_files/figure-html/fig-agency-budgets-1.png" class="img-fluid figure-img" width="672">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-agency-budgets-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;18.1: Total budgetary resources for six federal agencies relevant to ecological and environmental science, in nominal (not inflation-adjusted) dollars.
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Save a PNG file to your working directory--this is the figure to</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="do">## insert into your deliverable document.</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="st">"figs/fig-agency-budgets.png"</span>, <span class="at">plot =</span> p_agency_budgets,</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>       <span class="at">width =</span> <span class="dv">7</span>, <span class="at">height =</span> <span class="dv">5</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Refer to your version of <a href="#fig-agency-budgets" class="quarto-xref">Figure&nbsp;<span>18.1</span></a>. A couple of things to keep in mind:</p>
+<ul>
+<li>These numbers are the agency’s <em>entire</em> budget–not just the part that funds ecological research. NSF, for example, also funds physics, computer science, and engineering. Think of this as an upper bound on what could be available for ecology, not a direct measure of ecology funding.</li>
+<li>These are <strong>nominal dollars</strong>: the actual number of dollars appropriated that year, with no adjustment for inflation. A dollar in 2010 bought more than a dollar today. If an agency’s budget looks flat over ten years in nominal dollars, its <em>purchasing power</em> has actually shrunk.</li>
+</ul>
+</section>
+<section id="adjusting-for-inflation" class="level3" data-number="18.3.3">
+<h3 data-number="18.3.3" class="anchored" data-anchor-id="adjusting-for-inflation"><span class="header-section-number">18.3.3</span> Adjusting for inflation</h3>
+<p>To compare dollars from different years fairly, we need to convert everyone’s budget into the purchasing power of a single reference year. We’ll use the <strong>Consumer Price Index (CPI-U)</strong>, the standard cost-of-living measure published monthly by the U.S. Bureau of Labor Statistics.</p>
+<p>Rather than fetching this from an API, we’ll use a small table you keep directly in your script. CPI values are revised only rarely and change slowly, so a short, clearly-sourced table is actually the more reliable choice here–it has no dependency on a web service being available, and everyone in the class gets exactly the same numbers.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Annual average CPI-U (all items, U.S. city average), 1982-84 = 100.</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="do">## Source, 2017-2025: U.S. Bureau of Labor Statistics,</span></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="do">## https://www.bls.gov/regions/mid-atlantic/data/consumerpriceindexannualandsemiannual_table.htm</span></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="do">## Note: the 2025 average is BLS's own preliminary figure--October 2025 data</span></span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a><span class="do">## could not be collected during a lapse in appropriations that year.</span></span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a><span class="do">## Source, 2026: BLS has not published a 2026 annual average yet--the year</span></span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a><span class="do">## isn't over. Rather than leave 2026 blank, we use a *projected* value:</span></span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a><span class="do">## the Federal Reserve Bank of Philadelphia's Survey of Professional</span></span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a><span class="do">## Forecasters (SPF), Q2 2026 release, put median expected headline CPI</span></span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a><span class="do">## inflation for 2026 at 3.5% (Q4-over-Q4 basis):</span></span>
+<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a><span class="do">## https://www.philadelphiafed.org/surveys-and-data/real-time-data-research/spf-q2-2026</span></span>
+<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a><span class="do">## We applied that growth rate to the 2025 annual average (321.943 * 1.035</span></span>
+<span id="cb12-13"><a href="#cb12-13" aria-hidden="true" tabindex="-1"></a><span class="do">## = ~333.2) to get a rough 2026 estimate. This is explicitly an estimate,</span></span>
+<span id="cb12-14"><a href="#cb12-14" aria-hidden="true" tabindex="-1"></a><span class="do">## not an official BLS figure--replace it with the real annual average</span></span>
+<span id="cb12-15"><a href="#cb12-15" aria-hidden="true" tabindex="-1"></a><span class="do">## once BLS publishes it (early the following year).</span></span>
+<span id="cb12-16"><a href="#cb12-16" aria-hidden="true" tabindex="-1"></a><span class="do">## Stored in data/cpi.csv; add a row there each time you re-teach this</span></span>
+<span id="cb12-17"><a href="#cb12-17" aria-hidden="true" tabindex="-1"></a><span class="do">## chapter, replacing last year's projection with the real BLS figure and</span></span>
+<span id="cb12-18"><a href="#cb12-18" aria-hidden="true" tabindex="-1"></a><span class="do">## adding a new projected row for the new current year.</span></span>
+<span id="cb12-19"><a href="#cb12-19" aria-hidden="true" tabindex="-1"></a>cpi <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/cpi.csv"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Rows: 10 Columns: 2
+── Column specification ────────────────────────────────────────────────────────
+Delimiter: ","
+dbl (2): fiscal_year, cpi_u
+
+ℹ Use `spec()` to retrieve the full column specification for this data.
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
+</div>
+</div>
+<p>Federal fiscal years run October through September, while CPI is published by calendar year; matching a fiscal year to the calendar year with the same number is a common simplification, not an exact correspondence–worth knowing, not worth losing sleep over in an introductory exercise.</p>
+<p>Now we join this table to our budget data by <code>fiscal_year</code>, and re-express every year’s budget in a single reference year’s dollars–here, 2025.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="do">## the CPI value for our reference year</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>base_cpi <span class="ot">&lt;-</span> cpi<span class="sc">$</span>cpi_u[cpi<span class="sc">$</span>fiscal_year <span class="sc">==</span> <span class="dv">2025</span>]</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>budget_real <span class="ot">&lt;-</span> budget_data <span class="sc">%&gt;%</span></span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(cpi, <span class="at">by =</span> <span class="st">"fiscal_year"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>  <span class="do">## multiplying by (base year's CPI / that year's CPI) rescales every</span></span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>  <span class="do">## year's dollars into 2025 purchasing power</span></span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">budget_real_2025usd =</span> agency_budgetary_resources <span class="sc">*</span> (base_cpi <span class="sc">/</span> cpi_u))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Notice that the current fiscal year, 2026, uses the <em>projected</em> CPI value described above rather than an official BLS annual average–BLS won’t publish that until early 2027. Everything downstream (the inflation-adjusted figure below, and any questions you answer about 2026) is therefore built on an estimate for that one year, not a final number. <code>left_join()</code> would fill any genuinely missing year with <code>NA</code>; we keep the <code>filter(!is.na(...))</code> step below as a safeguard in case a future year is missing from <code>data/cpi.csv</code> before you’ve had a chance to add a projection for it.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>p_agency_budgets_real <span class="ot">&lt;-</span> budget_real <span class="sc">%&gt;%</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(budget_real_2025usd)) <span class="sc">%&gt;%</span></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> fiscal_year, <span class="at">y =</span> budget_real_2025usd <span class="sc">/</span> <span class="fl">1e9</span>, <span class="at">color =</span> agency)) <span class="sc">+</span></span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">linewidth =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Fiscal year"</span>,</span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Budgetary resources (billion 2025 $)"</span>,</span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a>       <span class="at">color =</span> <span class="st">"Agency"</span>,</span>
+<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a>       <span class="at">title =</span> <span class="st">"Federal budgets for science-relevant agencies, inflation-adjusted"</span>)</span>
+<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a>p_agency_budgets_real</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div id="fig-agency-budgets-real" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-agency-budgets-real-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="funding-science_files/figure-html/fig-agency-budgets-real-1.png" class="img-fluid figure-img" width="672">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-agency-budgets-real-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;18.2: The same six agency budgets as <a href="#fig-agency-budgets" class="quarto-xref">Figure&nbsp;<span>18.1</span></a>, expressed in constant 2025 dollars.
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Save a PNG file to your working directory--this is the figure to</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="do">## insert into your deliverable document.</span></span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="st">"figs/fig-agency-budgets-real.png"</span>, <span class="at">plot =</span> p_agency_budgets_real,</span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>       <span class="at">width =</span> <span class="dv">7</span>, <span class="at">height =</span> <span class="dv">5</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Compare <a href="#fig-agency-budgets" class="quarto-xref">Figure&nbsp;<span>18.1</span></a> and <a href="#fig-agency-budgets-real" class="quarto-xref">Figure&nbsp;<span>18.2</span></a> side by side. Any agency whose nominal line looked flat should now show a gentle <em>decline</em> in <a href="#fig-agency-budgets-real" class="quarto-xref">Figure&nbsp;<span>18.2</span></a>–that’s inflation quietly eroding purchasing power even when Congress technically kept the dollar amount “the same.”</p>
+</section>
+<section id="how-much-of-that-is-actually-research" class="level3" data-number="18.3.4">
+<h3 data-number="18.3.4" class="anchored" data-anchor-id="how-much-of-that-is-actually-research"><span class="header-section-number">18.3.4</span> How much of that is actually research?</h3>
+<p>Everything so far has used each agency’s <em>entire</em> budget, which for some agencies is a poor stand-in for “money available for ecological research.” NASA’s total budget includes the International Space Station and crewed spaceflight. USDA’s includes crop insurance and nutrition assistance. EPA’s includes cleanup and enforcement. None of that funds research.</p>
+<p>The federal government has an office that exists specifically to separate research spending from everything else: NCSES, the National Center for Science and Engineering Statistics (part of NSF), conducts an annual <strong>Survey of Federal Funds for Research and Development</strong>. Every year, each agency reports which of its budget accounts count as “R&amp;D obligations” under a common federal definition, and NCSES compiles the results. The distinction is not cosmetic–NCSES’s own documentation notes, for example, that it reclassified NASA’s Space Operations account (which includes the Hubble Space Telescope and crewed missions) out of NASA’s R&amp;D total. The same logic keeps USDA’s crop insurance and SNAP out of USDA’s R&amp;D total. Usefully for us, NCSES also reports sub-agencies separately from their parent department–which is how we can finally see NOAA on its own apart from the rest of Commerce, and FWS, USGS, and the Forest Service each on their own apart from the rest of DOI and USDA.</p>
+<p>This survey is not a live API–it is a set of tables NCSES publishes once a year, usually as Excel and PDF files, at <a href="https://ncses.nsf.gov/surveys/federal-funds-research-development/" target="_blank">ncses.nsf.gov/surveys/federal-funds-research-development</a>. That makes it a good second example of when a small, well-sourced table you maintain yourself (like the CPI table above) is more practical than trying to script a live connection to it.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Federal R&amp;D OBLIGATIONS by agency--NOT each agency's entire budget, but the</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="do">## slice NCSES classifies as research and development (plus R&amp;D facilities/</span></span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="do">## equipment, i.e. "R&amp;D plant"). In millions of dollars.</span></span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a><span class="do">##</span></span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a><span class="do">## IMPORTANT: nine of these ten rows are OBLIGATIONS, but DOE_BER is not.</span></span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a><span class="do">## Source (NSF, EPA, USDA, NOAA, NASA, DOE, DOI, FWS, USGS, USFS): NCSES Survey</span></span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a><span class="do">## of Federal Funds for Research and Development, Table 3, multiple survey</span></span>
+<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a><span class="do">## years: https://ncses.nsf.gov/surveys/federal-funds-research-development.</span></span>
+<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a><span class="do">## This is OBLIGATIONS: a legal commitment the agency made that year (a grant</span></span>
+<span id="cb17-10"><a href="#cb17-10" aria-hidden="true" tabindex="-1"></a><span class="do">## awarded, a contract signed)--the same "obligated" concept as</span></span>
+<span id="cb17-11"><a href="#cb17-11" aria-hidden="true" tabindex="-1"></a><span class="do">## agency_total_obligated back in Part 1. It is NOT the same as an OUTLAY</span></span>
+<span id="cb17-12"><a href="#cb17-12" aria-hidden="true" tabindex="-1"></a><span class="do">## (cash actually paid out, which can lag obligations by months or years),</span></span>
+<span id="cb17-13"><a href="#cb17-13" aria-hidden="true" tabindex="-1"></a><span class="do">## and it is NOT the same as an APPROPRIATION (the budget authority Congress</span></span>
+<span id="cb17-14"><a href="#cb17-14" aria-hidden="true" tabindex="-1"></a><span class="do">## granted, which an agency can carry into future years without fully</span></span>
+<span id="cb17-15"><a href="#cb17-15" aria-hidden="true" tabindex="-1"></a><span class="do">## obligating it the same year).</span></span>
+<span id="cb17-16"><a href="#cb17-16" aria-hidden="true" tabindex="-1"></a><span class="do">## Source (DOE_BER only): NCSES does not break DOE down by program office, so</span></span>
+<span id="cb17-17"><a href="#cb17-17" aria-hidden="true" tabindex="-1"></a><span class="do">## this row comes directly from DOE Office of Science's own congressional</span></span>
+<span id="cb17-18"><a href="#cb17-18" aria-hidden="true" tabindex="-1"></a><span class="do">## budget justifications for Biological and Environmental Research (BER).</span></span>
+<span id="cb17-19"><a href="#cb17-19" aria-hidden="true" tabindex="-1"></a><span class="do">## Those documents report ENACTED APPROPRIATIONS, not obligations--a related</span></span>
+<span id="cb17-20"><a href="#cb17-20" aria-hidden="true" tabindex="-1"></a><span class="do">## but different number (see above). Treat the DOE_BER row as "what Congress</span></span>
+<span id="cb17-21"><a href="#cb17-21" aria-hidden="true" tabindex="-1"></a><span class="do">## gave BER to work with," not "what BER legally committed," and keep that</span></span>
+<span id="cb17-22"><a href="#cb17-22" aria-hidden="true" tabindex="-1"></a><span class="do">## distinction in mind when comparing it to the other nine rows in</span></span>
+<span id="cb17-23"><a href="#cb17-23" aria-hidden="true" tabindex="-1"></a><span class="do">## @fig-rd-only-subagencies. See</span></span>
+<span id="cb17-24"><a href="#cb17-24" aria-hidden="true" tabindex="-1"></a><span class="do">## https://science.osti.gov/budget/Budget-by-Program/BER-Budget for the source</span></span>
+<span id="cb17-25"><a href="#cb17-25" aria-hidden="true" tabindex="-1"></a><span class="do">## documents by year.</span></span>
+<span id="cb17-26"><a href="#cb17-26" aria-hidden="true" tabindex="-1"></a><span class="do">## Stored in data/rd_only.csv. NCSES (and DOE) revise their own estimates in</span></span>
+<span id="cb17-27"><a href="#cb17-27" aria-hidden="true" tabindex="-1"></a><span class="do">## the following year's release (a "preliminary" figure becomes "final"), so a</span></span>
+<span id="cb17-28"><a href="#cb17-28" aria-hidden="true" tabindex="-1"></a><span class="do">## few of these will differ slightly from whatever is on the source website</span></span>
+<span id="cb17-29"><a href="#cb17-29" aria-hidden="true" tabindex="-1"></a><span class="do">## when you read this--that is normal for survey/budget data, not a mistake.</span></span>
+<span id="cb17-30"><a href="#cb17-30" aria-hidden="true" tabindex="-1"></a><span class="do">## Update/extend data/rd_only.csv when you re-teach the chapter.</span></span>
+<span id="cb17-31"><a href="#cb17-31" aria-hidden="true" tabindex="-1"></a>rd_only <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/rd_only.csv"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Rows: 77 Columns: 3
+── Column specification ────────────────────────────────────────────────────────
+Delimiter: ","
+chr (1): agency
+dbl (2): fiscal_year, rd_obligations
+
+ℹ Use `spec()` to retrieve the full column specification for this data.
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
+</div>
+</div>
+<p>All of the dollar figures in <code>rd_only</code> (fiscal years, not calendar years–see the CPI section above for why that distinction matters) are <strong>obligations</strong>, except <code>DOE_BER</code>, which is an <strong>appropriation</strong>, for the reasons explained in the code comment above. Obligations and appropriations are close cousins but not the same thing, and neither one is the same as an <em>outlay</em>–Part 1 already introduced all three: <code>agency_budgetary_resources</code> (roughly, the appropriation), <code>agency_total_obligated</code>, and <code>agency_total_outlayed</code>.</p>
+<p>That distinction matters more than usual right now. An obligation is a real, legally binding commitment–but a legal commitment is not a guarantee. Under the current administration, a substantial number of already-obligated federal research grants have been terminated after the fact, and some research offices have been downsized or closed outright, largely at the direction of the Department of Government Efficiency (DOGE) and newly appointed agency leadership. This is not unique to NSF (mentioned in Background above): NOAA canceled leases on research facilities, including its National Centers for Environmental Prediction building in College Park, MD and its Radar Operations Center in Norman, OK, alongside broad workforce cuts–reported at roughly 10% of staff as of early 2025, with some former officials warning the total could reach half the agency. USGS’s Ecosystems Mission Area–the program behind avian-influenza monitoring, invasive-species tracking, and dozens of other applied wildlife and ecosystem research efforts across 16 research centers–was funded at about $293 million in FY2025 and proposed for complete elimination in FY2026; USGS’s total workforce is projected to shrink from about 7,870 employees (FY2024) to roughly 5,150 (FY2026). FWS’s own staff fell from 9,957 to 8,179 between 2024 and May 2025 (about 18%), with concrete on-the-ground effects–at one California refuge, wetland habitat went unflooded for an entire winter because no staff remained to operate the water-control structures. Government-wide, DOGE had terminated nearly 16,000 federal grants worth an estimated $49 billion as of January 2026. Some of this is being contested in court–several federal judges have ruled specific terminations unlawful and blocked them–but litigation moves slowly, and many terminated grants and closed offices remain terminated and closed while cases proceed. (See <a href="https://www.datacenterdynamics.com/en/news/doge-noaa-cuts-jobs-and-cancels-leases-for-research-centers/" target="_blank">DataCenterDynamics on NOAA facility and staffing cuts</a>, <a href="https://www.eenews.net/articles/trump-cuts-would-scrap-usgs-biological-research-arm/" target="_blank">E&amp;E News on USGS’s Ecosystems Mission Area</a>, <a href="https://calmatters.org/environment/2026/08/wildlife-refuge-after-doge/" target="_blank">CalMatters on FWS refuge staffing</a>, and <a href="https://grantedai.com/blog/doge-federal-grant-terminations-nonprofit-survival-guide-2026" target="_blank">reporting on DOGE’s grant-termination totals and legal challenges</a>.)</p>
+<p>The practical lesson for this chapter: in most years, treating an obligated dollar as money that funded real research was a safe simplification. For FY2025 and FY2026 specifically, it is not–some of the dollars counted as “obligated” in this chapter’s data were later clawed back. Keep that in mind especially when you get to FWS’s and USGS’s most recent numbers below.</p>
+<p>Look closely at FWS’s and USGS’s last two rows: FWS drops from $48 million in FY2024 to $6 million in FY2025 (an 87% cut), and USGS drops from $803 million in FY2023 to $378 million in FY2024 (more than half). Both are inside DOI, and together they explain most of the decline you may already have noticed in DOI’s whole-department line in <a href="#fig-agency-budgets" class="quarto-xref">Figure&nbsp;<span>18.1</span></a>. Some of this reflects the obligations-vs-outcomes gap just described; some of it (as you’ll see if you investigate further) also reflects one-time infrastructure-law funding from 2022-2023 working its way through the system on its own schedule, unrelated to any single year’s political decisions. Untangling exactly how much of a given year’s change comes from which cause is a real, current, and genuinely open research question–not something this chapter can answer for you. FWS’s formula-funded apportionments to the states (Part 2) come from a completely different pot of money (excise tax revenue, not annual appropriations)–that contrast is worth keeping in mind once you get to Part 2.</p>
+<p>DOE’s row tells a different kind of story, and it needs a slightly different fix. NOAA, FWS, USGS, and the Forest Service are missing from <a href="#fig-agency-budgets" class="quarto-xref">Figure&nbsp;<span>18.1</span></a> and <a href="#fig-rd-only-departments" class="quarto-xref">Figure&nbsp;<span>18.3</span></a> because they are <em>sub-agencies</em> with no toptier code of their own–their dollars are folded into a parent department’s total. DOE is not like that: it is already a toptier agency, and its row in <a href="#fig-rd-only-departments" class="quarto-xref">Figure&nbsp;<span>18.3</span></a> is a real, complete R&amp;D total. The problem is what that total contains. NCSES’s R&amp;D figure for DOE bundles energy-technology research–fossil fuels, nuclear power, renewables, DOE’s national labs doing all of the above–together with DOE’s actual ecological and environmental science. Splitting those apart means going one level deeper than NCSES goes, into DOE’s own Office of Science budget, to the <strong>Biological and Environmental Research (BER)</strong> program specifically. BER’s numbers (<code>DOE_BER</code> below) are consistently a small fraction of DOE’s whole R&amp;D total–well under 10% most years–which tells you something about what most of DOE’s research budget actually buys.</p>
+<p>Eleven agencies is a lot of colors for one line graph to hold at once–past six or seven categories, a line chart gets hard to read no matter how careful the color choices are. Rather than force all eleven into a single crowded plot, we’ll split them the same way the data itself is organized: toptier departments and agencies (the six you already have live budgets for) in one figure, and the five agency- and program-level drilldowns–NOAA, FWS, USGS, and the Forest Service (true sub-agencies), plus DOE BER (a program office inside an agency that is already toptier)–in a second.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>p_rd_departments <span class="ot">&lt;-</span> rd_only <span class="sc">%&gt;%</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(agency <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"NSF"</span>, <span class="st">"EPA"</span>, <span class="st">"USDA"</span>, <span class="st">"DOE"</span>, <span class="st">"DOI"</span>, <span class="st">"NASA"</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> fiscal_year, <span class="at">y =</span> rd_obligations <span class="sc">/</span> <span class="dv">1000</span>, <span class="at">color =</span> agency)) <span class="sc">+</span></span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">linewidth =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Fiscal year"</span>, <span class="at">y =</span> <span class="st">"R&amp;D obligations (billion $, nominal)"</span>,</span>
+<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a>       <span class="at">color =</span> <span class="st">"Agency"</span>,</span>
+<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a>       <span class="at">title =</span> <span class="st">"Research-only funding, toptier agencies"</span>)</span>
+<span id="cb19-9"><a href="#cb19-9" aria-hidden="true" tabindex="-1"></a>p_rd_departments</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div id="fig-rd-only-departments" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-rd-only-departments-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="funding-science_files/figure-html/fig-rd-only-departments-1.png" class="img-fluid figure-img" width="672">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-rd-only-departments-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;18.3: Research and development obligations only (not total agency budget), for the six toptier agencies, FY2019-2025.
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Save a PNG file to your working directory--this is the figure to</span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="do">## insert into your deliverable document.</span></span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="st">"figs/fig-rd-only-departments.png"</span>, <span class="at">plot =</span> p_rd_departments,</span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>       <span class="at">width =</span> <span class="dv">7</span>, <span class="at">height =</span> <span class="dv">5</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>p_rd_subagencies <span class="ot">&lt;-</span> rd_only <span class="sc">%&gt;%</span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(agency <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"NOAA"</span>, <span class="st">"FWS"</span>, <span class="st">"USGS"</span>, <span class="st">"USFS"</span>, <span class="st">"DOE_BER"</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> fiscal_year, <span class="at">y =</span> rd_obligations, <span class="at">color =</span> agency)) <span class="sc">+</span></span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">linewidth =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Fiscal year"</span>, <span class="at">y =</span> <span class="st">"R&amp;D obligations (million $, nominal)"</span>,</span>
+<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a>       <span class="at">color =</span> <span class="st">"Agency"</span>,</span>
+<span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a>       <span class="at">title =</span> <span class="st">"Research-only funding, sub-agencies and DOE BER"</span>)</span>
+<span id="cb21-9"><a href="#cb21-9" aria-hidden="true" tabindex="-1"></a>p_rd_subagencies</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div id="fig-rd-only-subagencies" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-rd-only-subagencies-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="funding-science_files/figure-html/fig-rd-only-subagencies-1.png" class="img-fluid figure-img" width="672">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-rd-only-subagencies-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;18.4: Research and development obligations only, for NOAA, FWS, USGS, and the Forest Service (sub-agencies USAspending can’t show on their own) and DOE BER (a program office isolated from DOE’s much larger, mostly non-ecological R&amp;D total), FY2019-2025.
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Save a PNG file to your working directory--this is the figure to</span></span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="do">## insert into your deliverable document.</span></span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="st">"figs/fig-rd-only-subagencies.png"</span>, <span class="at">plot =</span> p_rd_subagencies,</span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>       <span class="at">width =</span> <span class="dv">7</span>, <span class="at">height =</span> <span class="dv">5</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Notice NASA switches rank between the two budget figures: it is one of the biggest budgets in <a href="#fig-agency-budgets" class="quarto-xref">Figure&nbsp;<span>18.1</span></a>, but a much smaller share of its money counts as research once we exclude everything else NASA does. In <a href="#fig-rd-only-subagencies" class="quarto-xref">Figure&nbsp;<span>18.4</span></a>, notice how much larger USGS’s research funding is than FWS’s or the Forest Service’s–despite USGS rarely making headlines the way FWS (endangered species) or the Forest Service (wildfire) do–and compare DOE BER’s line to DOE’s full R&amp;D line in <a href="#fig-rd-only-departments" class="quarto-xref">Figure&nbsp;<span>18.3</span></a>: BER is a similar size to USGS, but it is a much smaller piece of its own parent agency’s total than USGS is of DOI’s.</p>
+<p>Now let’s make that contrast explicit, by putting each agency’s <em>entire</em> budget next to its <em>research-only</em> obligations for a single year.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>compare_year <span class="ot">&lt;-</span> <span class="dv">2024</span></span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>total_fy <span class="ot">&lt;-</span> budget_data <span class="sc">%&gt;%</span></span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(fiscal_year <span class="sc">==</span> compare_year) <span class="sc">%&gt;%</span></span>
+<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">transmute</span>(agency, <span class="at">amount =</span> agency_budgetary_resources <span class="sc">/</span> <span class="fl">1e6</span>,</span>
+<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a>            <span class="at">category =</span> <span class="st">"Entire agency budget"</span>)</span>
+<span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-8"><a href="#cb23-8" aria-hidden="true" tabindex="-1"></a>research_fy <span class="ot">&lt;-</span> rd_only <span class="sc">%&gt;%</span></span>
+<span id="cb23-9"><a href="#cb23-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(fiscal_year <span class="sc">==</span> compare_year) <span class="sc">%&gt;%</span></span>
+<span id="cb23-10"><a href="#cb23-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">transmute</span>(agency, <span class="at">amount =</span> rd_obligations,</span>
+<span id="cb23-11"><a href="#cb23-11" aria-hidden="true" tabindex="-1"></a>            <span class="at">category =</span> <span class="st">"Research (R&amp;D) obligations only"</span>)</span>
+<span id="cb23-12"><a href="#cb23-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-13"><a href="#cb23-13" aria-hidden="true" tabindex="-1"></a>p_total_vs_research <span class="ot">&lt;-</span> <span class="fu">bind_rows</span>(total_fy, research_fy) <span class="sc">%&gt;%</span></span>
+<span id="cb23-14"><a href="#cb23-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> agency, <span class="at">y =</span> amount <span class="sc">/</span> <span class="dv">1000</span>, <span class="at">fill =</span> category)) <span class="sc">+</span></span>
+<span id="cb23-15"><a href="#cb23-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>(<span class="at">position =</span> <span class="st">"dodge"</span>) <span class="sc">+</span></span>
+<span id="cb23-16"><a href="#cb23-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Agency"</span>, <span class="at">y =</span> <span class="st">"Billion $"</span>,</span>
+<span id="cb23-17"><a href="#cb23-17" aria-hidden="true" tabindex="-1"></a>       <span class="at">fill =</span> <span class="cn">NULL</span>,</span>
+<span id="cb23-18"><a href="#cb23-18" aria-hidden="true" tabindex="-1"></a>       <span class="at">title =</span> <span class="fu">paste</span>(<span class="st">"How much of each agency's FY"</span>, compare_year, <span class="st">"budget is research?"</span>))</span>
+<span id="cb23-19"><a href="#cb23-19" aria-hidden="true" tabindex="-1"></a>p_total_vs_research</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div id="fig-total-vs-research" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-total-vs-research-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="funding-science_files/figure-html/fig-total-vs-research-1.png" class="img-fluid figure-img" width="672">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-total-vs-research-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;18.5: Total agency budget (USAspending) versus research-only obligations (NCSES, or DOE’s own budget justifications for DOE BER) for fiscal year 2024. NOAA, FWS, USGS, the Forest Service, and DOE BER have no bar for ‘entire agency budget’: the first four are not toptier agencies (see above), and DOE BER is a program office, not an agency–DOE’s own ‘entire agency budget’ bar is what its BER bar should be compared against.
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Save a PNG file to your working directory--this is the figure to</span></span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a><span class="do">## insert into your deliverable document.</span></span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="st">"figs/fig-total-vs-research.png"</span>, <span class="at">plot =</span> p_total_vs_research,</span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>       <span class="at">width =</span> <span class="dv">7</span>, <span class="at">height =</span> <span class="dv">5</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p><a href="#fig-total-vs-research" class="quarto-xref">Figure&nbsp;<span>18.5</span></a> is the figure that directly answers “how much of NASA’s or USDA’s budget is really research”–look at how much shorter the research-only bar is than the entire-budget bar for those two agencies, compared to NSF, where the two bars are close to each other.</p>
+</section>
+<section id="part-2-a-different-funding-mechanismstate-wildlife-agencies" class="level3" data-number="18.3.5">
+<h3 data-number="18.3.5" class="anchored" data-anchor-id="part-2-a-different-funding-mechanismstate-wildlife-agencies"><span class="header-section-number">18.3.5</span> Part 2: A different funding mechanism–state wildlife agencies</h3>
+<p>Now compare that competitive, congressionally-appropriated funding to a formula-based stream: the Pittman-Robertson (Wildlife Restoration) and Dingell-Johnson (Sport Fish Restoration) apportionments that the U.S. Fish and Wildlife Service sends to every state’s fish and wildlife agency every year.</p>
+<p>Work in pairs, and coordinate with the rest of the class so that no two groups pick the same state.</p>
+<ol type="1">
+<li>Go to our class Google Sheet for <strong>state wildlife funding</strong> (ask your instructor for the link if it is not already posted). Enter the name of the U.S. state you will investigate, and add your name so no one else picks the same one.</li>
+<li>Go to the <a href="https://partnerwithapayer.org/funding-sources/" target="_blank">Partner with a Payer funding-sources page</a>, which the U.S. Fish and Wildlife Service maintains as the public source for current and historic Wildlife and Sport Fish Restoration apportionment data by state and year.</li>
+<li>Go to the Funding Sources tab, and look up your selected state’s <strong>Wildlife Restoration</strong> apportionments for each of the five most recent fiscal years available. Place your cursor over the column of your state, and write down the dollar amount for that year. Do this for each of the five most recent years.</li>
+<li>Enter each year, program, and dollar amount as its own row in the class Google Sheet, along with your state and your uniqueID.</li>
+<li>Repeat this process for <strong>Sport Fish Restoration.</strong></li>
+</ol>
+<p>Once the whole class has entered data, read the shared sheet into R the same way you did in the tree-cover assignment.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>d_state <span class="ot">&lt;-</span> <span class="fu">read_sheet</span>(<span class="st">"PASTE_YOUR_CLASS_GOOGLE_SHEET_URL_HERE"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>p_state_funding <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(<span class="at">data =</span> d_state,</span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>       <span class="fu">aes</span>(<span class="at">x =</span> fiscal_year, <span class="at">y =</span> apportionment <span class="sc">/</span> <span class="fl">1e6</span>, <span class="at">color =</span> state)) <span class="sc">+</span></span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">linewidth =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>program) <span class="sc">+</span></span>
+<span id="cb26-6"><a href="#cb26-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Fiscal year"</span>, <span class="at">y =</span> <span class="st">"Apportionment (million $)"</span>, <span class="at">color =</span> <span class="st">"State"</span>)</span>
+<span id="cb26-7"><a href="#cb26-7" aria-hidden="true" tabindex="-1"></a>p_state_funding</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div id="fig-state-funding" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-state-funding-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="funding-science_files/figure-html/fig-state-funding-1.png" class="img-fluid figure-img" width="672">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-state-funding-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;18.6: Wildlife Restoration apportionments for a sample of states. Your class figure will include every state your classmates collected.
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Save a PNG file to your working directory--this is the figure to</span></span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a><span class="do">## insert into your deliverable document.</span></span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="st">"figs/fig-state-funding.png"</span>, <span class="at">plot =</span> p_state_funding,</span>
+<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a>       <span class="at">width =</span> <span class="dv">7</span>, <span class="at">height =</span> <span class="dv">5</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="part-3-find-and-explain-one-funded-research-award" class="level3" data-number="18.3.6">
+<h3 data-number="18.3.6" class="anchored" data-anchor-id="part-3-find-and-explain-one-funded-research-award"><span class="header-section-number">18.3.6</span> Part 3: Find and explain one funded research award</h3>
+<p>Everything so far has been about dollar totals. This part is about a single, real research award–so that “funding” stops being an abstract number and becomes an actual project someone is doing.</p>
+<p>NSF exposes every award it has ever made through its own public <a href="https://www.nsf.gov/awardsearch/" target="_blank">Award Search API</a>. Unlike USAspending, this lets you search by keyword, so you can find awards on a specific research topic rather than an entire agency’s totals.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="do">## pick a keyword related to something you're curious about--</span></span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a><span class="do">## try your own before settling on "biodiversity"</span></span>
+<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>url <span class="ot">&lt;-</span> <span class="st">"https://api.nsf.gov/services/v1/awards.json?keyword=biodiversity"</span></span>
+<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a>nsf_result <span class="ot">&lt;-</span> <span class="fu">fromJSON</span>(url)</span>
+<span id="cb28-5"><a href="#cb28-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-6"><a href="#cb28-6" aria-hidden="true" tabindex="-1"></a><span class="do">## the awards themselves are nested inside the response--explore its structure</span></span>
+<span id="cb28-7"><a href="#cb28-7" aria-hidden="true" tabindex="-1"></a><span class="do">## before assuming you know what's in it</span></span>
+<span id="cb28-8"><a href="#cb28-8" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(nsf_result, <span class="at">max.level =</span> <span class="dv">3</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>List of 1
+ $ response:List of 2
+  ..$ award   :'data.frame':    25 obs. of  63 variables:
+  .. ..$ abstractText       : chr [1:25] "This Research Infrastructure Improvement (RII) EPSCoR Research Fellows project provides a fellowship to an Assi"| __truncated__ "This Research Infrastructure Improvement (RII) EPSCoR Research Fellows project provides a fellowship to an Assi"| __truncated__ "New species often form when populations become geographically isolated and undergo independent evolutionary cha"| __truncated__ "A grand challenge in this era of rapid global change is efficiently assessing, predicting, and ameliorating cha"| __truncated__ ...
+  .. ..$ activeAwd          : chr [1:25] "true" "true" "true" "true" ...
+  .. ..$ agency             : chr [1:25] "NSF" "NSF" "NSF" "NSF" ...
+  .. ..$ awardAgencyCode    : chr [1:25] "4900" "4900" "4900" "4900" ...
+  .. ..$ awardee            : chr [1:25] "UNIVERSITY OF HAWAII" "UNIVERSITY OF KENTUCKY RESEARCH FOUNDATION, THE" "MONTANA STATE UNIVERSITY" "MISSOURI BOTANICAL GARDEN" ...
+  .. ..$ awardeeAddress     : chr [1:25] "2425 CAMPUS RD SINCLAIR RM 1" "500 S LIMESTONE" "216 MONTANA HALL" "2345 TOWER GROVE AVE" ...
+  .. ..$ awardeeCity        : chr [1:25] "HONOLULU" "LEXINGTON" "BOZEMAN" "SAINT LOUIS" ...
+  .. ..$ awardeeCountryCode : chr [1:25] "US" "US" "US" "US" ...
+  .. ..$ awardeeDistrict    : chr [1:25] "01" "06" "01" "01" ...
+  .. ..$ awardeeDistrictCode: chr [1:25] "HI01" "KY06" "MT01" "MO01" ...
+  .. ..$ awardeeName        : chr [1:25] "University of Hawaii" "University of Kentucky Research Foundation" "Montana State University" "Missouri Botanical Garden" ...
+  .. ..$ awardeePhone       : chr [1:25] "8089567800" "8592579420" "4069942381" "3145775182" ...
+  .. ..$ awardeeStateCode   : chr [1:25] "HI" "KY" "MT" "MO" ...
+  .. ..$ awardeeZipCode     : chr [1:25] "968222247" "405260001" "59717" "631103420" ...
+  .. ..$ cfdaNumber         : chr [1:25] "47.083" "47.083" "47.074" "47.074" ...
+  .. ..$ date               : chr [1:25] "08/17/2026" "03/31/2026" "07/28/2026" "07/11/2026" ...
+  .. ..$ dirAbbr            : chr [1:25] "O/D" "O/D" "BIO" "BIO" ...
+  .. ..$ divAbbr            : chr [1:25] "OIA" "OIA" "DEB" "DBI" ...
+  .. ..$ estimatedTotalAmt  : chr [1:25] "295906" "235654" "399733" "187990" ...
+  .. ..$ expDate            : chr [1:25] "12/31/2028" "12/31/2028" "09/30/2029" "08/31/2029" ...
+  .. ..$ fundAgencyCode     : chr [1:25] "4900" "4900" "4900" "4900" ...
+  .. ..$ fundProgramName    : chr [1:25] "EPSCoR RII: EPSCoR Research Fe" "EPSCoR RII: EPSCoR Research Fe" "Evo Patterns &amp; Processes" "Innovation: Bioinformatics" ...
+  .. ..$ fundsObligated     :List of 25
+  .. ..$ fundsObligatedAmt  : chr [1:25] "295906" "235654" "399733" "187990" ...
+  .. ..$ histAwd            : chr [1:25] "false" "false" "false" "false" ...
+  .. ..$ id                 : chr [1:25] "2624662" "2531827" "2617981" "2554345" ...
+  .. ..$ initAmendmentDate  : chr [1:25] "08/17/2026" "03/31/2026" "07/28/2026" "07/11/2026" ...
+  .. ..$ latestAmendmentDate: chr [1:25] "08/17/2026" "04/07/2026" "07/28/2026" "07/11/2026" ...
+  .. ..$ managingPec        : chr [1:25] "196Y00" "196Y00" "371Y00" "164Y00" ...
+  .. ..$ orgCodeDir         : chr [1:25] "01000000" "01000000" "08000000" "08000000" ...
+  .. ..$ orgCodeDiv         : chr [1:25] "01060000" "01060000" "08010000" "08080000" ...
+  .. ..$ orgLongName        : chr [1:25] "Office Of The Director" "Office Of The Director" "Directorate for Biological Sciences" "Directorate for Biological Sciences" ...
+  .. ..$ orgLongName2       : chr [1:25] "OIA-Office of Integrative Activities" "OIA-Office of Integrative Activities" "Division Of Environmental Biology" "Division of Biological Infrastructure" ...
+  .. ..$ orgUrl             : chr [1:25] "http://www.nsf.gov/dir/index.jsp?org=OIA" "http://www.nsf.gov/dir/index.jsp?org=OIA" "http://www.nsf.gov/div/index.jsp?div=DEB" "http://www.nsf.gov/div/index.jsp?div=DBI" ...
+  .. ..$ parentUeiNumber    : chr [1:25] "UALXDJ3K6393" "" "" "EE1XNE2UR4U1" ...
+  .. ..$ pdPIName           : chr [1:25] "Lenore Pipes" "Joseph R Burger" "Ethan B Linck" "Adam B Smith" ...
+  .. ..$ perfAddress        : chr [1:25] "1800 EAST-WEST Road" "371 Jane Stanford Way" "216 MONTANA HALL" "2345 TOWER GROVE AVE" ...
+  .. ..$ perfCity           : chr [1:25] "HONOLULU" "Stanford" "BOZEMAN" "SAINT LOUIS" ...
+  .. ..$ perfCountryCode    : chr [1:25] "US" "US" "US" "US" ...
+  .. ..$ perfDistrict       : chr [1:25] "01" "16" "01" "01" ...
+  .. ..$ perfDistrictCode   : chr [1:25] "HI01" "CA16" "MT01" "MO01" ...
+  .. ..$ perfLocation       : chr [1:25] "University of Hawaii" "Stanford University" "Montana State University" "Missouri Botanical Garden" ...
+  .. ..$ perfStateCode      : chr [1:25] "HI" "CA" "MT" "MO" ...
+  .. ..$ perfZipCode        : chr [1:25] "968222318" "943055008" "59717" "631103420" ...
+  .. ..$ pi                 :List of 25
+  .. ..$ piEmail            : chr [1:25] "lpipes@hawaii.edu" "robbieburger@uky.edu" "ethan.linck@montana.edu" "adam.smith@mobot.org" ...
+  .. ..$ piFirstName        : chr [1:25] "Lenore" "Joseph" "Ethan" "Adam" ...
+  .. ..$ piId               : chr [1:25] "270121464" "269966667" "269984831" "269939917" ...
+  .. ..$ piLastName         : chr [1:25] "Pipes" "Burger" "Linck" "Smith" ...
+  .. ..$ poEmail            : chr [1:25] "andjohns@nsf.gov" "andjohns@nsf.gov" "apwright@nsf.gov" "dokamuro@nsf.gov" ...
+  .. ..$ poName             : chr [1:25] "Andrea Johnson" "Andrea Johnson" "April Wright" "Diane Jofuku Okamuro" ...
+  .. ..$ poPhone            : chr [1:25] "7032925164" "7032925164" "7032922685" "7032924508" ...
+  .. ..$ primaryProgram     :List of 25
+  .. ..$ progEleCode        : chr [1:25] "196Y00" "196Y00" "371Y00" "164Y00" ...
+  .. ..$ program            : chr [1:25] "EXP PROG TO STIM COMP RES" "Biotechnology, EXP PROG TO STIM COMP RES" "Artificial Intelligence (AI), EXP PROG TO STIM COMP RES" "Artificial Intelligence (AI), ADVANCES IN BIO INFORMATICS, Biotechnology" ...
+  .. ..$ progRefCode        : chr [1:25] "9150" "8038, 9150" "075Z, 9150" "075Z, 1165, 8038" ...
+  .. ..$ publicAccessMandate: chr [1:25] "1" "1" "1" "1" ...
+  .. ..$ startDate          : chr [1:25] "01/01/2027" "01/01/2027" "10/01/2026" "09/15/2026" ...
+  .. ..$ title              : chr [1:25] "EPSCoR Research Fellows: NSF: Using Ancient DNA From Ocean Sediments to Forecast Ecosystem Shifts" "EPSCoR Research Fellows: NSF: Linking Numerical and Metabolic Theories of Life History" "STAR: Theory and Software for Detecting Speciation with Periodic Gene Flow" "Collaborative Research: Research Infrastructure: Biodiversity On Demand (BOND): A Web Platform for Discovering,"| __truncated__ ...
+  .. ..$ transType          : chr [1:25] "Standard Grant" "Standard Grant" "Standard Grant" "Standard Grant" ...
+  .. ..$ ueiNumber          : chr [1:25] "NSCKLFSSABF2" "H1HYA8Z1NTM5" "EJ3UF7TK8RT5" "JU1FNE8FJBM3" ...
+  .. ..$ piMiddeInitial     : chr [1:25] NA "R" "B" "B" ...
+  .. ..$ coPDPI             :List of 25
+  ..$ metadata:List of 3
+  .. ..$ offset    : int 0
+  .. ..$ rpp       : int 25
+  .. ..$ totalCount: int 10000</code></pre>
+</div>
+</div>
+<p>If “biodiversity” doesn’t interest you, or returns awards that feel too broad, try a keyword closer to a specific subfield instead. Some options, across a few areas of ecology:</p>
+<ul>
+<li><strong>Population ecology:</strong> population dynamics, demography, life history evolution, density dependence, metapopulation</li>
+<li><strong>Community ecology:</strong> species interactions, competition, predator-prey, community assembly, invasive species</li>
+<li><strong>Food webs:</strong> food web, trophic cascade, trophic ecology, consumer-resource dynamics, bioaccumulation</li>
+<li><strong>Ecosystem structure and function:</strong> nutrient cycling, primary productivity, carbon cycling, ecosystem services, biogeochemistry</li>
+</ul>
+<p>Each award record includes fields like <code>title</code>, <code>piFirstName</code>/<code>piLastName</code> (the Principal Investigator), <code>awardeeName</code> (the PI’s institution), <code>fundsObligatedAmt</code> (the award’s dollar value), <code>startDate</code>, and–usefully for this part–<code>abstractText</code>, a plain-language summary the investigator wrote explaining what the project will do.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="do">## look at the list of award titles to help you pick one that interests you</span></span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>nsf_result<span class="sc">$</span>response<span class="sc">$</span>award<span class="sc">$</span>title</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] "EPSCoR Research Fellows: NSF: Using Ancient DNA From Ocean Sediments to Forecast Ecosystem Shifts"                                                                
+ [2] "EPSCoR Research Fellows: NSF: Linking Numerical and Metabolic Theories of Life History"                                                                           
+ [3] "STAR: Theory and Software for Detecting Speciation with Periodic Gene Flow"                                                                                       
+ [4] "Collaborative Research: Research Infrastructure: Biodiversity On Demand (BOND): A Web Platform for Discovering, Comparing, and Integrating Biodiversity Databases"
+ [5] "EAGER: Project BASELINE - Building Faculty Capacity via Biodiversity and Community Partnerships"                                                                  
+ [6] "Collaborative Research: Research Infrastructure: Biodiversity On Demand (BOND): A Web Platform for Discovering, Comparing, and Integrating Biodiversity Databases"
+ [7] "Collaborative Research: Research Infrastructure: Biodiversity On Demand (BOND): A Web Platform for Discovering, Comparing, and Integrating Biodiversity Databases"
+ [8] "Postdoctoral Fellowship: EAR-PF: The relationship between specialization, environmental change, and extinction risk at the dawn of the Age of Mammals"            
+ [9] "BIO-AI: STAR: IUSC: Morphological Barcoding, a novel, machine learning-based approach to solving the taxonomic impediment"                                        
+[10] "Postdoctoral Fellowship: EAR-PF: Tracing Coral-Algal Symbiosis Across Geologic Time Using Nitrogen Isotopes"                                                      
+[11] "NSF-SNSF: Biodiversity-inspired lake modeling linking processes from cells to ecosystems"                                                                         
+[12] "Collaborative Research: The role of belowground resource partitioning in tree biodiversity-ecosystem function relationships"                                      
+[13] "Integrating Genomics, Physiology, and Ecology to Predict Intertidal Ecosystem Resilience"                                                                         
+[14] "Collaborative Research: The role of belowground resource partitioning in tree biodiversity-ecosystem function relationships"                                      
+[15] "Collaborative Research: Uncovering the role of planktic foraminifera in marine snow formation and ocean carbon export"                                            
+[16] "Collaborative Research: Paleoaltimetry of the South-Central Tibetan Plateau Using Triple Oxygen Isotope Measurements"                                             
+[17] "Collaborative Research: Paleoaltimetry of the South-Central Tibetan Plateau Using Triple Oxygen Isotope Measurements"                                             
+[18] "Collaborative Research: The role of belowground resource partitioning in tree biodiversity-ecosystem function relationships"                                      
+[19] "Collaborative Research: GCR: A new scientific framework for understanding and valuing ecosystem services at scale"                                                
+[20] "Collaborative Research: ULTRA-Data: Microbial Mat Community Structure and Metabolic Potential Changes Following an Eruptive Event at Axial Seamount"              
+[21] "Collaborative Research: ULTRA-Data: Microbial Mat Community Structure and Metabolic Potential Changes Following an Eruptive Event at Axial Seamount"              
+[22] "Collaborative Research: GCR: A new scientific framework for understanding and valuing ecosystem services at scale"                                                
+[23] "Collaborative Research: GCR: A new scientific framework for understanding and valuing ecosystem services at scale"                                                
+[24] "CAREER: Empirical tests of biogeographic theory: island mammals in the Gulf of Maine"                                                                             
+[25] "Collaborative Research: GCR: A new scientific framework for understanding and valuing ecosystem services at scale"                                                </code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="do">## pick one (change the row number to whichever award you chose)</span></span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>my_award <span class="ot">&lt;-</span> nsf_result<span class="sc">$</span>response<span class="sc">$</span>award[<span class="dv">1</span>, ]</span>
+<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a>my_award<span class="sc">$</span>title</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "EPSCoR Research Fellows: NSF: Using Ancient DNA From Ocean Sediments to Forecast Ecosystem Shifts"</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>my_award<span class="sc">$</span>abstractText</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "This Research Infrastructure Improvement (RII) EPSCoR Research Fellows project provides a fellowship to an Assistant Professor and training for a postdoctoral fellow at the University of Hawai‘i at Mānoa. This work is conducted in collaboration with Dr. Brice Semmens at the Scripps Institution of Oceanography. Through the fellowship, the PI will investigate how marine life reacted to past environmental changes to better predict how oceans will respond to future environmental conditions. Integrating computer science, statistics, and marine biology, the project will extract historical DNA preserved in deep-sea sediment cores and develop new software to identify highly degraded genetic fragments. These historical records will inform predictive models to forecast future shifts in ocean ecosystems. The award will benefit society by bringing advanced oceanographic forecasting capabilities to Hawai‘i and expanding the STEM workforce through hands-on training for students and researchers in data science and computational biology.\r\n\r\nThis project will establish a novel computational method to reconstruct historical marine biodiversity and forecast ecosystem responses to environmental shifts. The primary intellectual contribution is a damage-aware phylogenetic placement algorithm that computationally rescues highly degraded sedimentary ancient DNA (sedaDNA) without relying on complete reference genomes. Methodologically, the PI will extract sedaDNA from refrigerated Pacific basin sediment cores using optimized target-capture protocols. To address chemical degradation, the PI will embed position-dependent substitution matrices into conditional likelihood calculations to accurately identify and place sequence reads. These historical baselines will then parameterize phylogenetically informed Bayesian Joint Species Distribution Models to forecast community-level shifts under future projected environmental scenarios. The project will substantially improve research infrastructure at the home institution by establishing a new, localized marine paleogenomics capability and advancing the PI’s professional trajectory. These activities are fully integrated with workforce expansion, providing specialized cross-disciplinary training for a postdoctoral researcher and local students, and incorporating the generated open-source software into graduate computer science curricula. This project is supported by the EPSCoR Research Infrastructure Improvement Program: EPSCoR Research Fellows (ERF). The ERF program  supports early- and mid-career investigators in eligible jurisdictions to develop collaborations at the nation’s private, government or academic research institutions.\r\n\r\nThis award reflects NSF's statutory mission and has been deemed worthy of support through evaluation using the Foundation's intellectual merit and broader impacts review criteria."</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="do">## the total dollar amount NSF obligated to this award</span></span>
+<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a>my_award<span class="sc">$</span>fundsObligatedAmt</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "295906"</code></pre>
+</div>
+</div>
+<p>Read the abstract of the award you picked. In your own words–not copied from the abstract–write a short paragraph explaining:</p>
+<ol type="1">
+<li>What scientific question or problem motivated this research?</li>
+<li>How did (or will) the investigators use the award–what will the money actually pay for (fieldwork, equipment, student support, lab analysis, and so on)?</li>
+</ol>
+<p>Notice that <code>fundsObligatedAmt</code> is a single total, not an itemized budget. NSF does not publish a line-item breakdown of how much of an award goes to salaries, equipment, travel, or overhead–that level of detail is part of the confidential budget justification submitted with the original proposal, and it stays between NSF and the awardee institution. The total award amount is public; the itemized budget is not. That is exactly why question 2 above asks you to <em>infer</em> what the money likely paid for from the abstract, rather than look it up.</p>
+<p>NSF’s API documentation describes additional parameters (date ranges, award amount thresholds, and more) that you can use to narrow your search–worth a look if this topic becomes useful for your own research question later in the semester.</p>
+</section>
+</section>
+<section id="overthinking-how-much-of-nsf-is-really-deb" class="level2" data-number="18.4">
+<h2 data-number="18.4" class="anchored" data-anchor-id="overthinking-how-much-of-nsf-is-really-deb"><span class="header-section-number">18.4</span> Overthinking: how much of NSF is really DEB?</h2>
+<p>Everything in this chapter so far has treated NSF as one number–all of <a href="#fig-agency-budgets" class="quarto-xref">Figure&nbsp;<span>18.1</span></a>, <a href="#fig-agency-budgets-real" class="quarto-xref">Figure&nbsp;<span>18.2</span></a>, and <a href="#fig-rd-only-departments" class="quarto-xref">Figure&nbsp;<span>18.3</span></a> show NSF’s <em>entire</em> budget, several billion dollars a year covering physics, computer science, engineering, and every other field NSF funds, not just ecology. Background mentioned that the part of NSF most directly relevant to this course is one specific division: the <strong>Division of Environmental Biology (DEB)</strong>, inside the Directorate for Biological Sciences (BIO). This section isolates DEB’s own numbers, the same way the chapter earlier isolated DOE BER from DOE’s total.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="do">## NSF's Division of Environmental Biology (DEB) budget--not NSF's total</span></span>
+<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a><span class="do">## budget, and not even all of BIO's budget, but the one division that most</span></span>
+<span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a><span class="do">## directly funds population, community, and ecosystem ecology. In millions</span></span>
+<span id="cb38-4"><a href="#cb38-4" aria-hidden="true" tabindex="-1"></a><span class="do">## of dollars.</span></span>
+<span id="cb38-5"><a href="#cb38-5" aria-hidden="true" tabindex="-1"></a><span class="do">## Source: NSF's own Congressional Budget Justification, Biological Sciences</span></span>
+<span id="cb38-6"><a href="#cb38-6" aria-hidden="true" tabindex="-1"></a><span class="do">## (BIO) directorate chapter, which breaks BIO's budget down by division.</span></span>
+<span id="cb38-7"><a href="#cb38-7" aria-hidden="true" tabindex="-1"></a><span class="do">## Unlike DOE (which reports clean enacted appropriations for BER every</span></span>
+<span id="cb38-8"><a href="#cb38-8" aria-hidden="true" tabindex="-1"></a><span class="do">## year), NSF's public budget documents do not give DEB a consistent,</span></span>
+<span id="cb38-9"><a href="#cb38-9" aria-hidden="true" tabindex="-1"></a><span class="do">## fully-enacted multi-year series--figures are a mix of "Actual," "Base</span></span>
+<span id="cb38-10"><a href="#cb38-10" aria-hidden="true" tabindex="-1"></a><span class="do">## Plan," and "Request," and some years are marked "TBD" in the document</span></span>
+<span id="cb38-11"><a href="#cb38-11" aria-hidden="true" tabindex="-1"></a><span class="do">## available when that year's chapter was written. The `status` column</span></span>
+<span id="cb38-12"><a href="#cb38-12" aria-hidden="true" tabindex="-1"></a><span class="do">## below tells you which is which; do not treat all rows as equally solid.</span></span>
+<span id="cb38-13"><a href="#cb38-13" aria-hidden="true" tabindex="-1"></a><span class="do">## FY2021 Actual: https://nsf-gov-resources.nsf.gov/about/budget/fy2023/pdf/69_fy2023.pdf</span></span>
+<span id="cb38-14"><a href="#cb38-14" aria-hidden="true" tabindex="-1"></a><span class="do">## FY2023 Actual, FY2025 Request: https://nsf-gov-resources.nsf.gov/files/66_fy2025.pdf</span></span>
+<span id="cb38-15"><a href="#cb38-15" aria-hidden="true" tabindex="-1"></a><span class="do">## Stored in data/deb_budget.csv. Replace the FY2025 row with the enacted</span></span>
+<span id="cb38-16"><a href="#cb38-16" aria-hidden="true" tabindex="-1"></a><span class="do">## figure once it's final, and add newer years as NSF publishes them.</span></span>
+<span id="cb38-17"><a href="#cb38-17" aria-hidden="true" tabindex="-1"></a>deb_budget <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/deb_budget.csv"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Rows: 3 Columns: 3
+── Column specification ────────────────────────────────────────────────────────
+Delimiter: ","
+chr (1): status
+dbl (2): fiscal_year, deb_budget_millions
+
+ℹ Use `spec()` to retrieve the full column specification for this data.
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a>p_deb_budget <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(deb_budget,</span>
+<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a>       <span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">factor</span>(fiscal_year), <span class="at">y =</span> deb_budget_millions, <span class="at">fill =</span> status)) <span class="sc">+</span></span>
+<span id="cb40-3"><a href="#cb40-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>() <span class="sc">+</span></span>
+<span id="cb40-4"><a href="#cb40-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Fiscal year"</span>, <span class="at">y =</span> <span class="st">"DEB budget (million $)"</span>, <span class="at">fill =</span> <span class="st">"Status"</span>,</span>
+<span id="cb40-5"><a href="#cb40-5" aria-hidden="true" tabindex="-1"></a>       <span class="at">title =</span> <span class="st">"NSF's Division of Environmental Biology (DEB)"</span>)</span>
+<span id="cb40-6"><a href="#cb40-6" aria-hidden="true" tabindex="-1"></a>p_deb_budget</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div id="fig-deb-budget" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-deb-budget-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="funding-science_files/figure-html/fig-deb-budget-1.png" class="img-fluid figure-img" width="672">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-deb-budget-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;18.7: NSF’s Division of Environmental Biology (DEB) budget–the part of NSF most directly funding population, community, and ecosystem ecology. FY2025 is a request, not yet a final enacted figure; see the <code>status</code> column.
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb41"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Save a PNG file to your working directory.</span></span>
+<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="st">"figs/fig-deb-budget.png"</span>, <span class="at">plot =</span> p_deb_budget, <span class="at">width =</span> <span class="dv">7</span>, <span class="at">height =</span> <span class="dv">5</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>For scale: DEB’s entire annual budget–somewhere around $160-180 million–is a small slice of BIO’s roughly $800-950 million, which is itself a small slice of NSF’s total budget of several billion dollars in <a href="#fig-agency-budgets" class="quarto-xref">Figure&nbsp;<span>18.1</span></a>. If your own interests are specifically in population, community, or ecosystem ecology, DEB, not NSF’s headline number, is the figure that actually describes the funding available to you.</p>
+</section>
+<section id="questions-to-answer" class="level2" data-number="18.5">
+<h2 data-number="18.5" class="anchored" data-anchor-id="questions-to-answer"><span class="header-section-number">18.5</span> Questions to answer</h2>
+<ol type="1">
+<li>Looking at <a href="#fig-agency-budgets" class="quarto-xref">Figure&nbsp;<span>18.1</span></a>, which agency’s nominal budget grew the most over the years you plotted? Which shrank, or grew the least?</li>
+<li>NSF’s FY2026 appropriation was reported as roughly flat compared to FY2024, yet in the months before that NSF terminated over 1,700 already-active grants worth about $1.4 billion. How can an agency’s total annual budget stay flat while individual grants it already promised to pay get cancelled? What does this tell you about the difference between an agency’s <em>annual appropriation</em> and the multi-year <em>obligations</em> it has already made?</li>
+<li>How does the funding mechanism for your assigned state’s Wildlife Restoration/Sport Fish Restoration apportionment differ from how NSF or EPA award money? Based on your figure, does the state funding stream look more or less stable year-to-year than the federal agency budgets in Part 1? Does that match what you would predict from how each mechanism works?</li>
+<li>Pick one agency and compare its line in <a href="#fig-agency-budgets" class="quarto-xref">Figure&nbsp;<span>18.1</span></a> to its line in <a href="#fig-agency-budgets-real" class="quarto-xref">Figure&nbsp;<span>18.2</span></a>. Does adjusting for inflation change the story you would tell about that agency’s funding trend? Is there a year where the nominal and real dollar amounts tell noticeably different stories?</li>
+<li>Look at <a href="#fig-total-vs-research" class="quarto-xref">Figure&nbsp;<span>18.5</span></a>. For NASA and USDA, the research-only bar is much shorter than the entire-budget bar; for NSF, the two bars are close together. Explain why, in terms of what each agency actually spends most of its money on. Why don’t NOAA, FWS, USGS, or the Forest Service have an “entire agency budget” bar at all?</li>
+<li>FWS’s own R&amp;D obligations (<a href="#fig-rd-only-subagencies" class="quarto-xref">Figure&nbsp;<span>18.4</span></a>) dropped about 87% from FY2024 to FY2025, but the Wildlife Restoration/Sport Fish Restoration apportionments you collected in Part 2 come from earmarked excise tax revenue, not FWS’s regular appropriated budget. Does your class’s state-level data in <a href="#fig-state-funding" class="quarto-xref">Figure&nbsp;<span>18.6</span></a> show anything similar happening to the apportionments over the same period? What does that suggest about which of FWS’s funding streams is more insulated from short-term budget cuts?</li>
+<li>Compare <a href="#fig-rd-only-subagencies" class="quarto-xref">Figure&nbsp;<span>18.4</span></a> to <a href="#fig-agency-budgets" class="quarto-xref">Figure&nbsp;<span>18.1</span></a>. USGS obligates far more research funding than FWS or the Forest Service, yet DOI as a whole (which contains all three) is one of the smaller lines in <a href="#fig-agency-budgets" class="quarto-xref">Figure&nbsp;<span>18.1</span></a>. What does that tell you about the relationship between an agency’s public visibility and the size of its research budget?</li>
+<li>If you were choosing a research area for graduate school today, would any of the trends you found here factor into your decision? Why or why not?</li>
+<li>DOE’s row in <a href="#fig-rd-only-departments" class="quarto-xref">Figure&nbsp;<span>18.3</span></a> is DOE’s entire R&amp;D total–energy-technology research (fossil fuels, nuclear power, renewables) together with its ecological and environmental science. Compare that line to DOE BER’s line in <a href="#fig-rd-only-subagencies" class="quarto-xref">Figure&nbsp;<span>18.4</span></a>. Roughly what fraction of DOE’s total research funding actually goes to ecological/environmental science? Does that fraction surprise you, given how DOE is usually described in the news?</li>
+</ol>
+</section>
+<section id="deliverables" class="level2" data-number="18.6">
+<h2 data-number="18.6" class="anchored" data-anchor-id="deliverables"><span class="header-section-number">18.6</span> Deliverables</h2>
+<p>Turn these in to the relevant Canvas assignment before the due date. Use the <code>ggsave()</code> code in each section above to produce a PNG file for each figure. Each one lands in your <code>figs</code> folder; insert those PNGs into your document from there.</p>
+<ol type="1">
+<li>A single document (.docx) containing:
+<ol type="i">
+<li>Your version of <a href="#fig-agency-budgets" class="quarto-xref">Figure&nbsp;<span>18.1</span></a> and <a href="#fig-agency-budgets-real" class="quarto-xref">Figure&nbsp;<span>18.2</span></a> (nominal and inflation-adjusted, all six federal agencies).</li>
+<li>Your version of <a href="#fig-rd-only-departments" class="quarto-xref">Figure&nbsp;<span>18.3</span></a>, <a href="#fig-rd-only-subagencies" class="quarto-xref">Figure&nbsp;<span>18.4</span></a>, and <a href="#fig-total-vs-research" class="quarto-xref">Figure&nbsp;<span>18.5</span></a> (research-only obligations, department and sub-agency views, and the total-vs-research comparison).</li>
+<li>Your class’s version of <a href="#fig-state-funding" class="quarto-xref">Figure&nbsp;<span>18.6</span></a> (all states your classmates collected).</li>
+<li>Your short write-up from Part 3: the title, PI, and institution of the award you chose, and your two-question answer explaining its scientific motivation and how the funding was or will be used.</li>
+<li>Written answers to the nine questions above.</li>
+</ol></li>
+<li>Your R script, named <code>funding_science_YourUniqueID.R</code>. This must be a <code>.R</code> file, not a Word document.</li>
+</ol>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./16-ecosystem-intro.html" class="pagination-link" aria-label="An Introduction to the Carbon Cycle and Global Heating">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">An Introduction to the Carbon Cycle and Global Heating</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./career-skills-crosswalk.html" class="pagination-link" aria-label="From This Book to Your Résumé: A Skills Crosswalk">
+        <span class="nav-page-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">From This Book to Your Résumé: A Skills Crosswalk</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

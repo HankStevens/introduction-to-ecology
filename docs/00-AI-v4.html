@@ -1,0 +1,970 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.11.1">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>1&nbsp; AI and the Changing Landscape of Skills in Ecology – Basic Ecological Concepts and Data in R</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./01-computer-setup.html" rel="next">
+<link href="./index.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-d5b4e69c7e37b49c6591bcc5116dd748.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-14bcb87515fe8119cbeaa577ee4acfcc.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-J0R6F7XN66"></script>
+
+<script type="text/javascript">
+
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-J0R6F7XN66', { 'anonymize_ip': true});
+</script>
+<style>
+h1, h2, h3, h4, h5, h6,
+.title, .quarto-title-block .title, .chapter-title {
+  font-family: serif;
+}
+</style>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+</head>
+
+<body class="nav-sidebar floating quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./00-AI-v4.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">AI and the Changing Landscape of Skills in Ecology</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">Basic Ecological Concepts and Data in R</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Preface</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./00-AI-v4.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">AI and the Changing Landscape of Skills in Ecology</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./01-computer-setup.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Computer setup and first R script</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./thinking.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Thinking about thinking about concepts</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./02-trees_and_people.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Environmental Justice: How income relates to environment.</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./03-global_temp_anomalies_v2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Physical Environment: A Fate of Earth</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./traits-physiology.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Traits, Physiology, and the Global Spectrum of Plant Form and Function</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./05-extrapair_copulation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Behavior: Extra-pair copulation in a monogamous species</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./06-DI-pop-growth-Claude.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Density-independent Population Growth: Humans on the rise</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./07-structured-pop-growth_v2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Structured demography: How a graduate student helped save the loggerhead sea turtle</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./08-density-dep-pop-growth-Claude.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Density-dependence in population growth</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./09-direct-interactions-Claude.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Direct species interactions: understanding mechanisms of invasion in mosquitoes</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./10-mutualisms.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Mutualisms: Do ants protect pea plants?</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./11-predator-prey-Claude.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Of wolves and moose, on Isle Royale</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./13-diversity-forestgeo.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">ForestGEO Community Ecology: Why are there so many tree species, and where?</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./13-diversity-gbif.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">GBIF: Why are there so many species, and where?</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./15-metabolic-ecology_v_2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Metabolic Ecology: How do body size and temperature affect nutrient cycling?</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./16-ecosystem-intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">An Introduction to the Carbon Cycle and Global Heating</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./funding-science.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Funding Ecological and Environmental Science: Following the Money</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./career-skills-crosswalk.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">From This Book to Your Résumé: A Skills Crosswalk</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./references.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">References</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#background" id="toc-background" class="nav-link active" data-scroll-target="#background"><span class="header-section-number">1.1</span> Background</a></li>
+  <li><a href="#a-framework-durable-skills-vs.-ai-augmentable-tasks" id="toc-a-framework-durable-skills-vs.-ai-augmentable-tasks" class="nav-link" data-scroll-target="#a-framework-durable-skills-vs.-ai-augmentable-tasks"><span class="header-section-number">1.2</span> A framework: durable skills vs.&nbsp;AI-augmentable tasks</a></li>
+  <li><a href="#why-ai-makes-ecological-understanding-more-important" id="toc-why-ai-makes-ecological-understanding-more-important" class="nav-link" data-scroll-target="#why-ai-makes-ecological-understanding-more-important"><span class="header-section-number">1.3</span> Why AI makes ecological understanding more important</a></li>
+  <li><a href="#six-categories-of-skills-to-develop" id="toc-six-categories-of-skills-to-develop" class="nav-link" data-scroll-target="#six-categories-of-skills-to-develop"><span class="header-section-number">1.4</span> Six categories of skills to develop</a>
+  <ul class="collapse">
+  <li><a href="#mechanistic-reasoning" id="toc-mechanistic-reasoning" class="nav-link" data-scroll-target="#mechanistic-reasoning"><span class="header-section-number">1.4.1</span> 1. Mechanistic reasoning</a></li>
+  <li><a href="#mathematical-reasoning-as-ecological-understanding" id="toc-mathematical-reasoning-as-ecological-understanding" class="nav-link" data-scroll-target="#mathematical-reasoning-as-ecological-understanding"><span class="header-section-number">1.4.2</span> 2. Mathematical reasoning as ecological understanding</a></li>
+  <li><a href="#model-assumption-literacy" id="toc-model-assumption-literacy" class="nav-link" data-scroll-target="#model-assumption-literacy"><span class="header-section-number">1.4.3</span> 3. Model assumption literacy</a></li>
+  <li><a href="#prediction-before-computation" id="toc-prediction-before-computation" class="nav-link" data-scroll-target="#prediction-before-computation"><span class="header-section-number">1.4.4</span> 4. Prediction before computation</a></li>
+  <li><a href="#data-literacy-and-judgment" id="toc-data-literacy-and-judgment" class="nav-link" data-scroll-target="#data-literacy-and-judgment"><span class="header-section-number">1.4.5</span> 5. Data literacy and judgment</a></li>
+  <li><a href="#multi-scale-synthesis" id="toc-multi-scale-synthesis" class="nav-link" data-scroll-target="#multi-scale-synthesis"><span class="header-section-number">1.4.6</span> 6. Multi-scale synthesis</a></li>
+  </ul></li>
+  <li><a href="#learn-to-distinguish-between-understanding-and-doing" id="toc-learn-to-distinguish-between-understanding-and-doing" class="nav-link" data-scroll-target="#learn-to-distinguish-between-understanding-and-doing"><span class="header-section-number">1.5</span> Learn to distinguish between understanding and doing</a></li>
+  <li><a href="#using-ai-responsibly-in-this-course" id="toc-using-ai-responsibly-in-this-course" class="nav-link" data-scroll-target="#using-ai-responsibly-in-this-course"><span class="header-section-number">1.6</span> Using AI responsibly in this course</a></li>
+  <li><a href="#a-note-for-instructors" id="toc-a-note-for-instructors" class="nav-link" data-scroll-target="#a-note-for-instructors"><span class="header-section-number">1.7</span> A note for instructors</a></li>
+  <li><a href="#the-skills-that-will-define-your-career" id="toc-the-skills-that-will-define-your-career" class="nav-link" data-scroll-target="#the-skills-that-will-define-your-career"><span class="header-section-number">1.8</span> The skills that will define your career</a></li>
+  <li><a href="#deliverables" id="toc-deliverables" class="nav-link" data-scroll-target="#deliverables"><span class="header-section-number">1.9</span> Deliverables</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title"><span id="sec-ai-skills" class="quarto-section-identifier"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">AI and the Changing Landscape of Skills in Ecology</span></span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p><em>What should you learn, when the machine already “knows” so much?</em></p>
+<section id="background" class="level2" data-number="1.1">
+<h2 data-number="1.1" class="anchored" data-anchor-id="background"><span class="header-section-number">1.1</span> Background</h2>
+<p>You are learning ecology at a moment when artificial intelligence can write passable R code, summarize journal articles, and define terms like “carrying capacity” faster than you can open a textbook. That fact changes what it means to be well-trained in ecology. It does not, however, reduce the amount you need to learn — it shifts <em>what</em> you need to learn.</p>
+<p>This chapter is addressed to both students and instructors. Its goal is to lay out a practical framework for thinking about which skills matter more than ever in an era of large language models (LLMs) like Claude, ChatGPT, and their successors, and which tasks can be responsibly shared with these tools. We focus on quantitative ecology because that is what this book is about, but the ideas extend broadly.</p>
+<p>The central argument is this: <strong>AI’s fluency with ecological language makes it <em>more</em> important, not less, that you develop deep understanding of ecological mechanisms, model assumptions, and data interpretation.</strong> A machine can generate a plausible-sounding paragraph about density dependence in thirty seconds. Only a well-trained ecologist can recognize when that paragraph is subtly wrong.</p>
+</section>
+<section id="a-framework-durable-skills-vs.-ai-augmentable-tasks" class="level2" data-number="1.2">
+<h2 data-number="1.2" class="anchored" data-anchor-id="a-framework-durable-skills-vs.-ai-augmentable-tasks"><span class="header-section-number">1.2</span> A framework: durable skills vs.&nbsp;AI-augmentable tasks</h2>
+<p>Not all skills are equally vulnerable to automation. A useful way to think about your education is to distinguish between two categories.</p>
+<p><strong>Durable human skills</strong> are things that require biological intuition, judgment under uncertainty, and the ability to connect mathematical abstractions to the living world. These are hard-won, slow to develop, and not reliably performed by current AI. They include:</p>
+<ul>
+<li><em>Ecological intuition</em> — the ability to walk into a forest, a marsh, or a dataset and notice what is ecologically interesting or surprising.</li>
+<li><em>Mechanistic reasoning</em> — understanding <em>why</em> a model behaves the way it does, not just <em>that</em> it produces a particular output.</li>
+<li><em>Mathematical reasoning</em> — the ability to follow the formal logic of a derivation, so that you can verify results, understand why an equation predicts what it does, and catch errors that sound plausible but are wrong.</li>
+<li><em>Model assumption literacy</em> — knowing what a model assumes, when those assumptions are reasonable, and what happens when they are violated.</li>
+<li><em>Data literacy</em> — the judgment to know whether data are adequate to answer a question, what biases they carry, and what they cannot tell you.</li>
+<li><em>Multi-scale synthesis</em> — connecting processes at the scale of an individual organism to patterns at the scale of a landscape or a globe.</li>
+</ul>
+<p><strong>AI-augmentable tasks</strong> are things that AI tools can do reasonably well right now, and will likely do better over time. These include:</p>
+<ul>
+<li>Summarizing the main findings of a journal article.</li>
+<li>Generating boilerplate R code for standard analyses (e.g., fitting a linear model, making a scatterplot).</li>
+<li>Looking up definitions of ecological terms.</li>
+<li>Drafting outlines or initial structure for a written argument.</li>
+<li>Translating between programming languages.</li>
+</ul>
+<p>Here is the key insight: <strong>AI-augmentable does not mean unimportant.</strong> You still need to understand what a linear model does and why, even if you let an AI draft the code. The danger is not that AI does these tasks — it is that you might skip the understanding that makes you capable of evaluating whether the AI did them <em>correctly.</em></p>
+</section>
+<section id="why-ai-makes-ecological-understanding-more-important" class="level2" data-number="1.3">
+<h2 data-number="1.3" class="anchored" data-anchor-id="why-ai-makes-ecological-understanding-more-important"><span class="header-section-number">1.3</span> Why AI makes ecological understanding more important</h2>
+<p>This point deserves emphasis, because it is counterintuitive. You might think: if AI can write my R code and summarize my readings, I can spend less time on those things and more time on… something else. But consider what actually happens.</p>
+<p>Suppose you ask an AI to write R code that simulates logistic population growth. The AI will almost certainly produce something that runs. But will it use the continuous-time or discrete-time model? Will it handle the time lag that makes the discrete model capable of oscillations and chaos? Will it set up the parameters in a biologically meaningful range? If you do not know enough to answer these questions, you cannot evaluate the code. You are flying blind.</p>
+<p>Or suppose you ask an AI to explain why two competing species cannot coexist indefinitely. The AI will probably give you something that sounds like the competitive exclusion principle. But it might gloss over the specific conditions required, or fail to mention that the principle applies to a particular model with particular assumptions, and that real communities are far more complicated. The explanation will <em>sound</em> right. Whether it <em>is</em> right depends on what you, the human ecologist, know.</p>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Important</span>The Plausibility Trap
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>AI-generated text about ecology is often <em>plausible but wrong</em> in ways that require ecological training to detect. The better the AI gets at sounding like an ecologist, the more you need to actually <em>be</em> one.</p>
+</div>
+</div>
+<p>This is what we call the <strong>plausibility trap</strong>. AI systems are trained to produce text (and code) that looks like text (and code) produced by experts. They are not trained to be correct about the natural world. They have no field experience, no memory of watching a population crash, no intuition about whether a parameter value makes biological sense. They are pattern-matching engines — powerful ones, but without grounding in physical and biological reality.</p>
+</section>
+<section id="six-categories-of-skills-to-develop" class="level2" data-number="1.4">
+<h2 data-number="1.4" class="anchored" data-anchor-id="six-categories-of-skills-to-develop"><span class="header-section-number">1.4</span> Six categories of skills to develop</h2>
+<p>Let us get specific. Below are six categories of durable skills, each illustrated with examples from quantitative ecology. These are the skills this textbook is designed to build, and the ones you should invest in most heavily.</p>
+<section id="mechanistic-reasoning" class="level3" data-number="1.4.1">
+<h3 data-number="1.4.1" class="anchored" data-anchor-id="mechanistic-reasoning"><span class="header-section-number">1.4.1</span> 1. Mechanistic reasoning</h3>
+<p>Mechanistic reasoning is the ability to explain <em>why</em> an ecological pattern exists by tracing it back to underlying biological processes. It is the difference between saying “the population oscillates” and saying “the population oscillates <em>because</em> the discrete-time logistic model builds in a one-generation time lag between when crowding occurs and when its effects on reproduction are realized, and when <span class="math inline">\(r\)</span> is large enough, this lag causes the population to overshoot and undershoot <span class="math inline">\(K\)</span> repeatedly.”</p>
+<p>AI can describe patterns. It can even parrot mechanistic explanations it has seen in training data. What it cannot do reliably is generate mechanistic reasoning about novel situations — situations where you are looking at a dataset or a model output that nobody has analyzed before. That is what ecologists do.</p>
+<p><strong>How to practice it.</strong> Throughout this book, when you are asked to run a simulation or examine data, <em>always</em> ask yourself: <em>Why does this pattern exist? What mechanism produces it?</em> Do not settle for describing what you see. Explain what causes it.</p>
+</section>
+<section id="mathematical-reasoning-as-ecological-understanding" class="level3" data-number="1.4.2">
+<h3 data-number="1.4.2" class="anchored" data-anchor-id="mathematical-reasoning-as-ecological-understanding"><span class="header-section-number">1.4.2</span> 2. Mathematical reasoning as ecological understanding</h3>
+<p>Ecology uses mathematics to turn assumptions into predictions. When we write <span class="math inline">\(dN/dt = rN(1 - \alpha N)\)</span> and solve for equilibrium, we are not doing math for its own sake — we are asking “what controls the long-term fate of this population?” and letting algebra answer the question. The derivation <em>is</em> the ecological reasoning, expressed in a language precise enough to check.</p>
+<p>Put simply: <strong>mathematical reasoning is a form of ecological understanding</strong> — not a prerequisite for it, not a supplement to it, but one of the ways you actually come to understand how ecological systems work. When a student derives <span class="math inline">\(K = 1/\alpha\)</span> and grasps that carrying capacity is the reciprocal of the per-capita competitive effect, they have learned something about ecology that no amount of reading prose — whether written by a textbook or an AI — will give them. The derivation is not an obstacle on the way to understanding. It <em>is</em> the understanding.</p>
+<p>This matters enormously in an AI era. An AI can solve <span class="math inline">\(0 = rN(1 - \alpha N)\)</span> and tell you <span class="math inline">\(N^* = 1/\alpha\)</span>. But can you verify that? Can you see <em>why</em> the equilibrium depends on <span class="math inline">\(\alpha\)</span> and not on <span class="math inline">\(r\)</span>? Can you explain what that means biologically — that the long-term population size depends on how strongly individuals affect each other, not on how fast they reproduce? If you can follow the two lines of algebra, these insights are obvious. If you cannot, you are taking the AI’s word for it.</p>
+<p>The same applies at every level of model complexity in this book. When you derive the invasion criterion for two-species competition (<span class="math inline">\(K_2 &gt; \beta K_1\)</span>), you are discovering — through logic — the conditions under which a species can persist. When you estimate predator-prey parameters from moose and wolf population data, you are using the structure of an equation to extract biological meaning. These are not exercises in calculation. They are exercises in understanding.</p>
+<p><strong>The risk of skipping the math is not that you get a wrong number. It is that you lose the ability to tell whether a number is wrong.</strong> An AI can produce an answer that looks right. Only someone who can follow the formal logic can confirm that it <em>is</em> right — or catch where it isn’t.</p>
+<p><strong>How to practice it.</strong> When this book asks you to solve an equation or work through a derivation, do not skip to the answer. Follow each step and ask: <em>what biological fact does this step reflect?</em> When you reach the result, ask: <em>which parameters appear, which don’t, and what does that tell me about what matters in this system?</em></p>
+</section>
+<section id="model-assumption-literacy" class="level3" data-number="1.4.3">
+<h3 data-number="1.4.3" class="anchored" data-anchor-id="model-assumption-literacy"><span class="header-section-number">1.4.3</span> 3. Model assumption literacy</h3>
+<p>Every ecological model is a set of assumptions about how the world works. The exponential growth model assumes unlimited resources and no density dependence. The logistic model assumes that per capita growth rate declines linearly with population size. The Lotka-Volterra competition model assumes that the effect of one competitor on another is constant regardless of density.</p>
+<p>These assumptions are not fine print. They are the <em>substance</em> of the model. When an assumption is violated, the model’s predictions can be wildly wrong. Understanding which assumptions matter and when they might be violated is one of the most important skills in ecology.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>A Useful Habit
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Before running any model, write down its key assumptions in your own words. Then ask: <em>Which of these assumptions could be wrong for the system I am studying, and how would that change the predictions?</em></p>
+</div>
+</div>
+<p>AI tools are particularly poor at this. They can list assumptions from a textbook, but they cannot walk outside and check whether density dependence in your study population really is linear, or whether the competitive effect of species A on species B really is constant. That judgment requires you.</p>
+</section>
+<section id="prediction-before-computation" class="level3" data-number="1.4.4">
+<h3 data-number="1.4.4" class="anchored" data-anchor-id="prediction-before-computation"><span class="header-section-number">1.4.4</span> 4. Prediction before computation</h3>
+<p>One of the most effective learning strategies in quantitative ecology is to <em>make a prediction before you run the code.</em> What do you think will happen when you double the intrinsic growth rate? What do you expect the graph to look like when you increase carrying capacity? What will happen to coexistence if you make one species a much stronger competitor?</p>
+<p>If you write down your prediction and it turns out to be wrong, you have learned something valuable: there is a gap between your mental model and the mathematical model. That gap is where real understanding develops.</p>
+<p>AI eliminates this step if you let it. You can ask an AI what will happen, and it will tell you, and you will nod and move on without ever experiencing the discomfort of being wrong. <em>Resist this.</em> Your mistakes are the raw material of learning.</p>
+<p><strong>How to practice it.</strong> Every time this textbook asks you to run a simulation or modify a parameter, pause. Write down, in one sentence, what you predict will happen and <em>why.</em> Then run the code and compare. If you were wrong, figure out why.</p>
+</section>
+<section id="data-literacy-and-judgment" class="level3" data-number="1.4.5">
+<h3 data-number="1.4.5" class="anchored" data-anchor-id="data-literacy-and-judgment"><span class="header-section-number">1.4.5</span> 5. Data literacy and judgment</h3>
+<p>Data literacy goes beyond knowing how to make a scatterplot or compute a mean. It includes:</p>
+<ul>
+<li>Recognizing what kinds of variation are present in a dataset (measurement error, natural variation, sampling bias).</li>
+<li>Understanding what a dataset <em>cannot</em> tell you because of how it was collected.</li>
+<li>Knowing when a sample size is too small to support a conclusion.</li>
+<li>Distinguishing correlation from causation with genuine understanding rather than just reciting the phrase.</li>
+<li>Recognizing when an apparent pattern might be an artifact of how the data were processed.</li>
+</ul>
+<p>These judgments are context-dependent and require understanding of both the statistical tools and the biological system. AI can compute a p-value, but it cannot tell you whether the study design that produced the data makes that p-value meaningful.</p>
+<p><strong>How to practice it.</strong> When you encounter data in this book, do not just analyze them. <em>Interrogate</em> them. How were they collected? What could go wrong? What alternative explanations exist for the patterns you see?</p>
+</section>
+<section id="multi-scale-synthesis" class="level3" data-number="1.4.6">
+<h3 data-number="1.4.6" class="anchored" data-anchor-id="multi-scale-synthesis"><span class="header-section-number">1.4.6</span> 6. Multi-scale synthesis</h3>
+<p>Ecology spans scales from molecules to the biosphere. A well-trained ecologist can connect processes at different scales: how individual behavior gives rise to population dynamics, how population dynamics shape community composition, how community composition affects ecosystem function.</p>
+<p>This kind of synthesis requires holding multiple frameworks in your head simultaneously and recognizing when processes at one scale constrain or enable processes at another. AI can retrieve information about any one of these scales, but it struggles to make the cross-scale connections that produce genuine ecological insight.</p>
+<p><strong>How to practice it.</strong> As you move through this book from individual ecology to population dynamics to community ecology to ecosystems, keep asking: <em>How does what I learned in earlier chapters connect to what I am learning now?</em></p>
+</section>
+</section>
+<section id="learn-to-distinguish-between-understanding-and-doing" class="level2" data-number="1.5">
+<h2 data-number="1.5" class="anchored" data-anchor-id="learn-to-distinguish-between-understanding-and-doing"><span class="header-section-number">1.5</span> Learn to distinguish between understanding and doing</h2>
+<p>Writing code that plots your data is different from writing code that simulates density-dependent growth. The first you check by looking at the plot — did it do what I wanted? The second you check by interrogating the assumptions you built into the model. This distinction matters for how you think about AI and coding in this course.</p>
+<p>Code that generates data displays, apps, or games is code that you check primarily via output. You look at or use the output and ask, did the code do what I wanted it to do? If not, attempt to troubleshoot and try again.</p>
+<p>In contrast, code that generates mechanistic and statistical models is code that you have to understand and check primarily by evaluating assumptions that you tried to manifest in your code.</p>
+<p>Mechanistic models are simply tools to turn assumptions into predictions, so you really need to understand how you are building those assumptions.</p>
+<p>The output of your mechanistic model constitutes your predictions. You need to trust those predictions because they follow directly from the assumptions that you made. If the predictions seem off to you, then you need to reconsider the assumptions you made. There are three types of situations to consider:</p>
+<ol type="1">
+<li><em>Do you have a simple coding error</em>? Does your code do what you intended? E.g., did you use Boolean logic correctly, or create input to a function that merely wasn’t in the right sequence?</li>
+<li><em>Does your math match your ecology</em>? How you use mathematical functions to manifest your assumptions about the biological/ecological/physical features of the world can be tricky and problems fall into two buckets: sometimes the math doesn’t do what you think it does, and other times the ecological assumptions have different consequences than you thought they would.
+<ol type="a">
+<li><em>Are your mathematical assumptions correct</em>? There are some convenient mathematical operations and forms that you can collect in your toolbox: functions that put a ceiling or floor on values, functions that create positive feedback loops and negative feedback loops, functions that add and those that subtract; 0th, 1st, and 2nd order products of variables.</li>
+<li><em>Are your ecological assumptions correct</em>? This is the interesting situation, where your choices of mathematical functions or parameter estimates may or may not map onto reality.
+<ol type="i">
+<li>If your ecological assumptions are wrong, that is great! You’re learning something important about the world.</li>
+<li>If your ecological assumptions are correct but the outcome is unexpected, that is great — you are discovering a consequence of your assumptions that your intuition hadn’t predicted.</li>
+</ol></li>
+</ol></li>
+</ol>
+<p>This is where mathematical reasoning becomes your most important verification tool. If an AI generates model code, you can check whether it runs (easy) and whether the output looks reasonable (harder). But the deepest check is whether the mathematical structure matches the biology you intended. Does the code implement <span class="math inline">\(1 - N/K\)</span> or <span class="math inline">\(1 - \alpha N\)</span>? Those are equivalent — but only if <span class="math inline">\(\alpha = 1/K\)</span>. If you can’t follow that equivalence, you can’t tell whether the AI’s implementation matches your biological intention. The formal logic is the bridge between “the code runs” and “the code is right.”</p>
+<p><strong>How to practice it.</strong> When you encounter a place in this book where you need to use code, do not just copy some code nor ask AI for it. Ask <em>why am I writing code</em>?</p>
+<ol type="1">
+<li>Is it to make a graph that displays data clearly?</li>
+<li>Is it to use mathematics to represent some biological or physical process?</li>
+<li>Is it to perform a statistical test in which I have to understand the assumptions of that test to apply it correctly?</li>
+</ol>
+<p>If you answer “yes” to no. 1, then using AI is <em>relatively</em> safe, but you can probably be most effective if you can work directly with any code AI spits out for you.</p>
+<p>If you answer “yes” to 2 or 3 above, then you really need to understand what you are doing. You need to know <em>not only</em> that two cans of beer plus two cans of beer add up to four cans of beer, but what will happen at the party once people start drinking it.</p>
+</section>
+<section id="using-ai-responsibly-in-this-course" class="level2" data-number="1.6">
+<h2 data-number="1.6" class="anchored" data-anchor-id="using-ai-responsibly-in-this-course"><span class="header-section-number">1.6</span> Using AI responsibly in this course</h2>
+<p>None of the above means you should avoid AI entirely. AI tools can be genuinely useful in your ecological education, but they are useful in the way a calculator is useful in a math course: they can save time on mechanical tasks, but they cannot replace the thinking that makes the tasks meaningful.</p>
+<p>Here are some guidelines for responsible use.</p>
+<p><strong>Good uses of AI in ecology coursework:</strong></p>
+<ul>
+<li>Debugging R code that throws an error you do not understand.</li>
+<li>Getting a quick refresher on R syntax (e.g., “How do I add a legend to a ggplot?”).</li>
+<li>Generating a first draft of an outline that you then revise substantially.</li>
+<li>Asking for alternative explanations of a concept you have already studied but find confusing.</li>
+</ul>
+<p><strong>Risky uses of AI in ecology coursework:</strong></p>
+<ul>
+<li>Asking AI to explain an ecological concept you have not yet studied yourself. (You will not be able to evaluate the answer.)</li>
+<li>Using AI-generated code without understanding every line of it.</li>
+<li>Asking AI to interpret your results for you. (Interpretation requires the biological context that you, not the AI, possess.)</li>
+<li>Asking AI to write your discussion or analysis. (This is where your own ecological thinking is supposed to develop.)</li>
+</ul>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Warning</span>The Code Comprehension Rule
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>If you use AI to help write R code, you should be able to explain what every line does and <em>why</em> it is there. If you cannot, you have not learned what you need to learn.</p>
+</div>
+</div>
+</section>
+<section id="a-note-for-instructors" class="level2" data-number="1.7">
+<h2 data-number="1.7" class="anchored" data-anchor-id="a-note-for-instructors"><span class="header-section-number">1.7</span> A note for instructors</h2>
+<p>If you are teaching with this book, the AI landscape is shifting under your feet. Here are some principles that may help.</p>
+<p><strong>Design assignments that require judgment, not just output.</strong> If an assignment can be completed by pasting the prompt into ChatGPT and submitting the result, the assignment is testing the wrong thing. Assignments should require students to make predictions, evaluate assumptions, connect models to specific biological systems, and explain <em>why</em> a result makes ecological sense.</p>
+<p><strong>Make AI use transparent, not forbidden.</strong> Blanket bans on AI are difficult to enforce and send the message that AI is cheating rather than a tool. Instead, consider requiring students to document when and how they used AI, and to reflect on what they learned (or failed to learn) by using it. The goal is to develop students who can use AI wisely, not students who can pretend they do not use it.</p>
+<p><strong>Foreground assumptions explicitly.</strong> When teaching any model, spend time on what the model assumes and what would happen if those assumptions were violated. Use callout boxes, discussion questions, and activities that force students to engage with assumptions as substantive ecological content, not as disclaimers to be skipped.</p>
+<p><strong>Require prediction before computation.</strong> Build the “predict first” step into your workflow explicitly. Have students write predictions in a worksheet, a shared document, or their lab notebooks before they run code. This simple intervention creates the productive struggle that drives learning.</p>
+<p><strong>Use AI failures as teaching moments.</strong> Ask an AI to explain an ecological concept, and then have students identify what it got wrong. This is a great exercise in critical thinking and assumption literacy — and it demonstrates, concretely, why human expertise matters.</p>
+</section>
+<section id="the-skills-that-will-define-your-career" class="level2" data-number="1.8">
+<h2 data-number="1.8" class="anchored" data-anchor-id="the-skills-that-will-define-your-career"><span class="header-section-number">1.8</span> The skills that will define your career</h2>
+<p>The ecology profession is changing. Ecologists who graduate in the next decade will work alongside AI tools that can process satellite imagery, classify species from audio recordings, and generate code for complex statistical analyses. The value of a human ecologist will not lie in being able to do these things manually. It will lie in being able to:</p>
+<ul>
+<li>Ask the right questions about the natural world.</li>
+<li>Design studies and models that can actually answer those questions.</li>
+<li>Recognize when a tool (AI or otherwise) is giving you the wrong answer.</li>
+<li>Connect mathematical results to biological reality.</li>
+<li>Communicate ecological understanding to people who need it — policymakers, land managers, communities.</li>
+</ul>
+<p>These are the skills this book is designed to develop. The AI tools will change. The need for ecologists who understand the living world will not.</p>
+</section>
+<section id="deliverables" class="level2" data-number="1.9">
+<h2 data-number="1.9" class="anchored" data-anchor-id="deliverables"><span class="header-section-number">1.9</span> Deliverables</h2>
+<ol type="1">
+<li><p><strong>Reflection (individual, ~300 words).</strong> Choose one of the six durable skill categories (mechanistic reasoning, mathematical reasoning, model assumption literacy, prediction before computation, data literacy, or multi-scale synthesis). Describe a specific moment in your education — in this course or another — when you were forced to use this skill. What made it difficult? What did you learn? How would the experience have been different if you had used AI to skip the hard part?</p></li>
+<li><p><strong>AI evaluation exercise (pairs).</strong> Pick an ecological concept covered in a previous chapter of this book (e.g., exponential growth, logistic growth, competitive exclusion, density dependence). Ask an AI to explain this concept in 2–3 paragraphs. Then, working with your partner, write a critical evaluation of the AI’s response:</p>
+<ol type="a">
+<li>What did the AI get right?</li>
+<li>What did it get wrong, or what important nuance did it miss?</li>
+<li>What assumptions or caveats were absent from the AI’s explanation?</li>
+<li>Would a student who read only the AI’s response develop a correct understanding of the concept? Why or why not?</li>
+</ol></li>
+<li><p><strong>Assumption audit (individual).</strong> Choose one model from this course (e.g., the discrete-time logistic model, the Lotka-Volterra competition model). List its key assumptions. For each assumption, write one sentence explaining a real ecological situation in which that assumption would be violated, and one sentence explaining what consequence the violation would have for the model’s predictions. Do not use AI for this exercise.</p></li>
+<li><p><strong>Code classification (individual).</strong> Choose three coding tasks from a previous chapter of this book. For each one, classify it as primarily “check via output” (you evaluate it by looking at what it produces) or “check via assumptions” (you evaluate it by examining the ecological and mathematical logic built into the code). Write a sentence or two explaining your reasoning for each classification, and describe what you would need to understand about the ecology to evaluate the code properly.</p></li>
+<li><p><strong>Math as verification (individual).</strong> Ask an AI to derive the equilibrium of a model from this course (e.g., the continuous logistic, or the invasion criterion for Lotka-Volterra competition). Copy the AI’s derivation. Then, working on paper, do the derivation yourself step by step. Compare: Did the AI skip any steps? Did it make any errors? Did it explain what each step means biologically, or only algebraically? Write a paragraph reflecting on whether you could have caught an error without doing the derivation yourself.</p></li>
+</ol>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./index.html" class="pagination-link" aria-label="Preface">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Preface</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./01-computer-setup.html" class="pagination-link" aria-label="Computer setup and first R script">
+        <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Computer setup and first R script</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
