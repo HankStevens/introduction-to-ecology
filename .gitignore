@@ -11,9 +11,16 @@
 # Quarto output & internals
 # ============================================
 .quarto/
-*_cache/
+# Anchored to repo root (leading /) so these only ignore the source-adjacent
+# scratch/cache dirs Quarto creates next to a .qmd file (e.g. /06-DI-pop-growth_files/).
+# Un-anchored (*_cache/, *_files/) also matched the SAME-NAMED folders Quarto
+# creates INSIDE docs/ to hold each chapter's actual published figures
+# (docs/<chapter>_files/figure-html/*.png) -- which must be tracked, since
+# that's the real content GitHub Pages serves. That bug meant every chapter's
+# images were silently never committed. Fixed 2026-09-01.
+/*_cache/
 **/*.quarto_ipynb
-*_files/
+/*_files/
 practice_problems/
 misc/
 pedagogy/
