@@ -1,0 +1,1471 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.11.1">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Hank Stevens">
+<meta name="dcterms.date" content="2023-11-26">
+
+<title>Appendix A — Community structure – Basic Ecological Concepts and Data in R</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./appendix_A_career-skills-crosswalk.html" rel="next">
+<link href="./references.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-d5b4e69c7e37b49c6591bcc5116dd748.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-14bcb87515fe8119cbeaa577ee4acfcc.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-J0R6F7XN66"></script>
+
+<script type="text/javascript">
+
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-J0R6F7XN66', { 'anonymize_ip': true});
+</script>
+<script src="site_libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="site_libs/lightable-0.0.1/lightable.css" rel="stylesheet">
+<style>
+h1, h2, h3, h4, h5, h6,
+.title, .quarto-title-block .title, .chapter-title {
+  font-family: serif;
+}
+</style>
+
+
+</head>
+
+<body class="nav-sidebar floating quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./appendix_Community_structure.html">Appendices</a></li><li class="breadcrumb-item"><a href="./appendix_Community_structure.html"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Community Structure With Data From Whittaker (1956)</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">Basic Ecological Concepts and Data in R</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Preface</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./01-thinking.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Thinking about thinking about concepts</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./02-computer-setup.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Computer setup and first R script</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./03-trees_and_people.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Environmental Justice: How income relates to environment.</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./04-global_temp_anomalies_v2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Physical Environment: A Fate of Earth</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./05-traits-physiology.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Traits, Physiology, and the Global Spectrum of Plant Form and Function</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./06-extrapair_copulation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Behavior: Extra-pair copulation in a monogamous species</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./07-DI-pop-growth.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Density-independent Population Growth: Humans on the rise</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./08-structured-pop-growth_v2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Structured demography: How a graduate student helped save the loggerhead sea turtle</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./09-density-dep-pop-growth.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Density-dependence in population growth</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./10-direct-interactions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Direct species interactions: understanding mechanisms of invasion in mosquitoes</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./11-mutualisms.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Mutualisms: Do ants protect pea plants?</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./12-predator-prey.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Of wolves and moose, on Isle Royale</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./13-diversity-forestgeo.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">ForestGEO Community Ecology: Why are there so many tree species, and where?</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./14-diversity-gbif.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">GBIF: Why are there so many species, and where?</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./15-metabolic-ecology_v_2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Metabolic Ecology: How do body size and temperature affect nutrient cycling?</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./16-ecosystem-intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">An Introduction to the Carbon Cycle and Global Heating</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./17-funding-science.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Funding Ecological and Environmental Science: Following the Money</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./references.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">References</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Appendices</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./appendix_Community_structure.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Community Structure With Data From Whittaker (1956)</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./appendix_A_career-skills-crosswalk.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">From This Book to Your Résumé: A Skills Crosswalk</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./appendix_AI-v4.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">C</span>&nbsp; <span class="chapter-title">The Changing Landscape of Skills in Ecology</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./appendix_public-databases.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">D</span>&nbsp; <span class="chapter-title">Accessing Public Ecological Databases</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#goals" id="toc-goals" class="nav-link active" data-scroll-target="#goals"><span class="header-section-number">A.1</span> Goals</a></li>
+  <li><a href="#preparatory-steps" id="toc-preparatory-steps" class="nav-link" data-scroll-target="#preparatory-steps"><span class="header-section-number">A.2</span> Preparatory steps</a></li>
+  <li><a href="#background" id="toc-background" class="nav-link" data-scroll-target="#background"><span class="header-section-number">A.3</span> Background</a></li>
+  <li><a href="#draft" id="toc-draft" class="nav-link" data-scroll-target="#draft"><span class="header-section-number">A.4</span> DRAFT</a></li>
+  <li><a href="#do-not-use-for-bio-209w-until-the-following-is-shortened-and-edited." id="toc-do-not-use-for-bio-209w-until-the-following-is-shortened-and-edited." class="nav-link" data-scroll-target="#do-not-use-for-bio-209w-until-the-following-is-shortened-and-edited."><span class="header-section-number">A.5</span> <strong>Do not use for BIO 209W until the following is shortened and edited.</strong></a></li>
+  <li><a href="#community-structure" id="toc-community-structure" class="nav-link" data-scroll-target="#community-structure"><span class="header-section-number">A.6</span> Community structure</a>
+  <ul class="collapse">
+  <li><a href="#background-1" id="toc-background-1" class="nav-link" data-scroll-target="#background-1"><span class="header-section-number">A.6.1</span> Background</a></li>
+  </ul></li>
+  <li><a href="#dissimilarities-between-sites" id="toc-dissimilarities-between-sites" class="nav-link" data-scroll-target="#dissimilarities-between-sites"><span class="header-section-number">A.7</span> Dissimilarities between sites</a>
+  <ul class="collapse">
+  <li><a href="#treating-sites-and-species-equally" id="toc-treating-sites-and-species-equally" class="nav-link" data-scroll-target="#treating-sites-and-species-equally"><span class="header-section-number">A.7.1</span> Treating sites and species equally</a></li>
+  </ul></li>
+  <li><a href="#ordination---a-huge-topic" id="toc-ordination---a-huge-topic" class="nav-link" data-scroll-target="#ordination---a-huge-topic"><span class="header-section-number">A.8</span> Ordination - a huge topic</a>
+  <ul class="collapse">
+  <li><a href="#unconstrained-ordination" id="toc-unconstrained-ordination" class="nav-link" data-scroll-target="#unconstrained-ordination"><span class="header-section-number">A.8.1</span> Unconstrained ordination</a></li>
+  </ul></li>
+  <li><a href="#and-now-with-a-larger-data-set" id="toc-and-now-with-a-larger-data-set" class="nav-link" data-scroll-target="#and-now-with-a-larger-data-set"><span class="header-section-number">A.9</span> And now with a larger data set</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./appendix_Community_structure.html">Appendices</a></li><li class="breadcrumb-item"><a href="./appendix_Community_structure.html"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Community Structure With Data From Whittaker (1956)</span></a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title">Appendix A — Community structure</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Hank Stevens </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">November 26, 2023</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<div id="fig-leconte" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-leconte-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="figs/Mt._LeConte_from_Clingmans_Dome_05-31-20.jpeg" class="img-fluid figure-img" style="width:75.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-leconte-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;A.1: Mt. Le Conte in Tennessee, U.S.A., sits in what was originally part of the Cherokee Nation, prior to their forced removal in the 1830’s as part of the <em>Trail of Tears</em>. It is now the heart of the Great Smoky Mountains National Park. The Smokies are part of the Blue Ridge geologic and physiographic province of the Appalachian Mountains, which extend from Georgia northward into southeastern Canada. It’s tree communities cover a variety of elevations, aspects, and moisture regimes, which were described in Robert Whittaker opus, Vegetation of the Great Smoky Mountains (1956, <em>Ecol. Mongraphs</em> 26:1-80.)
+</figcaption>
+</figure>
+</div>
+<section id="goals" class="level2" data-number="A.1">
+<h2 data-number="A.1" class="anchored" data-anchor-id="goals"><span class="header-section-number">A.1</span> Goals</h2>
+<p>In this chapter, you will,</p>
+<ul>
+<li>represent multivariate community data with quantitative summaries and graphical displays.</li>
+<li>Describe patterns of diversity, including evenness and richness.</li>
+</ul>
+</section>
+<section id="preparatory-steps" class="level2" data-number="A.2">
+<h2 data-number="A.2" class="anchored" data-anchor-id="preparatory-steps"><span class="header-section-number">A.2</span> Preparatory steps</h2>
+<ol type="1">
+<li>General background lectures: Download the PDF slides and watch the <a href="https://drive.google.com/drive/folders/1nWLoEGuWKIWdul9Uvse5qiB1Hf8MCwUv?usp=sharing" target="_blank">video on community structure and diversity</a> before proceeding.</li>
+<li>Data: go to our <a href="https://drive.google.com/drive/u/1/folders/1FR2FLiW3xyD4Er52YzVTToPZuXXReGRo" target="_blank">class data repository</a>, and download <code>WHITTAKER_TABLE_3.csv</code>.
+<ol type="a">
+<li>Make sure the file remains in the same simple format, “comma separated values” (.csv).</li>
+<li>Put <code>WHITTAKER_TABLE_3.csv</code> in your working directory, <code>Rwork</code>.</li>
+<li>Continue to make sure the file remains in the same simple format, “comma separated values” (.csv).</li>
+</ol></li>
+<li>Find out what you need for the deliverables.</li>
+</ol>
+</section>
+<section id="background" class="level2" data-number="A.3">
+<h2 data-number="A.3" class="anchored" data-anchor-id="background"><span class="header-section-number">A.3</span> Background</h2>
+<p>We have seen examples of how the size of populations are influenced by the physical environment and interactions with other species which may be prey or enemies or mutualists. In this section, we describe how those populations may change in concert with each other and so constitute <strong>communities</strong>.</p>
+</section>
+<section id="draft" class="level2" data-number="A.4">
+<h2 data-number="A.4" class="anchored" data-anchor-id="draft"><span class="header-section-number">A.4</span> DRAFT</h2>
+</section>
+<section id="do-not-use-for-bio-209w-until-the-following-is-shortened-and-edited." class="level2" data-number="A.5">
+<h2 data-number="A.5" class="anchored" data-anchor-id="do-not-use-for-bio-209w-until-the-following-is-shortened-and-edited."><span class="header-section-number">A.5</span> <strong>Do not use for BIO 209W until the following is shortened and edited.</strong></h2>
+<p>title: “Community Structure With Data From Whittaker (1956)” format: pdf date: 2023-11-26 author: Hank Stevens —</p>
+</section>
+<section id="community-structure" class="level2" data-number="A.6">
+<h2 data-number="A.6" class="anchored" data-anchor-id="community-structure"><span class="header-section-number">A.6</span> Community structure</h2>
+<p>This is a super short introduction to working with multivariate data in which we have lots of species of a similar type (e.g., plant community, fungal community) at multiple sites or samples.</p>
+<p>Make a note of the new functions or commands we introduce.</p>
+<section id="background-1" class="level3" data-number="A.6.1">
+<h3 data-number="A.6.1" class="anchored" data-anchor-id="background-1"><span class="header-section-number">A.6.1</span> Background</h3>
+<p>Make sure you have read Primer secs. 14-14.2, and seen Hank’s lecture on community structure.</p>
+<p>A great reference for all this is: McCune, B. and J. Grace with contribution from D. Urban. 2002. Analysis of Ecological Communities. MJM Software, Gleneden Beach, Oregon. 304 pages.</p>
+<p>Dr.&nbsp;Mike Palmer has a great website on ordination, The Ordination Website: https://ordination.okstate.edu/</p>
+<p>A good introduction to ordination in <code>vegan</code>, written by the first author of the <code>vegan</code> package, is available is you Google “Oksanen ordination vegan”.</p>
+<p>Next load relevant data analysis packages. The new one is <code>vegan</code>, for vegetation analysis.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(vegan) <span class="co"># multivariate analysis</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse) <span class="co"># data wrangling and graphics</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Let’s use the following data (<a href="#tbl-whit" class="quarto-xref">Table&nbsp;<span>A.1</span></a>), which is a small subset of Table 3 from Robert Whittaker’s gradient analysis of forests in the Smoky Mountains (Whittaker 1956).</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>d <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">moisture =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">12</span>,</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">Halesia =</span> <span class="fu">c</span>(<span class="dv">5</span>,<span class="dv">8</span>,<span class="dv">4</span>,<span class="dv">1</span>,<span class="dv">9</span>,<span class="dv">13</span>,<span class="dv">3</span>,<span class="dv">1</span>,<span class="dv">1</span>, <span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>),</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">Pinus =</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">4</span>,<span class="dv">54</span>,<span class="dv">49</span>),</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">Quercus =</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">2</span>,<span class="dv">1</span>,<span class="dv">8</span>,<span class="dv">24</span>,<span class="dv">10</span>,.<span class="dv">1</span>,<span class="dv">0</span>),</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">Tilia =</span> <span class="fu">c</span>(<span class="dv">29</span>,<span class="dv">11</span>,<span class="dv">9</span>,<span class="dv">1</span>,<span class="dv">14</span>,<span class="dv">3</span>, <span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>),</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">Tsuga =</span> <span class="fu">c</span>(<span class="dv">20</span>,<span class="dv">22</span>,<span class="dv">34</span>,<span class="dv">62</span>,<span class="dv">18</span>,.<span class="dv">1</span>,.<span class="dv">1</span>,<span class="dv">1</span>, <span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>)</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>d</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="cell">
+<div id="tbl-whit" class="cell quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-whit-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;A.1: Small subset of data from Whittaker (1956) Fig. 4 &amp; Table 3, reflecting a moisture gradient.
+</figcaption>
+<div aria-describedby="tbl-whit-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="cell-output-display">
+<table class="cell caption-top table table-sm table-striped small">
+<thead>
+<tr class="header">
+<th style="text-align: right;" data-quarto-table-cell-role="th">moisture</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Halesia</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Pinus</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Quercus</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Tilia</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Tsuga</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0.0</td>
+<td style="text-align: right;">29</td>
+<td style="text-align: right;">20.0</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0.0</td>
+<td style="text-align: right;">11</td>
+<td style="text-align: right;">22.0</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0.0</td>
+<td style="text-align: right;">9</td>
+<td style="text-align: right;">34.0</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0.0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">62.0</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">9</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0.0</td>
+<td style="text-align: right;">14</td>
+<td style="text-align: right;">18.0</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">13</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">2.0</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">0.1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">7</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1.0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0.1</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">8.0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1.0</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">9</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">24.0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0.0</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">10</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">10.0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0.0</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">11</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">54</td>
+<td style="text-align: right;">0.1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0.0</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">12</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">49</td>
+<td style="text-align: right;">0.0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0.0</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</figure>
+</div>
+</div>
+<p>Sometimes simply rearranging a table can help turn it into a graphic. Let’s group species by how much moisture they prefer; <em>Tilia</em> and <em>Tsuga</em> seem to like the wettest sites (<a href="#tbl-whit2" class="quarto-xref">Table&nbsp;<span>A.2</span></a>).</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>d2 <span class="ot">&lt;-</span> d <span class="sc">%&gt;%</span> <span class="fu">select</span>(moisture, Tilia, Tsuga, Halesia, Quercus, Pinus)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co"># if the above generates an error message, it may be because</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="co"># of 'select()' refers to the wrong R package. If you get an errror, </span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="co"># try referring specifically to a particular package with the following code. </span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Uncomment the following and use this instead.</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="co"># d &lt;- d %&gt;% dplyr::select(moisture, Tilia, Tsuga, Halesia, Quercus, Pinus)</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>d2</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="cell">
+<div id="tbl-whit2" class="cell quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-whit2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;A.2: Reorganizing Table 1 to comunicate better.
+</figcaption>
+<div aria-describedby="tbl-whit2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="cell-output-display">
+<table class="cell caption-top table table-sm table-striped small">
+<thead>
+<tr class="header">
+<th style="text-align: right;" data-quarto-table-cell-role="th">moisture</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Tilia</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Tsuga</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Halesia</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Quercus</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Pinus</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">29</td>
+<td style="text-align: right;">20</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">11</td>
+<td style="text-align: right;">22</td>
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">9</td>
+<td style="text-align: right;">34</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">62</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">14</td>
+<td style="text-align: right;">18</td>
+<td style="text-align: right;">9</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">13</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">7</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">9</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">24</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">10</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">10</td>
+<td style="text-align: right;">4</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">11</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">54</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">12</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">49</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</figure>
+</div>
+</div>
+<p>Now let’s create a line graph of abundances along this gradient.</p>
+<p>First, rearrange the data into a long format.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>yl <span class="ot">&lt;-</span> d2 <span class="sc">%&gt;%</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="at">cols=</span>Tilia<span class="sc">:</span>Pinus, <span class="at">values_to=</span><span class="st">"abundance"</span>, <span class="at">names_to=</span><span class="st">"species"</span>)</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(yl)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 3
+  moisture species abundance
+     &lt;int&gt; &lt;chr&gt;       &lt;dbl&gt;
+1        1 Tilia          29
+2        1 Tsuga          20
+3        1 Halesia         5
+4        1 Quercus         0
+5        1 Pinus           0
+6        2 Tilia          11</code></pre>
+</div>
+</div>
+<p>Now plot abundances by moisture, where each species get’s its own color and line type (<a href="#fig-whit1" class="quarto-xref">Figure&nbsp;<span>A.2</span></a>). In addition, we will scale the y-axis by square root, in order to avoid hiding the least common species.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>yl, <span class="fu">aes</span>(<span class="at">x=</span>moisture, <span class="at">y=</span>abundance, </span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>               <span class="at">color=</span>species, <span class="at">linetype=</span>species)) <span class="sc">+</span> </span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>() <span class="sc">+</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_sqrt</span>() <span class="sc">+</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">y=</span><span class="st">"Abundance"</span>, <span class="at">x=</span><span class="st">"Moisture index"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div id="fig-whit1" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-whit1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="appendix_Community_structure_files/figure-html/fig-whit1-1.png" class="img-fluid figure-img" width="672">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-whit1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;A.2: Tree species abundances along a moisture gradient in the Smoky Mountains of North Carolina, USA (Whittker 1956). Y-axis scaled by square root transformation.
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="dissimilarities-between-sites" class="level2" data-number="A.7">
+<h2 data-number="A.7" class="anchored" data-anchor-id="dissimilarities-between-sites"><span class="header-section-number">A.7</span> Dissimilarities between sites</h2>
+<p>Let’s calculate differences among sites, but first we should ask ourselves some questions:</p>
+<ol type="1">
+<li>Should we treat all sites equally?</li>
+<li>Would we like to consider all species equally, or let the abundances dictate importance?</li>
+<li>Should we exclude rare species that might appear in samples by chance alone?</li>
+<li>Do we have an a priori hypothesis or is this primarily exploratory?</li>
+</ol>
+<p>The answer to the first (sites equal?) is often a qualified “yes”, especially if there might be artifactual differences among sites. Therefore, we often make sure that the totals among sites are adjusted to be equal.</p>
+<p>The answer to the second (species equal?) is often a qualified “yes”, if we are interested in community composition and structure, rather than only the abundant species driving carbon fluxes. Indeed, above we graphed the <em>square roots</em> of species abundances to help us see the patterns in the less common species.</p>
+<p>The answer to the third (rare species?) is often “yes” because we would like to avoid unnecessary stochastic noise in our data. Some species may be uncommon but also habitat generalists; in these cases, they are not responding to anything we are interested in, but rather just present or absent by chance alone. These species would add noise to our analysis and not inform of us of anything interesting. Many authors report that they “removed taxa that appeared in fewer than X samples”, where X is a small number of samples relative to their total. Nonetheless, let us assume that we have already removed such species, and so the answer here is “no”, because we already have.</p>
+<p>Last, let’s assume that our analyses are exploratory because this is not a designed experiment.</p>
+<p>Given these answers, we can proceed.</p>
+<section id="treating-sites-and-species-equally" class="level3" data-number="A.7.1">
+<h3 data-number="A.7.1" class="anchored" data-anchor-id="treating-sites-and-species-equally"><span class="header-section-number">A.7.1</span> Treating sites and species equally</h3>
+<p>A common data transformation is the “Wisconsin” transformation, which is a double standardization method made popular by botanists at the University of Wisconsin. Here, species (in columns) are first standardized by their own maxima, and then sites (in rows) are standardized by site totals.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>Y <span class="ot">&lt;-</span> d2 <span class="sc">%&gt;%</span> <span class="fu">select</span>(<span class="sc">-</span>moisture)</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>Yw <span class="ot">&lt;-</span> <span class="fu">wisconsin</span>(Y)</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="co"># totals of each site (rows)</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="fu">apply</span>(Yw, <span class="at">MARGIN=</span><span class="dv">1</span>, sum)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] 1 1 1 1 1 1 1 1 1 1 1 1</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># resulting maxima of each species (cols) </span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="fu">apply</span>(Yw, <span class="at">MARGIN=</span><span class="dv">2</span>, max)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>    Tilia     Tsuga   Halesia   Quercus     Pinus 
+0.5857558 0.8997613 0.8420735 0.9128739 1.0000000 </code></pre>
+</div>
+</div>
+<p>Note that because we re-weighted the sites after weighting the species, the species got adjusted again.</p>
+<p>If we wanted to adjust only the species, we could do the following.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Using a function in vegan</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="fu">decostand</span>(Y, <span class="at">method=</span><span class="st">"max"</span>, <span class="at">MARGIN=</span><span class="dv">2</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>        Tilia       Tsuga    Halesia     Quercus      Pinus
+1  1.00000000 0.322580645 0.38461538 0.000000000 0.00000000
+2  0.37931034 0.354838710 0.61538462 0.000000000 0.00000000
+3  0.31034483 0.548387097 0.30769231 0.000000000 0.00000000
+4  0.03448276 1.000000000 0.07692308 0.000000000 0.00000000
+5  0.48275862 0.290322581 0.69230769 0.000000000 0.00000000
+6  0.10344828 0.001612903 1.00000000 0.083333333 0.00000000
+7  0.00000000 0.001612903 0.23076923 0.041666667 0.00000000
+8  0.00000000 0.016129032 0.07692308 0.333333333 0.00000000
+9  0.00000000 0.000000000 0.07692308 1.000000000 0.01851852
+10 0.00000000 0.000000000 0.00000000 0.416666667 0.07407407
+11 0.00000000 0.000000000 0.00000000 0.004166667 1.00000000
+12 0.00000000 0.000000000 0.00000000 0.000000000 0.90740741</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Doing the same thing in base R</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="fu">apply</span>(Y, <span class="dv">2</span>, <span class="cf">function</span>(x) x<span class="sc">/</span><span class="fu">max</span>(x)) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>           Tilia       Tsuga    Halesia     Quercus      Pinus
+ [1,] 1.00000000 0.322580645 0.38461538 0.000000000 0.00000000
+ [2,] 0.37931034 0.354838710 0.61538462 0.000000000 0.00000000
+ [3,] 0.31034483 0.548387097 0.30769231 0.000000000 0.00000000
+ [4,] 0.03448276 1.000000000 0.07692308 0.000000000 0.00000000
+ [5,] 0.48275862 0.290322581 0.69230769 0.000000000 0.00000000
+ [6,] 0.10344828 0.001612903 1.00000000 0.083333333 0.00000000
+ [7,] 0.00000000 0.001612903 0.23076923 0.041666667 0.00000000
+ [8,] 0.00000000 0.016129032 0.07692308 0.333333333 0.00000000
+ [9,] 0.00000000 0.000000000 0.07692308 1.000000000 0.01851852
+[10,] 0.00000000 0.000000000 0.00000000 0.416666667 0.07407407
+[11,] 0.00000000 0.000000000 0.00000000 0.004166667 1.00000000
+[12,] 0.00000000 0.000000000 0.00000000 0.000000000 0.90740741</code></pre>
+</div>
+</div>
+<p>Sometimes we want to just scale species a little differently using the logarithm or square root to keep species rank abundances less disturbed, but reduce the importance of the really common species. Square root (or fourth root) is useful, because zeroes are not a problem. We could do this:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Use square roots of our data</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>Ysr <span class="ot">&lt;-</span> <span class="fu">apply</span>(Y, <span class="dv">2</span>, <span class="cf">function</span>(x) (x<span class="sc">^</span><span class="fl">0.5</span>)) </span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>Ysr</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>         Tilia     Tsuga  Halesia   Quercus    Pinus
+ [1,] 5.385165 4.4721360 2.236068 0.0000000 0.000000
+ [2,] 3.316625 4.6904158 2.828427 0.0000000 0.000000
+ [3,] 3.000000 5.8309519 2.000000 0.0000000 0.000000
+ [4,] 1.000000 7.8740079 1.000000 0.0000000 0.000000
+ [5,] 3.741657 4.2426407 3.000000 0.0000000 0.000000
+ [6,] 1.732051 0.3162278 3.605551 1.4142136 0.000000
+ [7,] 0.000000 0.3162278 1.732051 1.0000000 0.000000
+ [8,] 0.000000 1.0000000 1.000000 2.8284271 0.000000
+ [9,] 0.000000 0.0000000 1.000000 4.8989795 1.000000
+[10,] 0.000000 0.0000000 0.000000 3.1622777 2.000000
+[11,] 0.000000 0.0000000 0.000000 0.3162278 7.348469
+[12,] 0.000000 0.0000000 0.000000 0.0000000 7.000000</code></pre>
+</div>
+</div>
+<p>Now let’s calculate distances or dissimilarities among sites, using Euclidean distances with the raw data.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>Y.euc.raw <span class="ot">&lt;-</span> <span class="fu">vegdist</span>(Y, <span class="at">method=</span><span class="st">"euclid"</span>)</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(Y.euc.raw,<span class="dv">1</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>      1    2    3    4    5    6    7    8    9   10   11
+2  18.4                                                  
+3  24.4 12.8                                             
+4  50.6 41.8 29.3                                        
+5  15.7  5.1 17.5 46.6                                   
+6  33.8 23.9 35.6 63.1 21.5                              
+7  35.2 25.0 35.1 61.9 23.5 10.5                         
+8  35.8 26.0 35.3 61.5 24.8 13.8  7.3                    
+9  42.8 35.1 42.7 66.5 34.1 25.3 23.1 16.1               
+10 37.2 28.0 37.0 62.9 26.8 16.1 10.3  4.7 14.4          
+11 64.7 59.9 64.6 82.2 59.3 55.7 54.1 54.6 58.1 51.0     
+12 60.6 55.4 60.4 79.0 54.8 50.8 49.1 49.7 53.7 46.1  5.0</code></pre>
+</div>
+</div>
+<p>We see the lower triangle matrix shows all distances among different species. The upper half is redundant and so we don’t bother to show those.</p>
+<p>Now we do the same thing, but with the square-root transformed abundances, and we compare the two in a scatterplot (<a href="#fig-compareEuc" class="quarto-xref">Figure&nbsp;<span>A.3</span></a>).</p>
+<div class="cell" data-fig-caption="Euclidean distances among sites depends whether the data were transformed. Distances are positively correlated, but distances among some pairs of sites change their rank-order.">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>Y.euc.sqrt <span class="ot">&lt;-</span> <span class="fu">vegdist</span>(Ysr, <span class="at">method=</span><span class="st">"euclid"</span>)</span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(Y.euc.raw, Y.euc.sqrt )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div id="fig-compareEuc" class="quarto-float quarto-figure quarto-figure-center anchored" width="672">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-compareEuc-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="appendix_Community_structure_files/figure-html/fig-compareEuc-1.png" id="fig-compareEuc" class="img-fluid figure-img" width="672">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig quarto-uncaptioned" id="fig-compareEuc-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;A.3
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>Now calculate other dissimilarities.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>Y.bray <span class="ot">&lt;-</span> <span class="fu">vegdist</span>(Ysr, <span class="at">method=</span><span class="st">"bray"</span>)</span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>Y.jac <span class="ot">&lt;-</span> <span class="fu">vegdist</span>(Ysr, <span class="at">method=</span><span class="st">"jaccard"</span>)</span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>Y.gow <span class="ot">&lt;-</span> <span class="fu">vegdist</span>(Ysr, <span class="at">method=</span><span class="st">"gower"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>And now combine into a data frame.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>d.dist <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>  Y.euc.raw, Y.euc.sqrt, Y.bray, Y.jac, Y.gow</span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a><span class="co"># in the event the above returns an error message, </span></span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a><span class="co"># uncomment and use the following:</span></span>
+<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a><span class="co"># d.dist &lt;- data.frame(</span></span>
+<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a><span class="co">#   Y.euc.raw = as.numeric(Y.euc), Y.bray = as.numeric(Y.bray), </span></span>
+<span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a><span class="co">#   Y.jac = as.numeric(Y.jac), Y.gow = as.numeric(Y.gow)</span></span>
+<span id="cb21-9"><a href="#cb21-9" aria-hidden="true" tabindex="-1"></a><span class="co">#   )</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Finally, let’s compare these visually using the scatterplots of all dissimilarity measures in a <em>scatterplot</em> matrix.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">pairs</span>(d.dist)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="appendix_Community_structure_files/figure-html/unnamed-chunk-12-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>We can calculate the Spearman rank-order correlations among these to see how similar they are.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cor</span>(d.dist, <span class="at">method=</span><span class="st">"spearman"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>           Y.euc.raw Y.euc.sqrt    Y.bray     Y.jac     Y.gow
+Y.euc.raw  1.0000000  0.8889492 0.7021381 0.7021381 0.6582403
+Y.euc.sqrt 0.8889492  1.0000000 0.9018327 0.9018327 0.8942726
+Y.bray     0.7021381  0.9018327 1.0000000 1.0000000 0.8927829
+Y.jac      0.7021381  0.9018327 1.0000000 1.0000000 0.8927829
+Y.gow      0.6582403  0.8942726 0.8927829 0.8927829 1.0000000</code></pre>
+</div>
+</div>
+<p>We see that the Euclidean distances using raw data differ the most from the other dissimilarities. This is not surprising as all the others use square-root transformed data.</p>
+</section>
+</section>
+<section id="ordination---a-huge-topic" class="level2" data-number="A.8">
+<h2 data-number="A.8" class="anchored" data-anchor-id="ordination---a-huge-topic"><span class="header-section-number">A.8</span> Ordination - a huge topic</h2>
+<p>Ordination is a dimension reduction technique that attempts to glean emergent simple patterns in multivariate data. Think of it as a 2-D shadow of a 3-D (or 4-D, or 1000-D) object.</p>
+<p>Ordination may be constrained by covariates or unconstrained. We typically constrain an ordination when we have an a priori hypothesis. Here we will will use only one method, and it will be unconstrained.</p>
+<section id="unconstrained-ordination" class="level3" data-number="A.8.1">
+<h3 data-number="A.8.1" class="anchored" data-anchor-id="unconstrained-ordination"><span class="header-section-number">A.8.1</span> Unconstrained ordination</h3>
+<p>Among the oldest is principal components analysis (PCA). This is a good method when zeroes are very rare in your data, and variables are symmetrically distributed. It can be good for quantitative traits, where all species have some numerical value for each traits. The method is lousy for community data, especially along long gradients.</p>
+<p><strong>Non-metric multidimensional scaling:</strong> Let’s use this algorithm, which tries to render fewer dimensions from more. However, we will first do it porrly, by not transforming the data and using a distance measure that is rarely recommended.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>m1 <span class="ot">&lt;-</span> <span class="fu">metaMDS</span>(Y, <span class="at">distance=</span><span class="st">"euc"</span>,</span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>              <span class="at">autotransform =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>              <span class="at">k=</span><span class="dv">2</span>, <span class="co"># number of dimensions</span></span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a>              <span class="at">trace=</span><span class="dv">0</span> <span class="co"># silence simulation progress info</span></span>
+<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a>m1</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+metaMDS(comm = Y, distance = "euc", k = 2, autotransform = FALSE,      trace = 0) 
+
+global Multidimensional Scaling using monoMDS
+
+Data:     Y 
+Distance: euclidean 
+
+Dimensions: 2 
+Stress:     0.03038791 
+Stress type 1, weak ties
+Best solution was repeated 1 time in 20 tries
+The best solution was from try 20 (random start)
+Scaling: centring, PC rotation 
+Species: expanded scores based on 'Y' </code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(m1, <span class="at">type=</span><span class="st">"t"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="appendix_Community_structure_files/figure-html/unnamed-chunk-14-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Now we do it better.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>m2 <span class="ot">&lt;-</span> <span class="fu">metaMDS</span>(Y, <span class="at">distance=</span><span class="st">"bray"</span>,</span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>              <span class="at">autotransform =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>              <span class="at">k=</span><span class="dv">2</span>, <span class="co"># number of dimensions</span></span>
+<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a>              <span class="at">trace=</span><span class="dv">0</span> <span class="co"># silence simulation progress info</span></span>
+<span id="cb28-5"><a href="#cb28-5" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb28-6"><a href="#cb28-6" aria-hidden="true" tabindex="-1"></a>m2</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+metaMDS(comm = Y, distance = "bray", k = 2, autotransform = TRUE,      trace = 0) 
+
+global Multidimensional Scaling using monoMDS
+
+Data:     wisconsin(sqrt(Y)) 
+Distance: bray 
+
+Dimensions: 2 
+Stress:     0.01534086 
+Stress type 1, weak ties
+Best solution was repeated 5 times in 20 tries
+The best solution was from try 10 (random start)
+Scaling: centring, PC rotation, halfchange scaling 
+Species: expanded scores based on 'wisconsin(sqrt(Y))' </code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(m2, <span class="at">type=</span><span class="st">"t"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="appendix_Community_structure_files/figure-html/unnamed-chunk-15-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="and-now-with-a-larger-data-set" class="level2" data-number="A.9">
+<h2 data-number="A.9" class="anchored" data-anchor-id="and-now-with-a-larger-data-set"><span class="header-section-number">A.9</span> And now with a larger data set</h2>
+<p>These data (this data set) is arranged by species in rows, and sites in columns. Usually we do analyses of sites by having sites in rows and species in columns.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>dw <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"data/WHITTAKER_TABLE_3.csv"</span>)</span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>dw[<span class="fu">is.na</span>(dw)] <span class="ot">&lt;-</span> <span class="dv">0</span></span>
+<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a><span class="co"># transpose the data, but exclude the first column of species names</span></span>
+<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-5"><a href="#cb31-5" aria-hidden="true" tabindex="-1"></a>dt <span class="ot">&lt;-</span> <span class="fu">t</span>(dw[,<span class="sc">-</span><span class="dv">1</span>])</span>
+<span id="cb31-6"><a href="#cb31-6" aria-hidden="true" tabindex="-1"></a><span class="co"># use the species names as column names</span></span>
+<span id="cb31-7"><a href="#cb31-7" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(dt) <span class="ot">&lt;-</span>  dw<span class="sc">$</span>SP</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Here we don’t transform data, and use Euclidean distances.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>m.whit1 <span class="ot">&lt;-</span> <span class="fu">metaMDS</span>(dt, <span class="at">distance=</span><span class="st">"euc"</span>,</span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>              <span class="at">autotransform =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a>              <span class="at">k=</span><span class="dv">2</span>, <span class="co"># number of dimensions</span></span>
+<span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a>              <span class="at">trace=</span><span class="dv">0</span> <span class="co"># silence simulation progress info</span></span>
+<span id="cb32-5"><a href="#cb32-5" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Here we transform data, and use Bray-Curtis distances.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>m.whit2 <span class="ot">&lt;-</span> <span class="fu">metaMDS</span>(dt, <span class="at">distance=</span><span class="st">"bray"</span>,</span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>              <span class="at">autotransform =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a>              <span class="at">k=</span><span class="dv">2</span>, <span class="co"># number of dimensions</span></span>
+<span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a>              <span class="at">trace=</span><span class="dv">0</span> <span class="co"># silence simulation progress info</span></span>
+<span id="cb33-5"><a href="#cb33-5" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Here we plot these both. Can you see differences?</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(m.whit1, <span class="at">display=</span><span class="st">"sites"</span>, <span class="at">type=</span><span class="st">"t"</span>)</span>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(m.whit2, <span class="at">display=</span><span class="st">"sites"</span> , <span class="at">type=</span><span class="st">"t"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="appendix_Community_structure_files/figure-html/unnamed-chunk-19-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="appendix_Community_structure_files/figure-html/unnamed-chunk-19-2.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./references.html" class="pagination-link" aria-label="References">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">References</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./appendix_A_career-skills-crosswalk.html" class="pagination-link" aria-label="From This Book to Your Résumé: A Skills Crosswalk">
+        <span class="nav-page-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">From This Book to Your Résumé: A Skills Crosswalk</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

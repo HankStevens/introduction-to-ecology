@@ -1,0 +1,21 @@
+---
+title: "Answer Key for BECDR"
+format: html
+---
+
+Answer key for chapter deliverables
+
+## 16
+### part 1
+
+1. Quantities from the simple budget, including units:
+    a. the annual flux: 6.2 Gt C / y
+    a. the size of the pool in years 2 and 25. year 2: 768.2 Gt C; year 25; 917 Gt C
+2. Quantities from the simple dynamic model, including units:
+    a. the graph of atmospheric carbon dynamics.
+solution to the dynamic rate equation (i.e. what is 𝐴∗ predicted to be at equilibrium?). Show your work.
+State what the above solution tells us should happen the 𝐴∗ if 𝑒 gets smaller and also if it gets larger.
+Compare and contrast the simple budget and the simple dynamic system above, in terms of how they represent a system, and in what they predict about future atmospheric carbon levels.
+Explain what the simple dynamic system would predict about the ocean acidification due to fossil fuel emissions?
+Warmer water holds lower concentrations of gases such as oxygen and carbon dioxide than does colder water. Explain how this might alter predictions about ocean acidification assuming the atmosphere and oceans continue to warm. If you know a little about chemistry, include anything you know about the effect of temperature on the dissociation of acids.
+
