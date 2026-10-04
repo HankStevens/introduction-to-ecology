@@ -335,8 +335,14 @@ h1, h2, h3, h4, h5, h6,
   <li><a href="#traits-as-windows-into-physiology" id="toc-traits-as-windows-into-physiology" class="nav-link" data-scroll-target="#traits-as-windows-into-physiology">7. Traits as windows into physiology</a></li>
   <li><a href="#from-individual-traits-to-communities-and-ecosystems" id="toc-from-individual-traits-to-communities-and-ecosystems" class="nav-link" data-scroll-target="#from-individual-traits-to-communities-and-ecosystems">8. From individual traits to communities and ecosystems</a></li>
   <li><a href="#why-anchor-a-chapter-on-a-single-paper" id="toc-why-anchor-a-chapter-on-a-single-paper" class="nav-link" data-scroll-target="#why-anchor-a-chapter-on-a-single-paper">9. Why anchor a chapter on a single paper?</a></li>
-  <li><a href="#data-exercise-exploring-trait-trade-offs-with-bien" id="toc-data-exercise-exploring-trait-trade-offs-with-bien" class="nav-link" data-scroll-target="#data-exercise-exploring-trait-trade-offs-with-bien">10. Data exercise: exploring trait trade-offs with BIEN</a></li>
-  <li><a href="#reflection-questions" id="toc-reflection-questions" class="nav-link" data-scroll-target="#reflection-questions">11. Reflection questions</a></li>
+  <li><a href="#data-exercise-exploring-trait-trade-offs-with-bien" id="toc-data-exercise-exploring-trait-trade-offs-with-bien" class="nav-link" data-scroll-target="#data-exercise-exploring-trait-trade-offs-with-bien">10. Data exercise: exploring trait trade-offs with BIEN</a>
+  <ul class="collapse">
+  <li><a href="#choice-1-two-traits" id="toc-choice-1-two-traits" class="nav-link" data-scroll-target="#choice-1-two-traits"><span class="header-section-number">5.0.1</span> Choice 1: two traits</a></li>
+  <li><a href="#choice-2-one-group-of-plants" id="toc-choice-2-one-group-of-plants" class="nav-link" data-scroll-target="#choice-2-one-group-of-plants"><span class="header-section-number">5.0.2</span> Choice 2: one group of plants</a></li>
+  <li><a href="#choice-3-run-your-route" id="toc-choice-3-run-your-route" class="nav-link" data-scroll-target="#choice-3-run-your-route"><span class="header-section-number">5.0.3</span> Choice 3: run your route</a></li>
+  </ul></li>
+  <li><a href="#deliverables" id="toc-deliverables" class="nav-link" data-scroll-target="#deliverables">11. Deliverables</a></li>
+  <li><a href="#reflection-and-discussion-questions" id="toc-reflection-and-discussion-questions" class="nav-link" data-scroll-target="#reflection-and-discussion-questions">12. Reflection and discussion questions</a></li>
   <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
   </ul>
 </nav>
@@ -382,8 +388,8 @@ from HTML, PDF, and docx output alike):
   real at render time — deterministic via set.seed(444) — but source is
   hidden), per Hank's request to show only the picture.
 - Section 10's BIEN exercise chunk is `eval: false`: it's a template with
-  placeholder choices (Costa Rica / whole plant height / leaf area) each
-  student edits, so there's no single canonical output to bake into the
+  a narrowed menu (three pre-approved trait pairs; genera, species lists,
+  or country+genus) that each student picks from, so there's no single canonical output to bake into the
   book, and — importantly — this code has NOT been executed against the
   live BIEN database (no network access to CRAN or BIEN's server in the
   sandbox that built this). Function names/arguments are confirmed against
@@ -544,84 +550,302 @@ Figure&nbsp;5.1: Four null models (blue circles) built from every combination of
 </section>
 <section id="why-anchor-a-chapter-on-a-single-paper" class="level2 unnumbered">
 <h2 class="unnumbered anchored" data-anchor-id="why-anchor-a-chapter-on-a-single-paper">9. Why anchor a chapter on a single paper?</h2>
-<p>Centering this chapter on one globally general, quantitative study — rather than, say, the natural history of a single growth form — trades breadth of examples for a framework that still grounds every trait in individual physiology. Students get a concrete, well-illustrated case (Figure 2 of the paper, the two-axis trait plane with its herbaceous and woody hotspots) while building toward the more general skill of thinking about organisms as bundles of correlated, physiologically-constrained traits — a lens that applies just as well to a liana, a desert annual, or a temperate tree. A liana example fits naturally as a short illustrative case study here (e.g., where a woody vine that borrows structural support from other plants would plot on the H–SM and LMA–Nmass axes, compared to a free-standing tree) — see the reflection questions below.</p>
+<p>Centering this chapter on one globally general, quantitative study — rather than, say, the natural history of a single growth form — trades breadth of examples for a framework that still grounds every trait in individual physiology. We see a concrete, well-illustrated case (Figure 2 of the Diaz et al.&nbsp;, the two-axis trait plane with its herbaceous and woody hotspots) while building toward the more general skill of thinking about organisms as bundles of correlated, physiologically-constrained traits — a lens that applies just as well to a liana, a desert annual, or a temperate tree. A liana example fits naturally as a short illustrative case study here (e.g., where a woody vine that borrows structural support from other plants would plot on the H–SM and LMA–Nmass axes, compared to a free-standing tree) — see the reflection questions below.</p>
 </section>
 <section id="data-exercise-exploring-trait-trade-offs-with-bien" class="level2 unnumbered">
 <h2 class="unnumbered anchored" data-anchor-id="data-exercise-exploring-trait-trade-offs-with-bien">10. Data exercise: exploring trait trade-offs with BIEN</h2>
-<p>The toy example in Section 6 used invented data to show what null models look like. Now you’ll do the real version, in miniature: pull real trait measurements for a set of species you choose, and see whether — and how strongly — two traits trade off (or coordinate) across those species.</p>
-<p>You get to define your own subset of the plant world to look at. Constrain your species list by geographic region (a country, U.S. or Canadian state/province), by taxonomic group (a genus or family), or both — your choice, as long as you can explain why you picked it. A few ways to think about a constraint: species native to your home state; a plant family you’re curious about (conifers, legumes, grasses); a genus with a lot of horticultural or agricultural species; or a region you’re planning to visit.</p>
+<p>The toy example in Section 6 used invented data to show what null models look like. Now you’ll do the real version, in miniature: pull real trait measurements for a small set of plants, and see whether, and how strongly, two traits trade off (or coordinate) across those plants.</p>
+<p>The BIEN database holds millions of records, so this exercise is <em>deliberately narrow</em>. You will make three choices, each from a short menu below, and you will not need to know anything about plant taxonomy or BIEN’s trait vocabulary in advance:</p>
+<ol type="1">
+<li><strong>Two traits</strong> (<a href="#tbl-bien-trait-pairs" class="quarto-xref">Table&nbsp;<span>5.2</span></a>).</li>
+<li><strong>One group of plants</strong> (<a href="#tbl-bien-genera" class="quarto-xref">Table&nbsp;<span>5.3</span></a>, <a href="#tbl-bien-species" class="quarto-xref">Table&nbsp;<span>5.4</span></a>, or <a href="#tbl-bien-countries" class="quarto-xref">Table&nbsp;<span>5.5</span></a>).</li>
+<li><strong>One route for getting the data</strong> (A, B, or C below, matched to the group you chose).</li>
+</ol>
+<p>Please do <strong>not</strong> download data for a whole country, state, or plant family. Those queries return hundreds of thousands of records, can take many minutes, and will probably freeze your R session. If a query is still running after two minutes, stop it (the red stop sign in RStudio) and pick a smaller group.</p>
+<section id="choice-1-two-traits" class="level3" data-number="5.0.1">
+<h3 data-number="5.0.1" class="anchored" data-anchor-id="choice-1-two-traits"><span class="header-section-number">5.0.1</span> Choice 1: two traits</h3>
+<p>Each pair below comes from the six traits in <a href="#tbl-six-traits" class="quarto-xref">Table&nbsp;<span>5.1</span></a>, and each has been a standard comparison in the plant trait literature for decades. If you have no strong preference, use Pair 1.</p>
+<div id="tbl-bien-trait-pairs" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-bien-trait-pairs-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;5.2: Three pre-approved trait pairs. Names are BIEN’s exact <code>trait_name</code> strings; Step 1 below has you confirm that they still exist.
+</figcaption>
+<div aria-describedby="tbl-bien-trait-pairs-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top table">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Pair</th>
+<th style="text-align: left;">Trait 1 (x-axis)</th>
+<th style="text-align: left;">Trait 2 (y-axis)</th>
+<th style="text-align: left;">What it tests</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">1</td>
+<td style="text-align: left;"><code>leaf area per leaf dry mass</code></td>
+<td style="text-align: left;"><code>leaf nitrogen content per leaf dry mass</code></td>
+<td style="text-align: left;">The leaf economics spectrum: do cheap, thin leaves also carry more nitrogen per gram?</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">2</td>
+<td style="text-align: left;"><code>whole plant height</code></td>
+<td style="text-align: left;"><code>seed mass</code></td>
+<td style="text-align: left;">Do taller plants make bigger seeds? (Westoby’s leaf-height-seed scheme)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">3</td>
+<td style="text-align: left;"><code>whole plant height</code></td>
+<td style="text-align: left;"><code>leaf area</code></td>
+<td style="text-align: left;">Do taller plants carry larger leaves?</td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+</section>
+<section id="choice-2-one-group-of-plants" class="level3" data-number="5.0.2">
+<h3 data-number="5.0.2" class="anchored" data-anchor-id="choice-2-one-group-of-plants"><span class="header-section-number">5.0.2</span> Choice 2: one group of plants</h3>
+<p>Choose <strong>one</strong> of the three groups below. Every entry has been picked because it is a common, well-studied plant, so BIEN is likely to have trait measurements for it. (Likely, not guaranteed: some trait pairs will have few measurements for some groups, and Step 6 shows you how many species you ended up with.)</p>
+<p><strong>Genera</strong> (use with Route A). Pick exactly one genus.</p>
+<div id="tbl-bien-genera" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-bien-genera-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;5.3: Genera that work well for Route A. A genus with fewer than about 10 species that have <em>both</em> of your traits will give a thin scatterplot; if that happens, pick a different genus.
+</figcaption>
+<div aria-describedby="tbl-bien-genera-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Growth form</th>
+<th style="text-align: left;">Genera</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Temperate trees</td>
+<td style="text-align: left;"><em>Quercus</em> (oaks), <em>Acer</em> (maples), <em>Pinus</em> (pines), <em>Betula</em> (birches), <em>Salix</em> (willows), <em>Populus</em> (poplars, aspens), <em>Fraxinus</em> (ashes), <em>Prunus</em> (cherries, plums)</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Tropical trees and shrubs</td>
+<td style="text-align: left;"><em>Ficus</em> (figs), <em>Inga</em>, <em>Piper</em>, <em>Miconia</em></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Grasses, sedges, and herbs</td>
+<td style="text-align: left;"><em>Poa</em> (bluegrasses), <em>Carex</em> (sedges), <em>Solidago</em> (goldenrods), <em>Trifolium</em> (clovers), <em>Plantago</em> (plantains)</td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+<p><strong>Ready-made species lists</strong> (use with Route B). Pick one list. Each is a community you could walk through, which makes this the best route for comparing a woody community against an herbaceous one (compare your result with the “two hotspots” in Díaz et al., 2016).</p>
+<div id="tbl-bien-species" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-bien-species-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;5.4: Ready-made species lists for Route B. BIEN matches the current accepted name, so if one species returns nothing, that is normal; just continue with the rest.
+</figcaption>
+<div aria-describedby="tbl-bien-species-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">List</th>
+<th style="text-align: left;">Species</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Ohio hardwood forest trees (28 species)</td>
+<td style="text-align: left;"><em>Acer saccharum</em>, <em>Acer rubrum</em>, <em>Acer negundo</em>, <em>Acer saccharinum</em>, <em>Aesculus glabra</em>, <em>Betula lenta</em>, <em>Betula nigra</em>, <em>Carya ovata</em>, <em>Carya cordiformis</em>, <em>Celtis occidentalis</em>, <em>Fagus grandifolia</em>, <em>Fraxinus americana</em>, <em>Fraxinus pennsylvanica</em>, <em>Juglans nigra</em>, <em>Liriodendron tulipifera</em>, <em>Liquidambar styraciflua</em>, <em>Platanus occidentalis</em>, <em>Populus deltoides</em>, <em>Prunus serotina</em>, <em>Quercus alba</em>, <em>Quercus rubra</em>, <em>Quercus velutina</em>, <em>Quercus macrocarpa</em>, <em>Quercus palustris</em>, <em>Sassafras albidum</em>, <em>Tilia americana</em>, <em>Ulmus americana</em>, <em>Ulmus rubra</em></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Midwestern tallgrass prairie plants (24 species)</td>
+<td style="text-align: left;"><em>Andropogon gerardii</em>, <em>Schizachyrium scoparium</em>, <em>Sorghastrum nutans</em>, <em>Panicum virgatum</em>, <em>Elymus canadensis</em>, <em>Bouteloua curtipendula</em>, <em>Solidago canadensis</em>, <em>Solidago rigida</em>, <em>Echinacea purpurea</em>, <em>Rudbeckia hirta</em>, <em>Ratibida pinnata</em>, <em>Silphium perfoliatum</em>, <em>Silphium laciniatum</em>, <em>Helianthus annuus</em>, <em>Monarda fistulosa</em>, <em>Asclepias syriaca</em>, <em>Asclepias tuberosa</em>, <em>Liatris spicata</em>, <em>Lupinus perennis</em>, <em>Baptisia australis</em>, <em>Symphyotrichum novae-angliae</em>, <em>Coreopsis lanceolata</em>, <em>Heliopsis helianthoides</em>, <em>Dalea purpurea</em></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Costa Rican lowland tropical trees (22 species)</td>
+<td style="text-align: left;"><em>Cecropia peltata</em>, <em>Ochroma pyramidale</em>, <em>Ceiba pentandra</em>, <em>Swietenia macrophylla</em>, <em>Inga edulis</em>, <em>Guazuma ulmifolia</em>, <em>Hura crepitans</em>, <em>Spondias mombin</em>, <em>Tabebuia rosea</em>, <em>Gliricidia sepium</em>, <em>Cordia alliodora</em>, <em>Bursera simaruba</em>, <em>Brosimum alicastrum</em>, <em>Carapa guianensis</em>, <em>Virola surinamensis</em>, <em>Pentaclethra macroloba</em>, <em>Vochysia ferruginea</em>, <em>Dipteryx panamensis</em>, <em>Hyeronima alchorneoides</em>, <em>Schizolobium parahyba</em>, <em>Trema micrantha</em>, <em>Byrsonima crassifolia</em></td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+<p><strong>Countries</strong> (use with Route C, the most advanced). Pick one country <em>and</em> one of its suggested genera. The country query returns every species measured in that country, so you will trim to one genus immediately.</p>
+<div id="tbl-bien-countries" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-bien-countries-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;5.5: Countries for Route C. Ask your instructor before choosing a country that is not on this list.
+</figcaption>
+<div aria-describedby="tbl-bien-countries-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Country</th>
+<th style="text-align: left;">Habitat</th>
+<th style="text-align: left;">Suggested genera to trim to</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Costa Rica</td>
+<td style="text-align: left;">tropical wet and dry forest</td>
+<td style="text-align: left;"><em>Piper</em>, <em>Inga</em>, <em>Ficus</em>, <em>Miconia</em></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Panama</td>
+<td style="text-align: left;">tropical forest</td>
+<td style="text-align: left;"><em>Inga</em>, <em>Ficus</em>, <em>Piper</em>, <em>Psychotria</em></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">South Africa</td>
+<td style="text-align: left;">fynbos and savanna</td>
+<td style="text-align: left;"><em>Protea</em>, <em>Leucadendron</em>, <em>Aloe</em>, <em>Searsia</em></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">New Zealand</td>
+<td style="text-align: left;">temperate rainforest</td>
+<td style="text-align: left;"><em>Nothofagus</em>, <em>Podocarpus</em>, <em>Coprosma</em>, <em>Veronica</em></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Chile</td>
+<td style="text-align: left;">temperate rainforest</td>
+<td style="text-align: left;"><em>Nothofagus</em>, <em>Berberis</em>, <em>Fuchsia</em>, <em>Escallonia</em></td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+</section>
+<section id="choice-3-run-your-route" class="level3" data-number="5.0.3">
+<h3 data-number="5.0.3" class="anchored" data-anchor-id="choice-3-run-your-route"><span class="header-section-number">5.0.3</span> Choice 3: run your route</h3>
+<p>Run Steps 1 and 2 for everyone. Then run <strong>only the one route</strong> in Step 3 that matches your group (A for a genus, B for a species list, C for a country plus genus), and skip the others.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(BIEN)</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyr)</span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="do">## Step 1: see what traits are actually available. Run this yourself and</span></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="do">## look at the output -- the set of available traits can grow over time,</span></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="do">## so don't rely on a list someone else wrote down.</span></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="fu">BIEN_trait_list</span>()</span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="do">## Step 2: choose TWO traits to compare, copied exactly from the</span></span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="do">## trait_name column you just looked at.</span></span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>my_traits <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"whole plant height"</span>, <span class="st">"leaf area"</span>)   <span class="co"># &lt;- replace with your choices</span></span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="do">## Step 3: build your species list. Pick ONE approach (or combine them).</span></span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a><span class="do">## 3a. By geographic region -- every species BIEN has recorded for a</span></span>
-<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a><span class="do">## country or a U.S./Canadian state or province:</span></span>
-<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>my_species <span class="ot">&lt;-</span> <span class="fu">BIEN_list_country</span>(<span class="at">country =</span> <span class="st">"Costa Rica"</span>)<span class="sc">$</span>scrubbed_species_binomial</span>
-<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a><span class="co"># my_species &lt;- BIEN_list_state(country = "United States", state = "Ohio")$scrubbed_species_binomial</span></span>
-<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a><span class="do">## 3b. By taxonomic group -- skip the species list and query a genus or</span></span>
-<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a><span class="do">## family directly instead (use this INSTEAD of Step 4 below):</span></span>
-<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a><span class="co"># my_traits_data &lt;- BIEN_trait_traitbygenus(genus = "Quercus", trait = my_traits)</span></span>
-<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a><span class="co"># my_traits_data &lt;- BIEN_trait_traitbyfamily(family = "Fabaceae", trait = my_traits)</span></span>
-<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a><span class="do">## 3c. Combine region + taxonomy -- narrow a regional list (3a) down to</span></span>
-<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a><span class="do">## one or more genera you're interested in:</span></span>
-<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a><span class="co"># my_species &lt;- my_species[grepl("^Quercus ", my_species)]</span></span>
-<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a><span class="do">## Step 4: download your two traits for your species list.</span></span>
-<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a><span class="do">## (Skip this step if you used option 3b instead.)</span></span>
-<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a>my_traits_data <span class="ot">&lt;-</span> <span class="fu">BIEN_trait_traitbyspecies</span>(<span class="at">species =</span> my_species, <span class="at">trait =</span> my_traits)</span>
-<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a><span class="do">## Step 5: look at what actually came back before assuming column names.</span></span>
-<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a><span class="do">## BIEN returns long-format data (one row per species-trait record).</span></span>
-<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(my_traits_data)</span>
-<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(my_traits_data)</span>
-<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a><span class="do">## Step 6: reshape to one row per species, one column per trait.</span></span>
-<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a><span class="do">## Column names below (scrubbed_species_binomial, trait_name, trait_value)</span></span>
-<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a><span class="do">## match current BIEN documentation -- confirm against Step 5's output.</span></span>
-<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a>traits_wide <span class="ot">&lt;-</span> my_traits_data <span class="sc">|&gt;</span></span>
-<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">trait_value =</span> <span class="fu">as.numeric</span>(trait_value)) <span class="sc">|&gt;</span></span>
-<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(scrubbed_species_binomial, trait_name) <span class="sc">|&gt;</span></span>
-<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">trait_value =</span> <span class="fu">mean</span>(trait_value, <span class="at">na.rm =</span> <span class="cn">TRUE</span>), <span class="at">.groups =</span> <span class="st">"drop"</span>) <span class="sc">|&gt;</span></span>
-<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_wider</span>(<span class="at">names_from =</span> trait_name, <span class="at">values_from =</span> trait_value) <span class="sc">|&gt;</span></span>
-<span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a>  <span class="fu">drop_na</span>()</span>
-<span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-50"><a href="#cb1-50" aria-hidden="true" tabindex="-1"></a><span class="do">## Step 7: plot your two traits against each other.</span></span>
-<span id="cb1-51"><a href="#cb1-51" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(traits_wide, <span class="fu">aes</span>(<span class="at">x =</span> .data[[my_traits[<span class="dv">1</span>]]], <span class="at">y =</span> .data[[my_traits[<span class="dv">2</span>]]])) <span class="sc">+</span></span>
-<span id="cb1-52"><a href="#cb1-52" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.7</span>, <span class="at">colour =</span> <span class="st">"#2a78d6"</span>, <span class="at">size =</span> <span class="dv">2</span>) <span class="sc">+</span></span>
-<span id="cb1-53"><a href="#cb1-53" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> my_traits[<span class="dv">1</span>], <span class="at">y =</span> my_traits[<span class="dv">2</span>],</span>
-<span id="cb1-54"><a href="#cb1-54" aria-hidden="true" tabindex="-1"></a>       <span class="at">title =</span> <span class="fu">paste</span>(<span class="st">"Trait relationship across"</span>, <span class="fu">nrow</span>(traits_wide), <span class="st">"species"</span>)) <span class="sc">+</span></span>
-<span id="cb1-55"><a href="#cb1-55" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span>
-<span id="cb1-56"><a href="#cb1-56" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-57"><a href="#cb1-57" aria-hidden="true" tabindex="-1"></a><span class="do">## Step 8: quantify the relationship.</span></span>
-<span id="cb1-58"><a href="#cb1-58" aria-hidden="true" tabindex="-1"></a><span class="fu">cor</span>(traits_wide[[my_traits[<span class="dv">1</span>]]], traits_wide[[my_traits[<span class="dv">2</span>]]], <span class="at">use =</span> <span class="st">"complete.obs"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Step 1: confirm that your traits exist in BIEN ----</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="do">## BIEN_trait_list() returns every trait in the database (dozens of rows),</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="do">## so we filter it down to the handful we care about. Run this yourself and</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="do">## check that the names in the trait-pair table appear exactly as</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="do">## written. The set of available traits can change over time.</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>all_traits <span class="ot">&lt;-</span> <span class="fu">BIEN_trait_list</span>()</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>all_traits <span class="sc">|&gt;</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="fu">grepl</span>(<span class="st">"height|leaf area|nitrogen|seed mass"</span>, trait_name))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<p>Write up two or three paragraphs: (1) which species subset and two traits you chose, and why; (2) what the scatterplot and correlation coefficient show — are the traits trading off (negative correlation), coordinating (positive correlation), or largely unrelated (correlation near zero) across your species; and (3) how that result connects to the physiological trade-off framework from this chapter — what would have to be true, mechanistically, for your two traits to relate the way they do in your data?</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Step 2: choose your two traits ----</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="do">## Copy one pair from the trait-pair table. Pair 1 shown here.</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>my_traits <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"leaf area per leaf dry mass"</span>,</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>               <span class="st">"leaf nitrogen content per leaf dry mass"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Step 3: get the data for your group (RUN ONLY ONE ROUTE) ----</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="do">## Route A: one genus from the genus table ----</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="do">## One call, no species list needed. Replace "Quercus" with your genus.</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>my_traits_data <span class="ot">&lt;-</span> <span class="fu">BIEN_trait_traitbygenus</span>(<span class="at">genus =</span> <span class="st">"Quercus"</span>, <span class="at">trait =</span> my_traits)</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="do">## Route B: one species list from the species-list table ----</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="do">## Type (or copy) the species names from your chosen list inside c(...),</span></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="do">## with each name in quotes. The Ohio hardwood list is shown here, shortened</span></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a><span class="do">## to its first five species as a template; paste in the rest of yours.</span></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a><span class="co"># my_species &lt;- c("Acer saccharum", "Acer rubrum", "Acer negundo",</span></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a><span class="co">#                 "Acer saccharinum", "Aesculus glabra")</span></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a><span class="co"># length(my_species)   # should be roughly 20-30, never hundreds</span></span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a><span class="co"># my_traits_data &lt;- BIEN_trait_traitbyspecies(species = my_species,</span></span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a><span class="co">#                                             trait = my_traits)</span></span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a><span class="do">## Route C: one country, trimmed to one genus from the country table ----</span></span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a><span class="do">## Download ONE trait at a time for the whole country, then keep only your genus.</span></span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a><span class="co"># country_data &lt;- BIEN_trait_country(country = "Costa Rica", trait = my_traits[1])</span></span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a><span class="co"># my_traits_data &lt;- country_data |&gt; filter(grepl("^Piper ", scrubbed_species_binomial))</span></span>
+<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a><span class="do">## Then repeat for the second trait and combine with bind_rows():</span></span>
+<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a><span class="co"># country_data2 &lt;- BIEN_trait_country(country = "Costa Rica", trait = my_traits[2])</span></span>
+<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a><span class="co"># my_traits_data &lt;- bind_rows(my_traits_data,</span></span>
+<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a><span class="co">#   country_data2 |&gt; filter(grepl("^Piper ", scrubbed_species_binomial)))</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Step 4: look at what came back before assuming column names ----</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="do">## BIEN returns long-format data (one row per species-trait record).</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="fu">nrow</span>(my_traits_data)</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(my_traits_data)</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(my_traits_data<span class="sc">$</span>trait_name)    <span class="co"># how many records for each of your two traits?</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Step 5: reshape to one row per species, one column per trait ----</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="do">## Column names below (scrubbed_species_binomial, trait_name, trait_value)</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="do">## match current BIEN documentation -- confirm against Step 4's output.</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>traits_wide <span class="ot">&lt;-</span> my_traits_data <span class="sc">|&gt;</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">trait_value =</span> <span class="fu">as.numeric</span>(trait_value)) <span class="sc">|&gt;</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(scrubbed_species_binomial, trait_name) <span class="sc">|&gt;</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">trait_value =</span> <span class="fu">mean</span>(trait_value, <span class="at">na.rm =</span> <span class="cn">TRUE</span>), <span class="at">.groups =</span> <span class="st">"drop"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_wider</span>(<span class="at">names_from =</span> trait_name, <span class="at">values_from =</span> trait_value) <span class="sc">|&gt;</span></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">drop_na</span>()</span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a><span class="fu">nrow</span>(traits_wide)    <span class="co"># number of species with BOTH traits</span></span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a><span class="do">## If this is fewer than about 10, choose a different genus, list, or trait pair.</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Step 6: plot your two traits against each other ----</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(traits_wide, <span class="fu">aes</span>(<span class="at">x =</span> .data[[my_traits[<span class="dv">1</span>]]], <span class="at">y =</span> .data[[my_traits[<span class="dv">2</span>]]])) <span class="sc">+</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.7</span>, <span class="at">colour =</span> <span class="st">"#2a78d6"</span>, <span class="at">size =</span> <span class="dv">2</span>) <span class="sc">+</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> my_traits[<span class="dv">1</span>], <span class="at">y =</span> my_traits[<span class="dv">2</span>],</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>       <span class="at">title =</span> <span class="fu">paste</span>(<span class="st">"Trait relationship across"</span>, <span class="fu">nrow</span>(traits_wide), <span class="st">"species"</span>)) <span class="sc">+</span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="st">"figs/my_trait_relationship.png"</span>, <span class="at">width =</span> <span class="dv">5</span>, <span class="at">height =</span> <span class="dv">5</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Step 7: quantify the relationship ----</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">cor</span>(traits_wide[[my_traits[<span class="dv">1</span>]]], traits_wide[[my_traits[<span class="dv">2</span>]]], <span class="at">use =</span> <span class="st">"complete.obs"</span>)</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="do">## Trait values often span orders of magnitude; if your plot looks like a</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="do">## "comet" crowded in one corner, try the correlation on log10-transformed values:</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="fu">cor</span>(<span class="fu">log10</span>(traits_wide[[my_traits[<span class="dv">1</span>]]]), <span class="fu">log10</span>(traits_wide[[my_traits[<span class="dv">2</span>]]]))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
 </section>
-<section id="reflection-questions" class="level2 unnumbered">
-<h2 class="unnumbered anchored" data-anchor-id="reflection-questions">11. Reflection questions</h2>
-<ul>
+</section>
+<section id="deliverables" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="deliverables">11. Deliverables</h2>
+<p>For your assignment, write up three short paragraphs, and add :</p>
+<ol type="1">
+<li>which species subset and two traits you chose, and why;</li>
+<li>what the scatterplot and correlation coefficient show — are the traits trading off (negative correlation), coordinating (positive correlation), or largely unrelated (correlation near zero) across your species; and</li>
+<li>how that result connects to the physiological trade-off framework from this chapter — what would have to be true, mechanistically, for your two traits to relate the way they do in your data?</li>
+</ol>
+</section>
+<section id="reflection-and-discussion-questions" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="reflection-and-discussion-questions">12. Reflection and discussion questions</h2>
+<ol type="1">
 <li>Pick two traits from <a href="#tbl-six-traits" class="quarto-xref">Table&nbsp;<span>5.1</span></a> that are not on the same principal-component axis (e.g., leaf area and diaspore mass). Can you think of a plant where these two traits would pull in “conflicting” physiological directions? What might resolve that conflict?</li>
 <li>The observed trait hypervolume is smaller than all four null models, but least different from null model 4 (which already assumes traits are correlated as observed). What does that comparison tell you about how much of the “constraint” in plant trait space comes from correlations among traits, versus limits on any single trait’s range?</li>
 <li>The two functional hotspots in Figure 2 of Díaz et al.&nbsp;(2016) are described as occupied by many distantly related lineages. What does that convergence suggest about the role of natural selection versus shared ancestry in shaping plant form?</li>
 <li>How would you expect a liana — a woody vine that borrows structural support from other plants rather than building its own — to plot on the height–diaspore mass axis, compared to a free-standing tree of similar leaf economics? What does that comparison reveal about the limits of using height alone as a proxy for “size” investment?</li>
 <li>This chapter frames traits as compact summaries of physiological trade-offs. Choose one trait and describe, in your own words, the underlying physiological mechanism it stands in for.</li>
 <li>In your BIEN data exercise, was the relationship between your two traits closer to the null-model pattern (weak or no correlation) or the toy “observed” pattern (strong correlation, clumped rather than evenly spread)? What might explain the difference, given how many species — and how narrow a slice of the plant world — you sampled compared to Díaz et al.’s 46,085 species?</li>
-</ul>
+</ol>
 </section>
 <section id="references" class="level2 unnumbered">
 <h2 class="unnumbered anchored" data-anchor-id="references">References</h2>
