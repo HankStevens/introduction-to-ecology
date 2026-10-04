@@ -17,8 +17,8 @@ from HTML, PDF, and docx output alike):
   real at render time — deterministic via set.seed(444) — but source is
   hidden), per Hank's request to show only the picture.
 - Section 10's BIEN exercise chunk is `eval: false`: it's a template with
-  placeholder choices (Costa Rica / whole plant height / leaf area) each
-  student edits, so there's no single canonical output to bake into the
+  a narrowed menu (three pre-approved trait pairs; genera, species lists,
+  or country+genus) that each student picks from, so there's no single canonical output to bake into the
   book, and — importantly — this code has NOT been executed against the
   live BIEN database (no network access to CRAN or BIEN's server in the
   sandbox that built this). Function names/arguments are confirmed against
@@ -266,16 +266,74 @@ You will meet several of these ideas again once this book turns to population gr
 
 ## 9. Why anchor a chapter on a single paper? {.unnumbered}
 
-Centering this chapter on one globally general, quantitative study — rather than, say, the natural history of a single growth form — trades breadth of examples for a framework that still grounds every trait in individual physiology. Students get a concrete, well-illustrated case (Figure 2 of the paper, the two-axis trait plane with its herbaceous and woody hotspots) while building toward the more general skill of thinking about organisms as bundles of correlated, physiologically-constrained traits — a lens that applies just as well to a liana, a desert annual, or a temperate tree. A liana example fits naturally as a short illustrative case study here (e.g., where a woody vine that borrows structural support from other plants would plot on the H–SM and LMA–Nmass axes, compared to a free-standing tree) — see the reflection questions below.
+Centering this chapter on one globally general, quantitative study — rather than, say, the natural history of a single growth form — trades breadth of examples for a framework that still grounds every trait in individual physiology. We see a concrete, well-illustrated case (Figure 2 of the Diaz et al. , the two-axis trait plane with its herbaceous and woody hotspots) while building toward the more general skill of thinking about organisms as bundles of correlated, physiologically-constrained traits — a lens that applies just as well to a liana, a desert annual, or a temperate tree. A liana example fits naturally as a short illustrative case study here (e.g., where a woody vine that borrows structural support from other plants would plot on the H–SM and LMA–Nmass axes, compared to a free-standing tree) — see the reflection questions below.
 
 ## 10. Data exercise: exploring trait trade-offs with BIEN {.unnumbered}
 
-The toy example in Section 6 used invented data to show what null models look like. Now you'll do the real version, in miniature: pull real trait measurements for a set of species you choose, and see whether — and how strongly — two traits trade off (or coordinate) across those species.
+The toy example in Section 6 used invented data to show what null models look like. Now you'll do the real version, in miniature: pull real trait measurements for a small set of plants, and see whether, and how strongly, two traits trade off (or coordinate) across those plants.
 
-You get to define your own subset of the plant world to look at. Constrain your species list by geographic region (a country, U.S. or Canadian state/province), by taxonomic group (a genus or family), or both — your choice, as long as you can explain why you picked it. A few ways to think about a constraint: species native to your home state; a plant family you're curious about (conifers, legumes, grasses); a genus with a lot of horticultural or agricultural species; or a region you're planning to visit.
+The BIEN database holds millions of records, so this exercise is *deliberately narrow*. You will make three choices, each from a short menu below, and you will not need to know anything about plant taxonomy or BIEN's trait vocabulary in advance:
+
+1. **Two traits** (@tbl-bien-trait-pairs).
+2. **One group of plants** (@tbl-bien-genera, @tbl-bien-species, or @tbl-bien-countries).
+3. **One route for getting the data** (A, B, or C below, matched to the group you chose).
+
+Please do **not** download data for a whole country, state, or plant family. Those queries return hundreds of thousands of records, can take many minutes, and will probably freeze your R session. If a query is still running after two minutes, stop it (the red stop sign in RStudio) and pick a smaller group.
+
+### Choice 1: two traits
+
+Each pair below comes from the six traits in @tbl-six-traits, and each has been a standard comparison in the plant trait literature for decades. If you have no strong preference, use Pair 1.
+
+| Pair | Trait 1 (x-axis) | Trait 2 (y-axis) | What it tests |
+|:--|:--|:--|:--|
+| 1 | `leaf area per leaf dry mass` | `leaf nitrogen content per leaf dry mass` | The leaf economics spectrum: do cheap, thin leaves also carry more nitrogen per gram? |
+| 2 | `whole plant height` | `seed mass` | Do taller plants make bigger seeds? (Westoby's leaf-height-seed scheme) |
+| 3 | `whole plant height` | `leaf area` | Do taller plants carry larger leaves? |
+
+: Three pre-approved trait pairs. Names are BIEN's exact `trait_name` strings; Step 1 below has you confirm that they still exist. {#tbl-bien-trait-pairs}
+
+### Choice 2: one group of plants
+
+Choose **one** of the three groups below. Every entry has been picked because it is a common, well-studied plant, so BIEN is likely to have trait measurements for it. (Likely, not guaranteed: some trait pairs will have few measurements for some groups, and Step 6 shows you how many species you ended up with.)
+
+**Genera** (use with Route A). Pick exactly one genus.
+
+| Growth form | Genera |
+|:--|:--|
+| Temperate trees | *Quercus* (oaks), *Acer* (maples), *Pinus* (pines), *Betula* (birches), *Salix* (willows), *Populus* (poplars, aspens), *Fraxinus* (ashes), *Prunus* (cherries, plums) |
+| Tropical trees and shrubs | *Ficus* (figs), *Inga*, *Piper*, *Miconia* |
+| Grasses, sedges, and herbs | *Poa* (bluegrasses), *Carex* (sedges), *Solidago* (goldenrods), *Trifolium* (clovers), *Plantago* (plantains) |
+
+: Genera that work well for Route A. A genus with fewer than about 10 species that have *both* of your traits will give a thin scatterplot; if that happens, pick a different genus. {#tbl-bien-genera}
+
+**Ready-made species lists** (use with Route B). Pick one list. Each is a community you could walk through, which makes this the best route for comparing a woody community against an herbaceous one (compare your result with the "two hotspots" in Díaz et al., 2016).
+
+| List | Species |
+|:--|:--|
+| Ohio hardwood forest trees (28 species) | *Acer saccharum*, *Acer rubrum*, *Acer negundo*, *Acer saccharinum*, *Aesculus glabra*, *Betula lenta*, *Betula nigra*, *Carya ovata*, *Carya cordiformis*, *Celtis occidentalis*, *Fagus grandifolia*, *Fraxinus americana*, *Fraxinus pennsylvanica*, *Juglans nigra*, *Liriodendron tulipifera*, *Liquidambar styraciflua*, *Platanus occidentalis*, *Populus deltoides*, *Prunus serotina*, *Quercus alba*, *Quercus rubra*, *Quercus velutina*, *Quercus macrocarpa*, *Quercus palustris*, *Sassafras albidum*, *Tilia americana*, *Ulmus americana*, *Ulmus rubra* |
+| Midwestern tallgrass prairie plants (24 species) | *Andropogon gerardii*, *Schizachyrium scoparium*, *Sorghastrum nutans*, *Panicum virgatum*, *Elymus canadensis*, *Bouteloua curtipendula*, *Solidago canadensis*, *Solidago rigida*, *Echinacea purpurea*, *Rudbeckia hirta*, *Ratibida pinnata*, *Silphium perfoliatum*, *Silphium laciniatum*, *Helianthus annuus*, *Monarda fistulosa*, *Asclepias syriaca*, *Asclepias tuberosa*, *Liatris spicata*, *Lupinus perennis*, *Baptisia australis*, *Symphyotrichum novae-angliae*, *Coreopsis lanceolata*, *Heliopsis helianthoides*, *Dalea purpurea* |
+| Costa Rican lowland tropical trees (22 species) | *Cecropia peltata*, *Ochroma pyramidale*, *Ceiba pentandra*, *Swietenia macrophylla*, *Inga edulis*, *Guazuma ulmifolia*, *Hura crepitans*, *Spondias mombin*, *Tabebuia rosea*, *Gliricidia sepium*, *Cordia alliodora*, *Bursera simaruba*, *Brosimum alicastrum*, *Carapa guianensis*, *Virola surinamensis*, *Pentaclethra macroloba*, *Vochysia ferruginea*, *Dipteryx panamensis*, *Hyeronima alchorneoides*, *Schizolobium parahyba*, *Trema micrantha*, *Byrsonima crassifolia* |
+
+: Ready-made species lists for Route B. BIEN matches the current accepted name, so if one species returns nothing, that is normal; just continue with the rest. {#tbl-bien-species}
+
+**Countries** (use with Route C, the most advanced). Pick one country *and* one of its suggested genera. The country query returns every species measured in that country, so you will trim to one genus immediately.
+
+| Country | Habitat | Suggested genera to trim to |
+|:--|:--|:--|
+| Costa Rica | tropical wet and dry forest | *Piper*, *Inga*, *Ficus*, *Miconia* |
+| Panama | tropical forest | *Inga*, *Ficus*, *Piper*, *Psychotria* |
+| South Africa | fynbos and savanna | *Protea*, *Leucadendron*, *Aloe*, *Searsia* |
+| New Zealand | temperate rainforest | *Nothofagus*, *Podocarpus*, *Coprosma*, *Veronica* |
+| Chile | temperate rainforest | *Nothofagus*, *Berberis*, *Fuchsia*, *Escallonia* |
+
+: Countries for Route C. Ask your instructor before choosing a country that is not on this list. {#tbl-bien-countries}
+
+### Choice 3: run your route
+
+Run Steps 1 and 2 for everyone. Then run **only the one route** in Step 3 that matches your group (A for a genus, B for a species list, C for a country plus genus), and skip the others.
 
 ```{r}
-#| label: bien-trait-exercise
+#| label: bien-step-1
 #| eval: false
 
 library(BIEN)
@@ -283,43 +341,74 @@ library(dplyr)
 library(tidyr)
 library(ggplot2)
 
-## Step 1: see what traits are actually available. Run this yourself and
-## look at the output -- the set of available traits can grow over time,
-## so don't rely on a list someone else wrote down.
-BIEN_trait_list()
+# Step 1: confirm that your traits exist in BIEN ----
+## BIEN_trait_list() returns every trait in the database (dozens of rows),
+## so we filter it down to the handful we care about. Run this yourself and
+## check that the names in the trait-pair table appear exactly as
+## written. The set of available traits can change over time.
+all_traits <- BIEN_trait_list()
+all_traits |>
+  filter(grepl("height|leaf area|nitrogen|seed mass", trait_name))
+```
 
-## Step 2: choose TWO traits to compare, copied exactly from the
-## trait_name column you just looked at.
-my_traits <- c("whole plant height", "leaf area")   # <- replace with your choices
+```{r}
+#| label: bien-step-2
+#| eval: false
 
-## Step 3: build your species list. Pick ONE approach (or combine them).
+# Step 2: choose your two traits ----
+## Copy one pair from the trait-pair table. Pair 1 shown here.
+my_traits <- c("leaf area per leaf dry mass",
+               "leaf nitrogen content per leaf dry mass")
+```
 
-## 3a. By geographic region -- every species BIEN has recorded for a
-## country or a U.S./Canadian state or province:
-my_species <- BIEN_list_country(country = "Costa Rica")$scrubbed_species_binomial
-# my_species <- BIEN_list_state(country = "United States", state = "Ohio")$scrubbed_species_binomial
+```{r}
+#| label: bien-step-3
+#| eval: false
 
-## 3b. By taxonomic group -- skip the species list and query a genus or
-## family directly instead (use this INSTEAD of Step 4 below):
-# my_traits_data <- BIEN_trait_traitbygenus(genus = "Quercus", trait = my_traits)
-# my_traits_data <- BIEN_trait_traitbyfamily(family = "Fabaceae", trait = my_traits)
+# Step 3: get the data for your group (RUN ONLY ONE ROUTE) ----
 
-## 3c. Combine region + taxonomy -- narrow a regional list (3a) down to
-## one or more genera you're interested in:
-# my_species <- my_species[grepl("^Quercus ", my_species)]
+## Route A: one genus from the genus table ----
+## One call, no species list needed. Replace "Quercus" with your genus.
+my_traits_data <- BIEN_trait_traitbygenus(genus = "Quercus", trait = my_traits)
 
-## Step 4: download your two traits for your species list.
-## (Skip this step if you used option 3b instead.)
-my_traits_data <- BIEN_trait_traitbyspecies(species = my_species, trait = my_traits)
+## Route B: one species list from the species-list table ----
+## Type (or copy) the species names from your chosen list inside c(...),
+## with each name in quotes. The Ohio hardwood list is shown here, shortened
+## to its first five species as a template; paste in the rest of yours.
+# my_species <- c("Acer saccharum", "Acer rubrum", "Acer negundo",
+#                 "Acer saccharinum", "Aesculus glabra")
+# length(my_species)   # should be roughly 20-30, never hundreds
+# my_traits_data <- BIEN_trait_traitbyspecies(species = my_species,
+#                                             trait = my_traits)
 
-## Step 5: look at what actually came back before assuming column names.
+## Route C: one country, trimmed to one genus from the country table ----
+## Download ONE trait at a time for the whole country, then keep only your genus.
+# country_data <- BIEN_trait_country(country = "Costa Rica", trait = my_traits[1])
+# my_traits_data <- country_data |> filter(grepl("^Piper ", scrubbed_species_binomial))
+## Then repeat for the second trait and combine with bind_rows():
+# country_data2 <- BIEN_trait_country(country = "Costa Rica", trait = my_traits[2])
+# my_traits_data <- bind_rows(my_traits_data,
+#   country_data2 |> filter(grepl("^Piper ", scrubbed_species_binomial)))
+```
+
+```{r}
+#| label: bien-step-4
+#| eval: false
+
+# Step 4: look at what came back before assuming column names ----
 ## BIEN returns long-format data (one row per species-trait record).
-str(my_traits_data)
+nrow(my_traits_data)
 names(my_traits_data)
+table(my_traits_data$trait_name)    # how many records for each of your two traits?
+```
 
-## Step 6: reshape to one row per species, one column per trait.
+```{r}
+#| label: bien-step-5
+#| eval: false
+
+# Step 5: reshape to one row per species, one column per trait ----
 ## Column names below (scrubbed_species_binomial, trait_name, trait_value)
-## match current BIEN documentation -- confirm against Step 5's output.
+## match current BIEN documentation -- confirm against Step 4's output.
 traits_wide <- my_traits_data |>
   mutate(trait_value = as.numeric(trait_value)) |>
   group_by(scrubbed_species_binomial, trait_name) |>
@@ -327,27 +416,51 @@ traits_wide <- my_traits_data |>
   pivot_wider(names_from = trait_name, values_from = trait_value) |>
   drop_na()
 
-## Step 7: plot your two traits against each other.
+nrow(traits_wide)    # number of species with BOTH traits
+## If this is fewer than about 10, choose a different genus, list, or trait pair.
+```
+
+```{r}
+#| label: bien-step-6
+#| eval: false
+
+# Step 6: plot your two traits against each other ----
 ggplot(traits_wide, aes(x = .data[[my_traits[1]]], y = .data[[my_traits[2]]])) +
   geom_point(alpha = 0.7, colour = "#2a78d6", size = 2) +
   labs(x = my_traits[1], y = my_traits[2],
        title = paste("Trait relationship across", nrow(traits_wide), "species")) +
   theme_minimal()
-
-## Step 8: quantify the relationship.
-cor(traits_wide[[my_traits[1]]], traits_wide[[my_traits[2]]], use = "complete.obs")
+ggsave("figs/my_trait_relationship.png", width = 5, height = 5)
 ```
 
-Write up two or three paragraphs: (1) which species subset and two traits you chose, and why; (2) what the scatterplot and correlation coefficient show — are the traits trading off (negative correlation), coordinating (positive correlation), or largely unrelated (correlation near zero) across your species; and (3) how that result connects to the physiological trade-off framework from this chapter — what would have to be true, mechanistically, for your two traits to relate the way they do in your data?
+```{r}
+#| label: bien-step-7
+#| eval: false
 
-## 11. Reflection questions {.unnumbered}
+# Step 7: quantify the relationship ----
+cor(traits_wide[[my_traits[1]]], traits_wide[[my_traits[2]]], use = "complete.obs")
+## Trait values often span orders of magnitude; if your plot looks like a
+## "comet" crowded in one corner, try the correlation on log10-transformed values:
+cor(log10(traits_wide[[my_traits[1]]]), log10(traits_wide[[my_traits[2]]]))
+```
 
-- Pick two traits from @tbl-six-traits that are not on the same principal-component axis (e.g., leaf area and diaspore mass). Can you think of a plant where these two traits would pull in "conflicting" physiological directions? What might resolve that conflict?
-- The observed trait hypervolume is smaller than all four null models, but least different from null model 4 (which already assumes traits are correlated as observed). What does that comparison tell you about how much of the "constraint" in plant trait space comes from correlations among traits, versus limits on any single trait's range?
-- The two functional hotspots in Figure 2 of Díaz et al. (2016) are described as occupied by many distantly related lineages. What does that convergence suggest about the role of natural selection versus shared ancestry in shaping plant form?
-- How would you expect a liana — a woody vine that borrows structural support from other plants rather than building its own — to plot on the height–diaspore mass axis, compared to a free-standing tree of similar leaf economics? What does that comparison reveal about the limits of using height alone as a proxy for "size" investment?
-- This chapter frames traits as compact summaries of physiological trade-offs. Choose one trait and describe, in your own words, the underlying physiological mechanism it stands in for.
-- In your BIEN data exercise, was the relationship between your two traits closer to the null-model pattern (weak or no correlation) or the toy "observed" pattern (strong correlation, clumped rather than evenly spread)? What might explain the difference, given how many species — and how narrow a slice of the plant world — you sampled compared to Díaz et al.'s 46,085 species?
+## 11. Deliverables {.unnumbered}
+
+For your assignment, write up three short paragraphs, and add :
+
+1. which species subset and two traits you chose, and why; 
+1. what the scatterplot and correlation coefficient show — are the traits trading off (negative correlation), coordinating (positive correlation), or largely unrelated (correlation near zero) across your species; and 
+1. how that result connects to the physiological trade-off framework from this chapter — what would have to be true, mechanistically, for your two traits to relate the way they do in your data?
+
+## 12. Reflection and discussion questions {.unnumbered}
+
+
+1. Pick two traits from @tbl-six-traits that are not on the same principal-component axis (e.g., leaf area and diaspore mass). Can you think of a plant where these two traits would pull in "conflicting" physiological directions? What might resolve that conflict?
+1. The observed trait hypervolume is smaller than all four null models, but least different from null model 4 (which already assumes traits are correlated as observed). What does that comparison tell you about how much of the "constraint" in plant trait space comes from correlations among traits, versus limits on any single trait's range?
+1. The two functional hotspots in Figure 2 of Díaz et al. (2016) are described as occupied by many distantly related lineages. What does that convergence suggest about the role of natural selection versus shared ancestry in shaping plant form?
+1. How would you expect a liana — a woody vine that borrows structural support from other plants rather than building its own — to plot on the height–diaspore mass axis, compared to a free-standing tree of similar leaf economics? What does that comparison reveal about the limits of using height alone as a proxy for "size" investment?
+1. This chapter frames traits as compact summaries of physiological trade-offs. Choose one trait and describe, in your own words, the underlying physiological mechanism it stands in for.
+1. In your BIEN data exercise, was the relationship between your two traits closer to the null-model pattern (weak or no correlation) or the toy "observed" pattern (strong correlation, clumped rather than evenly spread)? What might explain the difference, given how many species — and how narrow a slice of the plant world — you sampled compared to Díaz et al.'s 46,085 species?
 
 ## References {.unnumbered}
 
