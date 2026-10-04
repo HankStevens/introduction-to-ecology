@@ -1,10 +1,25 @@
 All in the terminal:
 
-quarto render          # - regenerates all the HTML files in docs/
-git add .              # - stages all changes
-git commit -m "..."    # - commits with a message describing what you changed
-git push               # - pushes to GitHub, which automatically updates your site
+## Entire book
 
-OR...
+git checkout dev
+git push -u origin dev     # optional: backs up dev on GitHub
 
-quarto render; git add . ; git commit - "update" ; git push
+git checkout main
+git pull                   # make sure main is up to date
+git merge dev              # bring dev's commits into main
+quarto render              # rebuild docs/ from the merged source
+git add -A
+git commit -m "Render site after merging dev"   # skip if nothing changed
+git push origin main       # this updates the live site
+
+git checkout dev           # go back to editing on dev
+
+## One chapter
+
+git checkout main
+git checkout dev -- chapter-name.qmd
+quarto render
+git add -A && git commit -m "Publish: chapter-name"
+git push origin main
+git checkout dev && git merge main
