@@ -446,7 +446,7 @@ cor(log10(traits_wide[[my_traits[1]]]), log10(traits_wide[[my_traits[2]]]))
 
 ## 11. Deliverables {.unnumbered}
 
-For your assignment, write up three short paragraphs, and add :
+For your assignment, write up three short paragraphs, and add your scatterplot with a descriptive caption. Your paragraphs will address:
 
 1. which species subset and two traits you chose, and why; 
 1. what the scatterplot and correlation coefficient show — are the traits trading off (negative correlation), coordinating (positive correlation), or largely unrelated (correlation near zero) across your species; and 
