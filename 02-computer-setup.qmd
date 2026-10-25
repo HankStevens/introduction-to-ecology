@@ -2,6 +2,12 @@
 title: "Computer setup and first R script"
 ---
 
+::: {.callout-tip}
+## Before you start
+
+* **Assumptions about background and guidance:** no experience with R, RStudio, or programming --- only a laptop or desktop computer on which you can install software. If you get stuck, see [Getting help](#getting-help) at the end of this chapter.
+:::
+
 ## Goals
 
 In this chapter, you will,
@@ -9,6 +15,21 @@ In this chapter, you will,
 - Learn about your computer and how to organize its files.
 - Install R, an open source programming language.
 - Begin to use R effectively.
+
+## Deliverables
+
+For this assignment, upload to the LMS three files that you created:
+
+1. `myPlot.png`, from your `figs` folder,
+1. `myDataframe.csv`, from your `output` folder,
+1. the R script, from the top level of `Rwork`, into which you wrote all your code.
+    a. This file must be written in R/RStudio, and the name must end with the file name extension, ".R", such as "Stevens_script_1.R",
+    a. comments, including at least a title, the date, your name, and the path to your Rwork folder.
+
+If you cannot find one of these files, that is useful information rather than a disaster: it means the file went somewhere other than where you thought, which is exactly the problem this folder structure exists to prevent. Check the top level of `Rwork` first, since that is where a file lands when you forget the `figs/` or `output/` prefix.
+
+
+Congratulations. *C'est fini*!
 
 ## Background
 
@@ -145,8 +166,6 @@ When you close a .csv file in Excel, you will be prompted to save it in a differ
 Apple Numbers will recognize and open your .csv file, similar to Excel. Unfortunately, it always automatically converts it to a different format, .numbers. That means that you have to always **export** to a .csv file type.
 
 When you want to close your file in Numbers - pause! *You must export your file* from Numbers, not merely save it. Do not bother to save it. Just export it. Use the File menu, specifically, File > Export To > CSV, and use whatever name you need to.
-
-
 
 
 ## Installing R
@@ -508,18 +527,3 @@ R has a bit of a learning curve. What should you do if you get stuck? It all dep
 1. Ask me.
 1. Search online.
 1. Did I mention you could ask me?
-
-## Deliverables
-
-For this assignment, upload to the LMS three files that you created:
-
-1. `myPlot.png`, from your `figs` folder,
-1. `myDataframe.csv`, from your `output` folder,
-1. the R script, from the top level of `Rwork`, into which you wrote all your code.
-    a. This file must be written in R/RStudio, and the name must end with the file name extension, ".R", such as "Stevens_script_1.R",
-    a. comments, including at least a title, the date, your name, and the path to your Rwork folder.
-
-If you cannot find one of these files, that is useful information rather than a disaster: it means the file went somewhere other than where you thought, which is exactly the problem this folder structure exists to prevent. Check the top level of `Rwork` first, since that is where a file lands when you forget the `figs/` or `output/` prefix.
-
-
-Congratulations. *C'est fini*!

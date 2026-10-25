@@ -61,26 +61,7 @@ div.sourceCode
 @media screen {
 pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
-/* CSS for citations */
-div.csl-bib-body { }
-div.csl-entry {
-  clear: both;
-}
-.hanging-indent div.csl-entry {
-  margin-left:2em;
-  text-indent:-2em;
-}
-div.csl-left-margin {
-  min-width:2em;
-  float:left;
-}
-div.csl-right-inline {
-  margin-left:2em;
-  padding-left:1em;
-}
-div.csl-indent {
-  margin-left: 2em;
-}</style>
+</style>
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
@@ -90,6 +71,7 @@ div.csl-indent {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
+<link href="./appendix_data-display.html" rel="next">
 <link href="./appendix_AI-v4.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
@@ -328,6 +310,18 @@ h1, h2, h3, h4, h5, h6,
  <span class="menu-text"><span class="chapter-number">D</span>&nbsp; <span class="chapter-title">Accessing Public Ecological Databases</span></span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./appendix_data-display.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">E</span>&nbsp; <span class="chapter-title">Displaying Data with ggplot2</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./appendix-your-own-interests.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">F</span>&nbsp; <span class="chapter-title">Your Own Interests: Telling a short story with data</span></span></a>
+  </div>
+</li>
       </ul>
   </li>
     </ul>
@@ -519,7 +513,7 @@ h1, h2, h3, h4, h5, h6,
 </div>
 <div class="callout-body-container callout-body">
 <p>GBIF is assembled from museum specimens, herbaria, and citizen-science apps, so coverage tracks where people (and phone cameras) are, not where organisms are. Treat any pattern you find as “difference in recorded occurrences” until you have reason to think it reflects a real ecological signal.</p>
-<p>The quick <code>occ_count()</code>/<code>occ_search()</code> calls above are fine for exploring, but are not a citable, reproducible snapshot – GBIF’s holdings change daily. For any real analysis, use <code>occ_download()</code> instead: it asks GBIF to assemble your exact record set and issues a DOI that pins the data and credits every contributing dataset. Cite that DOI, GBIF itself <span class="citation" data-cites="gbif">(<a href="references.html#ref-gbif" role="doc-biblioref">GBIF.org 2026</a>)</span>, and the <code>rgbif</code> package <span class="citation" data-cites="rgbif">(<a href="references.html#ref-rgbif" role="doc-biblioref">Chamberlain et al. 2026</a>)</span>.</p>
+<p>The quick <code>occ_count()</code>/<code>occ_search()</code> calls above are fine for exploring, but are not a citable, reproducible snapshot – GBIF’s holdings change daily. For any real analysis, use <code>occ_download()</code> instead: it asks GBIF to assemble your exact record set and issues a DOI that pins the data and credits every contributing dataset. Cite that DOI, GBIF itself <span class="citation" data-cites="gbif">(<a href="references.html#ref-gbif" role="doc-biblioref"><strong>gbif?</strong></a>)</span>, and the <code>rgbif</code> package <span class="citation" data-cites="rgbif">(<a href="references.html#ref-rgbif" role="doc-biblioref"><strong>rgbif?</strong></a>)</span>.</p>
 </div>
 </div>
 </section>
@@ -569,14 +563,6 @@ h1, h2, h3, h4, h5, h6,
 <p>You may notice this book is inconsistent, on purpose: some chapters query a live database every time they render, and others read a fixed <code>.csv</code> from <code>data/</code>. That is not sloppiness – it reflects the same choice described in “Practical habits” above, made deliberately for each chapter. A chapter built around teaching <em>how to query a live source</em> (BIEN, GBIF, USAspending, NSF) leaves the query live, so what you see is really happening in real time. A chapter that needed a small, specific, one-time dataset (inflation figures, a curated budget table) built it once and saved it to <code>data/</code>, so the numbers in the book do not drift out from under the prose describing them. When you design your own project, make that same choice deliberately, not by default.</p>
 
 
-<div id="refs" class="references csl-bib-body hanging-indent" role="list" style="display: none">
-<div id="ref-rgbif" class="csl-entry" role="listitem">
-Chamberlain, Scott, Vijay Barve, Dan Mcglinn, et al. 2026. <em>Rgbif: Interface to the Global Biodiversity Information Facility API</em>. <a href="https://docs.ropensci.org/rgbif/">https://docs.ropensci.org/rgbif/</a>.
-</div>
-<div id="ref-gbif" class="csl-entry" role="listitem">
-GBIF.org. 2026. <em><span>GBIF</span>: The Global Biodiversity Information Facility</em>. <a href="https://www.gbif.org" class="uri">Https://www.gbif.org</a>.
-</div>
-</div>
 </section>
 
 </main> <!-- /main -->
@@ -987,6 +973,9 @@ GBIF.org. 2026. <em><span>GBIF</span>: The Global Biodiversity Information Facil
       </a>          
   </div>
   <div class="nav-page nav-page-next">
+      <a href="./appendix_data-display.html" class="pagination-link" aria-label="Displaying Data with ggplot2">
+        <span class="nav-page-text"><span class="chapter-number">E</span>&nbsp; <span class="chapter-title">Displaying Data with ggplot2</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
   </div>
 </nav>
 </div> <!-- /content -->

@@ -35,7 +35,13 @@ from HTML, PDF, and docx output alike):
 
 # Traits, Physiology, and the Global Spectrum of Plant Form and Function
 
-## Goals {.unnumbered}
+::: {.callout-tip}
+## Before you start
+
+* **Assumptions about background and guidance:** most of this chapter is reading, and the code that draws the null-model figure is hidden, so you can follow it without R. The data exercise at the end assumes your `Rwork` project from [Computer setup](02-computer-setup.qmd) and some familiarity with `filter()`, `mutate()`, and `ggplot()`; [Extra-pair copulation](06-extrapair_copulation.qmd) and [Displaying data with ggplot2](appendix_data-display.qmd) are good places to pick those up. For more on downloading from databases like BIEN, see [Accessing public databases](appendix_public-databases.qmd).
+:::
+
+## Goals
 
 By the end of this chapter, you should be able to:
 
@@ -45,27 +51,35 @@ By the end of this chapter, you should be able to:
 - Acquire data from a curated public database that specifies selected constraints.
 - Use public data to illustrate the extent of trade-offs in plant traits across a selected set of species.
 
-## 1. Starting with the individual {.unnumbered}
+## Deliverables {.unnumbered}
 
-Ecology is often taught outward-in: populations, then communities, then ecosystems. This book instead starts from the individual organism, because population growth rates, community assembly, and ecosystem processes are all, at bottom, aggregates of what individual organisms are physiologically capable of doing. Before we can ask how large a population can grow, or why one species persists where another doesn't, we need a vocabulary for describing what an individual organism actually is — physiologically and morphologically — and why it is built the way it is.
+For your assignment, write up three short paragraphs, and add your scatterplot with a descriptive caption. Your paragraphs will address:
 
-This chapter turns the lens inward, to the individual organism, and asks a deceptively simple question: what makes one plant tall and another short, one leaf cheap and short-lived and another expensive and long-lived, one seed tiny and abundant and another large and provisioned? The answer lies in physiology — the internal machinery of growth, water transport, carbon gain, and reproduction — and in the traits that machinery produces. Traits are where physiology becomes visible, measurable, and comparable across species. The framework built here — traits as compact, physiologically-grounded summaries of an individual's strategy — is the foundation that later chapters on populations, communities, and funding will build on.
+1. which species subset and two traits you chose, and why; 
+1. what the scatterplot and correlation coefficient show — are the traits trading off (negative correlation), coordinating (positive correlation), or largely unrelated (correlation near zero) across your species; and 
+1. how that result connects to the physiological trade-off framework from this chapter — what would have to be true, mechanistically, for your two traits to relate the way they do in your data?
 
-This chapter is built around a single influential paper: Díaz, S. et al. (2016), "The global spectrum of plant form and function," published in Nature. It is one of the most ambitious attempts to ask whether, across all vascular plants on Earth, individual-level traits vary along a small number of general axes — or whether the possibilities are essentially limitless.
+## Starting with the individual 
 
-## 2. What is a functional trait? {.unnumbered}
+We visit the subject of traits of the individual organism, because population growth rates, community assembly, and ecosystem processes are all, at bottom, aggregates of what individual organisms are physiologically capable of doing. Before we can ask how large a population can grow, or why one species persists where another doesn't, we need a vocabulary for describing what an individual organism actually is — physiologically and morphologically — and why it is built the way it is.
 
-A functional trait is a measurable feature of an organism — morphological, physiological, or phenological — that influences its performance, and ultimately its growth, survival, and reproduction. Traits sit at the interface between an organism's physiology and the ecological filters (light, water, nutrients, herbivores, competitors) that act on it. Leaf nitrogen content, for example, is a trait, but it is really a proxy for something physiological: how much of a leaf's mass is invested in the photosynthetic enzyme machinery. Stem density is a trait, but it stands in for the anatomy of the wood — how much of the stem cross-section is thick-walled fiber versus water-conducting vessels.
+This chapter asks a deceptively simple question: why is one plant species tall and another short, why one leaf is cheap and short-lived and another expensive and long-lived, or why one seed tiny and abundant and another large and well-provisioned? The answer to these anatomical differences lies in physiology — the internal machinery of growth, water transport, carbon gain, and reproduction — and in the traits that machinery produces. Traits are where physiology becomes visible, measurable, and comparable across species. The framework built here — traits as compact, physiologically-grounded summaries of an individual's strategy — is the foundation that later chapters on populations, communities, and ecosystems build on.
 
-Because traits are measurable on individuals and comparable across species, they let ecologists ask general questions — is there a plant "strategy space," and if so, how is it organized — without needing a physiological model for every one of the roughly 400,000 species of land plants.
+This chapter is built around a single influential peer-reviewed article: Díaz, S. et al. (2016), "The global spectrum of plant form and function," published in Nature. It is one of the most ambitious attempts to address how, across all vascular plants on Earth, individual-level traits vary along a relatively small number of general axes — or whether the possibilities are essentially limitless.
 
-## 3. The search for universal axes of strategy {.unnumbered}
+## What is a functional trait?
+
+A functional trait is a measurable feature of an organism — morphological, physiological, or phenological — that influences its growth, survival, and reproduction. Traits sit at the interface between an organism's physiology and the ecological filters (light, water, nutrients, herbivores, competitors) that act on it. Leaf nitrogen content, for example, is a trait, but it is really a proxy for something physiological: how much of a leaf's mass is invested in the photosynthetic enzyme machinery. Stem density is a trait, but it stands in for the anatomy of the wood — how much of the stem cross-section is thick-walled fiber versus water-conducting vessels.
+
+Because traits are measurable on individuals and comparable across species, they let ecologists ask general questions — is there such a thing as a plant "strategy space," and if so, how is it organized — without needing a physiological model for every one of the roughly 400,000 species of land plants.
+
+## The search for universal axes of strategy
 
 Díaz et al. (2016) did not start from nothing. Plant ecologists had long suspected that whole-plant strategy could be summarized along a few axes. Grime's competitor–stress-tolerator–ruderal (CSR) triangle proposed three basic strategies shaped by disturbance and resource availability. Westoby's "LHS" (leaf-height-seed) scheme proposed three simple, widely measurable traits as a first-pass strategy scheme. Most influentially for this chapter, Wright et al. (2004) assembled a worldwide leaf economics spectrum (LES): across biomes and growth forms, leaf traits fall along a single axis running from cheaply-built, short-lived, high-nutrient "acquisitive" leaves to expensive, long-lived, low-nutrient "conservative" leaves.
 
 These efforts were each restricted to a single organ (mostly leaves) or a small trait set. The open question was whether a similarly compact structure would hold once traits from every major plant organ — stems, leaves, seeds — and the whole plant (height) were considered together, across the full range of vascular plant diversity.
 
-## 4. Díaz et al. (2016): scale and design {.unnumbered}
+## Díaz et al. (2016): scale and design
 
 Díaz and 31 co-authors compiled trait records for 46,085 vascular plant species from 423 growth forms and geographic regions — by far the largest and most taxonomically and geographically broad plant trait dataset assembled at the time, built on the TRY plant trait database plus additional unpublished contributions. They focused on six traits chosen because each indexes a fundamentally different aspect of plant form and function, each is measurable across nearly all vascular plants, and together they span growth, survival, and reproduction — the three components of Darwinian fitness.
 
@@ -80,16 +94,16 @@ Díaz and 31 co-authors compiled trait records for 46,085 vascular plant species
 
 : The six core traits identified by Díaz et al. (2016) {#tbl-six-traits}
 
-## 5. Two dimensions capture most of the variation {.unnumbered}
+## Two dimensions capture most of the variation
 
 With six traits, the space of possible trait combinations is six-dimensional. If plants filled that space freely, there would be no simple picture to draw. Instead, Díaz et al. found that just two principal component axes — a plane — captured 74% of the variation among species. Two dimensions stood out within that plane:
 
-- **The size dimension** (height – diaspore mass, H–SM): runs from short species with small seeds to tall species with large seeds. Physiologically, this dimension reflects the size of the whole plant and its parts — how much structural investment (biomechanical support, hydraulic transport distance) and reproductive investment a plant makes.
-- **The leaf economics dimension** (leaf mass per area – nitrogen content, LMA–Nmass): runs from species with cheaply-constructed, nitrogen-rich, "acquisitive" leaves to species with expensive, nitrogen-poor, "conservative" leaves that persist longer and tolerate abiotic and biotic hazards. This is, essentially, the leaf economics spectrum re-discovered inside a much larger, whole-plant analysis.
+- **The size dimension** (height and diaspore mass, H & SM): runs from short species with small seeds to tall species with large seeds. Physiologically, this dimension reflects the size of the whole plant and its parts — how much structural investment (biomechanical support, hydraulic transport distance) and reproductive investment a plant makes.
+- **The leaf economics dimension** (nitrogen content - leaf mass per area, N~mass~ - LMA): runs from species with cheaply-constructed, nitrogen-rich, "acquisitive" leaves to species with expensive, nitrogen-poor, "conservative" leaves that persist longer and tolerate abiotic and biotic hazards. This is, essentially, the leaf economics spectrum (sensu Wright et al. 2004) re-discovered inside a much larger, whole-plant analysis.
 
-Stem specific density and leaf area load onto both dimensions rather than standing apart: SSD tracks with the height–seed mass axis, while leaf area shows independent variation tied to both. The headline result is not just that two axes explain most of the variance, but that they correspond to two distinct and physiologically intuitive trade-offs: how big to grow, and how to run your leaf economy.
+Stem specific density (SSD) and leaf area (LA) load onto both dimensions rather than standing apart: SSD tracks with the height–seed mass axis, while leaf area shows independent variation tied to both. The headline result is not just that two axes explain most of the variance, but that they correspond to two distinct and physiologically intuitive trade-offs: how big to grow, and how to run your leaf economy.
 
-## 6. A constrained, "lumpy" trait space {.unnumbered}
+## A constrained, "lumpy" trait space
 
 A second, arguably more surprising finding concerns how much of that six-dimensional space is actually occupied. Díaz et al. compared the observed trait hypervolume (the volume of trait space vascular plants actually occupy) against four null models of increasing realism — from traits varying completely independently and uniformly, to traits varying as observed but uncorrelated. Even against the most conservative null model, the observed hypervolume was about 20% smaller, and compared to the simplest null models it was 72–98% smaller.
 
@@ -444,15 +458,7 @@ cor(traits_wide[[my_traits[1]]], traits_wide[[my_traits[2]]], use = "complete.ob
 cor(log10(traits_wide[[my_traits[1]]]), log10(traits_wide[[my_traits[2]]]))
 ```
 
-## 11. Deliverables {.unnumbered}
-
-For your assignment, write up three short paragraphs, and add your scatterplot with a descriptive caption. Your paragraphs will address:
-
-1. which species subset and two traits you chose, and why; 
-1. what the scatterplot and correlation coefficient show — are the traits trading off (negative correlation), coordinating (positive correlation), or largely unrelated (correlation near zero) across your species; and 
-1. how that result connects to the physiological trade-off framework from this chapter — what would have to be true, mechanistically, for your two traits to relate the way they do in your data?
-
-## 12. Reflection and discussion questions {.unnumbered}
+## 11. Reflection and discussion questions {.unnumbered}
 
 
 1. Pick two traits from @tbl-six-traits that are not on the same principal-component axis (e.g., leaf area and diaspore mass). Can you think of a plant where these two traits would pull in "conflicting" physiological directions? What might resolve that conflict?

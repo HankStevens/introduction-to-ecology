@@ -323,6 +323,18 @@ window.Quarto = {
  <span class="menu-text"><span class="chapter-number">D</span>&nbsp; <span class="chapter-title">Accessing Public Ecological Databases</span></span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./appendix_data-display.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">E</span>&nbsp; <span class="chapter-title">Displaying Data with ggplot2</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./appendix-your-own-interests.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">F</span>&nbsp; <span class="chapter-title">Your Own Interests: Telling a short story with data</span></span></a>
+  </div>
+</li>
       </ul>
   </li>
     </ul>
@@ -336,17 +348,17 @@ window.Quarto = {
    
   <ul>
   <li><a href="#goals" id="toc-goals" class="nav-link active" data-scroll-target="#goals"><span class="header-section-number">10.1</span> Goals</a></li>
-  <li><a href="#preparatory-steps" id="toc-preparatory-steps" class="nav-link" data-scroll-target="#preparatory-steps"><span class="header-section-number">10.2</span> Preparatory steps</a>
+  <li><a href="#sec-deliverables-di" id="toc-sec-deliverables-di" class="nav-link" data-scroll-target="#sec-deliverables-di"><span class="header-section-number">10.2</span> Deliverables</a></li>
+  <li><a href="#preparatory-steps" id="toc-preparatory-steps" class="nav-link" data-scroll-target="#preparatory-steps"><span class="header-section-number">10.3</span> Preparatory steps</a>
   <ul class="collapse">
-  <li><a href="#optional-background" id="toc-optional-background" class="nav-link" data-scroll-target="#optional-background"><span class="header-section-number">10.2.1</span> Optional background</a></li>
+  <li><a href="#optional-background" id="toc-optional-background" class="nav-link" data-scroll-target="#optional-background"><span class="header-section-number">10.3.1</span> Optional background</a></li>
   </ul></li>
-  <li><a href="#background" id="toc-background" class="nav-link" data-scroll-target="#background"><span class="header-section-number">10.3</span> Background</a></li>
-  <li><a href="#invasion-criteria" id="toc-invasion-criteria" class="nav-link" data-scroll-target="#invasion-criteria"><span class="header-section-number">10.4</span> Invasion criteria</a>
+  <li><a href="#background" id="toc-background" class="nav-link" data-scroll-target="#background"><span class="header-section-number">10.4</span> Background</a></li>
+  <li><a href="#invasion-criteria" id="toc-invasion-criteria" class="nav-link" data-scroll-target="#invasion-criteria"><span class="header-section-number">10.5</span> Invasion criteria</a>
   <ul class="collapse">
-  <li><a href="#deriving-the-invasion-criterion" id="toc-deriving-the-invasion-criterion" class="nav-link" data-scroll-target="#deriving-the-invasion-criterion"><span class="header-section-number">10.4.1</span> Deriving the invasion criterion</a></li>
-  <li><a href="#apply-the-criteria" id="toc-apply-the-criteria" class="nav-link" data-scroll-target="#apply-the-criteria"><span class="header-section-number">10.4.2</span> Apply the criteria</a></li>
+  <li><a href="#deriving-the-invasion-criterion" id="toc-deriving-the-invasion-criterion" class="nav-link" data-scroll-target="#deriving-the-invasion-criterion"><span class="header-section-number">10.5.1</span> Deriving the invasion criterion</a></li>
+  <li><a href="#apply-the-criteria" id="toc-apply-the-criteria" class="nav-link" data-scroll-target="#apply-the-criteria"><span class="header-section-number">10.5.2</span> Apply the criteria</a></li>
   </ul></li>
-  <li><a href="#sec-deliverables-di" id="toc-sec-deliverables-di" class="nav-link" data-scroll-target="#sec-deliverables-di"><span class="header-section-number">10.5</span> Deliverables</a></li>
   </ul>
 </nav>
     </div>
@@ -383,6 +395,21 @@ Figure&nbsp;10.1: Humans help species move around the planet into new places wit
 </figure>
 </div>
 <p>Species interact with each other. Sometimes those interactions are negative and cause population sizes to decline, and we call that <strong>competition</strong>. Other times, those interactions are positive and cause population sizes to increase, and we call that <strong>mutualism</strong>. This chapter explores an example of competition, in which investigators attempted to understand whether a native mosquito, <em>Aedes triseriatus</em> would compete with and inhibit the growth and spread of the Asian tiger mosquito, <em>Aedes albopictus</em> (<a href="#fig-aedes" class="quarto-xref">Figure&nbsp;<span>10.1</span></a>) <span class="citation" data-cites="livdahl1991">(<a href="references.html#ref-livdahl1991" role="doc-biblioref">Livdahl and Willey 1991</a>)</span>.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Before you start
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li><strong>Assumptions about background and guidance:</strong> logistic growth and the meaning of <span class="math inline">\(\alpha\)</span> and <span class="math inline">\(K\)</span> from <a href="./09-density-dep-pop-growth.html">Density-dependence</a>, and algebra for solving two equations at once. If those are new, read <a href="./09-density-dep-pop-growth.html#models-as-assumptions">Models as assumptions</a> first; it is short. The R code in this chapter is minimal.</li>
+</ul>
+</div>
+</div>
 <section id="goals" class="level2" data-number="10.1">
 <h2 data-number="10.1" class="anchored" data-anchor-id="goals"><span class="header-section-number">10.1</span> Goals</h2>
 <p>In this chapter, you will,</p>
@@ -393,20 +420,30 @@ Figure&nbsp;10.1: Humans help species move around the planet into new places wit
 <li>start to develop a greater understanding and intuition for species interactions.</li>
 </ul>
 </section>
-<section id="preparatory-steps" class="level2" data-number="10.2">
-<h2 data-number="10.2" class="anchored" data-anchor-id="preparatory-steps"><span class="header-section-number">10.2</span> Preparatory steps</h2>
+<section id="sec-deliverables-di" class="level2" data-number="10.2">
+<h2 data-number="10.2" class="anchored" data-anchor-id="sec-deliverables-di"><span class="header-section-number">10.2</span> Deliverables</h2>
+<p>In one document include these two graphs and answers to these questions:</p>
+<ol type="1">
+<li>Draw the isoclines for both species in water obtained from tree holes. Add one curved line for population trajectories starting at 5 <em>A. triseriatus</em> and 5 <em>A. albopictus</em>.</li>
+<li>Draw the isoclines for both species in water obtained from tires. Add one curved line for the population trajectories starting at 5 <em>A. triseriatus</em> and 5 <em>A. albopictus</em>.</li>
+<li>Do the invasion criteria match the figures? Explain.</li>
+<li>Answer the original question for these two environments: will the native <em>A. triseriatus</em> inhibit the establishment of the non-native <em>A. albopictus</em>?</li>
+</ol>
+</section>
+<section id="preparatory-steps" class="level2" data-number="10.3">
+<h2 data-number="10.3" class="anchored" data-anchor-id="preparatory-steps"><span class="header-section-number">10.3</span> Preparatory steps</h2>
 <ul>
 <li>The preceding chapter on density-dependent population growth provides important background</li>
 <li>Read Livdahl and Willey (1991) in Perusall through our Canvas site. It is also available in our class archive: <a href="https://drive.google.com/drive/folders/1opLlrmF7kfo0FtWwwJ1CbfPWIyuaISC1?usp=sharing">Livdahl and Willey (1991)</a></li>
-<li>If you are curious, check Deliverables, at the end (<a href="#sec-deliverables-di" class="quarto-xref"><span>Section 10.5</span></a>).</li>
+<li>If you are curious, check Deliverables, above (<a href="#sec-deliverables-di" class="quarto-xref"><span>Section 10.2</span></a>).</li>
 </ul>
-<section id="optional-background" class="level3" data-number="10.2.1">
-<h3 data-number="10.2.1" class="anchored" data-anchor-id="optional-background"><span class="header-section-number">10.2.1</span> Optional background</h3>
+<section id="optional-background" class="level3" data-number="10.3.1">
+<h3 data-number="10.3.1" class="anchored" data-anchor-id="optional-background"><span class="header-section-number">10.3.1</span> Optional background</h3>
 <p>If you are interested, you can download slides and watch the video on <a href="https://drive.google.com/drive/folders/1nWLoEGuWKIWdul9Uvse5qiB1Hf8MCwUv?usp=sharing" target="_blank">competition (4b)</a> before proceeding.)</p>
 </section>
 </section>
-<section id="background" class="level2" data-number="10.3">
-<h2 data-number="10.3" class="anchored" data-anchor-id="background"><span class="header-section-number">10.3</span> Background</h2>
+<section id="background" class="level2" data-number="10.4">
+<h2 data-number="10.4" class="anchored" data-anchor-id="background"><span class="header-section-number">10.4</span> Background</h2>
 <p>We don’t often know for sure what determines the establishment and spread of non-native species in a novel environment, but a variety of mechanisms and factors have been shown to play important roles in some situations, includ ing,</p>
 <ul>
 <li>an environment similar to the home environment, or otherwise hospitable,</li>
@@ -469,11 +506,11 @@ Table&nbsp;10.1: Lotka-Volterra growth and competition parameters of <em>A. tris
 </div>
 </div>
 </section>
-<section id="invasion-criteria" class="level2" data-number="10.4">
-<h2 data-number="10.4" class="anchored" data-anchor-id="invasion-criteria"><span class="header-section-number">10.4</span> Invasion criteria</h2>
+<section id="invasion-criteria" class="level2" data-number="10.5">
+<h2 data-number="10.5" class="anchored" data-anchor-id="invasion-criteria"><span class="header-section-number">10.5</span> Invasion criteria</h2>
 <p>Rather than just applying the invasion criteria from lecture, let’s derive them. The reasoning is short and the biological insight is large.</p>
-<section id="deriving-the-invasion-criterion" class="level3" data-number="10.4.1">
-<h3 data-number="10.4.1" class="anchored" data-anchor-id="deriving-the-invasion-criterion"><span class="header-section-number">10.4.1</span> Deriving the invasion criterion</h3>
+<section id="deriving-the-invasion-criterion" class="level3" data-number="10.5.1">
+<h3 data-number="10.5.1" class="anchored" data-anchor-id="deriving-the-invasion-criterion"><span class="header-section-number">10.5.1</span> Deriving the invasion criterion</h3>
 <p>Species 2 can invade a population of species 1 if species 2 can grow when rare — that is, when <span class="math inline">\(N_2 \approx 0\)</span> and species 1 is at its own carrying capacity (<span class="math inline">\(N_1 = K_1\)</span>).</p>
 <p>Substitute these values into the growth equation for species 2:</p>
 <p><span class="math display">\[\frac{dN_2}{dt} = r_2 N_2 \left(1 - \frac{N_2 + \beta N_1}{K_2}\right)\]</span></p>
@@ -499,24 +536,13 @@ Table&nbsp;10.1: Lotka-Volterra growth and competition parameters of <em>A. tris
 </div>
 </div>
 </section>
-<section id="apply-the-criteria" class="level3" data-number="10.4.2">
-<h3 data-number="10.4.2" class="anchored" data-anchor-id="apply-the-criteria"><span class="header-section-number">10.4.2</span> Apply the criteria</h3>
+<section id="apply-the-criteria" class="level3" data-number="10.5.2">
+<h3 data-number="10.5.2" class="anchored" data-anchor-id="apply-the-criteria"><span class="header-section-number">10.5.2</span> Apply the criteria</h3>
 <p>Now use the parameter values in <a href="#tbl-mosquito" class="quarto-xref">Table&nbsp;<span>10.1</span></a> to evaluate coexistence for both environments (tree hole water and tire water). For each environment:</p>
 <ol type="a">
 <li>Does species 1 (<em>A. triseriatus</em>) satisfy its invasion criterion?</li>
 <li>Does species 2 (<em>A. albopictus</em>) satisfy its invasion criterion?</li>
 <li>What is the predicted outcome — coexistence, competitive exclusion of one species, or competitive exclusion of the other?</li>
-</ol>
-</section>
-</section>
-<section id="sec-deliverables-di" class="level2" data-number="10.5">
-<h2 data-number="10.5" class="anchored" data-anchor-id="sec-deliverables-di"><span class="header-section-number">10.5</span> Deliverables</h2>
-<p>In one document include these two graphs and answers to these questions:</p>
-<ol type="1">
-<li>Draw the isoclines for both species in water obtained from tree holes. Add one curved line for population trajectories starting at 5 <em>A. triseriatus</em> and 5 <em>A. albopictus</em>.</li>
-<li>Draw the isoclines for both species in water obtained from tires. Add one curved line for the population trajectories starting at 5 <em>A. triseriatus</em> and 5 <em>A. albopictus</em>.</li>
-<li>Do the invasion criteria match the figures? Explain.</li>
-<li>Answer the original question for these two environments: will the native <em>A. triseriatus</em> inhibit the establishment of the non-native <em>A. albopictus</em>?</li>
 </ol>
 
 
@@ -525,6 +551,7 @@ Table&nbsp;10.1: Lotka-Volterra growth and competition parameters of <em>A. tris
 Livdahl, Todd P., and Michelle S. Willey. 1991. <span>“Prospects for an <span>Invasion</span>: <span>Competition Between</span> <span><em>Aedes</em></span><span> <em></em> </span><span><em>Albopictus</em></span> and <span>Native</span> <span><em>Aedes</em></span><span> <em></em> </span><span><em>Triseriatus</em></span>.”</span> <em>Science (New York, N.Y.)</em> 253 (5016): 189–91. <a href="https://doi.org/10.1126/science.1853204">https://doi.org/10.1126/science.1853204</a>.
 </div>
 </div>
+</section>
 </section>
 
 </main> <!-- /main -->

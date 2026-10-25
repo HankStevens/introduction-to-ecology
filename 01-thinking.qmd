@@ -13,6 +13,12 @@ library(patchwork)
 theme_set( theme_bw(base_size=12) )
 ```
 
+::: {.callout-tip}
+## Before you start
+
+* **Assumptions about background and guidance:** no background beyond curiosity and high-school algebra. The figures were made in R, but the code is hidden, and you do not need R to follow this chapter. If an idea about probability (such as an average count, or a distribution of counts) is new to you, read the figure captions slowly and bring your questions to class.
+:::
+
 ## Goals
 
 In this chapter, you will,

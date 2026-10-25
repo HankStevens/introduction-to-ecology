@@ -7,6 +7,12 @@ options(gargle_oauth_email = "stevenmh@miamioh.edu", message=FALSE)
 library(patchwork)
 ```
 
+::: {.callout-tip}
+## Before you start
+
+* **Assumptions about background and guidance:** that you can open your `Rwork` project in RStudio and run a short script; if not, start with [Computer setup](02-computer-setup.qmd). You will also need access to the class Google Sheet, which your instructor will share. No statistics are assumed beyond reading a scatterplot. If the R code gives you trouble, see [Getting help](02-computer-setup.qmd#getting-help).
+:::
+
 ## Goals
 
 In this chapter, you will,
@@ -15,6 +21,19 @@ In this chapter, you will,
 - Practice web-based, crowdsourced data collection: contribute your own city or location to a shared class Google Sheet using the Tree Equity Score and i-Tree/OurTrees platforms.
 - Graph and interpret the relationship between wealth (median income, percent poverty) and tree cover.
 - Consider what else, beyond wealth, might explain--or obscure--a relationship between people and tree cover.
+
+## Deliverables
+
+**Results and discussion**
+
+* In one document, put two figures side-by-side:
+   i. your bargraph of % tree cover vs. % people in poverty (copied from the Tree Equity site) side-by-side, and
+   i. your scatterplot of tree cover vs. median income that you made using everyone's data, based on the iTree/OurTrees website that you shared in the Google spreadsheet.
+   i. include a figure legend that states what the graphs are in a way that is intelligible to a naive reader.
+* Provide a brief explanation of your findings, including
+    i. the results described in a factual manner, without interpretation, 
+    ii. an explanation of whether the results are consistent with the biophilia hypothesis, and
+    iii. a new question that emerges due to the inconsistencies between the data and the hypothesis; explain why this question is a logical extension of your current results and interpration.
 
 ## Background
 
@@ -143,18 +162,3 @@ Refer to the scatterplot of my data (@fig-data). What do we find? Discuss the fo
 2.  Notice the cities that I selected. What else do you know about these locations, aside from income, that might influence tree cover?
 3.  What else might be going on that helps create this relation or might obscure a stronger relation?
 4.  After looking at these data, would you want to select locations in a different way?
-
-## Deliverables
-
-**Results and discussion**
-
-* In one document, put two figures side-by-side:
-   i. your bargraph of % tree cover vs. % people in poverty (copied from the Tree Equity site) side-by-side, and
-   i. your scatterplot of tree cover vs. median income that you made using everyone's data, based on the iTree/OurTrees website that you shared in the Google spreadsheet.
-   i. include a figure legend that states what the graphs are in a way that is intelligible to a naive reader.
-* Provide a brief explanation of your findings, including
-    i. the results described in a factual manner, without interpretation, 
-    ii. an explanation of whether the results are consistent with the biophilia hypothesis, and
-    iii. a new question that emerges due to the inconsistencies between the data and the hypothesis; explain why this question is a logical extension of your current results and interpration.
-
-

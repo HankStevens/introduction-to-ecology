@@ -4,6 +4,12 @@ title: "Funding Ecological and Environmental Science: Following the Money"
 
 *...in which we discover who pays for ecology, and why that answer keeps changing.*
 
+::: {.callout-tip}
+## Before you start
+
+* **Assumptions about background and guidance:** your `Rwork` project ([Computer setup](02-computer-setup.qmd)) and comfort reading in data and making line graphs with `ggplot()` ([Extra-pair copulation](06-extrapair_copulation.qmd), [Displaying data with ggplot2](appendix_data-display.qmd)). No background in economics or government budgets is assumed; inflation adjustment is explained here. Part 1 pulls data live from a government API, so you will need an internet connection; [Accessing public databases](appendix_public-databases.qmd) has more on working with live data sources.
+:::
+
 ## Goals
 
 In this chapter, you will
@@ -15,6 +21,18 @@ In this chapter, you will
 * Distinguish an agency's *entire* budget from the slice of it that actually funds research--and see, concretely, how much bigger the difference can be for some agencies (NASA, USDA) than others (NSF).
 * Find and explain research that interests you; describe the scientific motivation for the research and explain how the investigators used or plan to use the research award.
 * Evaluate what recent (2025-2026) federal budget changes mean for the pipeline of ecological research, and for your own options as an early-career scientist.
+
+## Deliverables
+
+Turn these in to the relevant Canvas assignment before the due date. Use the `ggsave()` code in each section below to produce a PNG file for each figure. Each one lands in your `figs` folder; insert those PNGs into your document from there.
+
+1. A single document (.docx) containing:
+    i. Your version of @fig-agency-budgets and @fig-agency-budgets-real (nominal and inflation-adjusted, all six federal agencies).
+    i. Your version of @fig-rd-only-departments, @fig-rd-only-subagencies, and @fig-total-vs-research (research-only obligations, department and sub-agency views, and the total-vs-research comparison).
+    i. Your class's version of @fig-state-funding (all states your classmates collected).
+    i. Your short write-up from Part 3: the title, PI, and institution of the award you chose, and your two-question answer explaining its scientific motivation and how the funding was or will be used.
+    i. Written answers to the nine questions in [Questions to answer](#questions-to-answer), below.
+1. Your R script, named `funding_science_YourUniqueID.R`. This must be a `.R` file, not a Word document.
 
 ## Background
 
@@ -520,15 +538,3 @@ For scale: DEB's entire annual budget--somewhere around \$160-180 million--is a 
 7. Compare @fig-rd-only-subagencies to @fig-agency-budgets. USGS obligates far more research funding than FWS or the Forest Service, yet DOI as a whole (which contains all three) is one of the smaller lines in @fig-agency-budgets. What does that tell you about the relationship between an agency's public visibility and the size of its research budget?
 8. If you were choosing a research area for graduate school today, would any of the trends you found here factor into your decision? Why or why not?
 9. DOE's row in @fig-rd-only-departments is DOE's entire R&D total--energy-technology research (fossil fuels, nuclear power, renewables) together with its ecological and environmental science. Compare that line to DOE BER's line in @fig-rd-only-subagencies. Roughly what fraction of DOE's total research funding actually goes to ecological/environmental science? Does that fraction surprise you, given how DOE is usually described in the news?
-
-## Deliverables
-
-Turn these in to the relevant Canvas assignment before the due date. Use the `ggsave()` code in each section above to produce a PNG file for each figure. Each one lands in your `figs` folder; insert those PNGs into your document from there.
-
-1. A single document (.docx) containing:
-    i. Your version of @fig-agency-budgets and @fig-agency-budgets-real (nominal and inflation-adjusted, all six federal agencies).
-    i. Your version of @fig-rd-only-departments, @fig-rd-only-subagencies, and @fig-total-vs-research (research-only obligations, department and sub-agency views, and the total-vs-research comparison).
-    i. Your class's version of @fig-state-funding (all states your classmates collected).
-    i. Your short write-up from Part 3: the title, PI, and institution of the award you chose, and your two-question answer explaining its scientific motivation and how the funding was or will be used.
-    i. Written answers to the nine questions above.
-1. Your R script, named `funding_science_YourUniqueID.R`. This must be a `.R` file, not a Word document.

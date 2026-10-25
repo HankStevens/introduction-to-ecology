@@ -9,8 +9,10 @@ knitr::opts_chunk$set(message = FALSE, warning = FALSE)
 
 <!-- Suggested opening figure: a species-rich tropical forest or a palm canopy. e.g. ![A diverse lowland forest.](figs/diversity_canopy.png) -->
 
-::: {.callout-note appearance="simple"}
-**If you haven't met these before:** this chapter treats a *count* of individuals as a population size (the population-growth chapters) and reuses the log-transformation logic from the metabolic ecology chapter (@sec-metabolic-ecology). You can do this chapter on its own, but a glance back will help.
+::: {.callout-tip}
+## Before you start
+
+* **Assumptions about background and guidance:** this chapter treats a *count* of individuals as a population size (the population-growth chapters) and reuses the log-transformation logic from the metabolic ecology chapter (@sec-metabolic-ecology). You can do this chapter on its own, but a glance back will help. You should also be able to run a script in your `Rwork` project and make a graph with `ggplot()` ([Computer setup](02-computer-setup.qmd), [Displaying data with ggplot2](appendix_data-display.qmd)). The data come live from GBIF, so you will need an internet connection; see [Accessing public databases](appendix_public-databases.qmd) for more on GBIF.
 :::
 
 ## Goals
@@ -23,6 +25,37 @@ In this chapter, you will,
 * See, in real data, why the number of species you "find" depends on how hard people looked, and why that makes raw richness comparisons dangerous.
 
 *Time: ~3 h. Most students start the activity in one 80-minute class period and finish the deliverables at home. You need an internet connection.*
+
+## Deliverables {#sec-deliverables-diversity-gbif}
+
+Assemble the following into a single document and submit it online.
+
+1. **Your three hand-drawn predictions** (richness vs. latitude; the three equatorial countries; richness vs. effort), photographed *before* you ran any code.
+
+2. **In your own words (2–3 sentences each):** a. the difference between richness, evenness, and diversity; b. why GBIF richness reflects sampling effort, and what rarefaction does about it; c. why comparing whole countries confounds latitude with area.
+
+3. **Reproduce and include** the country-richness figure (@fig-country-richness) and the gradient figure (@fig-gradient). For each, write one sentence comparing the real figure to your hand-drawn prediction, and *explain* any mismatch.
+
+4. **The African anomaly.** Using the `records` column and your rarefaction result, argue whether Cameroon's low palm richness is mostly *biology* or mostly *under-sampling*. State one additional piece of evidence that would strengthen your case.
+
+5. **Oaks vs. palms.** Re-run the country analysis for the oak family, `name_backbone(name = "Fagaceae")$usageKey`, across the same countries. Do oaks show the *same* latitudinal pattern as palms? In two or three sentences, explain what it means that "the latitudinal gradient" can point different directions for different groups.
+
+6. **Audit the machine.** Below is a paragraph an AI chatbot produced when asked to summarize this chapter. It is fluent and mostly right, but contains at least one substantive error. Quote the offending sentence(s) and correct them:
+
+   > *"Species richness is the most complete measure of biodiversity because it
+   > captures both how many species live somewhere and how evenly abundant they
+   > are. Because GBIF aggregates records from around the world, the number of
+   > species it reports for a country is an accurate, effort-independent count of
+   > the species that live there. Diversity always increases smoothly toward the
+   > equator, so any tropical country will be more diverse than any temperate one."*
+
+Catching where a confident-sounding summary is wrong—about effort, about what richness measures, about exceptions to the gradient—is the whole point of learning the mechanisms instead of trusting the output.
+
+7. **Cite your data.** GBIF results change daily, so reproducibility requires a citable snapshot. Read the one-paragraph note below and state, in one sentence, why a real publication should use `occ_download()` rather than the live `occ_count()` calls we used for teaching.
+
+::: {.callout-note appearance="simple"}
+**Citing GBIF properly.** The quick `occ_count()`/`occ_search()` calls here are perfect for learning but are not citable snapshots. For research, `rgbif`'s `occ_download()` workflow asks GBIF to assemble your exact records and issues a **DOI** that pins the data and credits every contributing dataset. Always cite that DOI plus GBIF itself [@gbif] and the `rgbif` package [@rgbif].
+:::
 
 ## Preparatory Steps
 
@@ -288,37 +321,6 @@ glance(fit)    # r.squared: how much of the variation latitude explains
 :::
 
 The slope should be negative: palm richness falls as you leave the equator, exactly as the latitudinal-gradient hypothesis predicts—and now with area controlled, so you can believe it.
-
-## Deliverables {#sec-deliverables-diversity-gbif}
-
-Assemble the following into a single document and submit it online.
-
-1. **Your three hand-drawn predictions** (richness vs. latitude; the three equatorial countries; richness vs. effort), photographed *before* you ran any code.
-
-2. **In your own words (2–3 sentences each):** a. the difference between richness, evenness, and diversity; b. why GBIF richness reflects sampling effort, and what rarefaction does about it; c. why comparing whole countries confounds latitude with area.
-
-3. **Reproduce and include** the country-richness figure (@fig-country-richness) and the gradient figure (@fig-gradient). For each, write one sentence comparing the real figure to your hand-drawn prediction, and *explain* any mismatch.
-
-4. **The African anomaly.** Using the `records` column and your rarefaction result, argue whether Cameroon's low palm richness is mostly *biology* or mostly *under-sampling*. State one additional piece of evidence that would strengthen your case.
-
-5. **Oaks vs. palms.** Re-run the country analysis for the oak family, `name_backbone(name = "Fagaceae")$usageKey`, across the same countries. Do oaks show the *same* latitudinal pattern as palms? In two or three sentences, explain what it means that "the latitudinal gradient" can point different directions for different groups.
-
-6. **Audit the machine.** Below is a paragraph an AI chatbot produced when asked to summarize this chapter. It is fluent and mostly right, but contains at least one substantive error. Quote the offending sentence(s) and correct them:
-
-   > *"Species richness is the most complete measure of biodiversity because it
-   > captures both how many species live somewhere and how evenly abundant they
-   > are. Because GBIF aggregates records from around the world, the number of
-   > species it reports for a country is an accurate, effort-independent count of
-   > the species that live there. Diversity always increases smoothly toward the
-   > equator, so any tropical country will be more diverse than any temperate one."*
-
-Catching where a confident-sounding summary is wrong—about effort, about what richness measures, about exceptions to the gradient—is the whole point of learning the mechanisms instead of trusting the output.
-
-7. **Cite your data.** GBIF results change daily, so reproducibility requires a citable snapshot. Read the one-paragraph note below and state, in one sentence, why a real publication should use `occ_download()` rather than the live `occ_count()` calls we used for teaching.
-
-::: {.callout-note appearance="simple"}
-**Citing GBIF properly.** The quick `occ_count()`/`occ_search()` calls here are perfect for learning but are not citable snapshots. For research, `rgbif`'s `occ_download()` workflow asks GBIF to assemble your exact records and issues a **DOI** that pins the data and credits every contributing dataset. Always cite that DOI plus GBIF itself [@gbif] and the `rgbif` package [@rgbif].
-:::
 
 ## References
 

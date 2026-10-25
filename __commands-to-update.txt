@@ -2,18 +2,29 @@ All in the terminal:
 
 ## Entire book
 
-git checkout dev
-git push -u origin dev     # optional: backs up dev on GitHub
+cd ~/projects/intro_to_ecology
 
+## 1. Commit everything on dev ----
+git checkout dev
+# (copy the new 11-mutualisms.qmd into the folder first)
+git status                        # review what changed
+quarto render                     # catch errors before touching main
+git add -A
+git commit -m "Ch 11 merge + book-wide updates"
+git push -u origin dev            # optional backup
+
+## 2. Publish on main ----
 git checkout main
-git pull                   # make sure main is up to date
-git merge dev              # bring dev's commits into main
-quarto render              # rebuild docs/ from the merged source
+git pull                          # make sure main is up to date
+git merge dev                     # bring dev's commits into main
+quarto render                     # rebuild docs/ from the merged source
 git add -A
 git commit -m "Render site after merging dev"   # skip if nothing changed
-git push origin main       # this updates the live site
+git push origin main              # updates the live site
 
-git checkout dev           # go back to editing on dev
+## 3. Sync dev and return ----
+git checkout dev
+git merge main                    # pull main's render commit back into dev
 
 ## One chapter
 

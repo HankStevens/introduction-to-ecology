@@ -4,6 +4,12 @@ title: "Density-dependence in population growth"
 
 ![Elephant density in Hwange National Park, Zimbabwe, depends strongly on annual rainfall [@chamaille-jammes2008].](figs/hwange_elephant.png){#fig-hwange_elephant}
 
+::: {.callout-tip}
+## Before you start
+
+* **Assumptions about background and guidance:** exponential growth ($dN/dt = rN$) from [Density-independent population growth](07-DI-pop-growth.qmd), and comfort reading an equation and rearranging it with algebra. The $dN/dt$ notation is explained here, and you will not need to do any calculus. The for-loop in Assignment 2 works just like the one in [Density-independent population growth](07-DI-pop-growth.qmd).
+:::
+
 ## Goals
 In this chapter, you'll learn how we represent crowding in populations. Per capita population growth rate often depends on population density. Along the way, you'll learn we take ideas seriously, and follow them to their logical conclusions. 
 
@@ -13,6 +19,10 @@ If you successfully complete this chapter, you will
 * define *density-dependence*,
 * distinguish between *transient dynamics* and long-term *asymptotic dynamics*, and
 * discover the consequences of crowding by *solving* a rate equation.
+
+## Deliverables {#sec-deliverables-ddpg}
+
+Put your work from section 8.3 (Assignment 1) and section 8.4 (Assignment 2) into one document and turn in by the due date.
 
 ## Preparatory steps
 
@@ -200,10 +210,4 @@ ggsave("figs/dynamics-rd-0.2.png", height=5, width=6)
 - the relationship between $r_d$ and the year in which the carrying capacity is reached or exceeded,
 - the predictability of the dynamics, and 
 - the number of stable points to which the population returns.
-
-
-## Deliverables {#sec-deliverables-ddpg}
-
-Put your work from section 8.3 (Assignment 1) and section 8.4 (Assignment 2) into one document and turn in by the due date.
-
 

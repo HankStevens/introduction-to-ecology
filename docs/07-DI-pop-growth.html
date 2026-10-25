@@ -358,6 +358,18 @@ window.Quarto = {
  <span class="menu-text"><span class="chapter-number">D</span>&nbsp; <span class="chapter-title">Accessing Public Ecological Databases</span></span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./appendix_data-display.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">E</span>&nbsp; <span class="chapter-title">Displaying Data with ggplot2</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./appendix-your-own-interests.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">F</span>&nbsp; <span class="chapter-title">Your Own Interests: Telling a short story with data</span></span></a>
+  </div>
+</li>
       </ul>
   </li>
     </ul>
@@ -371,25 +383,25 @@ window.Quarto = {
    
   <ul>
   <li><a href="#goals" id="toc-goals" class="nav-link active" data-scroll-target="#goals"><span class="header-section-number">7.1</span> Goals</a></li>
-  <li><a href="#preparatory-steps" id="toc-preparatory-steps" class="nav-link" data-scroll-target="#preparatory-steps"><span class="header-section-number">7.2</span> Preparatory Steps</a></li>
-  <li><a href="#background" id="toc-background" class="nav-link" data-scroll-target="#background"><span class="header-section-number">7.3</span> Background</a>
+  <li><a href="#deliverables" id="toc-deliverables" class="nav-link" data-scroll-target="#deliverables"><span class="header-section-number">7.2</span> Deliverables</a></li>
+  <li><a href="#preparatory-steps" id="toc-preparatory-steps" class="nav-link" data-scroll-target="#preparatory-steps"><span class="header-section-number">7.3</span> Preparatory Steps</a></li>
+  <li><a href="#background" id="toc-background" class="nav-link" data-scroll-target="#background"><span class="header-section-number">7.4</span> Background</a>
   <ul class="collapse">
-  <li><a href="#population-growth-of-homo-sapiens-a-case-study" id="toc-population-growth-of-homo-sapiens-a-case-study" class="nav-link" data-scroll-target="#population-growth-of-homo-sapiens-a-case-study"><span class="header-section-number">7.3.1</span> Population growth of <em>Homo sapiens</em>: a case study</a></li>
-  <li><a href="#projecting-population-size-into-the-future" id="toc-projecting-population-size-into-the-future" class="nav-link" data-scroll-target="#projecting-population-size-into-the-future"><span class="header-section-number">7.3.2</span> Projecting population size into the future</a></li>
+  <li><a href="#population-growth-of-homo-sapiens-a-case-study" id="toc-population-growth-of-homo-sapiens-a-case-study" class="nav-link" data-scroll-target="#population-growth-of-homo-sapiens-a-case-study"><span class="header-section-number">7.4.1</span> Population growth of <em>Homo sapiens</em>: a case study</a></li>
+  <li><a href="#projecting-population-size-into-the-future" id="toc-projecting-population-size-into-the-future" class="nav-link" data-scroll-target="#projecting-population-size-into-the-future"><span class="header-section-number">7.4.2</span> Projecting population size into the future</a></li>
   </ul></li>
-  <li><a href="#methods" id="toc-methods" class="nav-link" data-scroll-target="#methods"><span class="header-section-number">7.4</span> Methods</a>
+  <li><a href="#methods" id="toc-methods" class="nav-link" data-scroll-target="#methods"><span class="header-section-number">7.5</span> Methods</a>
   <ul class="collapse">
-  <li><a href="#load-data" id="toc-load-data" class="nav-link" data-scroll-target="#load-data"><span class="header-section-number">7.4.1</span> Load data</a></li>
-  <li><a href="#sec-byhand" id="toc-sec-byhand" class="nav-link" data-scroll-target="#sec-byhand"><span class="header-section-number">7.4.2</span> Simple math: Calculations by hand</a></li>
-  <li><a href="#programming-use-a-for-loop-to-do-all-the-calculations" id="toc-programming-use-a-for-loop-to-do-all-the-calculations" class="nav-link" data-scroll-target="#programming-use-a-for-loop-to-do-all-the-calculations"><span class="header-section-number">7.4.3</span> Programming: Use a for-loop to do all the calculations</a></li>
+  <li><a href="#load-data" id="toc-load-data" class="nav-link" data-scroll-target="#load-data"><span class="header-section-number">7.5.1</span> Load data</a></li>
+  <li><a href="#sec-byhand" id="toc-sec-byhand" class="nav-link" data-scroll-target="#sec-byhand"><span class="header-section-number">7.5.2</span> Simple math: Calculations by hand</a></li>
+  <li><a href="#programming-use-a-for-loop-to-do-all-the-calculations" id="toc-programming-use-a-for-loop-to-do-all-the-calculations" class="nav-link" data-scroll-target="#programming-use-a-for-loop-to-do-all-the-calculations"><span class="header-section-number">7.5.3</span> Programming: Use a for-loop to do all the calculations</a></li>
   </ul></li>
-  <li><a href="#changes-in-human-population-growth-rate" id="toc-changes-in-human-population-growth-rate" class="nav-link" data-scroll-target="#changes-in-human-population-growth-rate"><span class="header-section-number">7.5</span> Changes in human population growth rate</a>
+  <li><a href="#changes-in-human-population-growth-rate" id="toc-changes-in-human-population-growth-rate" class="nav-link" data-scroll-target="#changes-in-human-population-growth-rate"><span class="header-section-number">7.6</span> Changes in human population growth rate</a>
   <ul class="collapse">
-  <li><a href="#sec-yourinterval" id="toc-sec-yourinterval" class="nav-link" data-scroll-target="#sec-yourinterval"><span class="header-section-number">7.5.1</span> Your own interval</a></li>
-  <li><a href="#how-does-per-capita-growth-rate-change-with-population-size" id="toc-how-does-per-capita-growth-rate-change-with-population-size" class="nav-link" data-scroll-target="#how-does-per-capita-growth-rate-change-with-population-size"><span class="header-section-number">7.5.2</span> How does per capita growth rate change with population size?</a></li>
+  <li><a href="#sec-yourinterval" id="toc-sec-yourinterval" class="nav-link" data-scroll-target="#sec-yourinterval"><span class="header-section-number">7.6.1</span> Your own interval</a></li>
+  <li><a href="#how-does-per-capita-growth-rate-change-with-population-size" id="toc-how-does-per-capita-growth-rate-change-with-population-size" class="nav-link" data-scroll-target="#how-does-per-capita-growth-rate-change-with-population-size"><span class="header-section-number">7.6.2</span> How does per capita growth rate change with population size?</a></li>
   </ul></li>
-  <li><a href="#projecting-into-the-future" id="toc-projecting-into-the-future" class="nav-link" data-scroll-target="#projecting-into-the-future"><span class="header-section-number">7.6</span> Projecting into the future</a></li>
-  <li><a href="#deliverables" id="toc-deliverables" class="nav-link" data-scroll-target="#deliverables"><span class="header-section-number">7.7</span> Deliverables</a></li>
+  <li><a href="#projecting-into-the-future" id="toc-projecting-into-the-future" class="nav-link" data-scroll-target="#projecting-into-the-future"><span class="header-section-number">7.7</span> Projecting into the future</a></li>
   </ul>
 </nav>
     </div>
@@ -426,6 +438,21 @@ Figure&nbsp;7.1: Earth has now entered the Anthropocene. Geologists are debating
 </figure>
 </div>
 <p>Reproduction helps define what we call “life”, and leads to exponential growth. This chapter introduces this concept and how we quantify it.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Before you start
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li><strong>Assumptions about background and guidance:</strong> your <code>Rwork</code> project and the ability to read a .csv file into R (<a href="./02-computer-setup.html">Computer setup</a>), and algebra with exponents and natural logarithms (<span class="math inline">\(e\)</span> and <span class="math inline">\(\ln\)</span>). If logarithms are rusty, read <a href="./15-metabolic-ecology_v_2.html#using-logarithms">Using logarithms</a> in the metabolic ecology chapter first. The for-loop is introduced here, so no programming beyond your first script is assumed.</li>
+</ul>
+</div>
+</div>
 <section id="goals" class="level2" data-number="7.1">
 <h2 data-number="7.1" class="anchored" data-anchor-id="goals"><span class="header-section-number">7.1</span> Goals</h2>
 <p>In this chapter, you will</p>
@@ -438,8 +465,19 @@ Figure&nbsp;7.1: Earth has now entered the Anthropocene. Geologists are debating
 </ul>
 <p><strong>In this chapter</strong>, we’ll use these techniques and data from <a href="http://ourworldindata.org" target="_blank"><em>Our World in Data</em></a> to describe mathematically the growth rate of the world’s human population at different points in time over the last 10,000 years.</p>
 </section>
-<section id="preparatory-steps" class="level2" data-number="7.2">
-<h2 data-number="7.2" class="anchored" data-anchor-id="preparatory-steps"><span class="header-section-number">7.2</span> Preparatory Steps</h2>
+<section id="deliverables" class="level2" data-number="7.2">
+<h2 data-number="7.2" class="anchored" data-anchor-id="deliverables"><span class="header-section-number">7.2</span> Deliverables</h2>
+<p>Turn in two documents: (i) your R script, and (ii) a .docx or PDF formatted file containing the following:</p>
+<ol type="1">
+<li>Calculate by hand the exponential growth rate (<em>r</em>) for the years listed in <a href="#sec-byhand" class="quarto-xref"><span>Section 7.5.2</span></a>. Write out the formula, substitute the values to show you know where they belong, and then finish with the arithmetic to find <span class="math inline">\(r\)</span>.</li>
+<li>A graph showing per capita growth rate for a time period of your own choosing, from <a href="#sec-yourinterval" class="quarto-xref"><span>Section 7.6.1</span></a>.</li>
+<li>If the human population continued to grow at the rate you calculated for 2020, how large would the population be in 2050? Calculate this and show your work.</li>
+<li>What assumptions did you make in answering Question 3? Based on results for questions 1 and 2, is it likely that the human population will reach the size that you calculated for 2050? Why or why not? Use <strong>evidence</strong> in the data and the graphs above to justify your explanation.</li>
+<li>How many people were alive when you were born? How many people will there be at the end of your lifetime? Are you going to live through a doubling of the human population? Why or why not?</li>
+</ol>
+</section>
+<section id="preparatory-steps" class="level2" data-number="7.3">
+<h2 data-number="7.3" class="anchored" data-anchor-id="preparatory-steps"><span class="header-section-number">7.3</span> Preparatory Steps</h2>
 <ul>
 <li>Read Cohen (1995) in Perusall through our Canvas site. It is also available in our class archive: <a href="https://drive.google.com/drive/folders/1opLlrmF7kfo0FtWwwJ1CbfPWIyuaISC1?usp=sharing">Cohen (1995)</a></li>
 </ul>
@@ -447,11 +485,11 @@ Figure&nbsp;7.1: Earth has now entered the Anthropocene. Geologists are debating
 <li>Go to our <a href="https://drive.google.com/drive/u/1/folders/1FR2FLiW3xyD4Er52YzVTToPZuXXReGRo" target="_blank">class data repository</a>, and download <code>HumanPopData-2023-0101.csv</code>. Make sure the file remains in the same simple format, “comma separated values” (.csv).</li>
 </ol>
 <ul>
-<li>If you are curious, check Deliverables, at the end.</li>
+<li>If you are curious, check Deliverables, above.</li>
 </ul>
 </section>
-<section id="background" class="level2" data-number="7.3">
-<h2 data-number="7.3" class="anchored" data-anchor-id="background"><span class="header-section-number">7.3</span> Background</h2>
+<section id="background" class="level2" data-number="7.4">
+<h2 data-number="7.4" class="anchored" data-anchor-id="background"><span class="header-section-number">7.4</span> Background</h2>
 <p>Given sufficient resources, life is autocatalytic – the products of reproduction (offspring) amplify the rate of reproduction, leading to <em>exponential growth</em>.</p>
 <p><strong>As ecologists, we can state this with the following propositions</strong> <span class="citation" data-cites="hastings2011">(<a href="references.html#ref-hastings2011" role="doc-biblioref">Hastings 2011</a>)</span>:</p>
 <ol type="1">
@@ -477,8 +515,8 @@ Figure&nbsp;7.1: Earth has now entered the Anthropocene. Geologists are debating
 <li>over short periods of time, deviations to exponential growth still result in patterns that are very similar to exponential growth, and</li>
 <li>we typically don’t know precisely what mechanisms limit exponential growth or by how much, and therefore exponential growth is as good a mathematical description as any.</li>
 </ul>
-<section id="population-growth-of-homo-sapiens-a-case-study" class="level3" data-number="7.3.1">
-<h3 data-number="7.3.1" class="anchored" data-anchor-id="population-growth-of-homo-sapiens-a-case-study"><span class="header-section-number">7.3.1</span> Population growth of <em>Homo sapiens</em>: a case study</h3>
+<section id="population-growth-of-homo-sapiens-a-case-study" class="level3" data-number="7.4.1">
+<h3 data-number="7.4.1" class="anchored" data-anchor-id="population-growth-of-homo-sapiens-a-case-study"><span class="header-section-number">7.4.1</span> Population growth of <em>Homo sapiens</em>: a case study</h3>
 <p>The human population shares many features with other populations. Like other species, humans are distributed unequally around our available habitats, we consume resources and produce waste products, and the size of our population changes over time.</p>
 <p>Humans, as we would we recognize ourselves, have been around for ~300,000 years. Since that time a lot has happened to us, and we have done a lot to alter the planet. About 10,000 years ago, we started to use agriculture to raise a lot of our food, in the <em>agricultural revolution</em>. Oddly, this seems to have contributed simultaneously to both a decline in life span due to poor health, and yet also an increase in population growth rate and a corresponding increase in population size. The state of the human population is dynamic and undergoing transitions that are in different stages in different places around the world <span class="citation" data-cites="lee2011">(<a href="references.html#ref-lee2011" role="doc-biblioref">Lee 2011</a>)</span>.</p>
 <p>Here we examine changes in human population size from 10,000 y ago to 2021. The data are estimates, and we have annual estimates with increasing greater frequency, up until 2021.</p>
@@ -511,8 +549,8 @@ r_t &amp;= \frac{\ln \frac{100}{150}}{2021 - 2020}\\
 <p>ending with a negative value (<span class="math inline">\(r_t &lt; 0\)</span>), indicating that the population shrank. When <span class="math inline">\(r_t &lt; 0\)</span>, that means the population has decreased in size. Sometimes we call that “negative growth”.</p>
 <p>What do you think we we get if the population didn’t change, so that <span class="math inline">\(N_t = N_{t+h} = 100\)</span>?</p>
 </section>
-<section id="projecting-population-size-into-the-future" class="level3" data-number="7.3.2">
-<h3 data-number="7.3.2" class="anchored" data-anchor-id="projecting-population-size-into-the-future"><span class="header-section-number">7.3.2</span> Projecting population size into the future</h3>
+<section id="projecting-population-size-into-the-future" class="level3" data-number="7.4.2">
+<h3 data-number="7.4.2" class="anchored" data-anchor-id="projecting-population-size-into-the-future"><span class="header-section-number">7.4.2</span> Projecting population size into the future</h3>
 <p>If we make certain assumptions, we can make predictions about the future. In order to make predictions about the size of the population next year, or in 5, 10, or 20 years, we can extrapolate the current rate of change into the future. To do that, we can use the instantaneous rate of increase, <span class="math inline">\(r\)</span>, and the amount of time, and a solution from calculus.</p>
 <p>To predict the size of a population to year <span class="math inline">\(t\)</span> from some starting time, we rely on the rule that,</p>
 <p><span id="eq-Ntproj"><span class="math display">\[N_t = N_0 e^{rt} \tag{7.2}\]</span></span></p>
@@ -557,8 +595,8 @@ Figure&nbsp;7.3: Projecting the size of the duckweed population three weeks into
 <p>(<strong>Overthinking:</strong> <a href="#eq-Ntproj" class="quarto-xref">Equation&nbsp;<span>7.2</span></a> is derived from the growth equation <a href="#eq-r" class="quarto-xref">Equation&nbsp;<span>7.1</span></a> using integral calculus. It is the integral from 0 to t of <a href="#eq-r" class="quarto-xref">Equation&nbsp;<span>7.1</span></a>.)</p>
 </section>
 </section>
-<section id="methods" class="level2" data-number="7.4">
-<h2 data-number="7.4" class="anchored" data-anchor-id="methods"><span class="header-section-number">7.4</span> Methods</h2>
+<section id="methods" class="level2" data-number="7.5">
+<h2 data-number="7.5" class="anchored" data-anchor-id="methods"><span class="header-section-number">7.5</span> Methods</h2>
 <ol type="1">
 <li>Make sure your working directory is <code>Rwork</code>.</li>
 <li>Load the necessary packages.</li>
@@ -579,8 +617,8 @@ Figure&nbsp;7.3: Projecting the size of the duckweed population three weeks into
 </div>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(patchwork) <span class="co"># to combine ggplot2 figures</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<section id="load-data" class="level3" data-number="7.4.1">
-<h3 data-number="7.4.1" class="anchored" data-anchor-id="load-data"><span class="header-section-number">7.4.1</span> Load data</h3>
+<section id="load-data" class="level3" data-number="7.5.1">
+<h3 data-number="7.5.1" class="anchored" data-anchor-id="load-data"><span class="header-section-number">7.5.1</span> Load data</h3>
 <p>Next, we get the data, if you haven’t already done so.</p>
 <ol type="1">
 <li>Go to our <a href="https://drive.google.com/drive/u/1/folders/1FR2FLiW3xyD4Er52YzVTToPZuXXReGRo" target="_blank">class data repository</a>, and download <code>HumanPopData-2023-01-01.csv</code>. Make sure the file remains in the same simple format, “comma separated values” (.csv).</li>
@@ -631,8 +669,8 @@ Figure&nbsp;7.4: The human population has increased over time. Note the common l
 </div>
 </div>
 </section>
-<section id="sec-byhand" class="level3" data-number="7.4.2">
-<h3 data-number="7.4.2" class="anchored" data-anchor-id="sec-byhand"><span class="header-section-number">7.4.2</span> Simple math: Calculations by hand</h3>
+<section id="sec-byhand" class="level3" data-number="7.5.2">
+<h3 data-number="7.5.2" class="anchored" data-anchor-id="sec-byhand"><span class="header-section-number">7.5.2</span> Simple math: Calculations by hand</h3>
 <p>Doing math and arithmetic by hand is like learning music: you have to do it by hand, even when it feels like copying. This helps it become automatic, which leads to understanding.</p>
 <p>Calculate by hand the instantaneous per capita growth for these intervals:</p>
 <ul>
@@ -733,8 +771,8 @@ Figure&nbsp;7.5: Here I show my work to calculate r for the interval from 100 CE
 </div>
 <p>You can use R as a calculator this way to make your pen and paper work easier.</p>
 </section>
-<section id="programming-use-a-for-loop-to-do-all-the-calculations" class="level3" data-number="7.4.3">
-<h3 data-number="7.4.3" class="anchored" data-anchor-id="programming-use-a-for-loop-to-do-all-the-calculations"><span class="header-section-number">7.4.3</span> Programming: Use a for-loop to do all the calculations</h3>
+<section id="programming-use-a-for-loop-to-do-all-the-calculations" class="level3" data-number="7.5.3">
+<h3 data-number="7.5.3" class="anchored" data-anchor-id="programming-use-a-for-loop-to-do-all-the-calculations"><span class="header-section-number">7.5.3</span> Programming: Use a for-loop to do all the calculations</h3>
 <p>A benefit of programming is that we can create a statement to do all our work for use. A “for-loop” is a programming trick to do a repeated process, for instance, <em>for</em> each row of a dataset.</p>
 <p>Below is code to calculate every value of <span class="math inline">\(r\)</span> in the entire data set, except the last year. We have to exclude the last year because we don’t know how fast the population grew from the last year to the subsequent year.</p>
 <ol type="1">
@@ -799,8 +837,8 @@ Figure&nbsp;7.5: Here I show my work to calculate r for the interval from 100 CE
 </div>
 </section>
 </section>
-<section id="changes-in-human-population-growth-rate" class="level2" data-number="7.5">
-<h2 data-number="7.5" class="anchored" data-anchor-id="changes-in-human-population-growth-rate"><span class="header-section-number">7.5</span> Changes in human population growth rate</h2>
+<section id="changes-in-human-population-growth-rate" class="level2" data-number="7.6">
+<h2 data-number="7.6" class="anchored" data-anchor-id="changes-in-human-population-growth-rate"><span class="header-section-number">7.6</span> Changes in human population growth rate</h2>
 <p>Let’s graph our data to examine how the <em>per capita</em> growth rate of humans changed since the agricultural revolution. I’ll pair them with population size.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="co"># population size, using the first data frame</span></span>
@@ -843,12 +881,12 @@ Figure&nbsp;7.7: In the current era, per capita growth remains mostly positive, 
 </div>
 </div>
 </div>
-<section id="sec-yourinterval" class="level3" data-number="7.5.1">
-<h3 data-number="7.5.1" class="anchored" data-anchor-id="sec-yourinterval"><span class="header-section-number">7.5.1</span> Your own interval</h3>
+<section id="sec-yourinterval" class="level3" data-number="7.6.1">
+<h3 data-number="7.6.1" class="anchored" data-anchor-id="sec-yourinterval"><span class="header-section-number">7.6.1</span> Your own interval</h3>
 <p>Make a graph of per capita growth rate for a time period of your own choosing. Select a time that is different than any other that we have shown here, and make it at least 10 years</p>
 </section>
-<section id="how-does-per-capita-growth-rate-change-with-population-size" class="level3" data-number="7.5.2">
-<h3 data-number="7.5.2" class="anchored" data-anchor-id="how-does-per-capita-growth-rate-change-with-population-size"><span class="header-section-number">7.5.2</span> How does per capita growth rate change with population size?</h3>
+<section id="how-does-per-capita-growth-rate-change-with-population-size" class="level3" data-number="7.6.2">
+<h3 data-number="7.6.2" class="anchored" data-anchor-id="how-does-per-capita-growth-rate-change-with-population-size"><span class="header-section-number">7.6.2</span> How does per capita growth rate change with population size?</h3>
 <p>Large populations differ from small populations in a lot of ways. Large populations might make more waste products and do more damage to their own environment, and they also foster more interactions among individuals that might have positive or negative consequences.</p>
 <p>Let’s make a graph of per capita growth rate as a function of population size.</p>
 <div class="cell">
@@ -867,8 +905,8 @@ Figure&nbsp;7.8: Per capita growth rate vs.&nbsp;population size, since 1 CE aft
 </div>
 </section>
 </section>
-<section id="projecting-into-the-future" class="level2" data-number="7.6">
-<h2 data-number="7.6" class="anchored" data-anchor-id="projecting-into-the-future"><span class="header-section-number">7.6</span> Projecting into the future</h2>
+<section id="projecting-into-the-future" class="level2" data-number="7.7">
+<h2 data-number="7.7" class="anchored" data-anchor-id="projecting-into-the-future"><span class="header-section-number">7.7</span> Projecting into the future</h2>
 <p>Here we use our projection equation from above (<span class="math inline">\(N_t=N_0 e^{rt}\)</span>) to make predictions about the future. Imagine a population of 100 individuals and <span class="math inline">\(r=0.02\)</span> per year, and predict how big that population would become after thirty years. Assume that <span class="math inline">\(r\)</span> is constant over that time period.</p>
 <p><span class="math display">\[\begin{align}
 N_t &amp;= N_0 e^{rt}\\
@@ -876,17 +914,6 @@ N_t &amp;= N_0 e^{rt}\\
 \end{align}\]</span></p>
 <p>When we take this approach, we are assuming that the population <em>continues</em> to grow at this rate over the projected time period. That can be a reasonable assumption over short time periods, but not over long time periods. Of course, “short” and “long” are both relative, and depend heavily of the context.</p>
 <p>What can we learn from (<a href="#fig-rn" class="quarto-xref">Figure&nbsp;<span>7.8</span></a>)? Over what time periods would it seem reasonable to assume that the human population grows at a constant rate?</p>
-</section>
-<section id="deliverables" class="level2" data-number="7.7">
-<h2 data-number="7.7" class="anchored" data-anchor-id="deliverables"><span class="header-section-number">7.7</span> Deliverables</h2>
-<p>Turn in two documents: (i) your R script, and (ii) a .docx or PDF formatted file containing the following:</p>
-<ol type="1">
-<li>Calculate by hand the exponential growth rate (<em>r</em>) for the years listed above in <a href="#sec-byhand" class="quarto-xref"><span>Section 7.4.2</span></a>. Write out the formula, substitute the values to show you know where they belong, and then finish with the arithmetic to find <span class="math inline">\(r\)</span>.</li>
-<li>A graph showing per capita growth rate for a time period of your own choosing, from <a href="#sec-yourinterval" class="quarto-xref"><span>Section 7.5.1</span></a>.</li>
-<li>If the human population continued to grow at the rate you calculated for 2020, how large would the population be in 2050? Calculate this and show your work.</li>
-<li>What assumptions did you make in answering Question 3? Based on results for questions 1 and 2, is it likely that the human population will reach the size that you calculated for 2050? Why or why not? Use <strong>evidence</strong> in the data and the graphs above to justify your explanation.</li>
-<li>How many people were alive when you were born? How many people will there be at the end of your lifetime? Are you going to live through a doubling of the human population? Why or why not?</li>
-</ol>
 
 
 <div id="refs" class="references csl-bib-body hanging-indent" role="list" style="display: none">

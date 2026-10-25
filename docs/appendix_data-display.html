@@ -1,0 +1,1101 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.11.1">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Appendix E — Displaying Data with ggplot2 – Basic Ecological Concepts and Data in R</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./appendix-your-own-interests.html" rel="next">
+<link href="./appendix_public-databases.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-d5b4e69c7e37b49c6591bcc5116dd748.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-14bcb87515fe8119cbeaa577ee4acfcc.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-J0R6F7XN66"></script>
+
+<script type="text/javascript">
+
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-J0R6F7XN66', { 'anonymize_ip': true});
+</script>
+<style>
+h1, h2, h3, h4, h5, h6,
+.title, .quarto-title-block .title, .chapter-title {
+  font-family: serif;
+}
+</style>
+
+
+</head>
+
+<body class="nav-sidebar floating quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./appendix_Community_structure.html">Appendices</a></li><li class="breadcrumb-item"><a href="./appendix_data-display.html"><span class="chapter-number">E</span>&nbsp; <span class="chapter-title">Displaying Data with ggplot2</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">Basic Ecological Concepts and Data in R</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Preface</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./01-thinking.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Thinking about thinking about concepts</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./02-computer-setup.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Computer setup and first R script</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./03-trees_and_people.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Environmental Justice: How income relates to environment.</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./04-global_temp_anomalies_v2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Physical Environment: A Fate of Earth</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./05-traits-physiology.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Traits, Physiology, and the Global Spectrum of Plant Form and Function</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./06-extrapair_copulation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Behavior: Extra-pair copulation in a monogamous species</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./07-DI-pop-growth.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Density-independent Population Growth: Humans on the rise</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./08-structured-pop-growth_v2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Structured demography: How a graduate student helped save the loggerhead sea turtle</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./09-density-dep-pop-growth.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Density-dependence in population growth</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./10-direct-interactions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Direct species interactions: understanding mechanisms of invasion in mosquitoes</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./11-mutualisms.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Mutualisms: Do ants protect pea plants?</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./12-predator-prey.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Of wolves and moose, on Isle Royale</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./13-diversity-forestgeo.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">ForestGEO Community Ecology: Why are there so many tree species, and where?</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./14-diversity-gbif.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">GBIF: Why are there so many species, and where?</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./15-metabolic-ecology_v_2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Metabolic Ecology: How do body size and temperature affect nutrient cycling?</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./16-ecosystem-intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">An Introduction to the Carbon Cycle and Global Heating</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./17-funding-science.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Funding Ecological and Environmental Science: Following the Money</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./references.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">References</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Appendices</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./appendix_Community_structure.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Community Structure With Data From Whittaker (1956)</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./appendix_A_career-skills-crosswalk.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">From This Book to Your Résumé: A Skills Crosswalk</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./appendix_AI-v4.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">C</span>&nbsp; <span class="chapter-title">The Changing Landscape of Skills in Ecology</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./appendix_public-databases.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">D</span>&nbsp; <span class="chapter-title">Accessing Public Ecological Databases</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./appendix_data-display.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">E</span>&nbsp; <span class="chapter-title">Displaying Data with ggplot2</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./appendix-your-own-interests.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">F</span>&nbsp; <span class="chapter-title">Your Own Interests: Telling a short story with data</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#goals" id="toc-goals" class="nav-link active" data-scroll-target="#goals"><span class="header-section-number">E.1</span> Goals</a></li>
+  <li><a href="#rules-of-thumb" id="toc-rules-of-thumb" class="nav-link" data-scroll-target="#rules-of-thumb"><span class="header-section-number">E.2</span> Rules of thumb</a></li>
+  <li><a href="#which-plot" id="toc-which-plot" class="nav-link" data-scroll-target="#which-plot"><span class="header-section-number">E.3</span> Which plot?</a></li>
+  <li><a href="#the-ggplot2-template" id="toc-the-ggplot2-template" class="nav-link" data-scroll-target="#the-ggplot2-template"><span class="header-section-number">E.4</span> The ggplot2 template</a></li>
+  <li><a href="#recipes" id="toc-recipes" class="nav-link" data-scroll-target="#recipes"><span class="header-section-number">E.5</span> Recipes</a>
+  <ul class="collapse">
+  <li><a href="#continuous-x-and-y-with-groups" id="toc-continuous-x-and-y-with-groups" class="nav-link" data-scroll-target="#continuous-x-and-y-with-groups"><span class="header-section-number">E.5.1</span> Continuous x and y, with groups</a></li>
+  <li><a href="#small-multiples-facet_wrap-and-facet_grid" id="toc-small-multiples-facet_wrap-and-facet_grid" class="nav-link" data-scroll-target="#small-multiples-facet_wrap-and-facet_grid"><span class="header-section-number">E.5.2</span> Small multiples: <code>facet_wrap()</code> and <code>facet_grid()</code></a></li>
+  <li><a href="#categorical-x-continuous-y" id="toc-categorical-x-continuous-y" class="nav-link" data-scroll-target="#categorical-x-continuous-y"><span class="header-section-number">E.5.3</span> Categorical x, continuous y</a></li>
+  <li><a href="#reordering-categories" id="toc-reordering-categories" class="nav-link" data-scroll-target="#reordering-categories"><span class="header-section-number">E.5.4</span> Reordering categories</a></li>
+  <li><a href="#one-distribution" id="toc-one-distribution" class="nav-link" data-scroll-target="#one-distribution"><span class="header-section-number">E.5.5</span> One distribution</a></li>
+  <li><a href="#log-scales" id="toc-log-scales" class="nav-link" data-scroll-target="#log-scales"><span class="header-section-number">E.5.6</span> Log scales</a></li>
+  </ul></li>
+  <li><a href="#polish" id="toc-polish" class="nav-link" data-scroll-target="#polish"><span class="header-section-number">E.6</span> Polish</a></li>
+  <li><a href="#saving-figures" id="toc-saving-figures" class="nav-link" data-scroll-target="#saving-figures"><span class="header-section-number">E.7</span> Saving figures</a></li>
+  <li><a href="#checklist-before-you-hand-it-in" id="toc-checklist-before-you-hand-it-in" class="nav-link" data-scroll-target="#checklist-before-you-hand-it-in"><span class="header-section-number">E.8</span> Checklist before you hand it in</a></li>
+  <li><a href="#where-to-look-next" id="toc-where-to-look-next" class="nav-link" data-scroll-target="#where-to-look-next"><span class="header-section-number">E.9</span> Where to look next</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./appendix_Community_structure.html">Appendices</a></li><li class="breadcrumb-item"><a href="./appendix_data-display.html"><span class="chapter-number">E</span>&nbsp; <span class="chapter-title">Displaying Data with ggplot2</span></a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title">Appendix E — Displaying Data with ggplot2</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p><em>…in which we keep a short list of habits and recipes for making figures that are easy to read and honest about the data.</em></p>
+<section id="goals" class="level2" data-number="E.1">
+<h2 data-number="E.1" class="anchored" data-anchor-id="goals"><span class="header-section-number">E.1</span> Goals</h2>
+<p>In this appendix, you will</p>
+<ul>
+<li>Use a handful of rules of thumb that fix most problems in student figures.</li>
+<li>Pick a sensible plot type from the kinds of variables you have.</li>
+<li>Copy and adapt a small set of <code>ggplot2</code> recipes for the plots you will make most often.</li>
+<li>Run through a checklist before you hand in or present any figure.</li>
+</ul>
+<p>All examples use <code>CO2</code>, a data set that comes with R: CO<sub>2</sub> uptake by the grass <em>Echinochloa crus-galli</em> from two origins (Quebec, Mississippi), chilled or not, across a range of ambient CO<sub>2</sub> concentrations. Type <code>?CO2</code> to read about it.</p>
+</section>
+<section id="rules-of-thumb" class="level2" data-number="E.2">
+<h2 data-number="E.2" class="anchored" data-anchor-id="rules-of-thumb"><span class="header-section-number">E.2</span> Rules of thumb</h2>
+<ol type="1">
+<li><strong>Show the data.</strong> If you can plot the raw observations, do. Add means, lines, or boxes <em>on top of</em> the points, not instead of them.</li>
+<li><strong>Put the response on the y-axis</strong> and the variable you think drives it on the x-axis.</li>
+<li><strong>Label every axis with the variable and its units</strong>, e.g., “CO2 uptake (umol m^-2 s^-1)”, never <code>uptake</code>.</li>
+<li><strong>Use color, shape, or panels only to show a variable.</strong> If color does not mean something, leave it out.</li>
+<li><strong>Use colorblind-safe colors</strong> (e.g., <code>scale_color_viridis_d()</code>), and do not rely on red vs.&nbsp;green.</li>
+<li><strong>Order categories meaningfully</strong> (by treatment logic, or by the size of the response), not alphabetically by default.</li>
+<li><strong>Avoid</strong> 3-D effects, pie charts, two different y-axes on one plot, and bar charts of means with no data shown.</li>
+<li><strong>Make text big enough to read</strong> from the back of a room: <code>theme_bw(base_size = 14)</code> or larger for slides.</li>
+</ol>
+</section>
+<section id="which-plot" class="level2" data-number="E.3">
+<h2 data-number="E.3" class="anchored" data-anchor-id="which-plot"><span class="header-section-number">E.3</span> Which plot?</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>x variable</th>
+<th>y variable</th>
+<th>Start with</th>
+<th>ggplot2 geoms</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>none</td>
+<td>one continuous</td>
+<td>histogram or density</td>
+<td><code>geom_histogram()</code>, <code>geom_density()</code></td>
+</tr>
+<tr class="even">
+<td>categorical</td>
+<td>continuous</td>
+<td>points + box or mean</td>
+<td><code>geom_jitter()</code>, <code>geom_boxplot()</code>, <code>stat_summary()</code></td>
+</tr>
+<tr class="odd">
+<td>continuous</td>
+<td>continuous</td>
+<td>scatterplot</td>
+<td><code>geom_point()</code>, <code>geom_smooth()</code></td>
+</tr>
+<tr class="even">
+<td>time</td>
+<td>continuous</td>
+<td>line + points</td>
+<td><code>geom_line()</code>, <code>geom_point()</code></td>
+</tr>
+<tr class="odd">
+<td>categorical</td>
+<td>counts</td>
+<td>bar chart</td>
+<td><code>geom_bar()</code> (counts), <code>geom_col()</code> (values you supply)</td>
+</tr>
+</tbody>
+</table>
+<p>A third variable goes to <code>color =</code>, <code>shape =</code>, or <code>facet_wrap()</code>.</p>
+</section>
+<section id="the-ggplot2-template" class="level2" data-number="E.4">
+<h2 data-number="E.4" class="anchored" data-anchor-id="the-ggplot2-template"><span class="header-section-number">E.4</span> The ggplot2 template</h2>
+<p>Every plot has the same three parts: the <strong>data</strong>, the <strong>aesthetic mapping</strong> (<code>aes()</code>, which says which column goes to which axis or color), and one or more <strong>geoms</strong> (the marks drawn). Everything else is optional polish.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> CO2, <span class="fu">aes</span>(<span class="at">x =</span> conc, <span class="at">y =</span> uptake)) <span class="sc">+</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div id="fig-dd-template" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-dd-template-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="appendix_data-display_files/figure-html/fig-dd-template-1.png" class="img-fluid figure-img" width="672">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-dd-template-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;E.1: The minimal ggplot: data, mapping, geom.
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>Remember that <code>aes()</code> is for things that come <em>from a column</em>. A fixed setting goes outside it: <code>geom_point(color = "blue")</code>, not <code>geom_point(aes(color = "blue"))</code>.</p>
+</section>
+<section id="recipes" class="level2" data-number="E.5">
+<h2 data-number="E.5" class="anchored" data-anchor-id="recipes"><span class="header-section-number">E.5</span> Recipes</h2>
+<section id="continuous-x-and-y-with-groups" class="level3" data-number="E.5.1">
+<h3 data-number="E.5.1" class="anchored" data-anchor-id="continuous-x-and-y-with-groups"><span class="header-section-number">E.5.1</span> Continuous x and y, with groups</h3>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(CO2, <span class="fu">aes</span>(<span class="at">x =</span> conc, <span class="at">y =</span> uptake, <span class="at">color =</span> Treatment)) <span class="sc">+</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.7</span>) <span class="sc">+</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">se =</span> <span class="cn">FALSE</span>, <span class="at">method =</span> <span class="st">"loess"</span>, <span class="at">formula =</span> y <span class="sc">~</span> x) <span class="sc">+</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span> Type) <span class="sc">+</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_viridis_d</span>(<span class="at">end =</span> <span class="fl">0.8</span>) <span class="sc">+</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Ambient CO2 (mL/L)"</span>,</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="fu">expression</span>(CO[<span class="dv">2</span>]<span class="sc">~</span>uptake<span class="sc">~</span>(mu<span class="sc">*</span>mol<span class="sc">~</span>m<span class="sc">^-</span><span class="dv">2</span><span class="sc">~</span>s<span class="sc">^-</span><span class="dv">1</span>)),</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>       <span class="at">color =</span> <span class="cn">NULL</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div id="fig-dd-scatter" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-dd-scatter-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="appendix_data-display_files/figure-html/fig-dd-scatter-1.png" class="img-fluid figure-img" width="672">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-dd-scatter-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;E.2: Points for the data, a smoother for the trend, color for a grouping variable, and panels for a second one.
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<ul>
+<li><code>alpha</code> makes overlapping points visible.</li>
+<li><code>geom_smooth(method = "lm")</code> gives a straight line instead of a curve.</li>
+<li><code>facet_wrap(~ Type)</code> splits the plot into panels that share axes, which is usually easier to compare than many colors on one panel.</li>
+</ul>
+</section>
+<section id="small-multiples-facet_wrap-and-facet_grid" class="level3" data-number="E.5.2">
+<h3 data-number="E.5.2" class="anchored" data-anchor-id="small-multiples-facet_wrap-and-facet_grid"><span class="header-section-number">E.5.2</span> Small multiples: <code>facet_wrap()</code> and <code>facet_grid()</code></h3>
+<p>Panels (“small multiples”) are often clearer than piling many colors onto one plot. Each panel uses the same axes, so the eye compares shapes rather than decoding a legend.</p>
+<p><code>facet_wrap()</code> takes <strong>one</strong> grouping variable and wraps its panels into rows and columns. Here each of the 12 plants gets its own panel:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(CO2, <span class="fu">aes</span>(<span class="at">x =</span> conc, <span class="at">y =</span> uptake)) <span class="sc">+</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>() <span class="sc">+</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span> Plant, <span class="at">ncol =</span> <span class="dv">4</span>) <span class="sc">+</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Ambient CO2 (mL/L)"</span>, <span class="at">y =</span> <span class="st">"CO2 uptake (umol m^-2 s^-1)"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div id="fig-dd-wrap" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-dd-wrap-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="appendix_data-display_files/figure-html/fig-dd-wrap-1.png" class="img-fluid figure-img" width="672">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-dd-wrap-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;E.3: facet_wrap(): one panel per plant, arranged in 4 columns.
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p><code>facet_grid()</code> crosses <strong>two</strong> grouping variables: rows by one, columns by the other. This is the natural layout for a two-factor experiment:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(CO2, <span class="fu">aes</span>(<span class="at">x =</span> conc, <span class="at">y =</span> uptake, <span class="at">group =</span> Plant)) <span class="sc">+</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">color =</span> <span class="st">"grey40"</span>) <span class="sc">+</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_grid</span>(Type <span class="sc">~</span> Treatment) <span class="sc">+</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Ambient CO2 (mL/L)"</span>, <span class="at">y =</span> <span class="st">"CO2 uptake (umol m^-2 s^-1)"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div id="fig-dd-grid" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-dd-grid-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="appendix_data-display_files/figure-html/fig-dd-grid-1.png" class="img-fluid figure-img" width="672">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-dd-grid-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;E.4: facet_grid(): rows are plant origin, columns are treatment. Each line is one plant.
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<ul>
+<li>Read <code>facet_grid(rows ~ cols)</code> as “rows by <code>Type</code>, columns by <code>Treatment</code>.” Use <code>. ~ Treatment</code> (or <code>cols = vars(Treatment)</code>) for columns only.</li>
+<li><code>group = Plant</code> tells <code>geom_line()</code> to draw one line per plant instead of zig-zagging through every point in a panel.</li>
+<li>Panels share axes by default, which is usually what you want for comparison. Use <code>scales = "free_y"</code> only when the groups differ so much in size that shared axes hide the pattern, and say so in the caption.</li>
+<li>If panel labels are cryptic codes, fix the factor levels in the data (or use <code>labeller = label_both</code> to show “Type: Quebec”) rather than explaining them in the caption.</li>
+</ul>
+</section>
+<section id="categorical-x-continuous-y" class="level3" data-number="E.5.3">
+<h3 data-number="E.5.3" class="anchored" data-anchor-id="categorical-x-continuous-y"><span class="header-section-number">E.5.3</span> Categorical x, continuous y</h3>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>co2_high <span class="ot">&lt;-</span> <span class="fu">subset</span>(CO2, conc <span class="sc">==</span> <span class="dv">1000</span>)  <span class="co"># one measurement per plant</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(co2_high, <span class="fu">aes</span>(<span class="at">x =</span> Treatment, <span class="at">y =</span> uptake)) <span class="sc">+</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_jitter</span>(<span class="at">width =</span> <span class="fl">0.1</span>, <span class="at">height =</span> <span class="dv">0</span>, <span class="at">alpha =</span> <span class="fl">0.4</span>) <span class="sc">+</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stat_summary</span>(<span class="at">fun.data =</span> mean_se, <span class="at">color =</span> <span class="st">"red"</span>, <span class="at">size =</span> <span class="fl">0.8</span>) <span class="sc">+</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span> Type) <span class="sc">+</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="cn">NULL</span>, <span class="at">y =</span> <span class="st">"CO2 uptake (umol m^-2 s^-1)"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div id="fig-dd-groups" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-dd-groups-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="appendix_data-display_files/figure-html/fig-dd-groups-1.png" class="img-fluid figure-img" width="672">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-dd-groups-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;E.5: Uptake at the highest CO2 concentration (1000 mL/L). Raw data (jittered points, one per plant, n = 3 per group) with the group mean +/- 1 SE drawn on top.
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<ul>
+<li><code>geom_jitter(width = 0.1, height = 0)</code> spreads points sideways only a little, so they stay with their group, and never moves them up or down (which would change their y values).</li>
+<li>Swap <code>stat_summary()</code> for <code>geom_boxplot(outlier.shape = NA)</code> to show medians and quartiles instead. (<code>outlier.shape = NA</code> stops outliers being drawn twice, since the jitter already shows them.)</li>
+<li>Say in the caption what the error bars are (SE, SD, or 95% CI). Readers cannot tell otherwise.</li>
+<li>Make sure each point is an independent replicate before computing an SE. Each plant in <code>CO2</code> was measured at seven concentrations, so we kept one concentration; pooling all of them would treat 21 repeated measurements on 3 plants as 21 replicates.</li>
+</ul>
+</section>
+<section id="reordering-categories" class="level3" data-number="E.5.4">
+<h3 data-number="E.5.4" class="anchored" data-anchor-id="reordering-categories"><span class="header-section-number">E.5.4</span> Reordering categories</h3>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(CO2, <span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">reorder</span>(Plant, uptake, <span class="at">FUN =</span> median), <span class="at">y =</span> uptake)) <span class="sc">+</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>() <span class="sc">+</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Plant"</span>, <span class="at">y =</span> <span class="st">"CO2 uptake (umol m^-2 s^-1)"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div id="fig-dd-reorder" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-dd-reorder-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="appendix_data-display_files/figure-html/fig-dd-reorder-1.png" class="img-fluid figure-img" width="672">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-dd-reorder-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;E.6: Plants ordered by median uptake rather than alphabetically.
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>To set an order by hand, change the factor before plotting, e.g., <code>factor(x, levels = c("low", "medium", "high"))</code>.</p>
+</section>
+<section id="one-distribution" class="level3" data-number="E.5.5">
+<h3 data-number="E.5.5" class="anchored" data-anchor-id="one-distribution"><span class="header-section-number">E.5.5</span> One distribution</h3>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(CO2, <span class="fu">aes</span>(<span class="at">x =</span> uptake)) <span class="sc">+</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> <span class="fl">2.5</span>, <span class="at">fill =</span> <span class="st">"grey70"</span>, <span class="at">color =</span> <span class="st">"black"</span>) <span class="sc">+</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"CO2 uptake (umol m^-2 s^-1)"</span>, <span class="at">y =</span> <span class="st">"Number of measurements"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div id="fig-dd-hist" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-dd-hist-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="appendix_data-display_files/figure-html/fig-dd-hist-1.png" class="img-fluid figure-img" width="672">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-dd-hist-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;E.7: A histogram. Try several binwidths; the default is rarely the best.
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="log-scales" class="level3" data-number="E.5.6">
+<h3 data-number="E.5.6" class="anchored" data-anchor-id="log-scales"><span class="header-section-number">E.5.6</span> Log scales</h3>
+<p>Many ecological variables (body size, abundance, area) span orders of magnitude. Log the <em>axis</em>, not the column, so the tick labels stay in original units:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(df, <span class="fu">aes</span>(<span class="at">x =</span> body_mass, <span class="at">y =</span> metabolic_rate)) <span class="sc">+</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_log10</span>() <span class="sc">+</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_log10</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+</section>
+<section id="polish" class="level2" data-number="E.6">
+<h2 data-number="E.6" class="anchored" data-anchor-id="polish"><span class="header-section-number">E.6</span> Polish</h2>
+<ul>
+<li><strong>Titles and labels:</strong> <code>labs(x = , y = , color = , title = )</code>. In a report or this book, put the explanation in the figure caption and usually skip <code>title</code>.</li>
+<li><strong>Theme:</strong> set once at the top of a script with <code>theme_set(theme_bw(base_size = 13))</code>. <code>theme_classic()</code> and <code>theme_minimal()</code> are also clean.</li>
+<li><strong>Legend:</strong> move it with <code>theme(legend.position = "bottom")</code>; remove it with <code>"none"</code> when the facet labels or a caption already say what the colors mean.</li>
+<li><strong>Subscripts, superscripts, Greek letters:</strong> use <code>expression()</code>, as in the scatterplot above: <code>CO[2]</code> is a subscript, <code>m^-2</code> a superscript, <code>mu</code> gives a Greek mu, <code>~</code> is a space, and <code>*</code> joins without a space.</li>
+<li><strong>Plain text in plots:</strong> type <code>umol</code>, <code>~</code>, and <code>+/-</code> rather than pasting special symbols such as degree signs or a micro sign into labels. Pasted symbols can silently disappear when a figure is saved to PDF; <code>expression()</code> draws them safely.</li>
+</ul>
+</section>
+<section id="saving-figures" class="level2" data-number="E.7">
+<h2 data-number="E.7" class="anchored" data-anchor-id="saving-figures"><span class="header-section-number">E.7</span> Saving figures</h2>
+<p>Save with <code>ggsave()</code> into your <code>figs/</code> folder, and set the size yourself so the text comes out the size you intended:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>p <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(CO2, <span class="fu">aes</span>(<span class="at">x =</span> conc, <span class="at">y =</span> uptake)) <span class="sc">+</span> <span class="fu">geom_point</span>()</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="st">"figs/co2_uptake.png"</span>, <span class="at">plot =</span> p, <span class="at">width =</span> <span class="dv">6</span>, <span class="at">height =</span> <span class="dv">4</span>, <span class="at">dpi =</span> <span class="dv">300</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<ul>
+<li>Width and height are in inches by default. A figure that fills half a page is about 6 x 4.</li>
+<li>Use <code>.png</code> for slides and documents, <code>.pdf</code> when a journal or your instructor asks for vector graphics.</li>
+<li>If text looks too small in the saved file, increase <code>base_size</code> in the theme; do not just make the image bigger.</li>
+</ul>
+</section>
+<section id="checklist-before-you-hand-it-in" class="level2" data-number="E.8">
+<h2 data-number="E.8" class="anchored" data-anchor-id="checklist-before-you-hand-it-in"><span class="header-section-number">E.8</span> Checklist before you hand it in</h2>
+<ul class="task-list">
+<li><label><input type="checkbox">Can someone tell what each axis is, and in what units, without reading your text?</label></li>
+<li><label><input type="checkbox">Are the raw data visible, or is there a good reason they are not?</label></li>
+<li><label><input type="checkbox">Does every color, shape, and panel stand for a variable, and is that explained in the legend or caption?</label></li>
+<li><label><input type="checkbox">Are categories in a sensible order?</label></li>
+<li><label><input type="checkbox">Does the caption say what the error bars or lines are and what the sample size is?</label></li>
+<li><label><input type="checkbox">Is the text readable at the size the figure will actually be shown?</label></li>
+<li><label><input type="checkbox">Would the figure still work in grayscale or for a colorblind reader?</label></li>
+</ul>
+</section>
+<section id="where-to-look-next" class="level2" data-number="E.9">
+<h2 data-number="E.9" class="anchored" data-anchor-id="where-to-look-next"><span class="header-section-number">E.9</span> Where to look next</h2>
+<ul>
+<li><em>R for Data Science</em> (2e), chapters on data visualization and communication: <a href="https://r4ds.hadley.nz" class="uri">https://r4ds.hadley.nz</a></li>
+<li>The <code>ggplot2</code> reference pages, with an example for every function: <a href="https://ggplot2.tidyverse.org/reference/" class="uri">https://ggplot2.tidyverse.org/reference/</a></li>
+<li>The Posit <code>ggplot2</code> cheat sheet (search “ggplot2 cheat sheet”).</li>
+</ul>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./appendix_public-databases.html" class="pagination-link" aria-label="Accessing Public Ecological Databases">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">D</span>&nbsp; <span class="chapter-title">Accessing Public Ecological Databases</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./appendix-your-own-interests.html" class="pagination-link" aria-label="Your Own Interests: Telling a short story with data">
+        <span class="nav-page-text"><span class="chapter-number">F</span>&nbsp; <span class="chapter-title">Your Own Interests: Telling a short story with data</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

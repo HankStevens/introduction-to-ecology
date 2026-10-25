@@ -3,11 +3,30 @@ title: "Behavior: Extra-pair copulation in a monogamous species"
 ---
 ![Voles are small hamster-like rodents that live in grasslands and fields.](figs/voles1.png){#fig-voles width=50%}
 
+::: {.callout-tip}
+## Before you start
+
+* **Assumptions about background and guidance:** your `Rwork` project set up as in [Computer setup](02-computer-setup.qmd), and that you can read a .csv file into R. We build graphs in `ggplot()` step by step here, so no prior plotting experience is assumed. The evolution and behavior background comes from this chapter and the introduction of Keane et al. (2024). For more plotting habits and recipes, see [Displaying data with ggplot2](appendix_data-display.qmd).
+:::
+
 ## Goals
 In this chapter, you will
 
 * Develop and use your understanding of evolution, behavior, and prairie voles to make predictions about determinants of extra-pair copulation in a monogamous species.
 * Enhance your quantitative reasoning and data analytic skills.
+
+## Deliverables
+
+Create one document (presentation slide or other document) that,
+
+* places the hand-drawn graph of your predictions side by side with the graph of the observed data,
+* includes a succinct *explanation* of 
+   i. basis of your original prediction; explain why voles would behave the way you predicted they would. Do not rely on your intuition. Instead, use your knowledge of evolutionary biology, behavior, and voles in your explanation, and
+   ii. your observed result.
+* includes a *headline*, that is, a title that provides your result or takeaway message, such as "Living in small groups enhances monogamy".
+
+
+Turn this in to the assignment on Canvas.  (*Previous versions asked to submit this to a Google Slide deck, but we will no longer do that.*)
 
 ## Preparatory Steps
 
@@ -102,7 +121,7 @@ You consider what you learned in your readings, and come up with a question or h
 1. Data: Write R code to create a graph that mimicks your prediction, but uses the actual data you download. 
 1. Evaluation: Figure out what the graph tells you about the answer to your question. In what ways are your results consistent with your prediction or not? Rely on your understanding of evolution, behavior, and prairie voles to interpret your result.
 
-Put all of the above (hypothesis, hand-drawn prediction, R figure of data, data-based evalution) in a document, and turn it in online. See **Deliverables** at the end of this chapter.
+Put all of the above (hypothesis, hand-drawn prediction, R figure of data, data-based evalution) in a document, and turn it in online. See **Deliverables**, near the start of this chapter.
 
 ### Write your own script
 To create the graph, you will write your own script. Start as usual, by finding out what your current working directory. Make sure it is `Rwork`. The read in your data and look at the variables. Then create the graph you want. 
@@ -150,7 +169,6 @@ str(d209)
 Now we see that extra-pair copulation is coded as a number, just 0 or 1. 
 
 See below for an example of graphing zeros and ones on the y-axis, and a continuous variable on the x-axis, where we describe the probability that a car model has front wheel drive (y-axis), based its city gas mileage.
-
 
 
 ## Graphing in `ggplot()`
@@ -231,18 +249,4 @@ ggplot(mpg2, aes(cty, prob.front.wheel.drive)) +
               method.args = list(family = "binomial"))
 ```
 
-
-
-## Deliverables
-
-Create one document (presentation slide or other document) that,
-
-* places the hand-drawn graph of your predictions side by side with the graph of the observed data,
-* includes a succinct *explanation* of 
-   i. basis of your original prediction; explain why voles would behave the way you predicted they would. Do not rely on your intuition. Instead, use your knowledge of evolutionary biology, behavior, and voles in your explanation, and
-   ii. your observed result.
-* includes a *headline*, that is, a title that provides your result or takeaway message, such as "Living in small groups enhances monogamy".
-
-
-Turn this in to the assignment on Canvas.  (*Previous versions asked to submit this to a Google Slide deck, but we will no longer do that.*)
 

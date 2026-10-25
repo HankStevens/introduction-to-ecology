@@ -6,6 +6,12 @@ title: "Density-independent Population Growth: Humans on the rise"
 
 Reproduction helps define what we call "life", and leads to exponential growth. This chapter introduces this concept and how we quantify it.
 
+::: {.callout-tip}
+## Before you start
+
+* **Assumptions about background and guidance:** your `Rwork` project and the ability to read a .csv file into R ([Computer setup](02-computer-setup.qmd)), and algebra with exponents and natural logarithms ($e$ and $\ln$). If logarithms are rusty, read [Using logarithms](15-metabolic-ecology_v_2.qmd#using-logarithms) in the metabolic ecology chapter first. The for-loop is introduced here, so no programming beyond your first script is assumed.
+:::
+
 ## Goals
 
 In this chapter, you will
@@ -18,11 +24,21 @@ In this chapter, you will
 
 **In this chapter**, we’ll use these techniques and data from [*Our World in Data*](http://ourworldindata.org){target="_blank"} to describe mathematically the growth rate of the world’s human population at different points in time over the last 10,000 years.
 
+## Deliverables
+
+Turn in two documents: (i) your R script, and (ii) a .docx or PDF formatted file containing the following:
+
+1. Calculate by hand the exponential growth rate (*r*) for the years listed in @sec-byhand. Write out the formula, substitute the values to show you know where they belong, and then finish with the arithmetic to find $r$.
+1. A graph showing per capita growth rate for a time period of your own choosing, from @sec-yourinterval.
+1. If the human population continued to grow at the rate you calculated for 2020, how large would the population be in 2050? Calculate this and show your work.
+1. What assumptions did you make in answering Question 3? Based on results for questions 1 and 2, is it likely that the human population will reach the size that you calculated for 2050? Why or why not? Use **evidence** in the data and the graphs above to justify your explanation.
+1. How many people were alive when you were born? How many people will there be at the end of your lifetime? Are you going to live through a doubling of the human population? Why or why not?
+
 ## Preparatory Steps
 
 * Read Cohen (1995) in Perusall through our Canvas site. It is also available in our class archive: [Cohen (1995)](https://drive.google.com/drive/folders/1opLlrmF7kfo0FtWwwJ1CbfPWIyuaISC1?usp=sharing)
 1. Go to our [class data repository](https://drive.google.com/drive/u/1/folders/1FR2FLiW3xyD4Er52YzVTToPZuXXReGRo){target="_blank"}, and download `HumanPopData-2023-0101.csv`. Make sure the file remains in the same simple format, "comma separated values" (.csv).
-* If you are curious, check Deliverables, at the end.
+* If you are curious, check Deliverables, above.
 
 
 ## Background
@@ -54,7 +70,6 @@ Even when populations don't grow exponentially, we often describe population gro
 * approximations of more complicated dynamics often simplify to exponential growth under reasonable assumptions,
 * over short periods of time, deviations to exponential growth still result in patterns that are very similar to exponential growth, and
 * we typically don't know precisely what mechanisms limit exponential growth or by how much, and therefore exponential growth is as good a mathematical description as any.
-
 
 
 ### Population growth of *Homo sapiens*: a case study
@@ -125,7 +140,6 @@ where the parameter $r$ is the per capita instantaneous rate of increase, and $t
 Imagine we have a population of the small floating plant duckweed (*Lemna minor*), that can double in about two weeks . In that case, $r = 0.35$ new lemna per old lemna per week. Pretend we start with a population of 100 lemna individuals ($N_0 = 100$). How many lemna should we have in three weeks? Show your work (e.g., @fig-project).
 
 ![Projecting the size of the duckweed population three weeks into the future.](figs/projection_calc.png){#fig-project}
-
 
 
 :::{.callout-tip}
@@ -382,16 +396,6 @@ When we take this approach, we are  assuming that the population *continues* to 
 
 What can we learn from (@fig-rn)? Over what time periods would it seem  reasonable to assume that the human population grows at a constant rate? 
 
-
-## Deliverables
-
-Turn in two documents: (i) your R script, and (ii) a .docx or PDF formatted file containing the following:
-
-1. Calculate by hand the exponential growth rate (*r*) for the years listed above in @sec-byhand. Write out the formula, substitute the values to show you know where they belong, and then finish with the arithmetic to find $r$.
-1. A graph showing per capita growth rate for a time period of your own choosing, from @sec-yourinterval.
-1. If the human population continued to grow at the rate you calculated for 2020, how large would the population be in 2050? Calculate this and show your work.
-1. What assumptions did you make in answering Question 3? Based on results for questions 1 and 2, is it likely that the human population will reach the size that you calculated for 2050? Why or why not? Use **evidence** in the data and the graphs above to justify your explanation.
-1. How many people were alive when you were born? How many people will there be at the end of your lifetime? Are you going to live through a doubling of the human population? Why or why not?
 
 ```{r}
 #| label: answersDIgrowth

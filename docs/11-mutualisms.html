@@ -329,6 +329,18 @@ h1, h2, h3, h4, h5, h6,
  <span class="menu-text"><span class="chapter-number">D</span>&nbsp; <span class="chapter-title">Accessing Public Ecological Databases</span></span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./appendix_data-display.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">E</span>&nbsp; <span class="chapter-title">Displaying Data with ggplot2</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./appendix-your-own-interests.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">F</span>&nbsp; <span class="chapter-title">Your Own Interests: Telling a short story with data</span></span></a>
+  </div>
+</li>
       </ul>
   </li>
     </ul>
@@ -342,15 +354,19 @@ h1, h2, h3, h4, h5, h6,
    
   <ul>
   <li><a href="#goals" id="toc-goals" class="nav-link active" data-scroll-target="#goals"><span class="header-section-number">11.1</span> Goals</a></li>
-  <li><a href="#preparatory-steps" id="toc-preparatory-steps" class="nav-link" data-scroll-target="#preparatory-steps"><span class="header-section-number">11.2</span> Preparatory steps</a></li>
-  <li><a href="#background-on-partridge-pea-and-friends" id="toc-background-on-partridge-pea-and-friends" class="nav-link" data-scroll-target="#background-on-partridge-pea-and-friends"><span class="header-section-number">11.3</span> Background on partridge pea and friends</a></li>
-  <li><a href="#your-hypothesis-and-predictions" id="toc-your-hypothesis-and-predictions" class="nav-link" data-scroll-target="#your-hypothesis-and-predictions"><span class="header-section-number">11.4</span> Your hypothesis and predictions</a></li>
-  <li><a href="#data-analysis" id="toc-data-analysis" class="nav-link" data-scroll-target="#data-analysis"><span class="header-section-number">11.5</span> Data analysis</a>
+  <li><a href="#deliverables" id="toc-deliverables" class="nav-link" data-scroll-target="#deliverables"><span class="header-section-number">11.2</span> Deliverables</a></li>
+  <li><a href="#preparatory-steps" id="toc-preparatory-steps" class="nav-link" data-scroll-target="#preparatory-steps"><span class="header-section-number">11.3</span> Preparatory steps</a></li>
+  <li><a href="#background-on-partridge-pea-and-friends" id="toc-background-on-partridge-pea-and-friends" class="nav-link" data-scroll-target="#background-on-partridge-pea-and-friends"><span class="header-section-number">11.4</span> Background on partridge pea and friends</a></li>
+  <li><a href="#your-hypothesis-and-predictions" id="toc-your-hypothesis-and-predictions" class="nav-link" data-scroll-target="#your-hypothesis-and-predictions"><span class="header-section-number">11.5</span> Your hypothesis and predictions</a>
   <ul class="collapse">
-  <li><a href="#the-data" id="toc-the-data" class="nav-link" data-scroll-target="#the-data"><span class="header-section-number">11.5.1</span> The data</a></li>
+  <li><a href="#your-predictions" id="toc-your-predictions" class="nav-link" data-scroll-target="#your-predictions"><span class="header-section-number">11.5.1</span> Your predictions</a></li>
   </ul></li>
-  <li><a href="#display-the-data-to-evaluate-your-predictions" id="toc-display-the-data-to-evaluate-your-predictions" class="nav-link" data-scroll-target="#display-the-data-to-evaluate-your-predictions"><span class="header-section-number">11.6</span> Display the data to evaluate your predictions</a></li>
-  <li><a href="#deliverables" id="toc-deliverables" class="nav-link" data-scroll-target="#deliverables"><span class="header-section-number">11.7</span> Deliverables</a></li>
+  <li><a href="#data-analysis" id="toc-data-analysis" class="nav-link" data-scroll-target="#data-analysis"><span class="header-section-number">11.6</span> Data analysis</a>
+  <ul class="collapse">
+  <li><a href="#set-up-your-r-session" id="toc-set-up-your-r-session" class="nav-link" data-scroll-target="#set-up-your-r-session"><span class="header-section-number">11.6.1</span> Set up your R session</a></li>
+  <li><a href="#the-data" id="toc-the-data" class="nav-link" data-scroll-target="#the-data"><span class="header-section-number">11.6.2</span> The data</a></li>
+  </ul></li>
+  <li><a href="#display-the-data-to-evaluate-your-predictions" id="toc-display-the-data-to-evaluate-your-predictions" class="nav-link" data-scroll-target="#display-the-data-to-evaluate-your-predictions"><span class="header-section-number">11.7</span> Display the data to evaluate your predictions</a></li>
   </ul>
 </nav>
     </div>
@@ -382,131 +398,262 @@ h1, h2, h3, h4, h5, h6,
 <img src="figs/ChamWmap.png" class="img-fluid figure-img" style="width:75.0%">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-chamae1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;11.1: Partridge pea (<em>Chamaecrista fasicultata</em>) is a cute little annual plant that is somewhat common throughout much of the eastern Uniterd States. It prefers recently disturbed habitats, such as following a fire. Credits: Wikipedia, USDA PLANTS Database
+Figure&nbsp;11.1: Partridge pea (<em>Chamaecrista fasciculata</em>) is a cute little annual plant that is somewhat common throughout much of the eastern United States. It prefers recently disturbed habitats, such as sites following a fire. Credits: Wikipedia, USDA PLANTS Database.
 </figcaption>
 </figure>
 </div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Before you start
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li><strong>Time:</strong> about 3 hours (30 min preparation, 45 min hypothesis and predictions, 1–1.5 h analysis and writing).</li>
+<li><strong>Assumptions about background and guidance:</strong> your <code>Rwork</code> project set up as in <a href="./02-computer-setup.html">Computer setup</a>, and the ideas about interaction types (+,+; +,−; −,−) from <a href="./10-direct-interactions.html">Direct interactions</a>. See <a href="./appendix_data-display.html">Appendix E</a> for additional assistance with graphing your data.</li>
+</ul>
+</div>
+</div>
 <section id="goals" class="level2" data-number="11.1">
 <h2 data-number="11.1" class="anchored" data-anchor-id="goals"><span class="header-section-number">11.1</span> Goals</h2>
-<p>Do animals protect plants? If so, why and under what conditions would they do that? In this chapter, you’ll investigate these questions as the apply to partridge pea (<em>Chamaecrista fasciculata</em> <a href="#fig-chamae1" class="quarto-xref">Figure&nbsp;<span>11.1</span></a>).</p>
-<p>In this chapter, you will,</p>
+<p>Do animals protect plants? If so, why and under what conditions would they do that? In this chapter, you’ll investigate these questions as they apply to partridge pea (<em>Chamaecrista fasciculata</em>, <a href="#fig-chamae1" class="quarto-xref">Figure&nbsp;<span>11.1</span></a>).</p>
+<p>In this chapter, you will</p>
 <ul>
 <li>evaluate whether or in what ways species help each other,</li>
 <li>develop testable hypotheses about species interactions,</li>
-<li>generate quantitative predictions from your hypothesis,</li>
+<li>generate qualitative and quantitative predictions from your hypothesis,</li>
+<li>learn to recognize <em>context dependency</em> (an interaction) in a graph,</li>
 <li>refine your data display expertise, and</li>
 <li>start to develop a greater understanding and intuition for species interactions.</li>
 </ul>
 </section>
-<section id="preparatory-steps" class="level2" data-number="11.2">
-<h2 data-number="11.2" class="anchored" data-anchor-id="preparatory-steps"><span class="header-section-number">11.2</span> Preparatory steps</h2>
-<ul>
-<li>General background on mutualisms: Download the slides and watch the video on <a href="https://drive.google.com/drive/folders/1nWLoEGuWKIWdul9Uvse5qiB1Hf8MCwUv?usp=sharing" target="_blank">mutualisms (4c)</a> before proceeding.</li>
-<li>For a quick summary on the species and experiment in this chapter, watch this <a href="https://youtu.be/R8kAzAWI4no" target="_blank">five minute video</a>. (This was presented at the 2021 Annual Conference of the Botanical Society of America by a Miami graduate student, Laura Fehling).</li>
-<li>Data: go to our <a href="https://drive.google.com/drive/u/1/folders/1FR2FLiW3xyD4Er52YzVTToPZuXXReGRo" target="_blank">class data repository</a>, and download <code>ArthropodObservations.csv</code>.
+<section id="deliverables" class="level2" data-number="11.2">
+<h2 data-number="11.2" class="anchored" data-anchor-id="deliverables"><span class="header-section-number">11.2</span> Deliverables</h2>
+<p>Three documents:</p>
 <ol type="1">
-<li>Make sure the file remains in the same simple format, “comma separated values” (.csv).</li>
-<li>Put <code>ArthropodObservations.csv</code> in your working directory, <code>Rwork</code>.</li>
-<li>Continue to make sure the file remains in the same simple format, “comma separated values” (.csv).</li>
+<li><p><strong>Your R script</strong>, which has your name, date, and title, and loads packages, imports the data, sets the factor levels, and creates your graph.</p></li>
+<li><p><strong>Your report</strong>, which must include:</p>
+<ol type="a">
+<li>Your hypothesis, and the one treatment you chose to compare with ants (water, AMF, or rhizobia).</li>
+<li>Your prediction, in writing.</li>
+<li>Your prediction, as a hand-drawn graph.</li>
+<li>Your Follow the Logic calculation: your predicted ant effect at each level of your chosen treatment, and whether your hypothesis predicts parallel lines.</li>
+<li>Your interaction graph of the data, with the same structure as your sketched prediction.</li>
+<li>A paragraph that includes
+<ol type="i">
+<li>an interpretation of your results,</li>
+<li>whether your results are consistent with your predictions, and in what ways,</li>
+<li>a short statement about what your results say about the hypothesis, and</li>
+<li>one limitation of using herbivore abundance as a measure of “protection.”</li>
 </ol></li>
-<li>Find out what you need for the deliverables.</li>
-</ul>
+</ol></li>
+<li><p><strong>Audit the machine.</strong> Below is an AI-generated interpretation of a graph like yours. Using your own graph and what you learned in this chapter, identify <strong>at least three</strong> claims that are wrong, unsupported, or overstated. For each one, quote the claim, explain the problem in one or two sentences, and say what evidence would be needed to support it.</p>
+<blockquote class="blockquote">
+<p><em>“Ants clearly protected partridge pea plants. The error bars for plants with and without ants do not overlap, which proves that ants significantly reduced herbivore abundance. Because herbivores reduce plant growth, this shows that plants with ants produced more seeds. The effect of ants was the same at both levels of the other treatment, so that treatment does not matter for this mutualism. Mycorrhizal fungi made plants healthier, which is why those plants had fewer herbivores.”</em></p>
+</blockquote></li>
+</ol>
 </section>
-<section id="background-on-partridge-pea-and-friends" class="level2" data-number="11.3">
-<h2 data-number="11.3" class="anchored" data-anchor-id="background-on-partridge-pea-and-friends"><span class="header-section-number">11.3</span> Background on partridge pea and friends</h2>
-<p>Ecological mutualisms are mutually beneficial interactions between species (+,+). Mutualisms between terrestrial plants and fungi are hundreds of millions of years old and underlie Earth’s forests and grasslands. Symbiotic mutualisms between corals (which are animals) and dinoflagellates (a type of alga) allow for the coral reefs that structure Earth’s shallow tropical seas. Mutualisms are all around us, and often go underappreciated. This chapter brings our attention to a small annual plant that has mutualisms with four completely different types of organisms, with multiple species within each of those types.</p>
-<p>One good way to think about mutualisms is to identify the <em>types of rewards</em> that species give to each other. Often those rewards are <strong>resources</strong>, such as when a plant gives sugar to mycorrhizal fungi and the fungus gives phosphorous to the plant. Sometimes a reward is a <strong>service</strong>, as when a bumblebee pollinates a plant by spreading pollen to the stigma of a female flower in return for nectar from the plant. In many parts of the world, acacia trees provide ants with hollow thorns in which they can build nests, and ants defend the trees from herbivores of all kinds, from caterpillars to elephants. In this case, the ants provide the <em>service of defense</em>, in return for a resource (the physical structure of a hollow thorn).</p>
-<p>For her Master’s thesis at Miami university, Laura Fehling investigated the multimutualist interactions of partridge pea <span class="citation" data-cites="fehling2022">(<a href="references.html#ref-fehling2022" role="doc-biblioref">Fehling 2022</a>)</span>. Partridge pea (<em>Chamaecrista fasciculata</em>, “cam-ee-crist’-a fa-sick’-u-la’-ta”) has four mutualist partner groups: arbuscular mycorrhizal fungi, rhizobia bacteria (<em>Bradyrhizobium</em> sp.), ants, and pollinators <a href="#fig-chamsys" class="quarto-xref">Figure&nbsp;<span>11.2</span></a>.</p>
+<section id="preparatory-steps" class="level2" data-number="11.3">
+<h2 data-number="11.3" class="anchored" data-anchor-id="preparatory-steps"><span class="header-section-number">11.3</span> Preparatory steps</h2>
+<ul>
+<li>General background on mutualisms: download the slides and watch the video on <a href="https://drive.google.com/drive/folders/1nWLoEGuWKIWdul9Uvse5qiB1Hf8MCwUv?usp=sharing" target="_blank">mutualisms (4c)</a> before proceeding.</li>
+<li>For a quick summary of the species and experiment in this chapter, watch this <a href="https://youtu.be/R8kAzAWI4no" target="_blank">five-minute video</a>. (This was presented at the 2021 Annual Conference of the Botanical Society of America by a Miami University graduate student, Laura Fehling.)</li>
+<li>Data: download <a href="https://raw.githubusercontent.com/HankStevens/introduction-to-ecology/main/data/ArthropodObservations.csv" target="_blank"><code>ArthropodObservations.csv</code></a> (right-click the link and choose “Save Link As…”).
+<ol type="1">
+<li>Put <code>ArthropodObservations.csv</code> in the <code>data/</code> folder inside your <code>Rwork</code> project.</li>
+<li>Keep it in its simple “comma separated values” (.csv) format. Do not open and re-save it in a spreadsheet application.</li>
+</ol></li>
+</ul>
+<!-- HANK: the data link assumes data/ArthropodObservations.csv is committed to the public repo on main. Verify the link works after you push. -->
+</section>
+<section id="background-on-partridge-pea-and-friends" class="level2" data-number="11.4">
+<h2 data-number="11.4" class="anchored" data-anchor-id="background-on-partridge-pea-and-friends"><span class="header-section-number">11.4</span> Background on partridge pea and friends</h2>
+<p>Ecological mutualisms are mutually beneficial interactions between species. Ecologists often like to categorize pairwise species interactions using simple plus/minus signs; a mutualism is characterized thus: (+,+). Mutualisms between terrestrial plants and fungi are hundreds of millions of years old and underlie Earth’s forests and grasslands. Symbiotic mutualisms between corals (which are animals) and dinoflagellates (a type of alga) allow for the coral reefs that structure Earth’s shallow tropical seas. Mutualisms are all around us, and often go underappreciated. This chapter brings our attention to a small annual plant that has mutualisms with four completely different types of organisms, with multiple species within each of those types.</p>
+<p>One good way to think about mutualisms is to identify the <em>types of rewards</em> that species share with each other. Often those rewards are <strong>resources</strong>, such as when a plant shares sugar with mycorrhizal fungi and the fungus shares phosphorus with the plant. Sometimes a reward is a <strong>service</strong>, as when a bumblebee pollinates a plant by carrying pollen to the stigma of another flower in return for nectar or some of that pollen. In many parts of the world, acacia trees provide ants with hollow thorns in which they can build nests, and ants defend the trees from herbivores of all kinds, from caterpillars to elephants <span class="citation" data-cites="bronstein2015m">(<a href="references.html#ref-bronstein2015m" role="doc-biblioref">Bronstein 2015</a>)</span>. In this case, the ants provide the <em>service of defense</em>, in return for a resource (the physical structure of a hollow thorn).</p>
+<p>For her thesis at Miami University, Laura Fehling investigated the multi-mutualist interactions of partridge pea <span class="citation" data-cites="fehling2022">(<a href="references.html#ref-fehling2022" role="doc-biblioref">Fehling 2022</a>)</span>. Partridge pea (<em>Chamaecrista fasciculata</em>, “cam-ee-crist’-a fa-sick’-u-la’-ta”) has four mutualist partner groups: arbuscular mycorrhizal fungi, rhizobia bacteria (<em>Bradyrhizobium</em> sp.), ants, and pollinators (<a href="#fig-chamsys" class="quarto-xref">Figure&nbsp;<span>11.2</span></a>).</p>
 <div id="fig-chamsys" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-chamsys-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="figs/chamaecrista_system.png" class="img-fluid figure-img" style="width:75.0%">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-chamsys-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;11.2: The <em>Chamaecrista fasciculata</em> mutualism, showing the exchange of rewards from each partner (left to right, top to bottom: Bumblebee, ants, rhizobia nodules, arbuscular mycorrhizal fungi) to the focal plant (red arrows), and from the plant to the partners (black arrows).
+Figure&nbsp;11.2: <em>Chamaecrista fasciculata</em> mutualisms, showing the exchange of rewards from each partner (left to right, top to bottom: bumblebee, ants, rhizobia nodules, arbuscular mycorrhizal fungi) to the focal plant (grey arrows), and from the plant to the partners (black arrows).
 </figcaption>
 </figure>
 </div>
-<p><em>Chamaecrista fasciculata</em> is an annual legume<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> that is native to the Midwestern and Eastern United States often occurring in prairies, old fields, and disturbed sites (Fehling 2022 and references therein). The <em>C. fasciculata</em> mutualist system is ideal for studying multiple mutualist effects given the diversity and manipulability of its partners. While all partners receive a form of plant carbon, each benefits the plant with a unique nutrition, protection, or transportation reward. These partners further represent diversity in their (i) physical association (symbiotic vs non-symbiotic), (ii) degree of obligacy, and (iii) specificity to the focal species. Mycorrhizae provide increased uptake of nutrients (esp.&nbsp;phosphorous) and water provided to the plant, and generally have beneficial effects on plant fitness as their supply of nutrients supports increased plant growth. Rhizobia form nodules in the roots of plants where they fix nitrogen into a form usable by plants, and the degree of benefits provided to the plant can vary. <em>C. fasciculata</em> depends primarily on bees for pollen transfer but can self-pollinate at very low rates (references in <span class="citation" data-cites="fehling2022">Fehling (<a href="references.html#ref-fehling2022" role="doc-biblioref">2022</a>)</span>).</p>
-<p>In addition to producing showy flowers to attract bees, establishing mycorrhizae, and rhizobial nodes, <em>Chamaecrista fasciculata</em> also produce nectar on their leaves in order to attract <strong>ants.</strong> At the base of the petiole of each compound leaf, they produce a small extrafloral nectary (EFN) which produces nectar to attract ants for defense against herbivory. Unlike acacia trees, the actual benefit of ants to the plant is not always clear. Sometimes they seem to help, and sometimes it is not clear whether they do.</p>
-<p>Whether this behavior by ants actually helps a plant may depend on several things including</p>
+<p><em>Chamaecrista fasciculata</em> is an annual legume<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> that is native to the Midwestern and eastern United States, often occurring in open areas or disturbed sites in prairies and old fields (<span class="citation" data-cites="fehling2022">Fehling (<a href="references.html#ref-fehling2022" role="doc-biblioref">2022</a>)</span> and references therein). The <em>C. fasciculata</em> mutualist system is ideal for studying multiple mutualist effects given the diversity and manipulability of its partners.</p>
+<p>While all partners receive a form of plant carbon, each benefits the plant with a unique nutrition, protection, or transportation reward. These partners further represent diversity in their (i) physical association (symbiotic vs.&nbsp;non-symbiotic), (ii) degree of obligacy, and (iii) specificity to the focal species. Mycorrhizae increase the plant’s uptake of nutrients (especially phosphorus) and water, and generally have beneficial effects on plant fitness because the extra nutrients support increased plant growth. Rhizobia form nodules in the roots of plants where they fix nitrogen into a form usable by plants, and the benefits they provide to the plant can vary. <em>C. fasciculata</em> depends primarily on bees for pollen transfer; its flowers reward bees with pollen rather than nectar, and it can self-pollinate at very low rates (references in <span class="citation" data-cites="fehling2022">Fehling (<a href="references.html#ref-fehling2022" role="doc-biblioref">2022</a>)</span>).</p>
+<p>In addition to producing showy flowers that attract bees and establishing mycorrhizae and rhizobial nodules, <em>Chamaecrista fasciculata</em> also produces nectar on its leaves in order to attract <strong>ants</strong>. At the base of the petiole of each compound leaf, there is a small extrafloral nectary (EFN), which produces nectar to attract ants for defense against herbivory. Unlike in many acacia–ant systems, the actual benefit of ants to the plant is not always clear. Sometimes they seem to help, and sometimes it is not clear whether they do.</p>
+<p>Whether this behavior by ants actually helps a plant may depend on several things, including</p>
 <ul>
-<li>other interactions that the plant has,</li>
-<li>the environmental conditions, and</li>
-<li>how effective the ants are at removing herbivores.</li>
+<li>the costs to the plants of making the nectar and of getting eaten,</li>
+<li>the costs to the ants of removing herbivores and how effective they are at doing so, as well as the benefits of receiving plant nectar,</li>
+<li>particular environmental conditions that might influence costs, benefits, and herbivore density.</li>
 </ul>
-<p>As you saw in her video (<em>prep.steps</em> above), Laura set an experiment to test how mutualists interact and how the environmnet alters those interactions. In 2021, she established individual replicate <em>C. fasciculata</em> plants <strong>with and without Rhizobia, mycorrhizal fungi, ants, and dry and moist soils</strong>, for a total of 16 different experimental combinations (2 x 2 x 2 x 2). Along with lots of other data that Laura collected, she and her undergraduate field assistant observed and counted herbivorous insects every week all summer for two minutes in the morning and in the afternoon. <strong>You will analyze these data, the data on total herbivorous insects abundance.</strong></p>
+<p>When the outcome of an interaction depends on other conditions like these, ecologists call it <strong>context dependency</strong>. You will look for it in your data.</p>
+<p>As you saw in her video (see <a href="#preparatory-steps">Preparatory steps</a>), Laura set up an experiment to test how mutualists interact and how the environment alters those interactions. In 2021, she established individual replicate <em>C. fasciculata</em> plants <strong>with and without rhizobia, with and without mycorrhizal fungi, with and without ants, and under normal watering or drought</strong>, for a total of 16 different experimental combinations (2 × 2 × 2 × 2). Along with lots of other data that Laura collected, she and her undergraduate field assistant observed and counted herbivorous insects on each plant every week all summer, for two minutes in the morning and two minutes in the afternoon. <strong>You will analyze these data: the total abundance of herbivorous insects on each plant.</strong></p>
 </section>
-<section id="your-hypothesis-and-predictions" class="level2" data-number="11.4">
-<h2 data-number="11.4" class="anchored" data-anchor-id="your-hypothesis-and-predictions"><span class="header-section-number">11.4</span> Your hypothesis and predictions</h2>
-<p>The data you have available are <strong>total counts of herbivores</strong> on each plant and the combination of <strong>experimental treatments</strong> associated with each plant.</p>
+<section id="your-hypothesis-and-predictions" class="level2" data-number="11.5">
+<h2 data-number="11.5" class="anchored" data-anchor-id="your-hypothesis-and-predictions"><span class="header-section-number">11.5</span> Your hypothesis and predictions</h2>
+<p>The data you have available are the <strong>total count of herbivores on each plant</strong>, summed across all of the summer’s observation periods, and the combination of <strong>experimental treatments</strong> applied to each plant. Each plant is one row in the data set.</p>
 <p>What you now know, based on the above text and preparatory information:</p>
 <ol type="1">
-<li>Half the plants have ants as normal, while half were prevented from having any ants.</li>
-<li>In total, there were 16 combinations of conditions (what they?).</li>
-<li>What mycorrhizal fungi and <em>Rhizobia</em> provide to plants (refer to lecture).</li>
+<li>About half the plants had ants as normal, while the other half were prevented from having any ants through the use of sticky material applied around the rim and opening of pots (Tanglefoot, The Tanglefoot Company, Grand Rapids, MI).</li>
+<li>The 16 combinations of experimental treatments (Can you write them all out? Start with “no AMF, no rhizobia, no ants, normal water.”)</li>
+<li>What the mycorrhizal fungi and rhizobia bacteria provide to plants.</li>
 <li>What ants are thought to do.</li>
-<li>Your data: the abundance of herbivores remaining on plants.</li>
+<li>Your data: the abundance of herbivores found on individual plants that received different treatments.</li>
 </ol>
 <p>Questions you might consider:</p>
 <ul>
-<li>Which plants would be the healthiest and potentially most attractive to herbivores?</li>
-<li>Half the plants receive extra water - how might that influence the plants, the ants and ant behavior?</li>
-<li>How will mycorrhizal fungi (AMF) and rhizobia affect plants and how might those affects alter ant behavior?</li>
-<li>will the be some combination of factors (water, AMF, rhizobia) that alter the effects of ants?</li>
+<li>Aside from the potential effects of ants, which plants would be the healthiest?</li>
+<li>Which plants might be the most attractive to herbivores?</li>
+<li>Half the plants experienced drought - how might that influence the plants, the ants, and ant behavior?</li>
+<li>How would mycorrhizal fungi (AMF) and rhizobia affect plants, and how might those effects alter ant behavior?</li>
+<li>Not all herbivores are chewers - some feed on sap. Some ants protect and even farm sap-feeding insects such as aphids and treehoppers for their sugary honeydew. How would that change your expectations?</li>
+<li>Ant-exclusion experiments often keep ants off plants with a sticky barrier around the stem. What else might such a barrier keep off the plant?</li>
+<li>What is the relationship between <em>herbivore abundance</em> and plant damage, growth, or seed production?</li>
 </ul>
-<p>Think about what you know and ponder the above questions. Then generate a hypothesis about how various conditions might affect how ants protect plants. <strong>Recall a scientific hypothesis is a idea about how you think the world works.</strong> Remember that a hypothesis differs from predictions: a hypothesis is a mechanism that might operate generally with lots of different organisms, and it is not an observed result in a particular system.</p>
-<p><strong>After you have written down your hypothesis</strong>, write down a prediction that follows logically and that you can evaluate with the data we have (herbivore abundance and experimental treatments). Once you have a prediction, <strong>sketch a graph</strong> of what your data would look like if your hypothesized mechanism operated in this partridge pea system.</p>
-</section>
-<section id="data-analysis" class="level2" data-number="11.5">
-<h2 data-number="11.5" class="anchored" data-anchor-id="data-analysis"><span class="header-section-number">11.5</span> Data analysis</h2>
-<p>First, open R using RStudio, and <strong>set your working directory</strong>. You can do this in two ways:</p>
+<p>After you have considered the above questions, answer these two questions:</p>
 <ol type="1">
-<li>using the Session menu in RStudio, or</li>
-<li>with code such as this, in which you customize it to your computer:</li>
+<li>Which treatment(s) will create plants that attract the most <strong>herbivores</strong>?</li>
+<li>Which treatment(s) will create plants that attract the most <strong>ants</strong>?</li>
 </ol>
+<p>Use your answers for these two questions to generate a hypothesis about relationships between partridge pea, ants, and herbivores. <strong>Recall that a scientific hypothesis is an idea about how you think the world works.</strong> A hypothesis differs from a prediction: a hypothesis is a mechanism that might operate generally with lots of different organisms, and it is not an observed result in a particular system. A prediction is a measureable outcome.</p>
+<section id="your-predictions" class="level3" data-number="11.5.1">
+<h3 data-number="11.5.1" class="anchored" data-anchor-id="your-predictions"><span class="header-section-number">11.5.1</span> Your predictions</h3>
+<p>Use your answers to these two questions to make a specific prediction that you can evaluate with the data we have (herbivore abundance and experimental treatments). To keep things manageable, you will compare plants with and without ants under <strong>just one other treatment</strong>. Choose one: water (normal vs.&nbsp;drought), mycorrhizal fungi (AMF vs.&nbsp;no AMF), or rhizobia (rhizobia vs.&nbsp;no rhizobia). Pick the one your hypothesis says the most about.</p>
+<p>Then turn that prediction into a <strong>hand-drawn graph</strong> of what your data would look like if your hypothesized mechanism operated in this partridge pea system.</p>
+<p>For example, imagine that I chose water, and answered the questions in this way:</p>
+<ol type="1">
+<li>Herbivores: I believe that drought-stricken plants will attract more herbivores because i think they may have softer leaves and lower concentrations of chemical defenses.</li>
+<li>Ants: I believe that well-watered plants will attract more ants because those plants will be able to make more nectar.</li>
+</ol>
+<p>Putting those together, I would predict that plants under drought have more herbivores overall, and that ants reduce herbivores much more on well-watered plants than on drought-stricken plants. My sketch would look like <a href="#fig-predict" class="quarto-xref">Figure&nbsp;<span>11.3</span></a>: the effect of ants depends on water.</p>
+<div id="fig-predict" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-predict-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="figs/mutualism-interaction.png" class="img-fluid figure-img" style="width:67.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-predict-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;11.3: A hand-drawn-style prediction. Drought-stricken plants attract more herbivores, and well-watered plants attract more ants, so ants reduce herbivores mainly under normal watering. Only the pattern matters, not the numbers, so the y-axis has no values.
+</figcaption>
+</figure>
+</div>
+<p>You will sketch your predictions on paper, take a photo of it, send your photo to your computer, and include the photo in your write-up for the deliverables.</p>
+<p>Your hypothesis and graph should look different than mine. What matters is that your graph follows logically from your answers to the two questions.</p>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Important</span>Follow the Logic: What does context dependency look like on a graph?
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Return to the example in <a href="#fig-predict" class="quarto-xref">Figure&nbsp;<span>11.3</span></a>, where ants protect plants, but less so when plants are drought-stressed. Here are hypothetical mean herbivore counts:</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th></th>
+<th>No ants</th>
+<th>Ants</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Normal water</td>
+<td>2.0</td>
+<td>1.0</td>
+</tr>
+<tr class="even">
+<td>Drought</td>
+<td>3.0</td>
+<td>2.5</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Step 1. Compute the ant effect in each water treatment.</strong> The ant effect is (mean with ants) − (mean without ants).</p>
+<ul>
+<li>Normal: 1.0 − 2.0 = −1.0 herbivores per plant</li>
+<li>Drought: 2.5 − 3.0 = −0.5 herbivores per plant</li>
+</ul>
+<p><strong>Step 2. Compare the two effects.</strong> If ants had the same effect under both conditions, the two differences would be equal. Here, ants remove twice as many herbivores under normal watering. The effect of one factor (ants) <em>depends on</em> another factor (water). That is a statistical <strong>interaction</strong>, and it is what ecologists mean by context dependency.</p>
+<p><strong>Step 3. Picture it.</strong> Put ants on the x-axis and draw one line for each water treatment, connecting the two means. Equal effects give <strong>parallel lines</strong>. Context dependency gives lines that are <strong>not parallel</strong>, and in extreme cases lines that cross.</p>
+<p><strong>Think further.</strong> Now suppose the means were 2 → 1 under normal water and 4 → 2 under drought. The <em>differences</em> are −1 and −2 (not parallel), but the <em>ratios</em> are both 0.5 (ants remove half the herbivores in both cases). Is there context dependency? It depends on whether you think ants remove a fixed <em>number</em> or a fixed <em>fraction</em> of herbivores. Which seems more biologically reasonable, and why?</p>
+<p><strong>Your turn.</strong> Before you look at the data, write your predicted means for the four combinations of ants and your chosen treatment, compute the two ant effects by hand, and say whether your hypothesis predicts parallel lines.</p>
+</div>
+</div>
+</section>
+</section>
+<section id="data-analysis" class="level2" data-number="11.6">
+<h2 data-number="11.6" class="anchored" data-anchor-id="data-analysis"><span class="header-section-number">11.6</span> Data analysis</h2>
+<section id="set-up-your-r-session" class="level3" data-number="11.6.1">
+<h3 data-number="11.6.1" class="anchored" data-anchor-id="set-up-your-r-session"><span class="header-section-number">11.6.1</span> Set up your R session</h3>
+<p>First, open your <code>Rwork</code> project in RStudio by double-clicking <code>Rwork.Rproj</code> (or using File &gt; Open Project…). Opening the project automatically sets your <strong>working directory</strong> to the <code>Rwork</code> folder, so you do not need <code>setwd()</code>.</p>
+<p>You can confirm your <em>current</em> working directory with this:</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">"C:/Users/chenjoe/BIO209W/Rwork"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">getwd</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<p>You can confirm or <strong>get</strong> your <em>current</em> working directory using this:</p>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">getwd</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] "/Users/stevenmh/projects/intro_to_ecology"</code></pre>
-</div>
-</div>
-<p>so when I do that, you can see my working directory is the one for this book.</p>
-<p>Before you proceed, make sure your working directory is your <code>Rwork</code> directory.</p>
-<p>Second, use RStudio to create a new file of the type “R script”. Save it using a name that reflects this chapter, and end the file name with “.R” or “.r”.</p>
+<p>The result should end in <code>Rwork</code>. If it does not, you probably opened RStudio without opening the project.</p>
+<p>Second, use RStudio to create a new file of the type “R script”. Save it in the top level of <code>Rwork</code>, using a name that reflects this chapter, and end the file name with “.R” or “.r”.</p>
 <p>Third, add a comment as a brief description of the script, and load any R packages you know you will need.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="do">## This script is for chapter XX in Hank's Intro to Ecology primer.</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="do">## We always use...</span></span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="do">## or usually just ggplot2 and dplyr packages within the tidyverse.</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Chapter 11 Mutualisms: Do ants protect pea plants? ----</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Your name, date</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="do">## Load packages ----</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="co"># usually just the ggplot2 and dplyr packages within the tidyverse</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<section id="the-data" class="level3" data-number="11.5.1">
-<h3 data-number="11.5.1" class="anchored" data-anchor-id="the-data"><span class="header-section-number">11.5.1</span> The data</h3>
-<p>Make sure that your data file is in your <code>Rwork</code> directory. and is still just a CSV file.</p>
-<p><strong>Open the data file</strong> (.csv file) in a spreadsheet application, a text editor, or in RStudio. Do <strong>not</strong> save it the file the spreadsheet application because it will try to change the format.</p>
+</section>
+<section id="the-data" class="level3" data-number="11.6.2">
+<h3 data-number="11.6.2" class="anchored" data-anchor-id="the-data"><span class="header-section-number">11.6.2</span> The data</h3>
+<p>Make sure that your data file is in the <code>data/</code> folder of your <code>Rwork</code> project and is still just a CSV file.</p>
+<p><strong>Open the data file</strong> (.csv file) in a text editor or in RStudio (click on it in the Files pane and choose “View File”). Do <strong>not</strong> save the file in a spreadsheet application, because it will try to change the format.</p>
 <ol type="1">
-<li>With the file open, learn what is on the first several lines. Often, the first line or two will have <em>metadata</em> or information about the data (data about the data).</li>
-<li>Below the metadata, you will see column headings, separated by commas, because the data are <em>CSV</em> or comma-separated-values.</li>
-<li>Below the column headins are the data, with columns separated by commas.</li>
+<li>With the file open, learn what is on the first several lines. Often, the first line or two will have <em>metadata</em>, or information about the data (data about the data).</li>
+<li>Below the metadata, you will see column headings, separated by commas, because the data are <em>CSV</em>, or comma-separated values.</li>
+<li>Below the column headings are the data, with columns separated by commas.</li>
 </ol>
 <p>Close the data file, and <em>do not save it.</em> If you save it, chances are good that the application will try to save it in a different format.</p>
-<p><strong>Import the data</strong> or <em>read</em> the data into R. Here is code for that. You will notice that we use a function that expects a CSV file. You will also notice that we use an <em>argument</em> to tell R how many lines of metadata to skip so it reads only the data and its column headings.</p>
+<p><strong>Import the data</strong>, or <em>read</em> the data into R. Here is code for that.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="do">## </span><span class="al">NOTE</span><span class="do"> that we skip the first 2 lines because they are metadata</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>d <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"ArthropodObservations.csv"</span>,</span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>              <span class="at">skip=</span><span class="dv">2</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Import data ----</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="co"># skip the first 2 lines because they are metadata</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>d <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"data/ArthropodObservations.csv"</span>, <span class="at">skip =</span> <span class="dv">2</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Code walkthrough: <code>read.csv()</code>
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<ul>
+<li><code>read.csv()</code> expects a comma-separated file, with column headings on the first line it reads.</li>
+<li><code>"data/ArthropodObservations.csv"</code> is the path to the file, <em>relative to your working directory</em> (<code>Rwork</code>). That is why the file must be in <code>Rwork/data/</code>.</li>
+<li><code>skip = 2</code> tells R to ignore the first two lines (the metadata), so that the third line is read as the column headings.</li>
+<li><code>d &lt;-</code> stores the result as a data frame named <code>d</code>.</li>
+</ul>
+</div>
+</div>
 </div>
 <p>Look at your data with one of these two:</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># glimpse(d)</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="co"># or </span></span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(d)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># glimpse(d)</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="co"># or</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(d)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>'data.frame':   225 obs. of  5 variables:
  $ AMF     : chr  "no_AMF" "no_AMF" "no_AMF" "no_AMF" ...
@@ -517,50 +664,129 @@ Figure&nbsp;11.2: The <em>Chamaecrista fasciculata</em> mutualism, showing the e
 </div>
 </div>
 <ul>
-<li><code>AMF</code> indicates whether a plant did have or did not have arbuscular mycorrhizal fungi.</li>
+<li><code>AMF</code> indicates whether a plant did or did not have arbuscular mycorrhizal fungi.</li>
 <li><code>Rhizobia</code> indicates whether a plant had or did not have symbiotic nitrogen-fixing bacteria.</li>
 <li><code>Ants</code> indicates whether ants did or did not have access to the plant.</li>
-<li><code>Total</code> is the total number of herbivores observed during the sample periods.</li>
+<li><code>Drought</code> indicates whether a plant received normal watering or drought conditions.</li>
+<li><code>Total</code> is the total number of herbivores observed on that plant, summed across all of the summer’s observation periods.</li>
 </ul>
-</section>
-</section>
-<section id="display-the-data-to-evaluate-your-predictions" class="level2" data-number="11.6">
-<h2 data-number="11.6" class="anchored" data-anchor-id="display-the-data-to-evaluate-your-predictions"><span class="header-section-number">11.6</span> Display the data to evaluate your predictions</h2>
-<p>Use <code>ggplot(data= ..., aes(x=..., y=...))</code> to create a data display that has the same structure or format as your sketched prediction. You can take advantage of features you have used before, including,</p>
-<ul>
-<li>more than one independent variable (IV_1, IV_2, etc.),</li>
-<li>a box-and-whisker plot of your dependent variable,</li>
-<li>a notch in the box-and-whisker plot that gives you an approximate confidence interval on the median.</li>
-</ul>
-<p>Here is a generic example:</p>
+<p>Notice that the four treatment columns are <em>character</em> (<code>chr</code>) variables. R will sort them alphabetically in graphs, which puts “AMF” before “no_AMF” and “Rhiz” after “no_Rhiz”, so controls end up in inconsistent places. Convert them to <em>factors</em> and put the control level first:</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>DATA, <span class="fu">aes</span>(<span class="at">x=</span>IV_1, <span class="at">y=</span>DV, <span class="at">color=</span>IV_2)) <span class="sc">+</span> </span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>(<span class="at">notch =</span> <span class="cn">TRUE</span>) <span class="sc">+</span> </span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_grid</span>( IV_3 <span class="sc">~</span> IV_4)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Set treatment levels, control first ----</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>d <span class="ot">&lt;-</span> d <span class="sc">|&gt;</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">AMF      =</span> <span class="fu">factor</span>(AMF,      <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">"no_AMF"</span>, <span class="st">"AMF"</span>)),</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>         <span class="at">Rhizobia =</span> <span class="fu">factor</span>(Rhizobia, <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">"no_Rhiz"</span>, <span class="st">"Rhiz"</span>)),</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>         <span class="at">Ants     =</span> <span class="fu">factor</span>(Ants,     <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">"no_Ants"</span>, <span class="st">"Ants"</span>)),</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>         <span class="at">Drought  =</span> <span class="fu">factor</span>(Drought,  <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">"Normal"</span>, <span class="st">"Drought"</span>)))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<p>You would replace “DATA” with your data frame (<code>d</code>), and replace “IV_1” with one of the independent variables, such as <code>Ants</code> or <code>Rhizobia</code>.</p>
-<p><strong>A box-and-whisker plot</strong> shows the central 50% of the observations (the box). The median, or central value, is the line across the middle of the box The tails of the distribution are the whiskers. The notch shows an approximate confidence interval on the median. If the notches of two plots don’t overlap, that is good evidence that the two medians differ.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Code walkthrough: <code>mutate()</code> and <code>factor()</code>
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-4" class="callout-4-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<ul>
+<li><code>d |&gt; mutate(...)</code> takes <code>d</code> and modifies or adds columns.</li>
+<li><code>factor(AMF, levels = c("no_AMF", "AMF"))</code> turns the text column into a factor, a categorical variable whose levels have a fixed order. The order in <code>levels</code> is the order they will appear on graph axes and legends.</li>
+<li><code>d &lt;-</code> overwrites the old <code>d</code> with the new version.</li>
+</ul>
+</div>
+</div>
+</div>
+<p>Now check how many plants are in each combination of ants and your chosen treatment. Here is the example with water; replace <code>Drought</code> with <code>AMF</code> or <code>Rhizobia</code> if you chose one of those.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Count plants per treatment combination ----</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">count</span>(d, Ants, Drought)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>     Ants Drought  n
+1 no_Ants  Normal 60
+2 no_Ants Drought 61
+3    Ants  Normal 52
+4    Ants Drought 52</code></pre>
+</div>
+</div>
+<p>Each group pools plants across the treatments you did not choose. For example, the “Ants, Normal” group includes plants with and without AMF and with and without rhizobia.</p>
 </section>
-<section id="deliverables" class="level2" data-number="11.7">
-<h2 data-number="11.7" class="anchored" data-anchor-id="deliverables"><span class="header-section-number">11.7</span> Deliverables</h2>
-<p>Two documents:</p>
-<p>One document is the script you use to confirm your directory, load packages, import data, and create your graph.</p>
-<p>The second document must include:</p>
-<ol type="1">
-<li>Your hypothesis.</li>
-<li>Your prediction, in writing.</li>
-<li>Your prediction, as a graph.</li>
-<li>A plot of data that has the same structure or format as your sketched prediction.</li>
-<li>A paragraph that includes
-<ol type="a">
-<li>an interpretation of your results,</li>
-<li>whether your results are consistent with your predictions, and in what ways,</li>
-<li>a short statement about what your results say about the hypothesis.</li>
-</ol></li>
-</ol>
+</section>
+<section id="display-the-data-to-evaluate-your-predictions" class="level2" data-number="11.7">
+<h2 data-number="11.7" class="anchored" data-anchor-id="display-the-data-to-evaluate-your-predictions"><span class="header-section-number">11.7</span> Display the data to evaluate your predictions</h2>
+<p>Make an <strong>interaction graph</strong> of the data, with the same structure as your sketched prediction (<a href="#fig-predict" class="quarto-xref">Figure&nbsp;<span>11.3</span></a>): ants on the x-axis, one line for each level of your chosen treatment, and the mean number of herbivores per plant on the y-axis. Each mean has an error bar of ± one standard error. Behind them, faint jittered points show every plant in the data set, so you can see the raw data the means summarize.</p>
+<p>Here is the code for the example with water. If you chose AMF or rhizobia, replace <code>Drought</code> with <code>AMF</code> or <code>Rhizobia</code> everywhere it appears.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Interaction graph ----</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> d, <span class="fu">aes</span>(<span class="at">x =</span> Ants, <span class="at">y =</span> Total, <span class="at">colour =</span> Drought, <span class="at">group =</span> Drought)) <span class="sc">+</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">position =</span> <span class="fu">position_jitterdodge</span>(<span class="at">jitter.width =</span> <span class="fl">0.15</span>,</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>                                             <span class="at">jitter.height =</span> <span class="dv">0</span>,</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>                                             <span class="at">dodge.width =</span> <span class="fl">0.3</span>),</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>             <span class="at">alpha =</span> <span class="fl">0.3</span>) <span class="sc">+</span></span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stat_summary</span>(<span class="at">fun.data =</span> mean_se,</span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>               <span class="at">position =</span> <span class="fu">position_dodge</span>(<span class="at">width =</span> <span class="fl">0.3</span>)) <span class="sc">+</span></span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stat_summary</span>(<span class="at">fun =</span> mean, <span class="at">geom =</span> <span class="st">"line"</span>,</span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>               <span class="at">position =</span> <span class="fu">position_dodge</span>(<span class="at">width =</span> <span class="fl">0.3</span>)) <span class="sc">+</span></span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="cn">NULL</span>, <span class="at">y =</span> <span class="st">"Herbivores per plant"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Code walkthrough: the interaction graph
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-5" class="callout-5-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<ul>
+<li><code>aes(x = Ants, y = Total, colour = Drought, group = Drought)</code> puts ants on the x-axis and gives each level of your chosen treatment its own colour. <code>group = Drought</code> tells <code>ggplot()</code> which means to connect with a line.</li>
+<li><code>geom_point(...)</code> draws every plant as a faint point (<code>alpha = 0.3</code>). <code>jitter.width = 0.15</code> spreads the points sideways so they don’t sit on top of each other. <code>jitter.height = 0</code> matters for counts: it keeps a plant with 2 herbivores plotted at exactly 2.</li>
+<li><code>stat_summary(fun.data = mean_se)</code> calculates the mean and standard error of <code>Total</code> for each group and draws a point with an error bar.</li>
+<li>The second <code>stat_summary(fun = mean, geom = "line")</code> connects the two means for each level of your chosen treatment. These are the lines you compare with your prediction: parallel or not?</li>
+<li><code>position_dodge(width = 0.3)</code> nudges the colours apart so their error bars don’t overlap. All three layers use the same dodge width so that the points, error bars, and lines line up.</li>
+<li><code>labs()</code> sets the axis labels.</li>
+</ul>
+</div>
+</div>
+</div>
+<p><strong>Why means and not boxplots?</strong> Our data are small whole-number counts, mostly 0, 1, and 2. Many groups have the same median, so medians and boxplots hide differences that the means can show. The jittered points let you see how variable the plants are around each mean, including the few plants with many herbivores that pull some means upward.</p>
+<p>Once you have your graph, go back to the Follow the Logic box. Estimate the ant effect at each level of your chosen treatment from your graph, and compare those numbers to your predictions.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Going further (optional): a model for count data
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-6" class="callout-6-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Graphs let you <em>see</em> an interaction; a statistical model lets you <em>estimate</em> it. Because <code>Total</code> is a count, a generalized linear model with a log link is appropriate:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>m <span class="ot">&lt;-</span> <span class="fu">glm</span>(Total <span class="sc">~</span> Ants <span class="sc">*</span> Drought, <span class="at">family =</span> quasipoisson, <span class="at">data =</span> d)</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>broom<span class="sc">::</span><span class="fu">tidy</span>(m)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<ul>
+<li><code>Ants * Drought</code> fits the effect of ants, the effect of drought, and their interaction (<code>AntsAnts:DroughtDrought</code>). Replace <code>Drought</code> with your chosen treatment.</li>
+<li>With a log link, coefficients are on a <em>multiplicative</em> scale: <code>exp(estimate)</code> is the factor by which the mean count changes. This is the “fixed fraction” view from the Follow the Logic box.</li>
+<li><code>quasipoisson</code> allows the variance to be larger than the mean. Check whether that is true: compare <code>mean()</code> and <code>var()</code> of <code>Total</code> within groups.</li>
+</ul>
+</div>
+</div>
+</div>
 
 
 <div id="refs" class="references csl-bib-body hanging-indent" role="list" style="display: none">
+<div id="ref-bronstein2015m" class="csl-entry" role="listitem">
+Bronstein, Judith L., ed. 2015. <em>Mutualism</em>. Oxford University Press, Oxford, UK.
+</div>
 <div id="ref-fehling2022" class="csl-entry" role="listitem">
 Fehling, Laura Sharon. 2022. <span>“Reward <span>Complementarity</span> and <span>Context Dependency</span> in <span>Multispecies Mutualist Interactions</span> in <span>Partridge Pea</span> (<span>Chamaecrista</span> Fasciculata).”</span> PhD thesis, Miami University.
 </div>

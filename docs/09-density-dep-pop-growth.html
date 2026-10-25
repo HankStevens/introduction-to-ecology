@@ -358,6 +358,18 @@ window.Quarto = {
  <span class="menu-text"><span class="chapter-number">D</span>&nbsp; <span class="chapter-title">Accessing Public Ecological Databases</span></span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./appendix_data-display.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">E</span>&nbsp; <span class="chapter-title">Displaying Data with ggplot2</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./appendix-your-own-interests.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">F</span>&nbsp; <span class="chapter-title">Your Own Interests: Telling a short story with data</span></span></a>
+  </div>
+</li>
       </ul>
   </li>
     </ul>
@@ -371,18 +383,18 @@ window.Quarto = {
    
   <ul>
   <li><a href="#goals" id="toc-goals" class="nav-link active" data-scroll-target="#goals"><span class="header-section-number">9.1</span> Goals</a></li>
-  <li><a href="#preparatory-steps" id="toc-preparatory-steps" class="nav-link" data-scroll-target="#preparatory-steps"><span class="header-section-number">9.2</span> Preparatory steps</a></li>
-  <li><a href="#models-as-assumptions" id="toc-models-as-assumptions" class="nav-link" data-scroll-target="#models-as-assumptions"><span class="header-section-number">9.3</span> Models as assumptions</a>
+  <li><a href="#sec-deliverables-ddpg" id="toc-sec-deliverables-ddpg" class="nav-link" data-scroll-target="#sec-deliverables-ddpg"><span class="header-section-number">9.2</span> Deliverables</a></li>
+  <li><a href="#preparatory-steps" id="toc-preparatory-steps" class="nav-link" data-scroll-target="#preparatory-steps"><span class="header-section-number">9.3</span> Preparatory steps</a></li>
+  <li><a href="#models-as-assumptions" id="toc-models-as-assumptions" class="nav-link" data-scroll-target="#models-as-assumptions"><span class="header-section-number">9.4</span> Models as assumptions</a>
   <ul class="collapse">
-  <li><a href="#math-describes-nature-on-parameters-and-their-meanings" id="toc-math-describes-nature-on-parameters-and-their-meanings" class="nav-link" data-scroll-target="#math-describes-nature-on-parameters-and-their-meanings"><span class="header-section-number">9.3.1</span> Math describes nature: on parameters and their meanings</a></li>
-  <li><a href="#solving-a-rate-equation" id="toc-solving-a-rate-equation" class="nav-link" data-scroll-target="#solving-a-rate-equation"><span class="header-section-number">9.3.2</span> Solving a rate equation</a></li>
-  <li><a href="#assignment-1-use-math-to-understand-the-consequences-of-our-assumptions." id="toc-assignment-1-use-math-to-understand-the-consequences-of-our-assumptions." class="nav-link" data-scroll-target="#assignment-1-use-math-to-understand-the-consequences-of-our-assumptions."><span class="header-section-number">9.3.3</span> Assignment 1: Use math to understand the consequences of our assumptions.</a></li>
+  <li><a href="#math-describes-nature-on-parameters-and-their-meanings" id="toc-math-describes-nature-on-parameters-and-their-meanings" class="nav-link" data-scroll-target="#math-describes-nature-on-parameters-and-their-meanings"><span class="header-section-number">9.4.1</span> Math describes nature: on parameters and their meanings</a></li>
+  <li><a href="#solving-a-rate-equation" id="toc-solving-a-rate-equation" class="nav-link" data-scroll-target="#solving-a-rate-equation"><span class="header-section-number">9.4.2</span> Solving a rate equation</a></li>
+  <li><a href="#assignment-1-use-math-to-understand-the-consequences-of-our-assumptions." id="toc-assignment-1-use-math-to-understand-the-consequences-of-our-assumptions." class="nav-link" data-scroll-target="#assignment-1-use-math-to-understand-the-consequences-of-our-assumptions."><span class="header-section-number">9.4.3</span> Assignment 1: Use math to understand the consequences of our assumptions.</a></li>
   </ul></li>
-  <li><a href="#discrete-difference-equations" id="toc-discrete-difference-equations" class="nav-link" data-scroll-target="#discrete-difference-equations"><span class="header-section-number">9.4</span> Discrete difference equations</a>
+  <li><a href="#discrete-difference-equations" id="toc-discrete-difference-equations" class="nav-link" data-scroll-target="#discrete-difference-equations"><span class="header-section-number">9.5</span> Discrete difference equations</a>
   <ul class="collapse">
-  <li><a href="#assignment-2-explore-delayed-density-dependence" id="toc-assignment-2-explore-delayed-density-dependence" class="nav-link" data-scroll-target="#assignment-2-explore-delayed-density-dependence"><span class="header-section-number">9.4.1</span> Assignment 2: Explore delayed density-dependence</a></li>
+  <li><a href="#assignment-2-explore-delayed-density-dependence" id="toc-assignment-2-explore-delayed-density-dependence" class="nav-link" data-scroll-target="#assignment-2-explore-delayed-density-dependence"><span class="header-section-number">9.5.1</span> Assignment 2: Explore delayed density-dependence</a></li>
   </ul></li>
-  <li><a href="#sec-deliverables-ddpg" id="toc-sec-deliverables-ddpg" class="nav-link" data-scroll-target="#sec-deliverables-ddpg"><span class="header-section-number">9.5</span> Deliverables</a></li>
   </ul>
 </nav>
     </div>
@@ -418,6 +430,21 @@ Figure&nbsp;9.1: Elephant density in Hwange National Park, Zimbabwe, depends str
 </figcaption>
 </figure>
 </div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Before you start
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li><strong>Assumptions about background and guidance:</strong> exponential growth (<span class="math inline">\(dN/dt = rN\)</span>) from <a href="./07-DI-pop-growth.html">Density-independent population growth</a>, and comfort reading an equation and rearranging it with algebra. The <span class="math inline">\(dN/dt\)</span> notation is explained here, and you will not need to do any calculus. The for-loop in Assignment 2 works just like the one in <a href="./07-DI-pop-growth.html">Density-independent population growth</a>.</li>
+</ul>
+</div>
+</div>
 <section id="goals" class="level2" data-number="9.1">
 <h2 data-number="9.1" class="anchored" data-anchor-id="goals"><span class="header-section-number">9.1</span> Goals</h2>
 <p>In this chapter, you’ll learn how we represent crowding in populations. Per capita population growth rate often depends on population density. Along the way, you’ll learn we take ideas seriously, and follow them to their logical conclusions.</p>
@@ -429,12 +456,16 @@ Figure&nbsp;9.1: Elephant density in Hwange National Park, Zimbabwe, depends str
 <li>discover the consequences of crowding by <em>solving</em> a rate equation.</li>
 </ul>
 </section>
-<section id="preparatory-steps" class="level2" data-number="9.2">
-<h2 data-number="9.2" class="anchored" data-anchor-id="preparatory-steps"><span class="header-section-number">9.2</span> Preparatory steps</h2>
+<section id="sec-deliverables-ddpg" class="level2" data-number="9.2">
+<h2 data-number="9.2" class="anchored" data-anchor-id="sec-deliverables-ddpg"><span class="header-section-number">9.2</span> Deliverables</h2>
+<p>Put your work from section 8.3 (Assignment 1) and section 8.4 (Assignment 2) into one document and turn in by the due date.</p>
+</section>
+<section id="preparatory-steps" class="level2" data-number="9.3">
+<h2 data-number="9.3" class="anchored" data-anchor-id="preparatory-steps"><span class="header-section-number">9.3</span> Preparatory steps</h2>
 <ul>
 <li>Watch the lecture videos on <a href="https://drive.google.com/drive/folders/1nWLoEGuWKIWdul9Uvse5qiB1Hf8MCwUv?usp=sharing">density-dependent population growth (parts 1 &amp; 2)</a>. These videos assume that you watched the preceding population ecology videos.</li>
 <li>Download <a href="https://drive.google.com/drive/folders/1opLlrmF7kfo0FtWwwJ1CbfPWIyuaISC1?usp=sharing">Chamaille-Jammes (2008) from our article archive</a></li>
-<li>If you are curious, check Deliverables for this chapter(<a href="#sec-deliverables-ddpg" class="quarto-xref"><span>Section 9.5</span></a>).</li>
+<li>If you are curious, check Deliverables for this chapter(<a href="#sec-deliverables-ddpg" class="quarto-xref"><span>Section 9.2</span></a>).</li>
 </ul>
 <div id="fig-elephantN" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
@@ -447,8 +478,8 @@ Figure&nbsp;9.2: The Hwange elephant population grew dramatically after the end 
 </figure>
 </div>
 </section>
-<section id="models-as-assumptions" class="level2" data-number="9.3">
-<h2 data-number="9.3" class="anchored" data-anchor-id="models-as-assumptions"><span class="header-section-number">9.3</span> Models as assumptions</h2>
+<section id="models-as-assumptions" class="level2" data-number="9.4">
+<h2 data-number="9.4" class="anchored" data-anchor-id="models-as-assumptions"><span class="header-section-number">9.4</span> Models as assumptions</h2>
 <p>Continuous logistic population growth is just a set of assumptions about how a population grows. The rate of change in our population is determined by its birth rate and death rate, and how population size affects these.</p>
 <p>The symbol <span class="math inline">\(dN/dt\)</span> means “change in population size (N) per unit change in time (t)”.</p>
 <p>Recall exponential growth (J-shaped growth) is <span class="math display">\[\frac{dN}{dt} = rN\]</span></p>
@@ -470,20 +501,20 @@ Figure&nbsp;9.3: Logistic growth in a hypothetical population (parameters: <span
 </div>
 </div>
 <p>You see that in <a href="#fig-logistic" class="quarto-xref">Figure&nbsp;<span>9.3</span></a>, the growth rate slows dramatically as the population size approaches some limit. We call that limit the <strong>carrying capacity</strong> of the population, and it is determined by the effects of individuals on the population growth rate, or <span class="math inline">\(\alpha\)</span>.</p>
-<section id="math-describes-nature-on-parameters-and-their-meanings" class="level3" data-number="9.3.1">
-<h3 data-number="9.3.1" class="anchored" data-anchor-id="math-describes-nature-on-parameters-and-their-meanings"><span class="header-section-number">9.3.1</span> Math describes nature: on parameters and their meanings</h3>
+<section id="math-describes-nature-on-parameters-and-their-meanings" class="level3" data-number="9.4.1">
+<h3 data-number="9.4.1" class="anchored" data-anchor-id="math-describes-nature-on-parameters-and-their-meanings"><span class="header-section-number">9.4.1</span> Math describes nature: on parameters and their meanings</h3>
 <p>Often, we can describe a biological process in several different mathematical ways. Density-dependence in logistic growth is one such case.</p>
 <p>We can define logistic growth in two ways that are opposite sides of the same coin. Above, we used <span class="math inline">\(\alpha\)</span> to quantify the average effect of one individual on the growth rate of the population. Another common way to define logistic growth is by the consequences of these average individual effects: the carrying capacity which we call <span class="math inline">\(K\)</span>. It turns out that the carrying capacity is the inverse of the effect of an individual, so that <span class="math display">\[K = \frac{1}{\alpha}\]</span> and as a result we can rewrite logistic growth as <span class="math display">\[\frac{dN}{dt} = rN\left(1-\frac{ N}{K} \right)\]</span></p>
 <p>which is exactly equivalent to the first version we described above. Notice that <span class="math inline">\(K = 1/\alpha\)</span> is not a new assumption — it is a <em>definition</em> that follows from the structure of the equation. The two forms of the logistic are mathematically identical; they simply highlight different aspects of the same biology. Understanding the difference between a new assumption and a mathematical consequence of existing assumptions is a skill you will use throughout this book.</p>
 </section>
-<section id="solving-a-rate-equation" class="level3" data-number="9.3.2">
-<h3 data-number="9.3.2" class="anchored" data-anchor-id="solving-a-rate-equation"><span class="header-section-number">9.3.2</span> Solving a rate equation</h3>
+<section id="solving-a-rate-equation" class="level3" data-number="9.4.2">
+<h3 data-number="9.4.2" class="anchored" data-anchor-id="solving-a-rate-equation"><span class="header-section-number">9.4.2</span> Solving a rate equation</h3>
 <p>We <strong>solve</strong> a rate equation in order to learn something about it’s <strong>asymptotic</strong> behavior. By “learn something” we mean figure out what will determine the size of population. By “asymptotic”, we mean really, really, long-term. We hope to find out what will eventually happen to the population and what will control it’s destiny.</p>
 <p>Another way to think about this is that we are seeking to find the <strong>equilibrium state</strong>, the state of the population toward which the population will tend to move. Imagine a marble in a wok or bowl. The marble will tend to move toward the bottom. When it finally settles down and <em>stops moving</em>, it is at its equilibrium state.</p>
 <p>We solve a rate equation by setting it equal to zero, because <strong>we want to understand what determines when the population stops changing.</strong></p>
 </section>
-<section id="assignment-1-use-math-to-understand-the-consequences-of-our-assumptions." class="level3" data-number="9.3.3">
-<h3 data-number="9.3.3" class="anchored" data-anchor-id="assignment-1-use-math-to-understand-the-consequences-of-our-assumptions."><span class="header-section-number">9.3.3</span> Assignment 1: Use math to understand the consequences of our assumptions.</h3>
+<section id="assignment-1-use-math-to-understand-the-consequences-of-our-assumptions." class="level3" data-number="9.4.3">
+<h3 data-number="9.4.3" class="anchored" data-anchor-id="assignment-1-use-math-to-understand-the-consequences-of-our-assumptions."><span class="header-section-number">9.4.3</span> Assignment 1: Use math to understand the consequences of our assumptions.</h3>
 <p>Now solve for the equilibrium, when <span class="math inline">\(dN/dt = 0\)</span>. That is, let</p>
 <p><span class="math display">\[0 = rN\left(1-\alpha N\right)\]</span></p>
 <p>and solve for <span class="math inline">\(N\)</span>. That is, rearrange to get <span class="math inline">\(N\)</span> on the left side <span class="math inline">\(N=\)</span> and other stuff on the right side, and then simplify. SHOW ALL THE STEPS IN YOUR WORK.</p>
@@ -509,8 +540,8 @@ Figure&nbsp;9.3: Logistic growth in a hypothetical population (parameters: <span
 </div>
 </section>
 </section>
-<section id="discrete-difference-equations" class="level2" data-number="9.4">
-<h2 data-number="9.4" class="anchored" data-anchor-id="discrete-difference-equations"><span class="header-section-number">9.4</span> Discrete difference equations</h2>
+<section id="discrete-difference-equations" class="level2" data-number="9.5">
+<h2 data-number="9.5" class="anchored" data-anchor-id="discrete-difference-equations"><span class="header-section-number">9.5</span> Discrete difference equations</h2>
 <p>Sometimes, it is simpler to think about rate equations in a step-wise annual fashion, where each change is a <strong>discrete</strong> step, rather than continuous change.</p>
 <p><strong>N (this year) = N (last year) + births - deaths</strong></p>
 <p>In this case, the rate of change is a <strong>difference</strong> between <span class="math inline">\(N\)</span> this year versus last year,</p>
@@ -522,8 +553,8 @@ Figure&nbsp;9.3: Logistic growth in a hypothetical population (parameters: <span
 <p><strong>Notice an important feature</strong> of this equation: the density-dependence <span class="math inline">\((1-\alpha N_{t-1})\)</span> depends on the size of the population at one point in time (<span class="math inline">\(t-1\)</span>), but the population is projected out past this time. As a result, the dampening or slowly effect of density is <em>delayed</em>, always lagging behind just a little bit. You will investigate the consequences of this in your exrecise.</p>
 <p>We can project the population dynamics using</p>
 <p><span class="math display">\[N_t = N_{t-1}  +r_d N_{t-1}\left(1-\alpha N_{t-1}\right)\]</span></p>
-<section id="assignment-2-explore-delayed-density-dependence" class="level3" data-number="9.4.1">
-<h3 data-number="9.4.1" class="anchored" data-anchor-id="assignment-2-explore-delayed-density-dependence"><span class="header-section-number">9.4.1</span> Assignment 2: Explore delayed density-dependence</h3>
+<section id="assignment-2-explore-delayed-density-dependence" class="level3" data-number="9.5.1">
+<h3 data-number="9.5.1" class="anchored" data-anchor-id="assignment-2-explore-delayed-density-dependence"><span class="header-section-number">9.5.1</span> Assignment 2: Explore delayed density-dependence</h3>
 <p>Here you will explore the consequences delayed density-dependence. In this exercise, you will discover <em>stable</em> points in a <strong>stable limit cycle</strong>. These <em>stable points</em> are the values of <span class="math inline">\(N\)</span> to which a population returns.</p>
 <p>You will also discover mathematical <strong>chaos</strong>. In science, <strong>chaos</strong> is defined as a deterministic, non-repeating pattern that is bounded, and characterized by sensitivity to initial conditions.</p>
 <p>In the code below, you will do several things. First, we set up things that won’t change,</p>
@@ -607,11 +638,6 @@ Figure&nbsp;9.3: Logistic growth in a hypothetical population (parameters: <span
 <li>the predictability of the dynamics, and</li>
 <li>the number of stable points to which the population returns.</li>
 </ul>
-</section>
-</section>
-<section id="sec-deliverables-ddpg" class="level2" data-number="9.5">
-<h2 data-number="9.5" class="anchored" data-anchor-id="sec-deliverables-ddpg"><span class="header-section-number">9.5</span> Deliverables</h2>
-<p>Put your work from section 8.3 (Assignment 1) and section 8.4 (Assignment 2) into one document and turn in by the due date.</p>
 
 
 <div id="refs" class="references csl-bib-body hanging-indent" role="list" style="display: none">
@@ -619,6 +645,7 @@ Figure&nbsp;9.3: Logistic growth in a hypothetical population (parameters: <span
 Chamaillé-Jammes, Simon, Hervé Fritz, Marion Valeix, Felix Murindagomo, and Jean Clobert. 2008. <span>“<a href="https://www.ncbi.nlm.nih.gov/pubmed/17986249">Resource Variability, Aggregation and Direct Density Dependence in an Open Context: <span>The</span> Local Regulation of an <span>African</span> Elephant Population</a>.”</span> <em>Journal of Animal Ecology</em> 77 (1): 135–44.
 </div>
 </div>
+</section>
 </section>
 
 </main> <!-- /main -->

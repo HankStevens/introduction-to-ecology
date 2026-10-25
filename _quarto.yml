@@ -33,6 +33,8 @@ book:
     - appendix_A_career-skills-crosswalk.qmd
     - appendix_AI-v4.qmd
     - appendix_public-databases.qmd
+    - appendix_data-display.qmd
+    - appendix-your-own-interests.qmd
 
 bibliography:
     - local_refs.bib

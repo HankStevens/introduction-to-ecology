@@ -5,6 +5,12 @@ output: pdf
 
 ![Ecosystems comprise pools (compartments) and fluxes in and out of those pools. Ecosystem ecologists typically study ecosystems by tracking a particular chemical element from compartment to compartment. Note the units are consistent throughout an ecosystem. In the above example of a lake, fluxes of phosphorus are milligrams per day in or out. At the global scale, we can estimate fluxes of carbon in gigatonnes per year.](figs/ecosystems1.png){#fig-ecosys1 width=75%}
 
+::: {.callout-tip}
+## Before you start
+
+* **Assumptions about background and guidance:** algebra and the idea of a rate of change (an amount per unit time); this chapter builds everything else from pencil-and-paper budgets. If $dN/dt$ notation is new, [Models as assumptions](09-density-dep-pop-growth.qmd#models-as-assumptions) introduces it. For the simulations, you will need your `Rwork` project ([Computer setup](02-computer-setup.qmd)) and the `deSolve` package, which is also used in [Of wolves and moose](12-predator-prey.qmd).
+:::
+
 ## Goals
 In this chapter, you will provide partial answers for these questions:
 
@@ -21,6 +27,42 @@ To address these questions, we will use pencil and paper and R to,
 One of the main the points of doing these activities is to help to develop an intuition for *systems thinking*. A system is "[a group of interacting, interdependent parts that form a complex whole"](https://en.wikipedia.org/wiki/Systems_theory){target="_blank"} and ecosystem ecology is a central subdisicpline of ecology and the one that has contributed the most to our understanding of climate change and ecosystem services.
 
 The other main point of these activities is to reinforce simple ideas related to the global carbon cycle and global warming.
+
+## Deliverables
+
+### Part 1 {#sec-deliverables-ei1}
+
+Two documents:
+
+The first document is your R script (just the R script - do not save it in any other format). 
+
+The second document should provide the following written responses and quantities you calculated in R:
+
+1. Quantities from the simple budget, including units:
+   a. the annual flux 
+   a. the size of the pool in years 2 and 25.
+1. Quantities from the simple dynamic model, including units:
+   a. the graph of atmospheric carbon dynamics.
+   a. solution to the dynamic rate equation (i.e. what is $A^*$ predicted to be at equilibrium?). Show your work.
+1. State what your solution tells us should happen to $A^*$ if $e$ gets smaller and also if it gets larger.
+1. Compare and contrast the simple budget and the simple dynamic system, in terms of how they represent a system, and in what they predict about future atmospheric carbon levels.
+1. Explain what the simple dynamic system would predict about the ocean acidification due to fossil fuel emissions?
+1. Warmer water holds lower concentrations of gases such as oxygen and carbon dioxide than does colder water. Explain how this might alter predictions about ocean acidification assuming the atmosphere and oceans continue to warm. If you know a little about chemistry, include anything you know about the effect of temperature on the dissociation of acids.
+
+### Part 2 {#sec-deliverables-ei2}
+
+Include two documents; the first is your R script.
+
+In the second document, provide results for each experiment (1-3). For each experiment include a graph of CO2 concentration and a graph of observed and equilibrium temperatures, as well as these data:
+
+* $A$, atmospheric CO2 concentration at the start and end of your simulation.
+* $K$, modeled "observed" or contemporaneous temperature (deg C) at the start and end of your simulation.
+* $K_eq$, equilibrium temperature (deg C) at the start and end of your simulation.
+* $K_eq-K$, calculated difference between the contemporaneous and equilibrium temperatures at the start and end of your simulation.
+
+At the end, use your data and figures to **tell the story** of how our activities alter the planet. Be sure to mention how we have not yet experience the consequences of greenhouse gases that we have already produced.
+
+In sum, your one document should include results of three experiments and then a short narrative or story explaining what your simulations show.
 
 ## Preparatory steps
 
@@ -240,7 +282,6 @@ carbonic_acid <- 1 #Pg
 ```
 
 
-
 We will estimate the approximate value of $e$ using the net carbon flux. 
 
 $$F_{oa} = \mathrm{photosynthesis }$$
@@ -310,25 +351,6 @@ asymp
 
 What does the above solution tell us should happen if $e$ gets smaller? gets larger?
 
-## Deliverables, part 1 {#sec-deliverables-ei1}
-
-Two documents:
-
-The first document is your R script (just the R script - do not save it in any other format). 
-
-The second document should provide the following written responses and quantities you calculated in R:
-
-1. Quantities from the simple budget, including units:
-   a. the annual flux 
-   a. the size of the pool in years 2 and 25.
-1. Quantities from the simple dynamic model, including units:
-   a. the graph of atmospheric carbon dynamics.
-   a. solution to the dynamic rate equation (i.e. what is $A^*$ predicted to be at equilibrium?). Show your work.
-1. State what the above solution tells us should happen the $A^*$ if $e$ gets smaller and also if it gets larger.
-1. Compare and contrast the simple budget and the simple dynamic system above, in terms of how they represent a system, and in what they predict about future atmospheric carbon levels.
-1. Explain what the simple dynamic system would predict about the ocean acidification due to fossil fuel emissions?
-1. Warmer water holds lower concentrations of gases such as oxygen and carbon dioxide than does colder water. Explain how this might alter predictions about ocean acidification assuming the atmosphere and oceans continue to warm. If you know a little about chemistry, include anything you know about the effect of temperature on the dissociation of acids.
-
 ```{r}
 #| echo: false
 #| results: hide
@@ -345,7 +367,6 @@ The second document should provide the following written responses and quantitie
 ## 1. higher temps will excerbate dissolution
 
 ```
-
 
 
 ## Linking two different ecosystem processes shows lagged effects
@@ -758,22 +779,6 @@ p2.3
 ggsave("figs/Exp3_temps.png", plot=p2.3)
 ```
 
-
-
-## Deliverables, part 2 {#sec-deliverables-ei2}
-
-Include two documents; the first is your R script.
-
-In the second document, provide results for each experiment (1-3). For each experiment include a graph of CO2 concentration and a graph of observed and equilibrium temperatures, as well as these data:
-
-* $A$, atmospheric CO2 concentration at the start and end of your simulation.
-* $K$, modeled "observed" or contemporaneous temperature (deg C) at the start and end of your simulation.
-* $K_eq$, equilibrium temperature (deg C) at the start and end of your simulation.
-* $K_eq-K$, calculated difference between the contemporaneous and equilibrium temperatures at the start and end of your simulation.
-
-At the end, use your data and figures to **tell the story** of how our activities alter the planet. Be sure to mention how we have not yet experience the consequences of greenhouse gases that we have already produced.
-
-In sum, your one document should include results of three experiments and then a short narrative or story explaining what your simulations show.
 
 ```{r}
 #| echo: false

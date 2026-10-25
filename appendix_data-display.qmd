@@ -1,0 +1,209 @@
+---
+title: "Displaying Data with ggplot2"
+---
+
+*...in which we keep a short list of habits and recipes for making figures that are easy to read and honest about the data.*
+
+```{r}
+#| label: setup-dd
+#| include: false
+library(ggplot2)
+theme_set(theme_bw(base_size = 13))
+```
+
+## Goals
+
+In this appendix, you will
+
+- Use a handful of rules of thumb that fix most problems in student figures.
+- Pick a sensible plot type from the kinds of variables you have.
+- Copy and adapt a small set of `ggplot2` recipes for the plots you will make most often.
+- Run through a checklist before you hand in or present any figure.
+
+All examples use `CO2`, a data set that comes with R: CO~2~ uptake by the grass *Echinochloa crus-galli* from two origins (Quebec, Mississippi), chilled or not, across a range of ambient CO~2~ concentrations. Type `?CO2` to read about it.
+
+## Rules of thumb
+
+1. **Show the data.** If you can plot the raw observations, do. Add means, lines, or boxes *on top of* the points, not instead of them.
+2. **Put the response on the y-axis** and the variable you think drives it on the x-axis.
+3. **Label every axis with the variable and its units**, e.g., "CO2 uptake (umol m^-2 s^-1)", never `uptake`.
+4. **Use color, shape, or panels only to show a variable.** If color does not mean something, leave it out.
+5. **Use colorblind-safe colors** (e.g., `scale_color_viridis_d()`), and do not rely on red vs. green.
+6. **Order categories meaningfully** (by treatment logic, or by the size of the response), not alphabetically by default.
+7. **Avoid** 3-D effects, pie charts, two different y-axes on one plot, and bar charts of means with no data shown.
+8. **Make text big enough to read** from the back of a room: `theme_bw(base_size = 14)` or larger for slides.
+
+## Which plot?
+
+| x variable | y variable | Start with | ggplot2 geoms |
+|---|---|---|---|
+| none | one continuous | histogram or density | `geom_histogram()`, `geom_density()` |
+| categorical | continuous | points + box or mean | `geom_jitter()`, `geom_boxplot()`, `stat_summary()` |
+| continuous | continuous | scatterplot | `geom_point()`, `geom_smooth()` |
+| time | continuous | line + points | `geom_line()`, `geom_point()` |
+| categorical | counts | bar chart | `geom_bar()` (counts), `geom_col()` (values you supply) |
+
+A third variable goes to `color =`, `shape =`, or `facet_wrap()`.
+
+## The ggplot2 template
+
+Every plot has the same three parts: the **data**, the **aesthetic mapping** (`aes()`, which says which column goes to which axis or color), and one or more **geoms** (the marks drawn). Everything else is optional polish.
+
+```{r}
+#| label: fig-dd-template
+#| fig-cap: "The minimal ggplot: data, mapping, geom."
+#| fig-height: 3.5
+ggplot(data = CO2, aes(x = conc, y = uptake)) +
+  geom_point()
+```
+
+Remember that `aes()` is for things that come *from a column*. A fixed setting goes outside it: `geom_point(color = "blue")`, not `geom_point(aes(color = "blue"))`.
+
+## Recipes
+
+### Continuous x and y, with groups
+
+```{r}
+#| label: fig-dd-scatter
+#| fig-cap: "Points for the data, a smoother for the trend, color for a grouping variable, and panels for a second one."
+#| fig-height: 3.5
+ggplot(CO2, aes(x = conc, y = uptake, color = Treatment)) +
+  geom_point(alpha = 0.7) +
+  geom_smooth(se = FALSE, method = "loess", formula = y ~ x) +
+  facet_wrap(~ Type) +
+  scale_color_viridis_d(end = 0.8) +
+  labs(x = "Ambient CO2 (mL/L)",
+       y = expression(CO[2]~uptake~(mu*mol~m^-2~s^-1)),
+       color = NULL)
+```
+
+- `alpha` makes overlapping points visible.
+- `geom_smooth(method = "lm")` gives a straight line instead of a curve.
+- `facet_wrap(~ Type)` splits the plot into panels that share axes, which is usually easier to compare than many colors on one panel.
+
+### Small multiples: `facet_wrap()` and `facet_grid()`
+
+Panels ("small multiples") are often clearer than piling many colors onto one plot. Each panel uses the same axes, so the eye compares shapes rather than decoding a legend.
+
+`facet_wrap()` takes **one** grouping variable and wraps its panels into rows and columns. Here each of the 12 plants gets its own panel:
+
+```{r}
+#| label: fig-dd-wrap
+#| fig-cap: "facet_wrap(): one panel per plant, arranged in 4 columns."
+#| fig-height: 5
+ggplot(CO2, aes(x = conc, y = uptake)) +
+  geom_line() +
+  geom_point() +
+  facet_wrap(~ Plant, ncol = 4) +
+  labs(x = "Ambient CO2 (mL/L)", y = "CO2 uptake (umol m^-2 s^-1)")
+```
+
+`facet_grid()` crosses **two** grouping variables: rows by one, columns by the other. This is the natural layout for a two-factor experiment:
+
+```{r}
+#| label: fig-dd-grid
+#| fig-cap: "facet_grid(): rows are plant origin, columns are treatment. Each line is one plant."
+#| fig-height: 4.5
+ggplot(CO2, aes(x = conc, y = uptake, group = Plant)) +
+  geom_line(color = "grey40") +
+  geom_point() +
+  facet_grid(Type ~ Treatment) +
+  labs(x = "Ambient CO2 (mL/L)", y = "CO2 uptake (umol m^-2 s^-1)")
+```
+
+- Read `facet_grid(rows ~ cols)` as "rows by `Type`, columns by `Treatment`." Use `. ~ Treatment` (or `cols = vars(Treatment)`) for columns only.
+- `group = Plant` tells `geom_line()` to draw one line per plant instead of zig-zagging through every point in a panel.
+- Panels share axes by default, which is usually what you want for comparison. Use `scales = "free_y"` only when the groups differ so much in size that shared axes hide the pattern, and say so in the caption.
+- If panel labels are cryptic codes, fix the factor levels in the data (or use `labeller = label_both` to show "Type: Quebec") rather than explaining them in the caption.
+
+### Categorical x, continuous y
+
+```{r}
+#| label: fig-dd-groups
+#| fig-cap: "Uptake at the highest CO2 concentration (1000 mL/L). Raw data (jittered points, one per plant, n = 3 per group) with the group mean +/- 1 SE drawn on top."
+#| fig-height: 3.5
+co2_high <- subset(CO2, conc == 1000)  # one measurement per plant
+
+ggplot(co2_high, aes(x = Treatment, y = uptake)) +
+  geom_jitter(width = 0.1, height = 0, alpha = 0.4) +
+  stat_summary(fun.data = mean_se, color = "red", size = 0.8) +
+  facet_wrap(~ Type) +
+  labs(x = NULL, y = "CO2 uptake (umol m^-2 s^-1)")
+```
+
+- `geom_jitter(width = 0.1, height = 0)` spreads points sideways only a little, so they stay with their group, and never moves them up or down (which would change their y values).
+- Swap `stat_summary()` for `geom_boxplot(outlier.shape = NA)` to show medians and quartiles instead. (`outlier.shape = NA` stops outliers being drawn twice, since the jitter already shows them.)
+- Say in the caption what the error bars are (SE, SD, or 95% CI). Readers cannot tell otherwise.
+- Make sure each point is an independent replicate before computing an SE. Each plant in `CO2` was measured at seven concentrations, so we kept one concentration; pooling all of them would treat 21 repeated measurements on 3 plants as 21 replicates.
+
+### Reordering categories
+
+```{r}
+#| label: fig-dd-reorder
+#| fig-cap: "Plants ordered by median uptake rather than alphabetically."
+#| fig-height: 3.5
+ggplot(CO2, aes(x = reorder(Plant, uptake, FUN = median), y = uptake)) +
+  geom_boxplot() +
+  labs(x = "Plant", y = "CO2 uptake (umol m^-2 s^-1)")
+```
+
+To set an order by hand, change the factor before plotting, e.g., `factor(x, levels = c("low", "medium", "high"))`.
+
+### One distribution
+
+```{r}
+#| label: fig-dd-hist
+#| fig-cap: "A histogram. Try several binwidths; the default is rarely the best."
+#| fig-height: 3
+ggplot(CO2, aes(x = uptake)) +
+  geom_histogram(binwidth = 2.5, fill = "grey70", color = "black") +
+  labs(x = "CO2 uptake (umol m^-2 s^-1)", y = "Number of measurements")
+```
+
+### Log scales
+
+Many ecological variables (body size, abundance, area) span orders of magnitude. Log the *axis*, not the column, so the tick labels stay in original units:
+
+```r
+ggplot(df, aes(x = body_mass, y = metabolic_rate)) +
+  geom_point() +
+  scale_x_log10() +
+  scale_y_log10()
+```
+
+## Polish
+
+- **Titles and labels:** `labs(x = , y = , color = , title = )`. In a report or this book, put the explanation in the figure caption and usually skip `title`.
+- **Theme:** set once at the top of a script with `theme_set(theme_bw(base_size = 13))`. `theme_classic()` and `theme_minimal()` are also clean.
+- **Legend:** move it with `theme(legend.position = "bottom")`; remove it with `"none"` when the facet labels or a caption already say what the colors mean.
+- **Subscripts, superscripts, Greek letters:** use `expression()`, as in the scatterplot above: `CO[2]` is a subscript, `m^-2` a superscript, `mu` gives a Greek mu, `~` is a space, and `*` joins without a space.
+- **Plain text in plots:** type `umol`, `~`, and `+/-` rather than pasting special symbols such as degree signs or a micro sign into labels. Pasted symbols can silently disappear when a figure is saved to PDF; `expression()` draws them safely.
+
+## Saving figures
+
+Save with `ggsave()` into your `figs/` folder, and set the size yourself so the text comes out the size you intended:
+
+```r
+p <- ggplot(CO2, aes(x = conc, y = uptake)) + geom_point()
+ggsave("figs/co2_uptake.png", plot = p, width = 6, height = 4, dpi = 300)
+```
+
+- Width and height are in inches by default. A figure that fills half a page is about 6 x 4.
+- Use `.png` for slides and documents, `.pdf` when a journal or your instructor asks for vector graphics.
+- If text looks too small in the saved file, increase `base_size` in the theme; do not just make the image bigger.
+
+## Checklist before you hand it in
+
+- [ ] Can someone tell what each axis is, and in what units, without reading your text?
+- [ ] Are the raw data visible, or is there a good reason they are not?
+- [ ] Does every color, shape, and panel stand for a variable, and is that explained in the legend or caption?
+- [ ] Are categories in a sensible order?
+- [ ] Does the caption say what the error bars or lines are and what the sample size is?
+- [ ] Is the text readable at the size the figure will actually be shown?
+- [ ] Would the figure still work in grayscale or for a colorblind reader?
+
+## Where to look next
+
+- *R for Data Science* (2e), chapters on data visualization and communication: <https://r4ds.hadley.nz>
+- The `ggplot2` reference pages, with an example for every function: <https://ggplot2.tidyverse.org/reference/>
+- The Posit `ggplot2` cheat sheet (search "ggplot2 cheat sheet").

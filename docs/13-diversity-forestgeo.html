@@ -329,6 +329,18 @@ h1, h2, h3, h4, h5, h6,
  <span class="menu-text"><span class="chapter-number">D</span>&nbsp; <span class="chapter-title">Accessing Public Ecological Databases</span></span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./appendix_data-display.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">E</span>&nbsp; <span class="chapter-title">Displaying Data with ggplot2</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./appendix-your-own-interests.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">F</span>&nbsp; <span class="chapter-title">Your Own Interests: Telling a short story with data</span></span></a>
+  </div>
+</li>
       </ul>
   </li>
     </ul>
@@ -342,25 +354,25 @@ h1, h2, h3, h4, h5, h6,
    
   <ul>
   <li><a href="#goals" id="toc-goals" class="nav-link active" data-scroll-target="#goals"><span class="header-section-number">13.1</span> Goals</a></li>
-  <li><a href="#preparatory-steps" id="toc-preparatory-steps" class="nav-link" data-scroll-target="#preparatory-steps"><span class="header-section-number">13.2</span> Preparatory Steps</a></li>
-  <li><a href="#background" id="toc-background" class="nav-link" data-scroll-target="#background"><span class="header-section-number">13.3</span> Background</a>
+  <li><a href="#sec-deliverables-diversity-forestgeo" id="toc-sec-deliverables-diversity-forestgeo" class="nav-link" data-scroll-target="#sec-deliverables-diversity-forestgeo"><span class="header-section-number">13.2</span> Deliverables</a></li>
+  <li><a href="#preparatory-steps" id="toc-preparatory-steps" class="nav-link" data-scroll-target="#preparatory-steps"><span class="header-section-number">13.3</span> Preparatory Steps</a></li>
+  <li><a href="#background" id="toc-background" class="nav-link" data-scroll-target="#background"><span class="header-section-number">13.4</span> Background</a>
   <ul class="collapse">
-  <li><a href="#three-things-people-mean-by-diversity" id="toc-three-things-people-mean-by-diversity" class="nav-link" data-scroll-target="#three-things-people-mean-by-diversity"><span class="header-section-number">13.3.1</span> Three things people mean by “diversity”</a></li>
-  <li><a href="#richness-depends-on-how-hard-you-looked" id="toc-richness-depends-on-how-hard-you-looked" class="nav-link" data-scroll-target="#richness-depends-on-how-hard-you-looked"><span class="header-section-number">13.3.2</span> Richness depends on how hard you looked</a></li>
-  <li><a href="#the-latitudinal-diversity-gradientand-an-exception" id="toc-the-latitudinal-diversity-gradientand-an-exception" class="nav-link" data-scroll-target="#the-latitudinal-diversity-gradientand-an-exception"><span class="header-section-number">13.3.3</span> The latitudinal diversity gradient—and an exception</a></li>
+  <li><a href="#three-things-people-mean-by-diversity" id="toc-three-things-people-mean-by-diversity" class="nav-link" data-scroll-target="#three-things-people-mean-by-diversity"><span class="header-section-number">13.4.1</span> Three things people mean by “diversity”</a></li>
+  <li><a href="#richness-depends-on-how-hard-you-looked" id="toc-richness-depends-on-how-hard-you-looked" class="nav-link" data-scroll-target="#richness-depends-on-how-hard-you-looked"><span class="header-section-number">13.4.2</span> Richness depends on how hard you looked</a></li>
+  <li><a href="#the-latitudinal-diversity-gradientand-an-exception" id="toc-the-latitudinal-diversity-gradientand-an-exception" class="nav-link" data-scroll-target="#the-latitudinal-diversity-gradientand-an-exception"><span class="header-section-number">13.4.3</span> The latitudinal diversity gradient—and an exception</a></li>
   </ul></li>
-  <li><a href="#hypotheses-and-predictions" id="toc-hypotheses-and-predictions" class="nav-link" data-scroll-target="#hypotheses-and-predictions"><span class="header-section-number">13.4</span> Hypotheses and Predictions</a></li>
-  <li><a href="#get-r-ready-for-work" id="toc-get-r-ready-for-work" class="nav-link" data-scroll-target="#get-r-ready-for-work"><span class="header-section-number">13.5</span> Get R ready for work</a></li>
-  <li><a href="#measuring-diversity-at-bci" id="toc-measuring-diversity-at-bci" class="nav-link" data-scroll-target="#measuring-diversity-at-bci"><span class="header-section-number">13.6</span> Measuring diversity at BCI</a>
+  <li><a href="#hypotheses-and-predictions" id="toc-hypotheses-and-predictions" class="nav-link" data-scroll-target="#hypotheses-and-predictions"><span class="header-section-number">13.5</span> Hypotheses and Predictions</a></li>
+  <li><a href="#get-r-ready-for-work" id="toc-get-r-ready-for-work" class="nav-link" data-scroll-target="#get-r-ready-for-work"><span class="header-section-number">13.6</span> Get R ready for work</a></li>
+  <li><a href="#measuring-diversity-at-bci" id="toc-measuring-diversity-at-bci" class="nav-link" data-scroll-target="#measuring-diversity-at-bci"><span class="header-section-number">13.7</span> Measuring diversity at BCI</a>
   <ul class="collapse">
-  <li><a href="#richness-plot-by-plot" id="toc-richness-plot-by-plot" class="nav-link" data-scroll-target="#richness-plot-by-plot"><span class="header-section-number">13.6.1</span> Richness, plot by plot</a></li>
-  <li><a href="#evenness-and-the-rankabundance-curve" id="toc-evenness-and-the-rankabundance-curve" class="nav-link" data-scroll-target="#evenness-and-the-rankabundance-curve"><span class="header-section-number">13.6.2</span> Evenness and the rank–abundance curve</a></li>
-  <li><a href="#one-number-shannon-and-simpson-diversity" id="toc-one-number-shannon-and-simpson-diversity" class="nav-link" data-scroll-target="#one-number-shannon-and-simpson-diversity"><span class="header-section-number">13.6.3</span> One number: Shannon and Simpson diversity</a></li>
-  <li><a href="#rarefaction-comparing-fairly" id="toc-rarefaction-comparing-fairly" class="nav-link" data-scroll-target="#rarefaction-comparing-fairly"><span class="header-section-number">13.6.4</span> Rarefaction: comparing fairly</a></li>
-  <li><a href="#does-richness-just-track-the-number-of-stems" id="toc-does-richness-just-track-the-number-of-stems" class="nav-link" data-scroll-target="#does-richness-just-track-the-number-of-stems"><span class="header-section-number">13.6.5</span> Does richness just track the number of stems?</a></li>
+  <li><a href="#richness-plot-by-plot" id="toc-richness-plot-by-plot" class="nav-link" data-scroll-target="#richness-plot-by-plot"><span class="header-section-number">13.7.1</span> Richness, plot by plot</a></li>
+  <li><a href="#evenness-and-the-rankabundance-curve" id="toc-evenness-and-the-rankabundance-curve" class="nav-link" data-scroll-target="#evenness-and-the-rankabundance-curve"><span class="header-section-number">13.7.2</span> Evenness and the rank–abundance curve</a></li>
+  <li><a href="#one-number-shannon-and-simpson-diversity" id="toc-one-number-shannon-and-simpson-diversity" class="nav-link" data-scroll-target="#one-number-shannon-and-simpson-diversity"><span class="header-section-number">13.7.3</span> One number: Shannon and Simpson diversity</a></li>
+  <li><a href="#rarefaction-comparing-fairly" id="toc-rarefaction-comparing-fairly" class="nav-link" data-scroll-target="#rarefaction-comparing-fairly"><span class="header-section-number">13.7.4</span> Rarefaction: comparing fairly</a></li>
+  <li><a href="#does-richness-just-track-the-number-of-stems" id="toc-does-richness-just-track-the-number-of-stems" class="nav-link" data-scroll-target="#does-richness-just-track-the-number-of-stems"><span class="header-section-number">13.7.5</span> Does richness just track the number of stems?</a></li>
   </ul></li>
-  <li><a href="#comparing-forests-across-the-globe" id="toc-comparing-forests-across-the-globe" class="nav-link" data-scroll-target="#comparing-forests-across-the-globe"><span class="header-section-number">13.7</span> Comparing forests across the globe</a></li>
-  <li><a href="#sec-deliverables-diversity-forestgeo" id="toc-sec-deliverables-diversity-forestgeo" class="nav-link" data-scroll-target="#sec-deliverables-diversity-forestgeo"><span class="header-section-number">13.8</span> Deliverables</a></li>
+  <li><a href="#comparing-forests-across-the-globe" id="toc-comparing-forests-across-the-globe" class="nav-link" data-scroll-target="#comparing-forests-across-the-globe"><span class="header-section-number">13.8</span> Comparing forests across the globe</a></li>
   <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references"><span class="header-section-number">13.9</span> References</a></li>
   </ul>
 </nav>
@@ -388,14 +400,19 @@ h1, h2, h3, h4, h5, h6,
 
 
 <!-- Suggested opening figure: a canopy or map of the ForestGEO network. e.g. ![A ForestGEO forest dynamics plot.](figs/forestgeo_canopy.png) -->
-<div class="callout callout-style-simple callout-note">
-<div class="callout-body d-flex">
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
-<div class="callout-body-container">
-<p><strong>If you haven’t met these before:</strong> this chapter uses ideas about counting and comparing populations from the population-growth chapters (a <em>count</em> of stems is just population size), and the log-transformation logic from the metabolic ecology chapter (<a href="15-metabolic-ecology_v_2.html" class="quarto-xref"><span>Chapter 15</span></a>). You can do this chapter without having finished those, but a glance back will help.</p>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Before you start
 </div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li><strong>Assumptions about background and guidance:</strong> this chapter uses ideas about counting and comparing populations from the population-growth chapters (a <em>count</em> of stems is just population size), and the log-transformation logic from the metabolic ecology chapter (<a href="15-metabolic-ecology_v_2.html" class="quarto-xref"><span>Chapter 15</span></a>). You can do this chapter without having finished those, but a glance back will help. You should also be able to run a script in your <code>Rwork</code> project and make a graph with <code>ggplot()</code>; see <a href="./02-computer-setup.html">Computer setup</a> and <a href="./appendix_data-display.html">Displaying data with ggplot2</a>.</li>
+</ul>
 </div>
 </div>
 <section id="goals" class="level2" data-number="13.1">
@@ -410,21 +427,54 @@ h1, h2, h3, h4, h5, h6,
 </ul>
 <p><em>Time: ~2–3 h. Most students start the activity in one 80-minute class period and finish the deliverables at home.</em></p>
 </section>
-<section id="preparatory-steps" class="level2" data-number="13.2">
-<h2 data-number="13.2" class="anchored" data-anchor-id="preparatory-steps"><span class="header-section-number">13.2</span> Preparatory Steps</h2>
+<section id="sec-deliverables-diversity-forestgeo" class="level2" data-number="13.2">
+<h2 data-number="13.2" class="anchored" data-anchor-id="sec-deliverables-diversity-forestgeo"><span class="header-section-number">13.2</span> Deliverables</h2>
+<p>Assemble the following into a single document and submit it online.</p>
 <ol type="1">
-<li>Find out what you need for the deliverables (<a href="#sec-deliverables-diversity-forestgeo" class="quarto-xref"><span>Section 13.8</span></a>) <strong>before</strong> you start, including the parts you will sketch by hand and turn in.</li>
+<li><p><strong>Your three hand-drawn predictions</strong> (rank–abundance, species accumulation, richness vs.&nbsp;latitude), photographed, <em>before</em> you ran any code.</p></li>
+<li><p><strong>In your own words (2–3 sentences each):</strong> a. the difference between richness, evenness, and diversity; b. why rarefied richness came out lower than observed richness; c.&nbsp;what <code>exp(H)</code> (effective number of species) tells you that raw Shannon <em>H</em> does not.</p></li>
+<li><p><strong>Reproduce and include</strong> the rank–abundance plot (<a href="#fig-rankabundance" class="quarto-xref">Figure&nbsp;<span>13.2</span></a>) and the global latitude plot (<a href="#fig-latitude" class="quarto-xref">Figure&nbsp;<span>13.4</span></a>). For each, write one sentence comparing the real figure to your hand-drawn prediction. Where they differ, explain <em>why</em>—this is the point of the assignment.</p></li>
+<li><p><strong>Build a species–accumulation curve</strong> for BCI and include it. Starter code:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>accum <span class="ot">&lt;-</span> <span class="fu">specaccum</span>(BCI)   <span class="co"># cumulative species as plots are added</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>accum_df <span class="ot">&lt;-</span> <span class="fu">tibble</span>(<span class="at">plots =</span> accum<span class="sc">$</span>sites,</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>                   <span class="at">richness =</span> accum<span class="sc">$</span>richness,</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>                   <span class="at">sd =</span> accum<span class="sc">$</span>sd)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(accum_df, <span class="fu">aes</span>(<span class="at">x =</span> plots, <span class="at">y =</span> richness)) <span class="sc">+</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_ribbon</span>(<span class="fu">aes</span>(<span class="at">ymin =</span> richness <span class="sc">-</span> sd, <span class="at">ymax =</span> richness <span class="sc">+</span> sd),</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>              <span class="at">fill =</span> <span class="st">"grey80"</span>) <span class="sc">+</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">linewidth =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Number of 1-ha plots sampled"</span>,</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Cumulative species found"</span>) <span class="sc">+</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div></li>
+</ol>
+<p>In one or two sentences, answer: does the curve flatten out by 50 hectares? What does your answer imply about how many tree species the <em>whole</em> forest contains versus how many appear in any one plot?</p>
+<ol start="5" type="1">
+<li><p><strong>The African exception.</strong> In a short paragraph, propose the explanation you find most convincing for why Korup is less rich than comparable Asian and Neotropical plots, and state one kind of data that would help test your explanation.</p></li>
+<li><p><strong>Audit the machine.</strong> Below is a paragraph generated by an AI chatbot when asked to summarize this chapter. It sounds authoritative and is <em>mostly</em> right, but it contains at least one substantive ecological error. Find the error(s), quote the offending sentence, and correct it using what you learned:</p>
+<blockquote class="blockquote">
+<p><em>“Species richness is the most complete measure of biodiversity because it accounts for both how many species are present and how evenly abundant they are. Because the ForestGEO plots all use the same protocol, a forest’s richness is a fixed property, so the 493 species recorded at Korup can be compared directly to the 168 species recorded in a one-hectare plot at BCI. Diversity always increases smoothly toward the equator, with no exceptions.”</em></p>
+</blockquote></li>
+</ol>
+<p>This is exactly the skill this whole book is built around: a machine can produce a fluent paragraph in seconds, and only someone who understands the mechanisms can catch where it is subtly—or badly—wrong.</p>
+</section>
+<section id="preparatory-steps" class="level2" data-number="13.3">
+<h2 data-number="13.3" class="anchored" data-anchor-id="preparatory-steps"><span class="header-section-number">13.3</span> Preparatory Steps</h2>
+<ol type="1">
+<li>Find out what you need for the deliverables (<a href="#sec-deliverables-diversity-forestgeo" class="quarto-xref"><span>Section 13.2</span></a>) <strong>before</strong> you start, including the parts you will sketch by hand and turn in.</li>
 <li>Watch the video lectures on biodiversity and the latitudinal diversity gradient.</li>
-<li>Skim <span class="citation" data-cites="davies2021"><span class="nocase">Davies et al.</span> (<a href="references.html#ref-davies2021" role="doc-biblioref">2021</a>)</span> for one paragraph on what the ForestGEO network is. You do not need the details—just the idea that many forests around the world have been censused <em>the same way</em>.</li>
+<li>Skim <span class="citation" data-cites="davies2021">(<a href="references.html#ref-davies2021" role="doc-biblioref"><strong>davies2021?</strong></a>)</span> for one paragraph on what the ForestGEO network is. You do not need the details—just the idea that many forests around the world have been censused <em>the same way</em>.</li>
 <li>Install the <code>vegan</code> package once (instructions below). Everything else uses packages you already have.</li>
 </ol>
 </section>
-<section id="background" class="level2" data-number="13.3">
-<h2 data-number="13.3" class="anchored" data-anchor-id="background"><span class="header-section-number">13.3</span> Background</h2>
+<section id="background" class="level2" data-number="13.4">
+<h2 data-number="13.4" class="anchored" data-anchor-id="background"><span class="header-section-number">13.4</span> Background</h2>
 <p>Walk into a forest in Ohio and you might learn most of the trees in an afternoon: a few oaks, some maples, hickory, beech, ash. Walk into a lowland forest in Panama or Malaysia and you could spend a career and not finish. Why the enormous difference? And how would you even <em>measure</em> it fairly, when one forest hands you twenty species and another hands you eight hundred?</p>
-<p>To compare forests honestly, ecologists needed forests measured the same way. That is exactly what the <strong>Forest Global Earth Observatory (ForestGEO)</strong> provides. Beginning with a single 50-hectare plot on Barro Colorado Island (BCI) in Panama in 1980, the network has grown to dozens of large forest dynamics plots spread across the world’s major forests <span class="citation" data-cites="davies2021">(<a href="references.html#ref-davies2021" role="doc-biblioref"><span class="nocase">Davies et al.</span> 2021</a>)</span>. In every plot, field crews follow the same protocol: every free-standing woody stem at least 1 cm in diameter is mapped, tagged, identified to species, and then <em>re-measured</em> every five years or so <span class="citation" data-cites="anderson-teixeira2015">(<a href="references.html#ref-anderson-teixeira2015" role="doc-biblioref"><span class="nocase">Anderson-Teixeira et al.</span> 2015</a>)</span>. A single 50-ha plot can hold a few hundred thousand individual trees. Because the protocol is identical across continents, a difference in the numbers reflects a difference in the <em>forests</em>, not a difference in the <em>method</em>.</p>
-<section id="three-things-people-mean-by-diversity" class="level3" data-number="13.3.1">
-<h3 data-number="13.3.1" class="anchored" data-anchor-id="three-things-people-mean-by-diversity"><span class="header-section-number">13.3.1</span> Three things people mean by “diversity”</h3>
+<p>To compare forests honestly, ecologists needed forests measured the same way. That is exactly what the <strong>Forest Global Earth Observatory (ForestGEO)</strong> provides. Beginning with a single 50-hectare plot on Barro Colorado Island (BCI) in Panama in 1980, the network has grown to dozens of large forest dynamics plots spread across the world’s major forests <span class="citation" data-cites="davies2021">(<a href="references.html#ref-davies2021" role="doc-biblioref"><strong>davies2021?</strong></a>)</span>. In every plot, field crews follow the same protocol: every free-standing woody stem at least 1 cm in diameter is mapped, tagged, identified to species, and then <em>re-measured</em> every five years or so <span class="citation" data-cites="anderson-teixeira2015">(<a href="references.html#ref-anderson-teixeira2015" role="doc-biblioref"><strong>anderson-teixeira2015?</strong></a>)</span>. A single 50-ha plot can hold a few hundred thousand individual trees. Because the protocol is identical across continents, a difference in the numbers reflects a difference in the <em>forests</em>, not a difference in the <em>method</em>.</p>
+<section id="three-things-people-mean-by-diversity" class="level3" data-number="13.4.1">
+<h3 data-number="13.4.1" class="anchored" data-anchor-id="three-things-people-mean-by-diversity"><span class="header-section-number">13.4.1</span> Three things people mean by “diversity”</h3>
 <p>“Diversity” is used loosely in conversation, but it bundles together at least three distinct ideas, and confusing them is one of the most common mistakes in ecology.</p>
 <ul>
 <li><strong>Richness</strong> is simply the <em>number</em> of species present. It ignores how common each one is. A forest with 100 species, 99 of them represented by a single tree, has the same richness as a forest with 100 evenly abundant species.</li>
@@ -445,18 +495,18 @@ h1, h2, h3, h4, h5, h6,
 </div>
 </div>
 </section>
-<section id="richness-depends-on-how-hard-you-looked" class="level3" data-number="13.3.2">
-<h3 data-number="13.3.2" class="anchored" data-anchor-id="richness-depends-on-how-hard-you-looked"><span class="header-section-number">13.3.2</span> Richness depends on how hard you looked</h3>
-<p>Here is the uncomfortable part. Richness is not a fixed property you can read off a forest like its temperature. The more individuals you count, the more species you find, because rare species only show up once you have sampled enough trees to stumble onto them. Census 1 hectare at BCI and you find about 168 tree species; census all 50 hectares and you find roughly 300 <span class="citation" data-cites="condit1996">(<a href="references.html#ref-condit1996" role="doc-biblioref">Condit et al. 1996</a>)</span>. The forest did not change—your <em>sample</em> got bigger.</p>
-<p>This is the <strong>species–accumulation</strong> (or species–area) relationship, and it means two numbers are only comparable if they come from the same amount of effort. Comparing “168 species” from a 1-ha plot to “493 species” from a 50-ha plot tells you almost nothing, because the second number had fifty times the chance to find rarities. Ecologists handle this with <strong>rarefaction</strong>: ask how many species you would <em>expect</em> if every sample were thinned to the same number of individuals <span class="citation" data-cites="gotelli2001">(<a href="references.html#ref-gotelli2001" role="doc-biblioref">Gotelli and Colwell 2001</a>)</span>. You will do this below.</p>
+<section id="richness-depends-on-how-hard-you-looked" class="level3" data-number="13.4.2">
+<h3 data-number="13.4.2" class="anchored" data-anchor-id="richness-depends-on-how-hard-you-looked"><span class="header-section-number">13.4.2</span> Richness depends on how hard you looked</h3>
+<p>Here is the uncomfortable part. Richness is not a fixed property you can read off a forest like its temperature. The more individuals you count, the more species you find, because rare species only show up once you have sampled enough trees to stumble onto them. Census 1 hectare at BCI and you find about 168 tree species; census all 50 hectares and you find roughly 300 <span class="citation" data-cites="condit1996">(<a href="references.html#ref-condit1996" role="doc-biblioref"><strong>condit1996?</strong></a>)</span>. The forest did not change—your <em>sample</em> got bigger.</p>
+<p>This is the <strong>species–accumulation</strong> (or species–area) relationship, and it means two numbers are only comparable if they come from the same amount of effort. Comparing “168 species” from a 1-ha plot to “493 species” from a 50-ha plot tells you almost nothing, because the second number had fifty times the chance to find rarities. Ecologists handle this with <strong>rarefaction</strong>: ask how many species you would <em>expect</em> if every sample were thinned to the same number of individuals <span class="citation" data-cites="gotelli2001">(<a href="references.html#ref-gotelli2001" role="doc-biblioref">Gotelli 2001</a>)</span>. You will do this below.</p>
 </section>
-<section id="the-latitudinal-diversity-gradientand-an-exception" class="level3" data-number="13.3.3">
-<h3 data-number="13.3.3" class="anchored" data-anchor-id="the-latitudinal-diversity-gradientand-an-exception"><span class="header-section-number">13.3.3</span> The latitudinal diversity gradient—and an exception</h3>
-<p>Across most groups of organisms, diversity rises as you move from the poles toward the equator <span class="citation" data-cites="hillebrand2004">(<a href="references.html#ref-hillebrand2004" role="doc-biblioref">Hillebrand 2004</a>)</span>. Tropical forests are the headline example. But the tropics are not uniform. Compared per hectare, lowland forests in the Neotropics and Southeast Asia are staggeringly rich, while African rainforests are consistently <em>less</em> rich—a pattern old enough that ecologists once called Africa “the odd man out” <span class="citation" data-cites="kenfack2007">(<a href="references.html#ref-kenfack2007" role="doc-biblioref">Kenfack et al. 2007</a>)</span>. The 50-ha plot at Korup in Cameroon holds about 493 tree species among more than 329,000 individuals—extraordinary by temperate standards, yet well below comparable Asian and Neotropical plots censused the same way <span class="citation" data-cites="kenfack2007">(<a href="references.html#ref-kenfack2007" role="doc-biblioref">Kenfack et al. 2007</a>)</span>. A good theory of diversity has to explain both the broad gradient <em>and</em> its exceptions.</p>
+<section id="the-latitudinal-diversity-gradientand-an-exception" class="level3" data-number="13.4.3">
+<h3 data-number="13.4.3" class="anchored" data-anchor-id="the-latitudinal-diversity-gradientand-an-exception"><span class="header-section-number">13.4.3</span> The latitudinal diversity gradient—and an exception</h3>
+<p>Across most groups of organisms, diversity rises as you move from the poles toward the equator <span class="citation" data-cites="hillebrand2004">(<a href="references.html#ref-hillebrand2004" role="doc-biblioref"><strong>hillebrand2004?</strong></a>)</span>. Tropical forests are the headline example. But the tropics are not uniform. Compared per hectare, lowland forests in the Neotropics and Southeast Asia are staggeringly rich, while African rainforests are consistently <em>less</em> rich—a pattern old enough that ecologists once called Africa “the odd man out” <span class="citation" data-cites="kenfack2007">(<a href="references.html#ref-kenfack2007" role="doc-biblioref"><strong>kenfack2007?</strong></a>)</span>. The 50-ha plot at Korup in Cameroon holds about 493 tree species among more than 329,000 individuals—extraordinary by temperate standards, yet well below comparable Asian and Neotropical plots censused the same way <span class="citation" data-cites="kenfack2007">(<a href="references.html#ref-kenfack2007" role="doc-biblioref"><strong>kenfack2007?</strong></a>)</span>. A good theory of diversity has to explain both the broad gradient <em>and</em> its exceptions.</p>
 </section>
 </section>
-<section id="hypotheses-and-predictions" class="level2" data-number="13.4">
-<h2 data-number="13.4" class="anchored" data-anchor-id="hypotheses-and-predictions"><span class="header-section-number">13.4</span> Hypotheses and Predictions</h2>
+<section id="hypotheses-and-predictions" class="level2" data-number="13.5">
+<h2 data-number="13.5" class="anchored" data-anchor-id="hypotheses-and-predictions"><span class="header-section-number">13.5</span> Hypotheses and Predictions</h2>
 <p>We will pursue two questions, each with its own logic.</p>
 <p><strong>Question 1 (within one forest):</strong> How is diversity structured at BCI—are species roughly equal in abundance, or are a few common and most rare?</p>
 <p>This is an <strong>inductive</strong> question: we will let a large, carefully collected data set reveal a pattern, rather than deducing the pattern from a model first.</p>
@@ -482,26 +532,26 @@ h1, h2, h3, h4, h5, h6,
 </div>
 </div>
 </section>
-<section id="get-r-ready-for-work" class="level2" data-number="13.5">
-<h2 data-number="13.5" class="anchored" data-anchor-id="get-r-ready-for-work"><span class="header-section-number">13.5</span> Get R ready for work</h2>
+<section id="get-r-ready-for-work" class="level2" data-number="13.6">
+<h2 data-number="13.6" class="anchored" data-anchor-id="get-r-ready-for-work"><span class="header-section-number">13.6</span> Get R ready for work</h2>
 <p>We use the <code>vegan</code> package, the standard toolkit for community ecology in R, together with the tidyverse and <code>broom</code>. <code>vegan</code> ships with the <strong>BCI</strong> data set: counts of tree species in fifty 1-hectare plots from the Barro Colorado Island census—real data, already in R, so nothing can break or go offline.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Run this ONCE, then comment it out.</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"vegan"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Run this ONCE, then comment it out.</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"vegan"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(vegan)      <span class="co"># community ecology: diversity, rarefaction, accumulation</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)  <span class="co"># data wrangling and ggplot2</span></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(broom)      <span class="co"># tidy model output</span></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(BCI)           <span class="co"># load the Barro Colorado Island plot-by-species table</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(vegan)      <span class="co"># community ecology: diversity, rarefaction, accumulation</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)  <span class="co"># data wrangling and ggplot2</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(broom)      <span class="co"># tidy model output</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(BCI)           <span class="co"># load the Barro Colorado Island plot-by-species table</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(BCI)            <span class="co"># rows = 1-ha plots, columns = species</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(BCI)            <span class="co"># rows = 1-ha plots, columns = species</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1]  50 225</code></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>BCI[<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>, <span class="dv">1</span><span class="sc">:</span><span class="dv">6</span>]       <span class="co"># a corner of the table: counts of trees, by species, by plot</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>BCI[<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>, <span class="dv">1</span><span class="sc">:</span><span class="dv">6</span>]       <span class="co"># a corner of the table: counts of trees, by species, by plot</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  Abarema.macradenia Vachellia.melanoceras Acalypha.diversifolia
 1                  0                     0                     0
@@ -518,7 +568,7 @@ h1, h2, h3, h4, h5, h6,
 </div>
 </div>
 <div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -527,32 +577,32 @@ h1, h2, h3, h4, h5, h6,
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div id="callout-4" class="callout-4-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>Each <strong>row</strong> is one 1-hectare plot (there are 50). Each <strong>column</strong> is one tree species (there are 225 in this curated subset). Each <strong>cell</strong> is the <em>number of individual trees</em> of that species counted in that plot. A community data table in this “sites-by-species” layout is the workhorse of community ecology—almost everything below is just a clever summary of these counts. If you understand that one cell is “how many trees of species <em>j</em> I found in plot <em>i</em>,” you understand the whole table.</p>
 </div>
 </div>
 </div>
 </section>
-<section id="measuring-diversity-at-bci" class="level2" data-number="13.6">
-<h2 data-number="13.6" class="anchored" data-anchor-id="measuring-diversity-at-bci"><span class="header-section-number">13.6</span> Measuring diversity at BCI</h2>
-<section id="richness-plot-by-plot" class="level3" data-number="13.6.1">
-<h3 data-number="13.6.1" class="anchored" data-anchor-id="richness-plot-by-plot"><span class="header-section-number">13.6.1</span> Richness, plot by plot</h3>
+<section id="measuring-diversity-at-bci" class="level2" data-number="13.7">
+<h2 data-number="13.7" class="anchored" data-anchor-id="measuring-diversity-at-bci"><span class="header-section-number">13.7</span> Measuring diversity at BCI</h2>
+<section id="richness-plot-by-plot" class="level3" data-number="13.7.1">
+<h3 data-number="13.7.1" class="anchored" data-anchor-id="richness-plot-by-plot"><span class="header-section-number">13.7.1</span> Richness, plot by plot</h3>
 <p><code>specnumber()</code> counts the species present (abundance &gt; 0) in each plot.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>richness <span class="ot">&lt;-</span> <span class="fu">specnumber</span>(BCI)     <span class="co"># one richness value per 1-ha plot</span></span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(richness)               <span class="co"># how many species per hectare?</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>richness <span class="ot">&lt;-</span> <span class="fu">specnumber</span>(BCI)     <span class="co"># one richness value per 1-ha plot</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(richness)               <span class="co"># how many species per hectare?</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
   77.00   86.00   91.00   90.78   94.00  109.00 </code></pre>
 </div>
 </div>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tibble</span>(<span class="at">richness =</span> richness) <span class="sc">|&gt;</span></span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> richness)) <span class="sc">+</span></span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> <span class="dv">5</span>, <span class="at">fill =</span> <span class="st">"forestgreen"</span>, <span class="at">colour =</span> <span class="st">"white"</span>) <span class="sc">+</span></span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Species per 1-ha plot"</span>, <span class="at">y =</span> <span class="st">"Number of plots"</span>) <span class="sc">+</span></span>
-<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tibble</span>(<span class="at">richness =</span> richness) <span class="sc">|&gt;</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> richness)) <span class="sc">+</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> <span class="dv">5</span>, <span class="at">fill =</span> <span class="st">"forestgreen"</span>, <span class="at">colour =</span> <span class="st">"white"</span>) <span class="sc">+</span></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Species per 1-ha plot"</span>, <span class="at">y =</span> <span class="st">"Number of plots"</span>) <span class="sc">+</span></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div id="fig-richness-hist" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
@@ -568,24 +618,24 @@ Figure&nbsp;13.1: Distribution of tree species richness across the fifty 1-ha BC
 </div>
 <p>Notice that even within a single 50-ha forest, 1-ha richness varies from plot to plot. Diversity is patchy at small scales.</p>
 </section>
-<section id="evenness-and-the-rankabundance-curve" class="level3" data-number="13.6.2">
-<h3 data-number="13.6.2" class="anchored" data-anchor-id="evenness-and-the-rankabundance-curve"><span class="header-section-number">13.6.2</span> Evenness and the rank–abundance curve</h3>
+<section id="evenness-and-the-rankabundance-curve" class="level3" data-number="13.7.2">
+<h3 data-number="13.7.2" class="anchored" data-anchor-id="evenness-and-the-rankabundance-curve"><span class="header-section-number">13.7.2</span> Evenness and the rank–abundance curve</h3>
 <p>To <em>see</em> evenness, pool all 50 plots, sort species from most to least abundant, and plot abundance against rank. This is a <strong>Whittaker (rank–abundance) plot</strong>.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>pooled <span class="ot">&lt;-</span> <span class="fu">colSums</span>(BCI)                      <span class="co"># total trees of each species, all plots</span></span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>rank_ab <span class="ot">&lt;-</span> <span class="fu">tibble</span>(<span class="at">species =</span> <span class="fu">names</span>(pooled), <span class="at">abundance =</span> pooled) <span class="sc">|&gt;</span></span>
-<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(abundance <span class="sc">&gt;</span> <span class="dv">0</span>) <span class="sc">|&gt;</span></span>
-<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(abundance)) <span class="sc">|&gt;</span></span>
-<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">rank =</span> <span class="fu">row_number</span>())</span>
-<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(rank_ab, <span class="fu">aes</span>(<span class="at">x =</span> rank, <span class="at">y =</span> abundance)) <span class="sc">+</span></span>
-<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">colour =</span> <span class="st">"grey40"</span>) <span class="sc">+</span></span>
-<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
-<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_log10</span>() <span class="sc">+</span></span>
-<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Species rank (1 = most abundant)"</span>,</span>
-<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Total abundance (log scale)"</span>) <span class="sc">+</span></span>
-<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>pooled <span class="ot">&lt;-</span> <span class="fu">colSums</span>(BCI)                      <span class="co"># total trees of each species, all plots</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>rank_ab <span class="ot">&lt;-</span> <span class="fu">tibble</span>(<span class="at">species =</span> <span class="fu">names</span>(pooled), <span class="at">abundance =</span> pooled) <span class="sc">|&gt;</span></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(abundance <span class="sc">&gt;</span> <span class="dv">0</span>) <span class="sc">|&gt;</span></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(abundance)) <span class="sc">|&gt;</span></span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">rank =</span> <span class="fu">row_number</span>())</span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(rank_ab, <span class="fu">aes</span>(<span class="at">x =</span> rank, <span class="at">y =</span> abundance)) <span class="sc">+</span></span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">colour =</span> <span class="st">"grey40"</span>) <span class="sc">+</span></span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_log10</span>() <span class="sc">+</span></span>
+<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Species rank (1 = most abundant)"</span>,</span>
+<span id="cb11-13"><a href="#cb11-13" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Total abundance (log scale)"</span>) <span class="sc">+</span></span>
+<span id="cb11-14"><a href="#cb11-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div id="fig-rankabundance" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
@@ -613,14 +663,14 @@ Figure&nbsp;13.2: Rank–abundance (Whittaker) plot for pooled BCI trees. A few 
 </div>
 </div>
 </section>
-<section id="one-number-shannon-and-simpson-diversity" class="level3" data-number="13.6.3">
-<h3 data-number="13.6.3" class="anchored" data-anchor-id="one-number-shannon-and-simpson-diversity"><span class="header-section-number">13.6.3</span> One number: Shannon and Simpson diversity</h3>
+<section id="one-number-shannon-and-simpson-diversity" class="level3" data-number="13.7.3">
+<h3 data-number="13.7.3" class="anchored" data-anchor-id="one-number-shannon-and-simpson-diversity"><span class="header-section-number">13.7.3</span> One number: Shannon and Simpson diversity</h3>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>shannon <span class="ot">&lt;-</span> <span class="fu">diversity</span>(BCI, <span class="at">index =</span> <span class="st">"shannon"</span>)   <span class="co"># accounts for richness + evenness</span></span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>simpson <span class="ot">&lt;-</span> <span class="fu">diversity</span>(BCI, <span class="at">index =</span> <span class="st">"simpson"</span>)   <span class="co"># prob. two random trees differ</span></span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="fu">tibble</span>(<span class="at">shannon =</span> shannon, <span class="at">simpson =</span> simpson) <span class="sc">|&gt;</span></span>
-<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="fu">across</span>(<span class="fu">everything</span>(), <span class="fu">list</span>(<span class="at">mean =</span> mean, <span class="at">sd =</span> sd)))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>shannon <span class="ot">&lt;-</span> <span class="fu">diversity</span>(BCI, <span class="at">index =</span> <span class="st">"shannon"</span>)   <span class="co"># accounts for richness + evenness</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>simpson <span class="ot">&lt;-</span> <span class="fu">diversity</span>(BCI, <span class="at">index =</span> <span class="st">"simpson"</span>)   <span class="co"># prob. two random trees differ</span></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="fu">tibble</span>(<span class="at">shannon =</span> shannon, <span class="at">simpson =</span> simpson) <span class="sc">|&gt;</span></span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="fu">across</span>(<span class="fu">everything</span>(), <span class="fu">list</span>(<span class="at">mean =</span> mean, <span class="at">sd =</span> sd)))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 1 × 4
   shannon_mean shannon_sd simpson_mean simpson_sd
@@ -629,10 +679,10 @@ Figure&nbsp;13.2: Rank–abundance (Whittaker) plot for pooled BCI trees. A few 
 </div>
 </div>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="do">## The "effective number of species": how many EQUALLY-common species</span></span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="do">## would give the same Shannon diversity?</span></span>
-<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>effective_species <span class="ot">&lt;-</span> <span class="fu">exp</span>(shannon)</span>
-<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(effective_species)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="do">## The "effective number of species": how many EQUALLY-common species</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="do">## would give the same Shannon diversity?</span></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>effective_species <span class="ot">&lt;-</span> <span class="fu">exp</span>(shannon)</span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(effective_species)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
   14.04   42.27   46.99   46.66   52.94   58.99 </code></pre>
@@ -652,17 +702,17 @@ Figure&nbsp;13.2: Rank–abundance (Whittaker) plot for pooled BCI trees. A few 
 </div>
 </div>
 </section>
-<section id="rarefaction-comparing-fairly" class="level3" data-number="13.6.4">
-<h3 data-number="13.6.4" class="anchored" data-anchor-id="rarefaction-comparing-fairly"><span class="header-section-number">13.6.4</span> Rarefaction: comparing fairly</h3>
+<section id="rarefaction-comparing-fairly" class="level3" data-number="13.7.4">
+<h3 data-number="13.7.4" class="anchored" data-anchor-id="rarefaction-comparing-fairly"><span class="header-section-number">13.7.4</span> Rarefaction: comparing fairly</h3>
 <p>Plots differ in how many trees they contain, so a plot with more stems gets more chances to accumulate species. Rarefaction asks: at a <em>common</em> number of individuals, how many species would we expect?</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>stems <span class="ot">&lt;-</span> <span class="fu">rowSums</span>(BCI)                 <span class="co"># total trees per plot</span></span>
-<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>min_stems <span class="ot">&lt;-</span> <span class="fu">min</span>(stems)               <span class="co"># thin every plot to this many</span></span>
-<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>rarefied <span class="ot">&lt;-</span> <span class="fu">rarefy</span>(BCI, <span class="at">sample =</span> min_stems)</span>
-<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a><span class="fu">tibble</span>(<span class="at">observed =</span> richness, <span class="at">rarefied =</span> rarefied) <span class="sc">|&gt;</span></span>
-<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">mean_observed =</span> <span class="fu">mean</span>(observed),</span>
-<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>            <span class="at">mean_rarefied =</span> <span class="fu">mean</span>(rarefied))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>stems <span class="ot">&lt;-</span> <span class="fu">rowSums</span>(BCI)                 <span class="co"># total trees per plot</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>min_stems <span class="ot">&lt;-</span> <span class="fu">min</span>(stems)               <span class="co"># thin every plot to this many</span></span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>rarefied <span class="ot">&lt;-</span> <span class="fu">rarefy</span>(BCI, <span class="at">sample =</span> min_stems)</span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a><span class="fu">tibble</span>(<span class="at">observed =</span> richness, <span class="at">rarefied =</span> rarefied) <span class="sc">|&gt;</span></span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">mean_observed =</span> <span class="fu">mean</span>(observed),</span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a>            <span class="at">mean_rarefied =</span> <span class="fu">mean</span>(rarefied))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 1 × 2
   mean_observed mean_rarefied
@@ -672,15 +722,15 @@ Figure&nbsp;13.2: Rank–abundance (Whittaker) plot for pooled BCI trees. A few 
 </div>
 <p>Why does the rarefied richness come out lower than the observed richness? Make sure you can answer that in your own words before moving on—it is the whole reason rarefaction exists.</p>
 </section>
-<section id="does-richness-just-track-the-number-of-stems" class="level3" data-number="13.6.5">
-<h3 data-number="13.6.5" class="anchored" data-anchor-id="does-richness-just-track-the-number-of-stems"><span class="header-section-number">13.6.5</span> Does richness just track the number of stems?</h3>
+<section id="does-richness-just-track-the-number-of-stems" class="level3" data-number="13.7.5">
+<h3 data-number="13.7.5" class="anchored" data-anchor-id="does-richness-just-track-the-number-of-stems"><span class="header-section-number">13.7.5</span> Does richness just track the number of stems?</h3>
 <p>If richer plots are simply the ones with more trees, that is worth knowing. We can fit a quick linear model and read it with <code>broom</code>.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>model_df <span class="ot">&lt;-</span> <span class="fu">tibble</span>(<span class="at">richness =</span> richness, <span class="at">stems =</span> <span class="fu">rowSums</span>(BCI))</span>
-<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>fit <span class="ot">&lt;-</span> <span class="fu">lm</span>(richness <span class="sc">~</span> stems, <span class="at">data =</span> model_df)</span>
-<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a><span class="fu">tidy</span>(fit)      <span class="co"># slope, intercept, and their uncertainty</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>model_df <span class="ot">&lt;-</span> <span class="fu">tibble</span>(<span class="at">richness =</span> richness, <span class="at">stems =</span> <span class="fu">rowSums</span>(BCI))</span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>fit <span class="ot">&lt;-</span> <span class="fu">lm</span>(richness <span class="sc">~</span> stems, <span class="at">data =</span> model_df)</span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a><span class="fu">tidy</span>(fit)      <span class="co"># slope, intercept, and their uncertainty</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 2 × 5
   term        estimate std.error statistic  p.value
@@ -688,7 +738,7 @@ Figure&nbsp;13.2: Rank–abundance (Whittaker) plot for pooled BCI trees. A few 
 1 (Intercept) 91.9       10.2        8.97  7.85e-12
 2 stems       -0.00260    0.0238    -0.109 9.13e- 1</code></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">glance</span>(fit)    <span class="co"># r.squared: how much of richness variation stems explain</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">glance</span>(fit)    <span class="co"># r.squared: how much of richness variation stems explain</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 1 × 12
   r.squared adj.r.squared sigma statistic p.value    df logLik   AIC   BIC
@@ -698,11 +748,11 @@ Figure&nbsp;13.2: Rank–abundance (Whittaker) plot for pooled BCI trees. A few 
 </div>
 </div>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(model_df, <span class="fu">aes</span>(<span class="at">x =</span> stems, <span class="at">y =</span> richness)) <span class="sc">+</span></span>
-<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>, <span class="at">se =</span> <span class="cn">TRUE</span>, <span class="at">colour =</span> <span class="st">"darkorange"</span>) <span class="sc">+</span></span>
-<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Stems per 1-ha plot"</span>, <span class="at">y =</span> <span class="st">"Species per 1-ha plot"</span>) <span class="sc">+</span></span>
-<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(model_df, <span class="fu">aes</span>(<span class="at">x =</span> stems, <span class="at">y =</span> richness)) <span class="sc">+</span></span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>, <span class="at">se =</span> <span class="cn">TRUE</span>, <span class="at">colour =</span> <span class="st">"darkorange"</span>) <span class="sc">+</span></span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Stems per 1-ha plot"</span>, <span class="at">y =</span> <span class="st">"Species per 1-ha plot"</span>) <span class="sc">+</span></span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div id="fig-richness-stems" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
@@ -717,7 +767,7 @@ Figure&nbsp;13.3: Plot-level richness vs.&nbsp;number of stems, with a fitted li
 </div>
 </div>
 <div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -726,7 +776,7 @@ Figure&nbsp;13.3: Plot-level richness vs.&nbsp;number of stems, with a fitted li
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-6" class="callout-6-contents callout-collapse collapse">
+<div id="callout-7" class="callout-7-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p><code>lm()</code> fits the line. Instead of reading the dense default <code>summary()</code>, <code>broom</code> gives us two tidy tables. <code>tidy(fit)</code> returns one row per coefficient—the slope tells you how many extra species you get per additional stem, and its <code>p.value</code> tells you whether that slope is distinguishable from zero. <code>glance(fit)</code> returns one row for the whole model; the key column is <code>r.squared</code>, the fraction of plot-to-plot richness variation explained by stem number. If <code>r.squared</code> is low, then richness is <em>not</em> just a stem-count artifact—something ecological is going on.</p>
 </div>
@@ -734,20 +784,20 @@ Figure&nbsp;13.3: Plot-level richness vs.&nbsp;number of stems, with a fitted li
 </div>
 </section>
 </section>
-<section id="comparing-forests-across-the-globe" class="level2" data-number="13.7">
-<h2 data-number="13.7" class="anchored" data-anchor-id="comparing-forests-across-the-globe"><span class="header-section-number">13.7</span> Comparing forests across the globe</h2>
+<section id="comparing-forests-across-the-globe" class="level2" data-number="13.8">
+<h2 data-number="13.8" class="anchored" data-anchor-id="comparing-forests-across-the-globe"><span class="header-section-number">13.8</span> Comparing forests across the globe</h2>
 <p>Now the cross-continental question. Below is a small table of ForestGEO (and sister) plots, with the species richness reported for each and the plot area it came from. The numbers are drawn from the published site descriptions and papers cited at the end of the chapter.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>sites <span class="ot">&lt;-</span> <span class="fu">tribble</span>(</span>
-<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>  <span class="sc">~</span>site,             <span class="sc">~</span>country,    <span class="sc">~</span>continent,      <span class="sc">~</span>abs_latitude, <span class="sc">~</span>area_ha, <span class="sc">~</span>species,</span>
-<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>  <span class="st">"SCBI"</span>,            <span class="st">"USA"</span>,       <span class="st">"North America"</span>,          <span class="fl">38.9</span>,     <span class="fl">25.6</span>,       <span class="dv">65</span>,</span>
-<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>  <span class="st">"BCI"</span>,             <span class="st">"Panama"</span>,    <span class="st">"Neotropics"</span>,              <span class="fl">9.2</span>,     <span class="fl">50.0</span>,      <span class="dv">300</span>,</span>
-<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Korup"</span>,           <span class="st">"Cameroon"</span>,  <span class="st">"Africa"</span>,                  <span class="fl">5.1</span>,     <span class="fl">50.0</span>,      <span class="dv">493</span>,</span>
-<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Pasoh"</span>,           <span class="st">"Malaysia"</span>,  <span class="st">"Asia"</span>,                    <span class="fl">3.0</span>,     <span class="fl">50.0</span>,      <span class="dv">800</span>,</span>
-<span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Yasuni"</span>,          <span class="st">"Ecuador"</span>,   <span class="st">"Neotropics"</span>,              <span class="fl">0.7</span>,     <span class="fl">50.0</span>,     <span class="dv">1150</span></span>
-<span id="cb22-8"><a href="#cb22-8" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb22-9"><a href="#cb22-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-10"><a href="#cb22-10" aria-hidden="true" tabindex="-1"></a>sites</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>sites <span class="ot">&lt;-</span> <span class="fu">tribble</span>(</span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>  <span class="sc">~</span>site,             <span class="sc">~</span>country,    <span class="sc">~</span>continent,      <span class="sc">~</span>abs_latitude, <span class="sc">~</span>area_ha, <span class="sc">~</span>species,</span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>  <span class="st">"SCBI"</span>,            <span class="st">"USA"</span>,       <span class="st">"North America"</span>,          <span class="fl">38.9</span>,     <span class="fl">25.6</span>,       <span class="dv">65</span>,</span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>  <span class="st">"BCI"</span>,             <span class="st">"Panama"</span>,    <span class="st">"Neotropics"</span>,              <span class="fl">9.2</span>,     <span class="fl">50.0</span>,      <span class="dv">300</span>,</span>
+<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Korup"</span>,           <span class="st">"Cameroon"</span>,  <span class="st">"Africa"</span>,                  <span class="fl">5.1</span>,     <span class="fl">50.0</span>,      <span class="dv">493</span>,</span>
+<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Pasoh"</span>,           <span class="st">"Malaysia"</span>,  <span class="st">"Asia"</span>,                    <span class="fl">3.0</span>,     <span class="fl">50.0</span>,      <span class="dv">800</span>,</span>
+<span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Yasuni"</span>,          <span class="st">"Ecuador"</span>,   <span class="st">"Neotropics"</span>,              <span class="fl">0.7</span>,     <span class="fl">50.0</span>,     <span class="dv">1150</span></span>
+<span id="cb23-8"><a href="#cb23-8" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb23-9"><a href="#cb23-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-10"><a href="#cb23-10" aria-hidden="true" tabindex="-1"></a>sites</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 5 × 6
   site   country  continent     abs_latitude area_ha species
@@ -769,18 +819,18 @@ Figure&nbsp;13.3: Plot-level richness vs.&nbsp;number of stems, with a fitted li
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>These richness numbers come from <strong>different plot areas</strong> (25.6 ha vs.&nbsp;50 ha). You just spent half a chapter learning that richness depends on sampling effort. So before you compare these numbers, ask: is it fair to compare a 25.6-ha count to a 50-ha count? For the cleanest comparison, ecologists use <em>1-hectare</em> richness, where the published values are roughly: BCI <strong>168</strong>, Pasoh <strong>497</strong>, Yasuni <strong>670</strong> species per hectare <span class="citation" data-cites="condit1996">(<a href="references.html#ref-condit1996" role="doc-biblioref">Condit et al. 1996</a>)</span>. Carry that caveat into every conclusion you draw below.</p>
+<p>These richness numbers come from <strong>different plot areas</strong> (25.6 ha vs.&nbsp;50 ha). You just spent half a chapter learning that richness depends on sampling effort. So before you compare these numbers, ask: is it fair to compare a 25.6-ha count to a 50-ha count? For the cleanest comparison, ecologists use <em>1-hectare</em> richness, where the published values are roughly: BCI <strong>168</strong>, Pasoh <strong>497</strong>, Yasuni <strong>670</strong> species per hectare <span class="citation" data-cites="condit1996">(<a href="references.html#ref-condit1996" role="doc-biblioref"><strong>condit1996?</strong></a>)</span>. Carry that caveat into every conclusion you draw below.</p>
 </div>
 </div>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(sites, <span class="fu">aes</span>(<span class="at">x =</span> abs_latitude, <span class="at">y =</span> species,</span>
-<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>                  <span class="at">colour =</span> continent, <span class="at">size =</span> area_ha)) <span class="sc">+</span></span>
-<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.8</span>) <span class="sc">+</span></span>
-<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">label =</span> site), <span class="at">vjust =</span> <span class="sc">-</span><span class="dv">1</span>, <span class="at">size =</span> <span class="dv">3</span>, <span class="at">show.legend =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
-<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Absolute latitude (degrees from equator)"</span>,</span>
-<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Species richness (in plot)"</span>,</span>
-<span id="cb24-7"><a href="#cb24-7" aria-hidden="true" tabindex="-1"></a>       <span class="at">colour =</span> <span class="st">"Continent"</span>, <span class="at">size =</span> <span class="st">"Plot area (ha)"</span>) <span class="sc">+</span></span>
-<span id="cb24-8"><a href="#cb24-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="co"># + scale_y_log10()</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(sites, <span class="fu">aes</span>(<span class="at">x =</span> abs_latitude, <span class="at">y =</span> species,</span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>                  <span class="at">colour =</span> continent, <span class="at">size =</span> area_ha)) <span class="sc">+</span></span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.8</span>) <span class="sc">+</span></span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">label =</span> site), <span class="at">vjust =</span> <span class="sc">-</span><span class="dv">1</span>, <span class="at">size =</span> <span class="dv">3</span>, <span class="at">show.legend =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
+<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Absolute latitude (degrees from equator)"</span>,</span>
+<span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Species richness (in plot)"</span>,</span>
+<span id="cb25-7"><a href="#cb25-7" aria-hidden="true" tabindex="-1"></a>       <span class="at">colour =</span> <span class="st">"Continent"</span>, <span class="at">size =</span> <span class="st">"Plot area (ha)"</span>) <span class="sc">+</span></span>
+<span id="cb25-8"><a href="#cb25-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="co"># + scale_y_log10()</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div id="fig-latitude" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
@@ -809,39 +859,6 @@ Figure&nbsp;13.4: Tree species richness vs.&nbsp;absolute latitude across forest
 </div>
 </div>
 </section>
-<section id="sec-deliverables-diversity-forestgeo" class="level2" data-number="13.8">
-<h2 data-number="13.8" class="anchored" data-anchor-id="sec-deliverables-diversity-forestgeo"><span class="header-section-number">13.8</span> Deliverables</h2>
-<p>Assemble the following into a single document and submit it online.</p>
-<ol type="1">
-<li><p><strong>Your three hand-drawn predictions</strong> (rank–abundance, species accumulation, richness vs.&nbsp;latitude), photographed, <em>before</em> you ran any code.</p></li>
-<li><p><strong>In your own words (2–3 sentences each):</strong> a. the difference between richness, evenness, and diversity; b. why rarefied richness came out lower than observed richness; c.&nbsp;what <code>exp(H)</code> (effective number of species) tells you that raw Shannon <em>H</em> does not.</p></li>
-<li><p><strong>Reproduce and include</strong> the rank–abundance plot (<a href="#fig-rankabundance" class="quarto-xref">Figure&nbsp;<span>13.2</span></a>) and the global latitude plot (<a href="#fig-latitude" class="quarto-xref">Figure&nbsp;<span>13.4</span></a>). For each, write one sentence comparing the real figure to your hand-drawn prediction. Where they differ, explain <em>why</em>—this is the point of the assignment.</p></li>
-<li><p><strong>Build a species–accumulation curve</strong> for BCI and include it. Starter code:</p>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>accum <span class="ot">&lt;-</span> <span class="fu">specaccum</span>(BCI)   <span class="co"># cumulative species as plots are added</span></span>
-<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>accum_df <span class="ot">&lt;-</span> <span class="fu">tibble</span>(<span class="at">plots =</span> accum<span class="sc">$</span>sites,</span>
-<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>                   <span class="at">richness =</span> accum<span class="sc">$</span>richness,</span>
-<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a>                   <span class="at">sd =</span> accum<span class="sc">$</span>sd)</span>
-<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(accum_df, <span class="fu">aes</span>(<span class="at">x =</span> plots, <span class="at">y =</span> richness)) <span class="sc">+</span></span>
-<span id="cb25-7"><a href="#cb25-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_ribbon</span>(<span class="fu">aes</span>(<span class="at">ymin =</span> richness <span class="sc">-</span> sd, <span class="at">ymax =</span> richness <span class="sc">+</span> sd),</span>
-<span id="cb25-8"><a href="#cb25-8" aria-hidden="true" tabindex="-1"></a>              <span class="at">fill =</span> <span class="st">"grey80"</span>) <span class="sc">+</span></span>
-<span id="cb25-9"><a href="#cb25-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">linewidth =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
-<span id="cb25-10"><a href="#cb25-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Number of 1-ha plots sampled"</span>,</span>
-<span id="cb25-11"><a href="#cb25-11" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Cumulative species found"</span>) <span class="sc">+</span></span>
-<span id="cb25-12"><a href="#cb25-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div></li>
-</ol>
-<p>In one or two sentences, answer: does the curve flatten out by 50 hectares? What does your answer imply about how many tree species the <em>whole</em> forest contains versus how many appear in any one plot?</p>
-<ol start="5" type="1">
-<li><p><strong>The African exception.</strong> In a short paragraph, propose the explanation you find most convincing for why Korup is less rich than comparable Asian and Neotropical plots, and state one kind of data that would help test your explanation.</p></li>
-<li><p><strong>Audit the machine.</strong> Below is a paragraph generated by an AI chatbot when asked to summarize this chapter. It sounds authoritative and is <em>mostly</em> right, but it contains at least one substantive ecological error. Find the error(s), quote the offending sentence, and correct it using what you learned:</p>
-<blockquote class="blockquote">
-<p><em>“Species richness is the most complete measure of biodiversity because it accounts for both how many species are present and how evenly abundant they are. Because the ForestGEO plots all use the same protocol, a forest’s richness is a fixed property, so the 493 species recorded at Korup can be compared directly to the 168 species recorded in a one-hectare plot at BCI. Diversity always increases smoothly toward the equator, with no exceptions.”</em></p>
-</blockquote></li>
-</ol>
-<p>This is exactly the skill this whole book is built around: a machine can produce a fluent paragraph in seconds, and only someone who understands the mechanisms can catch where it is subtly—or badly—wrong.</p>
-</section>
 <section id="references" class="level2" data-number="13.9">
 <h2 data-number="13.9" class="anchored" data-anchor-id="references"><span class="header-section-number">13.9</span> References</h2>
 <!--
@@ -866,33 +883,18 @@ BibTeX entries to add to your .bib (verify keys against your Zotero export). Sev
 <i class="callout-icon"></i>
 </div>
 <div class="callout-body-container">
-<p>This chapter cites <span class="citation" data-cites="davies2021"><span class="nocase">Davies et al.</span> (<a href="references.html#ref-davies2021" role="doc-biblioref">2021</a>)</span>, <span class="citation" data-cites="anderson-teixeira2015"><span class="nocase">Anderson-Teixeira et al.</span> (<a href="references.html#ref-anderson-teixeira2015" role="doc-biblioref">2015</a>)</span>, <span class="citation" data-cites="condit1996">Condit et al. (<a href="references.html#ref-condit1996" role="doc-biblioref">1996</a>)</span>, <span class="citation" data-cites="kenfack2007">Kenfack et al. (<a href="references.html#ref-kenfack2007" role="doc-biblioref">2007</a>)</span>, <span class="citation" data-cites="hillebrand2004">Hillebrand (<a href="references.html#ref-hillebrand2004" role="doc-biblioref">2004</a>)</span>, <span class="citation" data-cites="gotelli2001">Gotelli and Colwell (<a href="references.html#ref-gotelli2001" role="doc-biblioref">2001</a>)</span>, and the <code>vegan</code> package <span class="citation" data-cites="oksanen2026vce">(<a href="references.html#ref-oksanen2026vce" role="doc-biblioref">Oksanen et al. 2026</a>)</span>. Full references appear in the book’s reference list once these keys are in your <code>.bib</code>.</p>
+<p>This chapter cites <span class="citation" data-cites="davies2021">(<a href="references.html#ref-davies2021" role="doc-biblioref"><strong>davies2021?</strong></a>)</span>, <span class="citation" data-cites="anderson-teixeira2015">(<a href="references.html#ref-anderson-teixeira2015" role="doc-biblioref"><strong>anderson-teixeira2015?</strong></a>)</span>, <span class="citation" data-cites="condit1996">(<a href="references.html#ref-condit1996" role="doc-biblioref"><strong>condit1996?</strong></a>)</span>, <span class="citation" data-cites="kenfack2007">(<a href="references.html#ref-kenfack2007" role="doc-biblioref"><strong>kenfack2007?</strong></a>)</span>, <span class="citation" data-cites="hillebrand2004">(<a href="references.html#ref-hillebrand2004" role="doc-biblioref"><strong>hillebrand2004?</strong></a>)</span>, <span class="citation" data-cites="gotelli2001">Gotelli (<a href="references.html#ref-gotelli2001" role="doc-biblioref">2001</a>)</span>, and the <code>vegan</code> package <span class="citation" data-cites="oksanen2026vce">(<a href="references.html#ref-oksanen2026vce" role="doc-biblioref">Oksanen et al. 2026</a>)</span>. Full references appear in the book’s reference list once these keys are in your <code>.bib</code>.</p>
 </div>
 </div>
 </div>
 
 
 <div id="refs" class="references csl-bib-body hanging-indent" role="list" style="display: none">
-<div id="ref-anderson-teixeira2015" class="csl-entry" role="listitem">
-<span class="nocase">Anderson-Teixeira, Kristina J., Stuart J. Davies, Amy C. Bennett, et al.</span> 2015. <span>“<span>CTFS-ForestGEO</span>: A Worldwide Network Monitoring Forests in an Era of Global Change.”</span> <em>Global Change Biology</em> 21 (2): 528–49. <a href="https://doi.org/10.1111/gcb.12712">https://doi.org/10.1111/gcb.12712</a>.
-</div>
-<div id="ref-condit1996" class="csl-entry" role="listitem">
-Condit, Richard, Stephen P. Hubbell, James V. Lafrankie, et al. 1996. <span>“Species-Area and Species-Individual Relationships for Tropical Trees: A Comparison of Three 50-Ha Plots.”</span> <em>Journal of Ecology</em> 84 (4): 549–62. <a href="https://doi.org/10.2307/2261477">https://doi.org/10.2307/2261477</a>.
-</div>
-<div id="ref-davies2021" class="csl-entry" role="listitem">
-<span class="nocase">Davies, Stuart J., Iveren Abiem, Kamariah Abu Salim, et al.</span> 2021. <span>“<span>ForestGEO</span>: Understanding Forest Diversity and Dynamics Through a Global Observatory Network.”</span> <em>Biological Conservation</em> 253: 108907. <a href="https://doi.org/10.1016/j.biocon.2020.108907">https://doi.org/10.1016/j.biocon.2020.108907</a>.
-</div>
 <div id="ref-gotelli2001" class="csl-entry" role="listitem">
-Gotelli, Nicholas J., and Robert K. Colwell. 2001. <span>“Quantifying Biodiversity: Procedures and Pitfalls in the Measurement and Comparison of Species Richness.”</span> <em>Ecology Letters</em> 4 (4): 379–91. <a href="https://doi.org/10.1046/j.1461-0248.2001.00230.x">https://doi.org/10.1046/j.1461-0248.2001.00230.x</a>.
-</div>
-<div id="ref-hillebrand2004" class="csl-entry" role="listitem">
-Hillebrand, Helmut. 2004. <span>“On the Generality of the Latitudinal Diversity Gradient.”</span> <em>The American Naturalist</em> 163 (2): 192–211. <a href="https://doi.org/10.1086/381004">https://doi.org/10.1086/381004</a>.
-</div>
-<div id="ref-kenfack2007" class="csl-entry" role="listitem">
-Kenfack, David, Duncan W. Thomas, George B. Chuyong, and Richard Condit. 2007. <span>“Rarity and Abundance in a Diverse <span>African</span> Forest.”</span> <em>Biodiversity and Conservation</em> 16 (7): 2045–74. <a href="https://doi.org/10.1007/s10531-006-9065-2">https://doi.org/10.1007/s10531-006-9065-2</a>.
+Gotelli, N J. 2001. <em>A {}<span>P</span>{}rimer of {}<span>E</span>{}cology</em>. 3rd ed. <span>Sinauer Associates, Inc.</span>
 </div>
 <div id="ref-oksanen2026vce" class="csl-entry" role="listitem">
-Oksanen, Jari, Gavin L. Simpson, F. Guillaume Blanchet, et al. 2026. <em>Vegan: Community Ecology Package</em>. <a href="https://CRAN.R-project.org/package=vegan">https://CRAN.R-project.org/package=vegan</a>.
+Oksanen, Jari, Gavin L. Simpson, F. Guillaume Blanchet, et al. 2026. <em>Vegan: <span>Community</span> Ecology Package</em>. Manual. <a href="https://doi.org/10.32614/CRAN.package.vegan">https://doi.org/10.32614/CRAN.package.vegan</a>.
 </div>
 </div>
 </section>

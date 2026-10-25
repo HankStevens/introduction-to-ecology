@@ -4,6 +4,12 @@ title: "Physical Environment: A Fate of Earth"
 
 *...in which we reveal part of our ongoing climate reality.*
 
+::: {.callout-tip}
+## Before you start
+
+* **Assumptions about background and guidance:** your `Rwork` project set up as in [Computer setup](02-computer-setup.qmd), and comfort running a script line by line. No statistics course is assumed: this chapter explains what a confidence interval is and walks through each piece of the forecasting (GAMM) code. If `ggplot()` is new to you, [Displaying data with ggplot2](appendix_data-display.qmd) is a short reference.
+:::
+
 ## Goals
 In this chapter, you will
 
@@ -14,6 +20,13 @@ In this chapter, you will
 * **Transferable skill:** beyond the data-wrangling and `ggplot2` visualization skills you're building throughout this book (see the Preface), this chapter gives you hands-on exposure to time-series forecasting with a generalized additive mixed model, or GAMM (the `mgcv` package)--the same general approach used well beyond climate science, in any field that forecasts a trend over time (sales, web traffic, disease spread, sensor data). Running this model and correctly reading its forecast is real, useful experience; it is not the same as understanding the statistical theory behind it, and you shouldn't claim more than that--but you should understand what each piece of the code is doing, and this chapter now walks you through that. See the *Skills Crosswalk* appendix for how to describe this honestly on a résumé.
 * Background reading: Hansen et al. (2012). Perception of climate change. *Proceedings of the National Academy of Sciences*, U.S.A.
 
+
+## Deliverables
+
+Turn these into the relevant Canvas assignment before the due date.
+
+1. First, put all your answers, including your graph with the confidence interval, into a .doc or .docx file and make fit on a single page. Turn in your answers and your graph to the relevant Canvas assignment Make sure that your name is on the file in the header!
+1. Second, turn in your R script, named `global_temps_YourUniqueID.R` as a second file. This must NOT be a Word document. It must be a .R file.
 
 ## Background
 The year that you were born was much warmer than usual--and it won't ever be that *cool* again in your lifetime.
@@ -346,10 +359,3 @@ So, what do you think? Does Earth have a fever? In what ways do you think compar
 1. What was the global average surface temperature anomaly in the year you were born? Provide the year and the anomaly.
 1.	What does the grey band in the figure represent, and why does it get wider in future years?
 1.	Explain whether you think Earth currently does or does not have a fever, and whether comparing temperature variation of Earth to that of a human is or is not a useful thing to do.
-
-## Deliverables
-
-Turn these into the relevant Canvas assignment before the due date.
-
-1. First, put all your answers, including your graph with the confidence interval, into a .doc or .docx file and make fit on a single page. Turn in your answers and your graph to the relevant Canvas assignment Make sure that your name is on the file in the header!
-1. Second, turn in your R script, named `global_temps_YourUniqueID.R` as a second file. This must NOT be a Word document. It must be a .R file.

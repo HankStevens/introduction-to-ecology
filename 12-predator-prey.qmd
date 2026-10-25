@@ -4,12 +4,30 @@ title: "Of wolves and moose, on Isle Royale"
 
 ![As in other northern forests, on Isle Royale in Lake Superior (upper right), moose feed on vegetation such as aquatic plants, and the tender shoots of both deciduous and coniferous trees like the fir (right) and spruce (left). Isle Royale wolves feed on moose, and parasites can hit both populations pretty hard (parvovirus - wolves; ticks - moose). How the moose and wolf populations affect each other is an open question, and this chapter walks through an attempt to evaluate the role of reciprocal feedbacks between the two populations.](figs/mooseWolf.png){#fig-isleRoyale width=75%}
 
+::: {.callout-tip}
+## Before you start
+
+* **Assumptions about background and guidance:** your `Rwork` project and the ability to read a .csv file and make a graph with `ggplot()` ([Computer setup](02-computer-setup.qmd), [Extra-pair copulation](06-extrapair_copulation.qmd)), exponential growth from [Density-independent population growth](07-DI-pop-growth.qmd), and algebra for solving for an equilibrium. Logistic growth ([Density-dependence](09-density-dep-pop-growth.qmd)) helps but is not required. You will install the `deSolve` package; this chapter shows how.
+:::
+
 ## Goals
 In this chapter, you will, 
 
 * Test the hypothesis that moose and wolves regulate  the size of each other's population.
 * Use algebra to estimate **parameters** in the mathematical model of predator-prey dynamics.
 * Use specific quantitative and qualitative criteria to evaluate how well the model describes the dynamics of the population.
+
+## Deliverables {#sec-deliverables-pp}
+
+Turn in two documents.
+
+The first document is your R script.
+
+In the second document, provide 
+
+* Phase plane diagram of raw data (x-axis, moose; y-axis, wolves), 
+* Time series graph of model output (x-axis, years; y-axes, moose and wolves)
+* answers to questions 11 and 12, in [Predicting population dynamics](#predicting-population-dynamics), below.
 
 ## Preparatory steps
 
@@ -350,7 +368,6 @@ m
 ```
 
 
-
 ### Conversion efficiency, b
 The predator conversion efficiency is the prey-dependent birth rate of predators. Thus, for each prey killed, an average predator will produce and successfully rear $b$ offspring. Given that only a few females in a population produce pups, and that number is averaged across the entire wolf population, that number is relatively small. However, a single moose is pretty big and so goes a long way.
 
@@ -421,7 +438,6 @@ ggsave("figs/LV_MooseWolfPP.png", height=5, width=6)
 ```
 
 
-
 Once you are  confident that you got something reasonably correct, assess the predicted dynamics. 
 
 11. For both the moose and the wolf populations and both the (i) original data and (ii) the Lotka-Volterra model, list the following:
@@ -442,17 +458,4 @@ For the next exam, be able to,
 * Explain the meanings of the Lotka-Volterra model parameters.
 * Derive the prey and predator isoclines.
 * Explain neutral stability.
-
-
-## Deliverables {#sec-deliverables-pp}
-
-Turn in two documents.
-
-The first document is your R script.
-
-In the second document, provide 
-
-* Phase plane diagram of raw data (x-axis, moose; y-axis, wolves), 
-* Time series graph of model output (x-axis, years; y-axes, moose and wolves)
-* answers to questions 11 and 12 above.
 

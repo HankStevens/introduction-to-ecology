@@ -310,6 +310,18 @@ h1, h2, h3, h4, h5, h6,
  <span class="menu-text"><span class="chapter-number">D</span>&nbsp; <span class="chapter-title">Accessing Public Ecological Databases</span></span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./appendix_data-display.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">E</span>&nbsp; <span class="chapter-title">Displaying Data with ggplot2</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./appendix-your-own-interests.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">F</span>&nbsp; <span class="chapter-title">Your Own Interests: Telling a short story with data</span></span></a>
+  </div>
+</li>
       </ul>
   </li>
     </ul>
@@ -322,13 +334,14 @@ h1, h2, h3, h4, h5, h6,
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#goals" id="toc-goals" class="nav-link active" data-scroll-target="#goals">Goals</a></li>
-  <li><a href="#starting-with-the-individual" id="toc-starting-with-the-individual" class="nav-link" data-scroll-target="#starting-with-the-individual">1. Starting with the individual</a></li>
-  <li><a href="#what-is-a-functional-trait" id="toc-what-is-a-functional-trait" class="nav-link" data-scroll-target="#what-is-a-functional-trait">2. What is a functional trait?</a></li>
-  <li><a href="#the-search-for-universal-axes-of-strategy" id="toc-the-search-for-universal-axes-of-strategy" class="nav-link" data-scroll-target="#the-search-for-universal-axes-of-strategy">3. The search for universal axes of strategy</a></li>
-  <li><a href="#díaz-et-al.-2016-scale-and-design" id="toc-díaz-et-al.-2016-scale-and-design" class="nav-link" data-scroll-target="#díaz-et-al.-2016-scale-and-design">4. Díaz et al.&nbsp;(2016): scale and design</a></li>
-  <li><a href="#two-dimensions-capture-most-of-the-variation" id="toc-two-dimensions-capture-most-of-the-variation" class="nav-link" data-scroll-target="#two-dimensions-capture-most-of-the-variation">5. Two dimensions capture most of the variation</a></li>
-  <li><a href="#a-constrained-lumpy-trait-space" id="toc-a-constrained-lumpy-trait-space" class="nav-link" data-scroll-target="#a-constrained-lumpy-trait-space">6. A constrained, “lumpy” trait space</a>
+  <li><a href="#goals" id="toc-goals" class="nav-link active" data-scroll-target="#goals"><span class="header-section-number">5.1</span> Goals</a></li>
+  <li><a href="#deliverables" id="toc-deliverables" class="nav-link" data-scroll-target="#deliverables">Deliverables</a></li>
+  <li><a href="#starting-with-the-individual" id="toc-starting-with-the-individual" class="nav-link" data-scroll-target="#starting-with-the-individual"><span class="header-section-number">5.2</span> Starting with the individual</a></li>
+  <li><a href="#what-is-a-functional-trait" id="toc-what-is-a-functional-trait" class="nav-link" data-scroll-target="#what-is-a-functional-trait"><span class="header-section-number">5.3</span> What is a functional trait?</a></li>
+  <li><a href="#the-search-for-universal-axes-of-strategy" id="toc-the-search-for-universal-axes-of-strategy" class="nav-link" data-scroll-target="#the-search-for-universal-axes-of-strategy"><span class="header-section-number">5.4</span> The search for universal axes of strategy</a></li>
+  <li><a href="#díaz-et-al.-2016-scale-and-design" id="toc-díaz-et-al.-2016-scale-and-design" class="nav-link" data-scroll-target="#díaz-et-al.-2016-scale-and-design"><span class="header-section-number">5.5</span> Díaz et al.&nbsp;(2016): scale and design</a></li>
+  <li><a href="#two-dimensions-capture-most-of-the-variation" id="toc-two-dimensions-capture-most-of-the-variation" class="nav-link" data-scroll-target="#two-dimensions-capture-most-of-the-variation"><span class="header-section-number">5.6</span> Two dimensions capture most of the variation</a></li>
+  <li><a href="#a-constrained-lumpy-trait-space" id="toc-a-constrained-lumpy-trait-space" class="nav-link" data-scroll-target="#a-constrained-lumpy-trait-space"><span class="header-section-number">5.7</span> A constrained, “lumpy” trait space</a>
   <ul class="collapse">
   <li><a href="#a-toy-example-with-two-made-up-variables" id="toc-a-toy-example-with-two-made-up-variables" class="nav-link" data-scroll-target="#a-toy-example-with-two-made-up-variables">A toy example, with two made-up variables</a></li>
   </ul></li>
@@ -337,12 +350,11 @@ h1, h2, h3, h4, h5, h6,
   <li><a href="#why-anchor-a-chapter-on-a-single-paper" id="toc-why-anchor-a-chapter-on-a-single-paper" class="nav-link" data-scroll-target="#why-anchor-a-chapter-on-a-single-paper">9. Why anchor a chapter on a single paper?</a></li>
   <li><a href="#data-exercise-exploring-trait-trade-offs-with-bien" id="toc-data-exercise-exploring-trait-trade-offs-with-bien" class="nav-link" data-scroll-target="#data-exercise-exploring-trait-trade-offs-with-bien">10. Data exercise: exploring trait trade-offs with BIEN</a>
   <ul class="collapse">
-  <li><a href="#choice-1-two-traits" id="toc-choice-1-two-traits" class="nav-link" data-scroll-target="#choice-1-two-traits"><span class="header-section-number">5.0.1</span> Choice 1: two traits</a></li>
-  <li><a href="#choice-2-one-group-of-plants" id="toc-choice-2-one-group-of-plants" class="nav-link" data-scroll-target="#choice-2-one-group-of-plants"><span class="header-section-number">5.0.2</span> Choice 2: one group of plants</a></li>
-  <li><a href="#choice-3-run-your-route" id="toc-choice-3-run-your-route" class="nav-link" data-scroll-target="#choice-3-run-your-route"><span class="header-section-number">5.0.3</span> Choice 3: run your route</a></li>
+  <li><a href="#choice-1-two-traits" id="toc-choice-1-two-traits" class="nav-link" data-scroll-target="#choice-1-two-traits"><span class="header-section-number">5.7.1</span> Choice 1: two traits</a></li>
+  <li><a href="#choice-2-one-group-of-plants" id="toc-choice-2-one-group-of-plants" class="nav-link" data-scroll-target="#choice-2-one-group-of-plants"><span class="header-section-number">5.7.2</span> Choice 2: one group of plants</a></li>
+  <li><a href="#choice-3-run-your-route" id="toc-choice-3-run-your-route" class="nav-link" data-scroll-target="#choice-3-run-your-route"><span class="header-section-number">5.7.3</span> Choice 3: run your route</a></li>
   </ul></li>
-  <li><a href="#deliverables" id="toc-deliverables" class="nav-link" data-scroll-target="#deliverables">11. Deliverables</a></li>
-  <li><a href="#reflection-and-discussion-questions" id="toc-reflection-and-discussion-questions" class="nav-link" data-scroll-target="#reflection-and-discussion-questions">12. Reflection and discussion questions</a></li>
+  <li><a href="#reflection-and-discussion-questions" id="toc-reflection-and-discussion-questions" class="nav-link" data-scroll-target="#reflection-and-discussion-questions">11. Reflection and discussion questions</a></li>
   <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
   </ul>
 </nav>
@@ -403,8 +415,23 @@ from HTML, PDF, and docx output alike):
 - Full history: claude/traits-physiology-chapter-notes.md in the BECDR
   Claude project.
 -->
-<section id="goals" class="level2 unnumbered">
-<h2 class="unnumbered anchored" data-anchor-id="goals">Goals</h2>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Before you start
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li><strong>Assumptions about background and guidance:</strong> most of this chapter is reading, and the code that draws the null-model figure is hidden, so you can follow it without R. The data exercise at the end assumes your <code>Rwork</code> project from <a href="./02-computer-setup.html">Computer setup</a> and some familiarity with <code>filter()</code>, <code>mutate()</code>, and <code>ggplot()</code>; <a href="./06-extrapair_copulation.html">Extra-pair copulation</a> and <a href="./appendix_data-display.html">Displaying data with ggplot2</a> are good places to pick those up. For more on downloading from databases like BIEN, see <a href="./appendix_public-databases.html">Accessing public databases</a>.</li>
+</ul>
+</div>
+</div>
+<section id="goals" class="level2" data-number="5.1">
+<h2 data-number="5.1" class="anchored" data-anchor-id="goals"><span class="header-section-number">5.1</span> Goals</h2>
 <p>By the end of this chapter, you should be able to:</p>
 <ul>
 <li>Identify the six traits that explain most of the variation in plant form across species.</li>
@@ -414,24 +441,33 @@ from HTML, PDF, and docx output alike):
 <li>Use public data to illustrate the extent of trade-offs in plant traits across a selected set of species.</li>
 </ul>
 </section>
-<section id="starting-with-the-individual" class="level2 unnumbered">
-<h2 class="unnumbered anchored" data-anchor-id="starting-with-the-individual">1. Starting with the individual</h2>
-<p>Ecology is often taught outward-in: populations, then communities, then ecosystems. This book instead starts from the individual organism, because population growth rates, community assembly, and ecosystem processes are all, at bottom, aggregates of what individual organisms are physiologically capable of doing. Before we can ask how large a population can grow, or why one species persists where another doesn’t, we need a vocabulary for describing what an individual organism actually is — physiologically and morphologically — and why it is built the way it is.</p>
-<p>This chapter turns the lens inward, to the individual organism, and asks a deceptively simple question: what makes one plant tall and another short, one leaf cheap and short-lived and another expensive and long-lived, one seed tiny and abundant and another large and provisioned? The answer lies in physiology — the internal machinery of growth, water transport, carbon gain, and reproduction — and in the traits that machinery produces. Traits are where physiology becomes visible, measurable, and comparable across species. The framework built here — traits as compact, physiologically-grounded summaries of an individual’s strategy — is the foundation that later chapters on populations, communities, and funding will build on.</p>
-<p>This chapter is built around a single influential paper: Díaz, S. et al.&nbsp;(2016), “The global spectrum of plant form and function,” published in Nature. It is one of the most ambitious attempts to ask whether, across all vascular plants on Earth, individual-level traits vary along a small number of general axes — or whether the possibilities are essentially limitless.</p>
+<section id="deliverables" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="deliverables">Deliverables</h2>
+<p>For your assignment, write up three short paragraphs, and add your scatterplot with a descriptive caption. Your paragraphs will address:</p>
+<ol type="1">
+<li>which species subset and two traits you chose, and why;</li>
+<li>what the scatterplot and correlation coefficient show — are the traits trading off (negative correlation), coordinating (positive correlation), or largely unrelated (correlation near zero) across your species; and</li>
+<li>how that result connects to the physiological trade-off framework from this chapter — what would have to be true, mechanistically, for your two traits to relate the way they do in your data?</li>
+</ol>
 </section>
-<section id="what-is-a-functional-trait" class="level2 unnumbered">
-<h2 class="unnumbered anchored" data-anchor-id="what-is-a-functional-trait">2. What is a functional trait?</h2>
-<p>A functional trait is a measurable feature of an organism — morphological, physiological, or phenological — that influences its performance, and ultimately its growth, survival, and reproduction. Traits sit at the interface between an organism’s physiology and the ecological filters (light, water, nutrients, herbivores, competitors) that act on it. Leaf nitrogen content, for example, is a trait, but it is really a proxy for something physiological: how much of a leaf’s mass is invested in the photosynthetic enzyme machinery. Stem density is a trait, but it stands in for the anatomy of the wood — how much of the stem cross-section is thick-walled fiber versus water-conducting vessels.</p>
-<p>Because traits are measurable on individuals and comparable across species, they let ecologists ask general questions — is there a plant “strategy space,” and if so, how is it organized — without needing a physiological model for every one of the roughly 400,000 species of land plants.</p>
+<section id="starting-with-the-individual" class="level2" data-number="5.2">
+<h2 data-number="5.2" class="anchored" data-anchor-id="starting-with-the-individual"><span class="header-section-number">5.2</span> Starting with the individual</h2>
+<p>We visit the subject of traits of the individual organism, because population growth rates, community assembly, and ecosystem processes are all, at bottom, aggregates of what individual organisms are physiologically capable of doing. Before we can ask how large a population can grow, or why one species persists where another doesn’t, we need a vocabulary for describing what an individual organism actually is — physiologically and morphologically — and why it is built the way it is.</p>
+<p>This chapter asks a deceptively simple question: why is one plant species tall and another short, why one leaf is cheap and short-lived and another expensive and long-lived, or why one seed tiny and abundant and another large and well-provisioned? The answer to these anatomical differences lies in physiology — the internal machinery of growth, water transport, carbon gain, and reproduction — and in the traits that machinery produces. Traits are where physiology becomes visible, measurable, and comparable across species. The framework built here — traits as compact, physiologically-grounded summaries of an individual’s strategy — is the foundation that later chapters on populations, communities, and ecosystems build on.</p>
+<p>This chapter is built around a single influential peer-reviewed article: Díaz, S. et al.&nbsp;(2016), “The global spectrum of plant form and function,” published in Nature. It is one of the most ambitious attempts to address how, across all vascular plants on Earth, individual-level traits vary along a relatively small number of general axes — or whether the possibilities are essentially limitless.</p>
 </section>
-<section id="the-search-for-universal-axes-of-strategy" class="level2 unnumbered">
-<h2 class="unnumbered anchored" data-anchor-id="the-search-for-universal-axes-of-strategy">3. The search for universal axes of strategy</h2>
+<section id="what-is-a-functional-trait" class="level2" data-number="5.3">
+<h2 data-number="5.3" class="anchored" data-anchor-id="what-is-a-functional-trait"><span class="header-section-number">5.3</span> What is a functional trait?</h2>
+<p>A functional trait is a measurable feature of an organism — morphological, physiological, or phenological — that influences its growth, survival, and reproduction. Traits sit at the interface between an organism’s physiology and the ecological filters (light, water, nutrients, herbivores, competitors) that act on it. Leaf nitrogen content, for example, is a trait, but it is really a proxy for something physiological: how much of a leaf’s mass is invested in the photosynthetic enzyme machinery. Stem density is a trait, but it stands in for the anatomy of the wood — how much of the stem cross-section is thick-walled fiber versus water-conducting vessels.</p>
+<p>Because traits are measurable on individuals and comparable across species, they let ecologists ask general questions — is there such a thing as a plant “strategy space,” and if so, how is it organized — without needing a physiological model for every one of the roughly 400,000 species of land plants.</p>
+</section>
+<section id="the-search-for-universal-axes-of-strategy" class="level2" data-number="5.4">
+<h2 data-number="5.4" class="anchored" data-anchor-id="the-search-for-universal-axes-of-strategy"><span class="header-section-number">5.4</span> The search for universal axes of strategy</h2>
 <p>Díaz et al.&nbsp;(2016) did not start from nothing. Plant ecologists had long suspected that whole-plant strategy could be summarized along a few axes. Grime’s competitor–stress-tolerator–ruderal (CSR) triangle proposed three basic strategies shaped by disturbance and resource availability. Westoby’s “LHS” (leaf-height-seed) scheme proposed three simple, widely measurable traits as a first-pass strategy scheme. Most influentially for this chapter, Wright et al.&nbsp;(2004) assembled a worldwide leaf economics spectrum (LES): across biomes and growth forms, leaf traits fall along a single axis running from cheaply-built, short-lived, high-nutrient “acquisitive” leaves to expensive, long-lived, low-nutrient “conservative” leaves.</p>
 <p>These efforts were each restricted to a single organ (mostly leaves) or a small trait set. The open question was whether a similarly compact structure would hold once traits from every major plant organ — stems, leaves, seeds — and the whole plant (height) were considered together, across the full range of vascular plant diversity.</p>
 </section>
-<section id="díaz-et-al.-2016-scale-and-design" class="level2 unnumbered">
-<h2 class="unnumbered anchored" data-anchor-id="díaz-et-al.-2016-scale-and-design">4. Díaz et al.&nbsp;(2016): scale and design</h2>
+<section id="díaz-et-al.-2016-scale-and-design" class="level2" data-number="5.5">
+<h2 data-number="5.5" class="anchored" data-anchor-id="díaz-et-al.-2016-scale-and-design"><span class="header-section-number">5.5</span> Díaz et al.&nbsp;(2016): scale and design</h2>
 <p>Díaz and 31 co-authors compiled trait records for 46,085 vascular plant species from 423 growth forms and geographic regions — by far the largest and most taxonomically and geographically broad plant trait dataset assembled at the time, built on the TRY plant trait database plus additional unpublished contributions. They focused on six traits chosen because each indexes a fundamentally different aspect of plant form and function, each is measurable across nearly all vascular plants, and together they span growth, survival, and reproduction — the three components of Darwinian fitness.</p>
 <div id="tbl-six-traits" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
@@ -497,17 +533,17 @@ Table&nbsp;5.1: The six core traits identified by Díaz et al.&nbsp;(2016)
 </figure>
 </div>
 </section>
-<section id="two-dimensions-capture-most-of-the-variation" class="level2 unnumbered">
-<h2 class="unnumbered anchored" data-anchor-id="two-dimensions-capture-most-of-the-variation">5. Two dimensions capture most of the variation</h2>
+<section id="two-dimensions-capture-most-of-the-variation" class="level2" data-number="5.6">
+<h2 data-number="5.6" class="anchored" data-anchor-id="two-dimensions-capture-most-of-the-variation"><span class="header-section-number">5.6</span> Two dimensions capture most of the variation</h2>
 <p>With six traits, the space of possible trait combinations is six-dimensional. If plants filled that space freely, there would be no simple picture to draw. Instead, Díaz et al.&nbsp;found that just two principal component axes — a plane — captured 74% of the variation among species. Two dimensions stood out within that plane:</p>
 <ul>
-<li><strong>The size dimension</strong> (height – diaspore mass, H–SM): runs from short species with small seeds to tall species with large seeds. Physiologically, this dimension reflects the size of the whole plant and its parts — how much structural investment (biomechanical support, hydraulic transport distance) and reproductive investment a plant makes.</li>
-<li><strong>The leaf economics dimension</strong> (leaf mass per area – nitrogen content, LMA–Nmass): runs from species with cheaply-constructed, nitrogen-rich, “acquisitive” leaves to species with expensive, nitrogen-poor, “conservative” leaves that persist longer and tolerate abiotic and biotic hazards. This is, essentially, the leaf economics spectrum re-discovered inside a much larger, whole-plant analysis.</li>
+<li><strong>The size dimension</strong> (height and diaspore mass, H &amp; SM): runs from short species with small seeds to tall species with large seeds. Physiologically, this dimension reflects the size of the whole plant and its parts — how much structural investment (biomechanical support, hydraulic transport distance) and reproductive investment a plant makes.</li>
+<li><strong>The leaf economics dimension</strong> (nitrogen content - leaf mass per area, N<sub>mass</sub> - LMA): runs from species with cheaply-constructed, nitrogen-rich, “acquisitive” leaves to species with expensive, nitrogen-poor, “conservative” leaves that persist longer and tolerate abiotic and biotic hazards. This is, essentially, the leaf economics spectrum (sensu Wright et al.&nbsp;2004) re-discovered inside a much larger, whole-plant analysis.</li>
 </ul>
-<p>Stem specific density and leaf area load onto both dimensions rather than standing apart: SSD tracks with the height–seed mass axis, while leaf area shows independent variation tied to both. The headline result is not just that two axes explain most of the variance, but that they correspond to two distinct and physiologically intuitive trade-offs: how big to grow, and how to run your leaf economy.</p>
+<p>Stem specific density (SSD) and leaf area (LA) load onto both dimensions rather than standing apart: SSD tracks with the height–seed mass axis, while leaf area shows independent variation tied to both. The headline result is not just that two axes explain most of the variance, but that they correspond to two distinct and physiologically intuitive trade-offs: how big to grow, and how to run your leaf economy.</p>
 </section>
-<section id="a-constrained-lumpy-trait-space" class="level2 unnumbered">
-<h2 class="unnumbered anchored" data-anchor-id="a-constrained-lumpy-trait-space">6. A constrained, “lumpy” trait space</h2>
+<section id="a-constrained-lumpy-trait-space" class="level2" data-number="5.7">
+<h2 data-number="5.7" class="anchored" data-anchor-id="a-constrained-lumpy-trait-space"><span class="header-section-number">5.7</span> A constrained, “lumpy” trait space</h2>
 <p>A second, arguably more surprising finding concerns how much of that six-dimensional space is actually occupied. Díaz et al.&nbsp;compared the observed trait hypervolume (the volume of trait space vascular plants actually occupy) against four null models of increasing realism — from traits varying completely independently and uniformly, to traits varying as observed but uncorrelated. Even against the most conservative null model, the observed hypervolume was about 20% smaller, and compared to the simplest null models it was 72–98% smaller.</p>
 <p>In other words, of all the trait combinations that seem geometrically possible, only a narrow, non-random subset are evolutionarily viable. The occupied space is also “lumpy”: species cluster into two particularly dense functional hotspots — one dominated by small-seeded, small-leaved herbaceous and graminoid plants, the other by moderately tall, large-leaved, large-seeded woody species — rather than spreading evenly across the plane. Many distantly related lineages land in the same hotspot, which the authors read as evidence that a limited number of trait combinations have been discovered repeatedly and independently over the evolutionary history of land plants — convergence on a small set of workable solutions to the shared physiological problems of growing, surviving, and reproducing.</p>
 <section id="a-toy-example-with-two-made-up-variables" class="level3 unnumbered">
@@ -562,8 +598,8 @@ Figure&nbsp;5.1: Four null models (blue circles) built from every combination of
 <li><strong>One route for getting the data</strong> (A, B, or C below, matched to the group you chose).</li>
 </ol>
 <p>Please do <strong>not</strong> download data for a whole country, state, or plant family. Those queries return hundreds of thousands of records, can take many minutes, and will probably freeze your R session. If a query is still running after two minutes, stop it (the red stop sign in RStudio) and pick a smaller group.</p>
-<section id="choice-1-two-traits" class="level3" data-number="5.0.1">
-<h3 data-number="5.0.1" class="anchored" data-anchor-id="choice-1-two-traits"><span class="header-section-number">5.0.1</span> Choice 1: two traits</h3>
+<section id="choice-1-two-traits" class="level3" data-number="5.7.1">
+<h3 data-number="5.7.1" class="anchored" data-anchor-id="choice-1-two-traits"><span class="header-section-number">5.7.1</span> Choice 1: two traits</h3>
 <p>Each pair below comes from the six traits in <a href="#tbl-six-traits" class="quarto-xref">Table&nbsp;<span>5.1</span></a>, and each has been a standard comparison in the plant trait literature for decades. If you have no strong preference, use Pair 1.</p>
 <div id="tbl-bien-trait-pairs" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
@@ -611,8 +647,8 @@ Table&nbsp;5.2: Three pre-approved trait pairs. Names are BIEN’s exact <code>t
 </figure>
 </div>
 </section>
-<section id="choice-2-one-group-of-plants" class="level3" data-number="5.0.2">
-<h3 data-number="5.0.2" class="anchored" data-anchor-id="choice-2-one-group-of-plants"><span class="header-section-number">5.0.2</span> Choice 2: one group of plants</h3>
+<section id="choice-2-one-group-of-plants" class="level3" data-number="5.7.2">
+<h3 data-number="5.7.2" class="anchored" data-anchor-id="choice-2-one-group-of-plants"><span class="header-section-number">5.7.2</span> Choice 2: one group of plants</h3>
 <p>Choose <strong>one</strong> of the three groups below. Every entry has been picked because it is a common, well-studied plant, so BIEN is likely to have trait measurements for it. (Likely, not guaranteed: some trait pairs will have few measurements for some groups, and Step 6 shows you how many species you ended up with.)</p>
 <p><strong>Genera</strong> (use with Route A). Pick exactly one genus.</p>
 <div id="tbl-bien-genera" class="quarto-float quarto-figure quarto-figure-center anchored">
@@ -738,8 +774,8 @@ Table&nbsp;5.5: Countries for Route C. Ask your instructor before choosing a cou
 </figure>
 </div>
 </section>
-<section id="choice-3-run-your-route" class="level3" data-number="5.0.3">
-<h3 data-number="5.0.3" class="anchored" data-anchor-id="choice-3-run-your-route"><span class="header-section-number">5.0.3</span> Choice 3: run your route</h3>
+<section id="choice-3-run-your-route" class="level3" data-number="5.7.3">
+<h3 data-number="5.7.3" class="anchored" data-anchor-id="choice-3-run-your-route"><span class="header-section-number">5.7.3</span> Choice 3: run your route</h3>
 <p>Run Steps 1 and 2 for everyone. Then run <strong>only the one route</strong> in Step 3 that matches your group (A for a genus, B for a species list, C for a country plus genus), and skip the others.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(BIEN)</span>
@@ -827,17 +863,8 @@ Table&nbsp;5.5: Countries for Route C. Ask your instructor before choosing a cou
 </div>
 </section>
 </section>
-<section id="deliverables" class="level2 unnumbered">
-<h2 class="unnumbered anchored" data-anchor-id="deliverables">11. Deliverables</h2>
-<p>For your assignment, write up three short paragraphs, and add your scatterplot with a descriptive caption. Your paragraphs will address:</p>
-<ol type="1">
-<li>which species subset and two traits you chose, and why;</li>
-<li>what the scatterplot and correlation coefficient show — are the traits trading off (negative correlation), coordinating (positive correlation), or largely unrelated (correlation near zero) across your species; and</li>
-<li>how that result connects to the physiological trade-off framework from this chapter — what would have to be true, mechanistically, for your two traits to relate the way they do in your data?</li>
-</ol>
-</section>
 <section id="reflection-and-discussion-questions" class="level2 unnumbered">
-<h2 class="unnumbered anchored" data-anchor-id="reflection-and-discussion-questions">12. Reflection and discussion questions</h2>
+<h2 class="unnumbered anchored" data-anchor-id="reflection-and-discussion-questions">11. Reflection and discussion questions</h2>
 <ol type="1">
 <li>Pick two traits from <a href="#tbl-six-traits" class="quarto-xref">Table&nbsp;<span>5.1</span></a> that are not on the same principal-component axis (e.g., leaf area and diaspore mass). Can you think of a plant where these two traits would pull in “conflicting” physiological directions? What might resolve that conflict?</li>
 <li>The observed trait hypervolume is smaller than all four null models, but least different from null model 4 (which already assumes traits are correlated as observed). What does that comparison tell you about how much of the “constraint” in plant trait space comes from correlations among traits, versus limits on any single trait’s range?</li>

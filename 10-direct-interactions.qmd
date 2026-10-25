@@ -6,6 +6,12 @@ title: "Direct species interactions: understanding mechanisms of invasion in mos
 
 Species interact with each other. Sometimes those interactions are negative and cause population sizes to decline, and we call that **competition**. Other times, those interactions are positive and cause population sizes to increase, and we call that **mutualism**. This chapter explores an example of competition, in which investigators attempted to understand whether a native mosquito, *Aedes triseriatus* would compete with and inhibit the growth and spread of the Asian tiger mosquito, *Aedes albopictus* (@fig-aedes) [@livdahl1991].
 
+::: {.callout-tip}
+## Before you start
+
+* **Assumptions about background and guidance:** logistic growth and the meaning of $\alpha$ and $K$ from [Density-dependence](09-density-dep-pop-growth.qmd), and algebra for solving two equations at once. If those are new, read [Models as assumptions](09-density-dep-pop-growth.qmd#models-as-assumptions) first; it is short. The R code in this chapter is minimal.
+:::
+
 ## Goals
 
 In this chapter, you will,
@@ -16,11 +22,19 @@ In this chapter, you will,
 * start to develop a greater understanding and intuition for species interactions.
 
 
+## Deliverables {#sec-deliverables-di}
+In one document include these two graphs and answers to these questions:
+
+1. Draw the isoclines for both species in water obtained from tree holes. Add one curved line for population trajectories starting at 5 *A. triseriatus* and 5 *A. albopictus*.
+1. Draw the isoclines for both species in water obtained from tires. Add one curved line for the population trajectories starting at 5 *A. triseriatus* and 5 *A. albopictus*.
+1. Do the invasion criteria match the figures? Explain.
+1. Answer the original question for these two environments: will the native *A. triseriatus* inhibit the establishment of the non-native *A. albopictus*?
+
 ## Preparatory steps
 
 * The preceding chapter on density-dependent population growth provides important background
 * Read Livdahl and Willey (1991) in Perusall through our Canvas site. It is also available in our class archive: [Livdahl and Willey (1991)](https://drive.google.com/drive/folders/1opLlrmF7kfo0FtWwwJ1CbfPWIyuaISC1?usp=sharing)
-* If you are curious, check Deliverables, at the end (@sec-deliverables-di).
+* If you are curious, check Deliverables, above (@sec-deliverables-di).
 
 
 ### Optional background
@@ -132,14 +146,6 @@ tire.At["Ki"] > tire.At["a.B"]*tire.Aa["Ki"]
 
 ```
 
-
-## Deliverables {#sec-deliverables-di}
-In one document include these two graphs and answers to these questions:
-
-1. Draw the isoclines for both species in water obtained from tree holes. Add one curved line for population trajectories starting at 5 *A. triseriatus* and 5 *A. albopictus*.
-1. Draw the isoclines for both species in water obtained from tires. Add one curved line for the population trajectories starting at 5 *A. triseriatus* and 5 *A. albopictus*.
-1. Do the invasion criteria match the figures? Explain.
-1. Answer the original question for these two environments: will the native *A. triseriatus* inhibit the establishment of the non-native *A. albopictus*?
 
 ```{r}
 #| eval: false

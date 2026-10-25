@@ -358,6 +358,18 @@ window.Quarto = {
  <span class="menu-text"><span class="chapter-number">D</span>&nbsp; <span class="chapter-title">Accessing Public Ecological Databases</span></span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./appendix_data-display.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">E</span>&nbsp; <span class="chapter-title">Displaying Data with ggplot2</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./appendix-your-own-interests.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">F</span>&nbsp; <span class="chapter-title">Your Own Interests: Telling a short story with data</span></span></a>
+  </div>
+</li>
       </ul>
   </li>
     </ul>
@@ -371,13 +383,13 @@ window.Quarto = {
    
   <ul>
   <li><a href="#goals" id="toc-goals" class="nav-link active" data-scroll-target="#goals"><span class="header-section-number">3.1</span> Goals</a></li>
-  <li><a href="#background" id="toc-background" class="nav-link" data-scroll-target="#background"><span class="header-section-number">3.2</span> Background</a></li>
-  <li><a href="#methods" id="toc-methods" class="nav-link" data-scroll-target="#methods"><span class="header-section-number">3.3</span> Methods</a>
+  <li><a href="#deliverables" id="toc-deliverables" class="nav-link" data-scroll-target="#deliverables"><span class="header-section-number">3.2</span> Deliverables</a></li>
+  <li><a href="#background" id="toc-background" class="nav-link" data-scroll-target="#background"><span class="header-section-number">3.3</span> Background</a></li>
+  <li><a href="#methods" id="toc-methods" class="nav-link" data-scroll-target="#methods"><span class="header-section-number">3.4</span> Methods</a>
   <ul class="collapse">
-  <li><a href="#instructions" id="toc-instructions" class="nav-link" data-scroll-target="#instructions"><span class="header-section-number">3.3.1</span> Instructions</a></li>
-  <li><a href="#graphing-data-to-assess-our-predictions" id="toc-graphing-data-to-assess-our-predictions" class="nav-link" data-scroll-target="#graphing-data-to-assess-our-predictions"><span class="header-section-number">3.3.2</span> Graphing data to assess our predictions</a></li>
+  <li><a href="#instructions" id="toc-instructions" class="nav-link" data-scroll-target="#instructions"><span class="header-section-number">3.4.1</span> Instructions</a></li>
+  <li><a href="#graphing-data-to-assess-our-predictions" id="toc-graphing-data-to-assess-our-predictions" class="nav-link" data-scroll-target="#graphing-data-to-assess-our-predictions"><span class="header-section-number">3.4.2</span> Graphing data to assess our predictions</a></li>
   </ul></li>
-  <li><a href="#deliverables" id="toc-deliverables" class="nav-link" data-scroll-target="#deliverables"><span class="header-section-number">3.4</span> Deliverables</a></li>
   </ul>
 </nav>
     </div>
@@ -403,6 +415,21 @@ window.Quarto = {
 </header>
 
 
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Before you start
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li><strong>Assumptions about background and guidance:</strong> that you can open your <code>Rwork</code> project in RStudio and run a short script; if not, start with <a href="./02-computer-setup.html">Computer setup</a>. You will also need access to the class Google Sheet, which your instructor will share. No statistics are assumed beyond reading a scatterplot. If the R code gives you trouble, see <a href="./02-computer-setup.html#getting-help">Getting help</a>.</li>
+</ul>
+</div>
+</div>
 <section id="goals" class="level2" data-number="3.1">
 <h2 data-number="3.1" class="anchored" data-anchor-id="goals"><span class="header-section-number">3.1</span> Goals</h2>
 <p>In this chapter, you will,</p>
@@ -413,8 +440,26 @@ window.Quarto = {
 <li>Consider what else, beyond wealth, might explain–or obscure–a relationship between people and tree cover.</li>
 </ul>
 </section>
-<section id="background" class="level2" data-number="3.2">
-<h2 data-number="3.2" class="anchored" data-anchor-id="background"><span class="header-section-number">3.2</span> Background</h2>
+<section id="deliverables" class="level2" data-number="3.2">
+<h2 data-number="3.2" class="anchored" data-anchor-id="deliverables"><span class="header-section-number">3.2</span> Deliverables</h2>
+<p><strong>Results and discussion</strong></p>
+<ul>
+<li>In one document, put two figures side-by-side:
+<ol type="i">
+<li>your bargraph of % tree cover vs.&nbsp;% people in poverty (copied from the Tree Equity site) side-by-side, and</li>
+<li>your scatterplot of tree cover vs.&nbsp;median income that you made using everyone’s data, based on the iTree/OurTrees website that you shared in the Google spreadsheet.</li>
+<li>include a figure legend that states what the graphs are in a way that is intelligible to a naive reader.</li>
+</ol></li>
+<li>Provide a brief explanation of your findings, including
+<ol type="i">
+<li>the results described in a factual manner, without interpretation,</li>
+<li>an explanation of whether the results are consistent with the biophilia hypothesis, and</li>
+<li>a new question that emerges due to the inconsistencies between the data and the hypothesis; explain why this question is a logical extension of your current results and interpration.</li>
+</ol></li>
+</ul>
+</section>
+<section id="background" class="level2" data-number="3.3">
+<h2 data-number="3.3" class="anchored" data-anchor-id="background"><span class="header-section-number">3.3</span> Background</h2>
 <p>The types of places that organisms live–their habitats–depends on a variety factors. <em>Habitat selection</em>, the selection of particular habitats, results from real and perceived tradeoffs between the benefits from foraging and reproducing versus perceived risks of mortality <span class="citation" data-cites="stephens1986 morin1999a">(<a href="references.html#ref-stephens1986" role="doc-biblioref">Stephens and Krebs 1986</a>; <a href="references.html#ref-morin1999a" role="doc-biblioref">Morin 1999</a>)</span>.</p>
 <p>In addition to selecting their habitats, organisms also construct elements of their own habitats, including nests and burrows, as well as broader habitat alteration. This is known as <em>niche construction</em> <span class="citation" data-cites="odling-smee2013">(<a href="references.html#ref-odling-smee2013" role="doc-biblioref">Odling-Smee and Erwin 2013</a>)</span>. Beavers build dens and dams, birds and wasps build nests, and bacteria, ants, and humans all construct elaborate multi-layered cities of thousands or millions of individuals. At the same time, organisms often damage the very habitats they create, through over-consumption of resources and over-production of waste products.</p>
 <p>We know a great deal about how our own species (<em>H. sapiens</em>) construct elements of their own habitats. We also know a lot about how we migrate and disperse from place to place. Nonetheless, we have a lot to learn about our own species, and, in particular, about which factors determine the our preferred habitats and determine the changes we make to those habitats.</p>
@@ -426,8 +471,8 @@ window.Quarto = {
 <p>View your mission here: </p><div class="quarto-video ratio ratio-16x9"><iframe data-external="1" src="https://www.youtube.com/embed/BABM3EUo990" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div><p></p>
 <p><a href="https://youtu.be/BABM3EUo990" target="_blank">or here:</a></p>
 </section>
-<section id="methods" class="level2" data-number="3.3">
-<h2 data-number="3.3" class="anchored" data-anchor-id="methods"><span class="header-section-number">3.3</span> Methods</h2>
+<section id="methods" class="level2" data-number="3.4">
+<h2 data-number="3.4" class="anchored" data-anchor-id="methods"><span class="header-section-number">3.4</span> Methods</h2>
 <p>Work in pairs. Share introductions with someone and get to work.</p>
 <p>We will collect data on tree cover (%), heat, and wealth using two different platforms:</p>
 <ol type="1">
@@ -435,8 +480,8 @@ window.Quarto = {
 <li>OurTrees application in <a href="https://www.itreetools.org/" target="_blank"><em>i-Tree</em></a></li>
 </ol>
 <p>The first of these two platforms, Tree Equity Score, gives fairly detailed information on cities over 50,000 residents in size. It provides information related to environmental justice, including levels of poverty, tree cover, and heat. Our second data source is from <em>i-Tree.org</em> and it provides fairly detailed information about tree cover and the ecosystem services they provide. (Ecosystem services are features of ecosystems that benefit humans, such as storm water protection, and shade for buildings). i-Tree also provides median household income.</p>
-<section id="instructions" class="level3" data-number="3.3.1">
-<h3 data-number="3.3.1" class="anchored" data-anchor-id="instructions"><span class="header-section-number">3.3.1</span> Instructions</h3>
+<section id="instructions" class="level3" data-number="3.4.1">
+<h3 data-number="3.4.1" class="anchored" data-anchor-id="instructions"><span class="header-section-number">3.4.1</span> Instructions</h3>
 <p><strong>Tree Equity Score data</strong></p>
 <ol type="1">
 <li>Go to our class <a href="https://docs.google.com/spreadsheets/d/1SB9Hk62cmZUZkeh5BGaIegEG79c9ylnV7STaLeFVrVo/edit?usp=sharing" target="_blank">Google Sheet for <em>Tree Equity Score cities</em></a>, and enter the name of a city (pop. &gt; 50,000) that you will investigate. It must be different than what anyone else has selected. Add your name to your selected city.</li>
@@ -459,8 +504,8 @@ window.Quarto = {
 <li>Repeat the above steps for <em>nine more</em> locations anywhere in the world. Your locations must be different than what anyone else has selected in the OurTrees spreadsheet. Add one Miami uniqueID per group to each observation (row).</li>
 </ol>
 </section>
-<section id="graphing-data-to-assess-our-predictions" class="level3" data-number="3.3.2">
-<h3 data-number="3.3.2" class="anchored" data-anchor-id="graphing-data-to-assess-our-predictions"><span class="header-section-number">3.3.2</span> Graphing data to assess our predictions</h3>
+<section id="graphing-data-to-assess-our-predictions" class="level3" data-number="3.4.2">
+<h3 data-number="3.4.2" class="anchored" data-anchor-id="graphing-data-to-assess-our-predictions"><span class="header-section-number">3.4.2</span> Graphing data to assess our predictions</h3>
 <p>I argued that the Biophilia Hypothesis leads to the prediction that tree cover will correlate positively with wealth. To evaluate this prediction, we should make a graph in which wealth is on the x-axis (horizontal axis) and tree cover is y-axis (vertical axis).</p>
 <p>A couple of minor points: (1) Our prediction also implies that we should see a negative relation between poverty and tree cover. (2) We typically assume that the variable on the y-axis is a response to the variable on the x-axis, that is, that the x variable is causing variation in the y variable.</p>
 <p>Given our data are <em>continuous variables</em> rather than categories, we should start by making a <em>scatterplot</em> of median income (x) vs.&nbsp;tree cover (y).</p>
@@ -540,25 +585,6 @@ Figure&nbsp;3.1: The noisy but perhaps positive relation between percent of an l
 <li>What else might be going on that helps create this relation or might obscure a stronger relation?</li>
 <li>After looking at these data, would you want to select locations in a different way?</li>
 </ol>
-</section>
-</section>
-<section id="deliverables" class="level2" data-number="3.4">
-<h2 data-number="3.4" class="anchored" data-anchor-id="deliverables"><span class="header-section-number">3.4</span> Deliverables</h2>
-<p><strong>Results and discussion</strong></p>
-<ul>
-<li>In one document, put two figures side-by-side:
-<ol type="i">
-<li>your bargraph of % tree cover vs.&nbsp;% people in poverty (copied from the Tree Equity site) side-by-side, and</li>
-<li>your scatterplot of tree cover vs.&nbsp;median income that you made using everyone’s data, based on the iTree/OurTrees website that you shared in the Google spreadsheet.</li>
-<li>include a figure legend that states what the graphs are in a way that is intelligible to a naive reader.</li>
-</ol></li>
-<li>Provide a brief explanation of your findings, including
-<ol type="i">
-<li>the results described in a factual manner, without interpretation,</li>
-<li>an explanation of whether the results are consistent with the biophilia hypothesis, and</li>
-<li>a new question that emerges due to the inconsistencies between the data and the hypothesis; explain why this question is a logical extension of your current results and interpration.</li>
-</ol></li>
-</ul>
 
 
 <div id="refs" class="references csl-bib-body hanging-indent" role="list" style="display: none">
@@ -578,6 +604,7 @@ Stephens, D W, and J R Krebs. 1986. <em>Foraging <span>Theory</span></em>. Edite
 Wilson, Edward O. 1984. <em>Biophiia</em>. <span>: Harvard University Press</span>.
 </div>
 </div>
+</section>
 </section>
 
 </main> <!-- /main -->

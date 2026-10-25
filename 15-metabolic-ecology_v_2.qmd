@@ -20,6 +20,12 @@ Gizzard shad, *Dorosoma cepedianum*, are probably the most abundant fish (by bio
 ## Acknowledgement
 This chapter is an R version of @vanni2011meh. I am grateful to Mike and Jessica and the Ecological Society of America for making the data and the article available.
 
+::: {.callout-tip}
+## Before you start
+
+* **Assumptions about background and guidance:** your `Rwork` project and the ability to read a .csv file and make a scatterplot with `ggplot()` ([Computer setup](02-computer-setup.qmd), [Extra-pair copulation](06-extrapair_copulation.qmd)), and the idea of a straight line with a slope and an intercept. Logarithms and linear regression are both explained in this chapter (see [Using logarithms](#using-logarithms)), so neither is assumed. For more on figures, see [Displaying data with ggplot2](appendix_data-display.qmd).
+:::
+
 ## Goals
 
 In this chapter, you will explore how two fundamental properties of organisms---body size and temperature---control rates of nutrient cycling. Along the way, you will test specific quantitative predictions of the **Metabolic Theory of Ecology** (MTE), and discover how well those predictions hold up under real field conditions. 
@@ -32,6 +38,17 @@ If you successfully complete this chapter, you will be able to
 * fit and interpret linear regressions in R,
 * evaluate the support for specific quantitative hypotheses, and
 * reason about how body size and temperature act simultaneously on a biological rate.
+
+## Deliverables {#sec-deliv-metabolic}
+
+Compile the following into one document and submit by the due date. Turn in a Word document or PDF with the following:
+
+1. Log-log scatter plots of N and P excretion vs. body mass for each temperature.
+1. Confidence intervals of the allometric scaling exponent ($z$) for both N and P excretion, and for temperature sensitivity ($E_a$).
+1. Address these questions:
+   a. How well do the predictions of the Metabolic Theory of Ecology hold up for nutrient excretion by fish under field conditions? What specific factor or factors might cause deviations from MTE predictions in the field?
+   a. Suppose a lake warms by 2°C due to climate change. Based on your $E_a$ estimate, by how much would individual excretion rates change?
+   a. If warming also shifts the fish population toward smaller body sizes (as has been observed in some systems), how would that interact with the temperature effect on total nutrient flux?
 
 ## Preparatory steps
 
@@ -51,7 +68,6 @@ Understanding how biological rates scale with size and temperature is important 
 The **Metabolic Theory of Ecology** (MTE) provides mechanistic explanations for these relationships [@west1997gmo;  @brown2004mte; @banavar2014ffe]. The theory describes how diffusion and diffusion networks in an individual organism cause body size alone to exert a strong and predictable effect on whole-organism metabolic rate. This theory also describes how the temperature regulation of biochemical processes at the molecular level has a similarly profound and predictable influence on whole-organism metabolic rate. Notably, and in contrast to most ecological theory, MTE makes predictions about the quantitative effects of body size and temperature metabolic rate.
 
 At the base of all the explanation is the geometry of the resource distribution system (vascular system, simple 3D diffusion). All organisms take in limiting resources and have to distribute those resources to each part of each cell in the body. The key point is that *the larger the organism, the greater the portion of the resources are in transit at any instant in time*. This leads to an increasingly inefficient system, in which the metabolism of larger organisms has to run more slowly per unit resource:
-
 
 
 ### Allometry: how rates scale with body size
@@ -108,7 +124,6 @@ Taking the logarithms of @eq-mte-full, we have
 $$\ln (B) = \ln (B_0) + z \ln (M) - E_a \frac{1}{kT}$$
 
 where $k$ is Boltzmann's constant and $T$ is temperature in degrees Kelvin. Below, we will start with the raw data and create new variables of $\ln (B)$, $\ln (M)$, and $1/(kT)$.
-
 
 
 ## Hypotheses, our data, and predictions
@@ -288,7 +303,6 @@ confint(m_N_all)
 #### **Do the same** for P excretion. 
 
 
-
 ```{r}
 #| echo: false
 #| eval: false
@@ -312,7 +326,6 @@ ggplot(fish, aes(x = inv.kT, y = log_N)) +
 We have focused on excretion by individual fish. But remember the bigger picture (@fig-shad): gizzard shad are extremely abundant in many Midwestern lakes. They consume sediment detritus, extract what they need, and excrete the rest as dissolved N and P that algae can immediately use.
 
 Consider this: if you know the allometric scaling exponent and $E_a$, and you know the size distribution and temperature regime of a lake, you could *predict* the total nutrient flux from the fish population to the water column. This is exactly the kind of scaling-up that makes metabolic ecology so powerful---and so important for understanding ecosystem function.
-
 
 
 ```{r}
@@ -344,14 +357,3 @@ p[-1] / p[-5] - 1
 ```
 
 
-
-## Deliverables {#sec-deliv-metabolic}
-
-Compile the following into one document and submit by the due date. Turn in a Word document or PDF with the following:
-
-1. Log-log scatter plots of N and P excretion vs. body mass for each temperature.
-1. Confidence intervals of the allometric scaling exponent ($z$) for both N and P excretion, and for temperature sensitivity ($E_a$).
-1. Address these questions:
-   a. How well do the predictions of the Metabolic Theory of Ecology hold up for nutrient excretion by fish under field conditions? What specific factor or factors might cause deviations from MTE predictions in the field?
-   a. Suppose a lake warms by 2°C due to climate change. Based on your $E_a$ estimate, by how much would individual excretion rates change?
-   a. If warming also shifts the fish population toward smaller body sizes (as has been observed in some systems), how would that interact with the temperature effect on total nutrient flux?

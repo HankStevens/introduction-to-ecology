@@ -4,6 +4,12 @@ title: "Structured demography: How a graduate student helped save the loggerhead
 
 ![The loggerhead sea turtle is listed as "vulnerable" by the IUCN 3.1. image: By ukanda - originally posted to Flickr as Loggerhead turtle, CC BY 2.0, https://commons.wikimedia.org/w/index.php?curid=10481668](figs/caretta.jpg){#fig-caretta}
 
+::: {.callout-tip}
+## Before you start
+
+* **Assumptions about background and guidance:** the idea of exponential growth and a population growth rate from [Density-independent population growth](07-DI-pop-growth.qmd), and the ability to run a script in your `Rwork` project ([Computer setup](02-computer-setup.qmd)). No matrix algebra is assumed: R does the eigenanalysis, and this chapter explains what the result means. You will need Table 3 of Crouse et al. (1987).
+:::
+
 ## Goals
 
 In this chapter, you'll connect sea turtle natural history to a demographic model of population growth and learn how we all learned about how to help sea turtles. Along the way, you'll learn about sea turtle natural history, demography, dynamics and model sensitivity.
@@ -16,11 +22,21 @@ If you successfully complete this chapter, you will
 - distinguish between *transient dynamics* and long-term *asymptotic dynamics*, and
 - recommend management options for sea turtles conservation.
 
+## Deliverables {#sec-deliverables-spg}
+
+Put the following into a single document:
+
+1.  A life cycle graph for the loggerhead population. On your figure, include the numerical elements associated with each transition, based on the original matrix.
+2.  A table similar to Table 7.1 with all the stages, the provided values of stasis, and growth, and your new values of lambda.
+3.  Assume you want to maximize long-term population growth rate ($\lambda$). For which stage or stages should you invest in protection measures? Explain why, and use your values of lambda as evidence in your answer.
+
+Upload this document and your R script to the appropriate site.
+
 ## Preparatory steps
 
 - Read Crouse et al. (1987) in Perusall through our Canvas site. It is also available in our class archive: [Cohen (1995)](https://drive.google.com/drive/folders/1opLlrmF7kfo0FtWwwJ1CbfPWIyuaISC1?usp=sharing)
 - This chapter does not use a separate data set, but it does use demographic natural history information in Crouse et al. (1987).
-- If you are curious, check Deliverables, at the end (@sec-deliverables-spg).
+- If you are curious, check Deliverables, above (@sec-deliverables-spg).
 
 ## Demography
 
@@ -288,16 +304,6 @@ cbind(changes,lambda)
 ```
 
 Record the new value of lambda for each separate simulation.
-
-## Deliverables {#sec-deliverables-spg}
-
-Put the following into a single document:
-
-1.  A life cycle graph for the loggerhead population. On your figure, include the numerical elements associated with each transition, based on the original matrix.
-2.  A table similar to Table 7.1 with all the stages, the provided values of stasis, and growth, and your new values of lambda.
-3.  Assume you want to maximize long-term population growth rate ($\lambda$). For which stage or stages should you invest in protection measures? Explain why, and use your values of lambda as evidence in your answer.
-
-Upload this document and your R script to the appropriate site.
 
 ```{r}
 #| eval: false

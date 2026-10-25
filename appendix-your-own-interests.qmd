@@ -1,0 +1,234 @@
+---
+title: "Your Own Interests: Telling a short story with data"
+---
+
+```{r}
+#| label: setup-own-interests
+#| include: false
+library(tidyverse)
+library(broom)
+```
+
+## Goals
+
+For this assignment, you will,
+
+- Share a story with ecological implications, connections, or foundations that interests you.
+- Find, cite, and import data from a reliable, credible source to help you tell that story.
+- Write R code that helps you understand, analyze, and share data more effectively than you otherwise could or would.
+- Distill your story into a headline, a question, and a single, data-rich story.
+
+## Background
+
+Throughout this book, you've been mostly following my script. In this chapter, I want you to follow your own script, Hollywood or otherwise.
+
+Your goal in this chapter is to tell a story, a very short story, using data.
+
+Why a story? Because people remember stories far better than they remember lists of facts. A good data story has the same bones as any other story: a setting (why should anyone care?), a tension or question (what don't we know?), and a resolution (what do the data say?). Knaflic (2015) puts it simply: before you make any graph, you should be able to say, in one sentence, what you want your audience to know and why it matters.
+
+Consider one example. Rosenberg et al. (2019) combined decades of bird surveys and weather radar data and estimated that the breeding bird population of the United States and Canada had declined by nearly 3 billion birds since 1970. That is a story with a setting (birds are everywhere, and we mostly take them for granted), a tension (are there as many as there used to be?), and a resolution delivered by data (no, about 29% fewer). One graph and one sentence carried that story to newspapers around the world. 
+
+### Start a conversation - don't end it
+
+While Rosenberg et al (2019) showed us an important pattern, they also raised other questions. Is it still happening? Is the situation getting worse, or getting better? why did this happen? They used their data to start a conversation. That is what I hope you will do.
+
+## Your grade depends on how your slides communicate
+
+Share your interests, not your answers. Imagine you are starting a conversation, not ending one.
+
+**For this assignment**, you will be evaluated on how you use data to share what interests you. You will not be evaluated on answering a deep question. Instead, tell us what interested you, what you learned (show your data), and what questions you still have. If you can, leave us thinking "Huh. I never thought about that before" or "Cool - I'd like to know the answer too" or even "Really? That seems questionable to me. Are you sure?"
+
+### What interests you?
+
+Almost *everything* connects to ecological systems. Here are a few:
+
+- the loss of billions of North American birds since 1970;
+- the price of gasoline in your local gas station;
+- the toilet paper in your bathroom;
+- abundances of smallmouth bass in your favorite fishing spot;
+- an upcoming U.S. election;
+- the sycamore leaves turning yellow in October;
+- what you had for breakfast.
+
+All of these can be tied to ecological patterns and processes. How does price influence fossil fuel use and the rate of climate change? What do our politicians respond to, and how important do they think protecting species, clean air, and clean water is to their voters? Was the toilet paper made from boreal forest spruce trees in forests that have never ever been cut before, and if so, what kinds of migratory birds have lost their nesting and breeding habitat as a result? What regulates the abundance of top predators in lake food chains? Are the sycamore leaves are responding to only day length, or is the timing of their autumnal color change shifting as the climate warms?
+
+
+### What topic do you want to spend a little time thinking about?
+
+Don't think about this one too long. Just ask yourself and don't think about the answer.
+
+You might already know what about the workings of the natural world interests you.
+
+If nothing comes immediately to mind, that's OK, give it a second.
+
+If ideas come flooding in because everything is interesting, pick just one -- it doesn't really matter which one.
+
+## Preparatory Steps
+
+1. **Pick your topic.** Write it down in one sentence.
+2. **Turn it into a question** that data could answer. "Are birds declining?" is a better question than "Birds are cool." "Has the date of first leaf color change in sycamores shifted over the last 30 years?" is better still.
+3. **Find a data source.** Try online sources first. An online source will often explain how you should cite it. See the appendix [Accessing Public Ecological Databases](appendix_public-databases.qmd) to get you started. If or when you get stuck, ask a librarian, your instructor, or another knowledgeable person.
+4. **Save the data in your `Rwork/data/` folder**, if you download a file, and record where it came from, when you got it, and how to cite it. Data are sacrosanct: never edit the original file by hand.
+5. **Find 2-4 reliable, credible sources** that help you explain the background of your story and interpret your results.
+6. **Create a new script** at the top level of your `Rwork` folder, and save it with a descriptive name (e.g., `my_story.R`).
+
+## An example: Does a cold night hurt a grass's ability to take up carbon?
+
+Here is an example of the kind of short story I have in mind. It uses a data set that comes with R, so you can run every line of it yourself.
+
+Barnyard grass, *Echinochloa crus-galli*, is a widespread, weedy C~4~ grass. C~4~ plants tend to be warm-climate specialists, so we might ask: if a plant gets chilled overnight, does it take up less carbon dioxide the next day? And does it matter whether the individual plant comes from a cold place (Quebec) or a warm place (Mississippi)? Potvin et al. (1990) measured CO~2~ uptake in plants from both places, half of which had been chilled overnight, across a range of CO~2~ concentrations.
+
+### The data
+
+```{r}
+#| label: co2-data
+# CO2 uptake by Echinochloa crus-galli, from Potvin et al. (1990);
+# this data set is built into R, see ?CO2
+data(CO2)
+glimpse(CO2)
+```
+
+There are six variables:
+
+- `Plant`, a unique identifier for each of 12 plants;
+- `Type`, where the plant came from (Quebec or Mississippi);
+- `Treatment`, whether the plant was chilled overnight or not;
+- `conc`, the ambient CO~2~ concentration (mL/L, i.e., ppm);
+- `uptake`, the rate of CO~2~ uptake ($\mu$mol m^-2^ s^-1^).
+
+### Graphing the data
+
+```{r}
+#| label: fig-co2-uptake
+#| fig-cap: "Carbon dioxide uptake by barnyard grass increases with ambient CO~2~ concentration, but chilling overnight reduces uptake, especially in plants from Mississippi. Each line is one plant (n = 3 plants per group)."
+p_co2 <- ggplot(CO2, aes(x = conc, y = uptake, colour = Treatment)) +
+  geom_line(aes(group = Plant)) +
+  geom_point() +
+  facet_wrap(~ Type) +
+  labs(x = "CO2 concentration (mL/L)",
+       y = "CO2 uptake (umol / m^2 / s)",
+       colour = "Treatment")
+p_co2
+```
+
+```{r}
+#| eval: false
+ggsave("figs/co2_uptake.png", p_co2, width = 6, height = 3.5)
+```
+
+### A simple analysis
+
+The graph tells most of the story. A simple analysis can help us say how big the effect is. Here, we use only the highest CO~2~ concentration, where the differences are largest, and fit a linear model with an interaction between origin and treatment.
+
+```{r}
+#| label: co2-lm
+co2_high <- CO2 |> filter(conc == 1000)
+
+mod <- lm(uptake ~ Type * Treatment, data = co2_high)
+tidy(mod)
+```
+
+The interaction term tells us whether chilling has a different effect on plants from Mississippi than on plants from Quebec. With only three plants per group, we should be cautious, but the pattern in the graph is striking.
+
+### The two-slide version
+
+- **Slide 1 (background and question).** C~4~ grasses are warm-climate specialists. Does a cold night reduce a grass's ability to take up carbon, and does it depend on where the plant comes from?
+- **Slide 2 (the data-rich answer).** Headline: *"Southern grasses lose their carbon appetite after a cold night."* @fig-co2-uptake, plus one sentence about the size of the effect.
+
+Notice that the headline is a full sentence that states the take-home message. It is not a label like "CO2 uptake results."
+
+### Discuss the following questions with your colleagues
+
+1. Is the headline above justified by the data? Is it too strong? Too weak?
+2. What would you need to know before claiming that this pattern applies to C~4~ grasses in general?
+3. Why might plants from Quebec be less affected by chilling than plants from Mississippi?
+4. What is the *setting*, the *tension*, and the *resolution* of the story you want to tell?
+
+## Write your own script
+
+Your script should follow the same structure as every other script in this book. Here is a template. Section headers that end in four dashes (`----`) let you navigate your script quickly in RStudio's document outline.
+
+```{r}
+#| eval: false
+# My story: <one-sentence description of your story> ----
+# Author: <your name>
+# Date: <date>
+
+## Set up ----
+library(tidyverse)
+
+## Import data ----
+# Source: <who collected the data, where you got it, URL, date accessed>
+# Citation: <how the data source asks to be cited>
+my_data <- read_csv("data/my_data.csv")
+
+## Explore and clean ----
+glimpse(my_data)
+
+## Graph ----
+p1 <- ggplot(my_data, aes(x = , y = )) +
+  geom_point()
+p1
+ggsave("figs/my_story.png", p1, width = 6, height = 4)
+
+## Analysis (optional) ----
+### Fit a simple model ----
+# mod <- lm(y ~ x, data = my_data)
+# summary(mod)
+```
+
+## Overthinking: Are your data the data you think they are?
+
+You can skip this on a first read, but come back to it before you write your report.
+
+Before you trust any data set, read its documentation (often called *metadata*). Ask yourself,
+
+- **What exactly was measured, and in what units?** "Abundance" might mean individuals counted, individuals per hectare, or an index relative to some baseline year.
+- **Who collected the data, how, and why?** Data collected for one purpose (e.g., counting fish caught by anglers) may give a biased picture of something else (e.g., how many fish are in the lake).
+- **Where and when?** Does a data set from one state, one year, or one lab let you say something about the whole world?
+- **What's missing?** Gaps in time or space, and how missing values are coded (`NA`, `-999`, blank cells), can change your answer.
+- **Is a pattern a cause?** Most stories you can tell with public data are correlational. That is fine, but say so, and think about what else could produce the same pattern.
+
+Your story will be stronger, not weaker, if you are honest about its limitations.
+
+## Written report
+
+Writing is always easiest when you write for a specific audience. 
+
+The two main purposes of this report are for you to create your presentation narrative and to provide a record of how credible your data are.
+
+Write this report almost as a verbal, spoken script for your talk. Your report should,
+
+1. introduce and explain your question; tell us why you are interested in this question, and provide enough detail to make sure we fully understand it;
+1. tell us where you got your data; 
+1. shows us your data and explain clearly your chart; imagine we are blind, and explain everything about the chart - what the x-axis is, what the y-axis is, and what the data look like. After that, tell us what you learned from the pattern of data; 
+1. finally, tell us how you felt about what you learned, and tell us what questions you have now.
+
+After adding a title and a references cited section, that will be your report. It should help prepare you to give the presentation.
+
+
+## Deliverables
+
+In the end, you will need to create and share the following three items:
+
+1. A slide deck with only **two** slides, to share with the instructor *and* the class,
+    a. Slide 1: Background and your question.
+    b. Slide 2: The data-rich answer to your question; this will include a graph with a headline, and perhaps the results of a simple analysis.
+2. A written report that tells your story, shared with only the instructor. It must,
+    - be 400-600 words in length, including sources;
+    - use 2-4 reliable, credible sources, included as in-text citations and listed in a References Cited section at the end;
+    - cite your data source.
+3. Your R script used to create your data-rich answer. This might include,
+    - code to access the data from an online source, or code to import a spreadsheet or CSV file from your `data/` folder;
+    - code to create the graphical data display, saved to your `figs/` folder;
+    - code to analyze the data statistically, *if* you did that.
+
+    Your script MUST include comments that explain what your code does.
+
+## References
+
+Knaflic, C. N. (2015). *Storytelling with Data: A Data Visualization Guide for Business Professionals*. Wiley.
+
+Potvin, C., Lechowicz, M. J., and Tardif, S. (1990). The statistical analysis of ecophysiological response curves obtained from experiments involving repeated measures. *Ecology*, 71, 1389-1400.
+
+Rosenberg, K. V., Dokter, A. M., Blancher, P. J., Sauer, J. R., Smith, A. C., Smith, P. A., Stanton, J. C., Panjabi, A., Helft, L., Parr, M., and Marra, P. P. (2019). Decline of the North American avifauna. *Science*, 366, 120-124.
