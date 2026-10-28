@@ -138,7 +138,7 @@ The MTE describes the ecological consequences of body size and temperature. Give
 
 What data do we have?
 
-The data we will analyze come from field studies of nutrient excretion by gizzard shad (*Dorosoma cepedianum*) in three Ohio lakes [@schaus1997npe; @higgins2006dsn](@fig-res). We have excretion data for 200 individual fish. These 200 fish are a tiny fraction of the fish in these lakes, but they represent a useful sample from which we can extrapolate. 
+The data we will analyze come from field studies of nutrient excretion by gizzard shad (*Dorosoma cepedianum*) in three Ohio lakes (@fig-res) [@schaus1997npe; @higgins2006dsn]. We have excretion data for 200 individual fish. These 200 fish are a tiny fraction of the fish in these lakes, but they represent a useful sample from which we can extrapolate. 
 
 Individual fish were captured, placed in filtered lake water, and investigators measured the change in (i) dissolved N and (ii) P concentration over a fixed period of time. The variables in the data set are:
 

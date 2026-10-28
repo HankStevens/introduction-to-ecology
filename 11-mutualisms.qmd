@@ -300,7 +300,7 @@ Graphs let you *see* an interaction; a statistical model lets you *estimate* it.
 ```{r}
 #| eval: false
 m <- glm(Total ~ Ants * Drought, family = quasipoisson, data = d)
-broom::tidy(m)
+broom:tidy(m)
 ```
 
 * `Ants * Drought` fits the effect of ants, the effect of drought, and their interaction (`AntsAnts:DroughtDrought`). Replace `Drought` with your chosen treatment.

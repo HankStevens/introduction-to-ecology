@@ -54,9 +54,42 @@ format:
         }
         </style>
   pdf:
-    documentclass: scrreprt
+    # Tufte-style layout: narrow text block, wide outside margin for
+    # sidenotes, margin citations, margin captions, and margin figures.
+    documentclass: scrbook
+    classoption:
+      - twoside            # margin column alternates to the outside edge
+      - open=any
+    papersize: letter
+    geometry:
+      - top=1in
+      - bottom=1in
+      - inner=1in
+      - textwidth=4.5in
+      - marginparsep=0.3in
+      - marginparwidth=2.25in
+    mainfont: TeX Gyre Pagella
+    mathfont: TeX Gyre Pagella Math
+    fontsize: 10pt
+    linestretch: 1.1
+    reference-location: margin   # footnotes become sidenotes
+    citation-location: margin    # full citation beside the text
+    fig-cap-location: margin     # main-text figure captions in the margin
+    fig-width: 4.5               # match the text block
+    fig-height: 3
+    filters:
+      - tufte-margin.lua
     header-includes:
-      - \addtokomafont{disposition}{\rmfamily}
+      - \setkomafont{disposition}{\rmfamily\mdseries\itshape}
+      - \setkomafont{chapter}{\rmfamily\mdseries\itshape\huge}
+      - \usepackage{marginfix}
+      - \usepackage{etoolbox}
+      - \AtBeginEnvironment{marginfigure}{\let\sidecaption\caption}
+      - \AtBeginEnvironment{figure*}{\let\sidecaption\caption}
+      - \AtBeginEnvironment{tcolorbox}{\let\marginpar\marginnote}  # callouts: margin notes/citations can't float out of a box
+      - \usepackage{fvextra}
+      - \DefineVerbatimEnvironment{Highlighting}{Verbatim}{breaklines,commandchars=\\\{\},fontsize=\small}
+      - \AtBeginDocument{\let\verbatim\relax\let\endverbatim\relax\DefineVerbatimEnvironment{verbatim}{Verbatim}{breaklines,fontsize=\small}}
 
 editor: source
 

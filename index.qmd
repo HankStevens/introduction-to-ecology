@@ -76,7 +76,7 @@ Future ecologists will work alongside AI tools that can process imagery, classif
 ### A note for instructors
 Design assignments that require judgment, not just output that AI could produce alone. Make AI use transparent rather than banned. Foreground model assumptions explicitly as content, not fine print. Build in a predict-before-you-compute step. Use AI's mistakes as teaching moments for critical evaluation.
 
-For a more extensive discussion of these topics, see [Appendix B The Changing Landscape of Skills in Ecology](@app-ai-skills).
+For a more extensive discussion of these topics, see @app-ai-skills.
 
 ## Other books
 
